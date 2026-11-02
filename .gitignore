@@ -1,0 +1,11 @@
+# Large or redistribution-restricted data: rebuild with scripts/
+census_pums/*.csv
+!census_pums/acs_pums_2020_2024_data_dictionary.csv
+data/firstmover/raw/*.csv
+data/firstmover/clean/
+
+# Python / OS
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
