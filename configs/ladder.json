@@ -1,0 +1,7 @@
+{
+  "name": "ladder",
+  "grid": {"boroughs": ["Brooklyn"], "months": ["2026-08"], "sizes": [24, 48, 64, 96, 128, 192, 256], "seeds": 5},
+  "exposures": [{"name": "random_k5", "policy": "random", "k": 5}],
+  "methods": ["reverse_delete", "prefix_cover", "exact_prefix"],
+  "exact_time_cap": {"default": 120}
+}

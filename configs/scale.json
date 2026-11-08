@@ -1,0 +1,10 @@
+{
+  "name": "scale",
+  "grid": {"boroughs": ["Brooklyn", "Queens"], "months": ["2026-08"], "sizes": [64, 256, 512, 1024, 2048], "seeds": 3},
+  "exposures": [
+    {"name": "random_k5", "policy": "random", "k": 5},
+    {"name": "rent_max_k5", "policy": "rent_max", "k": 5}
+  ],
+  "methods": ["no_audit", "full_disclosure", "prefix_cover"],
+  "max_matching_limit": 256
+}

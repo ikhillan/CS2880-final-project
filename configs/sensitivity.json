@@ -1,0 +1,28 @@
+{
+  "name": "sensitivity",
+  "grid": {"boroughs": ["Brooklyn", "Queens", "Bronx"], "months": ["2026-08"], "sizes": [64], "seeds": 10},
+  "variants": [
+    {"label": "primary"},
+    {"label": "share_30", "share": 0.30},
+    {"label": "share_50", "share": 0.50},
+    {"label": "natural_sampling", "design": "natural"},
+    {"label": "firms_uniform", "firm_sampling": "uniform"},
+    {"label": "renter_firms_by_income", "renter_firm_mode": "by_income"},
+    {"label": "renter_firm_size_3", "renter_firm_size": 3},
+    {"label": "renter_firm_size_16", "renter_firm_size": 16},
+    {"label": "landlords_ignore_income", "w_income": 0.0},
+    {"label": "landlords_idiosyncratic", "landlord_noise": 3.0},
+    {"label": "renters_idiosyncratic", "renter_noise": 3.0},
+    {"label": "renters_price_sensitive", "w_price": 6.0},
+    {"label": "supply_tight", "tightness": 0.6},
+    {"label": "citywide_search", "boroughs": [null], "seeds": 30}
+  ],
+  "exposures": [
+    {"name": "random_k5", "policy": "random", "k": 5},
+    {"name": "random_q40", "policy": "random", "q": 0.4},
+    {"name": "rent_max_k5", "policy": "rent_max", "k": 5}
+  ],
+  "methods": ["no_audit", "full_disclosure", "reverse_delete", "prefix_cover", "exact_prefix"],
+  "exact_time_cap": {"64": 60},
+  "enumerate_plans": {"cap": 20, "seconds": 5}
+}

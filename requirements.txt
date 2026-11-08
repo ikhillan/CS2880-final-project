@@ -1,5 +1,8 @@
-pandas>=2.0
-numpy>=1.24
-matplotlib>=3.7   # point-in-polygon for the PUMA join
-pyarrow>=14       # parquet output
-requests>=2.31
+numpy>=2.0
+pandas>=2.2
+matplotlib>=3.7   # point-in-polygon for the PUMA join (scripts/)
+pyarrow>=14       # parquet output (scripts/)
+requests>=2.31    # data download scripts
+highspy>=1.7      # MILP master problem for the audit solver
+pytest>=8
+anthropic>=0.75   # only for experiments/llm_recommend.py submit and collect

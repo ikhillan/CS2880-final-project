@@ -1,0 +1,8 @@
+{
+  "name": "solvers",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-08"], "sizes": [24, 64], "seeds": 10},
+  "exposures": [{"name": "random_k5", "policy": "random", "k": 5}],
+  "methods": ["reverse_delete", "exhaustive", "exact_assignment", "exact_component", "exact_prefix"],
+  "exhaustive_max_firms": 18,
+  "exact_time_cap": {"24": 30, "64": 30}
+}

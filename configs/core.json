@@ -1,0 +1,15 @@
+{
+  "name": "core",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-06", "2026-07", "2026-08"], "sizes": [24, 64], "seeds": 20},
+  "exposures": [
+    {"name": "random_k5", "policy": "random", "k": 5},
+    {"name": "random_q40", "policy": "random", "q": 0.4},
+    {"name": "rent_max_k5", "policy": "rent_max", "k": 5},
+    {"name": "llm_k5", "policy": "llm", "k": 5},
+    {"name": "llm_q40", "policy": "llm", "q": 0.4}
+  ],
+  "methods": ["no_audit", "full_disclosure", "reverse_delete", "blocker_greedy", "prefix_cover", "exact_prefix"],
+  "exact_time_cap": {"24": 30, "64": 60},
+  "enumerate_plans": {"cap": 50, "seconds": 10},
+  "llm_results": "results/llm/core/recs.jsonl"
+}

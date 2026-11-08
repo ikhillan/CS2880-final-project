@@ -9,3 +9,8 @@ __pycache__/
 *.pyc
 .venv/
 .DS_Store
+
+# Derived tables and experiment outputs
+data/derived/
+results/
+.pytest_cache/
