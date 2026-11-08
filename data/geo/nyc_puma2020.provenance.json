@@ -1,0 +1,8 @@
+{
+  "source": "U.S. Census Bureau TIGERweb, layer '2020 Census Public Use Microdata Areas'",
+  "request_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/PUMA_TAD_TAZ_UGA_ZCTA/MapServer/0/query?where=STATE%3D%2736%27+AND+PUMA+LIKE+%2704%25%27&outFields=STATE%2CPUMA%2CNAME%2CBASENAME&outSR=4326&geometryPrecision=5&returnGeometry=true&f=geojson",
+  "downloaded_at_utc": "2026-11-02T04:12:20+00:00",
+  "n_features": 55,
+  "sha256": "8fb0e6456fa60d9d7498e30628a2a46eb6dbc2d678a126a91e49df3e050c4aa5",
+  "license": "U.S. Government work (public domain)"
+}

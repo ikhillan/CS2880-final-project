@@ -1,0 +1,12 @@
+{
+  "name": "pilot",
+  "grid": {"boroughs": ["Brooklyn", "Queens"], "months": ["2026-08"], "sizes": [24, 64], "seeds": 4},
+  "exposures": [
+    {"name": "random_k5", "policy": "random", "k": 5},
+    {"name": "rent_max_k5", "policy": "rent_max", "k": 5},
+    {"name": "random_q40", "policy": "random", "q": 0.4}
+  ],
+  "methods": ["no_audit", "full_disclosure", "reverse_delete", "blocker_greedy", "prefix_cover", "exact_prefix"],
+  "exact_time_cap": {"24": 30, "64": 60},
+  "enumerate_plans": {"cap": 50, "seconds": 10}
+}
