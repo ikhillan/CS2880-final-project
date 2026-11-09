@@ -50,23 +50,13 @@
   "license": {
     "wrds_terms_url": "https://wrds-www.wharton.upenn.edu/users/tou/",
     "wrds_ai_policy_url": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
-    "revelio_contact_date": 2026-11-09,
-    "revelio_response_date": 2026-11-09,
+    "revelio_contact_date": "2026-11-09",
+    "revelio_response_date": "2026-11-09",
     "revelio_response_summary": "data's usage in protected LLM (HUIT AI sandbox) evironments is permitted.",
     "publication_citation": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
     "wrds_bibliographic_citation": "Wharton Research Data Services. \"WRDS\" wrds.wharton.upenn.edu, accessed 2026-11-09.",
     "revelio_bibliographic_citation": "Revelio Labs. Job Postings dataset, accessed via Wharton Research Data Services, 2026-11-09.",
     "published_outputs_contain_raw_postings": false
-  },
-
-  "rng": {
-    "seed_blocks": 20,
-    "keys": { "seeker": null, "posting": null, "pair": null, "policy": null }
-  },
-
-  "code": {
-    "repo": "CS2880-final-project",
-    "commit": null,
-    "source_hashes": {}
   }
+
 }
