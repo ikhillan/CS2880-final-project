@@ -3,6 +3,7 @@ census_pums/*.csv
 !census_pums/acs_pums_2020_2024_data_dictionary.csv
 data/firstmover/raw/*.csv
 data/firstmover/clean/
+data/job_postings/raw/*.csv
 
 # Python / OS
 __pycache__/

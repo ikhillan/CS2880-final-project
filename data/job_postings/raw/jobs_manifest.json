@@ -1,0 +1,72 @@
+{
+  "manifest_version": "0.1",
+  "created": "2026-11-09",
+  "frozen": false,
+  "frozen_on": null,
+  "study": "Jobs mirror of NYC rental shortlists and the cost of a stable repair",
+
+  "postings": {
+    "vendor": "Revelio Labs",
+    "access": "WRDS, Harvard University subscription",
+    "table": "revelio_job_postings.postings_cosmos",
+    "data_dictionary_url": "https://wrds-www.wharton.upenn.edu/data-dictionary/revelio_job_postings/postings_cosmos/",
+    "last_updated": "2026-11-03",
+    "query": {
+      "method": "wrds-cloud sql",
+      "date_field": "post_date",
+      "date_range": { "start": "2025-01-01", "end": "2025-12-31" },
+      "filters": {
+        "country": "United States",
+        "metro_area": "new york city metropolitan area",
+        "salary_predicted": false,
+        "onet_code": not null,
+      },
+      "company_codes": "entire database",
+      "row_count_after_filters": 3271955,
+      "pulled_on": "2026-11-09",
+      "pulled_by": "Elaine Z."
+    },
+    "columns_used": [
+      "job_id",
+      "post_date",
+      "remove_date",
+      "rcid",
+      "onet_code",
+      "role_k1500_v2",
+      "role_k17000_v3",
+      "salary",
+      "salary_min",
+      "salary_max",
+      "salary_predicted",
+      "seniority",
+      "remote_type",
+      "metro_area",
+      "expected_hires",
+      "company_name"
+    ],
+
+  },
+
+  "license": {
+    "wrds_terms_url": "https://wrds-www.wharton.upenn.edu/users/tou/",
+    "wrds_ai_policy_url": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
+    "revelio_contact_date": 2026-11-09,
+    "revelio_response_date": 2026-11-09,
+    "revelio_response_summary": "data's usage in protected LLM (HUIT AI sandbox) evironments is permitted.",
+    "publication_citation": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
+    "wrds_bibliographic_citation": "Wharton Research Data Services. \"WRDS\" wrds.wharton.upenn.edu, accessed 2026-11-09.",
+    "revelio_bibliographic_citation": "Revelio Labs. Job Postings dataset, accessed via Wharton Research Data Services, 2026-11-09.",
+    "published_outputs_contain_raw_postings": false
+  },
+
+  "rng": {
+    "seed_blocks": 20,
+    "keys": { "seeker": null, "posting": null, "pair": null, "policy": null }
+  },
+
+  "code": {
+    "repo": "CS2880-final-project",
+    "commit": null,
+    "source_hashes": {}
+  }
+}
