@@ -1,0 +1,76 @@
+{
+  "dataset": "Revelio Labs Job Postings (postings_cosmos) - New York City metropolitan area, posted 2025",
+  "period": "2025-01-01 to 2025-12-31",
+  "period_definition": "calendar date of post_date (posting first seen), in the table's date convention",
+  "source": "Wharton Research Data Services (WRDS), Harvard University subscription",
+  "table": "revelio_job_postings.postings_cosmos",
+  "data_dictionary_url": "https://wrds-www.wharton.upenn.edu/data-dictionary/revelio_job_postings/postings_cosmos/",
+  "table_last_updated": "2026-11-03",
+  "query": {
+    "method": "wrds-cloud sql",
+    "sql_file": "sql/job_sql_query.sql",
+    "sql_sha256": "f28e58cec353e8968be319f4ff33eec06a5df59a83ae4ffde4729869b281fe7c",
+    "filters": {
+      "country": "United States",
+      "metro_area": "new york city metropolitan area",
+      "post_date": [
+        "2025-01-01",
+        "2025-12-31"
+      ],
+      "salary_predicted": false,
+      "onet_code": "not null"
+    },
+    "company_codes": "entire database"
+  },
+  "pulled_at_utc": "2026-11-09T00:00:00+00:00",
+  "pulled_by": "Elaine Z.",
+  "local_file": "data/job_postings/raw/revelio_job_postings.csv",
+  "bytes": null,
+  "sha256": "FILL",
+  "n_rows": 3271955,
+  "n_columns": 18,
+  "columns": [
+    "rcid",
+    "post_date",
+    "job_id",
+    "company",
+    "country",
+    "role_k1500_v2",
+    "state",
+    "role_k17000_v3",
+    "metro_area",
+    "onet_code",
+    "seniority",
+    "salary",
+    "salary_min",
+    "salary_max",
+    "salary_predicted",
+    "remove_date",
+    "remote_type",
+    "expected_hires"
+  ],
+  "field_notes": {
+    "salary_predicted": "true = Revelio-imputed salary; this pull keeps only false (posted salaries)",
+    "expected_hires": "Revelio prediction, not a stated opening count",
+    "role_k1500_v2, role_k17000_v3": "Revelio role taxonomy; pulled, not used for the primary feasibility rule",
+    "metro_area": "finest location field in the pull; no city or borough",
+    "company": "employer name as Revelio normalizes it; rcid is the employer key",
+    "country, state": "pulled alongside the filters; constant within the extract",
+    "remote_type": "values: Fully In Office 2,954,475; Fully Remote 283,853; Partially In Office 32,931; Remote In Territory 556; Temporarily Remote 140. Analysis keeps the first and third.",
+    "seniority": "integer 1 (entry) .. 7 (executive); counts 1.41M, 787k, 512k, 267k, 225k, 63k, 5.4k"
+  },
+  "license_and_usage": {
+    "wrds_terms_of_use": "https://wrds-www.wharton.upenn.edu/users/tou/",
+    "wrds_ai_policy": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
+    "vendor_approval": "Revelio Labs (research@reveliolabs.com), 2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted.",
+    "pending": "HUIT API Platform (OpenAI Direct) route: awaiting HUIT confirmation of the same no-training agreement, then Revelio confirmation.",
+    "required_acknowledgment": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
+    "our_usage_rules": [
+      "Non-commercial academic use (COMPSCI 2880).",
+      "Do not commit or redistribute the extract or any posting-level rows; keep data/ git-ignored. The SQL query may be committed.",
+      "Do not share the extract with anyone outside Harvard's WRDS subscription; each teammate must use their own WRDS account.",
+      "May only use data in approved protected LLM instances.",
+      "Publish aggregates and synthetic market files only; no row with a job_id or rcid beside a salary."
+    ]
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "manifest_version": "0.1",
+  "created": "2026-11-09",
+  "frozen": false,
+  "frozen_on": null,
+  "study": "Jobs mirror of NYC rental shortlists and the cost of a stable repair",
+  "postings": {
+    "vendor": "Revelio Labs",
+    "access": "WRDS, Harvard University subscription",
+    "table": "revelio_job_postings.postings_cosmos",
+    "data_dictionary_url": "https://wrds-www.wharton.upenn.edu/data-dictionary/revelio_job_postings/postings_cosmos/",
+    "snapshot_last_complete_month": "FILL: YYYY-MM (confirm 2025-12 is fully populated)",
+    "query": {
+      "method": "wrds-cloud sql",
+      "date_field": "post_date",
+      "date_range": {
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+      },
+      "filters": {
+        "country": "United States",
+        "metro_area": "new york city metropolitan area",
+        "salary_predicted": false,
+        "onet_code": "not null",
+        "remote_type": "FILL: values kept, e.g. [\"onsite\", \"hybrid\"] (applied in code, not in the pull)"
+      },
+      "company_codes": "entire database",
+      "row_count_raw": null,
+      "row_count_after_filters": 3271955,
+      "sql_text": "FILL: paste the exact query or its repo path + file hash",
+      "pulled_on": "2026-11-09",
+      "pulled_by": "Elaine Z."
+    },
+    "columns_used": {
+      "posting_id": "job_id",
+      "post_date": "post_date",
+      "remove_date": "remove_date",
+      "employer_id": "rcid",
+      "employer_name": "company",
+      "occupation_code": "onet_code",
+      "role_taxonomy": "role_k1500_v2, role_k17000_v3 (pulled; FILL: not used / sensitivity for feasibility)",
+      "salary": "salary",
+      "salary_min": "salary_min",
+      "salary_max": "salary_max",
+      "salary_predicted": "salary_predicted",
+      "seniority": "seniority",
+      "remote_type": "remote_type",
+      "location_finest": "metro_area",
+      "expected_hires": "expected_hires (predicted; capacity sensitivity only, primary capacity = 1)",
+      "education_requirement": null,
+      "opening_count": null
+    },
+    "employer_attributes": {
+      "agency_flag": "name-based heuristic on company (staffing, recruit, talent, agency); modeled",
+      "company_table_optional": {
+        "table": "FILL or null",
+        "join_key": "rcid",
+        "headcount_field": "FILL or null (if null, Q_j = seniority + within-cell salary percentile)",
+        "naics_field": "FILL or null (if present, replaces name heuristic with NAICS 5613)"
+      }
+    },
+    "diagnostics_to_record": {
+      "rows_by_month": null,
+      "stated_salary_share_by_month": null,
+      "stated_salary_share_by_occupation_group": null,
+      "hourly_conversion_share": null,
+      "remote_share": null,
+      "unresolved_employer_share": null,
+      "top_employer_portfolio_share": null,
+      "stop_rule": "if stated-salary share < 0.70 in NY metro, stop and revisit design"
+    },
+    "table_last_updated": "2026-11-03"
+  },
+  "month_split": {
+    "note": "Proposed from the 2025 pull; confirm 2025-12 is complete before freezing. Name before inspecting outcomes.",
+    "development": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07"
+    ],
+    "frozen_comparison": [
+      "2025-08",
+      "2025-09",
+      "2025-10"
+    ],
+    "held_out_replication": [
+      "2025-11",
+      "2025-12"
+    ],
+    "arrival_window_days": 7
+  },
+  "seekers": {
+    "source": "ACS 2020-2024 five-year PUMS, person file",
+    "download_url": "FILL",
+    "downloaded_on": null,
+    "geography": "PUMAs in the New York CBSA (same metro as postings)",
+    "puma_crosswalk_url": "FILL",
+    "filters": {
+      "age": [
+        22,
+        64
+      ],
+      "esr_in": [
+        1,
+        2,
+        3
+      ],
+      "wagp_gt": 0,
+      "socp_nonmissing": true
+    },
+    "weight": "PWGTP",
+    "group_variable": "WAGP in July 2026 dollars",
+    "group_cutoff_rule": "person-weighted median of all metro seekers in frame",
+    "group_cutoff_value": null,
+    "sensitivity_group_variable": "SCHL >= bachelor's",
+    "donor_partition": {
+      "hash": "release year + serialno",
+      "calibration_share": 0.7,
+      "evaluation_share": 0.3
+    }
+  },
+  "dollars": {
+    "common_month": "2026-07",
+    "cpi_series": "CPI-U all items, US city average, not seasonally adjusted",
+    "cpi_index_values": {
+      "2024_annual_avg": null,
+      "2026-07": null,
+      "posting_months": {}
+    },
+    "adjinc_applied": true
+  },
+  "feasibility": {
+    "primary": {
+      "occupation": "6-digit SOC from onet_code == seeker SOCP (2018 SOC via crosswalk)",
+      "education": "posting minimum <= seeker SCHL, if field exists",
+      "pay": "salary midpoint >= 0.8 * prior wage",
+      "location": "posting in NY metro"
+    },
+    "looser": "4-digit SOC",
+    "stricter": "add years-of-experience minimum from posting",
+    "capacity_cap": 5,
+    "degree_by_group_recorded": null
+  },
+  "preferences": {
+    "seeker_weights_fixed": {
+      "w_q": 1.0,
+      "w_f": 0.5,
+      "w_d": 0.0
+    },
+    "w_d_note": "0 because no location finer than metro; set > 0 only if a finer field exists",
+    "calibration_grid": {
+      "w_w": [
+        1,
+        2,
+        4
+      ],
+      "sigma_r": [
+        0.5,
+        0.75,
+        1.25
+      ]
+    },
+    "calibration_target": "job-switcher wage growth quantiles (p25, p50, p75), Atlanta Fed Wage Growth Tracker",
+    "calibration_target_values": null,
+    "selected": {
+      "w_w": null,
+      "sigma_r": null
+    },
+    "employer_priority_coeffs": {
+      "education": 2.5,
+      "pay_band": 1.0,
+      "match": 0.5
+    },
+    "employer_pay_band_sensitivity": [
+      0,
+      1.0,
+      2.5
+    ],
+    "sealed_on": null
+  },
+  "shortlist_policies": {
+    "k": "min(5, feasible degree)",
+    "primary_ai": "FILL: local open-weight model name + exact weights hash",
+    "replication_ai": "FILL",
+    "optional_hosted_ai": {
+      "model": "FILL: OpenAI model, dated snapshot, from the HUIT API Platform catalog",
+      "instance": "HUIT API Platform, OpenAI Direct (Community Developers tier; SEAS Credit Redemption for the full run)",
+      "permitted": null,
+      "permission_source": "see license.huit_api_platform_status",
+      "run_dates": []
+    },
+    "prompt_fields": [
+      "anonymized_id",
+      "salary_range",
+      "seniority",
+      "required_education",
+      "employer_size_bin"
+    ],
+    "prompt_excludes": [
+      "employer_name",
+      "posting_text",
+      "revelio_ids",
+      "wage_group_flag"
+    ],
+    "raw_text_arm_permitted": null,
+    "instruction_text": "FILL verbatim once frozen",
+    "mechanism_policies": [
+      "highest_salary_first",
+      "lowest_salary_first",
+      "under_leveled_first"
+    ],
+    "baselines": [
+      "uniform",
+      "transparent",
+      "full"
+    ]
+  },
+  "license": {
+    "wrds_terms_url": "https://wrds-www.wharton.upenn.edu/users/tou/",
+    "wrds_ai_policy_url": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
+    "revelio_contact_date": "2026-11-09",
+    "revelio_response_date": "2026-11-09",
+    "revelio_response_summary": "Use of the data in protected LLM environments (HUIT AI Sandbox) is permitted.",
+    "publication_citation": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
+    "wrds_bibliographic_citation": "Wharton Research Data Services. \"WRDS\" wrds.wharton.upenn.edu, accessed 2026-11-09.",
+    "revelio_bibliographic_citation": "Revelio Labs. Job Postings dataset, accessed via Wharton Research Data Services, 2026-11-09. FILL: confirm preferred form with Revelio.",
+    "published_outputs_contain_raw_postings": false,
+    "huit_api_platform_status": "PENDING: HUIT to confirm OpenAI Direct (Community Developers / SEAS Credit Redemption) carries the same no-training agreement as the Sandbox; then confirm with Revelio. No Revelio fields sent to this endpoint until both are recorded here."
+  },
+  "rng": {
+    "seed_blocks": 20,
+    "keys": {
+      "seeker": null,
+      "posting": null,
+      "pair": null,
+      "policy": null
+    }
+  },
+  "code": {
+    "repo": "FILL",
+    "commit": null,
+    "source_hashes": {}
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "name": "jobs_pilot",
+  "domain": "jobs",
+  "grid": {
+    "cells": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "months": [
+      "2025-04",
+      "2025-05"
+    ],
+    "sizes": [
+      24
+    ],
+    "seeds": 20
+  },
+  "market": {
+    "design": "stratified",
+    "capacity": "one",
+    "share": 0.8,
+    "w_wage": 2.0,
+    "seeker_noise": 0.75,
+    "w_payband": 1.0,
+    "level_gap": 2,
+    "posting_band": "top"
+  },
+  "tightness": 1.0,
+  "variants": [
+    {
+      "label": "primary"
+    },
+    {
+      "label": "natural",
+      "design": "natural"
+    },
+    {
+      "label": "payband0",
+      "w_payband": 0.0
+    },
+    {
+      "label": "payband25",
+      "w_payband": 2.5
+    },
+    {
+      "label": "nolevel",
+      "level_gap": 99
+    },
+    {
+      "label": "bottomband",
+      "posting_band": "bottom"
+    }
+  ],
+  "exposures": [
+    {
+      "name": "uniform_k5",
+      "policy": "random",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "salary_max_k5",
+      "policy": "salary_max",
+      "k": 5
+    },
+    {
+      "name": "salary_min_k5",
+      "policy": "salary_min",
+      "k": 5
+    },
+    {
+      "name": "under_leveled_k5",
+      "policy": "under_leveled",
+      "k": 5
+    },
+    {
+      "name": "uniform_q50",
+      "policy": "random",
+      "q": 0.5
+    },
+    {
+      "name": "llm_k5",
+      "policy": "llm",
+      "k": 5
+    }
+  ],
+  "llm_results": "results/llm/jobs_pilot/recs.jsonl",
+  "methods": [
+    "no_audit",
+    "full_disclosure",
+    "reverse_delete",
+    "blocker_greedy",
+    "prefix_cover",
+    "exhaustive",
+    "exact_prefix",
+    "exact_assignment"
+  ],
+  "exhaustive_max_firms": 18,
+  "exact_time_cap": {
+    "24": 15.0,
+    "default": 15.0
+  },
+  "analysis_method": "exact_prefix",
+  "enumerate_plans": {
+    "cap": 200,
+    "seconds": 30
+  },
+  "_notes": [
+    "cells = 6-digit SOC occupations (one occupation per market; 2-digit groups gave ~2 feasible postings per seeker). Local (in-office/partial) 2025 postings: 291141 registered nurses 173k; 533032 heavy-truck drivers 72k; 412031 retail salespersons 54k; 311131 nursing assistants 35k. Chosen for wage spread. High-wage sensitivity: 113031 financial managers 58k, 151252 software developers 29k.",
+    "months: two development months only. Never point a config at 2025-08..2025-12 before the design is frozen.",
+    "Exposure names are keyed into saved recommendations; do not rename llm_k5 after a submit.",
+    "reverse_delete precedes exact_* so the incumbent warm start is set.",
+    "llm_k5 is skipped (not failed) until results/llm/jobs_pilot/recs.jsonl exists.",
+    "level_gap=2 is feasibility condition (iv); the nolevel variant (99) is the pay-floor-only rule for comparison.",
+    "posting_band=top oversamples the top salary quartile, since the pay floor binds higher-wage seekers. bottomband reproduces the housing-style oversample (run 2 of the pilot); natural uses no stratification."
+  ]
+}
