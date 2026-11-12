@@ -1,0 +1,28 @@
+{
+  "name": "stage1_pilot",
+  "_note": "Protocol stage 1: 20 fresh pilot blocks x 15 development cells (5 boroughs x Jun-Aug 2026) at 64 per side, calibration donors, every policy at both budgets (top 5 and 40% of options), on the uniform design plus 20 enriched (affordability-band) blocks with their own seeds. Staten Island cells are recorded as unestimable. The pilot's variance in T sets the held-out sample size B. Claude and open-model arms run once their saved replies exist in llm_results.",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"], "months": ["2026-06", "2026-07", "2026-08"],
+           "sizes": [64], "seeds": 20, "seed_start": 100},
+  "market": {"donors": "calibration"},
+  "variants": [
+    {"label": "primary"},
+    {"label": "enriched", "design": "enriched", "seeds": 20, "seed_start": 150}
+  ],
+  "exposures": [
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5},
+    {"name": "expensive_first_k5", "policy": "expensive_first", "k": 5},
+    {"name": "claude_k5", "policy": "llm", "k": 5},
+    {"name": "qwen_k5", "policy": "llm", "k": 5},
+    {"name": "mistral_k5", "policy": "llm", "k": 5},
+    {"name": "uniform_q40", "policy": "uniform", "q": 0.4},
+    {"name": "transparent_q40", "policy": "transparent", "q": 0.4},
+    {"name": "expensive_first_q40", "policy": "expensive_first", "q": 0.4},
+    {"name": "claude_q40", "policy": "llm", "q": 0.4},
+    {"name": "full", "policy": "full"}
+  ],
+  "methods": ["no_audit"],
+  "group_switch": [{"name": "claude_vs_uniform", "a": "uniform_k5", "b": "claude_k5"},
+                   {"name": "claude_vs_uniform_q40", "a": "uniform_q40", "b": "claude_q40"}],
+  "llm_results": "results/llm/stage1_pilot/recs.jsonl"
+}

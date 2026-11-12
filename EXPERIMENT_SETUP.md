@@ -1,6 +1,6 @@
 # Experiment setup: NYC rental shortlists and the cost of a stable repair
 
-*Updated 9 November 2026 to follow Todd's protocol (`FINAL_EXPERIMENT_PROTOCOL_2.md`).*
+*Updated 11 November 2026 to follow Todd's protocol (`FINAL_EXPERIMENT_PROTOCOL_2.md`).*
 
 **Goal:** a renter can see five affordable apartments and still miss the one where both sides would prefer to
 match. We ask whether the recommender changes how often this happens to lower-income renters, and what it costs a
@@ -26,8 +26,8 @@ The price result comes straight from the IDs the AI returns, so it doesn't depen
 - **Dollars:** everything is converted to July 2026 dollars with the Census adjustment factors and CPI.
 - **Zero income:** households with zero or negative income have no affordable listings. They stay in the counts.
 
-**Listings:** FirstMover NYC listings, **21 months, February 2025 to October 2026**, about 340,000 NYC listings. All are
-downloaded and cleaned.
+**Listings:** FirstMover NYC listings, **21 months, February 2025 to October 2026**, about 371,000 NYC listings in the
+analysis catalog. All are downloaded and cleaned.
 
 | Role | Months | Why |
 |---|---|---|
@@ -60,8 +60,8 @@ and compares listings on complete days with the rest.
 
 **Boroughs:** all five. Staten Island has only about 20 listings a month, so its markets are marked as unestimable.
 
-**To fix:** CPI has no value for October 2025, because of the 2025 funding lapse, and October 2026 isn't published yet.
-Both are needed to convert those months to July 2026 dollars.
+**Months without CPI:** October 2025 has no published value (the 2025 funding lapse), so it uses the average of September
+and November 2025. October 2026 isn't published yet, so it carries September 2026 forward until the value appears.
 
 ## What a renter looks like
 Each simulated renter copies one real Census household:
@@ -123,9 +123,17 @@ pair. Remaining ties are broken by a fixed, seeded order.
   the cheapest plan up to about 128 per side.
 - **Primary design, uniform:** households are drawn by Census weight from evaluation donors in that borough, and
   listings are drawn uniformly from that borough-month. The draw is kept even if nobody can afford anything.
-- **Second panel, enriched:**
-  - **Listings:** half come from the cheapest quarter of that borough-month.
+- **Second panel, enriched:** built so lower-income renters actually have options to lose.
+  - **Affordability band:** take the lower-income households in the borough that can afford at least one listing that
+    month, and find the budget that 75% of them (by Census weight) are at or below. Every listing at or under that
+    rent is in the band. In August 2026 the band tops out at about $1,980–2,090 in every large borough.
+  - **Listings:** half come from the band, and half at random from the listings above it.
   - **Renters:** half are lower-income with a feasible option in the draw, and half are higher-income.
+  - **Unestimable:** a market is marked unestimable if the band or the rest of the month has too few listings, or no
+    lower-income household can afford anything in the draw. Staten Island's band has only 4–8 listings.
+  - **Old rule, kept for comparison:** the first version took half the listings from the cheapest quarter of rents.
+    In Manhattan that quarter runs up to about $3,700, above every lower-income budget, so it often failed. It stays
+    available as `enriched_quartile`.
 - **Scarcity report:** every group is split into four categories:
   1. no affordable listing in the whole month
   2. affordable listings exist, but none in the draw
@@ -135,8 +143,11 @@ pair. Remaining ties are broken by a fixed, seeded order.
   markets.
 
 ## What renters see (E0)
-- **Shortlist length:** primary is k = min(5, d), where d is the number of feasible listings. A second budget shows
-  ⌈0.4d⌉. Renters with d ≤ k see everything.
+- **Shortlist length:** two budgets, and both run in the pilot and the protection stages:
+  - **Top 5:** k = min(5, d), where d is the number of feasible listings. Only renters with more than 5 options can
+    have something hidden.
+  - **40% of options:** ⌈0.4d⌉ listings. Anyone with 2 or more options has something hidden, so this budget reaches
+    lower-income renters, who usually have few options.
 
 | Policy | How it picks |
 |---|---|
@@ -202,7 +213,7 @@ pair. Remaining ties are broken by a fixed, seeded order.
 | Stage | Runs | Where |
 |---|---|---|
 | 0. Correctness | Known examples, Todd's 160 archived markets, and 200 tiny markets checked by brute force | Laptop |
-| 1. Calibration and pilot | Calibrate preferences, then 300 markets at 64 per side under every policy. The pilot's variance sets the main sample size. | Laptop, plus GPUs for the open models |
+| 1. Calibration and pilot | Calibrate preferences, then 300 uniform and 300 enriched markets at 64 per side under every policy, at both budgets. The pilot's variance sets the main sample size. | Laptop, plus GPUs for the open models |
 | 2. Main comparison | 100–400 held-out seed blocks = 1,000–4,000 markets, every policy | Cluster for the open models; up to 256,000 Claude requests |
 | 3. Audit and protection costs | 400 uniform + 200 enriched markets per size (24 and 64), 3 policies × 4 objectives | Laptop for short solver limits; cluster for long ones |
 | 4. Sensitivity and solvers | 100 markets with one change at a time, plus the three solver variants | Laptop |
@@ -217,22 +228,52 @@ Both need IRB approval. Without them, we describe the work as a semi-synthetic N
 
 ## Status
 **Done**
-- **Code:** turns Census households into renter profiles, builds markets, runs DA and the full-market stability
-  check, the exact solver and heuristics, the AI recommender pipeline, the runner and analysis. 68 tests pass.
-- **Data:** all 21 FirstMover months downloaded and cleaned, with a daily coverage check.
+- **Data:** all 21 FirstMover months downloaded and cleaned, with a daily coverage check (`scripts/firstmover_coverage.py`).
+- **Renters:** Census profiles with the 70/30 calibration/evaluation donor split, July 2026 dollars, and contract rent for the
+  calibration target.
+- **Markets:** uniform and enriched (affordability-band) designs, plus the old quartile rule for comparison, one firm per renter, Todd's preference formula with the square-footage and
+  bathroom quality measure, and unestimable cells (like Staten Island) recorded instead of crashing.
+- **Shortlists:** uniform, transparent, expensive-first, full visibility and AI arms, with the fallback fill for bad replies.
+  The prompt follows the protocol.
+- **Audits:** the four objectives (C_support, C_DA, C_L, C_all), protected reverse-delete and prefix cover, and the
+  no-support solver variant. Todd's two constructions are regression tests: protecting everyone costs N in the
+  shared-brokerage family and (n+1)/2 in the ring.
+- **Analyses:** T with cell weights, month-by-month and conditional versions, and seed-block intervals; the group-switch
+  split (S_L + S_H = T is checked); protection premiums with solver bounds; rank severity; shortlist price percentile; the
+  scarcity categories.
+- **Running:** configs for every stage, `--shard` for Slurm array jobs, and the calibration script. 115 tests pass.
 
-**To build**
-- **Firms:** one firm per renter.
-- **New pieces:** the protection objectives, Y_b and T, the group-switch runs, rank severity, the price percentile,
-  and the transparent and expensive-first policies.
-- **Preferences:** Todd's version and its calibration grid.
-- **Data handling:** uniform and enriched sampling, the donor split, July 2026 dollars, the brokerage alias map, and
-  support for all 21 months.
-- **Checks:** comparing our solver with Todd's on his 160 archived markets.
+**Early observations** (from small smoke runs, not results)
+- **Uniform design:** about 70–99% of lower-income renters have no affordable listing in a 64-listing market, so their
+  hidden-blocker rate is mostly zero. T will mostly reflect higher-income renters unless the enriched panel carries the
+  lower-income comparison.
+- **Enriched design:** 10 markets per borough (August 2026, 64 per side, calibration donors):
+
+  | Lower-income renters | Uniform | Old quartile rule | Affordability band |
+  |---|---|---|---|
+  | Markets unestimable (of 40) | 0 | 2 (Manhattan) | 0 |
+  | No affordable listing | 76–100% | 0% | 0% |
+  | Median number of options | 0 | 1 (Manhattan, Brooklyn) to 7 (Bronx) | 9–16 |
+  | More than 5 options (can lose one under top 5) | 0–12% | 0–2% (Manhattan, Brooklyn), 40–65% (Queens, Bronx) | 55–69% |
+  | 2 or more options (can lose one under 40%) | 0–21% | 16–88% | 76–89% |
+
+  Higher-income renters barely change: a median of 41–52 options, and 87–100% have more than 5, in every design.
+  Manhattan's band is thin (32–45 listings for the 32 needed at 64 per side), so the band half of a Manhattan market is
+  nearly the same listings every time.
+- **Protection groups:** the lower-income protection group is often empty, because few lower-income renters are matched
+  initially.
+
+**Still to do**
+- **Brokerage names:** a reviewed alias map. Firms are currently matched as written.
+- **Listings:** removing physical units that appear in both development and held-out months.
+- **Open models:** running Qwen and Mistral on FASRC GPUs, which needs a separate script.
+- **Model order and repeatability:** the repeat-prompt panel.
+- **Solver check:** comparing our solver with Todd's on his 160 archived markets.
+- **Stages 0–1:** calibration (20 seeds), the 300-market pilot and solver timing, followed by the AI test and FASRC setup.
 
 **Pending decisions**
 - **Scope:** course project or IJCAI 2027 paper (abstracts due January 4, papers January 11).
 - **AI:** the model and budget.
 - **Compute:** GPU and cluster access.
 - **People:** IRB for the renter study.
-- **CPI:** how to handle the two months with no CPI value.
+- **Design:** whether the uniform design should stay primary, given how few lower-income renters have options under it.

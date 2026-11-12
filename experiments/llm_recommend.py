@@ -15,21 +15,26 @@ from pathlib import Path
 
 from experiments.config import expand_markets, load_config
 from hiddenoptions import llm
-from hiddenoptions.markets import Catalog, build_market
+from hiddenoptions.markets import Catalog, InsufficientSupply, build_market
 
 ROOT = Path(__file__).resolve().parents[1]
 BATCH_SIZE = 20_000
 
 
-def all_requests(cfg: dict, seeds: int | None) -> list[dict]:
+def all_requests(cfg: dict, seeds: int | None, arm: str | None = None) -> list[dict]:
+    """Prompts for every renter who needs a model call. `arm` keeps one model's exposures (e.g. 'claude_k5')."""
     catalog, out = Catalog(), []
-    exposures = [e for e in cfg["exposures"] if e["policy"] == "llm"]
+    exposures = [e for e in cfg["exposures"] if e["policy"] == "llm" and (arm is None or e["name"] == arm)]
     if not exposures:
-        raise SystemExit("this config has no llm exposure")
+        raise SystemExit("no matching llm exposure in this config")
+    starts = sorted({s.seed for s in expand_markets(cfg)})
     for spec in expand_markets(cfg):
-        if seeds is not None and spec.seed >= seeds:
+        if seeds is not None and spec.seed >= starts[0] + seeds:
             continue
-        market = build_market(spec, catalog)
+        try:
+            market = build_market(spec, catalog)
+        except InsufficientSupply:
+            continue
         for exposure in exposures:
             for b in range(market.inst.n_b):
                 r = llm.build_request(market, b, exposure, catalog, exposure.get("rep", 0))
@@ -43,17 +48,18 @@ def main():
     ap.add_argument("action", choices=["estimate", "show", "submit", "collect"])
     ap.add_argument("config")
     ap.add_argument("--model", default=llm.DEFAULT_MODEL)
+    ap.add_argument("--arm", help="only this llm exposure, e.g. claude_k5; each model arm is its own exposure name")
     ap.add_argument("--seeds", type=int, help="use only the first N seed blocks")
     ap.add_argument("--limit", type=int, help="use only the first N requests (for a small paid test)")
     ap.add_argument("--yes", action="store_true", help="confirm that submit spends money")
     args = ap.parse_args()
     cfg = load_config(args.config)
-    workdir = ROOT / "results" / "llm" / cfg["name"]
+    workdir = ROOT / "results" / "llm" / cfg["name"] / (args.arm or "all")
     state_path, recs_path = workdir / "batches.json", ROOT / cfg.get("llm_results", f"results/llm/{cfg['name']}/recs.jsonl")
 
     if args.action == "collect":
         return collect(state_path, recs_path)
-    requests = all_requests(cfg, args.seeds)
+    requests = all_requests(cfg, args.seeds, args.arm)
     if args.limit:
         requests = requests[: args.limit]
     if args.action == "show":
@@ -88,7 +94,8 @@ def submit(requests, model, workdir, state_path):
             Request(custom_id=r["custom_id"], params=MessageCreateParamsNonStreaming(**llm.request_params(r, model))) for r in chunk])
         batch_ids.append(batch.id)
         print(f"submitted {batch.id}: {len(chunk):,} requests")
-        state_path.write_text(json.dumps({"model": model, "effort": llm.EFFORT, "system_prompt": llm.SYSTEM_PROMPT, "batch_ids": batch_ids}, indent=1))
+        state_path.write_text(json.dumps({"model": model, "effort": llm.EFFORT, "system_prompt": llm.SYSTEM_PROMPT,
+                                          "instruction": llm.INSTRUCTION, "prompt_hash": llm.prompt_hash(), "batch_ids": batch_ids}, indent=1))
 
 
 def collect(state_path, recs_path):
@@ -123,7 +130,12 @@ def collect(state_path, recs_path):
             saved.append(row)
             counts[row["status"]] = counts.get(row["status"], 0) + 1
     recs_path.parent.mkdir(parents=True, exist_ok=True)
-    recs_path.write_text("".join(json.dumps(r) + "\n" for r in saved))
+    # Merge with other arms already saved in the same file; this arm's rows replace any earlier copies.
+    key = lambda r: (r["market_id"], r["exposure"], r["renter"], r.get("rep", 0))
+    fresh = {key(r) for r in saved}
+    kept = [json.loads(line) for line in recs_path.read_text().splitlines()] if recs_path.exists() else []
+    merged = [r for r in kept if key(r) not in fresh] + saved
+    recs_path.write_text("".join(json.dumps(r) + "\n" for r in merged))
     print(f"saved {len(saved):,} answers to {recs_path}; status counts {counts}; input tokens {usage_in:,}, output tokens {usage_out:,}")
 
 

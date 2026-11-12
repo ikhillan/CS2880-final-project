@@ -1,13 +1,15 @@
-"""The fixed AI recommender: one pinned model and prompt, asked once per renter, with saved answers.
+"""The fixed AI recommender: one pinned model and prompt per arm, asked once per renter, with saved answers (protocol section 5).
 
-"Fixed" means the model id, prompt text, effort and listing count never change during the study and nothing adapts to results.
-It does not mean deterministic: these models take no temperature setting, so repeat prompts (`rep`) measure the variance.
+"Fixed" means the model id, prompt text, effort and listing budget never change during the study and nothing adapts to
+results. It does not mean deterministic: these models take no temperature setting, so repeat prompts (`rep`) measure variance.
 
-The server-side refusal fallback is deliberately off. Batches reject it, and it would switch models mid-study, so the
-recommender would no longer be fixed. Refusals are saved and reported instead.
+The server-side refusal fallback stays off: Batches reject it, and it would switch models mid-study. Refusals and bad replies
+are saved, and hiddenoptions.exposure applies the protocol's seeded uniform fill.
 
-Listings get anonymous IDs in a shuffled order, so IDs and order can't leak firm or rank information.
-Race and ethnicity are never included. The renter's rank list is never shown, because that list is our model, not data.
+Prompt contents (protocol): budget, minimum bedrooms and target area, plus anonymous listing IDs with asking rent, bedrooms,
+bathrooms, square footage (with a missing flag) and distance. No names, addresses, income, household size, income-group flags,
+brokerage IDs, latent scores or outcomes. Listing order is one seeded permutation per (market, renter, rep), shared by every
+model family, so model comparisons are paired.
 """
 from __future__ import annotations
 
@@ -17,19 +19,15 @@ import zlib
 
 import numpy as np
 
+from .data import cpi_value, BASE_MONTH
 from .exposure import show_count
-from .markets import Market
 
 DEFAULT_MODEL = "claude-opus-5-5"
 EFFORT = "low"
 MAX_TOKENS = 4000
-SYSTEM_PROMPT = (
-    "You are an apartment-search assistant for New York City renters. You receive one renter's profile and the listings "
-    "available to them. Recommend the listings this renter should look at, best first. Use only IDs from the list."
-)
-BUILDING_LABELS = {"RENTAL": "rental building", "CONDO": "condo", "CO_OP": "co-op", "CONDOP": "condop", "TWOFAMILY": "two-family house",
-                   "THREEFAMILY": "three-family house", "FOURFAMILY": "four-family house", "HOUSE": "house", "MIXED_USE": "mixed-use building",
-                   "MULTIFAMILY": "multifamily building", "HYBRID": "hybrid building"}
+SYSTEM_PROMPT = "You are an apartment-search assistant for New York City renters."
+INSTRUCTION = ("Choose exactly {k} listings for this renter using the supplied rental budget, space needs, apartment features "
+               "and location. Return the selected IDs in a JSON array.")
 # Prices for the cost estimate only, from the Claude API docs (USD per million tokens, standard rate).
 PRICES = {"claude-opus-5-5": (4.0, 20.0), "claude-sonnet-5-5": (2.0, 10.0), "claude-haiku-5-5": (0.10, 0.50)}
 BATCH_DISCOUNT = 0.5
@@ -40,50 +38,50 @@ def output_schema() -> dict:
             "required": ["recommended_ids"], "additionalProperties": False}
 
 
-def _neighborhood_by_puma(catalog) -> dict:
-    if not hasattr(catalog, "puma_label"):
-        import pandas as pd
-        pooled = pd.concat(catalog.listings.values())
-        catalog.puma_label = pooled.groupby("puma").neighborhood.agg(lambda s: s.value_counts().index[0]).to_dict()
-    return catalog.puma_label
+def prompt_hash() -> str:
+    return hashlib.sha256((SYSTEM_PROMPT + "\n" + INSTRUCTION + json.dumps(output_schema(), sort_keys=True)).encode()).hexdigest()[:16]
 
 
-def renter_profile_text(market: Market, b: int, catalog) -> str:
+def _nominal(market) -> float:
+    """July 2026 dollars -> the listing month's dollars, so the budget matches the asking rents shown."""
+    return cpi_value(market.spec.month)[0] / cpi_value(BASE_MONTH)[0]
+
+
+def renter_profile_text(market, b: int, catalog) -> str:
     r = market.renters.iloc[b]
-    size = int(r.household_size)
-    children = "with children" if r.has_children else "no children"
-    area = _neighborhood_by_puma(catalog).get(r.puma, "unknown")
-    return (f"Household: {size} {'person' if size == 1 else 'people'}, {children}\n"
-            f"Annual household income: ${r.income_month:,.0f}\n"
-            f"Most they can spend on rent: ${r.cap_month:,.0f} a month\n"
-            f"Minimum bedrooms: {'studio' if r.need_bedrooms == 0 else int(r.need_bedrooms)}\n"
-            f"Searching in: {r.borough}, currently near {area}")
+    area = catalog.puma_label.get(r.puma, "unknown")
+    beds = "studio or larger" if r.need_bedrooms == 0 else f"at least {int(r.need_bedrooms)} bedroom{'s' if r.need_bedrooms > 1 else ''}"
+    return (f"Monthly rental budget: ${r.cap * _nominal(market):,.0f}\n"
+            f"Space needed: {beds}\n"
+            f"Target area: {area}, {r.borough}")
 
 
-def listing_text(row, listing_id: str) -> str:
+def listing_text(row, listing_id: str, km: float) -> str:
     beds = "studio" if row.bedrooms == 0 else f"{int(row.bedrooms)} bd"
-    return (f"{listing_id} | ${row.rent:,.0f}/mo | {beds}, {row.bathrooms_total:g} ba | {row.neighborhood} | "
-            f"{BUILDING_LABELS.get(row.building_type, 'apartment')}")
+    sqft = "sqft not listed" if not np.isfinite(row.sqft) else f"{row.sqft:,.0f} sqft"
+    return f"{listing_id} | ${row.rent_asking:,.0f}/mo | {beds}, {row.bathrooms_total:g} ba | {sqft} | {km:.1f} km away"
 
 
-def build_request(market: Market, b: int, exposure: dict, catalog, rep: int = 0) -> dict | None:
-    """One renter's prompt, or None when the renter has nothing to be shown."""
-    E = market.inst.E
-    options = np.nonzero(E[b])[0]
-    if len(options) == 0:
-        return None
+def presentation_order(market, b: int, rep: int) -> np.ndarray:
+    options = np.nonzero(market.inst.E[b])[0]
+    rng = np.random.default_rng([market.spec.seed, zlib.crc32(f"{market.spec.market_id}|order|{b}|{rep}".encode())])
+    return options[rng.permutation(len(options))]
+
+
+def build_request(market, b: int, exposure: dict, catalog, rep: int = 0) -> dict | None:
+    """One renter's prompt, or None when no model call is needed (no options, or the budget covers every option)."""
+    options = np.nonzero(market.inst.E[b])[0]
     count = int(show_count(np.array([len(options)]), exposure.get("k"), exposure.get("q"))[0])
-    salt = f"{market.spec.market_id}|{exposure['name']}|{b}|{rep}"
-    rng = np.random.default_rng([market.spec.seed, zlib.crc32(salt.encode())])
-    shuffled = options[rng.permutation(len(options))]
-    id_map = {f"L{i + 1:03d}": int(s) for i, s in enumerate(shuffled)}
-    table = "\n".join(listing_text(market.listings.iloc[s], lid) for lid, s in id_map.items())
-    noun = "listing" if count == 1 else "listings"
-    prompt = (f"Renter profile:\n{renter_profile_text(market, b, catalog)}\n\nAvailable listings ({len(options)}):\n{table}\n\n"
-              f"Recommend exactly {count} {noun} for this renter, best first.")
+    if len(options) == 0 or count == len(options):
+        return None
+    shown = presentation_order(market, b, rep)
+    id_map = {f"L{i + 1:03d}": int(s) for i, s in enumerate(shown)}
+    table = "\n".join(listing_text(market.listings.iloc[s], lid, market.distance_km[b, s]) for lid, s in id_map.items())
+    prompt = (f"Renter:\n{renter_profile_text(market, b, catalog)}\n\nCandidate listings ({len(options)}):\n{table}\n\n"
+              + INSTRUCTION.format(k=count))
     key = {"market_id": market.spec.market_id, "exposure": exposure["name"], "renter": b, "rep": rep}
     custom_id = hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()[:40]
-    return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map}
+    return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map, "prompt_hash": prompt_hash()}
 
 
 def request_params(req: dict, model: str) -> dict:
@@ -93,25 +91,30 @@ def request_params(req: dict, model: str) -> dict:
 
 
 def parse_response(req: dict, text: str | None, status: str) -> dict:
-    """Map model output back to listing indices. Unknown or repeated IDs are dropped and counted."""
+    """Map a reply back to listing indices. Unknown IDs are counted; duplicates and extras are dropped (the fallback fills gaps)."""
     row = {k: req[k] for k in ("market_id", "exposure", "renter", "rep", "count")}
-    row.update(status=status, listings=[], invalid_ids=0, extra_ids=0)
+    row.update(status=status, listings=[], raw_valid_ids=0, invalid_ids=0, duplicate_ids=0, extra_ids=0)
     if status != "ok" or text is None:
         return row
     try:
         ids = json.loads(text)["recommended_ids"]
+        if not isinstance(ids, list):
+            raise TypeError
     except (json.JSONDecodeError, KeyError, TypeError):
         row["status"] = "unparseable"
         return row
     seen = []
     for lid in ids:
-        s = req["id_map"].get(lid)
+        s = req["id_map"].get(str(lid))
         if s is None:
             row["invalid_ids"] += 1
-        elif s not in seen:
+        elif s in seen:
+            row["duplicate_ids"] += 1
+        else:
             seen.append(s)
+    row["raw_valid_ids"] = len(seen)
     row["extra_ids"] = max(0, len(seen) - req["count"])
-    row["listings"] = seen[: req["count"]]  # the study holds the number shown fixed
+    row["listings"] = seen[: req["count"]]
     return row
 
 

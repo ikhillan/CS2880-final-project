@@ -1,0 +1,28 @@
+{
+  "name": "stage3_protection",
+  "_note": "Protocol stage 3: per size (24, 64), 40 held-out uniform blocks (reusing the stage-2 seeds) and 20 independent enriched blocks; Claude, uniform and transparent shortlists at both budgets (top 5 and 40% of options); ordinary repair, lower-income protection and all-renter protection (C_support comes with the exact rows). Caps 300 s at 24 and 900 s at 64. Run on FASRC.",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"], "months": ["2026-09", "2026-10"],
+           "sizes": [24, 64], "seeds": 40, "seed_start": 1000},
+  "market": {"donors": "evaluation"},
+  "variants": [
+    {"label": "uniform"},
+    {"label": "enriched", "design": "enriched", "seeds": 20, "seed_start": 5000}
+  ],
+  "exposures": [
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5},
+    {"name": "claude_k5", "policy": "llm", "k": 5},
+    {"name": "uniform_q40", "policy": "uniform", "q": 0.4},
+    {"name": "transparent_q40", "policy": "transparent", "q": 0.4},
+    {"name": "claude_q40", "policy": "llm", "q": 0.4}
+  ],
+  "methods": ["no_audit", "full_disclosure",
+              "reverse_delete", "prefix_cover", "exact_prefix",
+              "reverse_delete_protect_lower", "prefix_cover_protect_lower", "exact_prefix_protect_lower",
+              "reverse_delete_protect_all", "prefix_cover_protect_all", "exact_prefix_protect_all"],
+  "group_switch": [{"name": "claude_vs_uniform", "a": "uniform_k5", "b": "claude_k5"},
+                   {"name": "claude_vs_uniform_q40", "a": "uniform_q40", "b": "claude_q40"}],
+  "exact_time_cap": {"24": 300, "64": 900},
+  "enumerate_plans": {"cap": 50, "seconds": 30},
+  "llm_results": "results/llm/stage2_main/recs.jsonl"
+}

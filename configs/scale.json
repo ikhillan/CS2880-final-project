@@ -1,10 +1,14 @@
 {
   "name": "scale",
-  "grid": {"boroughs": ["Brooklyn", "Queens"], "months": ["2026-08"], "sizes": [64, 256, 512, 1024, 2048], "seeds": 3},
+  "_note": "Protocol stage 5: 10 fresh blocks at 128, 256 and 1,024 per side. Cheap policies, full DA and heuristics; profile exact solves separately on FASRC.",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-09", "2026-10"], "sizes": [128, 256, 1024],
+           "seeds": 10, "seed_start": 7000},
+  "market": {"donors": "evaluation"},
   "exposures": [
-    {"name": "random_k5", "policy": "random", "k": 5},
-    {"name": "rent_max_k5", "policy": "rent_max", "k": 5}
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5},
+    {"name": "expensive_first_k5", "policy": "expensive_first", "k": 5}
   ],
-  "methods": ["no_audit", "full_disclosure", "prefix_cover"],
+  "methods": ["no_audit", "full_disclosure", "prefix_cover", "prefix_cover_protect_lower"],
   "max_matching_limit": 256
 }

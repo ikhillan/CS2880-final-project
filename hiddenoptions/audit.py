@@ -3,6 +3,13 @@
 Every method returns a boolean audit vector whose DA outcome has been checked against the full market. The exact method is
 logic-based Benders: a HiGHS master picks the cheapest audits that support a stable matching, DA checks them, and each failure
 adds a cut. Three cut families are available: "assignment", "component" and "prefix".
+
+Renter protection (Todd's protocol, section 2). Let M0 = DA(E0) and M_E = DA(E). A renter worse off under M_E than under M0
+loses under every successful plan (renter-optimality); that set is the unavoidable-loss set. For a group G, a protected plan is
+successful and leaves every other initially matched renter of G at least as well off as under M0. Wrap the oracle in a
+ProtectedOracle and every method below optimizes that objective instead: reverse-delete and prefix cover become protected
+baselines, and `exact` adds one row per protected renter to the support master (sum of z_bs over s at least as good as M0(b)
+equals 1) and cuts on protection failures with the same prefix certificate it uses for blocking pairs.
 """
 from __future__ import annotations
 
@@ -42,6 +49,61 @@ class Oracle:
 
     def stable(self, x: np.ndarray) -> bool:
         return not self.evaluate(x)[2].any()
+
+    def failed_renters(self, x: np.ndarray) -> np.ndarray:
+        """Renters whose component failed: here, those with a full-market blocking pair."""
+        return self.evaluate(x)[2].any(1)
+
+    suffix = ""
+    protect_rows: dict = {}
+
+
+def renter_ranks(inst: Instance, match_b: np.ndarray) -> np.ndarray:
+    """0-based rank of each renter's partner; UNMATCHED (worse than any partner) when unmatched."""
+    from .matching import UNMATCHED
+    r = np.full(inst.n_b, UNMATCHED, dtype=np.int64)
+    bs = np.nonzero(match_b >= 0)[0]
+    r[bs] = inst.rank_b[bs, match_b[bs]]
+    return r
+
+
+def protection_sets(inst: Instance, oracle: Oracle, group: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """(protected, unavoidable) renter masks within `group`.
+
+    unavoidable: worse off under M_E than under M0, so every successful plan hurts them.
+    protected:   initially matched and not unavoidable, so a protected plan must keep them at least as well off as under M0.
+    """
+    rank0 = renter_ranks(inst, oracle.evaluate(np.zeros(inst.n_firms, bool))[0])
+    rank_full = renter_ranks(inst, oracle.evaluate(np.ones(inst.n_firms, bool))[0])
+    unavoidable = group & (rank_full > rank0)
+    matched0 = oracle.evaluate(np.zeros(inst.n_firms, bool))[0] >= 0
+    return group & matched0 & ~unavoidable, unavoidable
+
+
+class ProtectedOracle:
+    """An oracle whose success test also requires every protected renter to do at least as well as under M0."""
+
+    def __init__(self, base: Oracle, protected: np.ndarray, label: str):
+        self.base, self.inst, self.e0, self.protected, self.suffix = base, base.inst, base.e0, np.asarray(protected, bool), f"_protect_{label}"
+        self.rank0 = renter_ranks(self.inst, base.evaluate(np.zeros(self.inst.n_firms, bool))[0])
+        self.protect_rows = {int(b): np.nonzero(self.inst.E[b] & (self.inst.rank_b[b] <= self.rank0[b]))[0].tolist()
+                             for b in np.nonzero(self.protected)[0]}
+
+    @property
+    def calls(self) -> int:
+        return self.base.calls
+
+    def evaluate(self, x):
+        return self.base.evaluate(x)
+
+    def violations(self, x) -> np.ndarray:
+        return self.protected & (renter_ranks(self.inst, self.evaluate(x)[0]) > self.rank0)
+
+    def stable(self, x) -> bool:
+        return self.base.stable(x) and not self.violations(x).any()
+
+    def failed_renters(self, x) -> np.ndarray:
+        return self.base.failed_renters(x) | self.violations(x)
 
 
 @dataclass
@@ -93,7 +155,7 @@ def reverse_delete(inst: Instance, oracle: Oracle, order: np.ndarray | None = No
         x[f] = False
         if not oracle.stable(x):
             x[f] = True
-    return PlanResult("reverse_delete", x.copy(), _cost(inst, x), False, time.perf_counter() - t0,
+    return PlanResult("reverse_delete" + oracle.suffix, x.copy(), _cost(inst, x), False, time.perf_counter() - t0,
                       da_calls=oracle.calls - calls0)
 
 
@@ -129,7 +191,7 @@ def exhaustive(inst: Instance, oracle: Oracle, max_firms: int = 20) -> PlanResul
     for v in vectors:
         x = np.array(v, bool)
         if oracle.stable(x):
-            return PlanResult("exhaustive", x, _cost(inst, x), True, time.perf_counter() - t0, da_calls=oracle.calls - calls0)
+            return PlanResult("exhaustive" + oracle.suffix, x, _cost(inst, x), True, time.perf_counter() - t0, da_calls=oracle.calls - calls0)
     raise AssertionError("auditing every firm always passes")
 
 
@@ -187,7 +249,7 @@ class SupportMaster:
     Columns: x_f (binary), v_e (hidden pairs only), z_e (every pair in E).
     """
 
-    def __init__(self, inst: Instance, e0: np.ndarray, seed: int = 0, support: bool = True):
+    def __init__(self, inst: Instance, e0: np.ndarray, seed: int = 0, support: bool = True, protect_rows: dict | None = None):
         self.inst, self.e0 = inst, e0
         self.edges = [(int(b), int(s)) for b, s in zip(*np.nonzero(inst.E))]
         self.hidden = [e for e in self.edges if not e0[e]]
@@ -222,6 +284,8 @@ class SupportMaster:
                 rows.append((1.0, math.inf, idx, [1.0] * len(idx)))
             for e, v in self.vi.items():  # a matching may only use visible pairs
                 rows.append((-math.inf, 0.0, [self.zi[e], v], [1.0, -1.0]))
+            for b, good in (protect_rows or {}).items():  # protected renter keeps a partner at least as good as M0(b)
+                rows.append((1.0, 1.0, [self.zi[(b, int(s))] for s in good], [1.0] * len(good)))
         else:
             upper[z0:] = 0.0
         self.F = F
@@ -261,19 +325,19 @@ class SupportMaster:
         self.mip.add_row(-math.inf, float(budget), idx, [float(c) for c in self.inst.cost])
 
 
-def _failed_components(inst: Instance, blockers: np.ndarray) -> list[int]:
-    return sorted({int(inst.component_id[b]) for b in np.nonzero(blockers.any(1))[0]})
+def _failed_components(inst: Instance, failed: np.ndarray) -> list[int]:
+    return sorted({int(inst.component_id[b]) for b in np.nonzero(failed)[0] if inst.component_id[b] >= 0})
 
 
 def _add_cuts(master: SupportMaster, inst: Instance, oracle: Oracle, x: np.ndarray, cuts: str) -> int:
-    match_b, _, blockers = oracle.evaluate(x)
+    match_b = oracle.evaluate(x)[0]
     if cuts == "assignment":
         master.add_nogood(range(inst.n_firms), x)
         return 1
     vis = inst.visible(x, oracle.e0)
     prefix = prefix_mask(inst, match_b) & ~oracle.e0
     added = 0
-    for c in _failed_components(inst, blockers):
+    for c in _failed_components(inst, oracle.failed_renters(x)):
         renters = inst.component_id == c
         if cuts == "component":
             listings = inst.E[renters].any(0)
@@ -284,7 +348,7 @@ def _add_cuts(master: SupportMaster, inst: Instance, oracle: Oracle, x: np.ndarr
             mask[renters] = prefix[renters]
             edges = [(int(b), int(s)) for b, s in zip(*np.nonzero(mask))]
             if not edges:
-                raise AssertionError("a blocking pair lies in the prefix, so the failed prefix has a hidden pair")
+                raise AssertionError("a failed component's prefix always holds a hidden pair, or its DA replay could not change")
             master.add_status_cut(edges, vis)
         added += 1
     return added
@@ -292,11 +356,16 @@ def _add_cuts(master: SupportMaster, inst: Instance, oracle: Oracle, x: np.ndarr
 
 def exact(inst: Instance, oracle: Oracle, cuts: str = "prefix", time_cap: float = 15.0, seed: int = 0,
           incumbent: PlanResult | None = None, support: bool = True) -> PlanResult:
-    """Cheapest audits such that DA is full-market stable. A timeout returns a verified plan and a gap."""
+    """Cheapest audits such that DA is full-market stable (and protective, with a ProtectedOracle).
+
+    A timeout returns a verified plan and a valid gap. Without an incumbent, the start is the better of reverse-delete and
+    prefix cover, both checked by the same oracle.
+    """
     t0, calls0 = time.perf_counter(), oracle.calls
-    best = incumbent or reverse_delete(inst, oracle)
-    best_x, upper = best.x.copy(), best.cost
-    master = SupportMaster(inst, oracle.e0, seed, support)
+    if incumbent is None or not oracle.stable(incumbent.x):
+        incumbent = min((reverse_delete(inst, oracle), prefix_cover(inst, oracle)), key=lambda r: r.cost)
+    best_x, upper = incumbent.x.copy(), incumbent.cost
+    master = SupportMaster(inst, oracle.e0, seed, support, oracle.protect_rows)
     lower, support_cost, solves, n_cuts, timed_out, certified = 0, None, 0, 0, False, False
     master_infeasible = False
     while True:
@@ -330,7 +399,7 @@ def exact(inst: Instance, oracle: Oracle, cuts: str = "prefix", time_cap: float 
         n_cuts += _add_cuts(master, inst, oracle, x, cuts)
     if not oracle.stable(best_x):
         raise AssertionError("returned plan failed the full-market check")
-    return PlanResult(f"exact_{cuts}", best_x, upper, certified, time.perf_counter() - t0, lower_bound=int(min(lower, upper)),
+    return PlanResult(f"exact_{cuts}{oracle.suffix}", best_x, upper, certified, time.perf_counter() - t0, lower_bound=int(min(lower, upper)),
                       support_cost=support_cost, master_solves=solves, n_cuts=n_cuts, da_calls=oracle.calls - calls0,
                       timed_out=timed_out, extra={"master_infeasible": master_infeasible})
 
@@ -345,7 +414,7 @@ def enumerate_optimal_plans(inst: Instance, oracle: Oracle, optimum: int, cap: i
                             seed: int = 0) -> tuple[list[np.ndarray], bool]:
     """All verified plans of cost `optimum`, up to `cap`. The flag is True when the list is known to be complete."""
     t0 = time.perf_counter()
-    master = SupportMaster(inst, oracle.e0, seed)
+    master = SupportMaster(inst, oracle.e0, seed, protect_rows=oracle.protect_rows)
     master.add_budget(optimum)
     plans: list[np.ndarray] = []
     while len(plans) < cap:
@@ -381,4 +450,4 @@ def prefix_cover(inst: Instance, oracle: Oracle) -> PlanResult:
         x = sol > 0.5
     if not oracle.stable(x):
         raise AssertionError("exposing the DA(E) prefix must replay DA(E)")
-    return PlanResult("prefix_cover", x, _cost(inst, x), False, time.perf_counter() - t0, da_calls=oracle.calls - calls0)
+    return PlanResult("prefix_cover" + oracle.suffix, x, _cost(inst, x), False, time.perf_counter() - t0, da_calls=oracle.calls - calls0)
