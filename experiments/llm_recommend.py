@@ -21,10 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BATCH_SIZE = 20_000
 
 
-def all_requests(cfg: dict, seeds: int | None, arm: str | None = None) -> list[dict]:
-    """Prompts for every renter who needs a model call. `arm` keeps one model's exposures (e.g. 'claude_k5')."""
-    catalog, out = Catalog(), []
-    exposures = [e for e in cfg["exposures"] if e["policy"] == "llm" and (arm is None or e["name"] == arm)]
+def all_requests(cfg: dict, seeds: int | None, arm: str | list[str] | None = None, catalog: Catalog | None = None) -> list[dict]:
+    """Prompts for every renter who needs a model call. `arm` keeps one model's exposures (e.g. 'claude_k5') or a list of them."""
+    catalog, out = catalog or Catalog(), []
+    arms = None if arm is None else {arm} if isinstance(arm, str) else set(arm)
+    exposures = [e for e in cfg["exposures"] if e["policy"] == "llm" and (arms is None or e["name"] in arms)]
     if not exposures:
         raise SystemExit("no matching llm exposure in this config")
     starts = sorted({s.seed for s in expand_markets(cfg)})
@@ -130,14 +131,21 @@ def collect(state_path, recs_path):
             row["model"] = state["model"]
             saved.append(row)
             counts[row["status"]] = counts.get(row["status"], 0) + 1
+    merge_rows(recs_path, saved)
+    print(f"saved {len(saved):,} answers to {recs_path}; status counts {counts}; input tokens {usage_in:,}, output tokens {usage_out:,}")
+
+
+def merge_rows(recs_path: Path, saved: list[dict]) -> int:
+    """Merge with other arms already saved in the same file; these rows replace any earlier copies. Returns the row total."""
     recs_path.parent.mkdir(parents=True, exist_ok=True)
-    # Merge with other arms already saved in the same file; this arm's rows replace any earlier copies.
     key = lambda r: (r["market_id"], r["exposure"], r["renter"], r.get("rep", 0))
     fresh = {key(r) for r in saved}
     kept = [json.loads(line) for line in recs_path.read_text().splitlines()] if recs_path.exists() else []
     merged = [r for r in kept if key(r) not in fresh] + saved
-    recs_path.write_text("".join(json.dumps(r) + "\n" for r in merged))
-    print(f"saved {len(saved):,} answers to {recs_path}; status counts {counts}; input tokens {usage_in:,}, output tokens {usage_out:,}")
+    tmp = recs_path.with_suffix(recs_path.suffix + ".tmp")
+    tmp.write_text("".join(json.dumps(r) + "\n" for r in merged))
+    tmp.replace(recs_path)  # atomic, so a reader never sees a half-written file
+    return len(merged)
 
 
 if __name__ == "__main__":
