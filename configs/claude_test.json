@@ -1,0 +1,15 @@
+{
+  "name": "claude_test",
+  "_note": "Step 5: a small paid test of the Claude arm (Opus 5.5, high effort) on two enriched development markets at 64 per side, each renter asked twice (rep 0 and rep 1, with a fresh listing order). Measures cost per request, valid-reply and fallback rates, repeat agreement, and a first look at price steering.",
+  "grid": {"boroughs": ["Brooklyn", "Queens"], "months": ["2026-08"], "sizes": [64], "seeds": 1, "seed_start": 150},
+  "market": {"donors": "calibration", "design": "enriched"},
+  "exposures": [
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5},
+    {"name": "claude_k5", "policy": "llm", "k": 5, "rep": 0},
+    {"name": "claude_k5_rep1", "policy": "llm", "k": 5, "rep": 1}
+  ],
+  "methods": ["no_audit"],
+  "group_switch": [{"name": "claude_vs_uniform", "a": "uniform_k5", "b": "claude_k5"}],
+  "llm_results": "results/llm/claude_test/recs.jsonl"
+}

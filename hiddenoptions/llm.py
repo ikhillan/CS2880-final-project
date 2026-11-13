@@ -23,8 +23,8 @@ from .data import cpi_value, BASE_MONTH
 from .exposure import show_count
 
 DEFAULT_MODEL = "claude-opus-5-5"
-EFFORT = "low"
-MAX_TOKENS = 4000
+EFFORT = "high"  # the study's pinned setting (Opus 5.5 at high effort); recorded with every batch
+MAX_TOKENS = 16000  # room for high-effort thinking plus the short JSON answer
 SYSTEM_PROMPT = "You are an apartment-search assistant for New York City renters."
 INSTRUCTION = ("Choose exactly {k} listings for this renter using the supplied rental budget, space needs, apartment features "
                "and location. Return the selected IDs in a JSON array.")
@@ -84,10 +84,10 @@ def build_request(market, b: int, exposure: dict, catalog, rep: int = 0) -> dict
     return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map, "prompt_hash": prompt_hash()}
 
 
-def request_params(req: dict, model: str) -> dict:
+def request_params(req: dict, model: str, effort: str = EFFORT) -> dict:
     return {"model": model, "max_tokens": MAX_TOKENS, "system": SYSTEM_PROMPT,
             "messages": [{"role": "user", "content": req["prompt"]}],
-            "output_config": {"effort": EFFORT, "format": {"type": "json_schema", "schema": output_schema()}}}
+            "output_config": {"effort": effort, "format": {"type": "json_schema", "schema": output_schema()}}}
 
 
 def parse_response(req: dict, text: str | None, status: str) -> dict:
@@ -118,8 +118,8 @@ def parse_response(req: dict, text: str | None, status: str) -> dict:
     return row
 
 
-def estimate_cost(requests: list[dict], model: str, output_tokens: tuple[int, int] = (150, 800)) -> dict:
-    """A rough estimate: about 4 characters per token for input, and an assumed range for output including thinking."""
+def estimate_cost(requests: list[dict], model: str, output_tokens: tuple[int, int] = (500, 3000)) -> dict:
+    """A rough estimate: about 4 characters per token for input, and an assumed output range including high-effort thinking."""
     chars = sum(len(r["prompt"]) + len(SYSTEM_PROMPT) for r in requests)
     input_tokens = chars / 4
     price_in, price_out = PRICES.get(model, (float("nan"), float("nan")))

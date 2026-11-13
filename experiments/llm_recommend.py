@@ -48,6 +48,7 @@ def main():
     ap.add_argument("action", choices=["estimate", "show", "submit", "collect"])
     ap.add_argument("config")
     ap.add_argument("--model", default=llm.DEFAULT_MODEL)
+    ap.add_argument("--effort", default=llm.EFFORT, choices=["low", "medium", "high", "xhigh", "max"])
     ap.add_argument("--arm", help="only this llm exposure, e.g. claude_k5; each model arm is its own exposure name")
     ap.add_argument("--seeds", type=int, help="use only the first N seed blocks")
     ap.add_argument("--limit", type=int, help="use only the first N requests (for a small paid test)")
@@ -70,14 +71,14 @@ def main():
             e = llm.estimate_cost(requests, model)
             print(f"{model}: {e['requests']:,} requests, about {e['mean_input_tokens']:.0f} input tokens each, "
                   f"${e['cost_usd_low']:,.2f} to ${e['cost_usd_high']:,.2f} at batch prices")
-        print("Token counts are estimates (characters / 4); the output range assumes 150-800 tokens per answer including thinking.")
+        print("Token counts are estimates (characters / 4); the output range assumes 500-3,000 tokens per answer including high-effort thinking.")
         return None
     if not args.yes:
         raise SystemExit("submit spends money. Run `estimate` first, then rerun with --yes.")
-    return submit(requests, args.model, workdir, state_path)
+    return submit(requests, args.model, workdir, state_path, args.effort)
 
 
-def submit(requests, model, workdir, state_path):
+def submit(requests, model, workdir, state_path, effort=llm.EFFORT):
     import anthropic
     from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
     from anthropic.types.messages.batch_create_params import Request
@@ -91,10 +92,10 @@ def submit(requests, model, workdir, state_path):
     for i in range(0, len(requests), BATCH_SIZE):
         chunk = requests[i: i + BATCH_SIZE]
         batch = client.messages.batches.create(requests=[
-            Request(custom_id=r["custom_id"], params=MessageCreateParamsNonStreaming(**llm.request_params(r, model))) for r in chunk])
+            Request(custom_id=r["custom_id"], params=MessageCreateParamsNonStreaming(**llm.request_params(r, model, effort))) for r in chunk])
         batch_ids.append(batch.id)
         print(f"submitted {batch.id}: {len(chunk):,} requests")
-        state_path.write_text(json.dumps({"model": model, "effort": llm.EFFORT, "system_prompt": llm.SYSTEM_PROMPT,
+        state_path.write_text(json.dumps({"model": model, "effort": effort, "system_prompt": llm.SYSTEM_PROMPT,
                                           "instruction": llm.INSTRUCTION, "prompt_hash": llm.prompt_hash(), "batch_ids": batch_ids}, indent=1))
 
 
