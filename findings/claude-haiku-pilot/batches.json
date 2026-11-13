@@ -1,0 +1,11 @@
+{
+ "model": "claude-haiku-5-5",
+ "effort": "high",
+ "system_prompt": "You are an apartment-search assistant for New York City renters.",
+ "instruction": "Choose exactly {k} listings for this renter using the supplied rental budget, space needs, apartment features and location. Return the selected IDs in a JSON array.",
+ "prompt_hash": "a2961eba3557f75e",
+ "batch_ids": [
+  "msgbatch_019rHRwgtCZGAP3vt5V597VF",
+  "msgbatch_01M3GGvRrFDh1mDB9E5TFiNa"
+ ]
+}
