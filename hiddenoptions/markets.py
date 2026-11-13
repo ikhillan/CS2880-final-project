@@ -23,6 +23,7 @@ Listing score for renter b:
 """
 from __future__ import annotations
 
+import warnings
 import zlib
 from dataclasses import asdict, dataclass
 
@@ -30,6 +31,7 @@ import numpy as np
 import pandas as pd
 
 from .data import BASE_MONTH, DEV_MONTHS, MONTHS, cell_frames, load_listings, load_renters, to_base_factor, weighted_quantile
+from .firms import load_alias_map
 from .matching import NOT_EDGE, Instance
 
 KM_PER_DEG_LAT, KM_PER_DEG_LON = 111.0, 84.5  # at NYC's latitude
@@ -73,11 +75,16 @@ class MarketSpec:
     # "portfolio_quarter" (c_f = 1 + 0.25 (m_f - 1)) is stored x4; divide reported costs by `cost_scale`.
     audit_costs: str = "unit"  # "unit", "brokerage_only", "portfolio_quarter" or "portfolio_linear"
     band_quantile: float = 0.75  # enriched design: band = rent <= this weighted quantile of G+ donors' budgets
+    # Listing-side firms from the frozen brokerage alias map (data/reference/brokerage_aliases.json, hiddenoptions.firms):
+    # alias variants share a firm and unresolved sources become singleton firms. Off by default (firms = slug of source_group).
+    firm_aliases: bool = False
 
     @property
     def market_id(self) -> str:
-        # band_quantile only enters the ID of enriched markets, so IDs of every other design stay as they were.
-        fields = {k: v for k, v in asdict(self).items() if k != "seed" and (k != "band_quantile" or self.design == "enriched")}
+        # band_quantile only enters the ID of enriched markets, and firm_aliases only when it is on, so IDs of markets built
+        # before these fields existed stay as they were.
+        fields = {k: v for k, v in asdict(self).items() if k != "seed" and (k != "band_quantile" or self.design == "enriched")
+                  and (k != "firm_aliases" or self.firm_aliases)}
         key = "|".join(f"{k}={v}" for k, v in fields.items())
         return f"{self.borough or 'Citywide'}-{self.month}-n{self.n_renters}x{self.n_listings}-s{self.seed}-{zlib.crc32(key.encode()):08x}"
 
@@ -101,12 +108,25 @@ class Catalog:
     def __init__(self):
         self.renters = load_renters()
         self._listings: dict[str, pd.DataFrame] = {}
+        self._alias_firms: dict[str, pd.Series] = {}
+        self._warned_unreviewed = False
         self.frames: dict = {}
         dev = pd.concat([self.listings(m) for m in DEV_MONTHS])
         self.feature_reference = _feature_reference(dev)
         self.rent_reference = _rent_reference(dev)
         self.puma_centroids = dev.groupby("puma")[["latitude", "longitude"]].mean()
         self.puma_label = dev.groupby("puma").neighborhood.agg(lambda s: s.value_counts().index[0]).to_dict()
+
+    def alias_firms(self, month: str) -> pd.Series:
+        """listing_uid -> firm under the brokerage alias map (MarketSpec.firm_aliases), cached per month."""
+        if month not in self._alias_firms:
+            amap = load_alias_map()
+            if not amap.reviewed and not self._warned_unreviewed:
+                warnings.warn("brokerage alias map is not reviewed yet (\"reviewed\": false); see scripts/brokerage_aliases.py")
+                self._warned_unreviewed = True
+            listings = self.listings(month)
+            self._alias_firms[month] = pd.Series(amap.firm_ids(listings), index=listings.listing_uid.to_numpy())
+        return self._alias_firms[month]
 
     def listings(self, month: str) -> pd.DataFrame:
         if month not in self._listings:
@@ -233,6 +253,9 @@ def sample_people(spec: MarketSpec, catalog: Catalog) -> tuple[pd.DataFrame, pd.
     frame, pool = catalog.frame(spec)
     r_rng, l_rng = _rng(spec, "renters"), _rng(spec, "listings")
     log = {"frame_records": len(frame), "pool_listings": len(pool)}
+    if spec.firm_aliases:  # relabels firms only: the draws below depend on row positions, so the same listings are drawn
+        pool = pool.assign(firm_id_raw=pool.firm_id, firm_id=pool.listing_uid.map(catalog.alias_firms(spec.month)).to_numpy())
+        log.update(firm_aliases=True, alias_map_reviewed=load_alias_map().reviewed)
     if spec.design == "uniform":
         listings = _draw_listings(l_rng, pool, spec.n_listings, spec)
         renters = _draw_renters(r_rng, frame, spec.n_renters)
