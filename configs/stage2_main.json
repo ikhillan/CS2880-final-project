@@ -1,24 +1,94 @@
 {
   "name": "stage2_main",
   "_note": "Protocol stage 2 (held-out). Primary: Sep-Oct 2026; replication: Jun-Aug 2025. Evaluation donors only. Set grid.seeds to B from the pilot (100-400) BEFORE inspecting any held-out outcome. Run on FASRC.",
-  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"], "months": ["2026-09", "2026-10"],
-           "sizes": [64], "seeds": 100, "seed_start": 1000},
-  "market": {"donors": "evaluation"},
+  "grid": {
+    "boroughs": [
+      "Manhattan",
+      "Brooklyn",
+      "Queens",
+      "Bronx",
+      "Staten Island"
+    ],
+    "months": [
+      "2026-09",
+      "2026-10"
+    ],
+    "sizes": [
+      64
+    ],
+    "seeds": 100,
+    "seed_start": 1000
+  },
+  "market": {
+    "donors": "evaluation"
+  },
   "variants": [
-    {"label": "primary"},
-    {"label": "replication_2025", "months": ["2025-06", "2025-07", "2025-08"]}
+    {
+      "label": "primary"
+    },
+    {
+      "label": "replication_2025",
+      "months": [
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ]
+    }
   ],
   "exposures": [
-    {"name": "uniform_k5", "policy": "uniform", "k": 5},
-    {"name": "transparent_k5", "policy": "transparent", "k": 5},
-    {"name": "expensive_first_k5", "policy": "expensive_first", "k": 5},
-    {"name": "claude_k5", "policy": "llm", "k": 5},
-    {"name": "qwen_k5", "policy": "llm", "k": 5},
-    {"name": "mistral_k5", "policy": "llm", "k": 5},
-    {"name": "full", "policy": "full"}
+    {
+      "name": "uniform_k5",
+      "policy": "uniform",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "expensive_first_k5",
+      "policy": "expensive_first",
+      "k": 5
+    },
+    {
+      "name": "claude_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "qwen_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "mistral_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "full",
+      "policy": "full"
+    }
   ],
-  "methods": ["no_audit"],
-  "group_switch": [{"name": "claude_vs_uniform", "a": "uniform_k5", "b": "claude_k5"}],
-  "primary_contrast": {"treated": "claude_k5", "control": "uniform_k5"},
+  "methods": [
+    "no_audit"
+  ],
+  "group_switch": [
+    {
+      "name": "claude_vs_uniform",
+      "a": "uniform_k5",
+      "b": "claude_k5"
+    },
+    {
+      "name": "transparent_vs_uniform_k5",
+      "a": "uniform_k5",
+      "b": "transparent_k5"
+    }
+  ],
+  "primary_contrast": {
+    "treated": "claude_k5",
+    "control": "uniform_k5"
+  },
   "llm_results": "results/llm/stage2_main/recs.jsonl"
 }

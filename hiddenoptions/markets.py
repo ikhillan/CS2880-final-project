@@ -61,10 +61,10 @@ class MarketSpec:
     renter_firm_mode: str = "random"  # "random" or "by_income" (only used when renter_firm_size > 1)
     quality: str = "features"  # "features" (sqft + baths, primary) or "rent_premium" (sensitivity)
     w_q: float = 1.0
-    w_p: float = 2.0  # calibrated over {1, 2, 4}
+    w_p: float = 4.0  # calibrated over {1, 2, 4} on 2026-11-11 (selected 4.0); see results/calibration/calibration.json
     w_s: float = 0.5
     w_d: float = 0.5
-    sigma_r: float = 0.75  # calibrated over {0.5, 0.75, 1.25}
+    sigma_r: float = 0.5  # calibrated over {0.5, 0.75, 1.25} on 2026-11-11 (selected 0.5); see results/calibration/calibration.json
     common_shock: float = 0.5
     w_income: float = 2.5
     landlord_noise: float = 1.0

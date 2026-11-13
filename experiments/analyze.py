@@ -219,7 +219,8 @@ def main():
     methods.to_csv(out / "methods.csv", index=False)
     lines += ["## Audit methods\n", md(methods), ""]
 
-    cells = sorted({(b, m) for b, m in zip(base.borough, base.month) if b})
+    # Weights cover every planned cell, including unestimable ones (e.g. Staten Island), so coverage reports their absence.
+    cells = sorted({(m["borough"], m["month"]) for m in markets if m.get("borough")} | {(b, m) for b, m in zip(base.borough, base.month) if b})
     weights = cell_weights(cells) if cells else {}
     no_audit = base[base.method == "no_audit"]
     policies = set(no_audit.exposure)
