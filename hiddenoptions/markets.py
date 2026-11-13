@@ -30,7 +30,8 @@ from dataclasses import asdict, dataclass
 import numpy as np
 import pandas as pd
 
-from .data import BASE_MONTH, DEV_MONTHS, MONTHS, cell_frames, load_listings, load_renters, to_base_factor, weighted_quantile
+from .data import (BASE_MONTH, DEV_MONTHS, MONTHS, cell_frames, heldout_period, load_heldout_listings, load_listings, load_renters,
+                   to_base_factor, weighted_quantile)
 from .firms import load_alias_map
 from .matching import NOT_EDGE, Instance
 
@@ -103,9 +104,16 @@ class Market:
 
 
 class Catalog:
-    """Data shared by all markets in one process. Listing months load on first use."""
+    """Data shared by all markets in one process. Listing months load on first use.
 
-    def __init__(self):
+    heldout_dedup (default True) applies only to held-out months (data.HELDOUT_PRIMARY and HELDOUT_REPLICATION): it removes
+    identifiable physical units already seen in development and keeps each unit's earliest arrival within its held-out
+    period (data.dedup_heldout). Development and other months load unchanged. Counts per month are in `dedup_counts`.
+    """
+
+    def __init__(self, heldout_dedup: bool = True):
+        self.heldout_dedup = heldout_dedup
+        self.dedup_counts: dict[str, dict] = {}
         self.renters = load_renters()
         self._listings: dict[str, pd.DataFrame] = {}
         self._alias_firms: dict[str, pd.Series] = {}
@@ -132,7 +140,10 @@ class Catalog:
         if month not in self._listings:
             if month not in MONTHS:
                 raise KeyError(f"no FirstMover month {month}")
-            self._listings[month] = load_listings(month)
+            if self.heldout_dedup and heldout_period(month):
+                self._listings[month], self.dedup_counts[month] = load_heldout_listings(month)
+            else:
+                self._listings[month] = load_listings(month)
         return self._listings[month]
 
     def frame(self, spec: MarketSpec):
@@ -253,6 +264,8 @@ def sample_people(spec: MarketSpec, catalog: Catalog) -> tuple[pd.DataFrame, pd.
     frame, pool = catalog.frame(spec)
     r_rng, l_rng = _rng(spec, "renters"), _rng(spec, "listings")
     log = {"frame_records": len(frame), "pool_listings": len(pool)}
+    if spec.month in catalog.dedup_counts:  # held-out months only, so development logs are unchanged
+        log["heldout_dedup"] = {k: v for k, v in catalog.dedup_counts[spec.month].items() if k.startswith(("removed", "ambiguous"))}
     if spec.firm_aliases:  # relabels firms only: the draws below depend on row positions, so the same listings are drawn
         pool = pool.assign(firm_id_raw=pool.firm_id, firm_id=pool.listing_uid.map(catalog.alias_firms(spec.month)).to_numpy())
         log.update(firm_aliases=True, alias_map_reviewed=load_alias_map().reviewed)
