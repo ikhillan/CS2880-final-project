@@ -1,7 +1,7 @@
 """Check our solver against the 160 archived core instances of the original audit package. Writes
-results/todd_archive_check/report.md.
+results/archive_check/report.md.
 
-    python -m experiments.check_todd_archive [--zip PATH] [--no-brute]
+    python -m experiments.check_archive [--zip PATH] [--no-brute]
 
 The archive is read in place with zipfile and only its JSON is parsed; no archive code is executed. Definitions follow
 ijcai-2027-paper-audit/verify.py (core_check) and methodology/audit_solver.py:
@@ -15,6 +15,7 @@ Our side: hiddenoptions.audit (exact, enumerate_optimal_plans, protection_sets, 
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import time
 import zipfile
@@ -28,7 +29,8 @@ from hiddenoptions.audit import (Oracle, ProtectedOracle, SupportMaster, enumera
 from hiddenoptions.matching import NOT_EDGE, Instance, deferred_acceptance
 
 ROOT = Path(__file__).resolve().parents[1]
-ZIP = Path("/Users/ishan/harvard/CS2880/todd_data/IJCAI_2027_AUDIT_PACKAGE.zip")
+# Location of the audit package: set AUDIT_PACKAGE_ZIP, or place the zip next to this repo.
+ZIP = Path(os.environ.get("AUDIT_PACKAGE_ZIP", Path(__file__).resolve().parents[2] / "IJCAI_2027_AUDIT_PACKAGE.zip"))
 INSTANCE_DIR = "hidden-blocking-pairs/artifact/experiments/core/instances/"
 EVIDENCE = "ijcai-2027-paper-audit/evidence.json"
 CUTS = ("prefix", "component", "assignment")
@@ -369,7 +371,7 @@ def main():
     t0 = time.perf_counter()
     results, evidence, ours = run(args.zip, brute=not args.no_brute)
     wall = time.perf_counter() - t0
-    out = ROOT / "results" / "todd_archive_check"
+    out = ROOT / "results" / "archive_check"
     out.mkdir(parents=True, exist_ok=True)
     (out / "report.md").write_text(report(results, evidence, ours, wall, not args.no_brute))
     n_bad = sum(bool(r["issues"]) for r in results)

@@ -1,13 +1,13 @@
-"""Our solver against the original audit package's 160 core instances (see experiments/check_todd_archive.py).
+"""Our solver against the original audit package's 160 core instances (see experiments/check_archive.py).
 
 All 160 instances: exact (prefix cuts) = archived enumeration optimum, certified; protected exact = evidence.json; the
 plain/protected support bounds and the counts 146/158/12/6. The component and assignment cut families and the
 enumeration of every cheapest plan run on a subset (every 10th instance) to keep the module near a minute; the full
-sweep is `python -m experiments.check_todd_archive`.
+sweep is `python -m experiments.check_archive`.
 """
 import pytest
 
-from experiments.check_todd_archive import COUNT_KEYS, ZIP, check_instance, counts, load_archive
+from experiments.check_archive import COUNT_KEYS, ZIP, check_instance, counts, load_archive
 
 pytestmark = pytest.mark.skipif(not ZIP.exists(), reason="archive zip not present")
 SUBSET_STEP = 10
