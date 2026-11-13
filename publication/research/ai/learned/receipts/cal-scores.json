@@ -1,0 +1,13 @@
+{
+  "weights": {
+    "pointwise-8101.pt": "63b364a8cc735f9102db596778c1bcfa81422d4264a48bc985a601b67499d80f",
+    "pointwise-8102.pt": "f7dbec5f4dcb37cc61324d386deef1cd25c048a76df04a8f854fdeed484cae31",
+    "pointwise-8103.pt": "38c9f2e0ca229f1205e153568c5f963bb118deb9a6ee928c8deb18c617fa5ddd",
+    "context-8101.pt": "6a56a9d7715faa926eab9fce5cd4ee06a8d410f31c1709dbfa55c5dfd92a8504",
+    "context-8102.pt": "d1b752dd8e29361c95bcc21c0824c6d5f2bd5944d428c2666ab70e72d9273792",
+    "context-8103.pt": "8dcbb4072ef798b34aeb72d7e3d192dcc3a33c19eae8580a10c76d37e92dd61e"
+  },
+  "data_sha": "2de7214111c037ebae3f49e4b67f9129d44a4ad860c18c6fbceed9a51cd9b912",
+  "prediction_sha": "c892b3eda349ec920c8fa8a537ebd0c607b82e76bb49632e0b2af5fe147801df",
+  "code_sha": "c6912bcc978fca97d27770e27384ae3500c281ef7817c46bb71c5197cb1f11a9"
+}

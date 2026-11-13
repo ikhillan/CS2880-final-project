@@ -1,0 +1,3 @@
+# Monte Carlo precision follow-up
+
+The first 128-draw comparator recovered fewer full-market partners than the contextual network. To determine whether finite simulation noise explains this, repeat on the same fixed 384 market panels. Use a fresh stream (seed 11271271), 2,048 independent full DA draws per panel and keep the counts at 512 and 2,048. All market features, decoders, outcome definitions and tie rules stay fixed. This precision check was specified after inspecting the 128-draw result; the additional draw counts are a nested fresh stream. It does not introduce additional independent housing market draws.

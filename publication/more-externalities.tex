@@ -1,0 +1,45 @@
+\section{Quota, information and interaction bounds}\label{app:menus}
+\paragraph{A fixed quota.}
+Order the $a=|A_h|$ attainable listings $j_1,\ldots,j_a$ by $h$'s preference. For $1\le k\le d$, a quota-$k$ list can deliver $j_r$ precisely when $r\le d-k+1$. Include $j_r$, exclude the $r-1$ better attainable listings, and fill the remaining $k-1$ slots from the other $d-r$ listings. Such a list can leave $h$ unmatched exactly when $k\le d-a$. A quota-respecting list matches $h$ without any loss to group $G$ iff at least one attainable $j_r$ satisfying the rank bound has $\ell(j_r)\notin G$. Choosing the highest-ranked such option gives $h$ their best assignment subject to this protection constraint. Under uniform sampling without replacement,
+\[
+  \Pr\{w(L)=j_r\}=\frac{\binom{d-r}{k-1}}{\binom{d}{k}},
+  \qquad
+  \Pr\{w(L)=\bot\}=\frac{\binom{d-a}{k}}{\binom{d}{k}},
+\]
+where an impossible binomial coefficient is zero. Weight the first probabilities by $\mathbf1\{\ell(j_r)\in G\}$ to obtain the exact group displacement probability. If $k=0$ or $d=0$, $h$ stays unmatched and no incumbent loses a match. At most $d+1$ DA runs identify every attainable listing and its label by comparing singleton entrants to the no-entry market. Each singleton can also be inserted by resuming the same completed no-entry DA state.
+
+\paragraph{Sharp bounds.}
+Incumbents $a,b$ have sole options $x,y$ respectively. Outsider $h$ is acceptable at $x,y,z$ and has top priority at each. With quota one, listing $z$ displaces nobody, $x$ displaces $a$ and $y$ displaces $b$. Changing $h$'s list from $x$ to $y$ costs one incumbent a match and gives another a match. Disjoint copies yield $m$ gains and $m$ losses from $m$ outsider list changes. These bounds are sharp on each margin. Change the $m$ lists sequentially and apply Corollary~\ref{cor:displacement} with everyone except the current editor fixed. Any pattern of protected versus unprotected labels on a focal applicant's ranked menu can be realized with a private incumbent at each listing and the focal applicant ranked first. The group effect has no universal sign.
+
+Even with a common priority, the cardinality $|F(V)|$ can exhibit complementary and substitutable seats. Applicant $a$ ranks $y,x,z$, and $b$ accepts only $x$. All listings prioritize $a$ over $b$ whenever both are acceptable. Adding $y$ to $\{z\}$ adds no match, while adding $y$ to $\{x,z\}$ frees $x$ for $b$ and adds one. Adding $x$ to the empty market adds one match, while adding it to $\{z\}$ adds none. Thus $|F|$ is generally neither submodular nor supermodular.
+
+
+\subsection{A short description of the externality}
+For a platform wishing to answer many counterfactual reports, how much information about the rest of the market needs to be retained? The output determines the answer. Here the decoder must report which applicants are placed, allowing their partners to vary.
+
+\begin{theorem}[Information needed to describe match status]\label{thm:status-bits}
+Consider $n$ publicly labeled applicants, one of them focal, and $n$ publicly labeled unit-capacity listings. Other applicants' possibly incomplete preferences and the listing priorities can be preprocessed into a binary description. A decoder with only this description and the focal applicant's ordered report must return the matched/unmatched vector of all incumbents for every focal report. The optimal worst-case fixed-length description requires $\Theta(n\log n)$ bits. For every fixed nonempty group of incumbents, the optimal worst-case description of its matched count requires $\Theta(n)$ bits. The lower bounds hold under public common priorities fixed across the hard instances.
+\end{theorem}
+\begin{proof}
+For the vector, encode the no-entry matched set in $n-1$ bits. At each listing encode one symbol: unattainable, attainable with no loss, or attainable displacing one named incumbent. There are at most $n+1$ symbols per listing. The decoder selects the best reported attainable listing and deletes its label, if any, from the no-entry set. Thus $n-1+n\lceil\log_2(n+1)\rceil$ bits suffice. For the group count store the baseline count and three symbols per listing: unattainable, attainable without a group loss, or attainable displacing a group member. This requires $O(n)$ bits.
+
+For the vector lower bound give the focal applicant highest priority at every listing. Each of the $n-1$ other applicants accepts just one listing among the first $n-1$, in accordance with an arbitrary bijection between those applicants and those listings. A singleton focal report for listing $j$ makes exactly the incumbent paired to $j$ unmatched. The vector-valued response function recovers the entire bijection. The $(n-1)!$ distinct functions require at least $\log_2((n-1)!)=\Omega(n\log n)$ bits.
+
+For the count, select $q$ in the specified group $G$. Give $q$ a single acceptable site $t$, and give every other incumbent $i$ a distinct private site $x_i$. Under a common priority, $h$ comes first and every nonmember of $G$ outranks $q$. For each of the $n-2$ incumbents $i\ne q$, choose an independent bit. A member of $G$ lists $x_i$ if its bit is one and otherwise submits an empty list. A nonmember ranks $x_i$ first and includes $t$ second exactly when its bit is one. Without the focal applicant, $q$ gets $t$. A singleton focal report for $x_i$ lowers the group count by exactly the bit at $i$. If $i$ is a member, it loses its own match. If $i$ is a nonmember, it can displace $q$ exactly when it listed $t$. The comparisons to the empty focal report recover all $n-2$ bits, giving $2^{n-2}$ different count functions. Unused sites complete the market to size $n$.
+\end{proof}
+
+This uses the report-to-output model of \citet{gtcomplexity}. They show that the complete DA partner-allocation function requires $\Omega(n^2)$ bits in the worst case (their Corollary 3.10). Theorem~\ref{thm:status-bits} concerns a coarser output with a sharp smaller bound. The bit counts describe the size of an offline representation available after the background market has been processed.
+
+
+\begin{theorem}[Sharp interaction bound for one-slot recommendations]\label{thm:interaction}
+Suppose each applicant sees at most one listing before and after the switch, and $h=|H|\ge2$. For $J=f(H)-f(\varnothing)-\sum_{i\in H}\delta_i$,
+\[
+                      -h \ \leq\ J\ \leq\ h-1+\lfloor h/2\rfloor .
+\]
+Both bounds are attained under a common strict priority.
+\end{theorem}
+\begin{proof}
+At each listing keep only its highest-priority stationary applicant. It can contribute to $f$ only if this applicant is in $G$. An editor targeting that listing who outranks the stationary applicant is a threat. Discard listings with an unchanged threat. At any remaining listing write $d$ for the number of departing threats and $a$ for arriving threats. Under independent rollout its contribution to $\Phi(p)$ is $p^d(1-p)^a$: all departing threats must leave and no arriving threat can arrive. Subtracting its initial value and derivative from its final value gives $a-1$ if $d=0$ and $a\ge1$, $+1$ if $d\ge2$ and $a=0$, $-1$ if $d=1$ and $a\ge1$, and zero otherwise. There are at most $h$ additions and $h$ departures. The first positive contributions sum to at most $h-1$, the second to at most $\lfloor h/2\rfloor$, and the negative contributions total at least $-h$.
+
+For the upper bound, arrange $\lfloor h/2\rfloor$ pairs of editors at separate origins (an extra singleton origin if $h$ is odd), all moving to one destination. Station a member of $G$ at every listing below all editors. For the lower bound, put one editor at each of $h$ listings and rotate all editors by one position. Switching one frees its origin, while joint rotation frees none. The universal bound concerns quota one; Proposition~\ref{prop:rollout}'s example survives padding at larger quotas.
+\end{proof}

@@ -109,5 +109,5 @@
     "cap": 50,
     "seconds": 30
   },
-  "llm_results": "results/llm/stage2_main/recs.jsonl"
+  "llm_results": "results/llm/stage3_protection/recs.jsonl"
 }

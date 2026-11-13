@@ -1,0 +1,24 @@
+# Matching capacity at minimum loss of predicted coverage
+
+The proof in frontier.tex characterizes the optimal score–capacity tradeoff with many-seat programs and gives the boundary for worst-case stable placement. It also distinguishes item-exposure objectives. responsive.tex extends the previous one-seat omission bound to responsive priorities, with seat-count overlap replacing set intersection. The flow theorem uses standard integrality and convexity of minimum-cost network flow. Attributing minimum maximal matching hardness to Yannakakis and Gavril is essential. Neither these techniques nor a priority-agnostic stable guarantee are empirical results about tenants. For actual reserve and sibling rules a scalar quota need not describe a school's choice function.
+
+The standalone verifier uses no simulation panel or solver. For 3 applicants and 3 programs it exhausts 512 eligibility masks, 512 binary score assignments, all three positive display quotas (or every feasible edge when fewer), and the eight program-capacity vectors with entries one or two. The best display from explicit display enumeration must agree with the best replacement cost obtained by separately enumerating every feasible assignment at each target. It checks convexity of the value curve, including ties and empty rows. On every 2-by-3 and 3-by-2 case with program capacities one or two it separately varies both sides' complete strict rankings and visibility masks, compares the minimum possible DA size with the size of a minimum maximal assignment, and tests both directions of the full-partner omission bound for every nested pair of displays. On the three-applicant, two-program domain it also holds every nonempty proper incumbent group fixed while varying outsider menus and tests the responsive threat and zero-threat rank guarantees under both capacities. These enumerations check small cases; the proofs establish the general results.
+
+Compile and run the independent verifier. This must reproduce verification.json exactly.
+
+~~~sh
+c++ -std=c++17 -O3 verify.cpp -o /tmp/verify-shortlist-frontier
+/tmp/verify-shortlist-frontier
+~~~
+
+The learned rental policies are evaluated on the published NYC test panels. Both summer and winter were reused following the previous capacity accounting; the saved protocol fixes the five target fractions and endpoints before their DA outcomes were computed. Each market contains 64 applicants and 64 listings. The fixed trained model supplies log probabilities in the original tensors; we exponentiate them to compute total predicted inclusion mass. Thresholds are per row, not per program. Finite differences from optimal cost use floating-point assignment and all score-loss equalities and menu quotas are audited when run. The comparison with the older anchor uses that anchor's original tie-breaking and score objective, which maximize the sum of matched log scores conditional on cardinality. It is not the same optimization as maximizing probability retained in all shown edges.
+
+Run from this directory on a CPU with Python, NumPy, pandas and SciPy. The original archive paths are research/ai/panels and research/ai/learned.
+
+~~~sh
+OPENBLAS_NUM_THREADS=1 python -B rental.py --data ../../ai/panels --learned ../../ai/learned --out replay-rental
+~~~
+
+Set --data and --learned explicitly if the parent archive uses a different layout. The per-market CSV gives counts of placement, true simulated full-partner inclusion, predicted mass, previously unmatched entrants, previous recipients displaced, and lower-group effects. Seven menus per market × 2,304 markets = 16,128 solves. The stable matching routine checks feasibility and absence of a blocking pair. Reported point estimates use borough–month ratios, renormalized recent-mover weights and equal month weights as in the preceding paper. Conditional paired percentile intervals use 5,000 block resamples per season. Predicted inclusion mass uses all applicants including unmatched and zero-degree applicants. Measured partner recovery uses only applicants matched by full-list DA. Lower-group status changes are relative to contextual all-renter top-five menus. The zero-gap and old-anchor counts agree with the archived placement counts market by market. Both tests of generalization and the simulated housing preferences are inherited from the earlier experiment.
+
+Primary antecedents include Antikacioglu and Ravi's relevance/diversity network-flow optimization (KDD 2017, DOI 10.1145/3097983.3098173), Yannakakis and Gavril's minimum maximal matching hardness (SIAM J. Appl. Math. 1980, DOI 10.1137/0138030), and the integral-flow results in Ahuja, Magnanti and Orlin (1993). The new objective asks how many simultaneous feasible assignments the *display* can support and uses each row's opportunity cost for an anchor.

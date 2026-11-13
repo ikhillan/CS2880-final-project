@@ -19,6 +19,7 @@ uniform fallback. The deployed policy is the model WITH this fallback; its rates
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import zlib
 from pathlib import Path
@@ -79,11 +80,20 @@ def expensive_first_exposure(market, k=None, q=None) -> np.ndarray:
 rent_max_exposure = expensive_first_exposure  # older name
 
 
+def candidate_digest(market, renter: int) -> str:
+    """Bind cached local indices to the ordered feasible listing IDs in this market."""
+    listings = market.listings["listing_uid"].to_numpy()
+    identity = [(int(s), str(listings[s])) for s in np.flatnonzero(market.inst.E[renter])]
+    return hashlib.sha256(json.dumps(identity, separators=(",", ":")).encode()).hexdigest()
+
+
 class LlmRecommendations:
     """Saved recommender output: {market_id: {exposure: {(renter_index, rep): row}}}. Rows come from hiddenoptions.llm."""
 
-    def __init__(self, path: str | Path):
+    def __init__(self, path: str | Path | None = None):
         self.table: dict = {}
+        if path is None:
+            return
         for line in Path(path).read_text().splitlines():
             r = json.loads(line)
             self.table.setdefault(r["market_id"], {}).setdefault(r["exposure"], {})[(r["renter"], r.get("rep", 0))] = r
@@ -91,11 +101,18 @@ class LlmRecommendations:
     def exposure(self, market, name: str, rep: int = 0, k: int | None = 5, q: float | None = None):
         """E0 from saved replies with the fallback rule, or None if this market has no saved replies for `name`."""
         recs = self.table.get(market.spec.market_id, {}).get(name)
-        if recs is None:
-            return None
         E = market.inst.E
         e0 = np.zeros_like(E)
-        counts = show_count(E.sum(1), k, q)
+        degrees = E.sum(1)
+        counts = show_count(degrees, k, q)
+        requires_call = np.flatnonzero(counts < degrees)
+        if len(requires_call) and recs is None:
+            return None
+        if recs and any("batch_request_id" in row for row in recs.values()):
+            # A --limit test may have called only part of this market. A never-submitted
+            # prompt is different from a recorded API failure that triggers the fallback.
+            if any((int(b), rep) not in recs for b in requires_call):
+                return None
         status = np.full(E.shape[0], "no_options", dtype=object)
         stats = {"renters_with_options": int((E.sum(1) > 0).sum()), "missing": 0, "refused": 0, "unparseable": 0,
                  "invalid_ids": 0, "dropped_outside_E": 0, "complete_valid": 0, "partial_fill": 0, "full_fallback": 0, "whole_set": 0}
@@ -111,6 +128,10 @@ class LlmRecommendations:
             if r is None:
                 stats["missing"] += 1
             else:
+                if "count" in r and r["count"] != c:
+                    raise ValueError(f"Cached quota differs for {name}, market {market.spec.market_id}, renter {b}")
+                if "candidates_sha256" in r and r["candidates_sha256"] != candidate_digest(market, b):
+                    raise ValueError(f"Cached candidate identities differ for {name}, market {market.spec.market_id}, renter {b}")
                 stats["refused"] += int(r.get("status") == "refused")
                 stats["unparseable"] += int(r.get("status") == "unparseable")
                 stats["invalid_ids"] += int(r.get("invalid_ids", 0))
@@ -142,7 +163,7 @@ def build_exposure(market, cfg: dict, llm: LlmRecommendations | None = None):
     if policy == "full":
         return market.inst.E.copy(), {}
     if policy == "llm":
-        return None if llm is None else llm.exposure(market, cfg["name"], cfg.get("rep", 0), k, q)
+        return (llm or LlmRecommendations()).exposure(market, cfg["name"], cfg.get("rep", 0), k, q)
     if policy not in POLICIES:
         raise ValueError(f"unknown exposure policy {cfg['policy']}")
     return POLICIES[policy](market, k, q), {}

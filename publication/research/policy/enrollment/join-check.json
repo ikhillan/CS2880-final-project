@@ -1,0 +1,45 @@
+{
+  "registered_rows": 146873,
+  "registered_distinct": 146873,
+  "outside_regular_cohort": 10122,
+  "regular_applicants": 189399,
+  "matched_join": 136751,
+  "no_registration_in_release": 52648,
+  "eligible_destinations": 131480,
+  "unknown_program_among_joined": 0,
+  "cohort_correctness_check": 116638,
+  "informed_vs_blind": {
+    "all_registrants": {
+      "gained": 11002,
+      "lost": 232
+    },
+    "on_scored_list": {
+      "gained": 11002,
+      "lost": 232
+    },
+    "off_scored_list": {
+      "gained": 0,
+      "lost": 0
+    },
+    "initial_offer_same_program": {
+      "gained": 8580,
+      "lost": 69
+    },
+    "initial_offer_other_enrollment": {
+      "gained": 1446,
+      "lost": 141
+    },
+    "no_initial_regular_offer": {
+      "gained": 976,
+      "lost": 22
+    },
+    "regular_route": {
+      "gained": 9024,
+      "lost": 76
+    },
+    "other_route": {
+      "gained": 1978,
+      "lost": 156
+    }
+  }
+}

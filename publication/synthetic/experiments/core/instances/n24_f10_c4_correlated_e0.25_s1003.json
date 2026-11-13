@@ -1,0 +1,1143 @@
+{
+  "market": {
+    "buyer_prefs": [
+      [
+        2,
+        4,
+        1,
+        3,
+        5,
+        0
+      ],
+      [
+        4,
+        2,
+        0,
+        5,
+        1,
+        3
+      ],
+      [
+        5,
+        4,
+        1,
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        4,
+        0,
+        3,
+        1,
+        5
+      ],
+      [
+        5,
+        1,
+        3,
+        0,
+        4,
+        2
+      ],
+      [
+        3,
+        4,
+        2,
+        5,
+        1,
+        0
+      ],
+      [
+        7,
+        6,
+        9,
+        10,
+        11,
+        8
+      ],
+      [
+        11,
+        7,
+        6,
+        10,
+        8,
+        9
+      ],
+      [
+        7,
+        11,
+        10,
+        6,
+        9,
+        8
+      ],
+      [
+        8,
+        7,
+        11,
+        6,
+        10,
+        9
+      ],
+      [
+        7,
+        6,
+        10,
+        11,
+        9,
+        8
+      ],
+      [
+        6,
+        10,
+        11,
+        7,
+        9,
+        8
+      ],
+      [
+        17,
+        15,
+        13,
+        12,
+        16,
+        14
+      ],
+      [
+        13,
+        16,
+        14,
+        17,
+        12,
+        15
+      ],
+      [
+        16,
+        13,
+        15,
+        14,
+        17,
+        12
+      ],
+      [
+        14,
+        13,
+        16,
+        17,
+        12,
+        15
+      ],
+      [
+        17,
+        13,
+        12,
+        16,
+        14,
+        15
+      ],
+      [
+        16,
+        13,
+        14,
+        17,
+        12,
+        15
+      ],
+      [
+        23,
+        19,
+        21,
+        20,
+        22,
+        18
+      ],
+      [
+        19,
+        21,
+        22,
+        18,
+        20,
+        23
+      ],
+      [
+        20,
+        21,
+        19,
+        23,
+        18,
+        22
+      ],
+      [
+        20,
+        19,
+        22,
+        21,
+        18,
+        23
+      ],
+      [
+        20,
+        21,
+        18,
+        19,
+        22,
+        23
+      ],
+      [
+        23,
+        20,
+        21,
+        19,
+        22,
+        18
+      ]
+    ],
+    "seller_prefs": [
+      [
+        0,
+        1,
+        4,
+        3,
+        5,
+        2
+      ],
+      [
+        0,
+        1,
+        3,
+        2,
+        4,
+        5
+      ],
+      [
+        0,
+        1,
+        4,
+        3,
+        5,
+        2
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        0,
+        3,
+        1,
+        4,
+        5,
+        2
+      ],
+      [
+        0,
+        3,
+        4,
+        5,
+        1,
+        2
+      ],
+      [
+        9,
+        11,
+        8,
+        6,
+        10,
+        7
+      ],
+      [
+        11,
+        10,
+        8,
+        6,
+        9,
+        7
+      ],
+      [
+        9,
+        11,
+        6,
+        7,
+        8,
+        10
+      ],
+      [
+        11,
+        9,
+        6,
+        7,
+        10,
+        8
+      ],
+      [
+        9,
+        11,
+        6,
+        7,
+        8,
+        10
+      ],
+      [
+        7,
+        9,
+        11,
+        6,
+        8,
+        10
+      ],
+      [
+        14,
+        12,
+        17,
+        13,
+        15,
+        16
+      ],
+      [
+        12,
+        14,
+        17,
+        16,
+        15,
+        13
+      ],
+      [
+        14,
+        12,
+        16,
+        13,
+        15,
+        17
+      ],
+      [
+        14,
+        16,
+        17,
+        12,
+        15,
+        13
+      ],
+      [
+        12,
+        14,
+        17,
+        15,
+        13,
+        16
+      ],
+      [
+        12,
+        14,
+        17,
+        16,
+        15,
+        13
+      ],
+      [
+        18,
+        20,
+        19,
+        22,
+        23,
+        21
+      ],
+      [
+        19,
+        18,
+        20,
+        21,
+        23,
+        22
+      ],
+      [
+        18,
+        20,
+        19,
+        21,
+        22,
+        23
+      ],
+      [
+        19,
+        18,
+        20,
+        22,
+        23,
+        21
+      ],
+      [
+        19,
+        20,
+        18,
+        23,
+        22,
+        21
+      ],
+      [
+        18,
+        20,
+        19,
+        21,
+        23,
+        22
+      ]
+    ],
+    "buyer_firms": [
+      3,
+      1,
+      3,
+      1,
+      0,
+      3,
+      2,
+      0,
+      1,
+      2,
+      4,
+      2,
+      3,
+      1,
+      1,
+      2,
+      0,
+      0,
+      4,
+      3,
+      4,
+      2,
+      4,
+      0
+    ],
+    "seller_firms": [
+      6,
+      6,
+      7,
+      7,
+      6,
+      6,
+      7,
+      8,
+      9,
+      5,
+      5,
+      6,
+      7,
+      5,
+      8,
+      5,
+      5,
+      9,
+      9,
+      8,
+      9,
+      7,
+      8,
+      8
+    ],
+    "costs": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "initial_edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        11
+      ],
+      [
+        14,
+        13
+      ],
+      [
+        14,
+        17
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        16,
+        12
+      ],
+      [
+        16,
+        14
+      ],
+      [
+        16,
+        15
+      ],
+      [
+        16,
+        16
+      ],
+      [
+        17,
+        14
+      ],
+      [
+        17,
+        15
+      ],
+      [
+        17,
+        16
+      ],
+      [
+        19,
+        22
+      ],
+      [
+        20,
+        18
+      ],
+      [
+        20,
+        23
+      ],
+      [
+        21,
+        18
+      ],
+      [
+        21,
+        20
+      ],
+      [
+        22,
+        19
+      ],
+      [
+        22,
+        22
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        23,
+        20
+      ],
+      [
+        23,
+        21
+      ],
+      [
+        23,
+        22
+      ]
+    ],
+    "name": "n24_f10_c4_correlated_e0.25_s1003",
+    "metadata": {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "target_exposure": 0.25,
+      "seed": 1003,
+      "mixed": false,
+      "weighted": false,
+      "low_access": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "partnership_log_odds": 1.3862943611198906,
+      "access_log_odds": -0.6931471805599453,
+      "logistic_intercept": -1.3671549676503,
+      "realized_exposure": 0.2916666666666667
+    }
+  },
+  "results": [
+    {
+      "name": "n24_f10_c4_correlated_e0.25_s1003",
+      "variant": "component",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.005760083004133776,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.004395416006445885,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 642,
+          "variables": 298,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "component",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c4_correlated_e0.25_s1003",
+      "variant": "prefix",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.005930499988608062,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.004562042013276368,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 642,
+          "variables": 298,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "prefix",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "mask": 992,
+      "cost": 5.0,
+      "evaluations": 15,
+      "optimal": false,
+      "status": "feasible",
+      "elapsed": 0.0006954169948585331,
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "reverse_delete",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "mask": 992,
+      "cost": 5.0,
+      "elapsed": 0.0019247920135967433,
+      "evaluations": 41,
+      "optimal": false,
+      "status": "feasible",
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "greedy",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c4_correlated_e0.25_s1003",
+      "status": "optimal",
+      "optimal": true,
+      "mask": 31,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "elapsed": 0.007089958002325147,
+      "prefix_edges": 40,
+      "cover_constraints": 20,
+      "matching": [
+        2,
+        0,
+        1,
+        4,
+        5,
+        3,
+        9,
+        11,
+        10,
+        8,
+        7,
+        6,
+        17,
+        12,
+        16,
+        15,
+        14,
+        13,
+        23,
+        19,
+        20,
+        18,
+        21,
+        22
+      ],
+      "bound_scope": "prefix_cover_problem",
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "prefix_cover",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "mask": 1023,
+      "cost": 10.0,
+      "optimal": false,
+      "status": "feasible",
+      "elapsed": 2.375018084421754e-06,
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "full",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 5.0
+    },
+    {
+      "status": "optimal",
+      "optimal": true,
+      "elapsed": 0.019575500016799197,
+      "evaluations": 387,
+      "mask": 31,
+      "cost": 5.0,
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "enumeration",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c4_correlated_e0.25_s1003",
+      "variant": "assignment",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.005896499991649762,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.0045306250103749335,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 642,
+          "variables": 298,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c4_correlated_e0.25_s1003",
+      "method": "assignment",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 4,
+        "preference": "correlated",
+        "exposure": 0.25,
+        "seed": 1003
+      },
+      "metrics": {
+        "initial_blockers": 49,
+        "final_blockers": 0,
+        "initial_cardinality": 17,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.7777777777777778,
+        "seller_rank_score": 0.6944444444444445,
+        "buyer_score_change": 0.2638888888888889,
+        "seller_score_change": 0.2847222222222222,
+        "buyers_harmed": 6,
+        "sellers_harmed": 5,
+        "buyers_helped": 16,
+        "sellers_helped": 17,
+        "initial_buyer_score": 0.513888888888889,
+        "initial_seller_score": 0.40972222222222215,
+        "lower_access_buyer_change": 0.5277777777777777,
+        "lower_access_buyer_harmed_fraction": 0.08333333333333333,
+        "higher_access_buyer_change": 0.0,
+        "higher_access_buyer_harmed_fraction": 0.4166666666666667
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    }
+  ],
+  "method_order": [
+    "component",
+    "prefix",
+    "reverse_delete",
+    "greedy",
+    "prefix_cover",
+    "full",
+    "enumeration",
+    "assignment"
+  ],
+  "optimal_outcome_sensitivity": {
+    "count": 2,
+    "masks": [
+      31,
+      992
+    ],
+    "elapsed": 0.012812208995455876,
+    "ranges": {
+      "buyers_harmed": [
+        6,
+        6
+      ],
+      "sellers_harmed": [
+        5,
+        5
+      ],
+      "buyer_score_change": [
+        0.2638888888888889,
+        0.2638888888888889
+      ],
+      "seller_score_change": [
+        0.2847222222222222,
+        0.2847222222222222
+      ],
+      "lower_access_buyer_change": [
+        0.5277777777777777,
+        0.5277777777777777
+      ],
+      "higher_access_buyer_change": [
+        0.0,
+        0.0
+      ],
+      "lower_access_buyer_harmed_fraction": [
+        0.08333333333333333,
+        0.08333333333333333
+      ],
+      "higher_access_buyer_harmed_fraction": [
+        0.4166666666666667,
+        0.4166666666666667
+      ],
+      "final_cardinality": [
+        24,
+        24
+      ]
+    }
+  }
+}

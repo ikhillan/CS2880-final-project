@@ -72,7 +72,7 @@ def cpi_value(month: str) -> tuple[float, str]:
 
     observed        published value
     interpolated    missing between two published months (October 2025, lost to the 2025 funding lapse): linear interpolation
-    carried_forward after the last published month (October 2026 at the time of writing): the last published value
+    carried_forward after the last observed month: the last published value
     """
     s = _cpi_monthly()
     if month in s.index and np.isfinite(s[month]):

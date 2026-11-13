@@ -1,0 +1,10 @@
+{
+  "original_features_sha": "58c3cd862f9dc59270ac5b799c826a065ea8a2e8209ac35d3cb290e57a03555f",
+  "enrollment_training_sha": "d5958bd31d8a20214ad666dbd2f8b6293786512d65549c0f2701e2e2cdf42e22",
+  "raw_unique_registrants": 140687,
+  "ambiguous_registrants": 0,
+  "train_n": 189982,
+  "positive_enrolled_target": 128266,
+  "outside_target": 61716,
+  "changed_labels": 45450
+}

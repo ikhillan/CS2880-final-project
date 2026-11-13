@@ -1,0 +1,13 @@
+{
+  "witnesses": 6,
+  "market_assignments": 1440,
+  "which_solver": "HiGHS dual simplex; stable matching LP with prefix variables",
+  "stable_thresholds": {
+    "stable_min_at": 55,
+    "stable_min_below": 54,
+    "stable_max_at": 55,
+    "stable_max_below": 54
+  },
+  "nonzero_objective_market_LPs": 320,
+  "zero_objective_markets_at_thresholds": 640
+}

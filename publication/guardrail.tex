@@ -1,0 +1,147 @@
+\section{Protecting tentative offers when recommendations change}\label{app:protect-detail}
+A housing service may already know who holds a tentative offer. Can it still use
+a learned score to choose other applicants' lists while protecting those offers?
+Here protection means keeping a placement; the unit or its rent can change.
+Let $M_0$ be stable on the original display. Keep the visible options and
+relative preferences of every member of $I$ fixed, and write $H$ for everyone
+else. Listing priorities over incumbents are fixed. Let $Q$ be the units
+assigned to $I$ in $M_0$, and write $i(j)=M_0^{-1}(j)$ for their holders.
+For proposed lists of $H$, draw an edge $hj$ when $j\in Q$, $j$ is displayed
+to $h$, and $j$ could prioritize $h$ over $i(j)$ under the information available
+to the platform. If priorities are unknown, keep every displayed edge into $Q$.
+Write $C$ for this bipartite graph and $\nu(C)$ for its maximum matching size.
+
+\begin{theorem}[A prospective bound on displaced renters]\label{thm:threat}
+In every stable outcome on the proposed display, at most $\nu(C)$ previously
+matched members of $I$ become unmatched. The bound is attained for every
+nonnegative integer value, even at quota one and with a common priority. More
+strongly, every bipartite threat graph admits an instance attaining its matching number.
+\end{theorem}
+\begin{proof}
+Write $M_1$ for the new matching. Start at a previously matched incumbent $i$
+who is now unmatched. They prefer their old unit $j=M_0(i)$ to their new outcome.
+By stability at $M_1$, $j$ has a new holder ranked above $i$. If the holder is
+an outsider $h$, we reach a selected edge of $C$. Otherwise the holder $i'$
+is an incumbent. The pair $i'j$ was visible before the switch, with $j$ ranking
+$i'$ above $i$. Stability at $M_0$ forces $i'$ to have had a partner strictly
+preferred to $j$. Continue at $i'$. These walks follow alternating edges in
+the symmetric difference of two matchings, whose components are paths and
+cycles. The start vertex has degree one, so its component is a path. The walk
+can stop only at an outsider. Distinct starting losers give distinct terminal
+listings and distinct terminal outsiders: each path is traced from its unmatched
+incumbent end to its first outsider, and every noninitial step has a unique
+predecessor. Thus the terminal edges form a matching in $C$. For equality take
+disjoint copies of one incumbent whose only unit is $j$ and one higher-priority
+outsider who switches from a private fallback to $j$.
+
+For sharpness conditional on the graph, give each $j\in Q$ a dedicated incumbent
+who accepts only $j$. Choose a maximum matching of $C$. In a common priority put
+its matched outsiders first, then all other outsiders, then all incumbents.
+Initially every outsider sees only private fallback listings; every incumbent
+holds their sole unit. On the new display each outsider sees all its neighbors in
+$C$. Matched outsiders rank their respective assigned neighbors first. They take
+these distinct listings in priority order. Any unmatched outsider has only
+matched neighbors, by maximality, and displaces no additional incumbent.
+Private fillers ranked below all neighbors ensure both displays give each
+outsider exactly $k$ slots for any $k\ge\max\{1,\Delta_H(C)\}$.
+\end{proof}
+
+This is a gross-loss guarantee: it counts an original recipient who loses
+their placement even if someone else from the same group gains one. It needs
+the observed baseline offers, a stable baseline under the specified display
+rule, and unchanged incumbent lists, preferences and within-incumbent priorities.
+The priority-blind version treats all higher-priority completions as possible. Computing its graph also needs the feasible choices of each outsider;
+it uses neither post-change assignments nor outsiders' rankings. For a single
+deployment without baseline offers, the bound cannot be evaluated as stated.
+A display can have $\nu(C)>0$ and retain everyone, for example if a threatened
+incumbent has an uncontested second choice.
+
+\begin{corollary}[A retained offer as a rank floor]\label{cor:guard-rank}
+If $C$ has no edges and the new market uses applicant-proposing DA,
+every originally matched member of $I$ receives a unit they weakly
+prefer to their original assignment.
+\end{corollary}
+\begin{proof}
+Run DA with one proposal at a time. Suppose some incumbent is rejected or
+displaced by their own original unit, and take the first such rejection.
+Let $i$ be that incumbent and $j=M_0(i)$ the unit. Unit $j$ holds an
+applicant ranked above $i$. An outsider in that position would give a
+threat edge. An incumbent $i'$ in that position proposed to $j$. Because
+$i'j$ was visible originally and $j$ ranks $i'$ above $i$, original stability
+requires $i'$ to have held a unit strictly preferred to $j$. To have proposed
+to $j$, $i'$ must already have been rejected by that original unit, contrary
+to the choice of the first rejection. Every incumbent's original unit remains
+visible. An incumbent ending at a worse option would have received such a
+rejection.
+\end{proof}
+Applicant-proposing DA matters for the rank floor. For two incumbents with
+opposite top choices, let each unit rank its other applicant first. The
+applicant-optimal and unit-optimal matchings are both stable. Switching
+between them can make both incumbents worse off with no outsiders at all.
+The rank floor still permits a higher rent for a more-preferred unit.
+
+A budget of one already permits arbitrarily many rank losses with no one
+becoming unmatched. For $n$ incumbents, applicant $i$ ranks $s_i$ over
+$s_{i+1}$ for $1\le i\le n$. One outsider switches from their private
+fallback $z$ to $s_1$. The common priority puts the outsider first, then
+incumbents in increasing order. Initially all incumbents get their first
+choice; on rollout each gets their second. Only the outsider's edge to $s_1$
+is a threat. Giving the outsider the same private, last-ranked filler on both
+displays preserves a universal quota of two.
+
+With known priorities, the first-rejection argument also locates possible rank losses when $C$ has edges. Start at the holders of threatened units. From baseline holder $a$ draw an arrow to holder $b$ if $a$ can see $M_0(b)$ and outranks $b$ there. Every rejected holder is reachable from a start: a rejection by an outsider starts a path, and a rejection by another fixed applicant extends a path from that applicant's earlier rejection. Induction over the rejection times proves the claim. It explains why regions of the market can stay protected even if the overall budget is positive.
+
+\paragraph{Choosing a display with a loss budget.}
+Let $q_h=\min\{k,d_h\}$, and let $w_{hj}$ be any score estimated before the
+switch. On all feasible outsider edges use binary display indicators $x_{hj}$.
+On the full set $C_*$ of possible threats use binary cover indicators
+$a_h,b_j$ at their endpoints. Solve
+\[
+ \max \sum_{hj}w_{hj}x_{hj}
+ \quad\text{subject to}\quad
+ \sum_j x_{hj}=q_h,\qquad
+ x_{hj}\le a_h+b_j\ (hj\in C_*),\qquad
+ \sum_h a_h+\sum_{j\in Q}b_j\le B .
+\]
+By K\H{o}nig's bipartite matching theorem, a proposed display admits such
+a cover exactly when its certificate $\nu(C)$ is at most $B$. At zero budget
+each outsider receives their $q_h$ highest-scoring feasible options outside
+the threat edges; feasibility requires and suffices that every row has $q_h$
+such choices. If no certified slate exists, retaining the entire baseline
+display preserves quotas and placements even when the baseline graph itself
+has positive certificate. The following refinement can let other applicants switch.
+
+\paragraph{Preserving every quota when a row has too few safe options.}
+Start with $J=I$. Hold every $J$ row at its original ordered display and
+protect the baseline units of all matched members of $J$. For each $h\notin J$
+count its feasible nonthreat edges under this enlarged fixed set. If any
+applicant cannot fill their quota, add all such applicants to $J$, retaining
+their original displays. Repeat until each remaining applicant can fill their
+quota, then display their top-scoring nonthreat options. The procedure stops
+within $|H|$ nonempty rounds and preserves every quota. Theorem~\ref{thm:threat}
+at the final $J$ gives zero losses among the initially matched members of $I$. Corollary~\ref{cor:guard-rank} also protects their original ranks under applicant-proposing DA.
+For closure, fix in advance which listing priority comparisons are known; if more applicants are frozen, the information used for a given comparison stays fixed. The final $J$ is contained in any superset of $I$ that would admit complete
+quota-respecting lists and a zero-threat certificate for all its members.
+Indeed, given $J\subseteq J'$, a row deficient at $J$ must belong to any such
+$J'$: as long as this row remains outside, enlarging $J$ only removes safe
+edges. Induction proves the claim. The minimum freeze set is relative to this
+specific certificate; another stable display can sometimes protect all renters
+with fewer freezes. If every applicant is frozen, the original display returns.
+
+\paragraph{The cost of a positive loss budget.}
+Deciding whether a display can reach score $W$ subject to a certificate budget
+$B$ is NP-complete even at quota one, with binary scores, at most three feasible
+listings per outsider and a common strict priority. Reduce from Vertex Cover.
+Make a unit for each graph vertex, held by a dedicated incumbent whose only
+option is that unit. Introduce an outsider for each graph edge, with its two
+endpoint units scoring one and a private fallback scoring zero. Initially each
+outsider sees their fallback, and every incumbent holds their own unit. Give
+every outsider higher priority than every incumbent. Set $W$ equal to the
+number of edges. Every outsider must now nominate one endpoint. The selected
+threat graph has outsider-degree one, so its matching number equals the number
+of distinct nominated endpoints. These form a vertex cover. Conversely any
+vertex cover permits each outsider to nominate one of its endpoints. Both
+displays have one entry per applicant. Verifying the score, quotas and
+matching number takes polynomial time. Thus finding the best score under
+a variable loss budget can require combinatorial optimization, while checking
+the certificate for a given display is efficient.

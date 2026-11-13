@@ -1,0 +1,68 @@
+\documentclass[aspectratio=169,14pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,tabularx,tikz,graphicx}
+\usetikzlibrary{positioning,arrows.meta}
+\usefonttheme{professionalfonts}
+\definecolor{ink}{HTML}{24292E}
+\definecolor{blue}{HTML}{304E68}
+\definecolor{muted}{HTML}{61676B}
+\definecolor{rust}{HTML}{A94722}
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=blue}
+\setbeamercolor{frametitle}{fg=ink,bg=white}
+\setbeamercolor{alerted text}{fg=rust}
+\setbeamerfont{frametitle}{size=\Large,series=\mdseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=9mm,text margin right=9mm}
+\setlength{\parskip}{3pt}
+\newif\ifbackup
+\newcounter{mainframes}
+\setbeamertemplate{footline}{\hfill{\color{muted}\fontsize{8}{9}\selectfont
+\ifbackup Appendix \number\numexpr\insertframenumber-\value{mainframes}\relax
+\else\insertframenumber\fi}\hspace{9mm}\vspace{3mm}}
+\newcommand{\DA}{\operatorname{DA}_{B}}
+\newcommand{\BP}{\operatorname{BP}}
+\newcommand{\supp}{C_{\mathrm{support}}}
+\newcommand{\resp}{C_{\mathrm{DA}}}
+\newcommand{\FF}{\mathcal F}
+\newcommand{\sources}[1]{\vfill{\fontsize{8.5}{10.5}\selectfont\color{muted}#1\par}}
+\newcommand{\matchpic}[1]{%
+\begin{tikzpicture}[x=1.7cm,y=.64cm,
+every node/.style={circle,draw=ink,fill=white,minimum size=4.8mm,inner sep=0pt,font=\small}]
+\node (a) at (0,2) {$a$}; \node (b) at (0,1) {$b$}; \node (c) at (0,0) {$c$};
+\node (x) at (1,2) {$x$}; \node (y) at (1,1) {$y$}; \node (z) at (1,0) {$z$};
+\ifnum#1=2
+\draw[ink,line width=1pt] (a)--(x) (b)--(y) (c)--(z);
+\draw[rust,dashed,line width=1.3pt] (c)--(x);
+\else\draw[ink,line width=1pt] (a)--(y) (b)--(x) (c)--(z);\fi
+\end{tikzpicture}}
+\hypersetup{colorlinks=true,urlcolor=blue,
+pdftitle={Stable matching with hidden options},
+pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
+\title{Stable matching with hidden options}
+\pdfstringdefDisableCommands{\def\translate#1{#1}}
+\author{Ishan Khillan, Elaine Zhang, Todd Zhou}
+\date{October 29, 2026}
+\begin{document}
+\begin{frame}[plain,label=opening]
+\vspace{5mm}
+{\fontsize{26}{30}\selectfont Stable matching\\with hidden options\par}
+\vspace{4mm}
+{\large Auditing access in matching markets\par}
+\vspace{8mm}
+Ishan Khillan, Elaine Zhang, Todd Zhou\par
+{\small Harvard COMPSCI 2880 \quad October 29, 2026\par}
+\vfill
+
+\end{frame}
+\input{sections/model}
+\input{sections/theory}
+\input{sections/algorithm}
+\input{sections/experiments}
+\input{sections/discussion}
+\setcounter{mainframes}{\value{framenumber}}
+\backuptrue
+\appendix
+\input{sections/appendix}
+\end{document}

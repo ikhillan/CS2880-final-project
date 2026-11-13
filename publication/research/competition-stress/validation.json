@@ -1,0 +1,18 @@
+{
+  "primary": {
+    "slurm_job_id": "60220045",
+    "gpu": "NVIDIA H200",
+    "full_vectors_compared_to_team_implementation": 1296,
+    "checked_gpu_allocation_count": 129600,
+    "checked_against_separate_serial_cpp_all_17_counts_per_row": 43200,
+    "sha256_of_compressed_count_table": "8a5eb9bae3fb525acd11b81c5d6fe39d6ba0eaf8ad9271ac46508128c32db722"
+  },
+  "crossed": {
+    "slurm_job_id": "60220672",
+    "gpu": "NVIDIA H200",
+    "full_vectors_compared_to_team_implementation": 432,
+    "checked_gpu_allocation_count": 129600,
+    "checked_against_separate_serial_cpp_all_17_counts_per_row": 43200,
+    "sha256_of_compressed_count_table": "fecf6a64ee10f283bad401ecf8d4294103023d38c30210bea048422162f4b47c"
+  }
+}

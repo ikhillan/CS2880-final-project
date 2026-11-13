@@ -1,0 +1,14 @@
+{
+  "checked_policy_quota_combinations": 8,
+  "verified_counts_per_combination": 6,
+  "verified_training_receipts": 6,
+  "full_cohort": 189399,
+  "slurm_jobs": [
+    "60235477",
+    "60235478",
+    "60235479",
+    "60235517",
+    "60235518",
+    "60235437"
+  ]
+}

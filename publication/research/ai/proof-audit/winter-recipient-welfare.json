@@ -1,0 +1,470 @@
+{
+  "enriched:blind": {
+    "raw": {
+      "original": 7397.0,
+      "better": 1081.0,
+      "equal": 6316.0,
+      "worse": 0.0,
+      "changed": 1081.0,
+      "transfer": 1081.0,
+      "lost": 0.0,
+      "stayed": 7397.0,
+      "burden_change": -9.723432564735427,
+      "burden_increased": 413.0,
+      "burden_decreased": 603.0,
+      "common_stayed": 6302.0,
+      "common_burden_change": -9.41830682754518,
+      "common_burden_increased": 399.0,
+      "common_burden_decreased": 579.0
+    },
+    "standardized": {
+      "better": {
+        "value": 15.67508126101631,
+        "paired_95ci": [
+          14.615337422324966,
+          16.772162013071732
+        ],
+        "dropped_bootstraps": 0
+      },
+      "equal": {
+        "value": 84.32491873898368,
+        "paired_95ci": [
+          83.22783798692826,
+          85.38466257767503
+        ],
+        "dropped_bootstraps": 0
+      },
+      "worse": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 0
+      },
+      "changed": {
+        "value": 15.67508126101631,
+        "paired_95ci": [
+          14.615337422324966,
+          16.772162013071732
+        ],
+        "dropped_bootstraps": 0
+      },
+      "transfer": {
+        "value": 15.67508126101631,
+        "paired_95ci": [
+          14.615337422324966,
+          16.772162013071732
+        ],
+        "dropped_bootstraps": 0
+      },
+      "lost": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_change": {
+        "value": -0.13926804819329863,
+        "paired_95ci": [
+          -0.18029078183216948,
+          -0.096544630255418
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_increased": {
+        "value": 6.063955319761198,
+        "paired_95ci": [
+          5.48786801081623,
+          6.653974364741353
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_decreased": {
+        "value": 8.618521863934706,
+        "paired_95ci": [
+          7.8609503845738615,
+          9.362718651343428
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_change": {
+        "value": -0.1540441608010456,
+        "paired_95ci": [
+          -0.2003060645482839,
+          -0.10552318023050254
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_increased": {
+        "value": 6.731990820634318,
+        "paired_95ci": [
+          6.086503719256158,
+          7.410151167868398
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_decreased": {
+        "value": 9.534139886371545,
+        "paired_95ci": [
+          8.703189938826952,
+          10.345370418557048
+        ],
+        "dropped_bootstraps": 0
+      }
+    }
+  },
+  "enriched:direct": {
+    "raw": {
+      "original": 7397.0,
+      "better": 1337.0,
+      "equal": 4099.0,
+      "worse": 1961.0,
+      "changed": 3298.0,
+      "transfer": 2203.0,
+      "lost": 1095.0,
+      "stayed": 6302.0,
+      "burden_change": -15.383889353275302,
+      "burden_increased": 897.0,
+      "burden_decreased": 1173.0,
+      "common_stayed": 6302.0,
+      "common_burden_change": -15.383889353275302,
+      "common_burden_increased": 897.0,
+      "common_burden_decreased": 1173.0
+    },
+    "standardized": {
+      "better": {
+        "value": 19.079026747531408,
+        "paired_95ci": [
+          18.083766289172008,
+          20.042964961360372
+        ],
+        "dropped_bootstraps": 0
+      },
+      "equal": {
+        "value": 55.77983749154468,
+        "paired_95ci": [
+          54.73086828002238,
+          56.84725592068462
+        ],
+        "dropped_bootstraps": 0
+      },
+      "worse": {
+        "value": 25.14113576092391,
+        "paired_95ci": [
+          24.276940458217048,
+          25.949008118576785
+        ],
+        "dropped_bootstraps": 0
+      },
+      "changed": {
+        "value": 44.22016250845532,
+        "paired_95ci": [
+          43.15274407931539,
+          45.26913171997763
+        ],
+        "dropped_bootstraps": 0
+      },
+      "transfer": {
+        "value": 30.52398856912325,
+        "paired_95ci": [
+          29.32967434674404,
+          31.689430676704408
+        ],
+        "dropped_bootstraps": 0
+      },
+      "lost": {
+        "value": 13.696173939332065,
+        "paired_95ci": [
+          12.948368373588359,
+          14.459461482186825
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_change": {
+        "value": -0.2459019108816639,
+        "paired_95ci": [
+          -0.30660156448854997,
+          -0.18172996442758127
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_increased": {
+        "value": 14.22807355006268,
+        "paired_95ci": [
+          13.434797299362735,
+          15.047383444603152
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_decreased": {
+        "value": 18.802203042596535,
+        "paired_95ci": [
+          17.79298496392316,
+          19.773608862208782
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_change": {
+        "value": -0.2459019108816639,
+        "paired_95ci": [
+          -0.30660156448854997,
+          -0.18172996442758127
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_increased": {
+        "value": 14.22807355006268,
+        "paired_95ci": [
+          13.434797299362735,
+          15.047383444603152
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_decreased": {
+        "value": 18.802203042596535,
+        "paired_95ci": [
+          17.79298496392316,
+          19.773608862208782
+        ],
+        "dropped_bootstraps": 0
+      }
+    }
+  },
+  "uniform:blind": {
+    "raw": {
+      "original": 943.0,
+      "better": 58.0,
+      "equal": 885.0,
+      "worse": 0.0,
+      "changed": 58.0,
+      "transfer": 58.0,
+      "lost": 0.0,
+      "stayed": 943.0,
+      "burden_change": -0.39565460681915293,
+      "burden_increased": 26.0,
+      "burden_decreased": 29.0,
+      "common_stayed": 658.0,
+      "common_burden_change": -0.49777209758758556,
+      "common_burden_increased": 22.0,
+      "common_burden_decreased": 28.0
+    },
+    "standardized": {
+      "better": {
+        "value": 2.291376157443157,
+        "paired_95ci": [
+          1.1643335387681333,
+          4.316821503520682
+        ],
+        "dropped_bootstraps": 885
+      },
+      "equal": {
+        "value": 97.70862384255685,
+        "paired_95ci": [
+          95.68317849647931,
+          98.83566646123187
+        ],
+        "dropped_bootstraps": 885
+      },
+      "worse": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 885
+      },
+      "changed": {
+        "value": 2.291376157443157,
+        "paired_95ci": [
+          1.1643335387681333,
+          4.316821503520682
+        ],
+        "dropped_bootstraps": 885
+      },
+      "transfer": {
+        "value": 2.291376157443157,
+        "paired_95ci": [
+          1.1643335387681333,
+          4.316821503520682
+        ],
+        "dropped_bootstraps": 885
+      },
+      "lost": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 885
+      },
+      "burden_change": {
+        "value": 0.012368778080033494,
+        "paired_95ci": [
+          -0.029815078889633542,
+          0.05812423174251429
+        ],
+        "dropped_bootstraps": 885
+      },
+      "burden_increased": {
+        "value": 1.4678993991241727,
+        "paired_95ci": [
+          0.47443634711971333,
+          3.4348499305649347
+        ],
+        "dropped_bootstraps": 885
+      },
+      "burden_decreased": {
+        "value": 0.6647112691837274,
+        "paired_95ci": [
+          0.3897908944207695,
+          1.005804313564276
+        ],
+        "dropped_bootstraps": 885
+      },
+      "common_burden_change": {
+        "value": 0.03027470726016793,
+        "paired_95ci": [
+          -0.04904898047341398,
+          0.1140592399897341
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "common_burden_increased": {
+        "value": 2.7465278196758227,
+        "paired_95ci": [
+          0.577879951671072,
+          6.954750878917109
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "common_burden_decreased": {
+        "value": 0.9471925648045869,
+        "paired_95ci": [
+          0.5997373103449148,
+          1.5087179631147374
+        ],
+        "dropped_bootstraps": 3074
+      }
+    }
+  },
+  "uniform:direct": {
+    "raw": {
+      "original": 943.0,
+      "better": 74.0,
+      "equal": 439.0,
+      "worse": 430.0,
+      "changed": 504.0,
+      "transfer": 219.0,
+      "lost": 285.0,
+      "stayed": 658.0,
+      "burden_change": -0.09183940887451186,
+      "burden_increased": 108.0,
+      "burden_decreased": 102.0,
+      "common_stayed": 658.0,
+      "common_burden_change": -0.09183940887451186,
+      "common_burden_increased": 108.0,
+      "common_burden_decreased": 102.0
+    },
+    "standardized": {
+      "better": {
+        "value": 2.8927082923932934,
+        "paired_95ci": [
+          1.667605798759241,
+          4.962212929407393
+        ],
+        "dropped_bootstraps": 885
+      },
+      "equal": {
+        "value": 45.15932184856982,
+        "paired_95ci": [
+          32.70939133315676,
+          59.162450349680476
+        ],
+        "dropped_bootstraps": 885
+      },
+      "worse": {
+        "value": 51.94796985903689,
+        "paired_95ci": [
+          38.1858062324503,
+          64.45535217583854
+        ],
+        "dropped_bootstraps": 885
+      },
+      "changed": {
+        "value": 54.84067815143018,
+        "paired_95ci": [
+          40.83754965031953,
+          67.29060866684326
+        ],
+        "dropped_bootstraps": 885
+      },
+      "transfer": {
+        "value": 10.005453376664654,
+        "paired_95ci": [
+          5.757080674795564,
+          15.981806419462508
+        ],
+        "dropped_bootstraps": 885
+      },
+      "lost": {
+        "value": 44.83522477476552,
+        "paired_95ci": [
+          31.846106732546364,
+          56.81195584761328
+        ],
+        "dropped_bootstraps": 885
+      },
+      "burden_change": {
+        "value": -0.11136311148851541,
+        "paired_95ci": [
+          -0.6222713473809367,
+          0.25715516139530203
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "burden_increased": {
+        "value": 8.532320568424108,
+        "paired_95ci": [
+          3.3566457296377012,
+          16.316349772234958
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "burden_decreased": {
+        "value": 6.863115043273192,
+        "paired_95ci": [
+          3.5006152721591346,
+          12.061704554607394
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "common_burden_change": {
+        "value": -0.11136311148851541,
+        "paired_95ci": [
+          -0.6222713473809367,
+          0.25715516139530203
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "common_burden_increased": {
+        "value": 8.532320568424108,
+        "paired_95ci": [
+          3.3566457296377012,
+          16.316349772234958
+        ],
+        "dropped_bootstraps": 3074
+      },
+      "common_burden_decreased": {
+        "value": 6.863115043273192,
+        "paired_95ci": [
+          3.5006152721591346,
+          12.061704554607394
+        ],
+        "dropped_bootstraps": 3074
+      }
+    }
+  }
+}

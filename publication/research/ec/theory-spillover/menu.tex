@@ -1,0 +1,74 @@
+% Section fragment; uses amsthm theorem/corollary environments.
+\section{Who loses access when a competitor changes lists?}
+Fix unit capacities, strict preferences and individually acceptable visible edges. Incumbents' visible lists and listing priorities over incumbents stay fixed. Outsiders' lists can change. Let $I$ be the incumbents, $H$ the outsiders and $S$ the listings. For $V\subseteq S$, let $F(V)$ be the set of applicants matched by DA in the market of $I$ alone with stock $V$. Restrict lists and priorities to the remaining participants. An incumbent's partner can change even when their match status stays fixed.
+
+\begin{theorem}[Competitors' occupied listings]\label{thm:occupied-seats}
+Suppose the full market returns a matching stable on the visible graph. Write $T$ for the listings occupied by $H$. The set of matched incumbents is exactly $F(S\setminus T)$. If $T$ changes to $T'$, at most $|T'\setminus T|$ incumbents lose a match, and at most $|T\setminus T'|$ gain one. Both bounds hold for any subset of the incumbents.
+\end{theorem}
+\begin{proof}
+Delete all outsiders and their occupied listings. The retained assignments are stable in the residual market because a residual blocking pair would already have blocked the original matching. All stable outcomes of the residual market match the same applicants \cite{galesotomayor1985,roth1986}. Its DA thus matches precisely the retained applicants. The argument uses consistency of the stable correspondence \cite{sasaki1992}. Some remaining applicants can change partners on recomputation.
+
+Run listing-proposing DA on $V$ and retain every proposer's next-choice pointer. Delay a new listing's entry until this run finishes, then let it propose. Each previously held applicant can only trade up among offers and stays matched. The single free proposer continues until a listing exhausts its list or an unmatched applicant holds an offer. Thus adding one listing expands the matched applicant set by zero or one. Matched-set invariance transfers the result to applicant-proposing DA. For two stocks $V,V'$, both $F(V)$ and $F(V')$ contain $F(V\cap V')$. Adding the listings in $V\setminus V'$ one at a time bounds $|F(V)\setminus F(V')|$ by $|V\setminus V'|$. Interchanging $V,V'$ gives the gain bound. Substitute $V=S\setminus T$ and $V'=S\setminus T'$.
+\end{proof}
+
+Theorem~\ref{thm:occupied-seats} conditions on the listings outsiders obtain. Anticipating that set can still require solving the counterfactual market. For one outsider $h$, we can identify the affected incumbent before choosing the shortlist. For each listing $s$, let $\ell(s)$ be the sole member of $F(S)\setminus F(S\setminus\{s\})$ or a null label $0$ when this set is empty. Set $\ell(\bot)=0$. The menu $A_h$ consists of listings that give $h$ a match when $h$ lists them alone and the other lists stay fixed.
+
+\begin{corollary}[A menu with displacement labels]\label{cor:displacement}
+For a displayed subset $L$ of $h$'s $d$ feasible options, let $w(L)$ be the true favorite in $L\cap A_h$, or $\bot$ if this intersection is empty. Applicant-proposing DA matches $h$ to $w(L)$. Relative to the market without $h$, the missing incumbent is exactly $\ell(w(L))$ if that label is nonzero. For $G\subseteq I$, the change in its number of matched members under $L\to L'$ is
+\[
+ \mathbf1\{\ell(w(L))\in G\}-\mathbf1\{\ell(w(L'))\in G\}.
+\]
+\end{corollary}
+\begin{proof}
+If $h$ receives $s\ne\bot$ under $L$, restricting $h$ to $\{s\}$ preserves this matching's stability. Matched-set invariance implies $h$ is matched under the singleton report and must receive $s$, as in \cite{papai2026}. Every $j\in L\cap A_h$ is attainable by reporting $j$ alone. If $h$ preferred $j$ to the current partner, or were unmatched despite such an option, that deviation would improve on truthful DA for the preference ordering restricted to $L$, contrary to applicant strategyproofness \cite{dubins1981}. This is the DA menu principle \cite{ghtmenu}. With one outsider the occupied set is empty or consists of their assigned listing. Apply Theorem~\ref{thm:occupied-seats} and take the difference of group counts.
+\end{proof}
+
+The listing that accepts $h$ can displace an incumbent who had occupied a different listing. The same identity labels serve every subsequent choice of protected group.
+
+\paragraph{A fixed quota.}
+Order the $a=|A_h|$ attainable listings $j_1,\ldots,j_a$ by $h$'s preference. For $1\le k\le d$, a quota-$k$ list can deliver $j_r$ precisely when $r\le d-k+1$. Include $j_r$, exclude the $r-1$ better attainable listings, and fill the remaining $k-1$ slots from the other $d-r$ listings. Such a list can leave $h$ unmatched exactly when $k\le d-a$. A quota-respecting list matches $h$ without any loss to group $G$ iff at least one attainable $j_r$ satisfying the rank bound has $\ell(j_r)\notin G$. Choosing the highest-ranked such option gives $h$ their best assignment subject to this protection constraint. Under uniform sampling without replacement,
+\[
+  \Pr\{w(L)=j_r\}=\frac{\binom{d-r}{k-1}}{\binom{d}{k}},
+  \qquad
+  \Pr\{w(L)=\bot\}=\frac{\binom{d-a}{k}}{\binom{d}{k}},
+\]
+where an impossible binomial coefficient is zero. Weight the first probabilities by $\mathbf1\{\ell(j_r)\in G\}$ to obtain the exact group displacement probability. If $k=0$ or $d=0$, $h$ stays unmatched and no incumbent loses a match. At most $d+1$ DA runs identify every attainable listing and its label by comparing singleton entrants to the no-entry market. Each singleton can also be inserted by resuming the same completed no-entry DA state.
+
+\paragraph{Sharpness and an obstruction to independent scores.}
+Incumbents $a,b$ have sole options $x,y$ respectively. Outsider $h$ is acceptable at $x,y,z$ and has top priority at each. With quota one, listing $z$ displaces nobody, $x$ displaces $a$ and $y$ displaces $b$. Changing $h$'s list from $x$ to $y$ costs one incumbent a match and gives another a match. Disjoint copies yield $m$ gains and $m$ losses from $m$ outsider list changes. These bounds are sharp on each margin. Change the $m$ lists sequentially and apply Corollary~\ref{cor:displacement} with everyone except the current editor fixed. Any pattern of protected versus unprotected labels on a focal applicant's ranked menu can be realized with a private incumbent at each listing and the focal applicant ranked first. The group effect has no universal sign.
+
+Even with a common priority, the cardinality $|F(V)|$ can exhibit complementary and substitutable seats. Applicant $a$ ranks $y,x,z$, and $b$ accepts only $x$. All listings prioritize $a$ over $b$ whenever both are acceptable. Adding $y$ to $\{z\}$ adds no match, while adding $y$ to $\{x,z\}$ frees $x$ for $b$ and adds one. Adding $x$ to the empty market adds one match, while adding it to $\{z\}$ adds none. Thus $|F|$ is generally neither submodular nor supermodular.
+
+\begin{theorem}[The limit of a low-saturation rollout]\label{thm:saturation-bound}
+Fix $m$ outsiders, each with an old and a new shortlist, and any protected incumbent group $G$. Suppose every rollout involving at most $r$ outsiders preserves every initially matched member of $G$, where $0\le r\le m$. At most $m-r$ initially matched group members can lose their matches on full rollout. The bound is attained under a common listing priority, including a universal rule displaying $\min(k,d)$ whenever $k\ge r+1$.
+\end{theorem}
+\begin{proof}
+Start with any $r$ changes. None of the initial matched group has been lost. Order the remaining $m-r$ changes arbitrarily. Apply Corollary~\ref{cor:displacement} to each current editor, treating all other applicants' lists as fixed. Each edit can cost at most one currently matched incumbent a match. Each final loser must have experienced such a transition at least once. The same upper bound needs only one lossless intermediate rollout of size $r$.
+
+For sharpness, use core listings $x_1,\ldots,x_m$ and $m-r$ protected applicants. Incumbent $i$ lists the $r+1$ feasible cores $x_i,x_{i+1},\ldots,x_{i+r}$ in that order. Outsider $h_i$ has distinct private fallback $y_i$ and accepts its own core $x_i$. Give $h_i$ another $k-1$ private filler listings. Each filler has a dedicated applicant who lists it alone and outranks every outsider. Outsiders rank both meaningful options above their fillers. Every listing uses a strict common priority with dedicated applicants first, outsiders next, and incumbents last in increasing index order. Each outsider sees its $k-1$ fillers plus $y_i$ under its old list or $x_i$ under its new list. Every incumbent sees its entire list and every dedicated applicant sees its only choice.
+
+Under a common priority, DA implements serial dictatorship in that priority order: the highest remaining applicant obtains their favorite remaining visible listing, and one repeats on the residual market. After at most $r$ switches, let $p_1<p_2<\cdots$ be the indices of unoccupied core listings after all outsiders have chosen. Among the first $i+r$ cores, at most $r$ are taken, so $i\le p_i\le i+r$. Inductively each protected incumbent $i$ gets $x_{p_i}$, its most preferred remaining core. At full rollout every core belongs to an outsider, so all $m-r$ previously matched protected applicants lose their match. For $r=1$ this already holds at a universal quota of two, and therefore at five under the displayed-size rule.
+\end{proof}
+With disjoint copies or additional isolated applicants, the construction applies to arbitrarily large markets. It demonstrates why a collection of lossless low-saturation tests can leave large losses unidentified at full rollout.
+
+\begin{theorem}[Information needed to describe match status]\label{thm:status-bits}
+Consider $n$ publicly labeled applicants, one of them focal, and $n$ publicly labeled unit-capacity listings. Other applicants' possibly incomplete preferences and the listing priorities can be preprocessed into a binary description. A decoder with only this description and the focal applicant's ordered report must return the matched/unmatched vector of all incumbents for every focal report. The optimal worst-case fixed-length description requires $\Theta(n\log n)$ bits. For every fixed nonempty group of incumbents, the optimal worst-case description of its matched count requires $\Theta(n)$ bits. The lower bounds hold under public common priorities fixed across the hard instances.
+\end{theorem}
+\begin{proof}
+For the vector, encode the no-entry matched set in $n-1$ bits. At each listing encode one symbol: unattainable, attainable with no loss, or attainable displacing one named incumbent. There are at most $n+1$ symbols per listing. The decoder selects the best reported attainable listing and deletes its label, if any, from the no-entry set. Thus $n-1+n\lceil\log_2(n+1)\rceil$ bits suffice. For the group count store the baseline count and three symbols per listing: unattainable, attainable without a group loss, or attainable displacing a group member. This requires $O(n)$ bits.
+
+For the vector lower bound give the focal applicant highest priority at every listing. Each of the $n-1$ other applicants accepts just one listing among the first $n-1$, in accordance with an arbitrary bijection between those applicants and those listings. A singleton focal report for listing $j$ makes exactly the incumbent paired to $j$ unmatched. The vector-valued response function recovers the entire bijection. The $(n-1)!$ distinct functions require at least $\log_2((n-1)!)=\Omega(n\log n)$ bits.
+
+For the count, select $q$ in the specified group $G$. Give $q$ a single acceptable site $t$, and give every other incumbent $i$ a distinct private site $x_i$. Under a common priority, $h$ comes first and every nonmember of $G$ outranks $q$. For each of the $n-2$ incumbents $i\ne q$, choose an independent bit. A member of $G$ lists $x_i$ if its bit is one and otherwise submits an empty list. A nonmember ranks $x_i$ first and includes $t$ second exactly when its bit is one. Without the focal applicant, $q$ gets $t$. A singleton focal report for $x_i$ lowers the group count by exactly the bit at $i$. If $i$ is a member, it loses its own match. If $i$ is a nonmember, it can displace $q$ exactly when it listed $t$. The comparisons to the empty focal report recover all $n-2$ bits, giving $2^{n-2}$ different count functions. Unused sites complete the market to size $n$.
+\end{proof}
+
+This uses the report-to-output model of Gonczarowski and Thomas \cite{gtcomplexity}. They show that the complete DA partner-allocation function requires $\Omega(n^2)$ bits in the worst case (their Corollary 3.10). Theorem~\ref{thm:status-bits} concerns a coarser output with a sharp smaller bound. The bit counts describe the size of an offline representation available after the background market has been processed.
+
+\begin{corollary}[Reporting several groups]\label{cor:group-bits}
+For any fixed $K$ disjoint nonempty groups of incumbents, reporting their $K$ matched counts for every possible focal report requires and suffices to use $\Theta(n\log(K+1))$ bits in the worst case. Some incumbents may lie outside the groups.
+\end{corollary}
+\begin{proof}
+Encode the baseline matched indicator for each incumbent in $n-1$ bits. Each site takes one symbol among unattainable, attainable with no group loss, and attainable with a loss in one of the $K$ groups. This gives the upper bound.
+
+The case $K=1$ is Theorem~\ref{thm:status-bits}. For $K\ge 2$, choose one representative from each group. Put $h$ first under a common priority, then all remaining incumbents, then the representatives. Each representative accepts exactly one distinct site. Each of the $n-1-K$ remaining incumbents ranks its own private site first and any one representative's site second. A singleton report for an incumbent's private site causes that incumbent to move to the fallback and the representative at that fallback to lose its match. The vector of counts names the representative's group, even if the moving incumbent belongs to that same group. Thus all $K^{n-1-K}$ possible fallback profiles induce different functions. In a second family put all other incumbents on empty lists and permute the $K$ representatives' acceptable sites arbitrarily. Singleton focal reports reveal the permutation through group losses; this gives $K!$ distinct functions. If $K\le(n-1)/2$, the first family gives $\Omega(n\log K)$ bits. If $K>(n-1)/2$, $\log(K!)=\Omega(K\log K)=\Omega(n\log K)$.
+\end{proof}

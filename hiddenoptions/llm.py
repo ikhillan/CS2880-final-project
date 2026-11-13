@@ -20,7 +20,7 @@ import zlib
 import numpy as np
 
 from .data import cpi_value, BASE_MONTH
-from .exposure import show_count
+from .exposure import candidate_digest, show_count
 
 DEFAULT_MODEL = "claude-opus-5-5"
 EFFORT = "high"  # the study's pinned setting (Opus 5.5 at high effort); recorded with every batch
@@ -81,7 +81,8 @@ def build_request(market, b: int, exposure: dict, catalog, rep: int = 0) -> dict
               + INSTRUCTION.format(k=count))
     key = {"market_id": market.spec.market_id, "exposure": exposure["name"], "renter": b, "rep": rep}
     custom_id = hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()[:40]
-    return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map, "prompt_hash": prompt_hash()}
+    return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map,
+            "prompt_hash": prompt_hash(), "candidates_sha256": candidate_digest(market, b)}
 
 
 def request_params(req: dict, model: str, effort: str = EFFORT) -> dict:
@@ -93,6 +94,8 @@ def request_params(req: dict, model: str, effort: str = EFFORT) -> dict:
 def parse_response(req: dict, text: str | None, status: str) -> dict:
     """Map a reply back to listing indices. Unknown IDs are counted; duplicates and extras are dropped (the fallback fills gaps)."""
     row = {k: req[k] for k in ("market_id", "exposure", "renter", "rep", "count")}
+    if "candidates_sha256" in req:
+        row["candidates_sha256"] = req["candidates_sha256"]
     row.update(status=status, listings=[], raw_valid_ids=0, invalid_ids=0, duplicate_ids=0, extra_ids=0)
     if status != "ok" or text is None:
         return row

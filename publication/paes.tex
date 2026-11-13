@@ -1,0 +1,20 @@
+\subsection{Regular university admissions in Chile}\label{app:paes}
+The public PAES applications list each student's program choices in order, their program-specific weighted score and their official status. Our capacity equals the sum of first- and second-semester regular seats and announced overbooking seats. We keep regular applications coded selected, waitlisted or passed over following a higher selection (24, 25, 26). We rank by weighted score and break score ties by a fixed seeded lottery. In a check that omits all test-year status codes when selecting candidate edges, keeping valid nonduplicate reported programs with a strictly positive score gives exactly the same applicant--program pairs, order and scores in 2026. We never distinguish selected from waitlisted when producing a 2026 display. Program-specific selection rank and individual identifiers do not enter the predictor. The public input omits five applicants in 2026 for confidentiality. A recorded offer is an invitation to enroll. Subsequent enrollment and waitlist movements are different outcomes.
+
+The 2024 and 2025 cohorts have 188,707 and 189,982 regular applicants. For the 2025 model, we use each program's previous minimum regular offer score and reported demand per seat from 2024. Missing program cutoffs receive the median available cutoff; missing congestion receives the median across prior programs. Ridge logistic regression with a fixed feature basis uses log submitted rank, log list length, score, cutoff distance, capacity and interactions. Its label is the matched edge under full-list applicant-proposing DA (zero for every other edge). The year-ahead run applies the same coefficients to 2026 features using 2025 historical summaries. A second control keeps programs where the weighted score clears last year's program cutoff, in applicant rank order, then fills any remaining slots from the other programs. All displayed programs are proposed to in original preference order. These rules could be evaluated after applications are drafted. They are not search tools for programs the student never considered.
+
+\begin{table}[ht]\centering\small
+\caption{Chilean university menus. The first numeric column measures recovery among 156,248 recorded regular recipients. The second uses 158,697 full-list DA recipients. The third uses all 189,399 applicants. The last two columns show the placement change against uniform for caps of one and ten choices. Uniform coverage is analytic; placement averages 64 draws.}
+\label{tab:paes}\begin{tabular}{@{}lrrrrr@{}}\toprule
+ &\multicolumn{3}{c}{Quota five, percent}&\multicolumn{2}{c}{Placement change (pp)}\\
+\cmidrule(lr){2-4}\cmidrule(l){5-6}
+Rule & Recorded offer & DA partner & DA placed & Quota one & Quota ten\\\midrule
+Uniform & 74.22 & 73.83 & 82.27 & --- & ---\\
+First reported choices & 91.00 & 89.98 & 79.20 & $-9.68$ & $-0.87$\\
+Historical cutoff & 95.90 & 96.35 & 83.74 & $+9.42$ & $+0.17$\\
+Fitted classifier & 98.05 & 97.64 & 83.19 & $+8.16$ & $+0.05$\\\bottomrule
+\end{tabular}\end{table}
+
+At quota three the classifier placed 155,593 students, versus 157,932 under the cutoff rule and 150,804 on average under uniform. At five, 96,310 applicants had enough options for pruning to bind. The standard error of the mean uniform placement count was 7.8 applicants (0.0041 percentage points). The deterministic policies have no corresponding display-sampling error. Removing overbooking reduces full-list agreement with recorded offers to 105,097 of 156,248 recipients (67.26\%). The fitted rule still places more applicants than uniform and fewer than the historical-cutoff control at five choices (139,039 versus 138,448 and 139,799). Two independently written DA algorithms, sequential and simultaneous, gave identical full-market assignments. Every evaluated display passed capacity and no-blocking-pair checks. A max-flow calculation verified each displayed capacity with an equal-valued cut.
+\input{offer-check}
+\input{enrollment-detail}

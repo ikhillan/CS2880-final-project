@@ -1,0 +1,608 @@
+{
+  "panels": {
+    "enriched_k5": {
+      "raw_low": 30720,
+      "raw_high": 30720,
+      "markets": 960,
+      "cells_absent": [],
+      "original_geographic_weight": 0.9794944251825428,
+      "fraction_four_borough_target": 1.0,
+      "levels_pct": {
+        "UU_lower": {
+          "estimate": 39.90243160109533,
+          "pointwise95": [
+            39.46745279099266,
+            40.332574937716956
+          ]
+        },
+        "UT1_lower": {
+          "estimate": 53.08304833789723,
+          "pointwise95": [
+            52.60589067170294,
+            53.566914191179535
+          ]
+        },
+        "UT4_lower": {
+          "estimate": 48.76169234360808,
+          "pointwise95": [
+            48.25712039566126,
+            49.263717174816755
+          ]
+        },
+        "UU_higher": {
+          "estimate": 96.58860462994852,
+          "pointwise95": [
+            96.40272010435882,
+            96.77938420103128
+          ]
+        },
+        "UT1_higher": {
+          "estimate": 63.83973790685824,
+          "pointwise95": [
+            63.34448720212239,
+            64.33601000768063
+          ]
+        },
+        "UT4_higher": {
+          "estimate": 53.46978715355808,
+          "pointwise95": [
+            53.01838829770304,
+            53.92550173720932
+          ]
+        }
+      },
+      "low_contrasts_pp": {
+        "T1_minus_U": {
+          "estimate": 13.180616736801902,
+          "pointwise95": [
+            12.740452074543338,
+            13.616955736954926
+          ],
+          "simultaneous95": [
+            12.551731440697658,
+            13.809502032906146
+          ]
+        },
+        "T4_minus_U": {
+          "estimate": 8.859260742512753,
+          "pointwise95": [
+            8.414386805304533,
+            9.309404761917442
+          ],
+          "simultaneous95": [
+            8.210118734017941,
+            9.508402751007564
+          ]
+        },
+        "T1_minus_T4": {
+          "estimate": 4.321355994289149,
+          "pointwise95": [
+            4.044185230133725,
+            4.606017542937937
+          ],
+          "simultaneous95": [
+            3.9203454528137773,
+            4.722366535764522
+          ]
+        }
+      },
+      "cell_counts": [
+        {
+          "month": "2026-01",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Queens",
+          "n": 80
+        }
+      ]
+    },
+    "enriched_q40": {
+      "raw_low": 30720,
+      "raw_high": 30720,
+      "markets": 960,
+      "cells_absent": [],
+      "original_geographic_weight": 0.9794944251825428,
+      "fraction_four_borough_target": 1.0,
+      "levels_pct": {
+        "UU_lower": {
+          "estimate": 38.21813126364766,
+          "pointwise95": [
+            37.832648638724955,
+            38.593658301395216
+          ]
+        },
+        "UT1_lower": {
+          "estimate": 43.69861321462347,
+          "pointwise95": [
+            43.28255152274698,
+            44.12218183254977
+          ]
+        },
+        "UT4_lower": {
+          "estimate": 36.749222674326404,
+          "pointwise95": [
+            36.37163307735428,
+            37.12193964259875
+          ]
+        },
+        "UU_higher": {
+          "estimate": 98.42199500321973,
+          "pointwise95": [
+            98.28294273208886,
+            98.55493801771091
+          ]
+        },
+        "UT1_higher": {
+          "estimate": 95.07734368694788,
+          "pointwise95": [
+            94.82639525256143,
+            95.32810500982403
+          ]
+        },
+        "UT4_higher": {
+          "estimate": 92.47462326644056,
+          "pointwise95": [
+            92.11819974132302,
+            92.82610610323604
+          ]
+        }
+      },
+      "low_contrasts_pp": {
+        "T1_minus_U": {
+          "estimate": 5.480481950975808,
+          "pointwise95": [
+            5.118169991394362,
+            5.849736983322772
+          ],
+          "simultaneous95": [
+            4.955797665605286,
+            6.005166236346329
+          ]
+        },
+        "T4_minus_U": {
+          "estimate": -1.4689085893212592,
+          "pointwise95": [
+            -1.8035409810418153,
+            -1.1373912293764594
+          ],
+          "simultaneous95": [
+            -1.946222645979514,
+            -0.9915945326630046
+          ]
+        },
+        "T1_minus_T4": {
+          "estimate": 6.949390540297067,
+          "pointwise95": [
+            6.657618627707372,
+            7.254744793922338
+          ],
+          "simultaneous95": [
+            6.519018305620343,
+            7.37976277497379
+          ]
+        }
+      },
+      "cell_counts": [
+        {
+          "month": "2026-01",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Queens",
+          "n": 80
+        }
+      ]
+    },
+    "uniform_k5": {
+      "raw_low": 25975,
+      "raw_high": 35465,
+      "markets": 960,
+      "cells_absent": [],
+      "original_geographic_weight": 0.9794944251825428,
+      "fraction_four_borough_target": 1.0,
+      "levels_pct": {
+        "UU_lower": {
+          "estimate": 3.0701234135288167,
+          "pointwise95": [
+            2.8869205086492076,
+            3.2554011544120707
+          ]
+        },
+        "UT1_lower": {
+          "estimate": 4.5740079593979885,
+          "pointwise95": [
+            4.3488197238050335,
+            4.803850378945622
+          ]
+        },
+        "UT4_lower": {
+          "estimate": 2.564825340024351,
+          "pointwise95": [
+            2.3988628381205355,
+            2.73467462582011
+          ]
+        },
+        "UU_higher": {
+          "estimate": 88.11160129015872,
+          "pointwise95": [
+            87.75465300617886,
+            88.47568409752039
+          ]
+        },
+        "UT1_higher": {
+          "estimate": 63.020671845760845,
+          "pointwise95": [
+            62.61370637388143,
+            63.43412211804458
+          ]
+        },
+        "UT4_higher": {
+          "estimate": 49.325015380809056,
+          "pointwise95": [
+            48.92345402972745,
+            49.73904763233813
+          ]
+        }
+      },
+      "low_contrasts_pp": {
+        "T1_minus_U": {
+          "estimate": 1.5038845458691719,
+          "pointwise95": [
+            1.2988910719673943,
+            1.7092039941132857
+          ],
+          "simultaneous95": [
+            1.2130615183779117,
+            1.794707573360432
+          ]
+        },
+        "T4_minus_U": {
+          "estimate": -0.5052980735044659,
+          "pointwise95": [
+            -0.6735222627746726,
+            -0.33355541879485945
+          ],
+          "simultaneous95": [
+            -0.7518701624005255,
+            -0.25872598460840623
+          ]
+        },
+        "T1_minus_T4": {
+          "estimate": 2.0091826193736377,
+          "pointwise95": [
+            1.8453838171439272,
+            2.180422456897769
+          ],
+          "simultaneous95": [
+            1.767744650936813,
+            2.2506205878104626
+          ]
+        }
+      },
+      "cell_counts": [
+        {
+          "month": "2026-01",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Queens",
+          "n": 80
+        }
+      ]
+    },
+    "uniform_q40": {
+      "raw_low": 25975,
+      "raw_high": 35465,
+      "markets": 960,
+      "cells_absent": [],
+      "original_geographic_weight": 0.9794944251825428,
+      "fraction_four_borough_target": 1.0,
+      "levels_pct": {
+        "UU_lower": {
+          "estimate": 2.0192489268853717,
+          "pointwise95": [
+            1.8758943427397994,
+            2.167925178739582
+          ]
+        },
+        "UT1_lower": {
+          "estimate": 3.1851462588636843,
+          "pointwise95": [
+            2.9646636791927765,
+            3.415344218375615
+          ]
+        },
+        "UT4_lower": {
+          "estimate": 1.6037475827248646,
+          "pointwise95": [
+            1.4740053156567001,
+            1.7412815144688525
+          ]
+        },
+        "UU_higher": {
+          "estimate": 87.28330135848421,
+          "pointwise95": [
+            86.92068609740681,
+            87.66606726379172
+          ]
+        },
+        "UT1_higher": {
+          "estimate": 82.88730321424644,
+          "pointwise95": [
+            82.449330212441,
+            83.33683931611506
+          ]
+        },
+        "UT4_higher": {
+          "estimate": 78.88670858374563,
+          "pointwise95": [
+            78.47569008660149,
+            79.3182589399469
+          ]
+        }
+      },
+      "low_contrasts_pp": {
+        "T1_minus_U": {
+          "estimate": 1.1658973319783126,
+          "pointwise95": [
+            0.9744027222129068,
+            1.3604442566003814
+          ],
+          "simultaneous95": [
+            0.8934724512691349,
+            1.4383222126874902
+          ]
+        },
+        "T4_minus_U": {
+          "estimate": -0.4155013441605071,
+          "pointwise95": [
+            -0.5468778940720066,
+            -0.2834648808776469
+          ],
+          "simultaneous95": [
+            -0.6025532040097674,
+            -0.2284494843112468
+          ]
+        },
+        "T1_minus_T4": {
+          "estimate": 1.5813986761388197,
+          "pointwise95": [
+            1.406833331558608,
+            1.7659588116648304
+          ],
+          "simultaneous95": [
+            1.3241279289751169,
+            1.8386694233025225
+          ]
+        }
+      },
+      "cell_counts": [
+        {
+          "month": "2026-01",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-01",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-02",
+          "borough": "Queens",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Bronx",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Brooklyn",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Manhattan",
+          "n": 80
+        },
+        {
+          "month": "2026-03",
+          "borough": "Queens",
+          "n": 80
+        }
+      ]
+    }
+  },
+  "primary": "uniform_k5 T1_minus_T4 (percentage points)",
+  "bootstrap": {
+    "reps": 10000,
+    "seed": 871136,
+    "simultaneous_critical": 2.8197906821540046,
+    "family": 12
+  },
+  "status": "New score-only contrast on previously used January\u2013March 2026 catalogue period; summer model, donors and feature references; not new field outcomes."
+}

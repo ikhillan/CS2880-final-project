@@ -1,19 +1,23 @@
 """Get the fixed AI recommender's picks through the Message Batches API (50% price).
 
-    python -m experiments.llm_recommend estimate configs/core.json          # free: prompt counts and cost, no API call
-    python -m experiments.llm_recommend show configs/core.json              # free: print one example prompt
-    python -m experiments.llm_recommend submit configs/core.json --yes      # spends money
-    python -m experiments.llm_recommend collect configs/core.json           # saves answers once the batches end
+    python -m experiments.llm_recommend estimate configs/stage1_pilot.json          # free: prompt counts and cost, no API call
+    python -m experiments.llm_recommend show configs/stage1_pilot.json              # free: print one example prompt
+    python -m experiments.llm_recommend submit configs/stage1_pilot.json --yes      # spends money
+    python -m experiments.llm_recommend collect configs/stage1_pilot.json           # saves answers once the batches end
 
 Keep the model pinned for the whole study: --model at submit time is saved with the batch IDs.
 """
 from __future__ import annotations
 
 import argparse
+import fcntl
+import hashlib
 import json
+import os
+import tempfile
 from pathlib import Path
 
-from experiments.config import expand_markets, load_config
+from experiments.config import expand_labeled, load_config
 from hiddenoptions import llm
 from hiddenoptions.markets import Catalog, InsufficientSupply, build_market
 
@@ -21,16 +25,33 @@ ROOT = Path(__file__).resolve().parents[1]
 BATCH_SIZE = 20_000
 
 
+def claude_arms(cfg, arm=None):
+    """The Anthropic endpoint can populate Claude arms and legacy provider-neutral LLM arms."""
+    choices = [e for e in cfg["exposures"] if e["policy"] == "llm"
+               and e.get("provider", e["name"].split("_")[0]) in {"anthropic", "claude", "llm"}]
+    selected = [e for e in choices if arm is None or e["name"] == arm]
+    if not selected:
+        raise ValueError(f"No Claude exposure for {arm!r}. Available: {[e['name'] for e in choices]}")
+    return selected
+
+
+def selected_markets(cfg, seeds):
+    markets = expand_labeled(cfg)
+    if seeds is None:
+        return [spec for spec, label in markets]
+    if seeds < 1:
+        raise ValueError("--seeds must be positive")
+    starts = {}
+    for spec, label in markets:
+        starts[label] = min(starts.get(label, spec.seed), spec.seed)
+    return [spec for spec, label in markets if spec.seed < starts[label] + seeds]
+
+
 def all_requests(cfg: dict, seeds: int | None, arm: str | None = None) -> list[dict]:
-    """Prompts for every renter who needs a model call. `arm` keeps one model's exposures (e.g. 'claude_k5')."""
+    """Prompts for the Claude arms in the first N seed blocks within each design."""
+    exposures = claude_arms(cfg, arm)
     catalog, out = Catalog(), []
-    exposures = [e for e in cfg["exposures"] if e["policy"] == "llm" and (arm is None or e["name"] == arm)]
-    if not exposures:
-        raise SystemExit("no matching llm exposure in this config")
-    starts = sorted({s.seed for s in expand_markets(cfg)})
-    for spec in expand_markets(cfg):
-        if seeds is not None and spec.seed >= starts[0] + seeds:
-            continue
+    for spec in selected_markets(cfg, seeds):
         try:
             market = build_market(spec, catalog)
         except InsufficientSupply:
@@ -50,19 +71,29 @@ def main():
     ap.add_argument("--model", default=llm.DEFAULT_MODEL)
     ap.add_argument("--effort", default=llm.EFFORT, choices=["low", "medium", "high", "xhigh", "max"])
     ap.add_argument("--arm", help="only this llm exposure, e.g. claude_k5; each model arm is its own exposure name")
-    ap.add_argument("--seeds", type=int, help="use only the first N seed blocks")
+    ap.add_argument("--seeds", type=int, help="use the first N seed blocks in each configured design")
     ap.add_argument("--limit", type=int, help="use only the first N requests (for a small paid test)")
     ap.add_argument("--yes", action="store_true", help="confirm that submit spends money")
     args = ap.parse_args()
     cfg = load_config(args.config)
+    try:
+        selected = claude_arms(cfg, args.arm)
+    except ValueError as e:
+        ap.error(str(e))
     workdir = ROOT / "results" / "llm" / cfg["name"] / (args.arm or "all")
     state_path, recs_path = workdir / "batches.json", ROOT / cfg.get("llm_results", f"results/llm/{cfg['name']}/recs.jsonl")
 
     if args.action == "collect":
-        return collect(state_path, recs_path)
+        return collect(state_path, recs_path, {e["name"] for e in selected})
     requests = all_requests(cfg, args.seeds, args.arm)
-    if args.limit:
+    if args.limit is not None:
+        if args.limit < 1:
+            ap.error("--limit must be positive")
         requests = requests[: args.limit]
+    print("Claude exposures:", ", ".join(e["name"] for e in selected))
+    if not requests:
+        print("No renter requires a model call for these markets and arms.")
+        return None
     if args.action == "show":
         print("SYSTEM:\n" + llm.SYSTEM_PROMPT + "\n\nUSER:\n" + requests[0]["prompt"])
         return None
@@ -99,21 +130,56 @@ def submit(requests, model, workdir, state_path, effort=llm.EFFORT):
                                           "instruction": llm.INSTRUCTION, "prompt_hash": llm.prompt_hash(), "batch_ids": batch_ids}, indent=1))
 
 
-def collect(state_path, recs_path):
+def save_recommendations(recs_path, saved):
+    """Atomically merge complete batches. Parallel collectors must see one another's updates."""
+    recs_path.parent.mkdir(parents=True, exist_ok=True)
+    def key(row):
+        return row["market_id"], row["exposure"], row["renter"], row.get("rep", 0)
+
+    with recs_path.with_suffix(recs_path.suffix + ".lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        fresh = {key(row) for row in saved}
+        if len(fresh) != len(saved):
+            raise ValueError("Multiple replies for one market, arm, renter and repetition")
+        with tempfile.NamedTemporaryFile("w", dir=recs_path.parent, delete=False) as tmp:
+            try:
+                if recs_path.exists():
+                    with recs_path.open() as existing:
+                        for line in existing:
+                            if key(json.loads(line)) not in fresh:
+                                tmp.write(line.rstrip("\n") + "\n")
+                for row in saved:
+                    tmp.write(json.dumps(row) + "\n")
+                tmp.flush()
+                os.fsync(tmp.fileno())
+                os.replace(tmp.name, recs_path)
+            finally:
+                Path(tmp.name).unlink(missing_ok=True)
+
+
+def collect(state_path, recs_path, allowed_arms):
     import anthropic
 
     state = json.loads(state_path.read_text())
-    client = anthropic.Anthropic()
     requests = {}
     for line in (state_path.parent / "requests.jsonl").read_text().splitlines():
         r = json.loads(line)
+        if r["exposure"] not in allowed_arms:
+            raise ValueError(f"The Claude request manifest includes an incompatible arm: {r['exposure']}")
+        if r["custom_id"] in requests:
+            raise ValueError(f"Duplicate request in manifest: {r['custom_id']}")
         requests[r["custom_id"]] = r
+    client = anthropic.Anthropic()
     pending = [b for b in state["batch_ids"] if client.messages.batches.retrieve(b).processing_status != "ended"]
     if pending:
-        raise SystemExit(f"still processing: {pending}. Most batches end within an hour, and all within 24 hours.")
+        raise SystemExit(f"Still processing: {pending}")
     counts, usage_in, usage_out, saved = {}, 0, 0, []
+    returned = set()
     for batch_id in state["batch_ids"]:
         for result in client.messages.batches.results(batch_id):
+            if result.custom_id not in requests or result.custom_id in returned:
+                raise ValueError(f"Unknown or repeated batch result ID: {result.custom_id}")
+            returned.add(result.custom_id)
             req = requests[result.custom_id]
             text, status = None, result.result.type
             if result.result.type == "succeeded":
@@ -127,17 +193,16 @@ def collect(state_path, recs_path):
                 else:
                     status, text = "ok", next((b.text for b in msg.content if b.type == "text"), None)
             row = llm.parse_response(req, text, status)
-            row["model"] = state["model"]
+            row.update(model=state["model"], effort=state.get("effort"), batch_id=batch_id,
+                       batch_request_id=req["custom_id"], prompt_hash=req["prompt_hash"],
+                       prompt_sha256=hashlib.sha256(req["prompt"].encode()).hexdigest())
             saved.append(row)
             counts[row["status"]] = counts.get(row["status"], 0) + 1
-    recs_path.parent.mkdir(parents=True, exist_ok=True)
-    # Merge with other arms already saved in the same file; this arm's rows replace any earlier copies.
-    key = lambda r: (r["market_id"], r["exposure"], r["renter"], r.get("rep", 0))
-    fresh = {key(r) for r in saved}
-    kept = [json.loads(line) for line in recs_path.read_text().splitlines()] if recs_path.exists() else []
-    merged = [r for r in kept if key(r) not in fresh] + saved
-    recs_path.write_text("".join(json.dumps(r) + "\n" for r in merged))
-    print(f"saved {len(saved):,} answers to {recs_path}; status counts {counts}; input tokens {usage_in:,}, output tokens {usage_out:,}")
+    missing = requests.keys() - returned
+    if missing:
+        raise ValueError(f"{len(missing)} request IDs are absent from ended batches. Check the submission ledger before scoring.")
+    save_recommendations(recs_path, saved)
+    print(f"Saved {len(saved):,} answers to {recs_path}; status counts {counts}; input tokens {usage_in:,}, output tokens {usage_out:,}")
 
 
 if __name__ == "__main__":

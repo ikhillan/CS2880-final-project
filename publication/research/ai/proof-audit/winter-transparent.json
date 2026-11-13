@@ -1,0 +1,494 @@
+{
+  "split": "winter",
+  "score": "transparent",
+  "market_hash": "f5b524bf1e27870a577f3f188975b40e4f698a3be6010cefd38ec71316a38d99",
+  "summary": {
+    "enriched:blind": {
+      "n": 36864,
+      "lower_n": 18432,
+      "higher_n": 18432,
+      "baseline_low_matched": 7397,
+      "matched": 19644,
+      "low_matched": 9596,
+      "high_matched": 10048,
+      "low_loss": 0,
+      "low_gain": 2199,
+      "frozen_high": 22,
+      "high_switch": 18019,
+      "unguarded_bound": 3417,
+      "markets": 576,
+      "needs_freezes": 19,
+      "complete_freeze": 0,
+      "cascading_freezes": 0,
+      "max_rounds": 1,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 52.15407355738244,
+          "change_pp": 4.3427573825291645,
+          "paired_95ci_pp": [
+            3.965211968271376,
+            4.727159837125037
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 12.172537576794483,
+          "change_pp": -1.2682280625150888,
+          "paired_95ci_pp": [
+            -1.598286192898848,
+            -0.9465600188559509
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 0.0,
+          "change_pp": -5.610985445044251,
+          "paired_95ci_pp": [
+            -5.956347260657353,
+            -5.27619571431349
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 98.23362965919998,
+          "change_pp": -0.02117854499320515,
+          "paired_95ci_pp": [
+            -0.04769853426925863,
+            0.0
+          ]
+        },
+        "total_match_rate": {
+          "rate": 52.882654749893156,
+          "change_pp": 2.1537019792932526,
+          "paired_95ci_pp": [
+            1.948245044085196,
+            2.367279122379829
+          ]
+        },
+        "eligible_baseline_low_retained_rate": {
+          "rate": 100.0,
+          "change_pp": 14.013960880041466,
+          "paired_95ci_pp": [
+            13.223042052192858,
+            14.842646336196053
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.09668475201832988,
+          "change_pp": 0.09668475201832988,
+          "paired_95ci_pp": [
+            0.04635526393580201,
+            0.15297908599847695
+          ]
+        },
+        "high_match_rate": {
+          "rate": 53.61123594240386,
+          "change_pp": -0.0353534239426736,
+          "paired_95ci_pp": [
+            -0.4623447571016919,
+            0.39471554858796687
+          ]
+        }
+      }
+    },
+    "enriched:direct": {
+      "n": 36864,
+      "lower_n": 18432,
+      "higher_n": 18432,
+      "baseline_low_matched": 7397,
+      "matched": 18870,
+      "low_matched": 8760,
+      "high_matched": 10110,
+      "low_loss": 1075,
+      "low_gain": 2438,
+      "frozen_high": 0,
+      "high_switch": 18023,
+      "unguarded_bound": 3417,
+      "markets": 576,
+      "needs_freezes": 0,
+      "complete_freeze": 0,
+      "cascading_freezes": 0,
+      "max_rounds": 0,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 47.811316174853275,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 13.440765639309571,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 5.610985445044251,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 98.25480820419318,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "total_match_rate": {
+          "rate": 50.7289527705999,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "eligible_baseline_low_retained_rate": {
+          "rate": 85.98603911995853,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.0,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "high_match_rate": {
+          "rate": 53.64658936634653,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "enriched:known": {
+      "n": 36864,
+      "lower_n": 18432,
+      "higher_n": 18432,
+      "baseline_low_matched": 7397,
+      "matched": 18794,
+      "low_matched": 9860,
+      "high_matched": 8934,
+      "low_loss": 0,
+      "low_gain": 2463,
+      "frozen_high": 4,
+      "high_switch": 18024,
+      "unguarded_bound": 2550,
+      "markets": 576,
+      "needs_freezes": 3,
+      "complete_freeze": 0,
+      "cascading_freezes": 0,
+      "max_rounds": 1,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 53.545341626512254,
+          "change_pp": 5.7340254516589795,
+          "paired_95ci_pp": [
+            5.4377066839291945,
+            6.050128884017482
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 13.563805645924296,
+          "change_pp": 0.12304000661472436,
+          "paired_95ci_pp": [
+            -0.07329441823609631,
+            0.32974470156434826
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 0.0,
+          "change_pp": -5.610985445044251,
+          "paired_95ci_pp": [
+            -5.956347260657353,
+            -5.27619571431349
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 98.25743211830007,
+          "change_pp": 0.002623914106891334,
+          "paired_95ci_pp": [
+            0.0,
+            0.007871742320659791
+          ]
+        },
+        "total_match_rate": {
+          "rate": 50.466631664469496,
+          "change_pp": -0.2623211061304076,
+          "paired_95ci_pp": [
+            -0.4055365319562615,
+            -0.11977789085859121
+          ]
+        },
+        "eligible_baseline_low_retained_rate": {
+          "rate": 100.0,
+          "change_pp": 14.013960880041466,
+          "paired_95ci_pp": [
+            13.223042052192858,
+            14.842646336196053
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.014886361074452093,
+          "change_pp": 0.014886361074452093,
+          "paired_95ci_pp": [
+            0.0,
+            0.03416342679582766
+          ]
+        },
+        "high_match_rate": {
+          "rate": 47.38792170242673,
+          "change_pp": -6.258667663919802,
+          "paired_95ci_pp": [
+            -6.657411071631622,
+            -5.871723249980121
+          ]
+        }
+      }
+    },
+    "uniform:blind": {
+      "n": 36864,
+      "lower_n": 15731,
+      "higher_n": 21133,
+      "baseline_low_matched": 943,
+      "matched": 11919,
+      "low_matched": 1084,
+      "high_matched": 10835,
+      "low_loss": 0,
+      "low_gain": 141,
+      "frozen_high": 82,
+      "high_switch": 19906,
+      "unguarded_bound": 666,
+      "markets": 576,
+      "needs_freezes": 43,
+      "complete_freeze": 0,
+      "cascading_freezes": 2,
+      "max_rounds": 2,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 3.3877897941233943,
+          "change_pp": 1.0648641798769183,
+          "paired_95ci_pp": [
+            0.9147879038878411,
+            1.2246416090784777
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 0.5525619635265471,
+          "change_pp": -0.05448367708014734,
+          "paired_95ci_pp": [
+            -0.12450246565740863,
+            0.01017486625709248
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 0.0,
+          "change_pp": -1.119347856957066,
+          "paired_95ci_pp": [
+            -1.30343770085193,
+            -0.9469927938189217
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 93.71221900441499,
+          "change_pp": -0.01986677656130098,
+          "paired_95ci_pp": [
+            -0.06679433556273295,
+            0.02206607391435539
+          ]
+        },
+        "total_match_rate": {
+          "rate": 32.361662772475,
+          "change_pp": 0.5818462927693133,
+          "paired_95ci_pp": [
+            0.47147168184511495,
+            0.7020861567273725
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.42150046422970866,
+          "change_pp": 0.42150046422970866,
+          "paired_95ci_pp": [
+            0.2844739815981258,
+            0.5673010055081282
+          ]
+        },
+        "high_match_rate": {
+          "rate": 50.08077749667572,
+          "change_pp": 0.052643517822126284,
+          "paired_95ci_pp": [
+            -0.1487973376656736,
+            0.2508853938291094
+          ]
+        }
+      }
+    },
+    "uniform:direct": {
+      "n": 36864,
+      "lower_n": 15731,
+      "higher_n": 21133,
+      "baseline_low_matched": 943,
+      "matched": 11608,
+      "low_matched": 782,
+      "high_matched": 10826,
+      "low_loss": 321,
+      "low_gain": 160,
+      "frozen_high": 0,
+      "high_switch": 19910,
+      "unguarded_bound": 666,
+      "markets": 576,
+      "needs_freezes": 0,
+      "complete_freeze": 0,
+      "cascading_freezes": 0,
+      "max_rounds": 0,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 2.322925614246476,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 0.6070456406066944,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 1.119347856957066,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 93.73208578097629,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "total_match_rate": {
+          "rate": 31.779816479705687,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.0,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        },
+        "high_match_rate": {
+          "rate": 50.028133978853596,
+          "change_pp": 0.0,
+          "paired_95ci_pp": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "uniform:known": {
+      "n": 36864,
+      "lower_n": 15731,
+      "higher_n": 21133,
+      "baseline_low_matched": 943,
+      "matched": 11687,
+      "low_matched": 1107,
+      "high_matched": 10580,
+      "low_loss": 0,
+      "low_gain": 164,
+      "frozen_high": 1,
+      "high_switch": 19905,
+      "unguarded_bound": 539,
+      "markets": 576,
+      "needs_freezes": 1,
+      "complete_freeze": 0,
+      "cascading_freezes": 0,
+      "max_rounds": 1,
+      "standardized": {
+        "low_match_rate": {
+          "rate": 3.4568007084707713,
+          "change_pp": 1.1338750942242952,
+          "paired_95ci_pp": [
+            0.9714025783367792,
+            1.3034824710695434
+          ]
+        },
+        "low_gain_rate": {
+          "rate": 0.6215728778739236,
+          "change_pp": 0.014527237267229154,
+          "paired_95ci_pp": [
+            -0.020897388005060153,
+            0.04966294676474018
+          ]
+        },
+        "low_loss_rate": {
+          "rate": 0.0,
+          "change_pp": -1.119347856957066,
+          "paired_95ci_pp": [
+            -1.30343770085193,
+            -0.9469927938189217
+          ]
+        },
+        "high_switch_rate": {
+          "rate": 93.71219690781719,
+          "change_pp": -0.019888873159104037,
+          "paired_95ci_pp": [
+            -0.038249104660522094,
+            -0.004385443469286445
+          ]
+        },
+        "total_match_rate": {
+          "rate": 31.91333301250773,
+          "change_pp": 0.13351653280204445,
+          "paired_95ci_pp": [
+            0.09520427493983527,
+            0.1729171958749803
+          ]
+        },
+        "frozen_high_rate": {
+          "rate": 0.004414383426255195,
+          "change_pp": 0.004414383426255195,
+          "paired_95ci_pp": [
+            0.0,
+            0.013479747563989014
+          ]
+        },
+        "high_match_rate": {
+          "rate": 48.97541759903272,
+          "change_pp": -1.052716379820879,
+          "paired_95ci_pp": [
+            -1.2161511957836404,
+            -0.8828896164951979
+          ]
+        }
+      }
+    }
+  },
+  "detail_sha256": "fabdc3dde82c55d0d557cc3ac618d2bad330b0ed4df0774771fa2957963504a5"
+}

@@ -1,0 +1,6 @@
+{
+  "two_by_two_cases": 256,
+  "random_many_to_one_cases": 15000,
+  "subset_runs": 27449,
+  "nonempty_subset_runs": 12193
+}

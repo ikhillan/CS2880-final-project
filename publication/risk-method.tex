@@ -1,0 +1,12 @@
+\subsection{Choosing how often to deploy a policy}\label{sec:risk}
+Suppose a service can try a new rule in a whole market or keep the current rule throughout that market. Let $L$ be the event that at least one lower-income renter who was placed under uniform exposure loses their placement when only higher-income shortlists switch. A market where two gain and one loses still counts as a loss event. A platform would need both potential outcomes to label $L$; we can compute the pair in this simulator. This risk differs from the probability that a randomly chosen renter loses a placement.
+
+Our calibration uses the finite-sample risk-control principle of \citet{ltt,riskrec}. Let $Z_{bj}\in[0,1]$ be the weighted fraction of the twelve borough-month markets in independent seed block $b$ where policy $j$ incurs $L$. The weights describe a draw of one market from the target mixture. For $n$ calibration blocks and $m$ prespecified comparisons, let $U_j$ be the largest $u\in[\bar Z_j,1]$ satisfying
+\[
+ n\,\mathrm{kl}(\bar Z_j,u)\le\log(m/\alpha),
+ \quad
+ \mathrm{kl}(x,u)=x\log(x/u)+(1-x)\log((1-x)/(1-u)).
+\]
+Use the usual endpoint limits. With probability at least $1-\alpha$, the true market risks are at most $U_j$ for all $j$. To see this, for $0\le Z\le1$ convexity bounds $\mathbb E e^{tZ}$ by $1-\mu+\mu e^t$ where $\mu=\mathbb E Z$. Applying the lower-tail Chernoff bound to independent blocks gives $\Pr(\bar Z\le x)\le e^{-n\mathrm{kl}(x,\mu)}$ for $x<\mu$. Inversion and a union bound give the claim. No independence between policies or among the twelve markets in a block is needed.
+
+For a target $\tau>0$, deploy in a fraction $q_j=\min(1,\tau/U_j)$ of markets using one coin independent of the market (set $q_j=1$ when $U_j=0$). On the joint coverage event its risk is $q_j\mathbb E Z_{bj}\le\tau$, including after a choice among the calibrated policies. Using an independent coin per renter would instead move to a different point on the interference curve of Proposition~\ref{prop:rollout}. The guarantee is over repeated draws from the same simulator and a service willing to keep uniform exposure in the other markets. It offers no individual right to retain an offer and no guarantee under temporal shift.

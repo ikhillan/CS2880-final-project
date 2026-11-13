@@ -1,0 +1,50 @@
+[
+  {
+    "keep_self": false,
+    "policy": "naive",
+    "expected_replies": 602.991962062996,
+    "difference_16_to_32_nodes": 5.020410753786564e-10
+  },
+  {
+    "keep_self": false,
+    "policy": "reciprocal",
+    "expected_replies": 764.0553321605531,
+    "difference_16_to_32_nodes": 0.0004905470007088297
+  },
+  {
+    "keep_self": false,
+    "policy": "equation_order",
+    "expected_replies": 862.7983256978936,
+    "difference_16_to_32_nodes": 4.547473508864641e-13
+  },
+  {
+    "keep_self": false,
+    "policy": "inverse_order",
+    "expected_replies": 850.661872963045,
+    "difference_16_to_32_nodes": 2.2737367544323206e-13
+  },
+  {
+    "keep_self": true,
+    "policy": "naive",
+    "expected_replies": 825.513663512647,
+    "difference_16_to_32_nodes": 6.957634468562901e-11
+  },
+  {
+    "keep_self": true,
+    "policy": "reciprocal",
+    "expected_replies": 996.871024280686,
+    "difference_16_to_32_nodes": 0.00023198387191314396
+  },
+  {
+    "keep_self": true,
+    "policy": "equation_order",
+    "expected_replies": 1102.6064809005666,
+    "difference_16_to_32_nodes": 4.547473508864641e-13
+  },
+  {
+    "keep_self": true,
+    "policy": "inverse_order",
+    "expected_replies": 1090.1357275484152,
+    "difference_16_to_32_nodes": 2.2737367544323206e-13
+  }
+]

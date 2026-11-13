@@ -1,0 +1,20 @@
+\paragraph{Is the gain due to seeing competitors?}
+The basic pointwise ablation removes layers as well as information. Following the original comparison, we trained an additional own-row model, keeping the contextual architecture's 11,906 trainable parameters and three initialization seeds. In place of every column message it receives the focal edge's embedding and the renter's own row degree. It can compare all options for one renter. It sees no other renter. The contextual model raised total placement relative to this equal-size comparator by 1.91 points (95\% paired interval $[1.64,2.17]$) in summer ordinary, 2.08 $[1.82,2.35]$ in winter ordinary, 2.82 $[2.53,3.11]$ in summer enriched and 2.67 $[2.35,2.99]$ in winter enriched. Partner recovery improved by 1.30, 1.42, 1.88 and 1.94 points, respectively. This control reduces the share of the original pointwise comparison that can be attributed to competitor information.
+
+\paragraph{Repeated simulation under the training law.}
+We drew 128 independent sets of hidden preference shocks for each of 384 test markets (the first eight blocks in each season). Each draw keeps eligibility and observable utility fixed. We solved full-exposure DA, estimated the probability of each partner by its frequency, and selected five feasible units per renter. This benchmark has the simulator's shock law at prediction time. The realized test ranks never enter its predictions. All 49,152 independent conditional solutions were checked for visible blockers and feasibility. The comparison uses a common finite panel and does not multiply the number of independent boroughs or household draws by 128. A subsequent precision check increases the conditional sample, as reported below.
+
+At 128 draws the contextual model recovered more partners than conditional simulation in every panel. We therefore increased the simulation budget on the same panels, without changing features, policy or tie resolution. An independent stream with 2,048 draws per panel market gave 786,432 additional verified stable assignments. At this precision the recovery gap narrowed to at most 0.63 points (Table~\ref{tab:mc}). These are paired point estimates on eight blocks per season. The simulation comparator knows the stipulated preference law; this calculation cannot establish how much either method knows about actual renters.
+\begin{table}[ht]\centering\small
+\caption{Full-market partner recovery (percent) on the same 384 markets. The first two simulation columns share draws with the 128-draw run, while 512 and 2,048 use a separate nested stream. The neural model scores one observed market without drawing latent preferences.}
+\label{tab:mc}
+\begin{tabular}{@{}lrrrrrr@{}}\toprule
+Market & 16 draws & 64 & 128 & 512 & 2,048 & Contextual\\\midrule
+Summer ordinary & 33.49 & 35.04 & 37.88 & 39.83 & 40.64 & 40.51\\
+Summer enriched & 27.39 & 30.76 & 32.32 & 33.85 & 34.60 & 35.23\\
+Winter ordinary & 31.06 & 33.28 & 35.87 & 38.06 & 38.95 & 38.94\\
+Winter enriched & 26.63 & 29.59 & 31.34 & 32.83 & 34.03 & 34.04\\\bottomrule
+\end{tabular}\end{table}
+
+\paragraph{Numerical reproducibility.}
+The archive contains the trained weights, full training traces and frozen scores used to generate the reported lists. A CPU replay from the same weights on 1,152 summer test markets changed 434 of 73,728 contextual top-five lists and 130 binary placement outcomes. For the anchored version, 2,445 lists and 650 placement statuses changed. Both CPU policies placed ten more renters in aggregate than their corresponding GPU runs. Near-ties can move identifiable simulated renters even when aggregate placement is similar. The theoretical guarantee applies to either realized display once the protection rule is applied.

@@ -1,0 +1,75 @@
+{
+  "degree_two_boundary": {
+    "n_per_side": 3,
+    "full_degree_at_most_two": {
+      "graphs": 265,
+      "strict_profiles": 2002,
+      "da_runs": 59419,
+      "perfect_initial_inputs": 6990,
+      "expansions": 22878,
+      "successful_expansions": 16548,
+      "perfect_initial_inputs_with_blockers": 2262,
+      "successful_expansions_with_unavoidable_losses": 2808
+    },
+    "regular_degree_two_only": {
+      "graphs": 6,
+      "strict_profiles": 384,
+      "da_runs": 24576,
+      "perfect_initial_inputs": 4104,
+      "perfect_initial_inputs_with_blockers": 1524,
+      "expansions": 15960,
+      "successful_expansions": 10980,
+      "successful_expansions_with_unavoidable_losses": 2016
+    }
+  },
+  "imperfect_cycle": [
+    {
+      "n": 3,
+      "audit_masks": 64,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 8,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 2
+    },
+    {
+      "n": 4,
+      "audit_masks": 256,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 16,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 3
+    },
+    {
+      "n": 5,
+      "audit_masks": 1024,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 32,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 4
+    },
+    {
+      "n": 6,
+      "audit_masks": 4096,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 64,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 5
+    },
+    {
+      "n": 7,
+      "audit_masks": 16384,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 128,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 6
+    },
+    {
+      "n": 8,
+      "audit_masks": 65536,
+      "number_of_initial_blockers": 2,
+      "distinct_visibility_patterns": 256,
+      "ordinary_cost": 1,
+      "cost_protecting_buyer_0": 7
+    }
+  ]
+}

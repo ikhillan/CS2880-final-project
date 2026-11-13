@@ -1,0 +1,147 @@
+\section{What can go wrong, and how hard is repair?}
+\begin{frame}[t,label=example]{A small example}
+\small
+Each client has its own firm. Every pair is feasible.
+Initially $E_0=\{ay,bx,cz\}$.
+\[
+\begin{array}{lll}
+ a:x\succ y\succ z & b:y\succ x\succ z & c:x\succ z\succ y\\
+ x:b\succ c\succ a & y:a\succ b\succ c & z:c\succ a\succ b
+\end{array}
+\]
+\vspace{-2mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.31\textwidth}\centering
+No audits\par\matchpic{1}\par Stable
+\end{column}
+\begin{column}{.36\textwidth}\centering
+Audit $a,b$\par\matchpic{2}\par {\color{rust}$cx$ blocks}
+\end{column}
+\begin{column}{.31\textwidth}\centering
+Also audit $c$\par\matchpic{3}\par Stable again
+\end{column}
+\end{columns}
+\sources{Solid lines are assignments. The dashed pair is hidden.
+All three stability checks use the same full graph and the same preferences.}
+\end{frame}
+
+\begin{frame}[t,label=chain]{The rejection chain}
+\small
+After auditing $a,b$, both get their first choices. But $c$ still only sees $z$.
+Now $c$ prefers $x$, and $x$ prefers $c$ to its new partner $a$.
+
+\medskip
+After auditing $c$, restart DA. Let $a,b$ propose first, then $c$:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Proposal & Listing keeps & Displaced client\\
+\midrule
+$c$ to $x$ & $c$ & $a$\\
+$a$ to $y$ & $a$ & $b$\\
+$b$ to $x$ & $b$ & $c$\\
+$c$ to $z$ & $c$ & none\\
+\bottomrule
+\end{tabular}
+\end{center}
+We return to the original stable matching.
+Adding audits can turn success into failure. Success is not monotone.
+\end{frame}
+
+\begin{frame}[t,label=gap]{Two audits versus $N+2$}
+\small
+\textbf{Theorem.} For every $N\geq1$, unit costs can give
+$\supp=2$ and $\resp=N+2$.
+
+Take $N$ copies of the example. All $a_i$ share firm $F_A$, all $b_i$
+share $F_B$, and other firms are private. Each copy starts at its stable matching.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{10}{12}\selectfont]
+\node (shared) at (5.3,1.4) {Audit $F_A,F_B$: cost $2$};
+\node[draw=ink,align=center,minimum width=3cm,minimum height=.85cm] (one) at (1.5,0)
+ {Copy $1$: $c_1x_1$ blocks\\one private repair};
+\node[draw=ink,align=center,minimum width=3cm,minimum height=.85cm] (two) at (5.1,0)
+ {Copy $2$: $c_2x_2$ blocks\\one private repair};
+\node at (7.25,0) {$\cdots$};
+\node[draw=ink,align=center,minimum width=3cm,minimum height=.85cm] (last) at (9.4,0)
+ {Copy $N$: $c_Nx_N$ blocks\\one private repair};
+\draw[-{Stealth[length=1.6mm]},blue] (shared.south)--(5.3,.75)-|(one.north);
+\draw[-{Stealth[length=1.6mm]},blue] (5.3,.75)-|(two.north);
+\draw[-{Stealth[length=1.6mm]},blue] (5.3,.75)-|(last.north);
+\end{tikzpicture}
+\end{center}
+Each shared firm also represents $N+3$ buyers in separate hidden one-edge
+markets. Their sellers have private firms. These make substitutes for $F_A,F_B$ expensive.
+\sources{Unit costs and side-exclusive firms. The shared portfolios grow with $N$.}
+\end{frame}
+
+\begin{frame}[t,label=gap-proof]{Why the gap is exact}
+\small
+\begin{enumerate}
+\setlength{\itemsep}{6pt}
+\item \textbf{Support costs two.} $F_A,F_B$ open every isolated pair.
+The original stable matchings remain available. One audit cannot open
+both isolated-pair families.
+\item \textbf{A cheapest repair uses both shared firms.} Omitting $F_A$
+requires $N+3$ private seller audits, plus one for $F_B$'s family:
+at least $N+4$. The same holds for omitting $F_B$.
+\item \textbf{Each copy costs one more.} With $F_A,F_B$ audited,
+we must audit $f(c_i)$ or $f(x_i)$. Either exposes $c_ix_i$ and repairs that copy.
+\end{enumerate}
+Those $N$ private choices are disjoint. Auditing $F_A,F_B$ and all $f(c_i)$
+achieves $N+2$, so the bound is tight.
+\sources{Appendix 1 gives a gap of $1$ versus $N+1$ with one client per firm.
+This is a cost separation, not an approximation-hardness theorem.}
+\end{frame}
+
+\begin{frame}[t,label=switch]{A two-by-two switch}
+\small
+For an edge $e=\{u,v\}$ in a graph, use buyers $p,q$ represented by firms
+$F_u,F_v$. Sellers $x,y$ have private firms. Initially expose $px,qx$.
+\[
+ p:y\succ x,\quad q:x\succ y,\quad
+ x:p\succ q,\quad y:q\succ p.
+\]
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Relevant audit & DA outcome & Full-market stability\\
+\midrule
+None & $px$, with $q,y$ unmatched & $qy$ blocks\\
+$F_u$ & $py,qx$ & stable\\
+$F_v$ alone & $px,qy$ & stable\\
+$y$'s firm & $py,qx$ & stable\\
+\bottomrule
+\end{tabular}
+\end{center}
+Success is exactly $F_u\in A$ or $F_v\in A$ or $f(y)\in A$.
+\end{frame}
+
+\begin{frame}[t,label=hardness]{A reduction from Vertex Cover}
+\small
+\setlength{\parskip}{2pt}
+Vertex Cover selects vertices touching every edge. Use degree $\leq3$.
+\par\smallskip
+{\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Graph & Matching instance\\
+\midrule
+Vertex $v$ & Buying firm $F_v$\\
+Edge $\{u,v\}$ & One switch using firms $F_u,F_v$\\
+Degree of $v$ & Number of clients represented by $F_v$\\
+\bottomrule
+\end{tabular}
+\par}
+\smallskip
+A cover audits an endpoint of every switch. To go back, replace private
+$y$-firm audits by endpoint firms. The OR condition preserves success
+without increasing cost.
+
+The optima coincide: NP-complete budget decision, APX-hard optimization.
+This holds with at most three clients per firm and two-item lists.
+\sources{Unit costs and side-exclusive firms. Verification is polynomial.
+Degree-three Vertex Cover: Garey et al.\ (1976), Alimonti and Kann (2000).}
+\end{frame}
+
+

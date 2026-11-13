@@ -1,0 +1,30 @@
+{
+  "directed_decisions": 7674,
+  "identified_respondents": 474,
+  "source_waves": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    17,
+    19,
+    21
+  ],
+  "valid_observed_pairs": 3837,
+  "mutual_yes_pairs": 644,
+  "mutual_rated_pairs": 640,
+  "train_subjects": 222,
+  "test_subjects": 252,
+  "test_pairs": 2163,
+  "test_mutual": 354,
+  "test_mutual_rated": 353
+}

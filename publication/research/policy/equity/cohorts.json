@@ -1,0 +1,41 @@
+{
+  "frozen_fit_sha256": "122413f014977a69ddd213e41b87a3979b4b979dd9414c97b7c4a1fe91ae4f75",
+  "sources": [
+    {
+      "year": 2022,
+      "applicants": 570891,
+      "programs": 79835,
+      "raw_edges": 1925825,
+      "excluded_below_entitlement": 3998,
+      "included_edges": 1921827,
+      "official_assigned": 520420,
+      "official_outside_retained_list": 9,
+      "protected_entitlements": 233088,
+      "administrative_appended": 229736,
+      "raised_to_protect_incumbents": 7612,
+      "programs_with_cap_raised": 3239,
+      "lottery_ties_in_program": 0,
+      "source_sha256": "40cc01cd49b99090fc40175f2d9d28c1607f31ee7c19ad147455ca93bb0bca57",
+      "source": "https://datosabiertos.mineduc.cl/wp-content/uploads/2023/03/SAE_2022.rar",
+      "priority_flags": 333368
+    },
+    {
+      "year": 2023,
+      "applicants": 536353,
+      "programs": 79600,
+      "raw_edges": 1847621,
+      "excluded_below_entitlement": 4168,
+      "included_edges": 1843453,
+      "official_assigned": 492888,
+      "official_outside_retained_list": 12,
+      "protected_entitlements": 222110,
+      "administrative_appended": 218725,
+      "raised_to_protect_incumbents": 6651,
+      "programs_with_cap_raised": 2953,
+      "lottery_ties_in_program": 0,
+      "source_sha256": "952903edd7f7ebf0d4a9ef850a248934e996d6ececb6e42b8e2143d6eb89fbc3",
+      "source": "https://datosabiertos.mineduc.cl/wp-content/uploads/2024/04/SAE-2023.rar",
+      "priority_flags": 330197
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "outcomes": 786432,
+  "markets": 384,
+  "device": "NVIDIA H200",
+  "job": "60231965",
+  "torch": "2.9.0+cu128",
+  "seconds": 34.83952204696834,
+  "seed": 11271271,
+  "input_sha256": "bca6a96b8d5b39b711471eb824b5ac22dc38e1fcfc55fce7b252b0a3250da787",
+  "output_sha256": "d893ee99346f53d10f53419501a93338aab882c909d8d847f74568f722ee37aa"
+}

@@ -1,0 +1,93 @@
+\section{The question and the model}
+\begin{frame}[t,label=question]{The question}
+\small
+Suppose a broker shows a client only some of their feasible options.
+A better match may never reach them.
+
+\medskip
+We ask which firms a platform should audit to make its matching stable,
+including against the options that were initially hidden.
+
+\medskip
+The difficulty is that opening an option can change the matching
+algorithm's choice.
+\sources{We model access to opportunities. Commissions and brokers' reasons for hiding options
+are outside the model.}
+\end{frame}
+
+\begin{frame}[t,label=clients]{The market}
+\small
+Buyers $B$ and sellers $S$, with one property per seller.
+Each client can have at most one partner.
+\[
+ E\subseteq B\times S
+ \qquad\text{is the set of mutually acceptable, feasible pairs.}
+\]
+Each client strictly ranks its feasible partners. Every acceptable partner
+is better than being unmatched, written $\bot$.
+
+\medskip
+Each client $i$ has one fixed representative $f(i)$.
+A firm can represent many clients. A \emph{side-exclusive} firm represents
+only buyers or only sellers.
+\sources{Prices, rankings, and representation stay fixed. Brokers control access.
+For rentals, interpret the two sides as renters and listing slots.}
+\end{frame}
+
+\begin{frame}[t,label=blocking]{Stability in the full market}
+\small
+For a matching $M$, let $M(i)$ be client $i$'s partner, or $\bot$ if unmatched.
+\[
+ \BP_E(M)=\{bs\in E\setminus M:
+ s\succ_b M(b)\ \text{and}\ b\succ_s M(s)\}.
+\]
+A pair blocks when both clients would rather match with each other.
+
+\medskip
+We call $M$ \emph{full-market stable} when $\BP_E(M)=\varnothing$.
+
+\medskip
+Deferred acceptance is stable on the graph it receives.
+A pair left out of that graph can still block in $E$.
+\sources{This treatment of unavailable pairs follows restricted-edge matching
+(Cseh and Manlove, 2016).}
+\end{frame}
+
+\begin{frame}[t,label=audit]{Audits and deferred acceptance}
+\small
+Initially, only $E_0\subseteq E$ is available. Let $\FF$ be the firms.
+Auditing a set $A\subseteq\FF$ opens
+\[
+ E(A)=E_0\cup\{bs\in E:f(b)\in A\ \text{or}\ f(s)\in A\}.
+\]
+Either representative is enough. An audit enables all feasible pairs
+involving its clients, without forcing a transaction.
+\[
+ c(A)=\sum_{f\in A}c_f,\quad c_f\in\mathbb Z_{>0},
+ \qquad D(A)=\DA(E(A)).
+\]
+\textbf{Deferred acceptance (DA):} buyers propose down their available lists.
+Each seller keeps its favorite proposal so far and rejects the others.
+Rejected buyers continue until no further proposal is possible.
+\sources{Assumption: the planner knows $E$ and the rankings. Payment enables access.
+The platform always uses buyer-proposing DA.}
+\end{frame}
+
+\begin{frame}[t,label=objectives]{Two audit costs}
+\small
+\textbf{Response:} DA must select a full-market stable matching.
+\[
+ \resp=\min_{A\subseteq\FF}\{c(A):\BP_E(D(A))=\varnothing\}.
+\]
+\textbf{Support:} some full-market stable matching must be available.
+\[
+ \supp=\min_{A\subseteq\FF}
+ \{c(A):\exists M\subseteq E(A),\ \BP_E(M)=\varnothing\}.
+\]
+Every successful DA response supplies such a matching, so
+\[
+ \supp\leq\resp.
+\]
+\sources{Auditing every firm is feasible. Running DA is polynomial-time.
+Choosing the audits is the optimization problem.}
+\end{frame}

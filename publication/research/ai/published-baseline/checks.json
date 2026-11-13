@@ -1,0 +1,21 @@
+{
+  "gradient_max_abs_error": 2.4971180678790006e-10,
+  "expectation_enum_error": 4.440892098500626e-16,
+  "linear_oracle_permutations_per_applicant": 24,
+  "runtime": {
+    "python": "3.13.6",
+    "numpy": "2.2.6"
+  },
+  "cal": {
+    "markets": 768,
+    "edges": 182852
+  },
+  "summer": {
+    "markets": 1152,
+    "edges": 274158
+  },
+  "winter": {
+    "markets": 1152,
+    "edges": 281381
+  }
+}

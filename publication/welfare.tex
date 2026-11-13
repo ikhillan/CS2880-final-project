@@ -1,0 +1,35 @@
+\section{How much affordability does full stability permit?}\label{sec:burden}
+Changing which renters match is one way to change a group's rent-burden distribution. Changing partners while keeping the recipients fixed is another. We compute the feasible improvement in that second comparison to see how much freedom remains once the platform promises stability.
+
+Let the burden of an edge be $u_{bs}=12r_s/I_b$. The survey-weighted first quartile of contract-rent burden among recent lower-income movers with positive income, known rent and burden at most 40\% is 21.998\%. The cap excludes 33.10\% of otherwise eligible recent-mover survey weight. In the original 240 ordinary calibration markets ($20$ separate seed blocks), full DA with the fitted preferences placed 217 lower-income and 7,755 higher-income renter instances. Its lower-income first quartile of asking-rent burden was 31.21262\%. The 55th ordered burden is exactly the sample quartile since $1+(217-1)/4=55$. This target compares simulated advertised rents with contract rents in occupied homes.
+
+\paragraph{The feasible supply bound.}
+At burden threshold $t$ remove every edge whose burden exceeds $t$, restrict to lower-income applicants, and sum the maximum matching sizes across the disjoint market draws. Call the resulting count $K(t)$. Every allocation has at most $K(t)$ lower-income placements at this burden. At 21.998\% only two listing instances with any eligible edge qualify, against the required 55. The count reaches 55 for the first time at $27.77728\ldots\%$ and is 54 immediately below that value. A maximum cheap matching need not extend to 217 placements. Here an explicit matching of 55 cheap pairs extends by 713 disjoint eligible pairs. Keeping 162 of the additional pairs proves attainment at exactly 217. A second construction also attains this same floor while placing all 7,755 higher-income instances in aggregate. These bounds concern the finite sampled graphs.
+
+\paragraph{An exact stable interval.}
+Let $\mathcal S_m$ be the set of matchings stable on the complete feasible graph in market $m$. Matched-set invariance fixes the same group recipients in each market across $\mathcal S_m$. Write $c_t(M)$ for the number of designated-group recipients assigned burden at most $t$. For any integer order-statistic index $k$ the best and worst possible $k$th burden across stable allocations are respectively
+\begin{align*}
+ t_{\min}&=\min\{t:\sum_m \max_{M\in\mathcal S_m}c_t(M)\ge k\},\\
+ t_{\max}&=\min\{t:\sum_m \min_{M\in\mathcal S_m}c_t(M)\ge k\}.
+\end{align*}
+Indeed, the local maxima can be attained simultaneously across distinct market draws. This characterizes when at least one global stable allocation has $k$ cheap placements. Using local minima characterizes when every global stable allocation has at least $k$. The count is linear in the edge indicators, so binary search over observed burdens and linear optimization on the integral stable-matching polytope give an exact algorithm \citep{rothblum1992polytope,gorski2009}. Minima of adjacent order statistics need not be simultaneously attainable; when the sample quartile interpolates, we evaluate the interpolated statistic on jointly attainable outcomes.
+
+\begin{table}[t]\centering
+\caption{Lower-income first-quartile asking-rent burden across the same 240 calibration markets. Counts and identities in the restrictions are those placed by full DA. The first four rows permit priority violations.}
+\label{tab:welfare}
+\begin{tabular}{@{}lr@{}}\toprule
+Constraints & Lowest attainable quartile (\%)\\\midrule
+Both income groups retain their pooled placement counts & 27.77728\\
+Both groups retain their counts within every market & 28.13243\\
+Every originally placed renter retains a placement & 28.37952\\
+The same renters and listings remain occupied & 28.37952\\
+Full-market stability & 31.21173\\\midrule
+Renter-proposing DA (also the largest stable quartile) & 31.21262\\\bottomrule
+\end{tabular}
+\end{table}
+
+Conditional on exactly the original matched renters and occupied listings, requiring stability raises the best quartile by \textbf{2.83221 percentage points}. Choosing a different stable matching can move the quartile by only \textbf{0.00089 points}. Of 240 markets, 86 admit multiple stable outcomes, yet only 3 of the 217 matched lower-income renter instances have more than one stable partner. The two differences answer different policy questions: the cost of requiring a stable allocation, and the choice available to a designer who retains that requirement.
+
+We enumerated the 369 local stable outcomes (at most eight in any market), checking each for full-graph blocking pairs. An independent threshold linear program reproduced both stable endpoints. Feasible allocations attain every minimum in Table~\ref{tab:welfare}; fixed-volume matching or flow certificates exclude a lower value. Across the remaining eight calibration settings, we enumerated distinct jointly attainable burden vectors to evaluate interpolated quartiles directly (at most 12,288 combinations). The stable range of this quartile was at most 0.153 percentage points in all nine settings. Outcomes depend on modeled ordinal rankings, and lowering asking-rent burden need not be a Pareto improvement.
+
+Expanding the inventory answers a separate supply question. With the same renters and 217 lower-income placements, the unrestricted pooled floor is 29.14\%, 27.78\%, 26.85\% and 25.29\% at 32, 64, 128 and 256 sampled listings per market. With the entire borough-month catalogue the pooled floor falls to 18.46\%, but preserving each market's original lower-income placement count puts it at 22.35\%, and preserving the original recipients yields 22.46\%. These last three bounds give lower-income renters first claim on all listings. Thirteen distinct listing records supply the feasible 21.998\%-burden edges across repeated whole-catalogue draws. Even its optimistic floor depends on which people and markets receive the placements; the advertised units may never all be available at once.

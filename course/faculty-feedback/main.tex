@@ -1,0 +1,297 @@
+\documentclass[aspectratio=169,14pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,tabularx,tikz}
+\usefonttheme{professionalfonts}
+\definecolor{ink}{HTML}{24292E}
+\definecolor{blue}{HTML}{304E68}
+\definecolor{muted}{HTML}{61676B}
+\definecolor{repair}{HTML}{A94722}
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=blue}
+\setbeamercolor{frametitle}{fg=ink,bg=white}
+\setbeamercolor{alerted text}{fg=blue}
+\setbeamerfont{frametitle}{size=\Large,series=\mdseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=9mm,text margin right=9mm}
+\setlength{\parskip}{5pt}
+\newif\ifbackup
+\setbeamertemplate{footline}{\hfill
+  {\color{muted}\fontsize{8}{9}\selectfont
+  \ifbackup Appendix \number\numexpr\insertframenumber-9\relax
+  \else\insertframenumber\fi}\hspace{9mm}\vspace{3mm}}
+\newcommand{\DA}{\operatorname{DA}}
+\newcommand{\BP}{\operatorname{BP}}
+\newcommand{\supp}{C_{\mathrm{support}}}
+\newcommand{\resp}{C_{\mathrm{DA}}}
+\newcommand{\sources}[1]{\vfill{\fontsize{9}{11}\selectfont\color{muted}#1\par}}
+\newcommand{\matchpic}[1]{%
+\begin{tikzpicture}[x=1.7cm,y=.64cm,
+every node/.style={circle,draw=ink,fill=white,minimum size=4.8mm,inner sep=0pt,font=\small}]
+\node (a) at (0,2) {$a$}; \node (b) at (0,1) {$b$}; \node (c) at (0,0) {$c$};
+\node (x) at (1,2) {$x$}; \node (y) at (1,1) {$y$}; \node (z) at (1,0) {$z$};
+\ifnum#1=2
+ \draw[ink,line width=1pt] (a)--(x) (b)--(y) (c)--(z);
+ \draw[repair,dashed,line width=1.3pt] (c)--(x);
+\else
+ \draw[ink,line width=1pt] (a)--(y) (b)--(x) (c)--(z);
+\fi
+\end{tikzpicture}}
+\hypersetup{colorlinks=true,urlcolor=blue,
+pdftitle={Housing matches with hidden options},
+pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
+\title{Housing matches with hidden options}
+\author{Ishan Khillan, Elaine Zhang, Todd Zhou}
+\date{October 29, 2026}
+\begin{document}
+
+\begin{frame}[plain]
+\vspace{7mm}
+{\fontsize{25}{29}\selectfont Housing matches\\with hidden options\par}
+\vspace{8mm}
+Ishan Khillan, Elaine Zhang, Todd Zhou\par
+{\small COMPSCI 2880 \quad October 29, 2026\par}
+\vspace{8mm}
+\small
+Our starting point: brokers can affect which apartments people get to consider.
+We want to understand what that does to matching.
+\vfill
+{\color{muted}Work in progress, for discussion\par}
+\end{frame}
+
+\begin{frame}[t]{The broker idea, simplified}
+\small
+Suppose a renter and a landlord would both prefer to match, but their
+agents never put them in contact.
+
+\medskip
+We start with renters and listings as the two sides. Each has a fixed
+agent who controls access to some of its possible matches.
+
+\medskip
+An \emph{audit} opens the feasible matches involving that agent's clients.
+It has a cost.
+
+\medskip
+This leaves out the reason an agent hides an option.
+We have not modeled commissions, friendships, or collusion yet.
+\end{frame}
+
+\begin{frame}[t]{What we are assuming}
+\small
+$E$ contains all feasible renter--listing pairs. Initially, only
+$E_0\subseteq E$ is available. Preferences are strict and fixed.
+
+Auditing a set of agents $A$ gives
+\[
+ E(A)=E_0\cup\{r\ell\in E:f(r)\in A\text{ or }f(\ell)\in A\},
+\]
+where $f(i)$ is client $i$'s agent. The platform then runs
+\[
+ D(A)=\DA_R(E(A)).
+\]
+We want the cheapest $A$ for which no pair in \emph{all of $E$}
+would rather match with each other than keep its assignment.
+
+\sources{DA = renter-proposing deferred acceptance. We assume the planner knows
+$E$ and the rankings but pays to make pairs available. We still need a housing
+setting that justifies these assumptions.}
+\end{frame}
+
+\begin{frame}[t]{A small example}
+\small
+Three renters, three listings. Start with $E_0=\{ay,bx,cz\}$.
+Each client has its own agent, and every pair is feasible.
+\[
+\begin{array}{lll}
+ a:x\succ y\succ z & b:y\succ x\succ z & c:x\succ z\succ y\\
+ x:b\succ c\succ a & y:a\succ b\succ c & z:c\succ a\succ b
+\end{array}
+\]
+\vspace{-3mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.31\textwidth}\centering
+Start here\par\vspace{1mm}
+\matchpic{1}\par
+Stable
+\end{column}
+\begin{column}{.36\textwidth}\centering
+Audit $a,b$\par\vspace{1mm}
+\matchpic{2}\par
+{\color{repair}$cx$ blocks}
+\end{column}
+\begin{column}{.31\textwidth}\centering
+Also audit $c$\par\vspace{1mm}
+\matchpic{3}\par
+Stable again
+\end{column}
+\end{columns}
+\medskip
+In the middle, $c$ wants $x$ instead of $z$, and $x$ wants $c$ instead of $a$.
+\sources{The solid lines show DA's assignments. The dashed pair is still hidden.
+Preferences have not changed.}
+\end{frame}
+
+\begin{frame}[t]{Having a stable matching available isn't enough}
+\small
+In the middle graph, the original stable matching $\{ay,bx,cz\}$
+is still available. DA just doesn't choose it.
+
+\medskip
+So there are two different costs:
+\begin{align*}
+ \supp&:\ \text{make some full-market stable matching available},\\
+ \resp&:\ \text{make DA's chosen matching full-market stable}.
+\end{align*}
+Starting from $N$ copies of that middle graph, plus one hidden isolated pair,
+\[
+ \supp=1,\qquad \resp=N+1.
+\]
+\sources{Unit audit costs, one client per agent. The proof is in the appendix.
+It is a simple construction. We see it as a reason to study the distinction,
+and still need to establish what is new.}
+\end{frame}
+
+\begin{frame}[t]{Where this sits in the literature}
+\small
+\begin{itemize}
+\setlength{\itemsep}{8pt}
+\item Liu et al.\ (2024) already audit racial steering in LLM
+housing recommendations.
+\item Matching papers study costly interviews, limited information,
+and changes to the available pairs.
+\item Trabelsi et al.\ (2025) is especially close: pay to add pairs while
+a platform keeps using its own maximum-matching rule.
+\end{itemize}
+\medskip
+Our question is narrower: which agents should we audit so that
+DA leaves no blocking pair hidden?
+\sources{We need to check whether this exact problem, or an equivalent one,
+has already been studied. References and links are in the appendix.}
+\end{frame}
+
+\begin{frame}[t]{How we could test the housing part}
+\small
+Use one fixed catalogue of rental listings. Give an AI recommender
+household profiles and ask it to return listing IDs. These recommendations
+define the initially visible pairs.
+
+\medskip
+Then compare targeted audits with random audits at the same budget,
+and with full disclosure.
+
+\medskip
+Historical listings could supply rents and apartment features. ACS could
+help us generate household profiles. Preferences, agent groups, and audit
+costs would still need assumptions.
+
+\sources{This study has not been run. Candidate data: Two Sigma rental listings
+and ACS PUMS. Keep catalogue and list length fixed, randomize listing order,
+and repeat prompts. The existing experiments use synthetic markets.}
+\end{frame}
+
+\begin{frame}[t]{Stability may leave affordable options hidden}
+\small
+For each modeled renter $r$, let $F_r$ be their affordable feasible listings.
+Let $G^+$ be the lower-income renters with at least one such option. Measure
+\[
+ \mathrm{Access}(A)=\frac{1}{|G^+|}\sum_{r\in G^+}
+ \frac{|\{\ell\in F_r:r\ell\in E(A)\}|}{|F_r|}.
+\]
+Let $C(\tau)$ be the cheapest audit plan that makes DA full-market stable
+and gives $\mathrm{Access}(A)\geq\tau$.
+\[
+ \underbrace{C(\tau)-C(0)}_{\text{extra cost of the access target}}
+\]
+Does this cost become large when affordable housing is scarce?
+Does the recommender change it?
+\sources{Assume $|G^+|>0$ and $\tau\in[0,1]$. Report renters with no affordable
+option separately. This measures available options, not who ultimately gets a home.}
+\end{frame}
+
+\begin{frame}[t]{What we'd like your advice on}
+\small
+The biggest issue for us is the institution. Is there a housing setting
+where a fixed matching rule and costly access make sense?
+
+\bigskip
+Would you push this toward a theory result, or toward measuring the
+cost of affordable access with an actual recommender?
+
+\bigskip
+And which paper should we read before going further?
+\end{frame}
+
+\backuptrue
+
+\begin{frame}[t]{Why the costs are 1 and \texorpdfstring{$N+1$}{N+1}}
+\small
+\setlength{\parskip}{1pt}
+Start each copy with
+\[
+ H=\{ax,ay,az,bx,by,bz,cz\}.
+\]
+\begin{enumerate}
+\setlength{\itemsep}{4pt}
+\item $\{ay,bx,cz\}\subseteq H$ is stable in the full market.
+But DA returns $\{ax,by,cz\}$, and $cx$ blocks.
+\item Without auditing $c$ or $x$, the only new pair we can add is $cy$.
+It changes nothing: $c$ prefers $z$, and $z$ keeps $c$.
+\item Auditing either $c$ or $x$ exposes $cx$. The rejection chain
+returns DA to $\{ay,bx,cz\}$.
+\end{enumerate}
+So each copy costs zero for support and one for DA. A separate hidden
+isolated pair costs one under either objective.
+\end{frame}
+
+\begin{frame}[t]{A case where the distinction disappears}
+\small
+Suppose every listing uses the same strict priority over renters.
+Then there is a unique stable matching $M^*$: let renters choose in
+priority order.
+\[
+ M^*\subseteq H\subseteq E
+ \quad\Longrightarrow\quad
+ \DA_R(H)=M^*.
+\]
+Each renter's choice from the full market is still available at their turn.
+So $\supp=\resp$.
+
+\medskip
+We only need to cover the hidden pairs in $M^*$. If agents represent
+one side each, this is weighted bipartite vertex cover and we can solve
+it by minimum cut.
+\sources{This follows from standard matching and covering results.
+It is a useful check on which assumptions make our problem difficult.}
+\end{frame}
+
+\begin{frame}[t]{References}
+\fontsize{9.2}{11}\selectfont
+\begin{enumerate}
+\setlength{\itemsep}{2pt}
+\item Liu, So, Hosoi, D'Ignazio (2024).
+\href{https://r-t-lab.org/works/housing-gpt-audit/}{Racial Steering by Large Language Models}.
+EAAMO.
+\item \href{https://ojs.aaai.org/index.php/ICWSM/article/view/7276}{Asplund et al.\ (2020), Auditing Race and Gender Discrimination in Online Housing Markets}.
+ICWSM.
+\href{https://doi.org/10.1215/00703370-9357518}{Besbris et al.\ (2021), The Unequal Availability of Rental Housing Information Across Neighborhoods}.
+Demography.
+\item \href{https://doi.org/10.1016/j.disopt.2016.03.002}{Cseh and Manlove (2016), Stable Marriage and Roommates Problems with Restricted Edges}.
+Discrete Optimization.
+\href{https://doi.org/10.1613/jair.1.12755}{Boehmer et al.\ (2021), Bribery and Control in Stable Marriage}.
+JAIR.
+\item \href{https://arxiv.org/abs/1602.04792}{Rastegari, Goldberg, Manlove (2016), Preference Elicitation in Matching Markets via Interviews}.
+AAMAS extended abstract and full preprint.
+\item \href{https://arxiv.org/abs/2508.18325}{Trabelsi et al.\ (2025), Facilitating Matches on Allocation Platforms}.
+ECAI.
+\item \href{https://arxiv.org/abs/2609.09693}{Aguiar and Hong (2026), The Attention Cost of Stable Matching}.
+Preprint.
+\item \href{https://doi.org/10.1007/s10107-003-0375-9}{Hooker and Ottosson (2003), Logic-Based Benders Decomposition}.
+\href{https://doi.org/10.1007/BF01586041}{Rothblum (1992), Characterization of Stable Matchings as Extreme Points of a Polytope}.
+Mathematical Programming.
+\item Data:
+\href{https://www.kaggle.com/competitions/two-sigma-connect-rental-listing-inquiries/data}{Two Sigma Connect: Rental Listing Inquiries},
+\href{https://www.census.gov/programs-surveys/acs/microdata.html}{ACS Public Use Microdata}.
+\end{enumerate}
+\end{frame}
+\end{document}

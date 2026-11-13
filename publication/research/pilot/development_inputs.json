@@ -1,0 +1,47 @@
+{
+  "calibration_recent_movers": 7193,
+  "cash_renters": 71908,
+  "housing_archive_sha256": "393444456bfaf6bf935920852861979253b0a7a79c9eeb8ec0e2a7053c6d478d",
+  "listing_catalogues": {
+    "2026-06": {
+      "by_borough": {
+        "Bronx": 607,
+        "Brooklyn": 9356,
+        "Manhattan": 10306,
+        "Queens": 3066,
+        "Staten Island": 26
+      },
+      "included": 23361,
+      "raw_rows": 25503,
+      "raw_sha256": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be"
+    },
+    "2026-07": {
+      "by_borough": {
+        "Bronx": 648,
+        "Brooklyn": 9354,
+        "Manhattan": 10049,
+        "Queens": 2982,
+        "Staten Island": 26
+      },
+      "included": 23059,
+      "raw_rows": 25442,
+      "raw_sha256": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab"
+    },
+    "2026-08": {
+      "by_borough": {
+        "Bronx": 572,
+        "Brooklyn": 7877,
+        "Manhattan": 8489,
+        "Queens": 2665,
+        "Staten Island": 20
+      },
+      "included": 19623,
+      "raw_rows": 21597,
+      "raw_sha256": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b"
+    }
+  },
+  "median_income_july": 68590.26298292895,
+  "nyc_households": 154349,
+  "pumas": 55,
+  "recent_movers": 10302
+}

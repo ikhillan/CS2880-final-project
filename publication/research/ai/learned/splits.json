@@ -1,0 +1,102 @@
+{
+  "train": {
+    "feature_order": [
+      "rent_over_cap",
+      "spare_bedrooms_capped",
+      "distance_over_5km",
+      "quality",
+      "capped_income_over_annual_rent"
+    ],
+    "weights": {
+      "Bronx": 0.11843063377223748,
+      "Brooklyn": 0.3166055407472727,
+      "Manhattan": 0.3595172722474965,
+      "Queens": 0.184940978415536
+    },
+    "seed_start": 2026120100,
+    "blocks": 80,
+    "sha256": "96f0211f54011dac05c3e5e491966399fa1732c85d23d0bb0a098a9d9c06ba49",
+    "markets": 1920,
+    "missing": []
+  },
+  "val": {
+    "feature_order": [
+      "rent_over_cap",
+      "spare_bedrooms_capped",
+      "distance_over_5km",
+      "quality",
+      "capped_income_over_annual_rent"
+    ],
+    "weights": {
+      "Bronx": 0.11843063377223748,
+      "Brooklyn": 0.3166055407472727,
+      "Manhattan": 0.3595172722474965,
+      "Queens": 0.184940978415536
+    },
+    "seed_start": 2026120300,
+    "blocks": 16,
+    "sha256": "8944cdd00ddcc8d299e6293b5002c18433135fa7a5f5442b6e685d87411373c2",
+    "markets": 384,
+    "missing": []
+  },
+  "cal": {
+    "feature_order": [
+      "rent_over_cap",
+      "spare_bedrooms_capped",
+      "distance_over_5km",
+      "quality",
+      "capped_income_over_annual_rent"
+    ],
+    "weights": {
+      "Bronx": 0.11843063377223748,
+      "Brooklyn": 0.3166055407472727,
+      "Manhattan": 0.3595172722474965,
+      "Queens": 0.184940978415536
+    },
+    "seed_start": 2026120900,
+    "blocks": 32,
+    "sha256": "2de7214111c037ebae3f49e4b67f9129d44a4ad860c18c6fbceed9a51cd9b912",
+    "markets": 768,
+    "missing": []
+  },
+  "summer": {
+    "feature_order": [
+      "rent_over_cap",
+      "spare_bedrooms_capped",
+      "distance_over_5km",
+      "quality",
+      "capped_income_over_annual_rent"
+    ],
+    "weights": {
+      "Bronx": 0.11843063377223748,
+      "Brooklyn": 0.3166055407472727,
+      "Manhattan": 0.3595172722474965,
+      "Queens": 0.184940978415536
+    },
+    "seed_start": 2026120500,
+    "blocks": 48,
+    "sha256": "ed87f3b0863248d6f761480092976e35ea94b930c343646d131257316e794c31",
+    "markets": 1152,
+    "missing": []
+  },
+  "winter": {
+    "feature_order": [
+      "rent_over_cap",
+      "spare_bedrooms_capped",
+      "distance_over_5km",
+      "quality",
+      "capped_income_over_annual_rent"
+    ],
+    "weights": {
+      "Bronx": 0.11843063377223748,
+      "Brooklyn": 0.3166055407472727,
+      "Manhattan": 0.3595172722474965,
+      "Queens": 0.184940978415536
+    },
+    "seed_start": 2026120700,
+    "blocks": 48,
+    "sha256": "f5b524bf1e27870a577f3f188975b40e4f698a3be6010cefd38ec71316a38d99",
+    "markets": 1152,
+    "missing": []
+  }
+}

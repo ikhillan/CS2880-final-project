@@ -1,0 +1,398 @@
+{
+  "commit": "981ed97f6b1c517b8aa9a785531c2592a700133c",
+  "config_sha256": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568",
+  "design": "Stage 1 on June-August 2026; 20 shared seed blocks within each design; income groups in lower,higher order",
+  "bootstrap": {
+    "samples": 10000,
+    "type": "paired full seed blocks with replacement",
+    "seed": 731911
+  },
+  "status": {
+    "ok": 480,
+    "unestimable": 120
+  },
+  "coverage": 0.9794944251825429,
+  "designs": {
+    "primary": {
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "markets": 240,
+      "group_sizes": [
+        6617,
+        8743
+      ],
+      "pooled_uniform_k5": {
+        "lower_income": {
+          "own_blocker_rate": 0.012241196917031887,
+          "can_hide_rate": 0.049267039443856735,
+          "no_feasible_listing": 0.8198579416654073,
+          "match_before": 0.04488438869578359,
+          "match_full_disclosure": 0.030980807012241197
+        },
+        "higher_income": {
+          "own_blocker_rate": 0.7440237904609401,
+          "can_hide_rate": 0.9183346677341874,
+          "no_feasible_listing": 0.010408326661329063,
+          "match_before": 0.8648061306187808,
+          "match_full_disclosure": 0.870982500285943
+        }
+      },
+      "policies": {
+        "uniform_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.003955049906112034,
+            "can_hide_rate": 0.01777431458280383,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.019454807971738566,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.7364926026595727,
+            "can_hide_rate": 0.9098934252684502,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.8576575467466033,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "transparent_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.009807446639417154,
+            "can_hide_rate": 0.01777431458280383,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.012133955418088717,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.7335144766669607,
+            "can_hide_rate": 0.9098934252684502,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.4988275909657331,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "expensive_first_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.009301945480641352,
+            "can_hide_rate": 0.01777431458280383,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.053769450429308814,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.8442427344054664,
+            "can_hide_rate": 0.9098934252684502,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.8124959142653838,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "uniform_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.010985426809047228,
+            "can_hide_rate": 0.0693376922219086,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.01181764374756004,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.5059015155536475,
+            "can_hide_rate": 0.9725337911032724,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.8503086695080018,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "transparent_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.01333543789274535,
+            "can_hide_rate": 0.0693376922219086,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.006311649539515301,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.3800782860338345,
+            "can_hide_rate": 0.9725337911032724,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.7684617465948219,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "expensive_first_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.04713998246636041,
+            "can_hide_rate": 0.0693376922219086,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.061440842554847774,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.869371637766434,
+            "can_hide_rate": 0.9725337911032724,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.9346596300360269,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        },
+        "full": {
+          "lower_income": {
+            "own_blocker_rate": 0.0,
+            "can_hide_rate": 0.0,
+            "no_feasible_listing": 0.8696421907011812,
+            "match_before": 0.011809606343716937,
+            "match_full_disclosure": 0.011809606343716937
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.0,
+            "can_hide_rate": 0.0,
+            "no_feasible_listing": 0.010872903181816067,
+            "match_before": 0.8619888173661105,
+            "match_full_disclosure": 0.8619888173661105
+          }
+        }
+      },
+      "transparent_minus_uniform": {
+        "k5": {
+          "delta_lower": 0.00585239673330512,
+          "delta_higher": -0.0029781259926120462,
+          "T": 0.008830522725917167,
+          "paired_mc_interval_95": [
+            -0.0032998899626739383,
+            0.020927873870590828
+          ],
+          "gap_control": -0.7325375527534607,
+          "gap_treated": -0.7237070300275436,
+          "switch_lower": 0.002683986394843685,
+          "switch_higher": 0.006146536331073427
+        },
+        "q40": {
+          "delta_lower": 0.002350011083698122,
+          "delta_higher": -0.125823229519813,
+          "T": 0.12817324060351112,
+          "paired_mc_interval_95": [
+            0.1120787251094052,
+            0.14384568202569242
+          ],
+          "gap_control": -0.49491608874460025,
+          "gap_treated": -0.36674284814108915,
+          "switch_lower": 0.002193744177327206,
+          "switch_higher": 0.1259794964261839
+        }
+      }
+    },
+    "enriched": {
+      "seeds": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169
+      ],
+      "markets": 240,
+      "group_sizes": [
+        7680,
+        7680
+      ],
+      "pooled_uniform_k5": {
+        "lower_income": {
+          "own_blocker_rate": 0.38229166666666664,
+          "can_hide_rate": 0.63671875,
+          "no_feasible_listing": 0.0,
+          "match_before": 0.3731770833333333,
+          "match_full_disclosure": 0.37395833333333334
+        },
+        "higher_income": {
+          "own_blocker_rate": 0.847265625,
+          "can_hide_rate": 0.9759114583333334,
+          "no_feasible_listing": 0.005729166666666666,
+          "match_before": 0.9638020833333333,
+          "match_full_disclosure": 0.9868489583333333
+        }
+      },
+      "policies": {
+        "uniform_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.3702730986616332,
+            "can_hide_rate": 0.6308250964217389,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.3638400575631813,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.8519153572435373,
+            "can_hide_rate": 0.9804761217659073,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.9660631871434269,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "transparent_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.524609870980154,
+            "can_hide_rate": 0.6308250964217389,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.19226685327242818,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.8206077826950114,
+            "can_hide_rate": 0.9804761217659073,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.5402454726114517,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "expensive_first_k5": {
+          "lower_income": {
+            "own_blocker_rate": 0.5177418805961834,
+            "can_hide_rate": 0.6308250964217389,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.528079955943819,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.9582477778668199,
+            "can_hide_rate": 0.9804761217659073,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.7676375817865501,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "uniform_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.27039532380142056,
+            "can_hide_rate": 0.841119980201289,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.3497528642343266,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.5777895362520729,
+            "can_hide_rate": 0.9926639784098282,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.9823019024182444,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "transparent_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.4143605729719038,
+            "can_hide_rate": 0.841119980201289,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.20156983535554693,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.4576256082839146,
+            "can_hide_rate": 0.9926639784098282,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.9242766628984606,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "expensive_first_q40": {
+          "lower_income": {
+            "own_blocker_rate": 0.6798125598195579,
+            "can_hide_rate": 0.841119980201289,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.5329103106610102,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.883760913517117,
+            "can_hide_rate": 0.9926639784098282,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.9559931044816072,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        },
+        "full": {
+          "lower_income": {
+            "own_blocker_rate": 0.0,
+            "can_hide_rate": 0.0,
+            "no_feasible_listing": 0.0,
+            "match_before": 0.36498291483797846,
+            "match_full_disclosure": 0.36498291483797846
+          },
+          "higher_income": {
+            "own_blocker_rate": 0.0,
+            "can_hide_rate": 0.0,
+            "no_feasible_listing": 0.0052650233765170855,
+            "match_before": 0.9884139995100762,
+            "match_full_disclosure": 0.9884139995100762
+          }
+        }
+      },
+      "transparent_minus_uniform": {
+        "k5": {
+          "delta_lower": 0.15433677231852078,
+          "delta_higher": -0.03130757454852584,
+          "T": 0.18564434686704662,
+          "paired_mc_interval_95": [
+            0.17144633638597784,
+            0.2013085911968346
+          ],
+          "gap_control": -0.48164225858190407,
+          "gap_treated": -0.29599791171485745,
+          "switch_lower": 0.09898388363774527,
+          "switch_higher": 0.08666046322930135
+        },
+        "q40": {
+          "delta_lower": 0.14396524917048326,
+          "delta_higher": -0.12016392796815828,
+          "T": 0.26412917713864154,
+          "paired_mc_interval_95": [
+            0.239128628541076,
+            0.2888224520438253
+          ],
+          "gap_control": -0.3073942124506523,
+          "gap_treated": -0.04326503531201076,
+          "switch_lower": 0.11198499676462867,
+          "switch_higher": 0.15214418037401287
+        }
+      }
+    }
+  },
+  "realized_rows": 3360,
+  "skipped_arms": {
+    "claude_k5": 480,
+    "qwen_k5": 480,
+    "mistral_k5": 480,
+    "claude_q40": 480
+  }
+}

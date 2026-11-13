@@ -1,0 +1,36 @@
+\subsection{Can already-matched renters keep a placement?}
+In each test market we start from the uniform five-listing policy, observe
+its DA assignment, and keep the lower-income applicants' lists fixed.
+We compare changing the other lists using the contextual model's scores
+with applying the zero-loss rule to the same scores. The rule knows the
+provisional assignments and eligibility. It treats every proposed edge to
+a held unit as a possible threat, so the realized priority ordering is used
+only to simulate DA.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Market & Lost, direct & New, guarded & Lower-group change (pp) & Higher (pp) & Total (pp)\\\midrule
+Summer ordinary & 221 & 116 & +0.67 [0.55, 0.79] & -0.20 & +0.24 \\
+Summer enriched & 985 & 2,046 & +3.93 [3.55, 4.29] & -2.34 & +0.79 \\
+Winter ordinary & 285 & 131 & +0.99 [0.82, 1.18] & -0.41 & +0.27 \\
+Winter enriched & 1,095 & 2,129 & +4.38 [3.94, 4.82] & -2.34 & +1.02 \\
+\bottomrule\end{tabular}
+\caption{Guarded versus unguarded contextual recommendations to higher-income
+applicants. The first two numeric columns are raw counts of lower-income draw
+instances, relative to the original uniform display. No old lower-income match
+is lost under protection. The last three columns are percentage-point
+differences for guarded minus direct, standardized by borough and month.
+Brackets give paired 95\% intervals over the 48 simulation seed blocks.}
+\label{tab:guard-evidence}
+\end{table}
+
+The two seasonal panels contain 15,847 initially matched lower-income renter
+instances. Direct use of the learned score costs 2,586 of them their placement.
+The protected policy retains all 15,847 and places 4,422 previously unmatched
+lower-income instances. It changes 75,442 of the 79,129 higher-income lists;
+only 213 are explicitly frozen by a shortage of safe alternatives.
+Higher-income placement rates fall relative to the direct score in every
+panel. The lower-income gains more than offset this loss in total placements.
+These counts concern a second round in a simulator with known tentative offers.
+A protected recipient can still move to a more expensive unit.

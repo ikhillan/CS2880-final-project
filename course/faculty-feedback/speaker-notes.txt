@@ -1,0 +1,146 @@
+Housing matches with hidden options
+Notes for the discussion, October 29, 2026
+
+These are reminders, not a script. The first nine slides should take about
+seven or eight minutes. Spend the most time on the example.
+
+1. Opening
+The original idea was about agents who steer clients toward deals that suit
+the agents. This version starts with one consequence: some possible matches
+never reach the clients. We want advice on whether this is a useful place to
+start, and how much of the original incentive story we need to bring back.
+
+2. Simplifying the broker story
+We have two matched sides and fixed representatives. We are not solving a
+four-sided matching problem yet. Nor have we proved anything about collusion.
+The current model takes the hidden pairs as given.
+
+An audit opens all feasible pairs touching that agent's clients. Either
+endpoint's agent is enough. This is a strong assumption. The meaning of an
+audit could be verification or permission to contact, but we need an actual
+setting before choosing that interpretation.
+
+3. The model
+All acceptable partners rank above being unmatched. An audit set A costs
+c(A) = sum of c_f over audited agents f. Costs are nonnegative.
+The platform runs renter-proposing deferred acceptance on the available graph.
+We check its result against the full graph, including pairs nobody was shown.
+
+Ordinary DA is polynomial and stable on the graph it receives. Choosing which
+agents to audit is the separate optimization problem.
+
+The planner knows the graph and rankings in this offline model. If making
+contact is free, the audit problem disappears. If the planner can choose any
+stable assignment directly, it can use the cheaper support formulation.
+We have not established that ordinary rental markets use DA.
+
+4. The example
+Start with ay, bx, cz. That matching is stable even when we check all nine
+pairs. Once a and b see their full lists, they propose to x and y. Both get
+their first choices. But c still only sees z.
+
+Now cx blocks: c wants x, and x prefers c to its new tenant a.
+If c also sees x, the proposals go:
+  c takes x from a
+  a takes y from b
+  b takes x from c
+  c goes back to z
+We end up with the original matching. More disclosure can break stability
+before still more disclosure restores it. Rankings never changed.
+
+5. Why the distinction matters
+The middle graph already contains a stable matching. DA chooses a different
+one. That is the whole reason the two optimization problems differ.
+
+For the cost construction, start each copy in that middle graph. Support
+costs zero, while DA needs one audit. Add one separate hidden pair that costs
+one to reveal. With N copies, the totals are 1 and N+1.
+
+The appendix proves it. This is an easy replication argument, so we should
+not make the unbounded ratio carry the entire novelty claim. The older paper
+draft has a related construction with shared agents and costs 2 versus N+2.
+Both are valid. The current slide uses the simpler one.
+
+6. Related work
+The closest comparison may be Trabelsi et al.: a facilitator pays to add
+compatibility edges, but a platform still makes the allocation. Their
+allocator uses maximum matching. Here we use DA and check blocking against
+the unchanged full market, with audits opening groups of edges.
+
+Other work already studies restricted edges, control, interviews, and costly
+discovery. The references are clickable in the PDF. Aguiar and Hong (2026)
+is a preprint. We need expert feedback on whether the precise combination
+here has already appeared elsewhere.
+
+7. A possible experiment
+Keep the listing catalogue fixed and ask the recommender for listing IDs.
+Generate fictional households using ACS distributions. Do not link Census
+records to individual listings. Verify listing dates, duplicate entries, and
+manager-ID meanings before constructing a market. Listing inquiry-interest
+labels do not give us individual preference lists.
+
+Use the same catalogue and requested recommendation count across conditions.
+Randomize listing order, repeat prompts, record model versions, and keep
+invalid responses in the evaluation. Specify how recommendations become
+available pairs for both sides. Preferences and audit costs need sensitivity
+checks because the candidate datasets do not observe them.
+
+We have not run this study. It would measure the chosen recommender's exposure
+on this catalogue, not historical steering or actual lease outcomes.
+
+8. The social-impact question
+A stable result can still leave affordable choices hidden. The proposed
+measure asks how much more we must spend to expose a given share of them.
+C(0) is the stability-only cost. C(tau) adds the access requirement.
+
+Fix the affordability rule before comparing policies. Report renters with no
+affordable option separately. If that leaves nobody in G+, the access measure
+is undefined. Also report individual exposure, match rates, and assigned
+ranks: a group average can conceal people with very few options.
+
+Compare policies on the same markets and prompt blocks. Vary affordability
+thresholds, scarcity, agent portfolios, and preferences on both sides. Asking
+rent divided by income is a proxy, not total housing burden. No curve or
+empirical effect is claimed yet.
+
+9. Questions for the professor
+Lead with the institution question. It affects whether the rest of the
+project makes sense. Then ask whether the theory or the recommender experiment
+looks more promising, and which literature we have missed.
+
+If asked about the existing algorithm and experiments
+The current optimizer first finds audits that support some stable matching.
+It runs DA on that graph and checks for hidden blocking pairs. If it fails,
+it adds a constraint excluding visibility patterns that preserve the failed
+proposal sequence, then solves again.
+
+For the displayed failed matching, with v_e indicating whether e is visible,
+a valid constraint is
+  (1 - v_ax) + (1 - v_by) + v_cx >= 1.
+These constraints choose a plan before implementation. They do not revoke
+access after people have acted on it.
+
+On 160 core synthetic markets, all exact variants agreed with exhaustive
+search. That supports correctness of the implementation. It did not show a
+consistent runtime advantage for the prefix method. A constructed family
+separates prefix cuts from cuts that exclude only a whole audit assignment,
+but component cuts also do well there. Prefix reasoning, stable-matching
+polytopes, and Benders decomposition are established tools.
+
+The existing manuscript and experiment files are unchanged by this rewrite.
+
+Appendix: the common-priority case
+If all listings use the same renter priority, the highest-priority renter
+must receive their favorite acceptable listing. Otherwise they and that
+listing block. Remove that renter and listing, then repeat. This gives the
+unique stable matching, including with incomplete lists.
+
+If the visible graph contains this matching, the same choices remain
+available in the same order. DA therefore returns it. Support and DA costs
+coincide. Cover its hidden edges by auditing endpoint agents. If agents each
+represent only one side, the resulting weighted vertex-cover graph is
+bipartite and minimum cut solves it.
+
+This standard case is worth mentioning if the professor proposes a housing
+allocation system with a common priority rule. It removes the gap that drives
+our example.

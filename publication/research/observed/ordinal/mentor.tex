@@ -1,0 +1,19 @@
+\paragraph{Two-sided submitted rankings in a university mentoring program.}
+Haas and Hall release the weak preference orders submitted in three annual one-to-one mentoring markets \citep{haashall2019}. We learn from the first two numbered scenarios and evaluate on the third. The third workbook tab contains 29 mentees, 38 mentors and 154 mutually listed pairs; 33 mentors have an eligible pair. All 29 mentees remain in the placement denominator. The source reports 28 mentees in its first summary table and 29 in its subsequent parameter table. Ties are real responses. We independently draw strict refinements within tied tiers and hold the resulting orders fixed across policies. Full exposure is the complete set of mutual reports. The outcome is a counterfactual mentee-proposing DA allocation on this graph. The workbook does not record how participants would respond to different shortlists or supply their realized field assignments.
+
+A regularized multinomial model uses both reported midranks, degrees and competition for first-tier choices. It learns full-report partner probabilities from 4,096 tie refinements of each training cohort. A graph-only model omits reported rank and first-choice information. At inference the learned rules see the weak profile, never the strict evaluation refinement. Thus the task is curating a submitted list while preserving its order on shown partners. The rental model makes recommendations from observable household and listing features before observing either side's complete order. In the third mentoring market only 15 of 29 mentees have more than five eligible mentors; in the first two markets none do.
+
+\begin{table}[t]\centering
+\caption{The held-out mentoring market at quota five. Recovery is conditional on receiving a full-report DA partner. Placement counts every submitted mentee. The last two columns are expected counts out of 29 under the same lotteries.}
+\label{tab:mentor-field}
+\begin{tabular}{lrrrr}\toprule
+Policy & Recovery (\%) & Placement (\%) & Maximum size & DA size\\ \midrule
+Uniform & 88.43 & 91.22 & 28.999 & 26.453\\
+Own reported order & 96.36 & 90.39 & 29.000 & 26.212\\
+Graph-only fit & 94.00 & 92.47 & 29.000 & 26.817\\
+Two-sided rank fit & 97.95 & 91.89 & 29.000 & 26.647\\
+Conditional DA simulation & 98.22 & 91.75 & 29.000 & 26.607\\ \bottomrule
+\end{tabular}
+\end{table}
+
+Relative to uniform, the two-sided model improves recovery by 9.53 points and placement by 0.67. The ordinary rental sign pattern does not recur in this primary mentoring comparison. The empirical distinction between objectives remains visible: selecting by the mentee's own order improves recovery by 7.93 points while lowering placement by 0.83. Every fixed policy in Table~\ref{tab:mentor-field} admits a complete assignment. Changes in DA placement therefore come almost entirely from which of the display-feasible placements DA realizes. Upgrading the graph-only fit to use reported ranks improves recovery by 3.95 points and reduces placement by 0.59. The comparison uses 8,192 independent tie and control-menu draws on one fixed test profile. Paired 95\% Monte Carlo intervals are $[9.39,9.67]$ and $[0.59,0.74]$ for the primary recovery and placement effects. These intervals measure numerical uncertainty conditional on this cohort. When we also rerandomized ties at the shortlist boundary, the fitted model's two gains were 9.53 and 0.72 points. The own-order placement penalty fell to 0.15 points, illustrating its sensitivity to how equally ranked candidates are selected.

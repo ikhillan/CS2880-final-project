@@ -1,0 +1,12 @@
+{
+  "weights": {
+    "matched-8101.pt": "1e0e83b685e686890f9f1408caf630346b5e574a95afc17a52aaabd84f78cb25",
+    "matched-8102.pt": "fac7ef0dad4f6e47c738db92f9830865de363a4c593160536b256f78ab29d4b9",
+    "matched-8103.pt": "e608d3f1d3e89a3e7086013001c43264817c829c83d3d775b5cb92b4bf78b46b"
+  },
+  "ablation_sha": "3002f17d59dbd0a94b708f3eb5e3909d892a21b5f92862d5aeef669ca6e7b9ae",
+  "common_train_sha": "c6912bcc978fca97d27770e27384ae3500c281ef7817c46bb71c5197cb1f11a9",
+  "data_sha": "f5b524bf1e27870a577f3f188975b40e4f698a3be6010cefd38ec71316a38d99",
+  "prediction_sha": "7f5c118d932fb83a09d779f953bc3b4a5bb5c60d90274ddc063df771e82727d1",
+  "parameters": 11906
+}

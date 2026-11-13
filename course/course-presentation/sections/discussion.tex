@@ -1,0 +1,61 @@
+\section{Housing, prior work, and the next step}
+\begin{frame}[t,label=housing]{Housing and AI recommendations}
+\small
+A housing recommender could determine which feasible options reach a client.
+In our model, those options form $E_0$.
+
+\medskip
+The audit problem would apply to a service that can open additional options
+and uses DA to assign clients. We have not established that a housing platform
+operates this way.
+
+\medskip
+Our experiments measure the effects of synthetic access restrictions.
+They do not evaluate an AI recommender or a real housing intervention.
+\sources{Liu et al.\ (2024) audit LLM housing recommendations for racial steering.
+A proposed listing study and access-cost objective appear in Appendices 14--15.}
+\end{frame}
+
+
+
+
+
+\begin{frame}[t,label=literature]{Related work}
+\fontsize{11}{13}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.34\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Work & Connection to this project\\
+\midrule
+Cseh--Manlove (2016) & Unavailable pairs can still block.\\[4pt]
+Rastegari et al.\ (2016) & Costly interviews and full-information benchmarks.\\[4pt]
+Aguiar--Hong (2026) & Limited attention, discovery, and DA-prefix reasoning.\\[4pt]
+Boehmer et al.\ (2021) & Interventions in stable-matching markets.\\[4pt]
+Trabelsi et al.\ (2025) & Costly pair additions under a fixed maximum-matching rule, with participation guarantees.\\
+\bottomrule
+\end{tabularx}
+\par\medskip
+We study grouped access decisions with a fixed DA response.
+Success requires stability against the unchanged full market.
+\sources{We use established DA, stable-polytope, and Benders methods.
+Aguiar--Hong is a preprint. Full references are in the appendix.}
+\end{frame}
+
+\begin{frame}[t,label=ending]{Conclusions}
+\small
+Making a stable matching available can cost much less than making
+DA select one.
+
+\medskip
+Choosing the audits is NP-hard. Our exact method learns constraints
+from failed DA runs and reports a verified plan and a cost bound.
+
+\medskip
+On the synthetic markets, simple heuristics are competitive.
+Even a cheapest successful plan can leave some clients worse off.
+
+\medskip
+The housing application needs a service whose access rules and matching
+process fit the model.
+\sources{Stability is a guarantee about the input rankings. It does not guarantee
+fair rankings, truthful preferences, or improvements for every client.}
+\end{frame}

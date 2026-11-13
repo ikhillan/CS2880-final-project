@@ -1,0 +1,43 @@
+{
+  "2x3": {
+    "stable_pair_checks": 7424,
+    "zero_net_turnover": 0,
+    "gross_positive": 180,
+    "positive_certificate_loose": 2208,
+    "informative_priority": 2292,
+    "stable_pairs_differ": 5328,
+    "zero_threat_rank_tests": 4988
+  },
+  "3x2": {
+    "stable_pair_checks": 34296,
+    "zero_net_turnover": 200,
+    "gross_positive": 4988,
+    "positive_certificate_loose": 4296,
+    "informative_priority": 7768,
+    "stable_pairs_differ": 25092,
+    "zero_threat_rank_tests": 24562
+  },
+  "chain_before": [
+    0,
+    1,
+    -1,
+    2
+  ],
+  "chain_after": [
+    -1,
+    0,
+    2,
+    1
+  ],
+  "common_priority_graph_witnesses": 512,
+  "optimizer": {
+    "quota_programs": 3072,
+    "infeasible": 731,
+    "incomplete_quota_programs": 100
+  },
+  "closure": {
+    "closure_checks": 622,
+    "realized_cascades": 99
+  },
+  "vertex_cover_reductions": 1024
+}

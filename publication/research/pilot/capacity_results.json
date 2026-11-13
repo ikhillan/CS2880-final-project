@@ -1,0 +1,1568 @@
+{
+  "design": "600 attempted stage-one development markets, 20 paired blocks per design; supported borough ACS weights and equal months",
+  "unavailable": 120,
+  "available": 480,
+  "borough_shares": {
+    "Bronx": 0.11843063377223748,
+    "Brooklyn": 0.3166055407472727,
+    "Manhattan": 0.3595172722474965,
+    "Queens": 0.184940978415536,
+    "Staten Island": 0.020505574817457295
+  },
+  "panels": {
+    "enriched_k5": {
+      "capacity": {
+        "rates": {
+          "transparent": 24.735300927899388,
+          "capacity_repair": 55.54406709338899,
+          "random_replacement": 38.461888320153136,
+          "uniform": 53.341758598386555,
+          "full": 55.54406709338899
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 30.8087661654896,
+            "paired_mc95": [
+              30.178247919245596,
+              31.395677096298968
+            ]
+          },
+          "random_replacement": {
+            "estimate": 17.082178773235853,
+            "paired_mc95": [
+              16.596243456791804,
+              17.553225857053704
+            ]
+          },
+          "uniform": {
+            "estimate": 2.202308495002434,
+            "paired_mc95": [
+              1.8973050848613733,
+              2.5184287846029854
+            ]
+          }
+        }
+      },
+      "da_matches": {
+        "rates": {
+          "transparent": 23.440394428284165,
+          "capacity_repair": 44.39046160806339,
+          "random_replacement": 33.85294147402211,
+          "uniform": 42.556903830611475,
+          "full": 43.308701259137756
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 20.950067179779225,
+            "paired_mc95": [
+              20.433335571238413,
+              21.43447573911967
+            ]
+          },
+          "random_replacement": {
+            "estimate": 10.53752013404128,
+            "paired_mc95": [
+              10.13678810036954,
+              10.933422607984962
+            ]
+          },
+          "uniform": {
+            "estimate": 1.8335577774519152,
+            "paired_mc95": [
+              1.4123013365479602,
+              2.249318075509618
+            ]
+          }
+        }
+      },
+      "full_stable": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 0.0,
+          "random_replacement": 0.0,
+          "uniform": 0.0,
+          "full": 1.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "displayed": {
+        "rates": {
+          "transparent": 284.3853232074878,
+          "capacity_repair": 284.3853232074878,
+          "random_replacement": 284.3853232074878,
+          "uniform": 284.3853232074878,
+          "full": 1916.3727051171438
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "replaced": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 31.539062484014966,
+          "random_replacement": 31.539062484014966,
+          "uniform": 205.6022194903203
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 31.539062484014966,
+            "paired_mc95": [
+              30.908584453280497,
+              32.134881689417995
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -174.06315700630532,
+            "paired_mc95": [
+              -175.84031720279768,
+              -172.1737029059517
+            ]
+          }
+        }
+      },
+      "percent_slots_changed": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 11.090916098007618,
+          "random_replacement": 11.090916098007618,
+          "uniform": 72.2997420731356
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 11.090916098007618,
+            "paired_mc95": [
+              10.909560142466981,
+              11.261008213919407
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -61.208825975127986,
+            "paired_mc95": [
+              -61.72457238873324,
+              -60.70211200103703
+            ]
+          }
+        }
+      },
+      "lower_matched_pct": {
+        "rates": {
+          "transparent": 19.22668532724282,
+          "capacity_repair": 47.57806079343753,
+          "random_replacement": 28.34687319191478,
+          "uniform": 36.38400575631814,
+          "full": 36.49829148379785
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 28.35137546619471,
+            "paired_mc95": [
+              27.312300204807396,
+              29.39280275694276
+            ]
+          },
+          "random_replacement": {
+            "estimate": 19.23118760152275,
+            "paired_mc95": [
+              18.39990989945483,
+              20.06486170030772
+            ]
+          },
+          "uniform": {
+            "estimate": 11.19405503711939,
+            "paired_mc95": [
+              10.139227250664694,
+              12.371232096048901
+            ]
+          }
+        }
+      },
+      "lower_blocked_pct": {
+        "rates": {
+          "transparent": 52.46098709801541,
+          "capacity_repair": 43.694873470978,
+          "random_replacement": 47.00899581007333,
+          "uniform": 37.02730986616333,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -8.766113627037406,
+            "paired_mc95": [
+              -9.541248689049413,
+              -8.009998689049402
+            ]
+          },
+          "random_replacement": {
+            "estimate": -3.314122339095327,
+            "paired_mc95": [
+              -4.171176875740999,
+              -2.4065909208617065
+            ]
+          },
+          "uniform": {
+            "estimate": 6.667563604814674,
+            "paired_mc95": [
+              5.317625721777667,
+              7.908845832246356
+            ]
+          }
+        }
+      },
+      "lower_displayed_dollars": {
+        "rates": {
+          "transparent": 1594.4728710301656,
+          "capacity_repair": 1604.7578867393042,
+          "random_replacement": 1601.1848267748776,
+          "uniform": 1660.0845987027947,
+          "full": 1660.0832492828165
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 10.285015709138634,
+            "paired_mc95": [
+              9.554992875757211,
+              11.016420818340924
+            ]
+          },
+          "random_replacement": {
+            "estimate": 3.5730599644266476,
+            "paired_mc95": [
+              3.286022040865896,
+              3.860916827903179
+            ]
+          },
+          "uniform": {
+            "estimate": -55.326711963490425,
+            "paired_mc95": [
+              -57.666072460069145,
+              -52.76989103821234
+            ]
+          }
+        }
+      },
+      "higher_matched_pct": {
+        "rates": {
+          "transparent": 54.024547261145194,
+          "capacity_repair": 91.14213173176057,
+          "random_replacement": 77.44356891440432,
+          "uniform": 96.6063187143427,
+          "full": 98.84139995100763
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 37.11758447061538,
+            "paired_mc95": [
+              35.98736851330779,
+              38.227034071891744
+            ]
+          },
+          "random_replacement": {
+            "estimate": 13.698562817356247,
+            "paired_mc95": [
+              13.115314870758509,
+              14.33390394584582
+            ]
+          },
+          "uniform": {
+            "estimate": -5.4641869825821345,
+            "paired_mc95": [
+              -6.439586842048803,
+              -4.454461717578656
+            ]
+          }
+        }
+      },
+      "higher_blocked_pct": {
+        "rates": {
+          "transparent": 82.06077826950116,
+          "capacity_repair": 79.19736148859478,
+          "random_replacement": 81.01630054539524,
+          "uniform": 85.19153572435374,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -2.863416780906377,
+            "paired_mc95": [
+              -3.6811837793229496,
+              -2.0927604685292294
+            ]
+          },
+          "random_replacement": {
+            "estimate": -1.8189390568004598,
+            "paired_mc95": [
+              -2.6884719257293987,
+              -0.9921085117192185
+            ]
+          },
+          "uniform": {
+            "estimate": -5.994174235758962,
+            "paired_mc95": [
+              -7.331025631366303,
+              -4.681331649789315
+            ]
+          }
+        }
+      },
+      "higher_displayed_dollars": {
+        "rates": {
+          "transparent": 2291.7242856578514,
+          "capacity_repair": 2470.9441546166486,
+          "random_replacement": 2368.0976812275057,
+          "uniform": 2658.0592037764304,
+          "full": 2652.5018537988103
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 179.21986895879718,
+            "paired_mc95": [
+              168.84471515209745,
+              190.18298811069008
+            ]
+          },
+          "random_replacement": {
+            "estimate": 102.84647338914283,
+            "paired_mc95": [
+              93.34668774447758,
+              112.59773433955839
+            ]
+          },
+          "uniform": {
+            "estimate": -187.11504915978185,
+            "paired_mc95": [
+              -212.2433449050482,
+              -162.21615196007434
+            ]
+          }
+        }
+      },
+      "market_count": 240,
+      "already_full_capacity": 0,
+      "full_stable_counts": {
+        "capacity_repair": 0,
+        "full": 240,
+        "random_replacement": 0,
+        "transparent": 0,
+        "uniform": 0
+      }
+    },
+    "enriched_q40": {
+      "capacity": {
+        "rates": {
+          "transparent": 44.541192514967676,
+          "capacity_repair": 55.54406709338899,
+          "random_replacement": 48.47320117899944,
+          "uniform": 54.86661915203432,
+          "full": 55.54406709338899
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 11.002874578421313,
+            "paired_mc95": [
+              10.339773435910386,
+              11.622935261881787
+            ]
+          },
+          "random_replacement": {
+            "estimate": 7.07086591438955,
+            "paired_mc95": [
+              6.640459631602455,
+              7.473321649337476
+            ]
+          },
+          "uniform": {
+            "estimate": 0.6774479413546715,
+            "paired_mc95": [
+              0.584239291304477,
+              0.7708564256719851
+            ]
+          }
+        }
+      },
+      "da_matches": {
+        "rates": {
+          "transparent": 36.027087944128255,
+          "capacity_repair": 39.821158277151255,
+          "random_replacement": 37.57285982387758,
+          "uniform": 42.62575253288229,
+          "full": 43.308701259137756
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 3.794070333023001,
+            "paired_mc95": [
+              3.4992874424965,
+              4.081447940217961
+            ]
+          },
+          "random_replacement": {
+            "estimate": 2.2482984532736765,
+            "paired_mc95": [
+              2.056984224687376,
+              2.45692064544877
+            ]
+          },
+          "uniform": {
+            "estimate": -2.8045942557310326,
+            "paired_mc95": [
+              -3.0712658074247914,
+              -2.53644992946691
+            ]
+          }
+        }
+      },
+      "full_stable": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 0.0,
+          "random_replacement": 0.0,
+          "uniform": 0.0,
+          "full": 1.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "displayed": {
+        "rates": {
+          "transparent": 792.6998426788249,
+          "capacity_repair": 792.6998426788249,
+          "random_replacement": 792.6998426788249,
+          "uniform": 792.6998426788249,
+          "full": 1916.3727051171438
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "replaced": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 16.285780848420366,
+          "random_replacement": 16.285780848420366,
+          "uniform": 463.23977122500224
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 16.285780848420366,
+            "paired_mc95": [
+              15.390369116512016,
+              17.142305722841922
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -446.9539903765819,
+            "paired_mc95": [
+              -451.9264356764982,
+              -441.86633328559134
+            ]
+          }
+        }
+      },
+      "percent_slots_changed": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 2.0509204173706825,
+          "random_replacement": 2.0509204173706825,
+          "uniform": 58.436118460332644
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 2.0509204173706825,
+            "paired_mc95": [
+              1.933929192946519,
+              2.159734763561343
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -56.38519804296196,
+            "paired_mc95": [
+              -56.5762703546155,
+              -56.197672796457226
+            ]
+          }
+        }
+      },
+      "lower_matched_pct": {
+        "rates": {
+          "transparent": 20.1569835355547,
+          "capacity_repair": 29.13601802373231,
+          "random_replacement": 23.212126262746825,
+          "uniform": 34.97528642343267,
+          "full": 36.49829148379785
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 8.979034488177607,
+            "paired_mc95": [
+              8.165942224821505,
+              9.806470280016628
+            ]
+          },
+          "random_replacement": {
+            "estimate": 5.923891760985484,
+            "paired_mc95": [
+              5.358887336505048,
+              6.526732224675153
+            ]
+          },
+          "uniform": {
+            "estimate": -5.839268399700362,
+            "paired_mc95": [
+              -6.7230434519820825,
+              -4.9167651611320125
+            ]
+          }
+        }
+      },
+      "lower_blocked_pct": {
+        "rates": {
+          "transparent": 41.43605729719038,
+          "capacity_repair": 35.01755458925419,
+          "random_replacement": 37.34029687693596,
+          "uniform": 27.039532380142063,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -6.418502707936192,
+            "paired_mc95": [
+              -7.414328322273116,
+              -5.508972147779325
+            ]
+          },
+          "random_replacement": {
+            "estimate": -2.32274228768177,
+            "paired_mc95": [
+              -3.4554817005435736,
+              -1.2365114622656508
+            ]
+          },
+          "uniform": {
+            "estimate": 7.978022209112126,
+            "paired_mc95": [
+              6.940989742118027,
+              9.04375988940913
+            ]
+          }
+        }
+      },
+      "lower_displayed_dollars": {
+        "rates": {
+          "transparent": 1606.589860591864,
+          "capacity_repair": 1615.0634727403142,
+          "random_replacement": 1612.8985964915546,
+          "uniform": 1661.0547029592267,
+          "full": 1660.0832492828165
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 8.47361214845023,
+            "paired_mc95": [
+              7.406681826409783,
+              9.533630460943835
+            ]
+          },
+          "random_replacement": {
+            "estimate": 2.164876248759583,
+            "paired_mc95": [
+              1.9071522079139414,
+              2.435386907114633
+            ]
+          },
+          "uniform": {
+            "estimate": -45.991230218912506,
+            "paired_mc95": [
+              -47.93656399428703,
+              -43.90086908158516
+            ]
+          }
+        }
+      },
+      "higher_matched_pct": {
+        "rates": {
+          "transparent": 92.42766628984606,
+          "capacity_repair": 95.30510159236538,
+          "random_replacement": 94.20306068687063,
+          "uniform": 98.23019024182446,
+          "full": 98.84139995100763
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 2.8774353025193165,
+            "paired_mc95": [
+              2.455945923758915,
+              3.2801393419166556
+            ]
+          },
+          "random_replacement": {
+            "estimate": 1.1020409054947464,
+            "paired_mc95": [
+              0.8593430920914372,
+              1.3619703216132535
+            ]
+          },
+          "uniform": {
+            "estimate": -2.9250886494590844,
+            "paired_mc95": [
+              -3.384167751340179,
+              -2.46268291943456
+            ]
+          }
+        }
+      },
+      "higher_blocked_pct": {
+        "rates": {
+          "transparent": 45.76256082839147,
+          "capacity_repair": 44.62719733861224,
+          "random_replacement": 44.49238860063725,
+          "uniform": 57.77895362520731,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -1.1353634897792304,
+            "paired_mc95": [
+              -1.6500444357367432,
+              -0.6205976321969695
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.1348087379749927,
+            "paired_mc95": [
+              -0.49041674428290294,
+              0.7853936011473295
+            ]
+          },
+          "uniform": {
+            "estimate": -13.151756286595067,
+            "paired_mc95": [
+              -15.586306883106891,
+              -10.95906698433552
+            ]
+          }
+        }
+      },
+      "higher_displayed_dollars": {
+        "rates": {
+          "transparent": 2270.7726712809754,
+          "capacity_repair": 2297.326788125251,
+          "random_replacement": 2284.132365797485,
+          "uniform": 2654.989392259407,
+          "full": 2652.5018537988103
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 26.55411684427554,
+            "paired_mc95": [
+              23.46702640391991,
+              29.77187563567339
+            ]
+          },
+          "random_replacement": {
+            "estimate": 13.194422327766006,
+            "paired_mc95": [
+              11.267297812463346,
+              15.145852485016654
+            ]
+          },
+          "uniform": {
+            "estimate": -357.662604134156,
+            "paired_mc95": [
+              -374.0318730617513,
+              -343.6287511919368
+            ]
+          }
+        }
+      },
+      "market_count": 240,
+      "already_full_capacity": 0,
+      "full_stable_counts": {
+        "capacity_repair": 0,
+        "full": 240,
+        "random_replacement": 0,
+        "transparent": 0,
+        "uniform": 0
+      }
+    },
+    "primary_k5": {
+      "capacity": {
+        "rates": {
+          "transparent": 21.093311178783463,
+          "capacity_repair": 40.20733407674409,
+          "random_replacement": 31.849857285595903,
+          "uniform": 40.03630947712307,
+          "full": 40.20733407674409
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 19.114022897960627,
+            "paired_mc95": [
+              18.65723263499328,
+              19.57461743474411
+            ]
+          },
+          "random_replacement": {
+            "estimate": 8.357476791148187,
+            "paired_mc95": [
+              7.999158662781376,
+              8.708396273170491
+            ]
+          },
+          "uniform": {
+            "estimate": 0.17102459962102046,
+            "paired_mc95": [
+              0.11765097547084924,
+              0.22691115246854612
+            ]
+          }
+        }
+      },
+      "da_matches": {
+        "rates": {
+          "transparent": 19.784548309763572,
+          "capacity_repair": 32.415665449246305,
+          "random_replacement": 27.39055015806004,
+          "uniform": 34.48692989545644,
+          "full": 34.420000818433856
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 12.631117139482733,
+            "paired_mc95": [
+              12.157509504347358,
+              13.127167835208349
+            ]
+          },
+          "random_replacement": {
+            "estimate": 5.025115291186264,
+            "paired_mc95": [
+              4.719896948378418,
+              5.310326727037541
+            ]
+          },
+          "uniform": {
+            "estimate": -2.0712644462101366,
+            "paired_mc95": [
+              -2.379393512092928,
+              -1.7672262935517613
+            ]
+          }
+        }
+      },
+      "full_stable": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 0.0,
+          "random_replacement": 0.0,
+          "uniform": 0.0,
+          "full": 1.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "displayed": {
+        "rates": {
+          "transparent": 199.9516967725288,
+          "capacity_repair": 199.9516967725288,
+          "random_replacement": 199.9516967725288,
+          "uniform": 199.9516967725288,
+          "full": 1518.3521506054706
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "replaced": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 19.376440472008994,
+          "random_replacement": 19.376440472008994,
+          "uniform": 148.79331430474613
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 19.376440472008994,
+            "paired_mc95": [
+              18.896790864004714,
+              19.845125696379224
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -129.41687383273714,
+            "paired_mc95": [
+              -131.28147366973238,
+              -127.50280466910831
+            ]
+          }
+        }
+      },
+      "percent_slots_changed": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 9.629087119835019,
+          "random_replacement": 9.629087119835019,
+          "uniform": 73.93898612788381
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 9.629087119835019,
+            "paired_mc95": [
+              9.42108646399992,
+              9.828127326298882
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -64.30989900804879,
+            "paired_mc95": [
+              -65.22375991270873,
+              -63.37228029185689
+            ]
+          }
+        }
+      },
+      "lower_matched_pct": {
+        "rates": {
+          "transparent": 1.213395541808872,
+          "capacity_repair": 1.725504115341936,
+          "random_replacement": 1.3239781212697033,
+          "uniform": 1.945480797173857,
+          "full": 1.180960634371694
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.5121085735330639,
+            "paired_mc95": [
+              0.3812938904040972,
+              0.6481919567973059
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.40152599407223266,
+            "paired_mc95": [
+              0.2962802405429554,
+              0.520664951175219
+            ]
+          },
+          "uniform": {
+            "estimate": -0.2199766818319211,
+            "paired_mc95": [
+              -0.4711649843966178,
+              0.050465155695307094
+            ]
+          }
+        }
+      },
+      "lower_blocked_pct": {
+        "rates": {
+          "transparent": 0.9807446639417156,
+          "capacity_repair": 0.6311505162096136,
+          "random_replacement": 0.7898863908563118,
+          "uniform": 0.3955049906112036,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -0.34959414773210196,
+            "paired_mc95": [
+              -0.4986726079133884,
+              -0.21292101229141092
+            ]
+          },
+          "random_replacement": {
+            "estimate": -0.15873587464669825,
+            "paired_mc95": [
+              -0.25784294573758804,
+              -0.07176906644212074
+            ]
+          },
+          "uniform": {
+            "estimate": 0.23564552559841,
+            "paired_mc95": [
+              0.10323792160681422,
+              0.38662793646224036
+            ]
+          }
+        }
+      },
+      "lower_displayed_dollars": {
+        "rates": {
+          "transparent": 1824.2075952885905,
+          "capacity_repair": 1824.8841990146498,
+          "random_replacement": 1824.5721831149121,
+          "uniform": 1828.011947266721,
+          "full": 1827.8209319853534
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.6766037260592839,
+            "paired_mc95": null
+          },
+          "random_replacement": {
+            "estimate": 0.31201589973761656,
+            "paired_mc95": null
+          },
+          "uniform": {
+            "estimate": -3.127748252071342,
+            "paired_mc95": null
+          }
+        }
+      },
+      "higher_matched_pct": {
+        "rates": {
+          "transparent": 49.88275909657332,
+          "capacity_repair": 80.51438411783036,
+          "random_replacement": 68.75883752781995,
+          "uniform": 85.76575467466037,
+          "full": 86.19888173661109
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 30.631625021257044,
+            "paired_mc95": [
+              29.49983539992545,
+              31.749201192034114
+            ]
+          },
+          "random_replacement": {
+            "estimate": 11.755546590010411,
+            "paired_mc95": [
+              11.023988338678931,
+              12.407565592729725
+            ]
+          },
+          "uniform": {
+            "estimate": -5.251370556830011,
+            "paired_mc95": [
+              -5.993898101859723,
+              -4.57604384916072
+            ]
+          }
+        }
+      },
+      "higher_blocked_pct": {
+        "rates": {
+          "transparent": 73.3514476666961,
+          "capacity_repair": 66.32295212401263,
+          "random_replacement": 70.47649712560876,
+          "uniform": 73.64926026595731,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -7.028495542683473,
+            "paired_mc95": [
+              -7.654829136419987,
+              -6.445777069353679
+            ]
+          },
+          "random_replacement": {
+            "estimate": -4.153545001596129,
+            "paired_mc95": [
+              -4.878236731197352,
+              -3.4898411251449444
+            ]
+          },
+          "uniform": {
+            "estimate": -7.326308141944679,
+            "paired_mc95": [
+              -8.651303401517564,
+              -6.02831122627698
+            ]
+          }
+        }
+      },
+      "higher_displayed_dollars": {
+        "rates": {
+          "transparent": 3170.1644775319824,
+          "capacity_repair": 3249.2888327041687,
+          "random_replacement": 3230.789624583465,
+          "uniform": 3515.882908469607,
+          "full": 3517.3133517298943
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 79.12435517218637,
+            "paired_mc95": [
+              74.37404015409517,
+              83.51116078556012
+            ]
+          },
+          "random_replacement": {
+            "estimate": 18.49920812070377,
+            "paired_mc95": [
+              14.0176426548868,
+              22.713307012306757
+            ]
+          },
+          "uniform": {
+            "estimate": -266.59407576543845,
+            "paired_mc95": [
+              -290.81913457880125,
+              -239.62721227384102
+            ]
+          }
+        }
+      },
+      "market_count": 240,
+      "already_full_capacity": 0,
+      "full_stable_counts": {
+        "capacity_repair": 0,
+        "full": 240,
+        "random_replacement": 0,
+        "transparent": 0,
+        "uniform": 0
+      }
+    },
+    "primary_q40": {
+      "capacity": {
+        "rates": {
+          "transparent": 37.29410790141055,
+          "capacity_repair": 40.20733407674409,
+          "random_replacement": 38.61642414880037,
+          "uniform": 39.768358835505026,
+          "full": 40.20733407674409
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 2.9132261753335413,
+            "paired_mc95": [
+              2.629394481141351,
+              3.2143624045018413
+            ]
+          },
+          "random_replacement": {
+            "estimate": 1.59090992794372,
+            "paired_mc95": [
+              1.4077518318141164,
+              1.7866130720369617
+            ]
+          },
+          "uniform": {
+            "estimate": 0.4389752412390635,
+            "paired_mc95": [
+              0.3722823065398583,
+              0.5116517004100095
+            ]
+          }
+        }
+      },
+      "da_matches": {
+        "rates": {
+          "transparent": 30.40894735765219,
+          "capacity_repair": 31.521598810542795,
+          "random_replacement": 30.874407971091095,
+          "uniform": 33.9573199814943,
+          "full": 34.420000818433856
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 1.1126514528906064,
+            "paired_mc95": [
+              0.972072000297815,
+              1.2788466107176222
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.6471908394516994,
+            "paired_mc95": [
+              0.5594526979331115,
+              0.7395827990778976
+            ]
+          },
+          "uniform": {
+            "estimate": -2.4357211709515063,
+            "paired_mc95": [
+              -2.680553112094744,
+              -2.1863380200038947
+            ]
+          }
+        }
+      },
+      "full_stable": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 0.0,
+          "random_replacement": 0.0,
+          "uniform": 0.0,
+          "full": 1.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "displayed": {
+        "rates": {
+          "transparent": 625.2016763116825,
+          "capacity_repair": 625.2016763116825,
+          "random_replacement": 625.2016763116825,
+          "uniform": 625.2016763116825,
+          "full": 1518.3521506054706
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "replaced": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 4.261029760301184,
+          "random_replacement": 4.261029760301184,
+          "uniform": 366.5426284117041
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 4.261029760301184,
+            "paired_mc95": [
+              3.8127556497512307,
+              4.730460020926899
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -362.2815986514029,
+            "paired_mc95": [
+              -368.9159480547419,
+              -355.7015504575841
+            ]
+          }
+        }
+      },
+      "percent_slots_changed": {
+        "rates": {
+          "transparent": 0.0,
+          "capacity_repair": 0.7363901355902174,
+          "random_replacement": 0.7363901355902174,
+          "uniform": 58.60467226126587
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.7363901355902174,
+            "paired_mc95": [
+              0.6679990957150478,
+              0.8127078722259026
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.0,
+            "paired_mc95": [
+              0.0,
+              0.0
+            ]
+          },
+          "uniform": {
+            "estimate": -57.86828212567565,
+            "paired_mc95": [
+              -58.05078025756266,
+              -57.681378201788476
+            ]
+          }
+        }
+      },
+      "lower_matched_pct": {
+        "rates": {
+          "transparent": 0.6311649539515302,
+          "capacity_repair": 0.9657269067747855,
+          "random_replacement": 0.7686920617376427,
+          "uniform": 1.181764374756004,
+          "full": 1.180960634371694
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 0.3345619528232553,
+            "paired_mc95": [
+              0.2245836902956045,
+              0.4536827694633451
+            ]
+          },
+          "random_replacement": {
+            "estimate": 0.19703484503714275,
+            "paired_mc95": [
+              0.12456420516743216,
+              0.2802451576531322
+            ]
+          },
+          "uniform": {
+            "estimate": -0.2160374679812186,
+            "paired_mc95": [
+              -0.3426134086079828,
+              -0.09072349579391063
+            ]
+          }
+        }
+      },
+      "lower_blocked_pct": {
+        "rates": {
+          "transparent": 1.3335437892745354,
+          "capacity_repair": 0.9523583207548624,
+          "random_replacement": 1.1158256788845617,
+          "uniform": 1.098542680904723,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -0.38118546851967305,
+            "paired_mc95": [
+              -0.5073175501628086,
+              -0.2552144553169145
+            ]
+          },
+          "random_replacement": {
+            "estimate": -0.16346735812969937,
+            "paired_mc95": [
+              -0.2786199399116635,
+              -0.05230634237224378
+            ]
+          },
+          "uniform": {
+            "estimate": -0.14618436014986058,
+            "paired_mc95": [
+              -0.4334779004296257,
+              0.17277770941910975
+            ]
+          }
+        }
+      },
+      "lower_displayed_dollars": {
+        "rates": {
+          "transparent": 1804.4797305470124,
+          "capacity_repair": 1812.0795016608522,
+          "random_replacement": 1810.7421898598668,
+          "uniform": 1826.4205617029902,
+          "full": 1827.8209319853534
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 7.599771113839779,
+            "paired_mc95": null
+          },
+          "random_replacement": {
+            "estimate": 1.3373118009853897,
+            "paired_mc95": null
+          },
+          "uniform": {
+            "estimate": -14.341060042137997,
+            "paired_mc95": null
+          }
+        }
+      },
+      "higher_matched_pct": {
+        "rates": {
+          "transparent": 76.84617465948223,
+          "capacity_repair": 79.3787712400108,
+          "random_replacement": 77.95714507270381,
+          "uniform": 85.0308669508002,
+          "full": 86.19888173661109
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 2.532596580528576,
+            "paired_mc95": [
+              2.174383081728543,
+              2.9248206558724616
+            ]
+          },
+          "random_replacement": {
+            "estimate": 1.4216261673069965,
+            "paired_mc95": [
+              1.2054067844055099,
+              1.6389201168185878
+            ]
+          },
+          "uniform": {
+            "estimate": -5.652095710789396,
+            "paired_mc95": [
+              -6.199548783610929,
+              -5.101990034965896
+            ]
+          }
+        }
+      },
+      "higher_blocked_pct": {
+        "rates": {
+          "transparent": 38.00782860338346,
+          "capacity_repair": 36.33617655107179,
+          "random_replacement": 37.049382299581104,
+          "uniform": 50.59015155536476,
+          "full": 0.0
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": -1.6716520523116714,
+            "paired_mc95": [
+              -2.0309664102774043,
+              -1.3144155336028367
+            ]
+          },
+          "random_replacement": {
+            "estimate": -0.7132057485093171,
+            "paired_mc95": [
+              -1.179990159879556,
+              -0.27686631077985735
+            ]
+          },
+          "uniform": {
+            "estimate": -14.253975004292975,
+            "paired_mc95": [
+              -15.700174414814633,
+              -12.795919999132277
+            ]
+          }
+        }
+      },
+      "higher_displayed_dollars": {
+        "rates": {
+          "transparent": 3174.0400620988785,
+          "capacity_repair": 3184.5074953587477,
+          "random_replacement": 3181.388254586367,
+          "uniform": 3519.368643924728,
+          "full": 3517.3133517298943
+        },
+        "repair_minus": {
+          "transparent": {
+            "estimate": 10.467433259869267,
+            "paired_mc95": [
+              8.861263717627617,
+              12.160930965912039
+            ]
+          },
+          "random_replacement": {
+            "estimate": 3.1192407723806355,
+            "paired_mc95": [
+              2.5559026502182634,
+              3.748850276492578
+            ]
+          },
+          "uniform": {
+            "estimate": -334.86114856598033,
+            "paired_mc95": [
+              -345.78572551904324,
+              -323.95564109419286
+            ]
+          }
+        }
+      },
+      "market_count": 240,
+      "already_full_capacity": 29,
+      "full_stable_counts": {
+        "capacity_repair": 0,
+        "full": 240,
+        "random_replacement": 0,
+        "transparent": 0,
+        "uniform": 0
+      }
+    }
+  }
+}

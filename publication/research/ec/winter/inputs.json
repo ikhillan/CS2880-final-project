@@ -1,0 +1,101 @@
+{
+  "cleaning": {
+    "2026-01": {
+      "raw": 17538,
+      "team_clean_four_borough": 15444,
+      "retained": 14784,
+      "exclusions": {
+        "summer_overlap": 650,
+        "ambiguous_unit": 10
+      },
+      "by_borough": {
+        "Manhattan": 6101,
+        "Brooklyn": 5796,
+        "Queens": 2394,
+        "Bronx": 493
+      }
+    },
+    "2026-02": {
+      "raw": 16059,
+      "team_clean_four_borough": 14203,
+      "retained": 13310,
+      "exclusions": {
+        "summer_overlap": 606,
+        "winter_repeat": 281,
+        "ambiguous_unit": 6
+      },
+      "by_borough": {
+        "Manhattan": 5486,
+        "Brooklyn": 5319,
+        "Queens": 2047,
+        "Bronx": 458
+      }
+    },
+    "2026-03": {
+      "raw": 20513,
+      "team_clean_four_borough": 18226,
+      "retained": 16596,
+      "exclusions": {
+        "summer_overlap": 844,
+        "winter_repeat": 778,
+        "ambiguous_unit": 8
+      },
+      "by_borough": {
+        "Manhattan": 7149,
+        "Brooklyn": 6507,
+        "Queens": 2471,
+        "Bronx": 469
+      }
+    }
+  },
+  "input_sha256": {
+    "2026-06": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be",
+    "2026-07": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab",
+    "2026-08": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b",
+    "2026-01": "9e3a4b6457647378d94879f017f596f846293e7f5c4cb76745403e59f056ac2b",
+    "2026-02": "8127567cd66590dd506601257ae1ce16bf6ab78eef72b34cdbedf1223b5585c6",
+    "2026-03": "9551d1772c95f78254dcfbffce01b2ed4d9d2aad39e0c015c883c9912a9ea7df"
+  },
+  "CPI_U": {
+    "2026-01": 325.252,
+    "2026-02": 326.785,
+    "2026-03": 330.213,
+    "2026-07": 333.918
+  },
+  "borough_shares": {
+    "Bronx": 0.11843063377223748,
+    "Brooklyn": 0.3166055407472727,
+    "Manhattan": 0.3595172722474965,
+    "Queens": 0.184940978415536,
+    "Staten Island": 0.020505574817457295
+  },
+  "seed_start": 2026111700,
+  "seed_blocks": 80,
+  "paired_allocation_checks": {
+    "independent_complete_assignment_vectors": 288,
+    "valid_DA_allocations": 11520
+  },
+  "planned_markets": 1920,
+  "unavailable": 0,
+  "unavailable_keys": [],
+  "availability": [],
+  "protocol_sha256": "23a0328ddbc05e1d91353c38a51e536c50876a254b8442903e1fb8730133c089",
+  "code_sha256": {
+    "hiddenoptions/markets.py": "f3183157830a2f0ac4d90a1673f909ba0413a485adc0dac73a0cf9d0ae1831b5",
+    "hiddenoptions/data.py": "5b7ce96b8dbd7538812797bed34aeb1bb0ade7fbad318b16a591d45cbb0288e0",
+    "hiddenoptions/exposure.py": "49a4589d526a67805222fca9477deb2856ede2770fdd589bf8dae5a9704a52aa",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293",
+    "scripts/firstmover_clean.py": "b1109cf579edff29d59ccca4b13fd584dc0478f080118b3c367bd0a6973d6fdd",
+    "scripts/common.py": "b7939a1ebe386c084552a036742f304f76617c26b0a29e6a117b4c374ba7ebe6"
+  },
+  "summer_reference_sha256": {
+    "2026-06": "51fea05171c4fc8be550f6e602602cedbbfe7e6851c122676684a7c6f0f05ba3",
+    "2026-07": "34227c63b0ebc0ad7456e0570315a2d3df9935ddaf11d613514ad6c3f3d2b0a8",
+    "2026-08": "45b9b5ba802862bc3765992c93234249c4679c2da2da11fe6b107b30c41f5129"
+  },
+  "CPI_reference_sha256": "3108cfa6f1593b04d53b7ad66bac8967244a03a903d1c22f2d60b2f27514d995",
+  "census_cache_sha256": "91fe8beb7374dcc911bbf2e7bc7bd9105379af6d32dcd529ad6329695f20199c",
+  "python": "3.13.6",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3"
+}

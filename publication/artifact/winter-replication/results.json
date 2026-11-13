@@ -1,0 +1,287 @@
+{
+  "protocol_sha256": "cb4a1d0b089a72abe0140de94a8d9dd8de8c602e766515818a9da0290dd18e24",
+  "source_hashes": {
+    "recent_donors.csv": "a9b3c373dfe29d769cb1f4cc1fa18defb8ea5fa8760eb79be13fa12986602235",
+    "summary.json": "11549076c4efceb09ea1bba7c9895d32c62ad6e9740ed9ba8ed2a0b4fac83343",
+    "2026-06.csv": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be",
+    "2026-07.csv": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab",
+    "2026-08.csv": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b",
+    "scarcity.py": "3ca8b82d8bb1fd0552c667b8d3e92e5f68e2d029ed036d4d84eeed43f87ff4e7",
+    "2026-01.csv": "9e3a4b6457647378d94879f017f596f846293e7f5c4cb76745403e59f056ac2b",
+    "2026-02.csv": "8127567cd66590dd506601257ae1ce16bf6ab78eef72b34cdbedf1223b5585c6",
+    "2026-03.csv": "9551d1772c95f78254dcfbffce01b2ed4d9d2aad39e0c015c883c9912a9ea7df",
+    "BLS-snapshot.json": "0a7acd7a8ab979511515614c344088d89fa36f1bbbc8ef12bccb96ef6275e2e8"
+  },
+  "runtime": {
+    "python": "3.13.6",
+    "numpy": "2.2.6"
+  },
+  "cpi": {
+    "2026-07": 333.918,
+    "2026-03": 330.213,
+    "2026-02": 326.785,
+    "2026-01": 325.252
+  },
+  "input_ledger": {
+    "2026-01": {
+      "archived_within_month_cleaning": {
+        "raw": 17538,
+        "outside_or_unknown_geography": 1906,
+        "duplicate_unit": 160,
+        "ambiguous_unit_retained": 15,
+        "kept": 15472
+      },
+      "four_boroughs": {
+        "Bronx": {
+          "cleaned": 392,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 20,
+          "kept": 372,
+          "summer_overlap_excluded": 20
+        },
+        "Brooklyn": {
+          "cleaned": 6121,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 298,
+          "kept": 5817,
+          "summer_overlap_excluded": 298,
+          "ambiguous_excluded": 6
+        },
+        "Manhattan": {
+          "cleaned": 6471,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 239,
+          "kept": 6228,
+          "summer_overlap_excluded": 239,
+          "ambiguous_excluded": 4
+        },
+        "Queens": {
+          "cleaned": 2459,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 94,
+          "kept": 2360,
+          "summer_overlap_excluded": 94,
+          "ambiguous_excluded": 5
+        }
+      }
+    },
+    "2026-02": {
+      "archived_within_month_cleaning": {
+        "raw": 16059,
+        "outside_or_unknown_geography": 1779,
+        "ambiguous_unit_retained": 9,
+        "duplicate_unit": 128,
+        "kept": 14152
+      },
+      "four_boroughs": {
+        "Bronx": {
+          "cleaned": 355,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 21,
+          "kept": 320,
+          "summer_overlap_excluded": 21,
+          "winter_duplicate_excluded": 14
+        },
+        "Brooklyn": {
+          "cleaned": 5691,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 254,
+          "kept": 5328,
+          "summer_overlap_excluded": 254,
+          "winter_duplicate_excluded": 107,
+          "ambiguous_excluded": 2
+        },
+        "Manhattan": {
+          "cleaned": 5967,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 251,
+          "kept": 5585,
+          "summer_overlap_excluded": 251,
+          "winter_duplicate_excluded": 129,
+          "ambiguous_excluded": 2
+        },
+        "Queens": {
+          "cleaned": 2123,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 85,
+          "kept": 2001,
+          "winter_duplicate_excluded": 33,
+          "summer_overlap_excluded": 85,
+          "ambiguous_excluded": 4
+        }
+      }
+    },
+    "2026-03": {
+      "archived_within_month_cleaning": {
+        "raw": 20513,
+        "outside_or_unknown_geography": 2070,
+        "duplicate_unit": 189,
+        "ambiguous_unit_retained": 12,
+        "kept": 18254
+      },
+      "four_boroughs": {
+        "Bronx": {
+          "cleaned": 477,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 35,
+          "kept": 416,
+          "winter_duplicate_excluded": 26,
+          "summer_overlap_excluded": 35
+        },
+        "Brooklyn": {
+          "cleaned": 7186,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 347,
+          "kept": 6530,
+          "summer_overlap_excluded": 347,
+          "winter_duplicate_excluded": 305,
+          "ambiguous_excluded": 4
+        },
+        "Manhattan": {
+          "cleaned": 7892,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 326,
+          "kept": 7275,
+          "winter_duplicate_excluded": 287,
+          "summer_overlap_excluded": 326,
+          "ambiguous_excluded": 4
+        },
+        "Queens": {
+          "cleaned": 2673,
+          "summer_id_matches_any": 0,
+          "summer_unit_matches_any": 138,
+          "kept": 2436,
+          "winter_duplicate_excluded": 95,
+          "summer_overlap_excluded": 138,
+          "ambiguous_excluded": 4
+        }
+      }
+    }
+  },
+  "markets": 480,
+  "assignments_verified": 2400,
+  "seed": 2026111301,
+  "bootstrap_seed": 2026111302,
+  "bootstrap_draws": 5000,
+  "excluded_cells": [],
+  "contrasts": {
+    "primary_UC_minus_UU_lower_matched_pp": {
+      "estimate": -3.462351003130863,
+      "conditional_mc_95": [
+        -3.8096425014457087,
+        -3.1217887975977887
+      ]
+    },
+    "fully_exposed_lower_losses_pp_all_lower": {
+      "estimate": 2.9663320029071523,
+      "conditional_mc_95": [
+        2.650293470679896,
+        3.2834974539236286
+      ]
+    },
+    "fully_exposed_lower_gains_pp_all_lower": {
+      "estimate": 0.013530699870347426,
+      "conditional_mc_95": [
+        0.0,
+        0.03141857225891141
+      ]
+    },
+    "fully_exposed_lower_net_pp_all_lower": {
+      "estimate": -2.952801303036805,
+      "conditional_mc_95": [
+        -3.2735243952597197,
+        -2.637706898895612
+      ]
+    },
+    "balanced_minus_CC_lower_matched_pp": {
+      "estimate": 6.958583698094615,
+      "conditional_mc_95": [
+        6.479550865572881,
+        7.45040853371646
+      ]
+    },
+    "balanced_minus_CC_higher_matched_pp": {
+      "estimate": 75.47682797386463,
+      "conditional_mc_95": [
+        75.01557781054498,
+        75.92207625913885
+      ]
+    },
+    "balanced_minus_CC_lower_mean_displayed_rent_dollars": {
+      "estimate": 18.104380071880087,
+      "conditional_mc_95": [
+        16.670920676972553,
+        19.473371407072964
+      ]
+    },
+    "balanced_minus_CC_higher_mean_displayed_rent_dollars": {
+      "estimate": 1614.2634207192655,
+      "conditional_mc_95": [
+        1595.0456699229464,
+        1634.3878833653453
+      ]
+    }
+  },
+  "arm_means": {
+    "UU": {
+      "lower": {
+        "percent_matched": 6.648379176239608,
+        "conditional_displayed_rent_dollars": 1740.8862294636351
+      },
+      "higher": {
+        "percent_matched": 91.75798122797649,
+        "conditional_displayed_rent_dollars": 3360.794564524747
+      }
+    },
+    "CU": {
+      "lower": {
+        "percent_matched": 5.791139223169768,
+        "conditional_displayed_rent_dollars": 1725.6839967672047
+      },
+      "higher": {
+        "percent_matched": 91.80709624077166,
+        "conditional_displayed_rent_dollars": 3360.794564524747
+      }
+    },
+    "UC": {
+      "lower": {
+        "percent_matched": 3.186028173108745,
+        "conditional_displayed_rent_dollars": 1740.8862294636351
+      },
+      "higher": {
+        "percent_matched": 21.089564171388098,
+        "conditional_displayed_rent_dollars": 2193.4251695426246
+      }
+    },
+    "CC": {
+      "lower": {
+        "percent_matched": 1.5060786406416458,
+        "conditional_displayed_rent_dollars": 1725.6839967672047
+      },
+      "higher": {
+        "percent_matched": 20.66307559561259,
+        "conditional_displayed_rent_dollars": 2193.4251695426246
+      }
+    },
+    "balanced": {
+      "lower": {
+        "percent_matched": 8.464662338736261,
+        "conditional_displayed_rent_dollars": 1743.7883768390848
+      },
+      "higher": {
+        "percent_matched": 96.13990356947721,
+        "conditional_displayed_rent_dollars": 3807.68859026189
+      }
+    }
+  },
+  "fully_exposed_lower_raw_counts": {
+    "eligible_1_to_5": 1919,
+    "lost": 417,
+    "gained": 4
+  },
+  "renter_instance_counts": {
+    "lower": 12866,
+    "higher": 17854
+  },
+  "status": "Completed. Null point estimates or intervals denote unsupported conditional ratios."
+}

@@ -9,7 +9,8 @@ all draws divided by the number of its renters drawn there. Cells are weighted w
 recent-mover household shares. Cells with no observations (e.g. Staten Island) make the full-geography target unestimable;
 the report gives the covered weight and labels the renormalized estimate as a different target.
 
-Intervals resample whole seed blocks (all policies and cells of a block stay together) and recompute every ratio and weight.
+Both income groups and policies use the same supported cells and paired markets. Bootstrap intervals retain the observed
+cell support and resample whole seed blocks (all policies and cells of a block stay together), recomputing every ratio.
 """
 from __future__ import annotations
 
@@ -45,7 +46,17 @@ def load(name: str):
     markets = _read_jsonl([base / "markets.jsonl"] * (base / "markets.jsonl").exists() + sorted(glob.glob(str(base / "shards" / "markets-*.jsonl"))))
     if not runs:
         raise SystemExit(f"no runs found under {base}")
-    return runs, markets
+    # run_market appends one summary on every resume, including when only new AI arms ran.
+    unique = {}
+    for record in markets:
+        mid = record["market_id"]
+        switch = dict(unique.get(mid, {}).get("group_switch", {}))
+        for name, values in (record.get("group_switch") or {}).items():
+            if name in switch and switch[name] != values:
+                raise ValueError(f"Conflicting group-switch outcomes for {mid}: {name}")
+            switch[name] = values
+        unique[mid] = {**record, "group_switch": switch}
+    return runs, list(unique.values())
 
 
 def cell_weights(cells: list[tuple[str, str]]) -> dict:
@@ -74,30 +85,87 @@ def group_counts(no_audit: pd.DataFrame, exposure: str, group: str, conditional:
 
 
 def contrast_T(no_audit: pd.DataFrame, treated: str, control: str, weights: dict, conditional: bool = False) -> dict:
-    rates = {}
-    coverage = 1.0
-    for p in (treated, control):
-        for g in ("lower_income", "higher_income"):
-            rates[(p, g)], cov = standardized(group_counts(no_audit, p, g, conditional), weights)
-            coverage = min(coverage, cov)
-    T = (rates[(treated, "lower_income")] - rates[(control, "lower_income")]) - (rates[(treated, "higher_income")] - rates[(control, "higher_income")])
-    return {"T": T, "coverage": coverage, **{f"B_{g}_{p}": v for (p, g), v in rates.items()}}
+    return estimate_t(no_audit, treated, control, weights, conditional, 0)
 
 
-def bootstrap(fn, frame: pd.DataFrame, reps: int, seed: int = 0) -> tuple[float, float]:
-    seeds = frame.seed.unique()
-    if len(seeds) < 2:
-        return float("nan"), float("nan")
-    rng = np.random.default_rng(seed)
-    by_seed = {s: g for s, g in frame.groupby("seed")}
-    stats = []
-    for _ in range(reps):
-        draw = rng.choice(seeds, size=len(seeds), replace=True)
-        sample = pd.concat([by_seed[s].assign(seed=i) for i, s in enumerate(draw)])
-        v = fn(sample)
-        if np.isfinite(v):
-            stats.append(v)
-    return (float(np.quantile(stats, 0.025)), float(np.quantile(stats, 0.975))) if stats else (float("nan"), float("nan"))
+def paired_markets(frame, treated, control):
+    """Keep exactly one observation of each policy in each retained market."""
+    if treated == control:
+        raise ValueError("Treated and control arms must differ.")
+    relevant = frame[frame.exposure.isin([treated, control])]
+    if relevant.duplicated(["market_id", "exposure"]).any():
+        raise ValueError("Duplicate no-audit market/policy rows; reconcile overlapping runs or shards before analysis.")
+    arms = relevant.groupby("market_id").exposure.size()
+    paired = arms.index[arms == 2]
+    return relevant[relevant.market_id.isin(paired)], len(paired), len(arms) - len(paired)
+
+
+def joint_rates(counts, weights, arms, reps):
+    """Use one common cell target and one seed-block draw for all policies and both groups.
+
+    The arrays have axes (arm, group), or (bootstrap draw, arm, group).
+    If a bootstrap sample loses an observed target cell, that draw is undefined.
+    """
+    groups = ["lower_income", "higher_income"]
+    seeds = sorted(counts.seed.unique())
+    cells = [c for c, w in weights.items() if w > 0]
+    shape = (len(seeds), len(cells), len(arms), len(groups), 2)
+    cube = np.zeros(shape, dtype=float)
+    cell_index = {c: i for i, c in enumerate(cells)}
+    si = {seed: i for i, seed in enumerate(seeds)}
+    for (seed, b, m, a, g), row in counts.groupby(["seed", "borough", "month", "arm", "group"])[["count", "n"]].sum().iterrows():
+        if (b, m) in cell_index:
+            cube[si[seed], cell_index[(b, m)], arms.index(a), groups.index(g)] = row.to_numpy()
+    total = cube.sum(axis=0)
+    supported = (total[..., 1] > 0).all(axis=(1, 2))
+    w = np.array([weights[c] for c in cells], dtype=float)[supported]
+    resamples = np.full((reps, len(arms), len(groups)), np.nan)
+    if not len(w):
+        return np.full((len(arms), len(groups)), np.nan), resamples, 0., 0
+    coverage = w.sum() / sum(weights.values())
+    w /= w.sum()
+    total = total[supported]
+    point = np.einsum("c,cag->ag", w, total[..., 0] / total[..., 1])
+    if len(seeds) < 2 or not reps:
+        return point, resamples, coverage, len(w)
+
+    flat = cube[:, supported].reshape(len(seeds), -1)
+    rng = np.random.default_rng(0)
+    # Block frequencies implement paired resampling without duplicating DataFrames.
+    for start in range(0, reps, 128):
+        size = min(128, reps - start)
+        sample_ids = rng.choice(len(seeds), size=(size, len(seeds)), replace=True)
+        freq = np.zeros((size, len(seeds)), dtype=int)
+        np.add.at(freq, (np.arange(size)[:, None], sample_ids), 1)
+        simulated = (freq @ flat).reshape(size, len(w), len(arms), len(groups), 2)
+        with np.errstate(invalid="ignore"):
+            ratio = simulated[..., 0] / simulated[..., 1]
+        resamples[start:start + size] = np.einsum("c,icag->iag", w, ratio)
+    return point, resamples, coverage, len(w)
+
+
+def interval(draws):
+    """An interval for a fixed target is unavailable if a draw loses its denominator."""
+    if not len(draws) or not np.isfinite(draws).all():
+        return np.nan, np.nan
+    return tuple(np.quantile(draws, [.025, .975]))
+
+
+def estimate_t(frame, treated, control, weights, conditional, reps):
+    pairs, paired, unpaired = paired_markets(frame, treated, control)
+    arms = [treated, control]
+    groups = ["lower_income", "higher_income"]
+    counts = pd.concat([group_counts(pairs, a, g, conditional).assign(arm=a, group=g)
+                        for a in arms for g in groups])
+    rates, draws, coverage, cells = joint_rates(counts, weights, arms, reps)
+    by_group = rates[0] - rates[1]
+    changes = draws[:, 0] - draws[:, 1]
+    sample_t = changes[:, 0] - changes[:, 1]
+    low, high = interval(sample_t)
+    return {"T": by_group[0] - by_group[1], "T_lo": low, "T_hi": high, "coverage": coverage,
+            "supported_cells": cells, "paired_markets": paired, "unpaired_markets": unpaired,
+            "valid_bootstrap_draws": int(np.isfinite(sample_t).sum()),
+            **{f"B_{g}_{a}": rates[i, j] for i, a in enumerate(arms) for j, g in enumerate(groups)}}
 
 
 def flatten(runs) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -148,56 +216,87 @@ def protection_table(base: pd.DataFrame, weights: dict) -> pd.DataFrame:
                 da, pg = piv.loc[(mid, m_da)], piv.loc[(mid, m_g)]
                 scale = da.cost_scale or 1
                 lo = max(0.0, (pg.lower_bound - da.cost) / scale) if pg.lower_bound is not None else 0.0
-                hi = (pg.cost - (da.lower_bound if da.lower_bound is not None else 0)) / scale
+                hi = (pg.cost - (da.lower_bound if pd.notna(da.lower_bound) else 0)) / scale
                 rows.append({"borough": da.borough, "month": da.month, "seed": da.seed, "lo": lo, "hi": hi,
                              "exact": (pg.cost - da.cost) / scale if (pg.certified and da.certified) else np.nan,
                              "certified": bool(pg.certified and da.certified), "empty_group": (pg.protected_renters or 0) == 0})
             r = pd.DataFrame(rows)
-            out.append({"variant": variant, "n": n, "exposure": exposure, "objective": f"protect_{group}", "markets": len(r),
-                        "certified_share": r.certified.mean(), "empty_group_share": r.empty_group.mean(),
-                        "positive_share_low": (r.lo > 0).mean(), "positive_share_high": (r.hi > 0).mean(),
-                        "mean_premium_low": r.lo.mean(), "mean_premium_high": r.hi.mean(), "mean_premium_certified": r.exact.mean()})
+            r = r.assign(certified_share=r.certified.astype(float), empty_group_share=r.empty_group.astype(float),
+                         positive_share_low=(r.lo > 0).astype(float), positive_share_high=(r.hi > 0).astype(float),
+                         mean_premium_low=r.lo, mean_premium_high=r.hi, mean_premium_certified=r.exact)
+            target = weights.get((variant, n), {})
+            if not target:
+                continue
+            entry = {"variant": variant, "n": n, "exposure": exposure, "objective": f"protect_{group}", "markets": len(r)}
+            for key in ["certified_share", "empty_group_share", "positive_share_low", "positive_share_high",
+                        "mean_premium_low", "mean_premium_high", "mean_premium_certified"]:
+                entry["unweighted_" + key] = r[key].mean()
+                rate, cov = standardized(r.assign(count=r[key], n=r[key].notna().astype(int)), target)
+                entry[key] = rate
+                if key == "mean_premium_certified":
+                    entry["certified_cell_coverage"] = cov
+                else:
+                    entry["coverage"] = cov
+            out.append(entry)
     return pd.DataFrame(out)
 
 
 def switch_table(markets: list, weights: dict, reps: int) -> pd.DataFrame:
     rows = []
+    arms = ["AA", "BA", "AB", "BB"]
     for m in markets:
         for name, sw in (m.get("group_switch") or {}).items():
-            for combo in ("AA", "BA", "AB", "BB"):
-                for g, gn in (("lower", "lower_income"), ("higher", "higher_income")):
-                    rows.append({"name": name, "variant": m.get("variant"), "borough": m["borough"], "month": m["month"], "seed": m["seed"],
-                                 "combo": combo, "group": gn, "count": sw[combo][f"{g}_count"], "n": sw[combo][f"{g}_n"]})
+            for a in arms:
+                for g in ("lower", "higher"):
+                    rows.append({"name": name, "variant": m["variant"], "size": m["n"], "borough": m["borough"],
+                                 "month": m["month"], "seed": m["seed"], "arm": a, "group": g + "_income",
+                                 "count": sw[a][f"{g}_count"], "n": sw[a][f"{g}_n"]})
     if not rows:
         return pd.DataFrame()
-    d = pd.DataFrame(rows)
-
-    def Z(frame, combo):
-        lo, _ = standardized(frame[(frame.combo == combo) & (frame.group == "lower_income")], weights)
-        hi, _ = standardized(frame[(frame.combo == combo) & (frame.group == "higher_income")], weights)
-        return lo - hi
-
-    def decompose(frame):
-        z = {c: Z(frame, c) for c in ("AA", "BA", "AB", "BB")}
-        s_l = ((z["BA"] - z["AA"]) + (z["BB"] - z["AB"])) / 2
-        s_h = ((z["AB"] - z["AA"]) + (z["BB"] - z["BA"])) / 2
-        return z, s_l, s_h
-
     out = []
-    for (name, variant), frame in d.groupby(["name", "variant"]):
-        z, s_l, s_h = decompose(frame)
-        t = z["BB"] - z["AA"]
-        lo_l, hi_l = bootstrap(lambda f: decompose(f)[1], frame, reps)
-        lo_h, hi_h = bootstrap(lambda f: decompose(f)[2], frame, reps)
-        out.append({"switch": name, "variant": variant, "Z_UU": z["AA"], "Z_CU": z["BA"], "Z_UC": z["AB"], "Z_CC": z["BB"],
-                    "S_L": s_l, "S_L_lo": lo_l, "S_L_hi": hi_l, "S_H": s_h, "S_H_lo": lo_h, "S_H_hi": hi_h, "T": t,
-                    "S_L_plus_S_H_equals_T": bool(abs(s_l + s_h - t) < 1e-12)})
+    for (name, variant, size), frame in pd.DataFrame(rows).groupby(["name", "variant", "size"]):
+        rates, draws, coverage, cells = joint_rates(frame, weights.get((variant, size), {}), arms, reps)
+        z = rates[:, 0] - rates[:, 1]
+        dz = draws[:, :, 0] - draws[:, :, 1]
+
+        def components(gaps):
+            aa, ba, ab, bb = np.moveaxis(gaps, -1, 0)
+            return ((ba - aa) + (bb - ab)) / 2, ((ab - aa) + (bb - ba)) / 2
+
+        s_l, s_h = components(z)
+        d_l, d_h = components(dz)
+        lo_l, hi_l = interval(d_l)
+        lo_h, hi_h = interval(d_h)
+        t = z[3] - z[0]
+        labels = ["UU", "CU", "UC", "CC"]
+        out.append({"switch": name, "variant": variant, "n": size, "coverage": coverage, "supported_cells": cells,
+                    "valid_bootstrap_draws": int(np.isfinite(d_l).sum()),
+                    **{f"Z_{label}": z[i] for i, label in enumerate(labels)},
+                    **{f"B_{group}_{label}": rates[i, g] for i, label in enumerate(labels)
+                       for g, group in enumerate(("lower", "higher"))},
+                    "S_L": s_l, "S_L_lo": lo_l, "S_L_hi": hi_l, "S_H": s_h, "S_H_lo": lo_h, "S_H_hi": hi_h,
+                    "T": t, "S_L_plus_S_H_equals_T": bool(abs(s_l + s_h - t) < 1e-12)})
     return pd.DataFrame(out)
+
+
+def planned_weights(markets, base, specs=None):
+    """Track coverage by planned variant and size, including unestimable cells."""
+    if specs is not None:
+        rows = [(variant, s.n_renters, s.borough, s.month) for s, variant in specs]
+    else:
+        rows = [(m["variant"], m["n"], m["borough"], m["month"]) for m in markets if m.get("borough")]
+        rows.extend(base[["variant", "n", "borough", "month"]].itertuples(index=False, name=None))
+    cells = {}
+    for variant, size, borough, month in rows:
+        if borough:
+            cells.setdefault((variant, size), set()).add((borough, month))
+    return {panel: cell_weights(sorted(grid)) for panel, grid in cells.items()}
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("name")
+    ap.add_argument("--config", type=Path, help="planned housing grid if the config filename differs from the result name")
     ap.add_argument("--treated", default="claude_k5", help="exposure for the primary contrast T")
     ap.add_argument("--control", default="uniform_k5")
     ap.add_argument("--plan-method", default="exact_prefix", help="method whose plans the group tables describe")
@@ -220,27 +319,41 @@ def main():
     lines += ["## Audit methods\n", md(methods), ""]
 
     # Weights cover every planned cell, including unestimable ones (e.g. Staten Island), so coverage reports their absence.
-    cells = sorted({(m["borough"], m["month"]) for m in markets if m.get("borough")} | {(b, m) for b, m in zip(base.borough, base.month) if b})
-    weights = cell_weights(cells) if cells else {}
+    config = args.config or ROOT / "configs" / (args.name + ".json")
+    specs = None
+    if args.config or config.is_file():
+        from experiments.config import expand_labeled, load_config
+        design = load_config(config)
+        if "boroughs" in design.get("grid", {}):
+            specs = expand_labeled(design)
+    weights = planned_weights(markets, base, specs)
+    if specs is None:
+        lines.append("Coverage uses the cells in the logged market and run records. A missing whole cell "
+                     "cannot be identified without the planned housing config.\n")
     no_audit = base[base.method == "no_audit"]
     policies = set(no_audit.exposure)
     if {args.treated, args.control} <= policies and weights:
         lines.append(f"## Primary contrast T: {args.treated} vs {args.control}\n")
+        lines.append("The primary endpoint includes all renters. The conditional endpoint restricts to renters whose shortlist can omit an option.\n")
         rows = []
-        for variant, d in no_audit.groupby("variant"):
-            for conditional in (False, True):
-                res = contrast_T(d, args.treated, args.control, weights, conditional)
-                lo, hi = bootstrap(lambda f: contrast_T(f, args.treated, args.control, weights, conditional)["T"], d, args.reps)
-                rows.append({"variant": variant, "renters": "can_hide only" if conditional else "all", "T_pp": 100 * res["T"],
-                             "T_lo_pp": 100 * lo, "T_hi_pp": 100 * hi, "coverage": res["coverage"],
-                             **{k: v for k, v in res.items() if k.startswith("B_")}})
+        for (variant, size), d in no_audit.groupby(["variant", "n"]):
+            if (variant, size) not in weights:
+                continue
+            target = weights[(variant, size)]
+            def add_result(frame, w, label, conditional=False, reps=0):
+                result = estimate_t(frame, args.treated, args.control, w, conditional, reps)
+                for metric in ("T", "T_lo", "T_hi"):
+                    result[metric + "_pp"] = 100 * result.pop(metric)
+                rows.append({"variant": variant, "n": size, "renters": label, **result})
+
+            add_result(d, target, "all", reps=args.reps)
+            add_result(d, target, "can_hide only", conditional=True, reps=args.reps)
             for month, dm in d.groupby("month"):
-                res = contrast_T(dm, args.treated, args.control, {c: w for c, w in weights.items() if c[1] == month})
-                rows.append({"variant": variant, "renters": f"all, {month}", "T_pp": 100 * res["T"], "coverage": res["coverage"]})
+                add_result(dm, {c: w for c, w in target.items() if c[1] == month}, f"all, {month}", reps=args.reps)
         t_table = pd.DataFrame(rows)
         t_table.to_csv(out / "contrast_T.csv", index=False)
         lines += [md(t_table), "", "Coverage below 1 means some cells (e.g. Staten Island) had no observations, so the estimate is "
-                  "renormalized over the covered cells and is a different target from the full-geography contrast.\n"]
+                  "renormalized over cells with positive denominators in both groups and both arms. Unpaired markets are excluded; including a cell in the analysis requires paired observations. Intervals use fixed cell support. A blank interval with invalid bootstrap draws indicates a lost denominator.\n"]
     else:
         lines.append(f"## Primary contrast T\n\nNot computed: needs no_audit rows for both {args.treated} and {args.control}.\n")
 
@@ -252,17 +365,19 @@ def main():
     prot = protection_table(base, weights)
     if not prot.empty:
         prot.to_csv(out / "protection.csv", index=False)
-        lines += ["## Protection premium (bounds hold even for interrupted solves)\n", md(prot), ""]
+        lines += ["## Protection premium (bounds hold even for interrupted solves)\n", md(prot), "",
+                  "Estimates weight cells by the panel design. Columns prefixed unweighted_ are raw market averages. "
+                  "Coverage counts cells with paired solver observations; missing individual solves within those cells are not imputed.\n"]
 
     g = groups.groupby(["variant", "n", "exposure", "method", "group"])[GROUP_FIELDS].mean().reset_index()
     g.to_csv(out / "groups.csv", index=False)
     focus = g[(g.method.isin(["no_audit", args.plan_method])) & g.group.isin(["lower_income", "higher_income"])]
     keep = ["variant", "n", "exposure", "method", "group", "no_feasible_listing", "blocker_rate", "can_hide_share", "price_percentile_shown",
             "match_before", "match_after", "worse_off", "unavoidable_loss", "severity_positive", "severity_mean"]
-    lines += ["## Lower vs. higher income\n", md(focus[keep]), ""]
+    lines += ["## Lower vs. higher income (raw market averages)\n", md(focus[keep]), ""]
     scar = g[(g.method == "no_audit") & g.group.isin(["lower_income", "higher_income"])][
         ["variant", "n", "exposure", "group", "scarcity_no_option_in_cohort", "scarcity_none_in_draw", "scarcity_unmatched_full", "scarcity_matched_full"]]
-    lines += ["## Scarcity categories (partition renters)\n", md(scar.drop_duplicates(["variant", "n", "group"])), ""]
+    lines += ["## Scarcity categories (raw market averages)\n", md(scar.drop_duplicates(["variant", "n", "group"])), ""]
     (out / "summary.md").write_text("\n".join(lines))
     print(f"wrote {out / 'summary.md'} and CSV tables")
 

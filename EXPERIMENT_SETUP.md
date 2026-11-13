@@ -61,7 +61,7 @@ and compares listings on complete days with the rest.
 **Boroughs:** all five. Staten Island has only about 20 listings a month, so its markets are marked as unestimable.
 
 **Months without CPI:** October 2025 has no published value (the 2025 funding lapse), so it uses the average of September
-and November 2025. October 2026 isn't published yet, so it carries September 2026 forward until the value appears.
+and November 2025. October 2026 uses the published U.S. all-items CPI-U of 337.511. [BLS historical table](https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexhistorical_us_table.htm)
 
 ## What a renter looks like
 Each simulated renter copies one real Census household:

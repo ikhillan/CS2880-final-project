@@ -1,0 +1,389 @@
+Stable matching with hidden options
+Presenter's guide
+Ishan Khillan, Elaine Zhang, Todd Zhou
+October 29, 2026
+
+The main presentation is slides 1-27. Allow about 30-35 minutes.
+The 17 appendix slides are for questions and further detail.
+
+For a shorter talk, use slides 1-8, 11-13, 17, 19, 23, 25, and 27.
+That route keeps the model, example, complexity result, algorithm, evidence,
+and social-impact discussion. Refer to the other slides during questions.
+
+1. Opening
+We study a matching market where clients cannot act on every feasible option.
+A platform can pay to open options through their brokers. The question is
+which brokers to audit when the platform keeps using the same matching rule.
+
+2. The question
+The original motivation is a broker steering a client toward a convenient
+deal. We focus on access: some opportunities never reach the client.
+We take that restriction as an input. We do not explain the broker's strategic
+choice or estimate a commission effect.
+
+Opening more options sounds helpful. The example will show why the response
+of the matching algorithm still matters.
+
+3. The market
+B and S are buyers and sellers. Each has capacity one. Each client strictly
+ranks the acceptable partners, with being unmatched last.
+
+A firm is a fixed representative, possibly for several clients. A
+side-exclusive firm serves only one side. The original four types of
+participants therefore become two matched populations and their representatives.
+For rentals, the sides could be renters and listing slots.
+
+4. Stability in the full market
+A pair blocks if both clients prefer each other to their current assignments.
+The subscript E matters: we check every feasible pair, including hidden ones.
+
+DA is stable on the graph it receives. Our question is whether its output
+also survives a check against the full graph. The restricted-edge literature
+already allows unavailable pairs to retain their blocking force.
+
+5. Audits and deferred acceptance
+Auditing either endpoint's firm opens a pair. One firm audit opens all feasible
+pairs involving its clients. It enables a choice; it does not force a match.
+
+An unmatched buyer proposes to its best available seller that has not rejected
+it. Each seller holds its favorite proposal and rejects the rest. Rejected
+buyers continue. The held proposals form the final matching.
+
+We assume the planner knows the full graph and rankings. Audit costs pay for
+making access usable, such as verifying eligibility or releasing a contact.
+These are possible interpretations, not observations about an actual partner.
+
+6. Two audit costs
+Support asks whether some full-market stable matching is available.
+Response asks whether DA actually chooses one. Every successful response is
+a support witness, so the support cost is a lower bound.
+
+Auditing all firms always succeeds. Running DA is polynomial-time.
+The hard problem is choosing the cheapest set of audits, not running DA.
+
+7. A small example
+Let the audience read the rankings. With no audits, the only visible pairs
+are ay, bx, and cz. This is full-market stable:
+- a and c would prefer x, but x prefers its current partner b.
+- b would prefer y, but y prefers its current partner a.
+
+Auditing a and b gives them their first choices. Now x holds a, so x and c
+both want to deviate. The pair cx is still hidden.
+
+8. The rejection chain
+Restart DA after auditing c. Let a and b propose first, giving ax and by.
+Then c proposes to x and displaces a. The remaining chain is a to y,
+b to x, and c back to z.
+
+The original stable allocation returns. Neither preferences nor the full
+market changed. Expanding the visible graph caused the algorithm to choose
+a different outcome in the middle case. A successful audit set can lose
+success when another audit is added.
+
+9. Two audits versus N+2
+Repeat the example N times. Firm F_A represents every a_i and F_B every b_i.
+All other firms are private.
+
+Each shared firm also has N+3 clients in isolated, initially hidden pairs.
+Such a pair must be matched in any full-market stable matching: otherwise
+both clients are unmatched and block. The shared audits open those pairs
+cheaply, but they also create the unstable middle outcome in every copy.
+
+The diagram shows the two common decisions and the N separate repairs.
+
+10. Why the gap is exact
+Support costs two. Auditing F_A and F_B opens every isolated pair and leaves
+the original stable matching available in every copy. One audit cannot open
+both isolated families.
+
+A successful response costs at most N+2: audit both shared firms and each
+c_i's firm. Omitting a shared firm costs at least N+4, because its N+3 private
+seller substitutes are needed, plus one audit for the other family.
+An optimum therefore uses both shared firms.
+
+Every copy then needs c_i's or x_i's firm. Those repairs are disjoint, proving
+the lower bound N+2. Appendix 1 gives the simpler singleton-firm version.
+The cost separation does not by itself prove approximation hardness.
+
+11. A two-by-two switch
+This is a different example, used for the reduction. Initially p and q see x.
+Seller x holds p, leaving q and y unmatched. The pair qy blocks.
+
+Audit p's firm and the outcome becomes py, qx, both buyers' first choices.
+Audit q's firm alone and the outcome becomes px, qy, also stable.
+Audit y's firm and both hidden edges open. Audit x's firm and nothing changes.
+
+Thus success is exactly an OR of three audit decisions. This particular
+construction is monotone even though the general problem is not.
+
+12. A reduction from Vertex Cover
+A graph vertex becomes a buying firm. Each graph edge becomes one switch.
+The graph degree equals the firm's number of clients, so maximum degree
+three gives portfolios of at most three.
+
+A vertex cover audits an endpoint of every switch and succeeds.
+Conversely, remove useless x-firm audits and replace any private y-firm audit
+by an endpoint buying firm. The positive OR condition preserves success,
+and repeated replacements only reduce cost. We obtain a vertex cover no
+larger than the audit plan.
+
+The optimum costs coincide. This transfers NP-hardness and APX-hardness.
+A proposed plan can be checked in polynomial time, so the budget decision
+is NP-complete. We do not claim the general optimization problem is in APX.
+
+13. The algorithm
+The master chooses a plan that supports some full-market stable matching.
+It gives a lower bound, but its proposed plan may fail when we run DA.
+
+The DA check either verifies the plan or supplies a failure constraint.
+The algorithm repeats. It can also stop when its lower bound reaches the
+cost of an already verified plan. The implementation starts with reverse-delete.
+
+The decomposition and stable-matching polytope are established methods.
+Our constraints use the particular response that we need to verify.
+
+14. The part of each list that matters
+For x > y > z and a final match y, the full prefix contains x and y.
+It includes x even if x was hidden. An unmatched buyer contributes its
+whole acceptable list.
+
+DA never proposes below its eventual partner. If another graph preserves
+presence and absence throughout these prefixes, the same sequential
+proposal run replays. The proof is induction on the tentative matching state.
+
+A failed response therefore certifies that some prefix visibility must change.
+Preserving only visible edges is not enough: a newly exposed better option
+could change the run.
+
+15. Constraints from a failed run
+Whole-assignment cuts remove one firm-audit vector. Component cuts preserve
+only decisions affecting a failed local market. Prefix cuts use the relevant
+visible and hidden pairs.
+
+For the example, visible ax and by with hidden cx force the failed response.
+At (1,1,0), the displayed inequality has left side zero. A successful plan
+must change that pattern. Changing it is necessary, not sufficient.
+
+This is planning before implementation. We are not taking options away from
+people after an allocation is committed.
+
+16. What the solver certifies
+Successful plans remain feasible for every master. Each failed run rules
+out a new pattern. With exact master optimization, this process terminates.
+
+The lower bound must be a valid master bound. The upper bound comes only
+from a plan whose DA response passes the full-market check. A timeout returns
+that verified plan and the remaining cost gap.
+
+On the constructed family, prefix cuts need at most two master solves.
+Whole-assignment cuts must separately reject at least 2^N-1 cheaper failures.
+This compares specified methods. It is not a lower bound on all algorithms.
+
+17. Synthetic markets
+We use 24 clients per side and ten firms with unit costs. The eight scenario
+cells cross component count, preference family, and mean initial exposure.
+Each uses the same 20 seed blocks, giving 160 markets.
+
+A partnership has probability 0.3 and multiplies exposure odds by four.
+A randomly assigned half of buyers receive half the exposure odds.
+That label is independent of preferences and does not identify a demographic
+group. The intercept targets mean exposure of 0.25 or 0.50.
+
+The feasible local markets are balanced complete blocks. This is a controlled
+generator, not an estimate of housing geography.
+
+18. Methods
+At ten firms, exhaustive search checks only 1,024 plans, so it is a serious
+baseline. All exact variants use the same support model and starting heuristic.
+
+Reverse-delete begins with all firms and keeps a deletion only if DA passes,
+repeating until no single deletion works. This is a local stopping rule.
+Blocker greedy follows the best immediate blocker reduction per unit cost,
+continuing even when an immediate reduction is unavailable.
+Prefix cover exposes the full-DA prefixes. It is sufficient but can overpay.
+
+19. Results on 160 markets
+All exact variants agree with exhaustive search. Mean optimum is 4.7375 audits;
+the seed-block 95% interval is [4.6625, 4.80625].
+
+Reverse-delete reaches the minimum in 140 markets at a median of 1.4 ms.
+That is a strong result for a simple baseline.
+
+Prefix cuts have a slightly lower unpaired median than assignment cuts,
+but their paired geometric runtime ratio is 1.007 with interval [0.995, 1.021].
+The evidence does not establish a general speed advantage for prefix cuts.
+
+20. The support lower bound
+The ablation removes only the support model on 40 core markets: the first
+five seeds in each scenario cell. At a five-second cap, certification falls
+from 40 to 18. The median without support is at the cap, so do not interpret
+the ratio of medians as an uncensored speedup.
+
+In the full core, prefix cuts certify 151 markets after one master solve.
+The first support candidate fails in 21 markets, but the support and response
+optima differ in only eight. Another plan at the same cost can succeed.
+
+21. Larger markets
+Each case has 64 clients per side and 24 firms. All exact variants certify
+9 of 16 connected and all 16 modular markets within fifteen seconds.
+
+For prefix cuts, the largest unresolved gap is two cost units. Assignment
+cuts have a gap as large as twelve. Every returned incumbent is verified.
+A timeout does not establish that its incumbent is suboptimal.
+
+Splitting markets changes list lengths as well as connectivity. A separate
+32-case suite varies side-exclusive versus mixed portfolios and unit versus
+integer costs. Prefix optimization matches exhaustive search in all 32.
+
+22. Calls needed to certify the optimum
+N counts copies of the three-by-three market from slides 9-10. One master
+call solves the current audit optimization problem. The table reports how
+many calls each method needed to certify an optimum, under a ten-second cap.
+
+Read across a row to compare methods on the same instance. For N=2,
+assignment cuts need 131 calls, component cuts four, and prefix cuts two.
+For every tested N from three onward, assignment cuts time out.
+Prefix certifies all eight instances in two calls. Component takes three
+to seven. This is a deliberately constructed family, not a random sample.
+
+Timeout means no optimality certificate before the cap, not that the method
+found no feasible plan. It still returns a verified plan. A timeout gives
+no measurement of the total calls that finishing would require.
+
+For N=10, prefix certifies cost 12. Assignment returns a verified cost-26
+plan after 169 recorded calls, including its final interrupted call.
+Those 169 calls are not a completed-run result and are not plotted in the
+table. The raw counts remain in data/results.json.
+
+The theoretical comparison is on slide 16 and Appendix 5:
+at least 2^N-1 failed whole-assignment calls versus two prefix master solves.
+It is a lower bound for the specified cut method, not a fitted curve.
+
+23. Who gains, and who loses?
+Rank score is zero when unmatched and otherwise 1-(rank-1)/list length.
+This is an ordinal summary, not a cardinal measure of welfare.
+
+For the prefix solver's selected optimal plans, lower-access buyers gain
+0.280 in mean rank score, but 14.4% receive a worse-ranked partner.
+The corresponding higher-access figures are 0.162 and 18.9%.
+Both panels have 95% seed-block bootstrap intervals.
+
+The baseline is the provisional DA allocation before audits. The experiment
+does not model revoking an existing lease.
+
+24. Different optimal plans
+We replayed all 614 minimum-cost plans. Audit sets differ in 148 markets,
+and the induced allocations differ in 37.
+
+Every cheapest plan worsens at least one buyer in 155 markets, at least one
+seller in 159, and at least one lower-access buyer in 135. The affected client
+need not be the same across plans.
+
+The quantifier is over minimum-cost plans. The result does not rule out a
+more expensive stable intervention that avoids losses.
+
+25. Housing and AI recommendations
+An AI recommender is one possible source of the initial exposure graph.
+Our current experiments generate that graph synthetically.
+
+For an application, we need a service that knows the reference catalogue,
+can enable access through groups of clients, and retains DA as its matching
+rule. Decentralized housing sales do not automatically satisfy these assumptions.
+
+Liu et al. motivate examining housing recommendation exposure. Their work
+does not validate our audit model. The listing study in the appendix remains
+a proposal. We have not measured a real AI system or a housing effect.
+
+26. Related work
+Unavailable blockers, costly interviews, preference discovery, and matching
+interventions have substantial precedents.
+
+Trabelsi et al. are particularly close: a facilitator pays to add pairs while
+a platform retains its allocation rule. They study maximum matching and
+participation guarantees. We use grouped access decisions, a fixed DA response,
+and full-market stability. We impose no no-harm condition in the current model.
+
+The candidate contribution is this precise problem and its analysis.
+Neither the ingredients nor the proof techniques should be presented as new
+in isolation. Establishing publication novelty requires further review.
+
+27. Conclusions
+The distinction is between making a stable allocation possible and making
+the platform's rule choose it. That distinction changes the cost.
+
+We give structural examples, a hardness reduction, and an exact method with
+verifiable bounds. The experiments also show when simpler methods compete
+and why stability and cost alone do not settle the social objective.
+
+The remaining application question is whether a real institution fits the
+access and matching assumptions.
+
+APPENDIX MAP
+1. A gap with singleton firms.
+2. The support model and continuous matching variables.
+3. Prefix replay and the signed constraint.
+4. Exactness and stopping bounds.
+5. Two solves versus exponentially many failures.
+6. Why full-prefix cover can overpay.
+7. Small switch portfolios and bounded interaction width.
+8. Failure of blocker-endpoint rules and submodularity.
+9-11. A separate partnership-bonus model.
+12. Reproducibility details.
+13. Common seller priorities.
+14-15. Proposed listing study and access-cost extension.
+16-17. References.
+
+COMMON QUESTIONS
+
+Why preserve DA?
+The model assumes that the institution retains this rule. If the planner
+can directly choose the allocation, support is the appropriate objective.
+A real application needs to justify the fixed-rule assumption.
+
+Why does this not contradict DA's buyer optimality?
+Buyer optimality compares stable matchings on a fixed input graph. Our
+interventions change that graph. A new output can be stable on the visible
+graph while blocked by a hidden pair in the full graph.
+
+Is the support problem polynomial?
+For a fixed audit set, support feasibility is a restricted-edge stable-matching
+problem. Optimizing the grouped audit choices still involves binary decisions.
+Continuous matching variables do not make the whole problem polynomial.
+
+Why not audit a blocker's endpoints?
+Auditing another firm can change the assignment and remove the incentive to
+block. In the switch, auditing p's firm fixes qy. Restricting the search to
+the blocker endpoints can therefore miss a cheaper solution.
+
+Why are all final core allocations perfect?
+Each feasible component is balanced and complete. An unmatched buyer and
+seller would block. Perfectness follows from the generator, not from solving
+a housing shortage.
+
+Does the binary partnership result guarantee a solution?
+No. It gives a polynomial-time existence test via partial-order super-stability.
+The two profiles may have different unique stable matchings. Three partnership
+levels break this reduction, which alone proves no hardness result.
+
+What exactly is proposed in the listing study?
+Hold the catalogue and recommendation count fixed, randomize listing order,
+repeat prompts, and record valid listing IDs. Use Census household data only
+to calibrate fictional profiles. Both-side rankings and firm identities would
+need justification or sensitivity analysis. Inquiry-interest labels are not
+individual preference lists.
+
+The access-cost extension adds an average affordable-option exposure target.
+Households with no affordable feasible options must be reported separately.
+This extension has not been evaluated.
+
+Sources and authorship
+The manuscript is outputs/hidden-blocking-pairs/paper.pdf. The recorded solver
+artifact remains alongside it. This deck includes the later singleton-firm
+and common-priority observations, with proofs in the appendix.
+
+The packaged results come from independent_core_analysis.json and
+extended_summary.json. Their hashes are in data/provenance.json.
+make_figures.py rebuilds the figure and four tables from those results.
+
+Generative AI assisted the analysis and drafting. Each presenter should be
+able to derive the examples and defend the assumptions independently.

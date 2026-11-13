@@ -1,0 +1,112 @@
+\section{Repairing a provisional assignment}\label{sec:repair}
+Let $B$ and $S$ be finite sets of applicants and listings. Each vertex has capacity one and strictly ranks its neighbors in a bipartite graph $E\subseteq B\times S$ above being unmatched, denoted by $\bot$. Write $M(i)$ for the partner of $i$ in a matching $M$. A pair $bs\in E$ blocks if $s\succ_b M(b)$ and $b\succ_s M(s)$. Full stability means no such pair exists. DA on a graph $H$ restricts each ranking to its neighbors in $H$. Rejected applicants propose to their next visible choice. We use applicant-proposing DA unless otherwise stated.
+
+Let $E_0\subseteq E$ be the graph of initial shortlists and $M_0=\da(E_0)$. Participant $i$ belongs to firm $f(i)$, whose audit costs a positive integer $c_{f(i)}$. For a set $A$ of audited firms, put
+\[
+ H(A)=E_0\cup\{bs\in E: f(b)\in A\text{ or } f(s)\in A\}.
+\]
+A plan succeeds if $D(A)=\da(H(A))$ is stable on $E$. Write $c(A)=\sum_{f\in A} c_f$ and let $\co$ be the least cost of success. A successful outcome may differ from full disclosure. The institution can change exposure but must honor its allocation rule.
+
+Let $M^+$ and $M^-$ denote applicant- and listing-proposing DA on $E$. Every full-stable matching assigns each applicant a partner weakly between these two extremes \cite{gale1962,roth1986}. For a protected group $G\subseteq B$ define
+\[
+ \HH(M)=\{b\in G:M_0(b)\succ_b M(b)\}.
+\]
+Write $F_G=\HH(M^+)$. Every successful repair incurs all losses in $F_G$. Opening all firms attains exactly $F_G$. We define $C_G$ as the least cost of a successful plan with $\HH(D(A))=F_G$ and $\Delta_G=C_G-\co$. This criterion counts people experiencing a strict loss. The size of a loss within $F_G$ can still depend on the chosen repair. Initially unmatched applicants automatically clear their threshold.
+
+\begin{proposition}[Two-run certificate]\label{prop:screen}
+If no $b\in G$ satisfies $M^+(b)\succeq_b M_0(b)\succ_b M^-(b)$, every successful plan meets the group's protection requirement and $\Delta_G=0$.
+\end{proposition}
+\begin{proof}
+Each $b\in G\setminus F_G$ then weakly prefers even their worst full-stable assignment to $M_0(b)$. Apply the extremal bounds to the response of any successful plan.
+\end{proof}
+A renter whose threshold falls between the extremes makes the test inconclusive. The cheapest ordinary plan may already give that renter a sufficiently good partner.
+
+\subsection{A boundary at two acceptable partners}
+The next result applies to arbitrary positive costs and any distribution of clients among firms. Degree always refers to the number of acceptable partners in $E$, on \emph{both} sides.
+
+\begin{theorem}[One blocker at degree two]\label{thm:two}
+At maximum degree two, every successful plan attains $F_G$ for every $G$ if $M_0$ has at most one full-market blocker. The same conclusion holds for any perfect $M_0$.
+\end{theorem}
+\begin{proof}
+A connected component of $E$ is a path, a cycle, or an isolated vertex. All stable matchings have the same matched participants \cite{roth1986}, so two stable matchings can differ only along alternating cycles. At degree two an alternating cycle takes up its entire component. Hence a component with more than one stable outcome is an even cycle with exactly two stable perfect matchings. Denote its applicant-optimal alternation by $P$ and its other alternation by $Q$. Every applicant prefers their $P$ edge because their partners differ. Each listing prefers its $Q$ edge since otherwise its $P$ edge would block $Q$.
+
+Consider any partial matching on such a cycle. A $P$ edge blocks exactly when its listing is unmatched: if matched along $Q$, that listing holds its favorite applicant. Likewise a $Q$ edge blocks exactly when its applicant is unmatched. With $k$ unmatched participants on each side there are therefore exactly $2k$ blocking pairs. If the entire market has at most one blocker, every cycle admitting a choice of stable outcomes is already perfectly matched in $M_0$.
+
+On each such cycle $M_0$ uses $P$ or $Q$. If it uses $P$, the applicants' distinct first choices are visible in every expansion, so DA always returns them. If it uses $Q$, both stable outcomes weakly improve on every applicant's initial partner. On a component with a unique stable matching all losses are fixed. This also proves the claim for a perfect $M_0$, regardless of the number of initial blockers elsewhere.
+\end{proof}
+
+\paragraph{Sharpness with a vacancy.}
+For $n\geq3$, take indices modulo $n$. Applicant $a_i$ ranks $s_i$ then $s_{i+1}$, and $s_j$ ranks $a_{j-1}$ then $a_j$. Each person has a private firm of unit cost. Initially expose $a_0s_0$ and all one-step edges $a_i s_{i+1}$ except $a_{n-1}s_0$. There is one unmatched participant on each side, and precisely two blockers by the counting identity. Auditing $s_0$ gives every listing its favorite and costs one. Protecting $a_0$ requires the diagonal matching since it is the only stable matching containing $a_0s_0$. Its $n-1$ other edges are hidden and disjoint, so each needs a separate audit. Auditing their applicants attains this cost. Thus two blockers suffice for an unbounded premium at degree two.
+
+\begin{theorem}[One blocker at degree three]\label{thm:three}
+For every odd $n=2m+1\geq3$ there is a connected market with $n$ participants on each side, degree three everywhere, private unit-cost firms, a perfect initial matching and exactly one blocking pair, in which $\co=1$ and $\allp=m+1$.
+\end{theorem}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Applicant $i$ & 0&1&2&3&4&5&6\\ \midrule
+Initial partner        &0&1&2&3&4&5&6\\
+One-audit repair       &1&2&3&4&5&6&0\\
+Four-audit repair      &1&3&2&5&4&0&6\\
+Full disclosure        &2&3&4&5&6&0&1\\ \bottomrule
+\end{tabular}
+\caption{The seven-applicant example. Entries are listing indices. In the one-audit row applicants 1 through 6 fall from second to last choice. In the four-audit row applicants 1, 3 and 5 get their first choices, 2, 4 and 6 keep their partners, and 0 improves.}
+\label{tab:ring}
+\end{table}
+
+\begin{proof}
+Take indices modulo $n$. Each $a_i$ finds listings $s_i,s_{i+1},s_{i+2}$ acceptable. Rankings from best to worst are
+\[
+\begin{array}{c@{\quad}lll}
+ a_0 & s_2 & s_1 & s_0\\
+ a_i\ (i>0)& s_{i+2}&s_i&s_{i+1}\\
+ s_j & a_{j-1}&a_j&a_{j-2}.
+\end{array}
+\]
+Expose all diagonal and one-step edges except $a_0s_1$. Initially all applicants obtain the diagonal. A two-step target prefers its diagonal holder. Only $a_0$ prefers its one-step target to its diagonal, and $s_1$ prefers $a_0$. Thus $a_0s_1$ is the sole blocker. In the full market the applicants' two-step first choices are all distinct, so $F_B$ is empty.
+
+Audit listing $s_1$. It accepts $a_0$ and rejects $a_{n-1}$ on the other newly visible edge. The displaced $a_1$ takes $s_2$, displacing $a_2$, and the chain continues around the cycle. Every listing obtains its first choice. Zero audits leave a blocker, so $\co=1$.
+
+Any full-stable response is perfect by matched-set invariance. To protect everyone, positive-index applicants may use only their diagonal or two-step edges. If $a_0$ uses one of those edge types as well, the perfect matching must be all diagonal or all two-step: the permutation $i\mapsto i+2$ is one cycle for odd $n$. The diagonal is unstable, and the all-two-step matching needs all $n$ hidden, disjoint edges. If $a_0$ uses $s_1$, it forces $a_1$ onto $s_3$, then $a_3$ onto $s_5$, through $a_{2m-1}$ onto $s_0$. These $m$ two-step edges and $a_0s_1$ are hidden and disjoint, requiring at least $m+1$ audits.
+
+Audit $s_1$ and the $m$ odd-indexed applicants. The latter get their two-step first choices. Applicant $a_0$ gets $s_1$ and each positive even applicant keeps its diagonal (the extra proposal to $s_1$ is rejected). Only $a_0$ and the positive even applicants could prefer another listing. Their two-step targets hold their diagonal applicant or their favorite at $s_1$. None blocks. This attains the lower bound and gives Table~\ref{tab:ring} for $n=7$.
+\end{proof}
+
+\paragraph{A five-listing rule.}
+The example also works if everyone must see $\min(5,d)$ of their $d$ acceptable listings. Give each core applicant four additional, lower-ranked listings, each with a dedicated applicant. A filler and its dedicated applicant rank each other first and always see one another. Show $a_0$ all four fillers and every other core applicant three. The additional pairs can never prevent or displace a core match. The cost result survives, with core applicant degree now seven.
+
+\subsection{Computing the protection premium}
+\begin{theorem}[Private firms at degree two]\label{thm:linear}
+With one client per firm and maximum degree two, $\co$ and $C_G$ and attaining plans can be computed in linear time in the explicit market size, counting arithmetic operations.
+\end{theorem}
+\begin{proof}
+Fix any expanded graph $H$ containing a full-stable matching $M$. The restriction of $M$ is stable on $H$. On a forest component of $H$ it is the unique stable assignment, since two stable assignments would differ along a cycle. Any cycle component of $H$ is an intact component of $E$. There DA is full-stable already. Every hidden edge has endpoints outside intact cycles, where DA agrees with $M$, so no hidden edge blocks. Further, applicant-optimality on $H$ transfers any applicant rank thresholds from $M$ to $\da(H)$. Thus exposing a qualifying full-stable matching is necessary and sufficient at degree two, even with shared firms.
+
+Compute $M_0,M^+,M^-$. On each full component the latter two enumerate its one or two stable outcomes. Discard those that breach a protected threshold outside $F_G$. For each remaining local matching $M$, its least exposure cost is
+\[
+       w(M)=\sum_{bs\in M\setminus E_0}\min\{c_{f(b)},c_{f(s)}\}.
+\]
+The hidden matching edges are disjoint and each client has its own firm. Buying the cheaper endpoint of each edge is sufficient and necessary in sum. Choose the least costly qualifying matching per component. Omitting all thresholds gives $\co$. Three DA runs and a constant number of graph scans take linear time.
+\end{proof}
+
+\paragraph{Shared portfolios.}
+The budget decision for either cost becomes NP-complete even with unit costs, at most three clients per firm and two choices per person. Reduce from vertex cover on a cubic graph \cite{alimonti2000}. Give each vertex a firm. An edge with endpoints $u,v$ creates an isolated two-by-two market with applicants $p,q$ represented by $u,v$, respectively, and listings $x,y$, each with a private firm. Let $p$ rank $y,x$, $q$ rank $x,y$, $x$ rank $p,q$ and $y$ rank $q,p$. Initially only $px,qx$ are open and $p$ takes $x$. With neither endpoint nor $y$ audited, $q$ and $y$ block. Auditing $u$ or $y$ yields $py,qx$, giving both applicants first choices. Auditing $v$ alone yields $px,qy$, giving both listings first choices. Both outcomes protect every applicant. Thus each edge requires one of $u,v,y$. Replace each audited private $y$ by an endpoint and discard $x$ audits to obtain a vertex cover of no greater cost. Conversely every cover is a successful protected plan of the same cost. Full DA, restricted DA and a full blocking check verify a budget certificate in polynomial time. The same cost-preserving reduction gives APX-hardness of both minimizations. The hard choice here is which representatives to open. Running DA itself takes polynomial time.
+
+\paragraph{General markets.}
+Choose binary firm variables $x_f$ and impose $y_e=1$ for $e\in E_0$. Else impose the logical OR of the endpoint audits, $y_e\geq x_{f(b)},x_{f(s)}$ and $y_e\leq x_{f(b)}+x_{f(s)}$, with $0\le y_e\le1$. Minimize $\sum_f c_fx_f$. To certify a stable matching can be supported, use nonnegative variables $z_e\le y_e$ with incident sums at most one and a stability inequality for each $bs\in E$:
+\[
+ z_{bs}+\sum_{t\succ_b s}z_{bt}+\sum_{a\succ_s b}z_{as}\ \geq\ 1 .
+\]
+For each initially matched $b\in G\setminus F_G$ also impose
+\begin{equation}
+        \sum_{s\succeq_b M_0(b)}z_{bs}=1. \label{eq:rank}
+\end{equation}
+For fixed integer audits the support restrictions set coordinates to zero. Each rank row saturates a valid upper bound. Together they select a face of the integral stable-matching polytope \cite{rothblum1992polytope}. Thus a feasible master solution guarantees an integral stable witness meeting the thresholds. It is stable on the visible graph, where proposer DA weakly dominates it. This proves that the DA response meets the thresholds. In degree three or higher a hidden pair can still block that response.
+
+We rerun DA on each candidate and check every full edge. For a connected component of $E$ containing a blocker, let $P$ contain every applicant's feasible edges weakly above their final partner in this run (all their edges if unmatched). Keep the visibility status of every edge in $P$ fixed and rerun the same proposal schedule. Induction on proposals gives exactly the same proposals and rejections in that component: nobody reached a lower-ranked edge in the original run. To exclude all repetitions of that failure, require
+\[
+   \sum_{e\in P:\,y_e^*=1}(1-y_e)+
+   \sum_{e\in P:\,y_e^*=0}y_e\ \geq\ 1 ,
+\]
+where $y^*$ denotes the failed exposure. The constraint removes at least the current plan and preserves every successful one. There are finitely many plans and full disclosure is feasible. A successful protected response is itself a master witness, so the optimum of the master lower-bounds the plan cost throughout. Matching it with a verified incumbent certifies optimality.
