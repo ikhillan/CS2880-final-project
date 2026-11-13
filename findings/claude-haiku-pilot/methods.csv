@@ -1,0 +1,17 @@
+variant,n,exposure,method,markets,cost,certified,seconds_median,seconds_max,n_firms
+enriched,64,claude_k5,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,expensive_first_k5,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,expensive_first_q40,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,full,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,transparent_k5,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,transparent_q40,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,uniform_k5,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+enriched,64,uniform_q40,no_audit,240,0.0,0.0,0.0,0.0,106.6625
+primary,64,claude_k5,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,expensive_first_k5,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,expensive_first_q40,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,full,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,transparent_k5,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,transparent_q40,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,uniform_k5,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
+primary,64,uniform_q40,no_audit,240,0.0,0.0,0.0,0.0,106.45416666666667
