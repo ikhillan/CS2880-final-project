@@ -1,0 +1,9 @@
+design,policy,rank_limit,markets,renters,lower_income,baseline_placed,baseline_low_placed,vacant,eligible,eligible_lower,maximum,min_lower_at_max,max_lower_at_max
+enriched,haiku,5,240,15360,7680,9370,2707,5990,594,291,370,133,190
+enriched,haiku,any,240,15360,7680,9370,2707,5990,2527,1601,1926,1002,1085
+enriched,uniform,5,240,15360,7680,10268,2866,5092,64,48,49,33,35
+enriched,uniform,any,240,15360,7680,10268,2866,5092,827,645,518,341,363
+primary,haiku,5,240,15360,6617,7388,244,7972,241,11,204,6,8
+primary,haiku,any,240,15360,6617,7388,244,7972,757,37,683,22,25
+primary,uniform,5,240,15360,6617,7858,297,7502,36,1,35,1,1
+primary,uniform,any,240,15360,6617,7858,297,7502,249,6,215,6,6

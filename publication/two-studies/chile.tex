@@ -1,0 +1,21 @@
+\section{Chilean school admissions}\label{sec:chile}
+The Chilean school choice system records the courses a family ranks, the school's priority and lottery information, and the initial offer the family actually receives \citep{saedata,correaschool}. We can ask whether a hypothetical shortlist would have included that offer. To learn who would receive a place on the new lists, we must replay the allocation.
+
+We fitted two ridge logistic offer predictors to the same 483,070 applicants in 2019, using each eligible applicant--course edge as an observation. Both use program demand, capacity, congestion, list length, grade, priority indicators and a smoothed program offer rate estimated from 2019 (leave-one-out for training). The second adds log rank, a first-choice indicator and a rank--congestion interaction. Neither policy sees the realized offer. The lottery is used for allocation only. Each predictor retains up to five discretionary choices. A pupil's guaranteed current-school option remains available outside that quota. The selected courses keep their submitted order when applicants propose. We use the same reported priorities, realized course lotteries and pooled capacities for both replays. Full-list DA reproduces the recorded program or outside option for 95.39\% of applicants in 2022 and 95.79\% in 2023.
+
+\paragraph{A test in two later cohorts.}
+After examining the 2020 and 2021 application years, we recorded a joint prediction before obtaining the 2022 and 2023 releases. These application years correspond to school entry in 2023 and 2024. The cohorts include 520,420 and 492,888 initial offer recipients, respectively. All applicants enter the placement and joint-transition counts. Giving the 2019 predictor access to rank would cover more historical initial offers and reduce replayed placements in each subsequent cohort. Table~\ref{tab:chile-frozen} reports both outcomes, with full-list DA partners as a second, directly comparable coverage target. Among the 2,493 net additional historical offers covered in the two years, 2,244 were offers that families explicitly accepted. The historical record does not tell us whether they would have accepted under either new policy.
+
+\begin{table}[ht]\centering\small
+\caption{Rank-informed minus rank-blind school menus. Placement and full-list DA coverage come from the replay. Historical offer coverage uses the recorded initial course. Each entry is a net count in the same application-year cohort.}
+\label{tab:chile-frozen}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Year & Applicants & Historical offers shown & Full-list partners shown & Placements\\\midrule
+2022 & 570,891 & $+1,143$ & $+1,261$ & $-468$\\
+2023 & 536,353 & $+1,350$ & $+1,473$ & $-517$\\\bottomrule
+\end{tabular}
+\end{table}
+
+The choice of comparison matters. In a follow-up we reran DA on 48 uniform five-choice displays in each cohort and on the family's first five choices. Relative to the uniform-draw mean, the rank-informed policy covered about 9,235 and 9,740 more full-list partners and placed about 789 and 759 more pupils in 2022 and 2023. Relative to first-five, it placed 2,123 and 2,013 more. The rank-blind predictor placed the most pupils of these four policies in both years. Prioritizing predicted offers improved on simple lists, and adding rank information then moved the two outcomes in opposite directions.
+
+Pooling all seats simplifies the ministry's allocation. A sensitivity that first honors continuity and gives designated pupils priority for earmarked vacancies changes the year-specific net placement losses to 469 and 516. Neither version models all reserves or dynamic family priorities. These are whole-cohort comparisons under fixed reports and a fixed lottery. The new transition counts and comparisons with uniform are exploratory. The joint directional test involved only the recorded-offer and placement outcomes under the two frozen fitted policies.

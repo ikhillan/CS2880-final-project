@@ -1,0 +1,66 @@
+\documentclass[acmsmall,nonacm]{acmart}
+\usepackage{booktabs,amsmath,graphicx}
+\setcitestyle{authoryear}
+\settopmatter{printacmref=false,printccs=false}
+\setcopyright{none}
+\pagestyle{plain}
+\renewcommand{\authorsaddresses}{}
+\newcommand{\da}{\operatorname{DA}}
+\title{Who Gets a Place When Shortlists Get Better?}
+\subtitle{Evidence from New York rental simulations and Chilean school admissions}
+\author{Ishan Khillan}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\author{Elaine Zhang}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\author{Todd Zhou}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\renewcommand{\shortauthors}{Khillan, Zhang, and Zhou}
+\begin{abstract}
+A recommendation can put the right school on a family's list while making a seat harder to get. We study that distinction by holding preferences and priorities fixed and clearing whole cohorts under alternative shortlists. In 240 ordinary New York rental simulations, a language model showed renters their full-list deferred-acceptance partner 5.62 percentage points more often than uniform menus, while placement fell 2.71 points. In two later Chilean school cohorts, supplying reported rank to an offer predictor covered 2,493 additional historical offers and yielded 985 fewer placements in replay. Both directions had been specified in advance for each school cohort. Of the 3,750 school applicants who newly saw their full-list partner, 3,728 received that exact course. Of the 1,455 who lost a place, 1,004 received exactly the same list under both rules. We give a displacement certificate for people who see their full-list partner yet remain unmatched, and test a coordinated referral to fill vacancies without worsening incumbents' assignments. In the school replays, 224 additional applicants could be placed this way, and only one if referrals had to be among their five highest reported options. Historical school offers are observed. Policy changes in both settings are counterfactual.
+\end{abstract}
+\begin{document}
+\maketitle
+\section{Introduction}
+Suppose a school admissions platform can keep five choices on a family's application. With a better predictor, it can more often retain the school that made the family an offer. It is easy to check that improvement one family at a time. Once all the lists compete for seats, a second question arises. Who gets a place?
+
+Consider Chile's 2022 and 2023 regular school application rounds. We applied two predictors trained on 2019 offers to the same submitted preferences. One saw the programs a family listed. The other also saw the order in which the family ranked them. Giving the predictor that order put 2,493 more recorded offers on the lists, including 2,244 more offers that families had explicitly accepted. When we ran applicant-proposing deferred acceptance (DA) on the two sets of lists, 1,455 applicants lost a place and 470 gained one. The historical records establish which offers were covered. The difference of 985 placements comes from rerunning the allocation.
+
+We study the same question from the other direction in New York. There we observe household characteristics and advertised housing, but have to model both sides' rankings. We can hold one inventory fixed, issue five recommendations per renter and observe exactly who competes for which units in the simulation. A second sampling design changes the supply of affordable units and draws lower-income households with an eligible unit in that inventory. In ordinary markets a recommender might improve its average accuracy while doing little for lower-income renters because many have no eligible listing at any price they can pay. The Chilean data let us test whether the prediction--placement tension can arise with submitted preferences and an administrative offer as a target. They do not require the housing preference model to be behaviorally correct.
+
+Our contribution has three parts. First, we compare the same person's change in partner visibility with their change in placement under two market-wide policies. Second, we identify a distinct applicant with an omitted partner for each full-list recipient left unmatched despite seeing their own partner. Third, we compute which unmatched applicants a platform can place by replacing one recommendation with a mutually acceptable vacancy. The result gives both the maximum number of such extensions and a guarantee for each named referral. We report alternative baselines throughout. In the Chilean cohorts, both predictors perform better on both outcomes than a uniformly drawn list.
+
+\section{What each experiment measures}\label{sec:design}
+Let $E$ be the bipartite graph of acceptable applicant--program pairs. A displayed graph $D\subseteq E$ lists the programs an applicant can pursue. Each applicant strictly orders acceptable programs above being unplaced. A program has a fixed capacity and a strict priority ordering over applicants. It holds the highest-priority acceptable applicants who have proposed, up to its capacity. In the rental simulations each listing has one place. Let $M=\da(E)$ be the full-list allocation and $N_D=\da(D)$ the policy allocation; an unplaced applicant receives $\bot$. Stability means that no displayed pair would both prefer to match, taking account of vacancies and priorities. DA on a fixed graph is polynomial-time and applicant-optimal among its stable allocations \citep{gale1962,roth1986}.
+
+For applicant $i$, define
+\[
+ C_i(D)=\mathbf{1}\{M(i)\ne\bot,\ (i,M(i))\in D\},\qquad
+ P_i(D)=\mathbf{1}\{N_D(i)\ne\bot\}.
+\]
+Both rates use all applicants. A person without a full-list partner contributes zero to coverage and can still receive a place after the lists change. In Chile we also compute $C_i$ using the historical offer instead of $M(i)$. For policies $A$ and $B$, the ordered pair $(C_i(B)-C_i(A),P_i(B)-P_i(A))$ belongs to a three-by-three table. The table identifies a person who newly sees their partner yet loses a placement. We use a separate indicator for exact equality of the two personal menus to identify people whose options stayed fixed while competitors' lists changed. Unchanged coverage by itself does not imply that a menu stayed fixed.
+
+\begin{table}[ht]\centering\small
+\caption{Two policy comparisons with a common allocation outcome. Each school application cycle is a separate national cohort.}\label{tab:design}
+\begin{tabular}{@{}p{.19\linewidth}p{.35\linewidth}p{.37\linewidth}@{}}\toprule
+& New York rentals & Chilean school admissions\\\midrule
+Choices and priorities & Affordability and space rules, modeled tastes and screening & Submitted course rankings, published priorities and course lotteries\\
+Shortlist change & Uniform five to Haiku five & Rank-blind predictor to rank-informed predictor, five discretionary choices plus entitlement\\
+Reference option & Simulated full-list DA unit & Full-list replay program and recorded initial offer\\
+Evidence & Development simulation, 20 seed blocks per supply design & Frozen 2019 models, two later cohorts for the specified signs\\
+\bottomrule\end{tabular}
+\end{table}
+
+\paragraph{Relation to prior work.}
+Competition between recommended options has a long history. \citet{rankings} optimize rankings jointly when job seekers apply and employers decide whom to interview. \citet{signals} study recommendations that reduce communication in matching markets. \citet{pruned} link unmatched hospitals under prefix truncation to missed stable partners. Our comparisons permit deletions anywhere on a submitted list and trace who is displaced. We use the classical invariance of matched participants on a fixed graph and results on entry and consistency \citep{galesoto,roth1986,crawford1991,sasaki}.
+
+\citet{aguiarhong2026} compare stable and maximum assignments on restricted graphs and use Chilean school data to study retained rankings. We share their distinction between feasible and stable placements. We compare alternative fitted rules at a fixed quota and identify whose placement changes without a change in their own menu. \citet{smartplatforms} show in a field intervention that advice about admission risk can induce families to add options and improve actual placements. Here all comparisons hold the submitted reports fixed. \citet{liu2024housing} audit the housing options language models recommend. Our housing exercise follows each recommendation through competition for a particular unit.
+
+\input{theory}
+\input{nyc}
+\input{chile}
+\input{comparison}
+\input{referrals}
+\input{discussion}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{paper}
+\end{document}

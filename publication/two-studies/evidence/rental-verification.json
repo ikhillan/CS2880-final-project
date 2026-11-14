@@ -1,0 +1,25 @@
+{
+  "config_sha256": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568",
+  "cache_sha256": "d8d2667efe424381028e3235858d692a23a2567f1caaddb4ef489069a42953e9",
+  "archived_counts_sha256": "b72d62c18e2aa5b98aba139a1eb7ca4ec487ae48637747d158d6f9f22162b4c3",
+  "designs": [
+    "primary",
+    "enriched"
+  ],
+  "months": [
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
+  "market_sizes": [
+    64,
+    64
+  ],
+  "markets": 480,
+  "planned_markets": 600,
+  "skipped_staten_island_per_design": 60,
+  "validated_reference_rows": 2880,
+  "public_group_rows_per_market": 6,
+  "market_block_bootstrap_reps": 10000,
+  "bootstrap_seed": 0
+}

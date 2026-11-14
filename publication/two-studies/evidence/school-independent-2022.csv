@@ -1,0 +1,7 @@
+year,policy,scope,maximum,source_renters_or_pupils,reachable_capacity,baseline,after,worse,named
+2022,blind,display,556231,570652,1021254,521670,,,
+2022,blind,top5,0,0,0,521670,521670,0,0
+2022,blind,any,0,0,0,521670,521670,0,0
+2022,rank,display,555987,570652,1020166,521202,,,
+2022,rank,top5,0,0,0,521202,521202,0,0
+2022,rank,any,127,128,5401,521202,521329,0,127

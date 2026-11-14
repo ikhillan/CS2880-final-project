@@ -4,6 +4,8 @@
 
 When applicants compete for limited seats, a shortlist can cover more historical offers while leaving fewer people placed under deferred acceptance. We study this question using Chilean admissions records, bilateral preference data, and simulated New York rental markets. We give an algorithm for choosing lists before matching and a second rule for referring unmatched applicants to vacant seats after tentative offers.
 
+- [Two-study paper on NYC rental shortlists and Chilean school admissions (PDF)](publication/two-studies/who-gets-a-place.pdf)
+- [Two-study evidence and reproduction instructions](publication/two-studies/README.md)
 - [Research poster (PDF)](poster/who-keeps-an-offer.pdf)
 - [Working paper (PDF)](publication/ACM_EC_RECOVERY_AND_PLACEMENT.pdf)
 - [Manuscript sources, datasets and replication instructions](publication/README.md)

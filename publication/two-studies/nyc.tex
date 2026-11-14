@@ -1,0 +1,33 @@
+\section{New York City rentals}\label{sec:twonyc}
+We paired archived model recommendations with a simulation of who could rent each apartment. The inputs are recent-mover household records from the 2020--24 American Community Survey and rental advertisements first listed in June--August 2026 \citep{acs,firstmover}. Each market contains 64 renter instances and 64 available apartments from one borough and month. An apartment must meet bedroom needs and cost at most 40\% of monthly income. Lower-income households earn at most the survey-weighted median for NYC cash renters. Renter preferences combine rent, size, physical features, distance and taste shocks. Listing priorities depend on income relative to rent and a random shock specific to the renter--listing pair. We rerun applicant-proposing DA with exactly the same households, apartments and preferences under each display. The resulting placements are simulated. The ads provide asking rents, and the survey describes renter households. Neither source observes offers or leases between these parties.
+
+In the ordinary design we sample households using survey weights and draw available apartments uniformly. In the enriched design half the inventory comes from a borough-specific affordability band. We then sample 32 lower-income households with a feasible option in that inventory and 32 higher-income households. This deliberate change lets us examine competition where lower-income households can participate. Each design has 20 seed blocks across three months and four supported boroughs, giving 240 paired markets and 15,360 renter instances. Staten Island had too few listings for draws of 64. The supported boroughs represent 97.95\% of the intended recent-mover geographic weight.
+
+The income cutoff is \$64,435 in 2024 dollars. In asking-rent dollars at the study's July 2026 price base, the highest monthly rent allowed at the cutoff is \$2,286. We use the calibrated preference specification from the rental pilot. It selects a rent coefficient of 4 and an idiosyncratic shock scale of 0.5 from a nine-point grid. Its burden calibration has an observable limitation. At 217 lower-income placements across the 240 ordinary calibration markets, even a feasible assignment chosen to minimize their first-quartile rent burden cannot push that quartile below 27.78\%. The target quartile from recent movers' contract rents was 22.00\%. These finite-market bounds concern the calibration exercise. The household survey does not validate the assumed listing priorities or individual rankings.
+
+\paragraph{What the recommender sees.}
+For each renter, the five-slot uniform rule draws from the feasible listings without replacement. The archived Claude Haiku 5.5 recommender receives the same candidate set, a budget, bedroom needs, target area, prices, physical features and distances. The prompt asks it to choose five listings. It has no observations of other renters' menus or the realized preferences. Both policies show all feasible options to anyone with five or fewer. We used the 20,740 saved valid responses from the development pilot. Households and apartments can recur across draws. Rates below pool individual indicators within each borough-month and then average cells with equal month weights and Census recent-mover borough weights. The pointwise intervals resample entire paired seed blocks 10,000 times. They condition on the catalogues, behavioral model and stored replies.
+
+\begin{table}[t]
+\caption{NYC. Change under Haiku relative to uniform five-listing menus, in percentage points, with paired 95\% simulation intervals. Both columns use every renter in the row. A renter without a full-list DA partner contributes zero to partner coverage in both policies.}
+\label{tab:nyc-two}
+\centering\small
+\begin{tabular}{llrr}
+\toprule
+Design & Renters & Full-list partner shown & Placed by DA\\
+\midrule
+Ordinary & All & $+5.62$ [$4.96,6.27$] & $-2.71$ [$-3.19,-2.23$]\\
+ & Lower income & $+0.11$ [$0.00,0.24$] & $+0.00$ [$-0.19,0.21$]\\
+ & Higher income & $+9.17$ [$7.99,10.34$] & $-4.58$ [$-5.27,-3.86$]\\
+Enriched & All & $+5.85$ [$5.04,6.60$] & $-5.40$ [$-6.05,-4.73$]\\
+ & Lower income & $+0.78$ [$0.19,1.43$] & $-0.92$ [$-2.23,0.37$]\\
+ & Higher income & $+10.92$ [$9.47,12.29$] & $-9.88$ [$-10.43,-9.36$]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{What changed when everyone used the model?}
+Under the original pilot design the primary endpoint was the lower-minus-higher difference in hidden blocking pairs. The comparison here follows the same people and uses the saved menus. Ordinary markets placed 53.89\% of renters under uniform lists and 51.18\% under Haiku, even as full-list partner coverage rose from 9.42\% to 15.04\% (Table~\ref{tab:nyc-two}). The direction depends on the comparator. Against a fixed score that ranks eligible apartments using their observable features, Haiku placed 20.26 points more renters in ordinary markets and 24.47 points more in enriched markets. Its coverage differences were $-0.44$ and $+0.66$ points, respectively.
+
+\paragraph{What the group averages conceal.}
+In the ordinary design, 5,425 of 6,617 lower-income renter instances had no feasible listing. The standardized change in their placement rate was smaller than one hundredth of a point. In enriched markets the change was $-0.92$ points with an interval spanning zero, yet 1,203 lower-income instances lost a placement and 1,044 gained one. The enriched lower-income share with a hidden blocking pair (a renter and an unshown apartment that each prefer the other to their assignment) rose from 37.03\% to 41.31\%. The higher-income share fell from 85.19\% to 78.01\%. The absolute gap narrowed even as hidden blocking pairs became more common for the lower-income group. Partner coverage and placement were secondary outcomes in this development pilot. We treat these results as evidence of a mechanism under specified assumptions.
