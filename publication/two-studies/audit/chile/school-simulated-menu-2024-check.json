@@ -1,0 +1,6 @@
+{
+  "local_plan_sha256": "32a8761d7fc6bc3dabc9d1eac3b4a586d5e25e96218d3d5354bf01a11a9971dd",
+  "policy_code_sha256": "465cb66ce430dc611e1136b0b2482630c297a6d01910414f73ec961ca77d1582",
+  "checked_baseline_rows": 16,
+  "reported_policy_rows": 24
+}

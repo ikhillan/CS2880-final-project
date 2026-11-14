@@ -1,6 +1,6 @@
-# Who Gets a Place When Shortlists Get Better?
+# More First Choices, Fewer Placements
 
-This is a self-contained paper on two settings, NYC rental simulations and Chilean K–12 admissions. [Read the paper](who-gets-a-place.pdf). The unabridged research archive is in the parent publication directory. The rental pilot uses archived model outputs. The 2019 Chilean offer predictors are frozen, including in the new validations on application years 2024 and 2025.
+This is a self-contained paper on two settings, NYC rental simulations and Chilean K–12 admissions. [Read the paper](who-gets-a-place.pdf). The unabridged research archive is in the parent publication directory. Start with the [referee audit](REFEREE_AUDIT.md), the [new evidence and replication guide](audit/README.md), and the [current PDF](who-gets-a-place.pdf). The rental pilot uses archived model outputs. The 2019 Chilean offer predictors are frozen, including in the new validations on application years 2024 and 2025.
 
 ## Read the results
 
@@ -15,13 +15,13 @@ The rental effect estimates average borough-month rates with frozen ACS weights 
 
 ## Build the paper
 
-The standalone source archive includes the class, bibliography style, figure, aggregate evidence and a copy of the working paper. With TeX Live installed, run `latexmk -pdf -halt-on-error main.tex` from its top-level directory. In a repository checkout, run the following from this paper's directory to use the archived class and bibliography style in its parent.
+The standalone source archive includes the class, bibliography style, figures, aggregate evidence and a copy of the working paper. With TeX Live installed, run `latexmk -pdf -halt-on-error main.tex` from its top-level directory. In a repository checkout, run the following from this paper's directory to use the archived class and bibliography style in its parent.
 
 ```sh
 TEXINPUTS=.:..: BSTINPUTS=.:..: latexmk -pdf -halt-on-error main.tex
 ```
 
-The figures and the aggregate consistency checks require Python, NumPy, pandas and matplotlib. To rebuild the figures from the distributed data, run `python analysis/loss_figure.py` and `python robustness/rollout_figure.py`. To reconcile the independently computed estimates, run `python analysis/verify_tables.py` and `python robustness/verify_robustness.py`.
+The figures and the aggregate consistency checks require Python, NumPy, pandas and matplotlib. To rebuild the figures from the distributed data, run `python analysis/loss_figure.py` and `python robustness/rollout_figure.py`. To reconcile the independently computed estimates, run `python analysis/verify_tables.py` and `python robustness/verify_robustness.py`. The [referee audit](audit/README.md) has additional verification commands.
 
 ## Reproduce the analyses
 

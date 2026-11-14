@@ -6,8 +6,8 @@
 \pagestyle{plain}
 \renewcommand{\authorsaddresses}{}
 \newcommand{\da}{\operatorname{DA}}
-\title{Who Gets a Place When Shortlists Get Better?}
-\subtitle{Evidence from New York rental simulations and Chilean school admissions}
+\title{More First Choices, Fewer Placements}
+\subtitle{Shortlist design in New York rental simulations and Chilean school admissions}
 \author{Ishan Khillan}
 \affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
 \author{Elaine Zhang}
@@ -16,20 +16,18 @@
 \affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
 \renewcommand{\shortauthors}{Khillan, Zhang, and Zhou}
 \begin{abstract}
-A shortlist is scored one applicant at a time, but a seat or an apartment can go to only so many people. We study the consequences of that mismatch in two settings chosen for complementary evidence. New York rental advertisements and household records let us vary affordability and screening in a simulated market. Chilean school admissions supply submitted rankings, tie-break orders and recorded offers. We apply the same rule to five discretionary slots in both settings, retaining school continuity rights. Keeping applicants' highest-ranked options increases coverage of their full-list partner relative to random lists, yet reduces the number placed in both rental designs and both school cohorts tested with this benchmark. We then evaluate the recommenders specific to each setting. A rental language model shows more full-list partners but places fewer renters. Adding reported rank to a school offer predictor covers more recorded offers and places fewer pupils in each of four subsequent cohorts. Across 2,044,649 application records it covers 5,552 additional historical offers and yields 1,787 fewer placements in replay. Of 2,527 applicants who lost a place between the two school policies, 1,752 received exactly the same list. We characterize the largest set of menu changes that preserves a baseline stable assignment, and measure how much prediction accuracy remains available under that requirement. All alternative-policy placements are counterfactual.
+A shortlist can improve its prediction of a family's offer while leaving another family without a place. We study this distinction in a simulation using New York rents and household budgets, and in four Chilean school admission cohorts with submitted lists and recorded offers. In Chile, adding rank to a frozen offer predictor put 5,552 more recorded offers on five-choice menus across 2,044,649 application records. Replaying deferred acceptance gave 2,218 more families their first choice and placed 1,787 fewer applicants overall. Of 2,527 people who lost a placement, 1,752 had unchanged menus. The rental simulations also produced more first choices and fewer placements. Neither comparison establishes a welfare ranking. We then ask how much prediction can improve if the entire tentative allocation must remain stable. Even allowing every eligible option and using the target in hindsight, the Chilean menus can cover at most 74 additional full-list partners under that requirement, compared with 5,975 under the unrestricted predictor switch. In the rental simulations there is room to improve coverage while protecting every recipient. In the three lottery cohorts tested, simulating competition without the realized tie order produced menus that beat the rank-informed predictor on historical coverage and placement at 64 draws, while assigning fewer first choices. The school offers used to score prediction are observed; placements under alternative menus in both settings are counterfactual.
 \end{abstract}
 \begin{document}
 \maketitle
 \section{Introduction}
-A family opens a housing search page or a school application and has room to consider five options. The system can give that family five good recommendations. It can also give thousands of other families those same five recommendations. An audit that scores each list against the family's eventual offer sees the first decision. To see the second, it must clear all the lists against the same supply.
+Across four Chilean school admission cohorts, a five-choice shortlist that used an applicant's submitted rank was more likely to show the family its recorded offer. When we cleared all the new lists together, 2,218 more families got their first choice, yet 1,787 fewer applicants got a seat. Most people who lost a seat had exactly the same choices as before. That is 1.08 more first choices and 0.87 fewer placements per 1,000 application records. Looking only at the quality of each family's recommendations would miss what happened to its competitors. Looking only at the number placed would miss what families gained.
 
-We began with New York rentals because there is a prior question to ask before worrying about information or competition: does this household have an apartment it can afford at all? Advertisements give asking prices and bedrooms, and survey households give budgets and space needs. Together they let us hold an inventory fixed or deliberately make affordable options more common. The missing evidence is consequential. The survey and advertisements do not link a household to an application, an offer or a lease. We must therefore model both rankings. The centralized rental allocation in this paper is a modeling device. Real apartment searches involve applications to individual landlords; our replay imposes deferred acceptance to study competition on the displayed inventory.
+Why put school admissions next to apartment searches? We started with a practical question about rental advice: can the service uncover an affordable option that a household would otherwise miss? In our ordinary New York draws, 5,425 of 6,617 lower-income renter instances had no feasible listing in the first place. Asking rents and survey budgets let us distinguish lack of supply from limited consideration, and vary both supply and screening. They do not tell us who applied to an apartment or what offer they got. A similar pattern in school choice would matter for precisely that reason: in Chile we can replace the modeled order with families' own submitted rankings and score recommendations against offers the ministry actually recorded. And the comparison can fail. An entitlement outside the five choices changes who is protected, while the availability of affordable alternatives changes what a service can repair.
 
-We chose Chilean school admissions to test the part of the argument most exposed to that modeling decision. Families actually submit ordered applications, schools have limited seats, and the ministry records initial offers. These records let us ask whether a policy can retain more options that households demonstrably pursued while leaving fewer people placed under a replay of the assignment rule. Chile cannot validate the housing preference model. Conversely, school lists reveal little about opportunities families never considered. Pairing the settings gives us one setting in which we can alter feasible supply and a second in which we can observe the target used to score a shortlist. We first compare identical rules for choosing five discretionary options, preserving the entitlement that some Chilean pupils hold at their current school. We then compare the recommenders specific to each setting.
+We compare the same first-five and random-five rules in both settings before evaluating the two site-specific recommenders. Both studies impose a binding display: a person can pursue only an option on their menu. The Chilean replay curates choices already reported; families did not face our five-choice rule. The rental replay uses centralized deferred acceptance to make competition explicit; New York landlords do not allocate apartments by that procedure. In both settings we ask what happens to other people when a platform decides which five options each applicant can pursue. Neither the magnitudes nor the housing assumptions are transferred across countries.
 
-We find a common direction, with very different magnitudes. Keeping the applicant's first five choices in place of five random choices covers more full-list partners and places fewer applicants in both rental designs and both original school cohorts. The tradeoff also appears between two predictors fitted to Chilean data. It does not appear for every comparison: both school predictors beat uniform shortlists on both outcomes in the 2022--23 benchmark. The choice facing a platform is which policy to replace.
-
-The technical question is whether a platform could keep the useful changes and avoid the displacements. Given two sets of menus and a baseline stable allocation, we characterize exactly which individual switches can be combined while keeping that allocation stable. The calculation uses each applicant's old assignment, the newly visible pairs and program priorities. We run the resulting rule in both markets. Chile's continuity entitlement also lets us examine an institutional exception to the protection implied by a pure first-five list. We also study a different option available after tentative offers: a coordinated referral to a vacant, acceptable place. Both interventions have clear limits when too few households can use the available supply.
+The policy question is what a service can change after tentative assignments are known. We give an exact test for switching whole lists, a bound on gross placement turnover when the test fails, and an exact calculation when the platform can replace individual options. It matters which changes the platform is allowed to make. Keeping all old offers supportable leaves considerable room to improve recommendations in the rental simulation, but almost none for predicting full-list partners in the Chilean cohorts. This is a limit on one concrete promise to applicants; it is not a claim that every better predictor must displace someone. In 2022--24 a rule using the full reports and 64 simulated priority draws beats the rank-informed predictor on both historical coverage and placement without seeing the realized tie order. The information available at the time of advice matters.
 \section{What each experiment measures}\label{sec:design}
 Let $E$ be the bipartite graph of acceptable applicant--program pairs. A displayed graph $D\subseteq E$ lists the programs an applicant can pursue. Each applicant strictly orders acceptable programs above being unplaced. A program has a fixed capacity and a strict priority ordering over applicants. It holds the highest-priority acceptable applicants who have proposed, up to its capacity. In the rental simulations each listing has one place. Let $M=\da(E)$ be the full-list allocation and $N_D=\da(D)$ the policy allocation; an unplaced applicant receives $\bot$. Stability means that no displayed pair would both prefer to match, taking account of vacancies and priorities. DA on a fixed graph is polynomial-time and applicant-optimal among its stable allocations \citep{gale1962,roth1986}.
 
@@ -38,7 +36,7 @@ For applicant $i$, define
  C_i(D)=\mathbf{1}\{M(i)\ne\bot,\ (i,M(i))\in D\},\qquad
  P_i(D)=\mathbf{1}\{N_D(i)\ne\bot\}.
 \]
-Both rates use all applicants. A person without a full-list partner contributes zero to coverage and can still receive a place after the lists change. In Chile we also compute $C_i$ using the historical offer instead of $M(i)$. For policies $A$ and $B$, the ordered pair $(C_i(B)-C_i(A),P_i(B)-P_i(A))$ belongs to a three-by-three table. The table identifies a person who newly sees their partner yet loses a placement. We use a separate indicator for exact equality of the two personal menus to identify people whose options stayed fixed while competitors' lists changed. Unchanged coverage by itself does not imply that a menu stayed fixed.
+Placement counts any acceptable assignment. It gives no extra credit for a first choice. Section~\ref{sec:ranks} measures rank separately. Both rates use all applicants. A person without a full-list partner contributes zero to coverage and can still receive a place after the lists change. In Chile we also compute $C_i$ using the historical offer instead of $M(i)$. For policies $A$ and $B$, the ordered pair $(C_i(B)-C_i(A),P_i(B)-P_i(A))$ belongs to a three-by-three table. The table identifies a person who newly sees their partner yet loses a placement. We use a separate indicator for exact equality of the two personal menus to identify people whose options stayed fixed while competitors' lists changed. Unchanged coverage by itself does not imply that a menu stayed fixed.
 
 \begin{table}[ht]\centering\small
 \caption{Two policy comparisons with a common allocation outcome. Each school application cycle is a separate national cohort.}\label{tab:design}
@@ -47,7 +45,7 @@ Both rates use all applicants. A person without a full-list partner contributes 
 Choices and priorities & Affordability and space rules, modeled tastes and screening & Submitted course rankings, published priorities and within-course tie orders\\
 Shortlist change & Uniform five to Haiku five & Rank-blind predictor to rank-informed predictor, five discretionary choices plus entitlement\\
 Reference option & Simulated full-list DA unit & Full-list replay program and recorded initial offer\\
-Evidence & Development simulation, 20 seed blocks per supply design & Frozen 2019 models; two pairs of later cohorts for the specified signs\\
+Evidence & Archived model on development markets; first-five rule also tested on separate ads and households & Frozen 2019 models; four later cohorts for the specified signs\\
 \bottomrule\end{tabular}
 \end{table}
 
@@ -60,10 +58,15 @@ Competition between recommended options has a long history. \citet{rankings} opt
 \input{common-comparison}
 \input{nyc}
 \input{chile}
+\input{ordinal}
 \input{comparison}
-\input{adoption}
-\input{referrals}
+\input{rollout-screen}
+\input{slot-repair}
 \input{discussion}
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{paper}
+\clearpage
+\appendix
+\input{adoption}
+\input{referrals}
 \end{document}

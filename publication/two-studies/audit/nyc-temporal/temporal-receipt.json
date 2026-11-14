@@ -1,0 +1,93 @@
+{
+  "input_sha256": {
+    "configs/stage2_main.json": "b7fb30f71cac632aa3b4e7f73522afb1ef69ba16f1f5107f99f6d1d4020d3676",
+    "configs/stage1_pilot.json": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568",
+    "data/derived/renter_profiles_v2.csv.gz": "91fe8beb7374dcc911bbf2e7bc7bd9105379af6d32dcd529ad6329695f20199c",
+    "data/reference/cpi_u_us_city_average.csv": "3108cfa6f1593b04d53b7ad66bac8967244a03a903d1c22f2d60b2f27514d995",
+    "data/firstmover/coverage_daily.csv": "552fd21102035f212b71bd69e7637ad7e245cfaadcff6f156deba9a81d432117",
+    "data/firstmover/heldout_dedup_counts.csv": "44b117c360464558779669f27cf01f0d0129bb32c1951e50bb47f3c44ec8d990",
+    "hiddenoptions/markets.py": "3a10b0b23da1cdb445dd016054c46f28fe0ec50bcaf7b13ef0a313264064301f",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293",
+    "hiddenoptions/data.py": "552d7a3f073356ea14e298e1d0fbeff97335660b4aff5b0ff20298c02048a792",
+    "publication/two-studies/robustness/common_benchmark.py": "2de1a611466d2e24caded2361bfe368b26f8e9b4f4579551f64d0e983072a199"
+  },
+  "listing_sources": {
+    "2025-06": "f38a6dcc6c6445ffb8dabdc0dae7b78778080d1b19e714c8e6ae533cf82e9bac",
+    "2025-07": "9942dafee8308b3b910944bfbf64105b011d220d3de8bac0aa8a89363ebefb75",
+    "2025-08": "79932d5faf0ad862dfb2c13fdcafe5d3f86c293138612642b04d56a374aeae1e",
+    "2026-06": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be",
+    "2026-07": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab",
+    "2026-08": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b",
+    "2026-09": "32dd0ce87c4cfbfc1a48cb273b8ac50eb1d2c580159a803e3feec968598d9053",
+    "2026-10": "a5ece3222d1b5874161b0809e6f562480ae93eba4f183313720861413bb6a14e"
+  },
+  "borough_weights": {
+    "Bronx": 0.11843063377223748,
+    "Brooklyn": 0.3166055407472727,
+    "Manhattan": 0.3595172722474965,
+    "Queens": 0.184940978415536,
+    "Staten Island": 0.020505574817457295
+  },
+  "dedup": {
+    "2025-06": {
+      "month": "2025-06",
+      "period": "replication",
+      "listings_before": 22111,
+      "removed_dev_overlap": 2872,
+      "removed_earlier_in_period": 0,
+      "listings_after": 19239,
+      "ambiguous_kept": 373,
+      "ambiguous_dev_match": 37,
+      "ambiguous_repeat": 0
+    },
+    "2025-07": {
+      "month": "2025-07",
+      "period": "replication",
+      "listings_before": 24098,
+      "removed_dev_overlap": 2975,
+      "removed_earlier_in_period": 212,
+      "listings_after": 20911,
+      "ambiguous_kept": 374,
+      "ambiguous_dev_match": 37,
+      "ambiguous_repeat": 60
+    },
+    "2025-08": {
+      "month": "2025-08",
+      "period": "replication",
+      "listings_before": 21696,
+      "removed_dev_overlap": 1880,
+      "removed_earlier_in_period": 348,
+      "listings_after": 19468,
+      "ambiguous_kept": 283,
+      "ambiguous_dev_match": 29,
+      "ambiguous_repeat": 64
+    },
+    "2026-09": {
+      "month": "2026-09",
+      "period": "primary",
+      "listings_before": 13776,
+      "removed_dev_overlap": 992,
+      "removed_earlier_in_period": 0,
+      "listings_after": 12784,
+      "ambiguous_kept": 193,
+      "ambiguous_dev_match": 30,
+      "ambiguous_repeat": 0
+    },
+    "2026-10": {
+      "month": "2026-10",
+      "period": "primary",
+      "listings_before": 13838,
+      "removed_dev_overlap": 1100,
+      "removed_earlier_in_period": 227,
+      "listings_after": 12511,
+      "ambiguous_kept": 230,
+      "ambiguous_dev_match": 18,
+      "ambiguous_repeat": 7
+    }
+  },
+  "planned": 11000,
+  "supported": 8400,
+  "random_clearings": 403200,
+  "archived_development_donor_split_disjoint": true,
+  "heldout_dedup_agrees_with_original_report": true
+}

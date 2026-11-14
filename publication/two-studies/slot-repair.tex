@@ -1,0 +1,33 @@
+\subsection{How much does changing one slot at a time buy?}\label{sec:slots}
+Fix the same baseline assignment $M_A$. For applicant $i$, let $U_i$ be a candidate pool containing $A_i$, and let $q_i=|A_i|$ include any protected slots. The required set $L_i$ contains the applicant's baseline partner if matched and all policy-protected options (in Chile, the continuity course if entitled). Let $V_i$ consist of the options in $U_i$ that do not form a blocking pair with $i$ at $M_A$. Inspecting a pair requires the applicant's preference relative to the current assignment and the program's vacancy or priority cutoff at that assignment.
+
+\begin{proposition}\label{prop:slots}
+The menus with exactly $q_i$ options per applicant that respect entitlements and keep $M_A$ stable are precisely
+\[
+ L_i\subseteq D_i\subseteq V_i,\qquad |D_i|=q_i\quad\text{for every }i.
+\]
+For any additive edge score, an optimal such menu keeps $L_i$ and fills the remaining slots with the highest-scored options in $V_i\setminus L_i$. For a single known reference option per applicant, the exact coverage gain over baseline is the number of previously hidden reference options in $V_i$ whose applicant has a free slot $q_i>|L_i|$.
+\end{proposition}
+\begin{proof}
+Removing a required partner makes $M_A$ infeasible; revealing any blocker makes it unstable. Conversely, if the required edges survive and no blocker is visible, $M_A$ is stable on the new display. This gives exactly the displayed family of sets. It is nonempty since the old list is feasible in every row. Exchanging a lower-scored optional edge for a higher-scored eligible one can only increase the objective. For the coverage claim, give each reference edge score one and break ties in favor of old options. Every old hit can be kept, and each admissible missing reference with room in its own row can be added independently.
+\end{proof}
+The blocking-pair test has a direct predecessor: \citet[Observation~1]{boehmer2021} show that deleting blocking edges suffices to stabilize a specified matching in one-to-one markets. Here the quantity of interest is how much of a proposed recommender's objective can be retained at a fixed quota, with institutional entitlements. As in Theorem~\ref{thm:two-policy-screen}, the original contracts form a stable witness. DA may select a different allocation, but every original recipient remains placed at a weakly preferred option and no previously unplaced applicant enters. The rule requires a known tentative assignment and the comparisons just described. It cannot be run from scores alone.
+
+\begin{table}[ht]\centering\small
+\caption{Additional full-list partners shown over the original menus. ``Whole'' and ``Slots'' are hindsight maxima under the stable-witness requirement. ``Score'' edits individual slots over all feasible options without seeing the target. ``Switch'' adopts the proposed policy without the requirement. Counts pool applicant instances within each setting.}\label{tab:slotrepair}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+ & Whole lists & Slots, $A\cup B$ & Slots, all & Score & Switch\\\midrule
+NYC ordinary & 132 & 591 & 2,014 & $+243$ & $+867$\\
+NYC enriched & 133 & 662 & 3,018 & $+193$ & $+912$\\
+Chile 2022--25 & 44 & 51 & 74 & $+10$ & $+5,975$\\\bottomrule
+\end{tabular}
+\end{table}
+
+Why is the school ceiling so low? Of 1,885,296 full-list partners in the four cohorts, the blind menus already showed all but 9,407. Of those misses, 9,333 would themselves block the old assignment if displayed. No amount of rearranging the other four slots can make those pairs compatible with that assignment. Every one of the remaining 74 can be added; the quota rules out none. The conclusion changes in the rental markets. Of 6,377 missing partners in the ordinary markets, 2,014 could still be shown, as could 3,018 of 8,728 in enriched markets. This is a difference in the composition of the missed targets, in addition to the much higher starting coverage in Chile.
+
+The two benchmarks use different information. A clearinghouse that knows all inputs and tie orders can compute its own full-list DA target. A predicted historical offer and an apartment allocation under unobserved tastes are different objects. For the score column we instead maximize the frozen rank-informed school score, or the number of the rental model's proposed picks retained (the archive records selections, not scores for every listing). Neither uses the target. Under these edits DA retained the same people in every market and gave 67 and 80 renters a strictly better modeled assignment across the two designs. Across the four school cohorts, 12 pupils improved. For the separate historical-offer target, the score rule actually \emph{lost} 30 hits in Chile; the hindsight maximum was a gain of 645. The rule guarantees protection, not an improvement on an unknown prediction target. Nor is 74 an upper bound if contracts may move and the only requirement is retaining the same headcount.
+
+\paragraph{Can a platform improve prediction and placement together?}
+Yes in these cohorts, if it has more information. Consider a clearinghouse that already knows all reports, capacities and realized priority orders. Compute full-list DA, keep each matched applicant's full-list partner and any entitlement, then fill the other slots by the frozen rank-informed score. All full-list contracts remain feasible; restricting a stable display cannot create a blocking pair for that assignment. The full-list allocation is therefore stable on the new menus. The set of recipients stays the same as in full-list DA, although a person's exact partner can change. This construction fits the five discretionary slots because each applicant needs to retain at most one partner in addition to the entitlement.
+
+Compared with the unrestricted rank-informed predictor, this rule showed \emph{more recorded historical offers} in every year ($+856,+814,+660,+489$) and also placed more pupils ($+42,+60,+39,+38$). It used no historical offer as input. This rules out an inherent prediction--placement frontier even for the observed target. The guarantee protects the full-list allocation, a different baseline from the rank-blind seats protected in Table~\ref{tab:slotrepair}. A service advising applicants before reports or tie orders exist cannot simply run this rule, and the housing ads do not supply the required preferences.
