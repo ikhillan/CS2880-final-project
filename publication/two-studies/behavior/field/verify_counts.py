@@ -45,6 +45,9 @@ def run(root):
         "any_new_school",
         "offered_second_explicit_new_school",
     ]
+    concordance = {
+        (int(r["year"]), r["stratum"]): r for r in read(root, "offer-concordance.csv")
+    }
     numbers = [
         [43077, 21371, 20858, 15095, 8192, 1007, 993, -405],
         [37757, 18537, 18116, 13895, 7923, 1198, 1182, -482],
@@ -113,6 +116,33 @@ def run(root):
             int(strata[yr, "all", s]["register_any_original_applicant"])
             for s in ("gained", "lost")
         ]
+        pooled = concordance[yr, "all_linked"]
+        for field in (
+            "people",
+            "eligible_hits",
+            "first_hits",
+            "blind_hits",
+            "rank_hits",
+            "first_placed",
+            "blind_placed",
+            "rank_placed",
+        ):
+            total = sum(
+                int(concordance[yr, group][field])
+                for group in (
+                    "enrolled_at_initial_offer",
+                    "enrolled_elsewhere",
+                    "no_initial_offer",
+                )
+            )
+            require_equal(total, int(pooled[field]), (yr, field))
+        for field in ("blind_hits", "rank_hits"):
+            require_equal(int(pooled[field]), int(enrolled[field]), (yr, field))
+        require_equal(
+            int(pooled["rank_placed"]) - int(pooled["blind_placed"]),
+            gain - loss,
+            (yr, "placement across offer strata"),
+        )
         actual = [int(r[c]) for c in fields] + [
             int(reg["registered_in_new_offered_school"]),
             int(enrolled["net_hits"]),

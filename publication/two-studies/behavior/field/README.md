@@ -18,6 +18,10 @@ From rank-blind to rank-informed, coverage rises from 1,605,941 to 1,610,579 (81
 
 The original **eligible graph** contains the submitted regular-round courses through each pupil's continuity entitlement, including that entitlement. A menu drawn from it can only cover enrollments within that graph. It contains the April school for 1,614,681 linked pupils (82.00%). Among the 126,708 registered pupils who had no regular or wait-list offer, the ceiling is 25,499 (20.12%). Here the two menus cover 25,158 and 25,122 April schools, respectively. The yearly net changes are +4, −14, −8 and −18. Among the remaining 1,842,412 linked pupils, the ceiling is 86.26% and rank information adds 4,674 net hits. Selection on past outcomes, the historical allocation and outside options all matter to this comparison. [All cohorts, denominators and resolutions](enrollment-target.csv)
 
+## Did the pupil attend the initially offered school?
+
+We partition linked records using the initial offer and the school in the April register, then count the results of clearing the entire cohort. Of the net 4,638 additional hits from adding rank to the score, 4,095 were in the group that attended its initial offer school, 586 in the group that enrolled at a different school and −43 among applicants who received no initial offer. These groups account for 307, 365 and 937 net simulated placement losses. Compared with retaining the first five discretionary courses and any entitlement, the rank-informed rule gained 9,800 hits and 8,069 placements overall. In the no-initial-offer group the changes were +505 and −2,174. First-five uses the exact same candidate courses and quota as the fitted policies. These subgroups describe outcomes under the historical system. [Yearly counts, including gross hits gained and lost](offer-concordance.csv)
+
 ## Bounding the effect of missing enrollment records
 
 An unlinked pupil can favor the blind predictor in school-level coverage only if the blind menu contains at least one school absent from the informed menu. An exclusive course at a school on both menus cannot make a difference. The reverse condition limits gains for the informed predictor. We counted both conditions after deduplicating schools within applicant and predictor. Subtracting the blind-exclusive count from the observed change gives a lower bound for the complete cohort. Adding the informed-exclusive count gives an upper bound. These limits allow each missing pupil a different school or no enrollment. They impose no random-missingness assumption. They concern coverage of the historical school only.
@@ -84,6 +88,19 @@ To reproduce the missing-register bounds using the same inputs, run
 ```sh
 python enrollment_bounds.py --early-archives "$SAE" --late-archives "$SAE" --registers "$REG" --early-numeric "$NUM_EARLY" --late-numeric "$NUM_LATE" --out "$OUT/enrollment-bounds.csv"
 python check_missing_bounds.py --early-archives "$SAE" --late-archives "$SAE" --early-numeric "$NUM_EARLY" --late-numeric "$NUM_LATE" --enrollments "$REG" --target "$OUT/enrollment-bounds.csv" --out "$OUT/missing-bounds-check.csv"
+```
+
+For the offer and enrollment breakdown, set `PUBLICATION` to the upstream checkout’s publication directory and use the same inputs. The first command checks grades and historical offer indices against the original release and independently clears the first-five policy. The independent check computes school-level hit counts directly from C1, including gross gains and losses, and checks each stratum’s placement counts with the serial solver. Use a private folder for the intermediate first-five partner vectors.
+
+```sh
+python offer_concordance.py --publication "$PUBLICATION" --early-archives "$SAE" --late-archives "$SAE" --early-numeric "$NUM_EARLY" --late-numeric "$NUM_LATE" --enrollments "$REG" --out "$OUT/offer-concordance.csv"
+mkdir -p "$OUT/private"
+c++ -O3 -std=c++17 -I"$PUBLICATION/research/observed/school" check_first_five.cpp -o "$OUT/check_first_five"
+for year in 2022 2023 2024 2025; do
+  if [ "$year" -lt 2024 ]; then numeric="$NUM_EARLY"; else numeric="$NUM_LATE"; fi
+  "$OUT/check_first_five" "$numeric/$year.bin" "$OUT/private/$year-first.partners"
+done
+python check_offer_concordance.py --first-partners "$OUT/private" --early-archives "$SAE" --late-archives "$SAE" --early-numeric "$NUM_EARLY" --late-numeric "$NUM_LATE" --enrollments "$REG" --results "$OUT/offer-concordance.csv"
 ```
 
 ## Evidence from actual advice

@@ -13,9 +13,28 @@ Total & 1,969,120 & 1,605,941 & 1,610,579 & $+4,638$ & $-1,609$\\\bottomrule
 \end{tabular}
 \end{table}
 
-The informed rule gained 6,184 hits and lost 1,546 relative to the blind rule (Table~\ref{tab:enrolled-target}). Requiring the school, type of education and grade to match gives a net gain of 4,487. Could missing registers reverse the school-level result? For an unlinked pupil, the blind rule can gain a hit over the informed rule only if it lists a school absent from the informed menu. Just 3,760 unlinked records meet that condition. The reverse condition holds for 3,757. Allowing each of the 75,529 unlinked records any school or no enrollment gives a full-cohort net gain between $4,638-3,760=878$ and $4,638+3,757=8,395$. The lower bound is positive in each year (54, 313, 442 and 69). These are bounds from the two menus, with no assumption about why a register link is missing.
+\paragraph{Does the enrollment result simply reproduce the initial offer?}
+\begin{table}[ht]\centering\small
+\caption{The same rank-informed menu against two alternatives. Entries are net changes in pupils. A hit means that the menu contains the historical April school. Placement is simulated after clearing the entire cohort. The three historical groups exhaust the linked sample.}\label{tab:concordance}
+\begin{tabular}{@{}lrrr@{\hskip 1.2em}rr@{}}\toprule
+& & \multicolumn{2}{c}{Versus rank-blind} & \multicolumn{2}{c}{Versus first five}\\
+\cmidrule(lr){3-4}\cmidrule(l){5-6}
+Initial offer and April school & Applicants & Hits & Placed & Hits & Placed\\\midrule
+Attended initial offer school & 1,360,401 & $+4{,}095$ & $-307$ & $+7{,}740$ & $+5{,}797$\\
+Offered a seat, enrolled elsewhere & 463,269 & $+586$ & $-365$ & $+1{,}555$ & $+4{,}446$\\
+Received no initial offer & 145,450 & $-43$ & $-937$ & $+505$ & $-2{,}174$\\\midrule
+All linked pupils & 1,969,120 & $+4{,}638$ & $-1{,}609$ & $+9{,}800$ & $+8{,}069$\\\bottomrule
+\end{tabular}
+\end{table}
 
-The average conceals a limit precisely where families needed another option. Among the 126,708 linked pupils still without a regular offer after the wait list, only 25,499 (20.12\%) attended a school anywhere on their eligible original report. The blind and informed menus contained the eventual school for 25,158 and 25,122, respectively. Even a perfect predictor restricted to that report would miss nearly four in five. What happened to these families after their first search?
+Most of the coverage gain over rank-blind came from pupils who enrolled at their initial offer school (Table~\ref{tab:concordance}). Among pupils who enrolled elsewhere, 1,357 gained coverage of their April school and 771 lost it. The net gain of 586 was positive in each cohort. The 145,450 linked pupils without an initial offer lost 43 hits on net. They accounted for 58.2\% of the overall net placement decline. These are descriptions of historical groups. Receipt of an offer and the subsequent enrollment decision both occur after the original report.
+
+Against keeping the first five discretionary courses plus the entitlement, the rank-informed rule improved both aggregate measures in every cohort. Even against this simpler comparison it placed fewer pupils in the group with no initial offer. Requiring school, education type and grade to match in the original rank-informed versus rank-blind comparison gives a net gain of 4,487 hits.
+
+\paragraph{Missing registers}
+Could missing registers reverse the school-level result? For an unlinked pupil, the blind rule can gain a hit over the informed rule only if it lists a school absent from the informed menu. Just 3,760 unlinked records meet that condition. The reverse condition holds for 3,757. Allowing each of the 75,529 unlinked records any school or no enrollment gives a full-cohort net gain between $4,638-3,760=878$ and $4,638+3,757=8,395$. The lower bound is positive in each year (54, 313, 442 and 69). These are bounds from the two menus, with no assumption about why a register link is missing.
+
+The average conceals a limit precisely where families needed another option. Among the 126,708 linked pupils still without a regular offer after the wait list, only 25,499 (20.12\%) attended a school anywhere on their eligible original report. The blind and informed menus contained the eventual school for 25,158 and 25,122, respectively. Even a perfect predictor restricted to that report would miss nearly four in five of their April schools. The complementary round records where some of them searched next.
 
 \paragraph{Where families searched next}
 A submitted list is a record of one search. To see whether families subsequently pursued other schools, we linked the regular and complementary application files by masked pupil identifier within each of the four years. The complementary round allows eligible families to submit another list from schools with vacancies \citep{complementary}. We selected everyone whose initial and post-wait-list regular outcomes both recorded no offer. We counted a new school only when its identifier was absent from \emph{all} original entries and the family explicitly listed a course there in a same-grade complementary application. Automatic continuity entries and assignments to a course the family never listed do not count as new explicit offers. Finally we linked the initial outcome in the complementary round to the next school year's April 30 enrollment register by pupil and school \citep{saedata,registerdata}.

@@ -2,7 +2,7 @@
 
 This paper compares five-choice recommendations in Chilean school admissions and NYC rental simulations. It links four Chilean application cohorts to enrollment the following April, tests what happens when applicants go beyond the five recommendations, and gives a displacement bound when two policies list the same acceptable options in different orders. The rental pilot uses archived model outputs. The Chilean offer predictors were frozen after training on 2019 data.
 
-[Read the current paper](who-gets-a-place.pdf) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
+[Read the current paper](who-gets-a-place.pdf) · [Final referee assessment](FINAL_REVIEW.md) · [Anonymous review build](REVIEW.md) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
 
 ## Read the results
 

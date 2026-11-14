@@ -2,6 +2,8 @@
 
 We asked two questions. Do the frozen menus predict where families actually enrolled? How sensitive are placements to the order in which families use their recommendations? Only the first outcome can be scored directly against administrative records. All alternative allocations come from clearing the submitted or modeled lists under specified rules. These are follow-up analyses. The original offer and placement results were already known.
 
+The final audit also compares the frozen predictions with the family’s first five, follows the pupil’s actual initial offer through to enrollment, and tests the displacement theorem on the two fitted menus themselves. [Offer and enrollment breakdown](field/offer-concordance.csv) · [Paths on changing menus](paths/README.md) · [Agreement across whole competition components](../audit/components/README.md)
+
 ## Results
 
 - **Where pupils enrolled.** In the 1,969,120 Chilean applicant-years linked to the next April register, the rank-informed menu contained the eventual school for 4,638 more pupils than the rank-blind one. On the same linked population, the informed rule placed 1,609 fewer pupils in the binding-menu replay. Both signs held in each cohort. Accounting for every unlinked pupil allows a net historical coverage gain between 878 and 8,395 across all 2,044,649 records. Only 20.12% of registered pupils who finished the regular wait list without an offer had their April school anywhere on the eligible original report. Of those who went without a regular offer, 30,699 later applied to a school absent from their entire original report, received a complementary offer at that school and were enrolled there in April. [Enrollment and search linkage](field/README.md)

@@ -1,0 +1,42 @@
+[
+  {
+    "year": 2022,
+    "applicants": 3472,
+    "number_of_components": 935,
+    "changed_menus": 7,
+    "new_historical_hits": 3,
+    "lost_historical_hits": 0,
+    "placement_gains": 0,
+    "placement_losses": 1
+  },
+  {
+    "year": 2023,
+    "applicants": 3516,
+    "number_of_components": 928,
+    "changed_menus": 0,
+    "new_historical_hits": 0,
+    "lost_historical_hits": 0,
+    "placement_gains": 0,
+    "placement_losses": 0
+  },
+  {
+    "year": 2024,
+    "applicants": 3087,
+    "number_of_components": 1050,
+    "changed_menus": 1,
+    "new_historical_hits": 0,
+    "lost_historical_hits": 0,
+    "placement_gains": 0,
+    "placement_losses": 0
+  },
+  {
+    "year": 2025,
+    "applicants": 3288,
+    "number_of_components": 1073,
+    "changed_menus": 3,
+    "new_historical_hits": 0,
+    "lost_historical_hits": 0,
+    "placement_gains": 0,
+    "placement_losses": 0
+  }
+]
