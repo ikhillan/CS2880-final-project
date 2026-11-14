@@ -1,0 +1,6 @@
+month,period,listings_before,removed_dev_overlap,removed_earlier_in_period,listings_after,ambiguous_kept,ambiguous_dev_match,ambiguous_repeat
+2026-09,primary,13776,992,0,12784,193,30,0
+2026-10,primary,13838,1100,227,12511,230,18,7
+2025-06,replication,22111,2872,0,19239,373,37,0
+2025-07,replication,24098,2975,212,20911,374,37,60
+2025-08,replication,21696,1880,348,19468,283,29,64

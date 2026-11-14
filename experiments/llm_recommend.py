@@ -47,11 +47,20 @@ def selected_markets(cfg, seeds):
     return [spec for spec, label in markets if spec.seed < starts[label] + seeds]
 
 
-def all_requests(cfg: dict, seeds: int | None, arm: str | None = None) -> list[dict]:
-    """Prompts for the Claude arms in the first N seed blocks within each design."""
-    exposures = claude_arms(cfg, arm)
-    catalog, out = Catalog(), []
-    for spec in selected_markets(cfg, seeds):
+def all_requests(cfg: dict, seeds: int | None, arm: str | list[str] | None = None,
+                 catalog: Catalog | None = None, *, markets=None) -> list[dict]:
+    """Build the shared prompts. A string or no arm uses Claude routing; a list selects explicit arms."""
+    if isinstance(arm, list):
+        names = set(arm)
+        exposures = [e for e in cfg["exposures"] if e["policy"] == "llm" and e["name"] in names]
+        if not names or {e["name"] for e in exposures} != names:
+            raise ValueError(f"Unknown or empty LLM exposure selection: {arm}")
+    else:
+        exposures = claude_arms(cfg, arm)
+    catalog = Catalog() if catalog is None else catalog
+    out = []
+    specs = selected_markets(cfg, seeds) if markets is None else markets
+    for spec in specs:
         try:
             market = build_market(spec, catalog)
         except InsufficientSupply:
@@ -130,7 +139,7 @@ def submit(requests, model, workdir, state_path, effort=llm.EFFORT):
                                           "instruction": llm.INSTRUCTION, "prompt_hash": llm.prompt_hash(), "batch_ids": batch_ids}, indent=1))
 
 
-def save_recommendations(recs_path, saved):
+def save_recommendations(recs_path, saved, *, generation_hashes=None):
     """Atomically merge complete batches. Parallel collectors must see one another's updates."""
     recs_path.parent.mkdir(parents=True, exist_ok=True)
     def key(row):
@@ -146,8 +155,14 @@ def save_recommendations(recs_path, saved):
                 if recs_path.exists():
                     with recs_path.open() as existing:
                         for line in existing:
-                            if key(json.loads(line)) not in fresh:
-                                tmp.write(line.rstrip("\n") + "\n")
+                            row = json.loads(line)
+                            if key(row) in fresh:
+                                continue
+                            if generation_hashes and row["exposure"] in generation_hashes:
+                                if row.get("generation_sha256") != generation_hashes[row["exposure"]]:
+                                    raise ValueError(f"Cannot combine different model settings for {row['exposure']}. "
+                                                     "Use another exposure name or results file.")
+                            tmp.write(line.rstrip("\n") + "\n")
                 for row in saved:
                     tmp.write(json.dumps(row) + "\n")
                 tmp.flush()

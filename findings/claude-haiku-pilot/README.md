@@ -12,7 +12,7 @@ seed-block bootstrap, 10,000 draws). They match the earlier analysis code to the
 - **Model:** `claude-haiku-5-5`, effort `high`, structured JSON output, Message Batches API. Not the pinned Opus model:
   this is a cheap check of the pipeline and the direction of the effect.
 - **Prompt:** unchanged from `hiddenoptions/llm.py` (prompt hash `a2961eba3557f75e`; budget, bedrooms needed, target area and
-  the listing table; no income or household size).
+  the listing table; no explicit income or household-size field).
 - **Requests:** 20,740 (renters with 5 or fewer options see all of them and need no call). All replies were valid:
   no refusals, invalid IDs or fallback fills. Cost about $4.20.
 - **Not run yet:** the 40% (`claude_q40`) arm, repeat prompts, held-out months, Opus.
@@ -35,17 +35,17 @@ For comparison, the transparent formula gives T = +0.9 (−0.3 to 2.1) ordinary 
 | Ordinary | +0.0 (−0.1 to 0.1) | **+5.3** (4.1 to 6.5) | +5.4 |
 | Enriched | +1.3 (0.2 to 2.3) | **+10.2** (9.2 to 11.1) | +11.5 |
 
-Almost all of T comes from changing **higher-income** renters' lists. Claude's picks lower higher-income renters' hidden-
-option rate (enriched: 85% → 77%), while lower-income renters are about as exposed as under uniform lists. So the gap widens
-mostly because Claude helps higher-income renters more, not because it hurts lower-income renters.
+The lower-minus-higher blocker gap went from −73.25 to −67.89 percentage points in ordinary markets and from −48.16 to −36.70 in enriched markets. Both absolute gaps shrank. In enriched markets, the lower-income blocker rate rose from 37.03% to 41.31% and the higher-income rate fell from 85.19% to 78.01%. The larger higher-income-list switch component tells us whose lists changed the outcome. People in either group can be affected by that switch.
 
-## Other outcomes (pooled, unweighted, from `groups.csv`)
-- **No price steering:** shortlist price percentile among feasible options is 0.45–0.50 for Claude vs 0.50 for uniform.
-  The transparent formula, by contrast, picks cheaper listings (0.34–0.39).
-- **Matching:** Claude keeps placement close to uniform (higher-income 0.83–0.87 vs 0.88–0.96), unlike the transparent
-  formula, whose identical lists collide (0.54).
-- **Scarcity still dominates the ordinary design:** about 82–87% of lower-income renters have no feasible listing, so the
-  ordinary-design T is driven by higher-income renters and the small group of lower-income renters with options.
+## Placement and price
+
+The follow-up replay of all 480 development markets pairs the same renters across policies. Among higher-income renters in ordinary markets, Haiku shows the full-list partner 9.17 percentage points more often and places 4.58 points fewer people than uniform. In enriched markets the differences are +10.92 and −9.88 points. Lower-income renters in the enriched design experienced substantial turnover even though the weighted net change in their placement rate has an interval spanning zero. The three metrics and their denominators are defined in the [paired analysis](paired-outcomes.md).
+
+Mean shortlist price percentiles in the descriptive table range from 0.445 to 0.499 for Haiku across the four design/group combinations, versus approximately 0.5 for uniform. These averages alone do not establish the presence or absence of price steering. In ordinary markets, 84% of lower-income renter instances in the raw market averages had no feasible listing. They remain in the primary denominator.
+
+## Coordinated referrals after offers
+
+We also asked how many initially unmatched renters could take a currently vacant, mutually acceptable listing if the platform could change one recommendation per selected renter. In the ordinary Haiku markets, the unrestricted maximum was 683 additional placements. At that maximum, between 22 and 25 could go to lower-income renters, depending on how equally large solutions are chosen. In enriched markets the maximum was 1,926, with between 1,002 and 1,085 going to lower-income renters. Restricting referrals to the renter's five favorite feasible listings lowered the two maxima to 204 and 370. These are raw counts across 240 simulated markets per design, under full take-up. The same analysis for uniform menus and the verification checks are in the [referral results](referrals.md).
 
 ## Caveats
 - Development months only; held-out September–October 2026 and the 2025 replication have not been touched.
@@ -56,8 +56,8 @@ mostly because Claude helps higher-income renters more, not because it hurts low
 
 ## Files
 - `summary.md`, `contrast_T.csv`, `group_switch.csv`, `groups.csv`, `methods.csv`: analysis outputs.
-- `claude_recs.jsonl.gz`: every saved Claude reply (market, renter, chosen listing indices, validity counts). With the
-  repo's market builder this reproduces the run without new API calls; copy it to `results/llm/stage1_pilot/recs.jsonl`.
+- `claude_recs.jsonl.gz`: the parsed selections from every saved reply (market, renter, chosen listing indices, validity counts). With the
+  repo's market builder this reproduces the run without new API calls. Decompress it to `results/llm/stage1_pilot/recs.jsonl`.
 - `batches.json`: model, effort, prompt text, prompt hash and batch IDs.
 
 ## Reproduce

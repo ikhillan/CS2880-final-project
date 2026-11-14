@@ -20,6 +20,7 @@ uniform fallback. The deployed policy is the model WITH this fallback; its rates
 from __future__ import annotations
 
 import hashlib
+from dataclasses import replace
 import json
 import zlib
 from pathlib import Path
@@ -37,8 +38,15 @@ def show_count(n_feasible: np.ndarray, k: int | None, q: float | None) -> np.nda
     return np.minimum(n_feasible, np.ceil(q * n_feasible).astype(int))
 
 
+def recommendation_market_id(spec) -> str:
+    """Paired shortlist randomness for an unchanged housing draw, including brokerage relabelings."""
+    if getattr(spec, "firm_aliases", False):
+        return replace(spec, firm_aliases=False).market_id
+    return spec.market_id
+
+
 def _exposure_rng(market, salt: str) -> np.random.Generator:
-    return np.random.default_rng([market.spec.seed, zlib.crc32(f"{market.spec.market_id}|exposure|{salt}".encode())])
+    return np.random.default_rng([market.spec.seed, zlib.crc32(f"{recommendation_market_id(market.spec)}|exposure|{salt}".encode())])
 
 
 def fallback_order(market, b: int) -> np.ndarray:

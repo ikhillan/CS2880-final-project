@@ -23,13 +23,16 @@ Listing score for renter b:
 """
 from __future__ import annotations
 
+import warnings
 import zlib
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 
 import numpy as np
 import pandas as pd
 
-from .data import BASE_MONTH, DEV_MONTHS, MONTHS, cell_frames, load_listings, load_renters, to_base_factor, weighted_quantile
+from .data import (BASE_MONTH, DEV_MONTHS, MONTHS, cell_frames, heldout_period, load_heldout_listings, load_listings, load_renters,
+                   to_base_factor, weighted_quantile)
+from .firms import load_alias_map
 from .matching import NOT_EDGE, Instance
 
 KM_PER_DEG_LAT, KM_PER_DEG_LON = 111.0, 84.5  # at NYC's latitude
@@ -73,11 +76,24 @@ class MarketSpec:
     # "portfolio_quarter" (c_f = 1 + 0.25 (m_f - 1)) is stored x4; divide reported costs by `cost_scale`.
     audit_costs: str = "unit"  # "unit", "brokerage_only", "portfolio_quarter" or "portfolio_linear"
     band_quantile: float = 0.75  # enriched design: band = rent <= this weighted quantile of G+ donors' budgets
+    # Listing-side firms from the frozen brokerage alias map (data/reference/brokerage_aliases.json, hiddenoptions.firms):
+    # alias variants share a firm and unresolved sources become singleton firms. Off by default (firms = slug of source_group).
+    firm_aliases: bool = False
+    heldout_dedup: bool = True  # remove cross-period unit repeats in the prespecified held-out months
 
     @property
     def market_id(self) -> str:
-        # band_quantile only enters the ID of enriched markets, so IDs of every other design stay as they were.
-        fields = {k: v for k, v in asdict(self).items() if k != "seed" and (k != "band_quantile" or self.design == "enriched")}
+        # Preserve pre-dedup raw market IDs and every existing development ID.
+        fields = asdict(self)
+        del fields["seed"], fields["heldout_dedup"]
+        if self.design != "enriched":
+            del fields["band_quantile"]
+        if self.firm_aliases:
+            fields["alias_map_sha256"] = load_alias_map().sha256
+        else:
+            del fields["firm_aliases"]
+        if self.heldout_dedup and heldout_period(self.month):
+            fields["unit_dedup"] = "dev-and-within-period-v1"
         key = "|".join(f"{k}={v}" for k, v in fields.items())
         return f"{self.borough or 'Citywide'}-{self.month}-n{self.n_renters}x{self.n_listings}-s{self.seed}-{zlib.crc32(key.encode()):08x}"
 
@@ -96,11 +112,20 @@ class Market:
 
 
 class Catalog:
-    """Data shared by all markets in one process. Listing months load on first use."""
+    """Data shared by all markets in one process. Listing months load on first use.
 
-    def __init__(self):
+    heldout_dedup (default True) applies only to held-out months (data.HELDOUT_PRIMARY and HELDOUT_REPLICATION): it removes
+    identifiable physical units already seen in development and keeps each unit's earliest arrival within its held-out
+    period (data.dedup_heldout). Development and other months load unchanged. Counts per month are in `dedup_counts`.
+    """
+
+    def __init__(self, heldout_dedup: bool = True):
+        self.heldout_dedup = heldout_dedup
+        self.dedup_counts: dict[str, dict] = {}
         self.renters = load_renters()
-        self._listings: dict[str, pd.DataFrame] = {}
+        self._listings: dict[tuple, pd.DataFrame] = {}
+        self._alias_firms: dict[tuple, pd.Series] = {}
+        self._warned_unreviewed = False
         self.frames: dict = {}
         dev = pd.concat([self.listings(m) for m in DEV_MONTHS])
         self.feature_reference = _feature_reference(dev)
@@ -108,17 +133,34 @@ class Catalog:
         self.puma_centroids = dev.groupby("puma")[["latitude", "longitude"]].mean()
         self.puma_label = dev.groupby("puma").neighborhood.agg(lambda s: s.value_counts().index[0]).to_dict()
 
-    def listings(self, month: str) -> pd.DataFrame:
-        if month not in self._listings:
+    def alias_firms(self, month: str, *, heldout_dedup: bool = True) -> pd.Series:
+        """Listing firm labels for the selected catalog, cached across market draws."""
+        key = (month, self.heldout_dedup and heldout_dedup and heldout_period(month) is not None)
+        if key not in self._alias_firms:
+            amap = load_alias_map()
+            if not amap.reviewed and not self._warned_unreviewed:
+                warnings.warn('brokerage alias map is not reviewed yet ("reviewed": false); see scripts/brokerage_aliases.py')
+                self._warned_unreviewed = True
+            listings = self.listings(month, heldout_dedup=heldout_dedup)
+            self._alias_firms[key] = pd.Series(amap.firm_ids(listings), index=listings.listing_uid.to_numpy())
+        return self._alias_firms[key]
+
+    def listings(self, month: str, *, heldout_dedup: bool = True) -> pd.DataFrame:
+        dedup = self.heldout_dedup and heldout_dedup and heldout_period(month) is not None
+        key = (month, dedup)
+        if key not in self._listings:
             if month not in MONTHS:
                 raise KeyError(f"no FirstMover month {month}")
-            self._listings[month] = load_listings(month)
-        return self._listings[month]
+            if dedup:
+                self._listings[key], self.dedup_counts[month] = load_heldout_listings(month)
+            else:
+                self._listings[key] = load_listings(month)
+        return self._listings[key]
 
     def frame(self, spec: MarketSpec):
-        key = (spec.borough, spec.month, spec.share, spec.donors, spec.bedroom_rule, spec.rent_column)
+        key = (spec.borough, spec.month, spec.share, spec.donors, spec.bedroom_rule, spec.rent_column, spec.heldout_dedup)
         if key not in self.frames:
-            listings = self.listings(spec.month)
+            listings = self.listings(spec.month, heldout_dedup=spec.heldout_dedup)
             if spec.rent_column == "net_effective_rent":
                 listings = listings.assign(net_effective_rent=listings.net_effective_rent_asking * to_base_factor(spec.month))
             self.frames[key] = cell_frames(self.renters, listings, spec.borough, spec.month, spec.share,
@@ -233,6 +275,8 @@ def sample_people(spec: MarketSpec, catalog: Catalog) -> tuple[pd.DataFrame, pd.
     frame, pool = catalog.frame(spec)
     r_rng, l_rng = _rng(spec, "renters"), _rng(spec, "listings")
     log = {"frame_records": len(frame), "pool_listings": len(pool)}
+    if spec.heldout_dedup and catalog.heldout_dedup and spec.month in catalog.dedup_counts:  # held-out months only, so development logs are unchanged
+        log["heldout_dedup"] = {k: v for k, v in catalog.dedup_counts[spec.month].items() if k.startswith(("removed", "ambiguous"))}
     if spec.design == "uniform":
         listings = _draw_listings(l_rng, pool, spec.n_listings, spec)
         renters = _draw_renters(r_rng, frame, spec.n_renters)
@@ -267,6 +311,12 @@ def sample_people(spec: MarketSpec, catalog: Catalog) -> tuple[pd.DataFrame, pd.
         renters = pd.concat([_draw_renters(r_rng, lower, n_low), _draw_renters(r_rng, higher, spec.n_renters - n_low)])
     else:
         raise ValueError(f"unknown design {spec.design}")
+    if spec.firm_aliases:
+        # Keep even clustered draws paired. The alias rule changes the audit institution on the sampled listings.
+        firm_ids = catalog.alias_firms(spec.month, heldout_dedup=spec.heldout_dedup)
+        listings = listings.assign(firm_id_raw=listings.firm_id, firm_id=listings.listing_uid.map(firm_ids))
+        amap = load_alias_map()
+        log.update(firm_aliases=True, alias_map_reviewed=amap.reviewed, alias_map_sha256=amap.sha256)
     return renters.reset_index(drop=True), listings.reset_index(drop=True), log
 
 
@@ -282,6 +332,9 @@ def _to_ranks(score: np.ndarray, E: np.ndarray, axis: int) -> np.ndarray:
 
 
 def build_market(spec: MarketSpec, catalog: Catalog) -> Market:
+    if not catalog.heldout_dedup and spec.heldout_dedup and heldout_period(spec.month):
+        # A diagnostic raw catalog must also report the raw ID to downstream cache consumers.
+        spec = replace(spec, heldout_dedup=False)
     renters, listings, log = sample_people(spec, catalog)
     cap = renters.cap.to_numpy(float)[:, None]
     income = renters.income.to_numpy(float)[:, None]

@@ -190,6 +190,73 @@ def load_listings(month: str) -> pd.DataFrame:
     return d
 
 
+# ------------------------------------------------------------------------------------------------- held-out unit dedup
+HELDOUT_PERIODS = {"primary": HELDOUT_PRIMARY, "replication": HELDOUT_REPLICATION}
+IDENTIFIABLE_UNIT_SOURCES = ("url_unit",)  # unit_key from the StreetEasy URL's building/unit path (scripts/firstmover_clean.py)
+DEDUP_COUNTS_CSV = ROOT / "data" / "firstmover" / "heldout_dedup_counts.csv"
+
+
+def heldout_period(month: str) -> str | None:
+    return next((name for name, months in HELDOUT_PERIODS.items() if month in months), None)
+
+
+@lru_cache(maxsize=None)
+def unit_key_sources(month: str) -> pd.Series:
+    """listing_uid -> unit_key_source (how the cleaner identified the physical unit) for one month."""
+    d = pd.read_csv(FIRSTMOVER_CLEAN / f"firstmover_listings_{month}.csv.gz", usecols=["listing_uid", "unit_key_source"])
+    return d.set_index("listing_uid").unit_key_source
+
+
+@lru_cache(maxsize=1)
+def development_unit_ids() -> frozenset:
+    """Every physical unit in the development months' analysis catalogs."""
+    return frozenset(pd.concat([load_listings(m).unit_id for m in DEV_MONTHS]))
+
+
+def dedup_heldout(listings: pd.DataFrame, month: str, dev_units, earlier_units) -> tuple[pd.DataFrame, dict]:
+    """Protocol section 3: drop identifiable units seen in development, and units already seen earlier in the same held-out
+    period (keeping each unit's earliest arrival; within a month the cleaner already keeps the first posting).
+
+    Identifiable = unit_key_source in IDENTIFIABLE_UNIT_SOURCES. Ambiguous units are kept as distinct listings with flags
+    for a sensitivity check: `unit_ambiguous`, plus `ambiguous_dev_match` / `ambiguous_repeat` when their (weaker) key
+    matches a development unit or an earlier held-out arrival.
+    """
+    source = listings.listing_uid.map(unit_key_sources(month))
+    identifiable = source.isin(IDENTIFIABLE_UNIT_SOURCES).to_numpy()
+    in_dev = listings.unit_id.isin(dev_units).to_numpy()
+    earlier = listings.unit_id.isin(earlier_units).to_numpy()
+    drop = identifiable & (in_dev | earlier)
+    out = listings.assign(unit_key_source=source.to_numpy(), unit_ambiguous=~identifiable,
+                          ambiguous_dev_match=~identifiable & in_dev, ambiguous_repeat=~identifiable & earlier)
+    out = out[~drop].reset_index(drop=True)
+    counts = {"month": month, "period": heldout_period(month), "listings_before": len(listings),
+              "removed_dev_overlap": int((identifiable & in_dev).sum()),
+              "removed_earlier_in_period": int((identifiable & earlier & ~in_dev).sum()),
+              "listings_after": len(out), "ambiguous_kept": int((~identifiable).sum()),
+              "ambiguous_dev_match": int((~identifiable & in_dev).sum()), "ambiguous_repeat": int((~identifiable & earlier).sum())}
+    return out, counts
+
+
+def load_heldout_listings(month: str) -> tuple[pd.DataFrame, dict]:
+    """A held-out month's analysis catalog after `dedup_heldout`, with the per-month counts."""
+    period = heldout_period(month)
+    if period is None:
+        raise ValueError(f"{month} is not a held-out month")
+    months = HELDOUT_PERIODS[period]
+    earlier = set()
+    for m in months[: months.index(month)]:
+        earlier |= set(load_listings(m).unit_id)
+    return dedup_heldout(load_listings(month), month, development_unit_ids(), earlier)
+
+
+def heldout_dedup_report(path: Path | None = DEDUP_COUNTS_CSV) -> pd.DataFrame:
+    """Counts for every held-out month (no outcomes are computed); written to data/firstmover/heldout_dedup_counts.csv."""
+    t = pd.DataFrame([load_heldout_listings(m)[1] for months in HELDOUT_PERIODS.values() for m in months])
+    if path is not None:
+        t.to_csv(path, index=False)
+    return t
+
+
 @lru_cache(maxsize=1)
 def gap_days() -> dict[str, set[str]]:
     path = ROOT / "data" / "firstmover" / "coverage_daily.csv"

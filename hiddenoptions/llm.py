@@ -20,7 +20,7 @@ import zlib
 import numpy as np
 
 from .data import cpi_value, BASE_MONTH
-from .exposure import candidate_digest, show_count
+from .exposure import candidate_digest, recommendation_market_id, show_count
 
 DEFAULT_MODEL = "claude-opus-5-5"
 EFFORT = "high"  # the study's pinned setting (Opus 5.5 at high effort); recorded with every batch
@@ -64,7 +64,7 @@ def listing_text(row, listing_id: str, km: float) -> str:
 
 def presentation_order(market, b: int, rep: int) -> np.ndarray:
     options = np.nonzero(market.inst.E[b])[0]
-    rng = np.random.default_rng([market.spec.seed, zlib.crc32(f"{market.spec.market_id}|order|{b}|{rep}".encode())])
+    rng = np.random.default_rng([market.spec.seed, zlib.crc32(f"{recommendation_market_id(market.spec)}|order|{b}|{rep}".encode())])
     return options[rng.permutation(len(options))]
 
 
@@ -81,7 +81,13 @@ def build_request(market, b: int, exposure: dict, catalog, rep: int = 0) -> dict
               + INSTRUCTION.format(k=count))
     key = {"market_id": market.spec.market_id, "exposure": exposure["name"], "renter": b, "rep": rep}
     custom_id = hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()[:40]
-    return {"custom_id": custom_id, **key, "count": count, "prompt": prompt, "id_map": id_map,
+    # Route by the actual audit institution, but seed the open-model draw as in its paired
+    # raw-label market. Keep existing non-alias requests byte-for-byte unchanged for resume.
+    sampling = {}
+    if getattr(market.spec, "firm_aliases", False):
+        paired_key = {**key, "market_id": recommendation_market_id(market.spec)}
+        sampling["sampling_seed"] = int(hashlib.sha256(json.dumps(paired_key, sort_keys=True).encode()).hexdigest()[:8], 16)
+    return {"custom_id": custom_id, **key, **sampling, "count": count, "prompt": prompt, "id_map": id_map,
             "prompt_hash": prompt_hash(), "candidates_sha256": candidate_digest(market, b)}
 
 

@@ -1,0 +1,35 @@
+{
+  "config": "configs/stage1_pilot.json",
+  "months": [
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
+  "seeds_by_design": [
+    [
+      "enriched",
+      150
+    ],
+    [
+      "uniform",
+      100
+    ]
+  ],
+  "requested_market_specs": 30,
+  "candidate_requests_per_arm": {
+    "qwen": 1033,
+    "mistral": 1033
+  },
+  "sample_cases": 500,
+  "matched_case_order": 500,
+  "equal_prompt_text": 500,
+  "equal_listing_maps": 500,
+  "matched_candidate_fingerprints": 500,
+  "distinct_routing_ids": 500,
+  "previous_arm_hash_sample_overlap": 228,
+  "case_manifest_sha256": "4a618aaf783ee52f3d07aa3146568486d185ec640e2363855ce2a3982f4814a5",
+  "sampled_markets": 24,
+  "family": "Qwen2.5-32B / Mistral-Small-3.1-24B",
+  "quota": 5,
+  "gpu_inference": false
+}

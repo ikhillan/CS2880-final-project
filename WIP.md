@@ -1,4 +1,10 @@
-# WIP: NYC hidden-options experiments (status as of 2026-11-12)
+# NYC hidden-options experiments
+
+**November 13 update.** The top-five Haiku development pilot is complete. Its archived selections reproduced the four published tables. The [paired placement analysis](findings/claude-haiku-pilot/paired-outcomes.md) now reports full-list partner coverage, actual simulated placement and who switched placement status. The [referral test](findings/claude-haiku-pilot/referrals.md) uses the same pilot inputs. Under the original five-borough sample-size rule, the development pilot calls for 400 fresh held-out blocks because Staten Island was unestimable. The four-borough sensitivity gives 100. The integration config applies the 400-block rule to the primary September–October contrast and retains the 100 blocks previously configured for the separate 2025 replication. [Sizing calculation](findings/claude-haiku-pilot/paired-outcomes-planning.json)
+
+The integration branch includes Ishan’s [GPU and Slurm instructions](slurm/README.md), deduplication, and the proposed brokerage crosswalk. Human alias review and actual H200 model throughput remain outstanding. The November 12 notes below describe the state before the Haiku result and these infrastructure changes.
+
+## Original November 12 working notes
 
 For teammates and their coding agents. Read this first, then `EXPERIMENT_SETUP.md` (design) and the experiment
 protocol `FINAL_EXPERIMENT_PROTOCOL_2.md` (not in this repo; it ships in the protocol author's audit package,

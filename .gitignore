@@ -15,3 +15,6 @@ __pycache__/
 data/derived/
 results/
 .pytest_cache/
+
+# Slurm logs (slurm/*.sbatch)
+logs/

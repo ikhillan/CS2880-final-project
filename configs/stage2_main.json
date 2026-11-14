@@ -1,6 +1,6 @@
 {
   "name": "stage2_main",
-  "_note": "Protocol stage 2 (held-out). Primary: Sep-Oct 2026; replication: Jun-Aug 2025. Evaluation donors only. Set grid.seeds to B from the pilot (100-400) BEFORE inspecting any held-out outcome. Run on FASRC.",
+  "_note": "Protocol stage 2 (held-out). Primary: Sep-Oct 2026; replication: Jun-Aug 2025. Evaluation donors only. The documented stage-1 empty-cell rule selects 400 primary blocks. Keep the separate 2025 replication at its originally configured 100 blocks. See findings/claude-haiku-pilot/paired-outcomes-planning.json. Run on FASRC.",
   "grid": {
     "boroughs": [
       "Manhattan",
@@ -16,7 +16,7 @@
     "sizes": [
       64
     ],
-    "seeds": 100,
+    "seeds": 400,
     "seed_start": 1000
   },
   "market": {
@@ -28,6 +28,7 @@
     },
     {
       "label": "replication_2025",
+      "seeds": 100,
       "months": [
         "2025-06",
         "2025-07",

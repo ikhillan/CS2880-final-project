@@ -1,0 +1,36 @@
+{
+  "monthly": [
+    {
+      "month": "2026-06",
+      "T": 0.04404290047640458,
+      "jackknife_se": 0.00820054156848853,
+      "unavailable_boroughs": [
+        "Staten Island"
+      ],
+      "pilot_blocks": 20
+    },
+    {
+      "month": "2026-07",
+      "T": 0.06185902725265744,
+      "jackknife_se": 0.008682174090337069,
+      "unavailable_boroughs": [
+        "Staten Island"
+      ],
+      "pilot_blocks": 20
+    },
+    {
+      "month": "2026-08",
+      "T": 0.0549661486412399,
+      "jackknife_se": 0.01061279438083915,
+      "unavailable_boroughs": [
+        "Staten Island"
+      ],
+      "pilot_blocks": 20
+    }
+  ],
+  "s_supported": 0.047461859333568265,
+  "uncapped_B_supported": 87,
+  "bounded_B_supported": 100,
+  "empty_cell_or_failed_variance": true,
+  "protocol_B": 400
+}

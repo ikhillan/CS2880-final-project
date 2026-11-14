@@ -7,6 +7,7 @@ When applicants compete for limited seats, a shortlist can cover more historical
 - [Research poster (PDF)](poster/who-keeps-an-offer.pdf)
 - [Working paper (PDF)](publication/ACM_EC_RECOVERY_AND_PLACEMENT.pdf)
 - [Manuscript sources, datasets and replication instructions](publication/README.md)
+- [Haiku rental pilot and paired placement results](findings/claude-haiku-pilot/README.md)
 - [Original course experiment setup](EXPERIMENT_SETUP.md)
 
 The administrative records supply submitted preferences, offers, and subsequent decisions. Placements under different shortlists are counterfactual replays. The publication directory includes study protocols, model weights, simulation panels, aggregate field results, and the LaTeX source. The individual administrative records can be obtained from the original providers through the study-specific instructions.
