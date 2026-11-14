@@ -19,3 +19,5 @@ Representative research requests included “Can we test whether the prediction-
 The model in the rental experiment was a separate system. The saved batch records use Anthropic's model identifier `claude-haiku-5-5`. The prompt asked the model to pick five apartment listings from the renter's feasible candidates using the presented budget, household needs, target area and listing attributes. Exact selections were reused throughout the replays. The pilot records supply the prompt template and response indices, with the cache-authentication limitation described in the paper.
 
 The institutional appendix reports the four-year D1 fit, the reconstructed menu comparisons, the allocation rules and the finite lottery certificates. Only aggregate national results are distributed.
+
+The behavioral extension distinguishes observed complementary choices, local risk-warning effects, and simulated responses to the two menus. The review copy includes the responder-set calculation and the second-stage capacity test.

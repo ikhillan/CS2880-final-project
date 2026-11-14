@@ -1,30 +1,29 @@
-\section{What if applicants can go beyond the five recommendations?}\label{sec:response}
-The Chilean pursuit-order experiments in this section use the fixed-priority pooled benchmark.
-Consider a pupil whose first choice the platform omits. The family could put that school back at the top. It could also try the five suggestions first and use the omitted school as a fallback. Both actions recover exactly the same school. They generate different applications to crowded programs. We compare these responses on the same households, seats, priorities and initial menus in each setting. In all cases ``first choice'' means the original family-entered choice or the renter's original modeled favorite.
+\section{What if families look beyond the shortlist?}\label{sec:response}
+The platform shows five discretionary courses. Families can ignore it, restore an omitted choice, or look for a different school. We can observe what families sought after the actual regular round and how a risk warning changed applications in an earlier field study. We use each source for the question it can answer.
+
+\paragraph{Adding a school before the regular round clears}
+Near a 30\% predicted nonplacement threshold, a Chilean warning raised the probability of adding a school from about 19.9\% to 41.5\%. Most of the increase involved appending a school \citep{smartplatforms,warningdata}. We use each probability as a scenario for pupils who have an undisplayed school on their submitted list. In each scenario the same pupils are willing to respond under both menus. We select their highest-ranked course at a school entirely absent from that menu and run the complete institutional allocation again. In Table~\ref{tab:behavior-main}, coverage now credits every school pursued. The original displays still differ by 4,638 hits throughout.
 
 \begin{table}[ht]\centering\small
-\caption{How the assumed response changes the comparison between recommenders. Entries are rank-informed minus rank-blind in Chile, and Haiku minus uniform in New York. Chilean totals pool four application years. NYC uses all renters with the original geographic weights. In the last row of each panel both policies list the same eligible options.}\label{tab:response}
-\begin{tabular}{@{}lrrr@{}}\toprule
- & Placements & First choices & Past offers on list\\\midrule
-\multicolumn{4}{l}{\textit{Chile, changes in pupils}}\\
-Pursue the five shown & $-1,787$ & $+2,218$ & $+5,552$\\
-Restore one at its original rank & $-940$ & $-846$ & $+676$\\
-Append that same option last & $-1,761$ & $+2,163$ & $+676$\\
-Append every omitted option & $-1,331$ & $+2,005$ & $0$\\\midrule
- & Ordinary placed & Enriched placed & Enriched first choices\\\midrule
-\multicolumn{4}{l}{\textit{NYC, changes in percentage points}}\\
-Pursue the five shown & $-2.71$ & $-5.40$ & $+2.87$\\
-Restore one at its original rank & $-1.98$ & $-4.28$ & $+0.18$\\
-Append that same option last & $-2.17$ & $-4.41$ & $+2.97$\\
-Append every omitted option & $-0.38$ & $+0.28$ & $+1.84$\\\bottomrule
+\caption{What happens when families pursue more than the five recommendations? Informed minus blind, among the same 1,969,120 register-linked pupils. An April hit means the historically attended school is in the pursued set. Fractional counts are means over eight paired repetitions; other rows are deterministic.}\label{tab:behavior-main}
+\begin{tabular}{@{}lrr@{}}\toprule
+How families pursue schools & April hits & Linked placements\\\midrule
+Use the displayed menu & $+4,638$ & $-1,670$\\
+Append first omitted school, 19.9\% participation & $+3,841.5$ & $-1,664.3$\\
+Append first omitted school, 41.5\% participation & $+2,971.4$ & $-1,656.0$\\
+Restore that school in submitted order, 41.5\% & $+2,971.4$ & $-1,340.8$\\
+Append courses the same pupil explicitly listed again & $+4,733$ & $-1,653$\\
+Append all omitted courses & $0$ & $-1,234$\\
+Restore all eligible courses in submitted order & $0$ & $0$\\\bottomrule
 \end{tabular}
 \end{table}
 
-To restore one option, take each applicant's highest originally ranked eligible option missing from that policy's menu, if one exists. For a given policy the recovered option is the same in both insertion scenarios. This change alone flips the first-choice comparison in \emph{each} Chilean cohort. Across the four, adding the course in its reported position gives 846 fewer first choices, while putting it last gives 2,163 more. The option sets and the $+676$ historical-offer coverage difference are identical across these two scenarios. In the in-order scenario the blind rule gives both more placements and more first choices. It therefore wins for every nonnegative first-choice bonus in the index from Section~\ref{sec:ranks}. A returning pupil cannot reach an option below their protected course in the replay. Inserting the extra option immediately before that entitlement instead of after it gives $-1,764$ placements and $+2,161$ first choices across the cohorts.
+\paragraph{Who chooses to keep looking?}
+Giving everyone the same response probability can conceal a reversal. Let the same families respond under both policies, and fix their number at 19.9\% of pupils able to add a school under either. If they append their first omitted school, the sharp range of the April-hit difference is $[-179,5{,}412]$. At the lower endpoint the rank-informed rule both misses 179 more eventual schools and places 1,669 fewer linked pupils. If instead the added course has the lowest demand relative to vacancies among omitted schools, even the least favorable common set of responders leaves a gain of 920 hits. The placement gap for that set is $-1{,}612$. The arithmetic behind the bounds is simple: a respondent matters for the comparison only when adding the course turns a miss into a hit under exactly one policy. The placement counts require national re-clearing. Appendix~\ref{sec:behavior-tests} gives the proof, the constructed responder sets and the sensitivity to unequal uptake across policies.
 
-The ordinary NYC first-choice differences for in-order restoration and last-place insertion are $-0.13$ and $+2.17$ points. The former interval spans zero ($[-0.47,0.22]$), as does the corresponding enriched interval ($[-0.16,0.54]$). If everyone tries all omitted options after the shortlist, the enriched placement difference estimates $+0.28$ points with a paired simulation-block interval of $[-0.07,0.65]$. The ordinary estimate is $-0.38$ with interval $[-0.66,-0.11]$. Access to the full set therefore substantially changes the housing result. If all applicants know their options and can rank them freely, truthful reporting is weakly dominant in the applicant-proposing DA model \citep{dubinsfreedman}. Restoring the full original order then makes the two rules identical. Trying the recommendations first is a behavioral assumption about how families use advice.
+\paragraph{Where families actually went}
+Among 154,988 same-grade reapplicants, 139,190 named a school absent from their entire regular report. Only 20,698 had an eligible original course omitted by either hypothetical menu; 1,380 explicitly listed such a course again. Of 10,296 with an omitted course showing a positive complementary vacancy, 1,368 reapplied to one. Appending those exact repeat choices gives 4,733 more hits and 1,653 fewer linked placements. A different check uses the identities of the 154,988 actual returners but lets each append the highest-ranked school missing from their menu. Only 20,501 have such a school under either policy. The comparison gives 4,572 more hits and 1,665 fewer linked placements. The historical record points to a larger margin: families went looking for schools they had never listed.
 
-We also allowed each applicant, independently, to pursue their entire original list with probability one-half and otherwise use the five shown. The same draw applies to the person under both policies. The Chilean difference averaged 887 fewer placements (Monte Carlo SE 1.69) and 1,057 more first choices (SE 2.46). The NYC placement differences were $-1.03$ and $-1.63$ points for ordinary and enriched inventory. These probabilities describe a sensitivity analysis. Actual decisions to keep looking could depend on an applicant's preferences, information and expected chances.
+To test that margin, we keep every simulated first-round place and give unplaced pupils access to the courses at new schools they actually named in the complementary round. Both arms face the same published second-round vacancies. Ignoring priorities, we find the largest possible number of extra placements in each arm. Across all applicants the two menus can add 63,571 and 63,847 recipients respectively; this shrinks the first-stage gap from 1,834 to 1,558. Giving register-linked pupils first claim on these vacancies leaves 1,419 fewer linked placements under the informed rule and 4,752 more pursued sets containing the April school. Families might reapply differently if their initial offers changed. These numbers describe how far their \emph{recorded} search could reach in a common inventory. They do not predict the offers of an actual second round.
 
-\paragraph{What appending options guarantees}
-Run applicant-proposing DA to completion on the original lists. Give each applicant a suffix and resume the same run with newly available proposals. A program can gain a holder or replace a holder by someone of higher priority, so its occupancy weakly increases. Someone unplaced before the extension has exhausted their original list and can enter only at an appended option. An earlier recipient can still be displaced. In Chile, appending one option to every blind menu produced 131 entrants and 92 exits relative to the blind policy alone. The corresponding counts for the informed menus were 189 and 124. This argument compares each policy with its own extension. Theorem~\ref{thm:order-witness} traces the losses between two expanded policies even when their final options coincide.
+In the rental simulations, appending every omitted feasible apartment brings the enriched-market placement difference to $+0.28$ percentage points (paired block interval $[-0.07,0.65]$). That interval includes zero; the corresponding ordinary-market interval remains below zero. The full set of comparisons appears in Appendix~\ref{sec:behavior-tests}.

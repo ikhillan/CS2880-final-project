@@ -1,0 +1,11 @@
+year,candidate,original_hit_gap,eligible_blind_additional_hits,eligible_informed_additional_hits,equal_response_min_gap,q_blind_break_even_when_q_informed_zero,q_informed_break_even_when_q_blind_one
+2022,one_school,1007,1373,554,188,1007/1373,183/277
+2022,least_congested_school,1007,1083,602,526,53/57,38/301
+2023,one_school,1198,1478,467,187,599/739,280/467
+2023,least_congested_school,1198,1123,578,653,1198/1123,-75/578
+2024,one_school,1385,1758,531,158,1385/1758,373/531
+2024,least_congested_school,1385,1353,581,613,1385/1353,-32/581
+2025,one_school,1048,1415,429,62,1048/1415,367/429
+2025,least_congested_school,1048,1154,490,384,524/577,53/245
+all,one_school,4638,6024,1981,595,773/1004,198/283
+all,least_congested_school,4638,4713,2251,2176,1546/1571,75/2251

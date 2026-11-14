@@ -1,0 +1,17 @@
+scenario,position,bound,responder_set,responders,eligible_union,neutral_padding,blind_adding,informed_adding,april_gap,linked_placement_gap,placement_gap,exits,entries
+least_congested_school,original,lower,only_exclusive,3718,174594,0,3718,3605,920,-1250,-1396,2063,667
+least_congested_school,original,lower,padded_199,34742,174594,31024,34525,34471,920,-1154,-1286,1930,644
+least_congested_school,original,upper,only_exclusive,1256,174594,0,1232,1256,5894,-1554,-1737,2439,702
+least_congested_school,original,upper,padded_199,34742,174594,33486,34484,34577,5894,-1444,-1609,2287,678
+least_congested_school,tail,lower,only_exclusive,3718,174594,0,3718,3605,920,-1661,-1822,2577,755
+least_congested_school,tail,lower,padded_199,34742,174594,31024,34525,34471,920,-1612,-1757,2497,740
+least_congested_school,tail,upper,only_exclusive,1256,174594,0,1232,1256,5894,-1535,-1705,2466,761
+least_congested_school,tail,upper,padded_199,34742,174594,33486,34484,34577,5894,-1478,-1629,2376,747
+one_school,original,lower,only_exclusive,4817,174594,0,4817,4704,-179,-1090,-1217,1859,642
+one_school,original,lower,padded_199,34742,174594,29925,34532,34479,-179,-1043,-1170,1810,640
+one_school,original,upper,only_exclusive,774,174594,0,750,774,5412,-1692,-1873,2656,783
+one_school,original,upper,padded_199,34742,174594,33968,34479,34575,5412,-1641,-1818,2588,770
+one_school,tail,lower,only_exclusive,4817,174594,0,4817,4704,-179,-1676,-1839,2599,760
+one_school,tail,lower,padded_199,34742,174594,29925,34532,34479,-179,-1669,-1834,2590,756
+one_school,tail,upper,only_exclusive,774,174594,0,750,774,5412,-1649,-1819,2606,787
+one_school,tail,upper,padded_199,34742,174594,33968,34479,34575,5412,-1643,-1814,2598,784

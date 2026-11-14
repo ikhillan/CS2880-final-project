@@ -1,0 +1,9 @@
+candidate,position,responders,reapplicants,can_add_either,adding_blind,adding_rank,april_gap,linked_placement_gap,placement_gap,exits,entries
+least_congested_school,original,same_grade,154988,20501,20442,20437,4671,-1602,-1754,2540,786
+least_congested_school,original,same_grade_never_offered,70548,8970,8955,8957,4656,-1671,-1834,2635,801
+least_congested_school,tail,same_grade,154988,20501,20442,20437,4671,-1625,-1781,2577,796
+least_congested_school,tail,same_grade_never_offered,70548,8970,8955,8957,4656,-1671,-1834,2635,801
+one_school,original,same_grade,154988,20501,20442,20437,4572,-1629,-1793,2590,797
+one_school,original,same_grade_never_offered,70548,8970,8955,8957,4647,-1669,-1834,2635,801
+one_school,tail,same_grade,154988,20501,20442,20437,4572,-1665,-1830,2631,801
+one_school,tail,same_grade_never_offered,70548,8970,8955,8957,4647,-1669,-1834,2635,801

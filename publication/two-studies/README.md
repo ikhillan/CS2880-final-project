@@ -8,6 +8,10 @@ This paper compares five-choice recommendations in Chilean school admissions and
 
 The reconstructed regular round matches every initial course and no-offer outcome in the four evaluation years. The rank-informed menus cover 4,638 more eventual schools and place 1,670 fewer register-linked pupils. The three-cohort April-school ceiling on 1,024 matched draws per cohort changes from 278 under pooled seats to 314 with reserves, continuity and family rules. The path and post-offer flow calculations retain the fixed-priority benchmark. [Data, implementation and annual results](institutional/README.md) · [Reproduction instructions](institutional/REPRODUCTION.md)
 
+## When families pursue other schools
+
+Across 154,988 same-grade reapplicants, 139,190 named a school absent from the entire original list. We re-cleared the regular allocation with the exact formerly omitted courses families listed again. We separately tested the new schools against common complementary vacancies and measured how the comparison changes when different families keep searching. The placement deficit persists in the field-motivated simulations. The coverage advantage can reverse. [Behavioral tests, bounds, code and results](behavior/response/README.md)
+
 ## What can the platform change?
 
 Before the lottery, one can optimize menu edits over a specified set of priority draws. The artifact includes the complexity proof, the 768-draw independent evaluation, a control matched on edit counts, and historical offer and enrollment comparisons. After tentative offers, a flow of voluntary moves can place additional applicants. A second flow certifies how far even a priority-free repair could go. [Lottery optimization](design/risk/README.md) · [Vacancy-chain certificates](design/chains/README.md) · [Cutoff-based recommendation and ablations](design/portfolio/README.md)
