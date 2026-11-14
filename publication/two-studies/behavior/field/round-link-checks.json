@@ -1,0 +1,122 @@
+[
+  {
+    "year": 2022,
+    "verified_columns": [
+      "regular",
+      "returns_same_grade",
+      "prior_manual_option_with_second_vacancy",
+      "any_new_school",
+      "first_new_school",
+      "new_school_with_prior_option_still_open",
+      "offered_second_explicit_course",
+      "offered_second_explicit_new_school",
+      "offered_second_new_in_both_positive"
+    ],
+    "counts": {
+      "regular": 43077,
+      "returns_same_grade": 21371,
+      "prior_manual_option_with_second_vacancy": 14820,
+      "any_new_school": 20858,
+      "first_new_school": 17204,
+      "new_school_with_prior_option_still_open": 14353,
+      "offered_second_explicit_course": 15620,
+      "offered_second_explicit_new_school": 15095,
+      "offered_second_new_in_both_positive": 15032
+    },
+    "verified_register_columns": {
+      "register_any_among_new_offers": 14467,
+      "registered_in_new_offered_school": 8192,
+      "registered_in_new_offered_school_type_grade": 7353
+    }
+  },
+  {
+    "year": 2023,
+    "verified_columns": [
+      "regular",
+      "returns_same_grade",
+      "prior_manual_option_with_second_vacancy",
+      "any_new_school",
+      "new_school_with_prior_option_still_open",
+      "offered_second_explicit_course",
+      "offered_second_explicit_new_school",
+      "offered_second_new_in_both_positive",
+      "first_new_school"
+    ],
+    "counts": {
+      "regular": 37757,
+      "returns_same_grade": 18537,
+      "prior_manual_option_with_second_vacancy": 12053,
+      "any_new_school": 18116,
+      "new_school_with_prior_option_still_open": 11738,
+      "offered_second_explicit_course": 14316,
+      "offered_second_explicit_new_school": 13895,
+      "offered_second_new_in_both_positive": 13880,
+      "first_new_school": 15650
+    },
+    "verified_register_columns": {
+      "register_any_among_new_offers": 13225,
+      "registered_in_new_offered_school": 7923,
+      "registered_in_new_offered_school_type_grade": 6862
+    }
+  },
+  {
+    "year": 2024,
+    "verified_columns": [
+      "regular",
+      "returns_same_grade",
+      "prior_manual_option_with_second_vacancy",
+      "offered_second_explicit_course",
+      "any_new_school",
+      "first_new_school",
+      "offered_second_explicit_new_school",
+      "offered_second_new_in_both_positive",
+      "new_school_with_prior_option_still_open"
+    ],
+    "counts": {
+      "regular": 30486,
+      "returns_same_grade": 14599,
+      "prior_manual_option_with_second_vacancy": 8891,
+      "offered_second_explicit_course": 12635,
+      "any_new_school": 14532,
+      "first_new_school": 13251,
+      "offered_second_explicit_new_school": 12340,
+      "offered_second_new_in_both_positive": 12325,
+      "new_school_with_prior_option_still_open": 8845
+    },
+    "verified_register_columns": {
+      "register_any_among_new_offers": 11856,
+      "registered_in_new_offered_school": 7304,
+      "registered_in_new_offered_school_type_grade": 6235
+    }
+  },
+  {
+    "year": 2025,
+    "verified_columns": [
+      "regular",
+      "returns_same_grade",
+      "prior_manual_option_with_second_vacancy",
+      "offered_second_explicit_course",
+      "any_new_school",
+      "first_new_school",
+      "new_school_with_prior_option_still_open",
+      "offered_second_explicit_new_school",
+      "offered_second_new_in_both_positive"
+    ],
+    "counts": {
+      "regular": 30025,
+      "returns_same_grade": 16041,
+      "prior_manual_option_with_second_vacancy": 11176,
+      "offered_second_explicit_course": 13377,
+      "any_new_school": 15730,
+      "first_new_school": 14047,
+      "new_school_with_prior_option_still_open": 10912,
+      "offered_second_explicit_new_school": 13071,
+      "offered_second_new_in_both_positive": 13064
+    },
+    "verified_register_columns": {
+      "register_any_among_new_offers": 12408,
+      "registered_in_new_offered_school": 7280,
+      "registered_in_new_offered_school_type_grade": 6292
+    }
+  }
+]

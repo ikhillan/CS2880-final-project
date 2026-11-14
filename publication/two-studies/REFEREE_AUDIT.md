@@ -1,5 +1,7 @@
 # Referee assessment: More First Choices, Fewer Placements
 
+This assessment concerns the preceding revision at commit 9660fdc. The [subsequent evidence](behavior/README.md) links actual enrollment and tests the assumed response to recommendations.
+
 **My vote on the incoming draft: weak reject. On the revision: borderline / weak accept as an empirical market-design paper.** This is a simulated review, not a prediction of the program committee. I would defend the revised paper for the evidence about who bears the costs of curation and the exact limits of protecting old contracts. I would still oppose presenting it as a field evaluation or as a general impossibility theorem.
 
 **The objection that changed the paper.** The earlier headline could leave a reader thinking that accurate recommendations reduce welfare or that the two fitted predictors lie on a frontier. Neither follows. Relative to the rank-blind rule, adding rank produced 2,218 more family-entered first choices and 1,787 fewer placements over four Chilean cohorts. On original household preferences in NYC, the two curves cross there, too. Among Chilean records with edited lists, 8,076 moved up and 2,200 down. For unchanged lists the corresponding counts were 2,254 up and 7,215 down. These are paired outcomes in replay; the list-change groups are selected. The [rank evidence](audit/chile/README.md) distinguishes reported choices from administrative fallbacks and keeps everyone in the denominator.

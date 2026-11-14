@@ -1,6 +1,8 @@
-# More First Choices, Fewer Placements
+# Who Gets a Place When Applicants Follow a Shortlist?
 
-This is a self-contained paper on two settings, NYC rental simulations and Chilean K–12 admissions. [Read the paper](who-gets-a-place.pdf). The unabridged research archive is in the parent publication directory. Start with the [referee audit](REFEREE_AUDIT.md), the [new evidence and replication guide](audit/README.md), and the [current PDF](who-gets-a-place.pdf). The rental pilot uses archived model outputs. The 2019 Chilean offer predictors are frozen, including in the new validations on application years 2024 and 2025.
+This paper compares five-choice recommendations in Chilean school admissions and NYC rental simulations. It links four Chilean application cohorts to enrollment the following April, tests what happens when applicants go beyond the five recommendations, and gives a displacement bound when two policies list the same acceptable options in different orders. The rental pilot uses archived model outputs. The Chilean offer predictors were frozen after training on 2019 data.
+
+[Read the current paper](who-gets-a-place.pdf) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
 
 ## Read the results
 

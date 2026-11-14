@@ -1,0 +1,18 @@
+\subsection{Who can lose a seat when every option remains available?}\label{sec:order-certificate}
+Consider two proposal orders $A$ and $B$ on exactly the same acceptable pairs. All acceptable programs rank above the outside option. Programs keep their strict priorities and capacities. Let $M_A,M_B$ be stable under the respective orders. Among applicants placed both ways, define
+\[
+ R=\{h:M_A(h)\succ_h^A M_B(h)\ \text{and}\ M_B(h)\succ_h^B M_A(h)\}.
+\]
+Membership requires a reversal on the two programs actually assigned. Changing the order of any number of other pairs does not put someone in $R$. These orders describe the applications pursued under each policy. We continue to evaluate first choices using the original ranking.
+
+\begin{theorem}\label{thm:order-witness}
+Each person placed only under $A$ can be linked to a distinct person in $R$. The same statement holds separately for people placed only under $B$. Both bounds can be attained simultaneously, with just one applicant reversing two programs.
+\end{theorem}
+\begin{proof}
+At each program cancel its common holders, then pair departing holders with incoming holders one-to-one until one side is exhausted. Start with a person who lost a seat at $j$ and follow this pairing. They want $j$ under $B$, so stability under $B$ requires $j$ to be full with holders of higher priority. There are enough incoming holders to pair every departure. Take the paired arrival $h$. Since $j$ originally held someone of lower priority, stability under $A$ implies $h$ held a program $k$ preferred to $j$ under $A$. If $h$ prefers $j$ to $k$ under $B$, this is the required witness. Otherwise $h$ wants the old seat at $k$ under $B$. Continue from that departure. Each incoming holder has at most one predecessor, and each starting person, being unplaced under $B$, has none. The paths are disjoint and cannot cycle, so each terminates in $R$. Exchange $A$ and $B$ for the other direction.
+
+For equality take two seats $x,y$ and three applicants. One accepts only $x$, one accepts only $y$, and one has first priority at both. Switching the last person's order from $x,y$ to $y,x$ makes one specialist gain and the other lose. The same applicant witnesses both changes. Disjoint copies attain any integer bound.
+\end{proof}
+With identical orders the reversal set is empty, recovering the classical invariance of the set of matched applicants \citep{roth1986}. Knowing just acceptable pairs and one side's rankings can rule out contracts in every compatible stable matching \citep{oneSide}. Given observed assignments, \citet{revealedStability} test whether one preference profile rationalizes them. Here the two orders and assignments are specified, and each path identifies someone who reverses their assigned partners. The incremental matching problem asks for a stable outcome close to a specified earlier assignment \citep{evolving}. The proof uses the same displacement argument as Theorem~\ref{thm:two-omission}. Here every pair survives and the relevant disagreement concerns order on the two assigned programs.
+
+With all off-menu options appended in Chile, 9,027 records meet the reversal condition. We traced 1,871 lost placements and 540 gains to distinct witnesses within each direction. The longest paths crossed seven courses. The numerical upper bound is loose, but the paths locate a person whose effective order changed even for losses on an identical ordered list. The same construction verified all 1,231 gross changes in the rental panels. Direct enumeration over 512 three-by-three graphs, three capacity vectors and 18,740,156 ordered comparisons of stable outcomes also verified both bounds. The proof covers general responsive capacities.

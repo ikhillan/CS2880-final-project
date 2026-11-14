@@ -6,6 +6,7 @@ When applicants compete for limited seats, a shortlist can cover more historical
 
 - [Two-study paper on NYC rental shortlists and Chilean school admissions (PDF)](publication/two-studies/who-gets-a-place.pdf)
 - [Two-study evidence and reproduction instructions](publication/two-studies/README.md)
+- [Linked enrollment outcomes, search behavior and replication](publication/two-studies/behavior/README.md)
 - [Research poster (PDF)](poster/who-keeps-an-offer.pdf)
 - [Working paper (PDF)](publication/ACM_EC_RECOVERY_AND_PLACEMENT.pdf)
 - [Manuscript sources, datasets and replication instructions](publication/README.md)

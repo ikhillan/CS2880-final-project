@@ -1,0 +1,22 @@
+[
+  {
+    "year": 2022,
+    "policies_verified": 16,
+    "applicant_assignments_checked_via_vectors": 9134256
+  },
+  {
+    "year": 2023,
+    "policies_verified": 16,
+    "applicant_assignments_checked_via_vectors": 8581648
+  },
+  {
+    "year": 2024,
+    "policies_verified": 16,
+    "applicant_assignments_checked_via_vectors": 7575712
+  },
+  {
+    "year": 2025,
+    "policies_verified": 16,
+    "applicant_assignments_checked_via_vectors": 7422768
+  }
+]

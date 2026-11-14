@@ -5,7 +5,7 @@ In the ordinary design we sample households using survey weights and draw ads un
 
 The income cutoff is \$64,435 in 2024 dollars. In asking-rent dollars at the study's July 2026 price base, the highest monthly rent allowed at the cutoff is \$2,286. We use the calibrated preference specification from the rental pilot. It selects a rent coefficient of 4 and an idiosyncratic shock scale of 0.5 from a nine-point grid. Its burden calibration has an observable limitation. At 217 lower-income placements across the 240 ordinary calibration markets, even a feasible assignment chosen to minimize their first-quartile rent burden cannot push that quartile below 27.78\%. The target quartile from recent movers' contract rents was 22.00\%. These finite-market bounds concern the calibration exercise. The household survey does not validate the assumed listing priorities or individual rankings.
 
-\paragraph{What the recommender sees.}
+\paragraph{What the recommender sees}
 For each renter, the five-slot uniform rule draws from the feasible listings without replacement. The archived Claude Haiku 5.5 recommender receives the same candidate set, a budget, bedroom needs, target area, prices, physical features and distances. The prompt asks it to choose five listings. It has no observations of other renters' menus or the realized preferences. Both policies show all feasible options to anyone with five or fewer. The ads do not establish how long a unit remained on the market. We used the 20,740 saved valid responses from the development pilot. Households and apartments can recur across draws. Rates below pool individual indicators within each borough-month and then average cells with equal month weights and Census recent-mover borough weights. The pointwise intervals resample entire paired seed blocks 10,000 times. They condition on the catalogues, behavioral model and stored replies.
 
 \begin{table}[t]
@@ -26,11 +26,11 @@ Enriched & All & $+5.85$ [$5.04,6.60$] & $-5.40$ [$-6.05,-4.73$]\\
 \end{tabular}
 \end{table}
 
-\paragraph{What changed when everyone used the model?}
+\paragraph{What changed when everyone used the model}
 Under the original pilot design the primary endpoint was the lower-minus-higher difference in hidden blocking pairs. The comparison here follows the same people and uses the saved menus. Ordinary markets placed 53.89\% of renters under uniform lists and 51.18\% under Haiku, even as full-list partner coverage rose from 9.42\% to 15.04\% (Table~\ref{tab:nyc-two}). The direction depends on the comparator. Against a fixed score that ranks eligible apartments using their observable features, Haiku placed 20.26 points more renters in ordinary markets and 24.47 points more in enriched markets. Its coverage differences were $-0.44$ and $+0.66$ points, respectively.
 
-\paragraph{What the group averages conceal.}
+\paragraph{What the group averages conceal}
 In the ordinary design, 5,425 of 6,617 lower-income renter instances had no feasible listing. The standardized change in their placement rate was smaller than one hundredth of a point. In enriched markets the change was $-0.92$ points with an interval spanning zero, yet 1,203 lower-income instances lost a placement and 1,044 gained one. The enriched lower-income share with a hidden blocking pair (a renter and an unshown apartment that each prefer the other to their assignment) rose from 37.03\% to 41.31\%. The higher-income share fell from 85.19\% to 78.01\%. The absolute gap narrowed even as hidden blocking pairs became more common for the lower-income group. Partner coverage and placement were secondary outcomes in this development pilot. We treat these results as evidence of a mechanism under specified assumptions.
 
-\paragraph{Which housing conclusions depend on the preference model?}
+\paragraph{Sensitivity to the rental preference model}
 We kept the same households, inventories, feasibility rules, and saved recommendations, then changed one assumption at a time. We used income-blind listing lotteries, a common priority by income, a smaller rent penalty (1 instead of 4), and larger idiosyncratic taste shocks (scale 1.25 instead of 0.5). Each scenario recomputes full-list partners and assignments. In all four, Haiku improved aggregate coverage and lowered aggregate placement in both supply designs. The lower-income result was more sensitive. In enriched markets the estimated placement change was $-0.92$ points under the calibrated model, $+2.19$ $[1.13,3.22]$ under common income priority, and $-2.73$ $[-3.82,-1.61]$ under income-blind priorities. The ads and survey do not tell us which priority specification best describes real landlords. This sign change limits the distributional claim the simulations can support.

@@ -1,0 +1,5 @@
+year,applicants,matched_both,reversals,losses,gains,distinct_loss_witnesses,distinct_gain_witnesses,shared_terminal_witnesses,longest_loss_path,longest_gain_path
+2022,570891,521172,2179,530,200,530,200,84,5,4
+2023,536353,493457,2374,540,142,540,142,58,7,7
+2024,473482,439339,2545,489,111,489,111,29,7,4
+2025,463923,431160,1929,312,87,312,87,20,5,5
