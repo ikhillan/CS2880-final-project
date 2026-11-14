@@ -4,6 +4,10 @@ This paper compares five-choice recommendations in Chilean school admissions and
 
 [Read the current paper](who-gets-a-place.pdf) · [Final referee assessment](FINAL_REVIEW.md) · [Anonymous review build](REVIEW.md) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
 
+## What can the platform change?
+
+Before the lottery, one can optimize menu edits over a specified set of priority draws. The artifact includes the complexity proof, the 768-draw independent evaluation, a control matched on edit counts, and historical offer and enrollment comparisons. After tentative offers, a flow of voluntary moves can place additional applicants. A second flow certifies how far even a priority-free repair could go. [Lottery optimization](design/risk/README.md) · [Vacancy-chain certificates](design/chains/README.md) · [Cutoff-based recommendation and ablations](design/portfolio/README.md)
+
 ## Read the results
 
 | Question | Aggregate evidence |

@@ -29,7 +29,7 @@
 \renewcommand{\shortauthors}{Khillan, Zhang, and Zhou}
 \fi
 \begin{abstract}
-If every applicant follows a shortlist, who gets a place? We compare two predictors trained on Chilean school offers. Each keeps up to five courses, plus any protected option. Among 1,969,120 applications linked to enrollment the following April, using submitted rank put the school eventually attended on 4,638 more menus. The same rule placed 1,609 fewer of those applicants when we cleared both sets of lists by deferred acceptance. Pupils without an initial offer accounted for 937 of the net placement loss and saw a net decline in coverage of their eventual schools. The choice of benchmark matters. Against simply keeping the family's first five, the rank-informed rule improved both outcomes. We prove that when menus or application orders change, each lost placement can be traced to a distinct applicant whose two assignments reverse order across policies, treating an unavailable option as worse than going unplaced. Of 2,527 Chilean placement losses, 1,834 occurred with the pupil's former course still on the new list. The comparison also depends on what families do with an omitted option. Restoring their highest omitted course at its original rank yielded 846 fewer first choices under the informed rule. Appending that same course yielded 2,163 more. New York rental simulations show how affordability limits the scope for any such intervention. Enrollment and reported choices are observed in Chile. Placement under a proposed menu is a counterfactual.
+A school recommendation can correctly predict where a pupil will enroll and still make it harder for someone else to get a seat. Across four Chilean admissions cohorts, adding submitted rank to an offer predictor put the school eventually attended on 4,638 more shortlists among 1,969,120 linked applications. Clearing both policies by deferred acceptance placed 1,609 fewer of those pupils. Can a platform keep the benefits of a new menu while protecting people who already have a place? Before a lottery, preserving the old allocation as a stable outcome in every specified draw permits exact optimization one applicant at a time. Allowing exceptions in even a fixed one percent of listed draws makes the decision problem NP-complete. In three cohorts, protecting 1,024 design draws allowed 43\% of the proposed slot substitutions. Even a designer given the enrollment records in advance could recover at most 278 of the unrestricted rule's 3,590 net additional enrollment hits using these choices. After priorities are known, we construct vacancy chains that admit an additional applicant while giving every current recipient an option they weakly prefer. Across all four cohorts, even a priority-free reassignment of the rank-informed allocation could recover at most 649 of its 1,787 missing placements relative to the rank-blind rule. In New York rental simulations, the same chains could recover the original headcount in every enriched market. These are limits on reallocating a fixed set of acceptable options. The Chilean data also show how often families went beyond that set: 30,699 pupils without a regular offer later enrolled at a newly listed school through the complementary round.
 \end{abstract}
 \begin{document}
 \ifdefined\ECReviewCopy
@@ -48,6 +48,8 @@ For the 1,969,120 applicant-years linked to April enrollment, the rule using ran
 Which losses come from a pupil losing access to their old course, and which require a change elsewhere? We give a path that starts at a lost seat and identifies a distinct applicant whose two assignments switch order between the two policies. The result allows both the available options and the order of application to change. In Chile, 1,834 of the 2,527 pupils who lost a simulated placement still had their former course on their new list. Each of these losses has a witness on another applicant's changed list. The paths locate a necessary disagreement between the two allocations. They do not predict the effect of changing a single witness's list in isolation.
 
 The original motivation came from rental search. Can a service uncover an affordable apartment a household would otherwise miss? In ordinary New York draws, 5,425 of 6,617 lower-income renter instances had no feasible listing at all. The ads and survey budgets let us vary the supply households can afford. They leave household rankings, applications and leases unobserved. Chile supplies submitted preferences, offers and enrollment, along with a protected seat that can make a five-course menu different from a simple cutoff. We use a common first-five benchmark to compare the mechanisms across settings. We also let people recover omitted options in different orders. No Chilean family received either hypothetical menu, and centralized deferred acceptance in the rental study is a model of competition.
+
+We study two decisions that a platform could take at different times. Before priorities are drawn, it can test a menu against several possible lotteries. A finite list gives an exact computational guarantee and lets us measure how much of that guarantee survives a new draw. After tentative offers exist, the platform can ask who would prefer to move to a vacancy and who could use the freed seat. In Chile, allowing every such move, even without enforcing school priorities, leaves most of the placement deficit intact. These bounds on repair give the two studies a common question: how many people can curation help when the available options stay fixed?
 
 \section{What each experiment measures}\label{sec:design}
 Let $E$ be the bipartite graph of pairs treated as acceptable in the replay. It contains the retained regular-round reports in Chile and the modeled feasible apartments in New York. A displayed graph $D\subseteq E$ lists the programs an applicant can pursue in the binding-menu replay. Unless stated otherwise, proposals follow the original order on each displayed list. Section~\ref{sec:response} also varies this order. Each applicant strictly orders acceptable programs above being unplaced. A program has a fixed capacity and a strict priority ordering over applicants. It holds the highest-priority acceptable applicants who have proposed, up to its capacity. In the rental simulations each listing has one place. Let $M=\da(E)$ be the full-list allocation and $N_D=\da(D)$ the policy allocation; an unplaced applicant receives $\bot$. Stability means that no displayed pair would both prefer to match, taking account of vacancies and priorities. DA on a fixed graph is polynomial-time and applicant-optimal among its stable allocations \citep{gale1962,roth1986}.
@@ -78,25 +80,26 @@ Competition between recommended options has a long history. \citet{rankings} opt
 \input{chile}
 \input{observed-search}
 \input{orders}
-\input{theory}
+\input{design-main}
 \input{common-comparison}
 \input{nyc}
-\input{ordinal}
 \input{response}
-\input{comparison}
-\section{Can the platform protect tentative offers while changing the menus?}\label{sec:protect-main}
-Suppose the platform has already computed an assignment on the original menus and wants those contracts to remain supportable. Here an edit changes membership in a menu and preserves the underlying ranking over programs. Keep every old partner and protected option. Exclude any new pair in which an applicant prefers the program to their old assignment and the program would admit them over a current holder or into a vacancy. Every other slot can be filled independently. The old assignment stays feasible and has no blocking pair, so it is still stable. Applicant-proposing DA can then give every recipient a weakly preferred assignment. Appendix~\ref{sec:row-screen} gives the precise whole-list condition and turnover bound. Appendix~\ref{sec:slots} gives the optimum for individual slots.
-
-In Chile the blind menus omitted 9,407 full-list partners, and 9,333 of those pairs would themselves block the blind allocation. Even with hindsight and access to every eligible course, only 74 more full-list partners could be shown under this promise. The corresponding ceilings were 2,014 of 6,377 omissions in ordinary NYC markets and 3,018 of 8,728 in enriched markets. Actual rental scores are unnecessary for this bound. Editing the menus to keep as many Haiku choices as possible gained 243 and 193 full-partner hits respectively while preserving all recipients. Both the guarantee and the calculation require the program priorities and the relevant applicant comparisons. Real estate ads alone do not supply them.
 \input{discussion}
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{paper}
 \clearpage
 \appendix
+\input{theory}
+\input{ordinal}
+\input{comparison}
 \input{rollout-screen}
 \input{slot-repair}
+\input{lottery-boundary}
+\input{lottery-evidence}
+\input{portfolio-evidence}
 \input{adoption}
 \input{referrals}
+\input{chains}
 \input{school-sensitivity}
 \input{ai-use}
 \end{document}

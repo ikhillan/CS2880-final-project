@@ -1,0 +1,21 @@
+\section{Choosing five courses with complementary admission chances}\label{sec:portfolios}
+\citet{alishorrer} study how an applicant can hedge when admission decisions are correlated. \citet{smartplatforms} offered Chilean families advice about their risk of going unplaced. Our test fixes the five discretionary slots, uses only the submitted courses and re-clears everyone together.
+
+Use 64 draws of the course priorities within their public tiers. Clear the full reports once per draw. A course is attainable at that draw's cutoff if it has a free seat or would retain the pupil at the priority of the lowest-ranked holder. For each pupil choose the menu covering the most distinct draws through at least one attainable course, including the protected option when present. Among ties maximize the number of simulated full-list partners shown, then the total number of attainable pairs summed over draws, then prefer earlier submitted ranks. We solve the resulting five-choice problem exactly by enumerating subsets when the simpler tie-breaking rule falls short of the full union. A separate oracle checked 2,048 small instances. The full-list cutoffs stay fixed only while choosing menus. To evaluate, run DA again on the selected courses under the recorded priorities.
+
+\begin{table}[ht]\centering\small
+\caption{Joint cutoff coverage versus selecting the five most frequent simulated partners. Each entry is a separate median of paired counts over eight batches, each using the same recorded priorities for evaluation. April agreement counts replay placements at the school where the pupil historically enrolled.}\label{tab:portfolio-design}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Year & Places & Places vs. tie change alone & First choices & April schools shown & April agreement\\\midrule
+2022 & $+42.5$ & $+24.5$ & $-55$ & $+151$ & $-114.5$\\
+2023 & $+39.5$ & $+21.5$ & $-46.5$ & $+137$ & $-83$\\
+2024 & $+40.5$ & $+22$ & $-40.5$ & $+254$ & $-61$\\\bottomrule
+\end{tabular}
+\end{table}
+
+All 24 independent-course batches gained between 27 and 57 placements over partner frequency. Merely resolving frequency ties in favor of courses attainable in many draws accounts for part of this gain. The further gain from jointly covering draws ranged from 9 to 30. The original rank-blind predictor placed a median 387.5, 435.5 and 426 more pupils than the joint rule in the respective years. Gross gains and losses can be much larger than the net. In 2022 a median 175 pupils gained seats and 133.5 lost seats relative to partner frequency. Among pupils without an initial offer the net ranged from $-2$ to $+41$, $+1$ to $+23$, and $-13$ to $+9$ across years.
+
+For a sensitivity check we instead drew one common applicant order per simulation and used it at every course within tiers. We trained all comparison policies on the same draws and evaluated them at the same recorded priorities as before. Joint coverage gained a median 94, 125 and 118.5 placements over frequency, respectively, yet its extra gain over changing only the tie-break ranged from $-4$ to $+2$ in all 24 batches. Among pupils without an initial offer the median placement changes against frequency were $-92$, $-88$ and $-74$. These repetitions measure algorithm sensitivity in the same three cohorts.
+
+\paragraph{Why the cutoff problem can be hard.}
+Let $S_j$ be an arbitrary subset of a finite list of scenarios. Give each course $j$ one seat and one applicant $a_j$ who lists only that course. One other pupil $f$ lists every course. In scenario $d$, use a common priority order that puts $a_j$ above $f$ if $d\notin S_j$ and below $f$ otherwise. In full-list DA, $f$ gets the first course where they outrank its applicant, if any. Every other course takes its own applicant. Thus $f$ meets the cutoff at $j$ exactly on $S_j$. If $f$ keeps only a menu $M$, they actually receive a seat on precisely $\bigcup_{j\in M}S_j$, yet the number of occupied seats is always the number of courses. Choosing $k$ options therefore realizes the classical maximum coverage problem \citep{feigecoverage}. Asking if all scenarios can be covered is Set Cover and is NP-complete when $k$ and the explicitly listed scenario count vary. A candidate menu is checked by replaying DA. This construction permits arbitrary scenario support. Our empirical budget of five admits exact enumeration.

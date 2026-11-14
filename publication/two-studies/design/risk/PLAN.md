@@ -1,0 +1,6 @@
+# Finite-lottery menu design
+Written before running this design comparison. These are retrospective cohorts already used to study other menus. The new holdout consists of previously unused draws of a specified lottery model.
+
+Use frozen rank-blind A and rank-informed B in Chile 2022–2024. Retain all shared choices and entitlements. Maximize the number of B-only slots adopted at the original row quotas subject to keeping A's allocation stable in at least 16-b of 16 design lotteries. Report the exact optima for b = 0, 1, 2 by enumerating excluded scenarios. Resolve ties by fewer excluded scenarios, then lexicographic scenario order, then reported preference order among eligible B-only choices and among fallback A-only choices. Simulator batch 513, repetitions 1–16; test batch 514, repetitions 1–64, independent from design. Also evaluate the recorded orders. No scenario or seed selection after evaluation.
+
+Compare with the full B switch on slots adopted, baseline recipients losing places, entrants, and whether the old matching remains feasible and stable in each market. Count missing old contracts separately from applicants with at least one blocking pair. Re-clear each policy and report all years. A training certificate applies only to its listed scenarios. No district- or individual-level data are exported.
