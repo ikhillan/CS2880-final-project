@@ -1,0 +1,6 @@
+year,design,applicants,simulated_placed,correct_program_or_outside,correct_school_or_outside,correct_status,unchanged_program_vs_pooled,corrected_vs_pooled,new_errors_vs_pooled
+2025,pooled,463923,431174,447709,447859,461987,463923,0,0
+2025,published_total_private_fallback,463923,430438,451614,451719,462591,459385,4178,273
+2025,plus_typed_seats,463923,430435,451926,452023,462664,458957,4547,330
+2025,plus_sibling_priority,463923,430420,454793,454853,463127,455599,7645,561
+2025,plus_family_promotions,463923,430711,463879,463879,463922,447735,16178,8

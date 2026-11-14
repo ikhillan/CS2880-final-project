@@ -1,15 +1,15 @@
 \section{Did the shortlist contain the school the pupil later attended?}\label{sec:observed-search}
-The predictors were trained on offers. We can test them against a different outcome recorded months later by linking each original applicant to the national school register for the following April 30 \citep{registerdata}. Of 2,044,649 applicant-years, 1,969,120 link to a registered school. A menu scores one hit if any displayed course is at that school. The target is the same historically attended school for both rules. For the placement comparison, we still clear the entire cohort, then count placements among the register-linked applicants.
+The predictors were trained on offers. We can test them against a different outcome recorded months later by linking each original applicant to the national school register for the following April 30 \citep{registerdata}. Of 2,044,649 applicant-years, 1,969,120 link to a registered school. A menu scores one hit if any displayed course is at that school. The target is the same historically attended school for both rules. For the placement comparison, we clear the entire cohort under the reconstructed Chilean rules, then count placements among the register-linked applicants.
 
 \begin{table}[ht]\centering\small
-\caption{Historical school enrollment predicted and placements in replay. The middle columns count linked applicants whose five-choice menu, including any protected option, contains their April school. The last column is the simulated placement change for those same applicants.}\label{tab:enrolled-target}
+\caption{Historical school enrollment predicted and placements under the reconstructed rules. The middle columns count linked applicants whose five-choice menu, including any protected option, contains their April school. The last column is the simulated placement change for those same applicants.}\label{tab:enrolled-target}
 \begin{tabular}{@{}lrrrrr@{}}\toprule
 Application year & Linked & Blind hits & Informed hits & Hit change & Placement change\\\midrule
-2022 & 549,997 & 444,227 & 445,234 & $+1,007$ & $-405$\\
-2023 & 516,921 & 420,820 & 422,018 & $+1,198$ & $-482$\\
-2024 & 457,231 & 374,906 & 376,291 & $+1,385$ & $-434$\\
-2025 & 444,971 & 365,988 & 367,036 & $+1,048$ & $-288$\\\midrule
-Total & 1,969,120 & 1,605,941 & 1,610,579 & $+4,638$ & $-1,609$\\\bottomrule
+2022 & 549,997 & 444,227 & 445,234 & $+1,007$ & $-441$\\
+2023 & 516,921 & 420,820 & 422,018 & $+1,198$ & $-479$\\
+2024 & 457,231 & 374,906 & 376,291 & $+1,385$ & $-440$\\
+2025 & 444,971 & 365,988 & 367,036 & $+1,048$ & $-310$\\\midrule
+Total & 1,969,120 & 1,605,941 & 1,610,579 & $+4,638$ & $-1,670$\\\bottomrule
 \end{tabular}
 \end{table}
 
@@ -20,14 +20,14 @@ Total & 1,969,120 & 1,605,941 & 1,610,579 & $+4,638$ & $-1,609$\\\bottomrule
 & & \multicolumn{2}{c}{Versus rank-blind} & \multicolumn{2}{c}{Versus first five}\\
 \cmidrule(lr){3-4}\cmidrule(l){5-6}
 Initial offer and April school & Applicants & Hits & Placed & Hits & Placed\\\midrule
-Attended initial offer school & 1,360,401 & $+4{,}095$ & $-307$ & $+7{,}740$ & $+5{,}797$\\
-Offered a seat, enrolled elsewhere & 463,269 & $+586$ & $-365$ & $+1{,}555$ & $+4{,}446$\\
-Received no initial offer & 145,450 & $-43$ & $-937$ & $+505$ & $-2{,}174$\\\midrule
-All linked pupils & 1,969,120 & $+4{,}638$ & $-1{,}609$ & $+9{,}800$ & $+8{,}069$\\\bottomrule
+Attended initial offer school & 1,360,401 & $+4{,}095$ & $-106$ & $+7{,}740$ & $+6{,}149$\\
+Offered a seat, enrolled elsewhere & 463,269 & $+586$ & $-294$ & $+1{,}555$ & $+4{,}854$\\
+Received no initial offer & 145,450 & $-43$ & $-1{,}270$ & $+505$ & $-2{,}860$\\\midrule
+All linked pupils & 1,969,120 & $+4{,}638$ & $-1{,}670$ & $+9{,}800$ & $+8{,}143$\\\bottomrule
 \end{tabular}
 \end{table}
 
-Most of the coverage gain over rank-blind came from pupils who enrolled at their initial offer school (Table~\ref{tab:concordance}). Among pupils who enrolled elsewhere, 1,357 gained coverage of their April school and 771 lost it. The net gain of 586 was positive in each cohort. The 145,450 linked pupils without an initial offer lost 43 hits on net. They accounted for 58.2\% of the overall net placement decline. These are descriptions of historical groups. Receipt of an offer and the subsequent enrollment decision both occur after the original report.
+Most of the coverage gain over rank-blind came from pupils who enrolled at their initial offer school (Table~\ref{tab:concordance}). Among pupils who enrolled elsewhere, 1,357 gained coverage of their April school and 771 lost it. The net gain of 586 was positive in each cohort. The 145,450 linked pupils without an initial offer lost 43 hits on net. They accounted for 76.0\% of the overall net placement decline. These are descriptions of historical groups. Receipt of an offer and the subsequent enrollment decision both occur after the original report.
 
 Against keeping the first five discretionary courses plus the entitlement, the rank-informed rule improved both aggregate measures in every cohort. Even against this simpler comparison it placed fewer pupils in the group with no initial offer. Requiring school, education type and grade to match in the original rank-informed versus rank-blind comparison gives a net gain of 4,487 hits.
 
@@ -54,6 +54,6 @@ Total & 141,345 & 70,548 & 69,236 & 54,401 & 30,699\\\bottomrule
 
 Of the 141,345 initially and finally unoffered regular applicants, 21.72\% subsequently enrolled at a school absent from the original list through this observed sequence. Among 54,401 offered an explicitly added school, 51,956 appeared anywhere in the following April's register and 30,699 appeared at that school (56.43\% of all 54,401). Another 21,257 appeared at a different school and 2,445 had no register link. Among the 101,209 linked pupils who finished the regular wait list without an offer and whose April school was outside their eligible original report, the complementary offers in Table~\ref{tab:actual-search} account for 30,699 (30.33\%). Search often expanded even when a former option remained on the public vacancy list: 45,848 of 46,940 such same-grade returners added a school. New supply, new information and an unsuccessful first round can all change a family's decision. The linkage establishes when an earlier omission preceded later enrollment. It cannot identify which family would pursue a particular omitted school under a hypothetical five-choice recommendation.
 
-This distinction matters for the comparison with our simulated losses. Of the 2,527 applicants placed under the blind predictor alone, 509 went without an offer through the actual regular wait list, and 103 of those 509 later enrolled at an explicitly added school through the sequence above. Much of the simulated loss population thus started the actual second round in a different position. Applying the 21.72\% rate to predicted losses would mix populations and interventions.
+This distinction matters for the comparison with our simulated losses. In the pooled benchmark, of the 2,527 applicants placed under the blind predictor alone, 509 went without an offer through the actual regular wait list, and 103 of those 509 later enrolled at an explicitly added school through the sequence above. Much of the simulated loss population thus started the actual second round in a different position. Applying the 21.72\% rate to predicted losses would mix populations and interventions.
 
 A separate Chilean field study helps motivate which responses to examine. Near the threshold for a nonplacement-risk warning, \citet{smartplatforms} estimated a 21.6 percentage point increase in the probability of adding any school (SE 1.0), a 20.5 point increase in adding at the end (SE 0.9), and a 3.8 point increase in placement at a listed choice (SE 0.9). We verified the published estimates against the authors' archived output tables \citep{warningdata}. Those families received advice about risk. The simulations below ask how our two proposed menus would compare if applicants recovered options, including when they pursued an additional option last.

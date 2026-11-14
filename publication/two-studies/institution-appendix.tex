@@ -1,0 +1,68 @@
+\section{Reconstructing the regular round and rerunning the ceiling}\label{sec:institution}
+
+\paragraph{Inputs and historical test}
+The ministry's A1 file identifies courses and seats by category, B1 describes applicants, C1 records each ranked application, priority flags and realized lottery position, and F1 identifies family links. We constructed a market using those four files, initialized its historical-outcome field to missing, and saved the predicted course for every pupil. In a separate step we joined predictions to the initial school and course in D1 using the masked applicant identifier. Both an offer at another course of the same school and an incorrect no-offer prediction count as errors. April enrollment, family responses to offers and subsequent wait-list assignments are absent from this validation target.
+
+We used the seat orders in \citet[Tables 1--2]{correaschool} and the reconstruction in \citet[Appendix S7]{doganreserves}. At a regular seat, priority descends from returning pupils to enrolled siblings, newly assigned higher-grade siblings, staff children, former pupils and other applicants. At disadvantaged seats, disadvantaged status follows the sibling tiers. At special-education and academic seats, returning pupils come first and eligible applicants follow. The released selection order applies where the program runs a separate selection procedure. A pupil can try more than one seat type at the same course. The order depends on the type of course and the pupil's return, sibling, disadvantage and special-education status. If returning pupils exhaust the published seats at their protected course, each can use a personal fallback there. It cannot be given to another applicant.
+
+The highest grade clears first. A sibling already assigned to a school in a higher grade can change a younger applicant's priority there. For a family who requested block processing, the younger applicant tries displayed courses at the older member's school first, preserving the submitted order within the promoted group and within the remaining courses. These are separate updates. Each replay recomputes both from its own assignments. Same-grade links do not promote each other's schools. Holding the originally submitted reports only down to the guaranteed course leaves 141 discrepancies, even after these rules are in place. The underlying order can place a course below the guaranteed course and the family rule can promote it. Restoring those rows in the historical market accounts for the last 16, 39, 42 and 44 mismatches respectively. The two frozen menu policies still use their original candidate pool.
+
+\begin{table}[ht]\centering\small
+\caption{Agreement with the initial course or no offer in the four national cohorts. Each row adds the stated change to the preceding row. The increments depend on this order.}\label{tab:institution-ablation}
+\begin{tabular}{@{}lrr@{}}\toprule
+Allocation on original lists & Exact outcomes & Remaining discrepancies\\\midrule
+Pooled seats and fixed priorities & 1,963,324 & 81,325\\
+Published vacancies and personal return & 1,979,498 & 65,151\\
+Separate seat categories and proposal orders & 1,981,888 & 62,761\\
+Priority from newly assigned older siblings & 2,002,303 & 42,346\\
+Opted-in family preference promotion & 2,044,508 & 141\\
+Restore submitted courses below the protected course & 2,044,649 & 0\\\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Comparing menus before a priority draw}
+The matched rerun uses the original 2019 scores, rank-blind and rank-informed display masks, quotas, applicant cohorts, labels and 1,024 scenario seeds. It preserves the relative lottery order within every original course and priority tier. Pooled priorities required no tie comparison between two different tiers. To obtain the raw order needed by the typed-seat rule, we interleave the ordered tier lists at each course uniformly, independently across courses. A uniform permutation of the multiset of tier labels implements that conditional draw. Each model computes its own baseline allocation. The two additional family lotteries draw a uniform order over the connected components of F1 and then over applicants within a component, either separately at each course or once per establishment. All other institutional rules stay fixed.
+
+\begin{table}[ht]\centering\small
+\caption{Maximum additional historical April-school hits above the blind menus. Each design column protects the stated number of nested draws per cohort. The recorded column uses only that year's realized priorities. All models allow 4,823 hits with no allocation constraint; the unrestricted switch gains 3,590 net hits.}\label{tab:inst-ceilings}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Rules and priority generator & Recorded & 16 & 64 & 256 & 1,024\\\midrule
+Pooled, original course draws & 1,275 & 593 & 353 & 302 & 278\\
+Institutional, matched course draws & 1,195 & 623 & 394 & 336 & 314\\
+Institutional, family tickets by course & 1,195 & 614 & 393 & 338 & 314\\
+Institutional, family tickets by school & 1,195 & 601 & 380 & 337 & 317\\\bottomrule
+\end{tabular}
+\end{table}
+
+At 1,024 matched draws the maximum number of adjustable slots a platform could switch was 30,520 of 67,909. The April target counts pupils, so the optimum for that target can be achieved with one edit per additional hit and all other menus unchanged. Of the 278 pupils reachable under the original benchmark, 252 remain reachable under the reconstructed mechanism; 26 leave and 62 enter. The same calculation for historical \emph{initial offers}, a course-level target, admits 26 additional hits under the reconstructed rule and 48 under the pooled benchmark. Both label calculations give the designer information unavailable when a real menu is issued.
+
+\paragraph{Which lottery structures look plausible in the released data?}
+The Ministry reports a realized lottery position on each application.
+This lets us validate the historical allocation separately from assumptions about
+how to draw another lottery.  The designers describe drawing an order over
+families, then drawing an order within each family at a school
+\citep[Sec.~4.1.2]{correaschool}.  Article 36 of Chile's admissions regulation
+specifies an ordering for an applicant to a particular course at a school
+\citep{saeDecreto}.  We compared pairs of students who both applied to two
+courses at the same establishment.  Their relative order reversed in 891,182
+of 1,822,995 student-pair/course-pair comparisons (48.89\%). A single strict
+order shared by every course at an establishment would give zero reversals.
+The 2022--24 data also show dependence within families. Among 53,107
+course-level groups containing at least two members of one connected component
+of the published family links and at least one outside applicant in the course,
+51,117 groups (96.25\%) occupied consecutive positions in the realized order.
+Independent uniform orders over individuals would give 2,833.49 contiguous groups in expectation (5.34\%) at the same course and group sizes.
+These counts describe the three released orderings. They leave the dependence
+between unobserved draws undetermined. We use family lotteries as sensitivity
+analyses and validate historical offers with the recorded ordering.
+\paragraph{Computing the institutional ceiling}
+A displayed course now permits several seat types. For a priority draw $s$ let $M^s$ be the detailed rank-blind allocation, including each assigned course and its seat type or continuity fallback. Given the older pupils' assignments in $M^s$, each younger pupil has a definite order of courses and seat types, and each seat type has a strict priority. Promoting listed courses at an older sibling's school preserves the relative order of all retained courses. For this fixed assignment, a change of menu therefore restricts the same ordered list of potential contracts in that grade.
+
+To keep $M^s$ feasible, retain every pupil's assigned course. To keep it stable at each grade conditional on its older-grade assignments, rule out a proposed course if any contract it introduces would block: the applicant prefers it to their detailed assignment, and that seat type has a vacancy or would replace its lowest-priority holder. Apply both tests in every design draw. Courses the policies share, including continuity, stay fixed. These conditions are necessary and sufficient for the old detailed allocations to remain stagewise stable. For a target absent from the old menu, one added hit is possible precisely if some target-bearing proposed course passes and some old-only course can be removed. Maximizing each row separately and summing gives the exact across-draw hindsight ceiling, counting an April school once even if several courses have that school.
+
+Does the mechanism select every old detailed allocation when run again? The stagewise ceiling is an upper bound for this stronger objective. Any exact replication of the old outcomes must make them stagewise stable under the same older-grade assignments. The reverse implication need not hold: DA in a higher grade can select a different stable allocation, changing which younger siblings receive priority. For a sufficient lower bound, keep every old-only course that occurs at or before the pupil's old partner in the operational order in any draw, and add a proposed-only course only if it follows the old partner in every draw. Treat being unplaced as last. This keeps each pupil's entire proposal sequence up through its last proposal intact, including all seat-type attempts. Induction on DA proposals within a grade and then on descending grades preserves the full detailed outcome. The same row calculation optimizes the label under this stronger sufficient condition.
+\paragraph{Why a conditional witness does not guarantee that every junior keeps a seat.}
+There are two grades, with one seat at each relevant program. In the higher grade $H$ ranks $x\succ u\succ y$ and changes the displayed pair from $(x,u)$ to $(u,y)$. $K$ lists $(x,y)$ and $G$ lists $(y,x)$. At $x$ the order is $G\succ H\succ K$, and at $y$ it is $K\succ G\succ H$. Initially DA gives $(H,K,G)=(u,y,x)$. That assignment remains stable on the new display: the only newly added course is below $H$'s assigned $u$. DA on the new lists nevertheless gives $(u,x,y)$, which $K$ and $G$ strictly prefer. In the junior grade, $B$, a sibling of $K$, lists $(x,y)$; $L$ lists only $x$. At $x$ the ordinary order puts $L$ ahead of $B$. With $K$ at $y$, $L$ gets $x$ and $B$ gets $y$. With $K$ at $x$, $B$ has sibling priority there, gets $x$, and leaves $L$ unplaced. Every old contract can survive in a stable allocation conditional on the original higher-grade assignments. Running applicant-proposing DA grade by grade changes those assignments and displaces $L$. The example uses only fixed reports, individual seats and the documented higher-grade sibling priority.
+
+\paragraph{Checking the menu the oracle selected}
+Keeping every proposal prefix permits 152 additional hits (41, 50 and 61). To test the upper bound directly we constructed one common menu profile per cohort. For each additional pupil it adds the earliest eligible course at the April school and drops the last removable old-only course. Every other pupil keeps the blind menu. Full re-clearing on each of the 1,024 matched design draws for each cohort reproduced every baseline course and seat type, including unplaced applicants: $1{,}580{,}726\times 1{,}024=1{,}618{,}663{,}424$ individual comparisons and zero differences. Thus 314 attains the necessary upper bound even when the platform must reproduce the entire chosen assignment on these draws. We also obtained identical assignments at the three recorded orders and in 192 fresh matched-course draws. On 48 fresh draws for each alternative family model, the corresponding optimum menus changed no pupil's course under course-specific tickets; school-wide family tickets produced one exit in one draw. A finite panel cannot establish protection for every future order or a bound for a policy protecting only whether incumbents remain placed.

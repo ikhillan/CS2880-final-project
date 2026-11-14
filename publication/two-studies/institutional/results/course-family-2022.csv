@@ -1,0 +1,13 @@
+year,rule,priority,support,target,present_at_baseline,additional_reachable,adoptable_slots
+2022,course_family,recorded,1,initial_offer,518153,30,19123
+2022,course_family,recorded,1,april_school,444227,402,19123
+2022,course_family,design,0,initial_offer,518153,1722,22025
+2022,course_family,design,0,april_school,444227,1425,22025
+2022,course_family,design,16,initial_offer,518153,89,12676
+2022,course_family,design,16,april_school,444227,208,12676
+2022,course_family,design,64,initial_offer,518153,12,10526
+2022,course_family,design,64,april_school,444227,126,10526
+2022,course_family,design,256,initial_offer,518153,8,9454
+2022,course_family,design,256,april_school,444227,107,9454
+2022,course_family,design,1024,initial_offer,518153,4,8836
+2022,course_family,design,1024,april_school,444227,96,8836

@@ -1,0 +1,13 @@
+year,rule,priority,support,target,present_at_baseline,additional_reachable,adoptable_slots
+2024,pooled,recorded,1,initial_offer,436455,107,19992
+2024,pooled,recorded,1,april_school,374906,393,19992
+2024,pooled,design,0,initial_offer,436455,2180,23349
+2024,pooled,design,0,april_school,374906,1765,23349
+2024,pooled,design,16,initial_offer,436455,79,14320
+2024,pooled,design,16,april_school,374906,181,14320
+2024,pooled,design,64,initial_offer,436455,27,12810
+2024,pooled,design,64,april_school,374906,120,12810
+2024,pooled,design,256,initial_offer,436455,20,12081
+2024,pooled,design,256,april_school,374906,107,12081
+2024,pooled,design,1024,initial_offer,436455,18,11579
+2024,pooled,design,1024,april_school,374906,102,11579
