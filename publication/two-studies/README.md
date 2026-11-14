@@ -1,6 +1,6 @@
 # Who Gets a Place When Shortlists Get Better?
 
-This is a self-contained paper on two settings, NYC rental simulations and Chilean K–12 admissions. [Read the paper](who-gets-a-place.pdf). The unabridged research archive is in the parent publication directory. The analyzed rental pilot and Chilean school inputs were frozen before this revision.
+This is a self-contained paper on two settings, NYC rental simulations and Chilean K–12 admissions. [Read the paper](who-gets-a-place.pdf). The unabridged research archive is in the parent publication directory. The rental pilot uses archived model outputs. The 2019 Chilean offer predictors are frozen, including in the new validations on application years 2024 and 2025.
 
 ## Read the results
 
@@ -11,7 +11,7 @@ This is a self-contained paper on two settings, NYC rental simulations and Chile
 | Where can the model trace displacement? | [Number of paths by length](evidence/displacement-paths.csv) · [Exhaustive three-by-three market verifier](analysis/verify_paths.cpp) |
 | Could a referral recover a place? | [NYC](evidence/rental-referrals.csv) · [Chile](evidence/school-referrals.csv) · [Chilean display capacity](evidence/school-capacity.csv) |
 
-The rental effect estimates average borough-month rates with frozen ACS weights and equal month weights. Their intervals resample entire simulation blocks. Gross placement and referral counts pool repeated renter instances without geographic reweighting. The two school cohorts report exact counts on each allocation replay. A pupil can appear in successive application years. Chile's two-year directional criterion was recorded before obtaining these cohorts. The person-level, alternative-baseline and referral analyses in this revision are exploratory.
+The rental effect estimates average borough-month rates with frozen ACS weights and equal month weights. Their intervals resample entire simulation blocks. Gross placement and referral counts pool repeated renter instances without geographic reweighting. The school cohorts report exact counts for each deterministic allocation replay. A pupil can appear in successive application years. The two pairs of Chilean cohorts have separate pre-data sign records. The [later-cohort validation plan](robustness/VALIDATION_PLAN.md) is timestamped at Git commit 261e1e7. The [shared benchmark, additional tests and reproduction instructions](robustness/README.md) distinguish the directional validation from exploratory analyses.
 
 ## Build the paper
 
@@ -21,7 +21,7 @@ The standalone source archive includes the class, bibliography style, figure, ag
 TEXINPUTS=.:..: BSTINPUTS=.:..: latexmk -pdf -halt-on-error main.tex
 ```
 
-The figure and the aggregate consistency checks require Python, NumPy, pandas and matplotlib. To rebuild the figure from the distributed data, run `python analysis/loss_figure.py`. To reconcile the independently computed estimates, run `python analysis/verify_tables.py`.
+The figures and the aggregate consistency checks require Python, NumPy, pandas and matplotlib. To rebuild the figures from the distributed data, run `python analysis/loss_figure.py` and `python robustness/rollout_figure.py`. To reconcile the independently computed estimates, run `python analysis/verify_tables.py` and `python robustness/verify_robustness.py`.
 
 ## Reproduce the analyses
 

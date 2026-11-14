@@ -1,0 +1,14 @@
+\section{What changes during a partial rollout?}\label{sec:rollout}
+A service might try the new rule on a fraction of applicants and use the result to judge a full switch. We simulated that decision on the original 480 rental markets and two school cohorts. Independently for each applicant, we use policy $B$'s full menu with probability $p$ and otherwise keep $A$'s. We clear the entire market at each $p\in\{0,1/4,1/2,3/4,1\}$. We use 64 independent pairs of random assignments, with complementary uniforms within a pair and shared draws across uptake levels. This design gives a Monte Carlo standard error conditional on the fixed cohorts, preferences and candidate menus. For NYC we also resample whole simulation seed blocks. These experiments were specified after the original full-switch comparisons.
+
+For any fixed reference offer, the expected number of people shown that offer is exactly the interpolation between the two endpoint counts: menu membership depends only on that person's switch. At half adoption the complementary assignments give that midpoint exactly in each pair. Placement need not follow the same line. For example, if two one-slot menus both show $x$ before the switch and both show $y$ afterward, either endpoint places one applicant. A mixed market with one applicant at each site places two. Reversing two initially distinct menus can bend the placement curve in the opposite direction.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=.98\linewidth]{figures/adoption.pdf}
+\caption{Placement change from the original policy when applicants independently switch to the proposed menu. Points give the simulated mean at each uptake. Dashed lines interpolate between full adoption and the original policy. The Chile panel reports pupils within each national cohort; the NYC panel uses geographically standardized percentage points.}
+\Description{Placement declines in both markets. New York's mixed-policy outcomes sit above the straight-line interpolation by a larger proportion of the full-switch effect. The school curves lie close to their endpoint lines.}
+\label{fig:uptake}\end{figure}
+
+Placement at half adoption exceeded the interpolation by 0.71 and 1.60 percentage points in New York. The corresponding 95\% simulation-block intervals were $[0.59,0.84]$ and $[1.40,1.82]$, with Monte Carlo standard errors of 0.009 and 0.010 points. In Chile the midpoint deviation was about four pupils in 2022 and eight in 2023 (Monte Carlo standard errors 0.45 and 0.44 pupils, respectively). The school curves are close to linear in aggregate, yet applicants still change places. At half adoption an average of 272 pupils in 2022 and 271 in 2023 lost a place on a menu identical under both policies. The corresponding gains were 145 and 107. A nearly linear aggregate curve offers little protection to an individual family.
+
+\input{rollout-screen}

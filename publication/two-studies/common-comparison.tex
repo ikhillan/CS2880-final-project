@@ -1,0 +1,20 @@
+\section{The same five-choice rule in both markets}\label{sec:common}
+Before comparing recommenders, we ask a question that has exactly the same meaning in the two settings. Suppose each person can list five options. What happens if everyone lists their five favorites? The alternative is to sample up to five feasible options uniformly without replacement for each applicant. In either case applicants propose in their original order. We keep any protected school entitlement outside the five slots. An applicant with at most five discretionary options sees them all. The benchmark uses modeled preferences in housing and families' submitted rankings in school choice. It tests what concentrating choices near the top of people's rankings can do at fixed capacity. The rental language model does not observe those realized rankings.
+
+\begin{table}[ht]\centering\small
+\caption{First five minus uniform five. Both outcomes use all applicants as the denominator. Changes are percentage points. NYC rates use the study's geographic weights. School rates give each application record equal weight.}\label{tab:common}
+\begin{tabular}{@{}lrrr@{}}\toprule
+Panel & Applicant instances & Full-list partner shown & Placed\\\midrule
+NYC ordinary & 15,360 & $+21.03$ & $-13.86$\\
+NYC enriched & 15,360 & $+17.03$ & $-18.88$\\
+Chile 2022 & 570,891 & $+0.82$ & $-0.23$\\
+Chile 2023 & 536,353 & $+0.99$ & $-0.23$\\\bottomrule
+\end{tabular}
+\end{table}
+
+Choosing favorites raised full-list partner coverage and lowered placement in all four panels. To compute expected rental coverage under sampling, each full-list recipient with degree $d$ contributes $\min(5,d)/d$. Placement requires running DA. We averaged 48 uniform draws per market; Monte Carlo standard errors on the estimated placement rates were at most 0.022 percentage points in NYC and 0.0012 in Chile. These standard errors describe the numerical uncertainty in averaging menus. They do not measure uncertainty about the housing behavioral assumptions or about future cohorts. Short lists and continuity protections in Chile mean that many pupils receive exactly the same choices under either rule. The larger rental differences do not show that a housing recommender is intrinsically more harmful. The shared direction shows that the reversal can arise under a common rule in both settings. The remaining comparisons evaluate what the actual candidate policies would change.
+
+\paragraph{When keeping a favorite protects its recipient.}
+There is a precise reason to distinguish the school entitlement from an ordinary five-choice cap. If every list is a prefix of the applicant's full order, an applicant whose full-list DA partner survives that cut is placed at that program or one they prefer. To see this, run applicant-proposing DA on the prefixes, pausing anyone who exhausts their prefix. Continue that same run with the omitted suffixes restored. Those already holding an offer can only keep it or propose farther down their lists. Someone unplaced at the pause has already had every prefix option rejected. Order independence of DA gives the full-list allocation at the end \citep{gale1962,galesoto}. This is consistent with fewer placements relative to random menus: the guarantee concerns people whose full-list partner the prefix retains.
+
+In the two rental designs every one of the 4,531 and 4,274 covered full-list recipients was indeed placed under first-five menus. In Chile an entitlement kept below the first five can break the prefix property. If an applicant ends up with a worse program while their full-list partner is hidden, their assignment must be one of those retained entitlements: a displayed top-five option could not be worse than an omitted one. The distinct witnesses from Theorem~\ref{thm:two-omission} must therefore end at such a returning pupil. We verified this for all 126 covered-but-unplaced applicants in 2022 and all 120 in 2023. The school institution supplies a concrete boundary of the guarantee.
