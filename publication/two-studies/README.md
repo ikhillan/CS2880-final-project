@@ -4,6 +4,10 @@ This paper compares five-choice recommendations in Chilean school admissions and
 
 [Read the current paper](who-gets-a-place.pdf) · [Final referee assessment](FINAL_REVIEW.md) · [Anonymous review build](REVIEW.md) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
 
+## What changed when Chilean families received named recommendations?
+
+Chile’s 2021 School Explorer trial measured applications, assignment and later enrollment. Our comparison of the published randomized arms finds a change in second choices and an imprecise placement effect. We also reconstructed the same national application year. Among 200,591 linked entry-grade pupils, the rank-informed predictor gained 703 enrollment hits and lost 309 placements. Of those net lost places, 237 fell on pupils whose own displays stayed identical. [Field studies, national benchmark and mixed-adoption experiments](field-study/README.md)
+
 ## The Chilean institutional replay
 
 The reconstructed regular round matches every initial course and no-offer outcome in the four evaluation years. The rank-informed menus cover 4,638 more eventual schools and place 1,670 fewer register-linked pupils. The three-cohort April-school ceiling on 1,024 matched draws per cohort changes from 278 under pooled seats to 314 with reserves, continuity and family rules. The path and post-offer flow calculations retain the fixed-priority benchmark. [Data, implementation and annual results](institutional/README.md) · [Reproduction instructions](institutional/REPRODUCTION.md)

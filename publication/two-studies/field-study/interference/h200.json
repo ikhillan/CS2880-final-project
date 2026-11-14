@@ -1,0 +1,8 @@
+{
+  "device": "NVIDIA H200",
+  "torch": "2.9.0+cu128",
+  "markets": 157464,
+  "assignments": 1259712,
+  "positive_direct_and_rollout_loss": 8424,
+  "market_record_sha256": "1e2cbcef47aec046d3bbc79bd72d0601ea83020d0d5c09e8e728817c9d5577f0"
+}

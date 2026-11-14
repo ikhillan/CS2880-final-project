@@ -1,0 +1,49 @@
+{
+  "markets": 157464,
+  "assignments": 1259712,
+  "negative_rollout": 38880,
+  "positive_direct": 68688,
+  "positive_direct_and_rollout_loss": 8424,
+  "range_48_times_positive_direct_among_reversals": [
+    1,
+    8
+  ],
+  "by_number_whose_choices_differ": {
+    "0": {
+      "total": 5832,
+      "rollout_losses": 0,
+      "reversals": 0
+    },
+    "1": {
+      "total": 34992,
+      "rollout_losses": 11664,
+      "reversals": 0
+    },
+    "2": {
+      "total": 69984,
+      "rollout_losses": 15552,
+      "reversals": 3240
+    },
+    "3": {
+      "total": 46656,
+      "rollout_losses": 11664,
+      "reversals": 5184
+    }
+  },
+  "example_admitted_masks": [
+    5,
+    3,
+    3,
+    2,
+    5,
+    3,
+    3,
+    2
+  ],
+  "example_rollout_48direct_48spill": [
+    -1,
+    8,
+    -16
+  ],
+  "market_record_sha256": "1e2cbcef47aec046d3bbc79bd72d0601ea83020d0d5c09e8e728817c9d5577f0"
+}

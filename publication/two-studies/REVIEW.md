@@ -21,3 +21,5 @@ The model in the rental experiment was a separate system. The saved batch record
 The institutional appendix reports the four-year D1 fit, the reconstructed menu comparisons, the allocation rules and the finite lottery certificates. Only aggregate national results are distributed.
 
 The behavioral extension distinguishes observed complementary choices, local risk-warning effects, and simulated responses to the two menus. The review copy includes the responder-set calculation and the second-stage capacity test.
+
+The field study section compares Chile’s actual randomized advice interventions with a 2021 national replay for the same year and grades. The appendix documents the published-table analysis, the enrollment label under intervention, and the distinction between direct and market-wide effects.

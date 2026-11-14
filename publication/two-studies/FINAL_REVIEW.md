@@ -1,6 +1,6 @@
 # Final internal review for ACM Economics and Computation
 
-**I would argue for acceptance as a computational market-design paper.** A strong review can now rest on two auditable results. The first identifies when a platform can optimize menus independently for each family and when a small market-wide risk allowance couples those decisions. The second bounds how much of a placement deficit can be repaired even if every school accepts a voluntary reallocation. The remaining uncertainty in an EC review concerns the economic significance of a fixed-menu replay and how families would respond to seeing different recommendations.
+The central result is an allocation effect of switching between two specified predictors with fixed reports. The 2021 School Explorer trial establishes that families can change their applications when a platform highlights particular schools. Its assignment interval includes losses and gains. The replay for the same entry grades and year adds a distinct result about who bears the cost of a full rollout. Of 309 net lost placements, 237 occur on unchanged menus. The strongest remaining empirical question is what would happen under random assignment of these two predictors to entire admission markets. A direct comparison of their effects on households’ actual enrollment would require new experimental data. [Field analysis and replication](field-study/README.md)
 
 ## What changed the assessment
 

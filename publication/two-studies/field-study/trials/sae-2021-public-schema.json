@@ -1,0 +1,170 @@
+{
+  "source_archive_sha256": "8bd459562803c6a57e60e51ecf8198beb212100400e8cdd058cbcfbf1aa29261",
+  "tables": [
+    {
+      "file": "A1_Oferta_Establecimientos_etapa_regular_2021_Admisión_2022.csv",
+      "columns": [
+        "rbd",
+        "cod_nivel",
+        "cod_curso",
+        "cod_ense",
+        "cod_grado",
+        "cod_jor",
+        "cod_espe",
+        "cod_sede",
+        "con_copago",
+        "solo_hombres",
+        "solo_mujeres",
+        "lat",
+        "lon",
+        "cupos_totales",
+        "vacantes",
+        "vacantes_pie",
+        "vacantes_prioritarios",
+        "vacantes_alta_exigencia_t",
+        "vacantes_alta_exigencia_r",
+        "vacantes_regular",
+        "software_aleatorio",
+        "tiene_orden_pie",
+        "tiene_orden_alta_t"
+      ]
+    },
+    {
+      "file": "A2_Oferta_Establecimientos_etapa_complementaria_2021_Admisión_2022.csv",
+      "columns": [
+        "rbd",
+        "cod_nivel",
+        "cod_curso",
+        "cod_ense",
+        "cod_grado",
+        "cod_jor",
+        "cod_espe",
+        "cod_sede",
+        "con_copago",
+        "solo_hombres",
+        "solo_mujeres",
+        "lat",
+        "lon",
+        "cupos_totales",
+        "vacantes",
+        "vacantes_pie",
+        "vacantes_prioritarios",
+        "vacantes_alta_exigencia_t",
+        "vacantes_alta_exigencia_r",
+        "vacantes_regular",
+        "software_aleatorio",
+        "habilitado_distancia"
+      ]
+    },
+    {
+      "file": "B1_Postulantes_etapa_regular_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "es_mujer",
+        "prioritario",
+        "alto_rendimiento",
+        "lat_con_error",
+        "lon_con_error",
+        "calidad_georef"
+      ]
+    },
+    {
+      "file": "B2_Postulantes_etapa_complementaria_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "es_mujer",
+        "prioritario",
+        "alto_rendimiento",
+        "lat_con_error",
+        "lon_con_error"
+      ]
+    },
+    {
+      "file": "C1_Postulaciones_etapa_regular_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "rbd",
+        "cod_curso",
+        "preferencia_postulante",
+        "agregada_por_continuidad",
+        "prioridad_matriculado",
+        "prioridad_hermano",
+        "prioridad_hijo_funcionario",
+        "prioridad_exalumno",
+        "loteria_original",
+        "es_pie",
+        "orden_pie",
+        "orden_alta_exigencia_transicion"
+      ]
+    },
+    {
+      "file": "C2_Postulaciones_etapa_complementaria_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "rbd",
+        "cod_curso",
+        "preferencia_postulante",
+        "agregada_por_continuidad",
+        "prioridad_matriculado",
+        "prioridad_hermano",
+        "prioridad_hijo_funcionario",
+        "prioridad_exalumno",
+        "loteria_original"
+      ]
+    },
+    {
+      "file": "D1_Resultados_etapa_regular_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "rbd_admitido",
+        "cod_curso_admitido",
+        "respuesta_postulante",
+        "rbd_admitido_post_resp",
+        "cod_curso_admitido_post_resp",
+        "respuesta_postulante_post_lista_espera"
+      ]
+    },
+    {
+      "file": "D2_Resultados_etapa_complementaria_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "cod_nivel",
+        "rbd_admitido",
+        "cod_curso_admitido"
+      ]
+    },
+    {
+      "file": "E2_Información_para_replicar_proceso_etapa_complementaria_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun",
+        "rbd_admitido_geo_con_error",
+        "cod_curso_admitido_geo_con_error"
+      ]
+    },
+    {
+      "file": "F1_Relaciones_entre_postulantes_etapa_regular_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun_1",
+        "mrun_2",
+        "mismo_nivel",
+        "es_hermano",
+        "postula_en_bloque"
+      ]
+    },
+    {
+      "file": "F2_Relaciones_entre_postulantes_etapa_complementaria_2021_Admisión_2022_PUBL.csv",
+      "columns": [
+        "mrun_1",
+        "mrun_2",
+        "mismo_nivel",
+        "es_hermano",
+        "postula_en_bloque"
+      ]
+    }
+  ]
+}

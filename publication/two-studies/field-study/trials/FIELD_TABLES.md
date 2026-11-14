@@ -1,0 +1,33 @@
+# Chile's two 2021 randomized information interventions
+
+Agte, Allende, Kapor, Neilson and Ochoa, *Search and Biased Beliefs in Education Markets*, NBER Working Paper 32670, July 2024, revised March 2026. The paper describes two interventions at different stages of the admissions process. We extracted Panel A in Tables I and II and Appendix Table A.XVIII directly from the PDF. [Primary source, including appendix](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf) · [Working paper record](https://doi.org/10.3386/w32670)
+
+## Who received which information?
+
+**School Explorer.** Of 3,948 recruited survey respondents, 3,111 opened the platform. Parents were randomly assigned after the baseline survey; treatment-specific information appeared only inside the platform. The comparison sample comprises platform openers. Arm 1 showed counts of nearby schools by price and quality and gave access to a map. Arm 2 provided the same counts, highlighted individual inexpensive, medium/high-quality schools on the map and displayed their price and quality. The control received the explorer. A highlighted school cost less than CLP 50,000 per month and fell into the agency's third or fourth quality category. The reported rank/enrollment outcomes classify schools by that attribute and need not be the particular school marked for a given family. The study does not present a binary effect for postdeadline placement measured over all 3,111 explorers. The application-submission sample is 3,111 and the placement sample is 2,817. [Section 4.2 and A.XVIII](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf#page=86)
+
+**Application feedback.** Eligible families had already applied. In the final week an invitation allowed a parent to open a personalized report giving current choices and school attributes, a warning for sufficiently risky applications, and schools within two kilometers of home absent from the application, ordered by quality. The national intervention covered 318,520 applicants in entry grades and randomized geographically with stratification. Table II reports estimates in the study's linked sample of 2,116 for application outcomes. Assignment to feedback increases opening by 57.8 percentage points. Instrumenting opening with randomized assignment, adding a school rises by 6.1 points (SE 1.8). The enrollment-school attribute estimate is −3.1 points (SE 5.7), with 1,850 observations. The outcome is whether the enrolled school satisfies the highlighted category. The table also reports value added and distance of the enrolled school. No any-placement effect appears for this treatment in this table. The bundle cannot isolate what the named alternatives alone did. [Table II](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf#page=35) · [Intervention description and examples](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf#page=118)
+
+## Comparing the Explorer arms
+
+Relative to the control, the combined map-highlights and aggregate information package increases ranking a school with the highlighted attributes second by 5.4 percentage points (SE 2.2; N = 2,580). Any assignment changes by +0.2 points (SE 1.1; N = 2,817), and enrollment in the assigned school changes by +3.5 points (SE 1.9; N = 2,748). Submission rises by 3.0 points (SE 1.3). Different regression samples and possible selection into submission preclude interpreting this as a market-wide placement count. On a normal approximation the marginal 95% interval for the assignment contrast spans −1.96 to +2.36 points. Testing for both a higher highlighted-attribute second rank and lower assignment, the intersection–union p-value is the larger of the one-sided component p-values (0.0071 and 0.5721). This exploratory proxy test uses the published rounded estimates and standard errors. It cannot establish individual recommendation coverage.
+
+Comparing arm 2 to arm 1 holds the count information fixed. Subtract the two coefficients from the same regression because the control condition is shared. The nominal point changes for ranking a highlighted-type school second, any assignment, and enrollment in the assigned school are +3.8, −1.0, and +2.0 percentage points respectively. The first two point estimates have the directional pattern in the shortlist theory. The covariance required to estimate the standard error of either difference was not reported. For marginal standard errors $s_1,s_2$ the triangle inequality bounds the standard error of the difference by $s_1+s_2$. The resulting conservative approximate 95% envelopes are [−4.82,12.42] and [−5.31,3.31] points. These bounds use the reported rounded numbers and a normal approximation. Different outcomes have different numbers of observed cases. Assignment at an eventually attended school, assignment to any program, and attendance at a recommended school are distinct endpoints. The benchmark's predicted eventual school uses historical enrollment fixed across policies; realized enrollment following advice can itself change. [Table I](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf#page=33) · [Appendix Table A.XVIII](https://www.nber.org/system/files/working_papers/w32670/w32670.pdf#page=86)
+
+## Reproduction
+
+Save the PDF linked above locally. Python 3 and Poppler's pdftotext suffice. The extractor rejects revisions with different SHA-256 digests and reads the numeric table rows directly. Only derived numeric records and code need to be distributed. All inferential quantities are recalculations from published tables.
+
+~~~sh
+python3 extract_agte.py --pdf /path/to/w32670.pdf --out agte-published.csv
+python3 compare_agte.py --moments agte-published.csv --out explorer-contrasts.csv
+python3 extract_subgroup.py --pdf /path/to/w32670.pdf --out enrollment-by-maternal-education.csv
+~~~
+
+## A finite matching witness
+
+The proof's individual Bernoulli design is an example of what a direct effect can mean under interference. The feedback experiment assigned invitations geographically. Randomizing whole closed markets and evaluating market-wide headcounts could identify a bundle's total effect under the design; its bundle is a different policy than switching between the two five-course rules. The executable witness enumerates the eight assignments for the paper's three applicants, calculates the direct and spillover components with exact rational arithmetic at three saturations, and checks full-list DA, the all-population allocation and the full-list partner counts.
+
+~~~sh
+python3 ../interference/interference_example.py --out /tmp/interference-market.csv
+~~~
