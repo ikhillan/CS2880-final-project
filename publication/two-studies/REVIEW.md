@@ -1,6 +1,6 @@
 # Build the anonymous review copy
 
-The working paper and the review copy use identical manuscript text, including the AI-use appendix. The review copy uses the EC 2026 class and style supplied by the conference. The last official call we could verify on November 13, 2026 was EC 2026. Its 18-page main-text allowance excludes the title page and bibliography and permits an appendix. The review copy omits the old conference's submission footer and leaves the submission number unassigned. [SIGecom events](https://sigecom.hosting.acm.org/events.html) · [EC 2026 call and style kit](https://ec26.sigecom.org/call-for-contributions-acm/papers/)
+The working paper and the review copy use identical manuscript text, including the AI-use appendix. The review copy uses the EC 2026 class and style supplied by the conference. The last official call we could verify on November 14, 2026 was EC 2026. Its 18-page main-text allowance excludes the title page and bibliography and permits an appendix. The review copy omits the old conference's submission footer and leaves the submission number unassigned. [SIGecom events](https://sigecom.hosting.acm.org/events.html) · [EC 2026 call and style kit](https://ec26.sigecom.org/call-for-contributions-acm/papers/)
 
 From a repository checkout, run this in the paper directory. In the standalone source distribution the class, style, and bibliography style are also at the top level.
 
@@ -8,7 +8,7 @@ From a repository checkout, run this in the paper directory. In the standalone s
 TEXINPUTS=.:..: BSTINPUTS=.:..: latexmk -pdf -halt-on-error review.tex
 ```
 
-The cover says “Anonymous review draft.” The same source can accept an assigned number using the macro `\ECPaperNumber` before `\input{review.tex}`. Check the target year's call when preparing an actual submission. The named source archive contains bylines, branch links and project history. The anonymous output is the review PDF.
+The cover says “Anonymous review draft.” The same source can accept an assigned number using the macro `\ECPaperNumber` before `\input{review.tex}`. Check the target year's call when preparing an actual submission. The named source archive contains bylines, branch links and project history. The anonymous outputs are the review PDF and a separate code archive for the seat-retention extension, including the shared institutional engine, preparation scripts, public-data acquisition instructions and aggregate results.
 
 ## AI-assisted work
 
@@ -23,3 +23,8 @@ The institutional appendix reports the four-year D1 fit, the reconstructed menu 
 The behavioral extension distinguishes observed complementary choices, local risk-warning effects, and simulated responses to the two menus. The review copy includes the responder-set calculation and the second-stage capacity test.
 
 The field study section compares Chile’s actual randomized advice interventions with a 2021 national replay for the same year and grades. The appendix documents the published-table analysis, the enrollment label under intervention, and the distinction between direct and market-wide effects.
+
+
+## Seat retention and submission status
+
+The review manuscript includes the finite-panel hardness result, the Chilean upper and lower bounds, the learned prospective rule and the rule that retains seats under all lottery orders. The working and anonymous copies use identical scientific text. As of November 14, 2026, SIGecom's conference listing ends with EC 2026, whose registration is closed. We could not verify a 2027 call or submission portal. The archive builds the paper in the available 2026 format; the manuscript has not been filed with the conference. [Official conference list](https://www.sigecom.org/events.html) · [Closed 2026 portal](https://ec26.hotcrp.com/)

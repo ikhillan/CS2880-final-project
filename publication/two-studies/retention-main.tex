@@ -1,0 +1,22 @@
+\subsection{What if a pupil can switch schools?}\label{sec:retain}
+A district might promise every pupil who would have had a seat that they will still have one. That pupil can change schools, including to one lower on their submitted list. A new entrant cannot offset another pupil's loss. Keep the same five-course quota, the common options on both menus and the same 1,024 lotteries per cohort as in the 314-hit calculation. How many more pupils' eventual schools can a menu now cover?
+
+This change removes the pupil-by-pupil optimization. Even with zero permitted failures, deciding whether any menu reaches a given coverage gain is NP-complete on an explicitly supplied panel of priority orders (Theorem~\ref{thm:seat-retain}). Two edits can each be harmless on their own yet send two displaced pupils to the same last available seat. The proof assigns a priority draw to each edge of a graph and realizes just this conflict at its endpoints. A set of edits is safe precisely when the corresponding vertices form an independent set. The result allows full-list DA on a draw in the panel to supply the prediction labels.
+
+\input{retention-interval}
+
+\paragraph{A rule a district could use}
+Once reports and school-specific priorities are available, the district can identify a course that has room for every pupil who might list it under either policy. Such a course is a guaranteed place even when its reserved seats have different priorities. Common current-school entitlements and priority comparisons yield other guaranteed options. We trace who could compete with each pupil lacking a guarantee, including older relatives who could change a sibling's priority. We can then edit other families' rows without exposing an incumbent to losing their last seat (Appendix~\ref{sec:retain-evidence}). Selecting the earliest permissible submitted courses gains 28 historical April hits across the three cohorts. Across the same 384 held-out course lotteries used for the learned rule below, it generated 9,643 school switches, with zero exits and zero entrants. This rule's guarantee holds for every lottery order under the specified mechanism.
+
+A second rule uses the 2021 application cohort and its April 2022 enrollment records to score schools for later cohorts. It uses prior scores and submitted ranks to select courses, protects the higher grades' baseline proposal sequences on the 1,024 design lotteries, and allows additional moves into courses with room for everyone in pre-kindergarten. Historical coverage increased by 50 pupils, comprising 134 gains and 84 losses. We froze the three menus before scoring them on the later registers or opening new lotteries.
+
+\begin{table}[ht]\centering\small
+\caption{The learned rule versus blind menus. April hits are net changes on one fixed menu per year. Each cohort faces 128 fresh matched-course lotteries. Other outcomes count pupil--draws. An exit is a pupil placed by the blind menu who goes unplaced on the new one.}\label{tab:retain-held}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+ & April hits & School switches & Entrants & Exits & Draws with an exit\\\midrule
+2022 & $+9$ & 1,390 & 103 & 0 & 0/128\\
+2023 & $+22$ & 901 & 1 & 1 & 1/128\\
+2024 & $+19$ & 1,154 & 0 & 0 & 0/128\\\bottomrule
+\end{tabular}
+\end{table}
+Draw 42 in 2023 left one incumbent unplaced. Switching to shared family tickets within each school produced one exit in 96 fresh draws. On that draw two new pupils entered and one incumbent lost a seat. Placement rose by one while the district broke its promise. The unrestricted rank-informed switch caused exits on every one of the 384 matched-course test draws. Both prospective rules also left historical coverage unchanged for all 115,626 linked pupils in these cohorts who had received no initial offer. Protecting people who had a seat and finding better options for those originally turned away are distinct social objectives.

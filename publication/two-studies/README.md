@@ -4,6 +4,10 @@ This paper compares five-choice recommendations in Chilean school admissions and
 
 [Read the current paper](who-gets-a-place.pdf) · [Final referee assessment](FINAL_REVIEW.md) · [Anonymous review build](REVIEW.md) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
 
+## Can every old recipient keep a seat and switch schools?
+
+This revision compares the 314-hit full-contract certificate with protection of each previously seated pupil. It gives a reduction from Independent Set, checks constructive lower bounds on the same national lottery panels, and evaluates two policies on held-out priorities. The learned rule gains 50 historical enrollment hits and loses a baseline recipient in one of 384 fresh matched-course draws. A more conservative rule gains 28 and has an all-order proof. [Seat-retention results and reproduction](retention/README.md)
+
 ## What changed when Chilean families received named recommendations?
 
 Chile’s 2021 School Explorer trial measured applications, assignment and later enrollment. Our comparison of the published randomized arms finds a change in second choices and an imprecise placement effect. We also reconstructed the same national application year. Among 200,591 linked entry-grade pupils, the rank-informed predictor gained 703 enrollment hits and lost 309 placements. Of those net lost places, 237 fell on pupils whose own displays stayed identical. [Field studies, national benchmark and mixed-adoption experiments](field-study/README.md)

@@ -1,0 +1,13 @@
+split,year,policy,draws,any_exit_draws,upper95_any_exit,incumbent_exits,worst_single_draw,new_recipients,retained_switching_schools,retained_switching_courses,retained_better_report_position,retained_worse_report_position
+design_audit,2022,learned_retention,1024,0,,0,0,829,11023,11031,10007,1024
+design_audit,2023,learned_retention,1024,0,,0,0,0,7168,7168,7168,0
+design_audit,2024,learned_retention,1024,0,,0,0,0,9216,9216,9216,0
+holdout_course,2022,learned_retention,128,0,0.02313241,0,0,103,1390,1392,1263,129
+holdout_course,2022,unrestricted_rank,128,128,1.00000000,105891,893,39126,558411,577129,319990,257139
+holdout_course,2023,learned_retention,128,1,0.03652383,1,1,1,901,901,898,3
+holdout_course,2023,unrestricted_rank,128,128,1.00000000,93015,780,29444,576423,595040,338573,256467
+holdout_course,2024,learned_retention,128,0,0.02313241,0,0,0,1154,1154,1153,1
+holdout_course,2024,unrestricted_rank,128,128,1.00000000,78757,676,21036,572700,594893,345462,249431
+holdout_family,2022,learned_retention,32,1,0.13984946,1,1,27,367,368,336,32
+holdout_family,2023,learned_retention,32,0,0.08936820,0,0,1,224,225,224,1
+holdout_family,2024,learned_retention,32,0,0.08936820,0,0,0,288,288,288,0
