@@ -63,8 +63,8 @@
     "wrds_terms_of_use": "https://wrds-www.wharton.upenn.edu/users/tou/",
     "wrds_ai_policy": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
     "vendor_approval": "Revelio Labs (research@reveliolabs.com), 2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted.",
-    "pending": "HUIT API Platform (OpenAI Direct) route: awaiting HUIT confirmation of the same no-training agreement, then Revelio confirmation.",
     "required_acknowledgment": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
+    "approved_llm_routes": ["huit_api_platform"],
     "our_usage_rules": [
       "Non-commercial academic use (COMPSCI 2880).",
       "Do not commit or redistribute the extract or any posting-level rows; keep data/ git-ignored. The SQL query may be committed.",

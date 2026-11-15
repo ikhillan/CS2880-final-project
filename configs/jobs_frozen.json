@@ -1,0 +1,133 @@
+{
+  "name": "jobs_frozen",
+  "domain": "jobs",
+  "study_manifest": "jobs_manifest.json",
+  "grid": {
+    "cells": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "months": [
+      "2025-08",
+      "2025-09",
+      "2025-10"
+    ],
+    "sizes": [
+      24
+    ],
+    "seeds": 20
+  },
+  "market": {
+    "design": "stratified",
+    "posting_band": "top",
+    "donors": "evaluation",
+    "capacity": "one",
+    "share": 0.8,
+    "level_gap": 2,
+    "w_wage": 2.0,
+    "seeker_noise": 0.75,
+    "w_payband": 1.0
+  },
+  "tightness": 1.0,
+  "variants": [
+    {
+      "label": "primary"
+    },
+    {
+      "label": "natural",
+      "design": "natural"
+    },
+    {
+      "label": "payband0",
+      "w_payband": 0.0
+    },
+    {
+      "label": "payband25",
+      "w_payband": 2.5
+    }
+  ],
+  "exposures": [
+    {
+      "name": "uniform_k5",
+      "policy": "random",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "salary_max_k5",
+      "policy": "salary_max",
+      "k": 5
+    },
+    {
+      "name": "salary_min_k5",
+      "policy": "salary_min",
+      "k": 5
+    },
+    {
+      "name": "under_leveled_k5",
+      "policy": "under_leveled",
+      "k": 5
+    },
+    {
+      "name": "uniform_q50",
+      "policy": "random",
+      "q": 0.5
+    },
+    {
+      "name": "llm_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "llm_q50",
+      "policy": "llm",
+      "q": 0.5
+    }
+  ],
+  "llm": {
+    "route": "huit_api_platform",
+    "model": "gpt-6-luna",
+    "max_tokens": 300,
+    "price_per_million": [
+      0.1,
+      0.5
+    ],
+    "min_interval_s": 0.5,
+    "reasoning_effort": "none"
+  },
+  "llm_results": "results/llm/jobs_frozen/recs.jsonl",
+  "methods": [
+    "no_audit",
+    "full_disclosure",
+    "reverse_delete",
+    "blocker_greedy",
+    "prefix_cover",
+    "exhaustive",
+    "exact_prefix",
+    "exact_assignment"
+  ],
+  "exhaustive_max_firms": 18,
+  "exact_time_cap": {
+    "24": 15.0,
+    "default": 15.0
+  },
+  "analysis_method": "exact_prefix",
+  "enumerate_plans": {
+    "cap": 200,
+    "seconds": 30
+  },
+  "_notes": [
+    "The frozen comparison: months 2025-08 to 2025-10, evaluation donors only. experiments_jobs.run refuses to run it until jobs_manifest.json has frozen: true.",
+    "Fill w_wage and seeker_noise from calibration before freezing. Do not edit any other market field after freezing; a change is a new versioned run.",
+    "bottomband and nolevel are omitted: the pilot showed bottomband is dominated and the level rule is almost never binding. Add them back only as named sensitivities.",
+    "llm_k5 and llm_q50 are skipped (not failed) until results/llm/jobs_frozen/recs.jsonl exists. Do not rename them after a run.",
+    "Leave temperature unset unless the pinned model accepts it; record the choice in the manifest either way.",
+    "llm: gpt-6-luna via the HUIT API Platform, reasoning_effort none, chosen 2026-11 for cost ($0.10/$0.50 per M tokens). The model page lists no dated snapshot, so record the model string the API returns (logged as model_returned) and the run dates."
+  ]
+}
