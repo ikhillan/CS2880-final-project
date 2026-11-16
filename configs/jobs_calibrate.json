@@ -1,0 +1,32 @@
+{
+  "name": "jobs_calibration",
+  "domain": "jobs",
+  "grid": {
+    "cells": ["291141", "533032", "412031", "311131"],
+    "months": ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07"],
+    "size": 64,
+    "seeds": 20,
+    "seed_start": 1000
+  },
+  "market": {
+    "design": "natural",
+    "capacity": "one",
+    "share": 0.8,
+    "level_gap": 2,
+    "w_payband": 1.0
+  },
+  "search": {
+    "w_wage": [1, 2, 4],
+    "seeker_noise": [0.5, 0.75, 1.25]
+  },
+  "targets": {
+    "log_wage_change_quantiles": [null, null, null],
+    "source": "FILL: Atlanta Fed Wage Growth Tracker, job switchers, 2025, p25/p50/p75 of 12-month wage growth"
+  },
+  "_notes": [
+    "Targets are log(1 + g/100), where g is the tracker's percent wage growth for job switchers at the 25th, 50th and 75th percentiles. The tracker's data download (Excel) has the percentile series; take the 2025 average, or the months that match the development months.",
+    "The tracker is national; NYC is not separately available. Record this as a known mismatch.",
+    "64 per side, natural sampling (no stratification), calibration donors only, seeds 1000-1019, disjoint from the pilot's 0-19.",
+    "9 settings x 4 cells x 7 months x 20 seeds = 5,040 market builds with DA only; expect tens of minutes."
+  ]
+}

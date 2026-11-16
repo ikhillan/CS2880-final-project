@@ -66,6 +66,15 @@ def _row(market, label, exposure, stats, result, oracle, extra=None):
     }
 
 
+def _group_mask(market, group: str) -> np.ndarray:
+    """Renters (seekers) to protect. "lower" = lower income / lower wage; "all" = everyone."""
+    if group == "all":
+        return np.ones(market.inst.n_b, bool)
+    if group == "lower":
+        return market.renters.lower_income.to_numpy(bool)
+    raise ValueError(f"unknown protect group {group}")
+
+
 def run_market(task):
     spec, cfg, label, done = task
     t0 = time.perf_counter()
@@ -117,6 +126,30 @@ def run_market(task):
             else:
                 raise ValueError(f"unknown method {method}")
             rows.append(_row(market, label, exposure, stats, r, oracle, extra))
+        # Protected repairs (protocol section 2): for each group in cfg["protect"], the cheapest plan that is stable AND leaves
+        # every protected member at least as well off as in the first-round match. Uses audit.ProtectedOracle; method names
+        # get a _protect_<group> suffix, so analyze.py tables them alongside the ordinary methods.
+        for group in cfg.get("protect", []):
+            mask = _group_mask(market, group)
+            protected, unavoidable = audit.protection_sets(inst, oracle, mask)
+            por = audit.ProtectedOracle(oracle, protected, group)
+            p_extra = {"n_group": int(mask.sum()), "n_protected": int(protected.sum()), "n_unavoidable": int(unavoidable.sum())}
+            p_inc = None
+            for pm in cfg.get("protect_methods", ["reverse_delete", "exact_prefix"]):
+                key = (spec.market_id, exposure["name"], pm + por.suffix)
+                if key in done:
+                    continue
+                if pm == "reverse_delete":
+                    r = p_inc = audit.reverse_delete(inst, por)
+                elif pm == "prefix_cover":
+                    r = audit.prefix_cover(inst, por)
+                elif pm.startswith("exact_"):
+                    r = audit.exact(inst, por, cuts=pm.split("_", 1)[1], time_cap=time_cap, seed=spec.seed, incumbent=p_inc)
+                else:
+                    raise ValueError(f"unknown protected method {pm}")
+                if por.violations(r.x).any():
+                    raise AssertionError(f"{r.method}: returned plan leaves a protected renter worse off")
+                rows.append(_row(market, label, exposure, stats, r, oracle, p_extra))
     summary["seconds"] = time.perf_counter() - t0
     summary["skipped_exposures"] = skipped
     return summary, rows
@@ -129,6 +162,13 @@ def main():
     ap.add_argument("--limit", type=int, help="run at most this many markets, for timing")
     args = ap.parse_args()
     cfg = load_config(args.config)
+    if cfg["domain"] == "jobs":
+        from hiddenoptions.jobs.markets import MONTHS_DEVELOPMENT
+        late = sorted(set(cfg["grid"]["months"]) - set(MONTHS_DEVELOPMENT))
+        manifest = ROOT / cfg.get("study_manifest", "jobs_manifest.json")
+        frozen = manifest.exists() and json.loads(manifest.read_text()).get("frozen") is True
+        if late and not frozen:
+            raise SystemExit(f"{late} are frozen or held-out months, and {manifest.name} is not frozen. Freeze the design first.")
     out = ROOT / "results" / cfg["name"]
     out.mkdir(parents=True, exist_ok=True)
     runs_path, markets_path = out / "runs.jsonl", out / "markets.jsonl"
@@ -141,8 +181,10 @@ def main():
         cfg["llm_results"] = str(ROOT / cfg["llm_results"])
     labeled = expand_labeled(cfg)
     specs = [s for s, _ in labeled]
+    all_methods = list(cfg["methods"]) + [pm + f"_protect_{g}" for g in cfg.get("protect", [])
+                                          for pm in cfg.get("protect_methods", ["reverse_delete", "exact_prefix"])]
     pending = [(s, label) for s, label in labeled
-               if any((s.market_id, e["name"], m) not in done for e in cfg["exposures"] for m in cfg["methods"])]
+               if any((s.market_id, e["name"], m) not in done for e in cfg["exposures"] for m in all_methods)]
     # A fixed shuffle, so --limit gives a representative timing sample and progress estimates are fair.
     random.Random(0).shuffle(pending)
     if args.limit:

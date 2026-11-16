@@ -1,0 +1,320 @@
+{
+  "manifest_version": "1.0",
+  "created": "2026-11-09",
+  "frozen": true,
+  "frozen_on": "2026-11-15",
+  "study": "Jobs mirror of NYC rental shortlists and the cost of a stable repair",
+  "postings": {
+    "vendor": "Revelio Labs",
+    "access": "WRDS, Harvard University subscription",
+    "table": "revelio_job_postings.postings_cosmos",
+    "data_dictionary_url": "https://wrds-www.wharton.upenn.edu/data-dictionary/revelio_job_postings/postings_cosmos/",
+    "snapshot_last_complete_month": "2025-12 (pull covers the full year; table updated 2026-11-03)",
+    "query": {
+      "method": "wrds-cloud sql",
+      "date_field": "post_date",
+      "date_range": {
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+      },
+      "filters": {
+        "country": "United States",
+        "metro_area": "new york city metropolitan area",
+        "salary_predicted": false,
+        "onet_code": "not null",
+        "remote_type": "applied in code: keep Fully In Office, Partially In Office"
+      },
+      "company_codes": "entire database",
+      "row_count_raw": null,
+      "row_count_after_filters": 3271955,
+      "pulled_on": "2026-11-09",
+      "pulled_by": "Elaine Z.",
+      "sql_file": "sql/job_sql_query.sql",
+      "sql_sha256": "f28e58cec353e8968be319f4ff33eec06a5df59a83ae4ffde4729869b281fe7c"
+    },
+    "columns_used": {
+      "posting_id": "job_id",
+      "post_date": "post_date",
+      "remove_date": "remove_date",
+      "employer_id": "rcid",
+      "employer_name": "company",
+      "occupation_code": "onet_code",
+      "role_taxonomy": "role_k1500_v2, role_k17000_v3: pulled, not used",
+      "salary": "salary",
+      "salary_min": "salary_min",
+      "salary_max": "salary_max",
+      "salary_predicted": "salary_predicted",
+      "seniority": "seniority",
+      "remote_type": "remote_type",
+      "location_finest": "metro_area",
+      "expected_hires": "expected_hires (predicted; capacity sensitivity only, primary capacity = 1)",
+      "education_requirement": null,
+      "opening_count": null
+    },
+    "employer_attributes": {
+      "agency_flag": "name-based heuristic on company (staffing, recruit, talent, agency); modeled",
+      "company_table_optional": {
+        "table": "FILL or null",
+        "join_key": "rcid",
+        "headcount_field": "FILL or null (if null, Q_j = seniority + within-cell salary percentile)",
+        "naics_field": "FILL or null (if present, replaces name heuristic with NAICS 5613)"
+      }
+    },
+    "diagnostics_to_record": {
+      "rows_by_month": null,
+      "stated_salary_share_by_month": null,
+      "stated_salary_share_by_occupation_group": null,
+      "hourly_conversion_share": null,
+      "remote_share": null,
+      "unresolved_employer_share": null,
+      "top_employer_portfolio_share": null,
+      "stop_rule": "if stated-salary share < 0.70 in NY metro, stop and revisit design"
+    },
+    "table_last_updated": "2026-11-03"
+  },
+  "month_split": {
+    "note": "Named before inspecting frozen-month outcomes. experiments_jobs.run refuses non-development months unless frozen.",
+    "development": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07"
+    ],
+    "frozen_comparison": [
+      "2025-08",
+      "2025-09",
+      "2025-10"
+    ],
+    "held_out_replication": [
+      "2025-11",
+      "2025-12"
+    ],
+    "arrival_window_days": 7
+  },
+  "seekers": {
+    "source": "ACS 2020-2024 five-year PUMS, person file, 55 NYC PUMAs (scripts/fetch_census_pums.py)",
+    "download_url": "FILL",
+    "downloaded_on": null,
+    "geography": "five boroughs only; postings span the NY metro (known mismatch, read as commuting)",
+    "puma_crosswalk_url": "FILL",
+    "filters": {
+      "age": [
+        22,
+        64
+      ],
+      "esr_in": [
+        1,
+        2,
+        3
+      ],
+      "wagp_gt": 0,
+      "socp_nonmissing": true
+    },
+    "weight": "PWGTP",
+    "group_variable": "WAGP in July 2026 dollars",
+    "group_cutoff_rule": "person-weighted median WAGP*ADJINC of all NYC seekers in the frame",
+    "group_cutoff_value": null,
+    "sensitivity_group_variable": "SCHL >= bachelor's",
+    "donor_partition": {
+      "hash": "crc32(SERIALNO|SPORDER) mod 100",
+      "calibration": "< 70",
+      "evaluation": ">= 70",
+      "use": "calibration configs use donors=calibration; pilot used all; frozen comparison uses evaluation"
+    },
+    "local_file": "census_pums/acs_pums_2020_2024_nyc_persons.csv",
+    "experience_proxy": "min((AGEP - 22) // 6, 6) on the 1..7 seniority scale; modeled, crude",
+    "pums_occupation_codes": {
+      "wildcards": "X and a sixth-digit 0 (broad occupation) match any detailed code under them",
+      "291141": "exact; 3,429 records",
+      "533032": "seekers coded 533030 (driver/sales workers and truck drivers); 2,710",
+      "412031": "exact; 3,933 (412010 cashiers is a separate broad code)",
+      "311131": "exact 1,756 plus 31113X 117"
+    }
+  },
+  "dollars": {
+    "convention": "posting month: ACS 2024 dollars x CPI-U(posting month)/CPI-U(2024 annual average)",
+    "cpi_file": "data/reference/cpi_u_us_city_average.csv",
+    "cpi_coverage": "through 2026-09",
+    "adjinc_applied": true
+  },
+  "feasibility": {
+    "primary": {
+      "occupation": "6-digit SOC match, PUMS wildcards as above",
+      "pay": "posted salary midpoint >= 0.8 x prior wage",
+      "level": "posting seniority <= seeker experience + 2 (one-sided)",
+      "education": "dropped: extract has no education field",
+      "location": "NY metro (finest field in the extract); remote_type kept: Fully In Office, Partially In Office"
+    },
+    "sensitivity": {
+      "nolevel": "level_gap = 99",
+      "superseded": "symmetric |gap| <= 2 left 47% of higher-wage seekers with no option"
+    },
+    "capacity": "one opening per posting; expected_hires (predicted, capped at 5) is a sensitivity via slot expansion"
+  },
+  "preferences": {
+    "seeker_score": "w_w log(s/W) + w_q Q - w_f fit + sigma_r eps; Q = standardized log salary + 0.5 x common shock; fit = |level gap| capped at 2",
+    "fixed": {
+      "w_q": 1.0,
+      "w_f": 0.5,
+      "common_shock": 0.5,
+      "distance": "none (no location finer than metro)"
+    },
+    "calibration": {
+      "grid": {
+        "w_wage": [
+          1,
+          2,
+          4
+        ],
+        "seeker_noise": [
+          0.5,
+          0.75,
+          1.25
+        ]
+      },
+      "script": "experiments_jobs/calibrate.py",
+      "config": "configs/jobs_calibrate.json",
+      "markets": "natural, 64 per side, calibration donors, dev months, seeds 1000-1019",
+      "target": "Atlanta Fed Wage Growth Tracker, job switchers, p25/p50/p75 (national; known mismatch)",
+      "target_values": null,
+      "status": "not run before freezing"
+    },
+    "selected": {
+      "w_wage": 2.0,
+      "seeker_noise": 0.75,
+      "loss": null,
+      "status": "UNCALIBRATED: pilot values, frozen without running calibrate.py; report as such"
+    },
+    "employer_priority": "1.0 x 1[prior wage in 0.8 min .. 1.2 max] + 0.5 x 1[experience >= seniority] + eta; no education term",
+    "employer_pay_band_sensitivity": [
+      0,
+      1.0,
+      2.5
+    ]
+  },
+  "shortlist_policies": {
+    "k": "min(5, feasible postings); q50 arm shows ceil(0.5 x feasible); report q50 or degree-stratified alongside k = 5",
+    "policies": [
+      "uniform",
+      "transparent",
+      "salary_max",
+      "salary_min",
+      "under_leveled",
+      "llm"
+    ],
+    "comparator_for_llm": "transparent (the honest relevance ranker), not uniform",
+    "llm": {
+      "route": "huit_api_platform",
+      "model": "gpt-6-luna",
+      "client": "hiddenoptions/jobs/llm.py (OpenAI-format chat, sequential, cached)",
+      "prompt_fields": [
+        "occupation label",
+        "years of experience (age proxy)",
+        "bachelor's or not",
+        "pay floor = 0.8 x prior wage",
+        "anonymized posting ID",
+        "posted salary range",
+        "seniority label"
+      ],
+      "prompt_excludes": [
+        "company",
+        "rcid",
+        "job_id",
+        "posting text",
+        "wage-group flag"
+      ],
+      "guard": "run refuses unless the route is in revelio_2025_manifest.json approved_llm_routes",
+      "temperature": "unset",
+      "model_note": "no dated snapshot on the model page; model_returned and sent_at logged per request",
+      "reasoning_effort": "none",
+      "max_completion_tokens": 300,
+      "endpoint": "https://go.apis.huit.harvard.edu/ais-openai-direct-comdev/v2 (chat completions), key in api-key header",
+      "ping": "2026-11-15: ok, 342 input / 26 output tokens, valid IDs",
+      "exposures": [
+        "llm_k5",
+        "llm_q50"
+      ],
+      "run_dates": []
+    }
+  },
+  "license": {
+    "wrds_terms_url": "https://wrds-www.wharton.upenn.edu/users/tou/",
+    "wrds_ai_policy_url": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
+    "revelio_contact_date": "2026-11-09",
+    "revelio_response_date": "2026-11-09",
+    "revelio_response_summary": "Use of the data in protected LLM environments (HUIT AI Sandbox) is permitted.",
+    "publication_citation": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
+    "wrds_bibliographic_citation": "Wharton Research Data Services. \"WRDS\" wrds.wharton.upenn.edu, accessed 2026-11-09.",
+    "revelio_bibliographic_citation": "Revelio Labs. Job Postings dataset, accessed via Wharton Research Data Services, 2026-11-09.",
+    "published_outputs_contain_raw_postings": false,
+    "llm_route_approvals": {
+      "huit_ai_sandbox": {
+        "revelio": "2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted"
+      },
+      "huit_api_platform": {
+        "huit": "FILL: date and wording of HUIT's reply / FAQ statement that inputs are not used for training; Level 3 approved",
+        "revelio": "FILL: date and wording of Revelio's confirmation for the API route",
+        "data_classification": "licensed research data, no personal information; judged Level 3 or below"
+      }
+    }
+  },
+  "rng": {
+    "seed_blocks": 20,
+    "keys": {
+      "seeker": null,
+      "posting": null,
+      "pair": null,
+      "policy": null
+    }
+  },
+  "code": {
+    "repo": "FILL",
+    "commit": "FILL: commit hash that runs the frozen comparison",
+    "source_hashes": {}
+  },
+  "cells": {
+    "unit": "one 6-digit SOC occupation x one posting month",
+    "primary": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "high_wage_sensitivity": [
+      "113031",
+      "151252"
+    ],
+    "why_not_2_digit": "feasibility needs a 6-digit match; 2-digit groups gave about 2 feasible postings per seeker"
+  },
+  "sampling": {
+    "primary": "stratified: half lower-wage, half higher-wage seekers, both with >= 1 feasible posting in the cell; half of postings from the cell's top salary quartile (posting_band = top)",
+    "why_top": "the oversample favors the group the feasibility cap binds; the pay floor binds higher-wage seekers",
+    "variants": {
+      "natural": "no stratification",
+      "bottomband": "housing-style bottom quartile (pilot only)"
+    },
+    "n_per_side": 24,
+    "seeds": 20,
+    "firm_sampling": "clustered, 3 postings per sampled employer",
+    "seeker_firms": "synthetic agents of 6 seekers, random assignment",
+    "audit_costs": "unit"
+  },
+  "pilot": {
+    "config": "configs/jobs_pilot.json",
+    "markets": 960,
+    "summary": "jobs_experimental_setup.md section 6",
+    "superseded_runs": [
+      "symmetric level rule (800 markets)",
+      "bottom-quartile oversample (800; reproduced by bottomband)"
+    ]
+  },
+  "freeze_checklist_status": {
+    "calibration": "skipped (uncalibrated values frozen)",
+    "provenance_sha256_bytes": "FILL",
+    "viability_reviewed": "FILL",
+    "code_commit": "FILL"
+  }
+}

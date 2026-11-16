@@ -128,6 +128,15 @@
     "bottomband and nolevel are omitted: the pilot showed bottomband is dominated and the level rule is almost never binding. Add them back only as named sensitivities.",
     "llm_k5 and llm_q50 are skipped (not failed) until results/llm/jobs_frozen/recs.jsonl exists. Do not rename them after a run.",
     "Leave temperature unset unless the pinned model accepts it; record the choice in the manifest either way.",
-    "llm: gpt-6-luna via the HUIT API Platform, reasoning_effort none, chosen 2026-11 for cost ($0.10/$0.50 per M tokens). The model page lists no dated snapshot, so record the model string the API returns (logged as model_returned) and the run dates."
+    "llm: gpt-6-luna via the HUIT API Platform, reasoning_effort none, chosen 2026-11 for cost ($0.10/$0.50 per M tokens). The model page lists no dated snapshot, so record the model string the API returns (logged as model_returned) and the run dates.",
+    "protect: protected repairs for lower-wage seekers and for everyone (audit.ProtectedOracle, Todd's section 2). Added after the frozen run as a later analysis, per the protocol; logged as such. The LLM answers are cached."
+  ],
+  "protect": [
+    "lower",
+    "all"
+  ],
+  "protect_methods": [
+    "reverse_delete",
+    "exact_prefix"
   ]
 }

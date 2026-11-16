@@ -75,6 +75,7 @@ class JobMarketSpec:
     n_postings: int = 24
     share: float = RESERVATION_SHARE  # salary floor as a share of prior wage
     level_gap: int = MAX_LEVEL_GAP  # a posting more than this many levels ABOVE the seeker is infeasible; large value = off
+    donors: str = "all"  # "calibration" (70% of donor persons), "evaluation" (the other 30%) or "all"; fixed hash, see load_seekers
     design: str = "stratified"  # "stratified" or "natural"
     lower_share: float = 0.5
     band_share: float = 0.5  # stratified: share of postings drawn from the salary band below
@@ -198,8 +199,13 @@ def load_seekers() -> pd.DataFrame:
         "serialno": p[c["serialno"]], "sporder": p[c["sporder"]], "weight": p[c["weight"]].astype(float), "puma": p[c["puma"]],
         "wage_2024": wage, "soc": p[c["soc"]].astype(str).str.strip().str.slice(0, 6), "schl": p[c["schl"]].astype(int),  # kept only for the bachelor's-or-not sensitivity grouping
         "experience": np.clip((p[c["age"]] - 22) // 6, 0, 6).astype(int),  # proxy on the seniority scale; modeled
+        "years_experience": np.clip(p[c["age"]] - 22, 0, None).astype(int),  # for the LLM prompt only; same proxy, in years
+        "bachelors": p[c["schl"]] >= 21,
     })
     out["cell"] = out.soc.str.slice(0, 2)
+    # Donor partition: a fixed hash of serial number and person number, so calibration and evaluation never share a Census record.
+    h = (out.serialno.astype(str) + "|" + out.sporder.astype(str)).map(lambda k: zlib.crc32(k.encode()) % 100)
+    out["donor_pool"] = np.where(h < 70, "calibration", "evaluation")
     cut = weighted_median(out.wage_2024.to_numpy(), out.weight.to_numpy())
     out["lower_wage"] = out.wage_2024 <= cut
     out["lower_income"] = out.lower_wage  # alias so metrics.py works unchanged; drop once metrics reads market.groups
@@ -217,11 +223,24 @@ CPI_CSV = ROOT / "data" / "reference" / "cpi_u_us_city_average.csv"  # same file
 
 def cpi_factor(month: str) -> float:
     """Multiply 2024 dollars (ACS WAGP * ADJINC) by this to get dollars of `month` (YYYY-MM), the posting month.
-    Identical to hiddenoptions.data.cpi_factor, so seeker wages and posted salaries are compared in the same month's dollars."""
+    Matches hiddenoptions.data.cpi_factor, except that a month with no published index (October 2025 was never released,
+    because of the federal shutdown) is interpolated linearly from the neighboring months, with a warning."""
     t = pd.read_csv(CPI_CSV, dtype={"period": str})
+    t["value"] = pd.to_numeric(t["value"], errors="coerce")
     base = t.loc[(t.year == 2024) & (t.period == "M13"), "value"].iloc[0]
-    now = t.loc[(t.year == int(month[:4])) & (t.period == f"M{int(month[5:]):02d}"), "value"].iloc[0]
-    return float(now) / float(base)
+    monthly = t[t.period != "M13"].assign(ym=lambda d: d.year.astype(str) + "-" + d.period.str[1:]).set_index("ym")["value"].sort_index()
+    value = monthly.get(month, np.nan)
+    if not np.isfinite(value):
+        y, m = int(month[:4]), int(month[5:])
+        prev_m = f"{y - (m == 1)}-{(m - 2) % 12 + 1:02d}"
+        next_m = f"{y + (m == 12)}-{m % 12 + 1:02d}"
+        lo, hi = monthly.get(prev_m, np.nan), monthly.get(next_m, np.nan)
+        if not (np.isfinite(lo) and np.isfinite(hi)):
+            raise ValueError(f"no CPI for {month} and cannot interpolate ({prev_m}={lo}, {next_m}={hi})")
+        value = (lo + hi) / 2
+        import warnings
+        warnings.warn(f"CPI-U for {month} is missing; using the mean of {prev_m} and {next_m} ({value:.3f})", stacklevel=2)
+    return float(value) / float(base)
 
 
 def feasible(seekers: pd.DataFrame, postings: pd.DataFrame, share: float, level_gap: int = MAX_LEVEL_GAP) -> np.ndarray:
@@ -241,12 +260,13 @@ class JobCatalog:
         self.postings = {m: load_postings(m) for m in months}
         self.frames: dict = {}
 
-    def frame(self, cell, month, share, level_gap=MAX_LEVEL_GAP):
-        key = (cell, month, share, level_gap)
+    def frame(self, cell, month, share, level_gap=MAX_LEVEL_GAP, donors="all"):
+        key = (cell, month, share, level_gap, donors)
         if key not in self.frames:
             # A cell is a SOC prefix. Six-digit cells (one occupation) give dense feasibility; 2-digit groups are too sparse
             # for 24x24 markets because feasibility needs a 6-digit match.
-            s = self.seekers if cell is None else self.seekers[soc_in_cell(self.seekers.soc, cell)]
+            s = self.seekers if donors == "all" else self.seekers[self.seekers.donor_pool == donors]
+            s = s if cell is None else s[soc_in_cell(s.soc, cell)]
             p = self.postings[month] if cell is None else self.postings[month][self.postings[month].soc.str.startswith(cell)]
             if len(s) == 0 or len(p) == 0:
                 raise ValueError(f"cell {cell!r} month {month}: {len(s)} seekers and {len(p)} postings; pick another cell or month")
@@ -286,7 +306,7 @@ def _sample_postings(rng, pool, k, spec):
 
 
 def sample_people(spec: JobMarketSpec, catalog: JobCatalog):
-    frame, pool = catalog.frame(spec.cell, spec.month, spec.share, spec.level_gap)
+    frame, pool = catalog.frame(spec.cell, spec.month, spec.share, spec.level_gap, spec.donors)
     s_rng, p_rng = _rng(spec, "seekers"), _rng(spec, "postings")
     if spec.design == "natural":
         seekers = _weighted_sample(s_rng, frame, spec.n_seekers, "weight")

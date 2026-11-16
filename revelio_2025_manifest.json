@@ -25,8 +25,8 @@
   "pulled_at_utc": "2026-11-09T00:00:00+00:00",
   "pulled_by": "Elaine Z.",
   "local_file": "data/job_postings/raw/revelio_job_postings.csv",
-  "bytes": null,
-  "sha256": "FILL",
+  "bytes": 727863065,
+  "sha256": "630d2e2fa46375c2a0cda1391cd6723af1f2da4d0ced30676439ae28f13eeb88",
   "n_rows": 3271955,
   "n_columns": 18,
   "columns": [
@@ -62,15 +62,21 @@
   "license_and_usage": {
     "wrds_terms_of_use": "https://wrds-www.wharton.upenn.edu/users/tou/",
     "wrds_ai_policy": "https://wrds-www.wharton.upenn.edu/pages/about/ai-policy-on-chatgpt-and-other-generative-ai-tools/",
-    "vendor_approval": "Revelio Labs (research@reveliolabs.com), 2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted.",
+    "vendor_approval": {
+      "huit_ai_sandbox": "Revelio Labs (research@reveliolabs.com), 2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted.",
+      "huit_api_platform": "Revelio Labs confirmed use through the HUIT API Platform (OpenAI Direct). 2026-11-13."
+    },
     "required_acknowledgment": "Wharton Research Data Services (WRDS) was used in preparing this research. This service and the data available thereon constitute valuable intellectual property and trade secrets of WRDS and/or its third-party suppliers.",
-    "approved_llm_routes": ["huit_api_platform"],
+    "approved_llm_routes": [
+      "huit_api_platform"
+    ],
     "our_usage_rules": [
       "Non-commercial academic use (COMPSCI 2880).",
       "Do not commit or redistribute the extract or any posting-level rows; keep data/ git-ignored. The SQL query may be committed.",
       "Do not share the extract with anyone outside Harvard's WRDS subscription; each teammate must use their own WRDS account.",
       "May only use data in approved protected LLM instances.",
       "Publish aggregates and synthetic market files only; no row with a job_id or rcid beside a salary."
-    ]
+    ],
+    "huit_confirmation": "HUIT API Platform approved for Level 3 data; no-training terms per HUIT FAQ (portal docs, ais-openai-direct-limited)."
   }
 }
