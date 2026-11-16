@@ -1,0 +1,7 @@
+{
+  "source_sha256": {
+    "../hidden-blocking-pairs/artifact/experiments/independent_core_analysis.json": "27af13d77f791948fd736015f7d5f28634ea80c444c57c44e72526b48b301425",
+    "../hidden-blocking-pairs/artifact/experiments/extended_summary.json": "70927ed3a4e773a9b562592a7d42c76b9a435b60d6b572595892a14acd34ffd3"
+  },
+  "note": "Extract of previously recorded experiments; no new experimental results."
+}

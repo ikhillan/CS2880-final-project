@@ -1,0 +1,419 @@
+{
+  "root_seed": 20261113,
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.17.1"
+  },
+  "source_sha256": {
+    "hiddenoptions/markets.py": "f3183157830a2f0ac4d90a1673f909ba0413a485adc0dac73a0cf9d0ae1831b5",
+    "hiddenoptions/data.py": "5b7ce96b8dbd7538812797bed34aeb1bb0ade7fbad318b16a591d45cbb0288e0",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293",
+    "2026-06.manifest.json": "ecad8499dbf2a7707b130fc7a13c7e21bdb352add8aceccc2aace2e62675b242",
+    "2026-07.manifest.json": "45f76b5b9560cc469b7a683963a92b6f5f9bd44274595ef1002ff15d3c73419d",
+    "2026-08.manifest.json": "d1c6d8c6744bb13151e4b48a02e5b702e4d65bf96636bd6c8faaa3011ab06c3f"
+  },
+  "calibration_sha256": "121cd5e62fad4d2cdd718e259dcc28100e53fcae232aff40d4110dfe5007b1f6",
+  "clean_csv_sha256": {
+    "2026-06": "48ea3bcf27fac9bbb567c62a947180ebd30b25aa8c0d3e9237b37911954f06d2",
+    "2026-07": "fd241ff452dd5a3cf8308a9c9897685846af1daa303a872793d04d6406d5903c",
+    "2026-08": "a13e760217d09b55a03f53660caf723b5a258ba6e0e46c2a16f77d1c4754db7c"
+  },
+  "markets": 240,
+  "all_renter_instances": 15360,
+  "lower_income_renter_instances": 6454,
+  "lower_income_placement_volume": 217,
+  "threshold_quantile": 0.25,
+  "target_burden": 0.2199839004890494,
+  "threshold_required_count": 55,
+  "indices": "Rows are lower-income-only renter positions in the original draw; columns index a nested listing permutation. Markets traverse borough, month, then seed as in code.",
+  "sizes": [
+    {
+      "size": 32,
+      "price_floor": 0,
+      "pooled_threshold_capacity": 2,
+      "per_market_match_volume_threshold_upper_bound": 2,
+      "original_matched_renters_threshold_upper_bound": 2,
+      "full_eligible_capacity": 466,
+      "distinct_month_borough_uid_with_any_threshold_edge": 2,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Queens": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Bronx": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        }
+      },
+      "exact_minimum_q25": 0.29143495021849847,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 2,
+      "attaining_placements": 217
+    },
+    {
+      "size": 64,
+      "price_floor": 0,
+      "pooled_threshold_capacity": 2,
+      "per_market_match_volume_threshold_upper_bound": 2,
+      "original_matched_renters_threshold_upper_bound": 2,
+      "full_eligible_capacity": 804,
+      "distinct_month_borough_uid_with_any_threshold_edge": 2,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Queens": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Bronx": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        }
+      },
+      "exact_minimum_q25": 0.2777728048058696,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 2,
+      "attaining_placements": 217
+    },
+    {
+      "size": 128,
+      "price_floor": 0,
+      "pooled_threshold_capacity": 9,
+      "per_market_match_volume_threshold_upper_bound": 7,
+      "original_matched_renters_threshold_upper_bound": 6,
+      "full_eligible_capacity": 1128,
+      "distinct_month_borough_uid_with_any_threshold_edge": 5,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Queens": {
+          "threshold_capacity": 2,
+          "markets": 60,
+          "threshold_markets_positive": 2
+        },
+        "Bronx": {
+          "threshold_capacity": 6,
+          "markets": 60,
+          "threshold_markets_positive": 6
+        }
+      },
+      "exact_minimum_q25": 0.26851371131234064,
+      "capacity_strictly_below": 53,
+      "capacity_at_minimum_q25": 56,
+      "threshold_capacity_or_upper_bound": 9,
+      "attaining_placements": 217
+    },
+    {
+      "size": 256,
+      "price_floor": 0,
+      "pooled_threshold_capacity": 16,
+      "per_market_match_volume_threshold_upper_bound": 12,
+      "original_matched_renters_threshold_upper_bound": 11,
+      "full_eligible_capacity": 1400,
+      "distinct_month_borough_uid_with_any_threshold_edge": 5,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Queens": {
+          "threshold_capacity": 4,
+          "markets": 60,
+          "threshold_markets_positive": 3
+        },
+        "Bronx": {
+          "threshold_capacity": 11,
+          "markets": 60,
+          "threshold_markets_positive": 11
+        }
+      },
+      "exact_minimum_q25": 0.2529108875468937,
+      "capacity_strictly_below": 53,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 16,
+      "attaining_placements": 217
+    },
+    {
+      "size": "whole",
+      "price_floor": 0,
+      "pooled_threshold_capacity": 178,
+      "per_market_match_volume_threshold_upper_bound": 43,
+      "original_matched_renters_threshold_upper_bound": 38,
+      "full_eligible_capacity": 2336,
+      "distinct_month_borough_uid_with_any_threshold_edge": 13,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 77,
+          "markets": 60,
+          "threshold_markets_positive": 41
+        },
+        "Queens": {
+          "threshold_capacity": 73,
+          "markets": 60,
+          "threshold_markets_positive": 39
+        },
+        "Bronx": {
+          "threshold_capacity": 28,
+          "markets": 60,
+          "threshold_markets_positive": 28
+        }
+      },
+      "exact_minimum_q25": 0.18461357635387135,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 178,
+      "attaining_placements": 217,
+      "same_market_counts": {
+        "exact_minimum_q25": 0.22352088757044977,
+        "capacity_strictly_below": 54,
+        "capacity_at_minimum_q25": 55,
+        "threshold_capacity_or_upper_bound": 43,
+        "attaining_placements": 217
+      },
+      "original_recipients": {
+        "exact_minimum_q25": 0.2245912697930372,
+        "capacity_strictly_below": 54,
+        "capacity_at_minimum_q25": 55,
+        "threshold_capacity_or_upper_bound": 38,
+        "attaining_placements": 217
+      }
+    },
+    {
+      "size": 32,
+      "price_floor": 1000,
+      "pooled_threshold_capacity": 2,
+      "per_market_match_volume_threshold_upper_bound": 2,
+      "original_matched_renters_threshold_upper_bound": 2,
+      "full_eligible_capacity": 466,
+      "distinct_month_borough_uid_with_any_threshold_edge": 2,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Queens": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Bronx": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        }
+      },
+      "exact_minimum_q25": 0.29143495021849847,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 2,
+      "attaining_placements": 217
+    },
+    {
+      "size": 64,
+      "price_floor": 1000,
+      "pooled_threshold_capacity": 2,
+      "per_market_match_volume_threshold_upper_bound": 2,
+      "original_matched_renters_threshold_upper_bound": 2,
+      "full_eligible_capacity": 804,
+      "distinct_month_borough_uid_with_any_threshold_edge": 2,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Queens": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Bronx": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        }
+      },
+      "exact_minimum_q25": 0.2777728048058696,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 2,
+      "attaining_placements": 217
+    },
+    {
+      "size": 128,
+      "price_floor": 1000,
+      "pooled_threshold_capacity": 8,
+      "per_market_match_volume_threshold_upper_bound": 7,
+      "original_matched_renters_threshold_upper_bound": 6,
+      "full_eligible_capacity": 1127,
+      "distinct_month_borough_uid_with_any_threshold_edge": 4,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Queens": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Bronx": {
+          "threshold_capacity": 6,
+          "markets": 60,
+          "threshold_markets_positive": 6
+        }
+      },
+      "exact_minimum_q25": 0.26851371131234064,
+      "capacity_strictly_below": 52,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 8,
+      "attaining_placements": 217
+    },
+    {
+      "size": 256,
+      "price_floor": 1000,
+      "pooled_threshold_capacity": 14,
+      "per_market_match_volume_threshold_upper_bound": 12,
+      "original_matched_renters_threshold_upper_bound": 11,
+      "full_eligible_capacity": 1398,
+      "distinct_month_borough_uid_with_any_threshold_edge": 4,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 1,
+          "markets": 60,
+          "threshold_markets_positive": 1
+        },
+        "Queens": {
+          "threshold_capacity": 2,
+          "markets": 60,
+          "threshold_markets_positive": 2
+        },
+        "Bronx": {
+          "threshold_capacity": 11,
+          "markets": 60,
+          "threshold_markets_positive": 11
+        }
+      },
+      "exact_minimum_q25": 0.2545246192026325,
+      "capacity_strictly_below": 54,
+      "capacity_at_minimum_q25": 55,
+      "threshold_capacity_or_upper_bound": 14,
+      "attaining_placements": 217
+    },
+    {
+      "size": "whole",
+      "price_floor": 1000,
+      "pooled_threshold_capacity": 138,
+      "per_market_match_volume_threshold_upper_bound": 41,
+      "original_matched_renters_threshold_upper_bound": 36,
+      "full_eligible_capacity": 2299,
+      "distinct_month_borough_uid_with_any_threshold_edge": 11,
+      "by_borough": {
+        "Manhattan": {
+          "threshold_capacity": 0,
+          "markets": 60,
+          "threshold_markets_positive": 0
+        },
+        "Brooklyn": {
+          "threshold_capacity": 57,
+          "markets": 60,
+          "threshold_markets_positive": 21
+        },
+        "Queens": {
+          "threshold_capacity": 53,
+          "markets": 60,
+          "threshold_markets_positive": 38
+        },
+        "Bronx": {
+          "threshold_capacity": 28,
+          "markets": 60,
+          "threshold_markets_positive": 28
+        }
+      },
+      "exact_minimum_q25": 0.19870014637113204,
+      "capacity_strictly_below": 53,
+      "capacity_at_minimum_q25": 62,
+      "threshold_capacity_or_upper_bound": 138,
+      "attaining_placements": 217,
+      "same_market_counts": {
+        "exact_minimum_q25": 0.22395341215246586,
+        "capacity_strictly_below": 54,
+        "capacity_at_minimum_q25": 55,
+        "threshold_capacity_or_upper_bound": 41,
+        "attaining_placements": 217
+      },
+      "original_recipients": {
+        "exact_minimum_q25": 0.22608854492499078,
+        "capacity_strictly_below": 54,
+        "capacity_at_minimum_q25": 55,
+        "threshold_capacity_or_upper_bound": 36,
+        "attaining_placements": 217
+      }
+    }
+  ]
+}

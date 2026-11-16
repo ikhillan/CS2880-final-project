@@ -1,0 +1,3 @@
+# Companion geographic standardization
+
+After reviewing the main evaluator and before the sensitivity scores arrived or any new screening outcomes were generated, we added a second descriptive standardization. In each block, average the twelve cell-specific group match rates using the same fixed geographic weights for every group. All eligible groups are present in every selected cell. This companion answers a different question from the prespecified ratio of weighted group counts because group proportions can differ across boroughs. Preserve both estimators in the output. Use the original estimator for primary sensitivity reporting.

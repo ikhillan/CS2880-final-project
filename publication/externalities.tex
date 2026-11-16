@@ -1,0 +1,42 @@
+% Section fragment; uses amsthm theorem/corollary environments.
+\section{Displacement under deferred acceptance}\label{sec:menu}
+Fix unit capacities, strict preferences and individually acceptable visible edges. Incumbents' visible lists and listing priorities over incumbents stay fixed. Outsiders' lists can change. Let $I$ be the incumbents, $H$ the outsiders and $S$ the listings. For $V\subseteq S$, let $F(V)$ be the set of applicants matched by DA in the market of $I$ alone with stock $V$. Restrict lists and priorities to the remaining participants. An incumbent's partner can change even when their match status stays fixed.
+
+\begin{theorem}[Competitors' occupied listings]\label{thm:occupied-seats}
+Consider any outcome stable on the display graph of all participants. Write $T$ for the listings occupied by $H$. The set of matched incumbents is exactly $F(S\setminus T)$. If $T$ changes to $T'$, at most $|T'\setminus T|$ incumbents lose a match, and at most $|T\setminus T'|$ gain one. Both bounds hold for any subset of the incumbents.
+\end{theorem}
+\begin{proof}
+Delete all outsiders and their occupied listings. The retained assignments are stable in the residual market because a residual blocking pair would already have blocked the original matching. All stable outcomes of the residual market match the same applicants \citep{galesoto,roth1986}. Its DA thus matches precisely the retained applicants. The argument uses consistency of the stable correspondence \citep{sasaki}. Some remaining applicants can change partners on recomputation.
+
+Run listing-proposing DA on $V$ and retain every proposer's next-choice pointer. Delay a new listing's entry until this run finishes, then let it propose. Each previously held applicant can only trade up among offers and stays matched. The single free proposer continues until a listing exhausts its list or an unmatched applicant holds an offer. Thus adding one listing expands the matched applicant set by zero or one. Matched-set invariance transfers the result to applicant-proposing DA. For two stocks $V,V'$, both $F(V)$ and $F(V')$ contain $F(V\cap V')$. Adding the listings in $V\setminus V'$ one at a time bounds $|F(V)\setminus F(V')|$ by $|V\setminus V'|$. Interchanging $V,V'$ gives the gain bound. Substitute $V=S\setminus T$ and $V'=S\setminus T'$.
+\end{proof}
+
+Theorem~\ref{thm:occupied-seats} conditions on the listings outsiders obtain. Anticipating that set can still require solving the counterfactual market. For one outsider $h$, we can identify the affected incumbent before choosing the shortlist. For each listing $s$, let $\ell(s)$ be the sole member of $F(S)\setminus F(S\setminus\{s\})$ or a null label $0$ when this set is empty. Set $\ell(\bot)=0$. The menu $A_h$ consists of listings that give $h$ a match when $h$ lists them alone and the other lists stay fixed.
+
+\begin{corollary}[A menu with displacement labels]\label{cor:displacement}
+For a displayed subset $L$ of $h$'s $d$ feasible options, let $w(L)$ be the true favorite in $L\cap A_h$, or $\bot$ if this intersection is empty. Applicant-proposing DA matches $h$ to $w(L)$. Relative to the market without $h$, the missing incumbent is exactly $\ell(w(L))$ if that label is nonzero. For $G\subseteq I$, the change in its number of matched members under $L\to L'$ is
+\[
+ \mathbf1\{\ell(w(L))\in G\}-\mathbf1\{\ell(w(L'))\in G\}.
+\]
+\end{corollary}
+\begin{proof}
+If $h$ receives $s\ne\bot$ under $L$, restricting $h$ to $\{s\}$ preserves this matching's stability. Matched-set invariance implies $h$ is matched under the singleton report and must receive $s$, as in \citep{papai}. Every $j\in L\cap A_h$ is attainable by reporting $j$ alone. If $h$ preferred $j$ to the current partner, or were unmatched despite such an option, that deviation would improve on truthful DA for the preference ordering restricted to $L$, contrary to applicant strategyproofness \citep{roth82}. This is the DA menu principle \citep{menus}. With one outsider the occupied set is empty or consists of their assigned listing. Apply Theorem~\ref{thm:occupied-seats} and take the difference of group counts.
+\end{proof}
+
+The listing that accepts $h$ can displace an incumbent who had occupied a different listing. The same identity labels serve every subsequent choice of protected group.
+
+Appendix~\ref{app:menus} derives the exact distribution under uniform quota sampling and the space needed to encode these labels.
+
+\subsection{From one edited list to an entire rollout}
+Let $G$ be the group whose lists stay fixed and $H$ the set of editors. For $D\subseteq H$ let $f(D)$ be the number matched in $G$ if exactly the editors in $D$ receive the new list. Begin with a specified baseline realization of everyone's lists. Write $\delta_i=f(\{i\})-f(\varnothing)$ for the effect of changing $i$ alone. The labels in Corollary~\ref{cor:displacement} calculate $\delta_i$ exactly. Now give each editor the new list independently with probability $p$. If $D_p$ denotes the edited set, let $\Phi(p)=\mathbb{E}[f(D_p)]$.
+
+\begin{proposition}[The local rollout effect]\label{prop:rollout}
+The initial derivative is $\Phi'(0)=\sum_{i\in H}\delta_i$. Even with common listing priorities and one recommendation per applicant, $\Phi'(0)<0$ and $\Phi(1)>\Phi(0)$ can both hold. The discrepancy between the full change and the derivative can grow linearly with the number of editors.
+\end{proposition}
+\begin{proof}
+Expand $\Phi(p)=\sum_{D\subseteq H}f(D)p^{|D|}(1-p)^{|H|-|D|}$. The constant and singleton terms give the derivative at zero, counting the baseline $-|H|f(\varnothing)$ once. For a family of examples take listings $x_1,\ldots,x_m,z$ with one fixed applicant who sees each listing only. At each $x_j$, two editors outrank the fixed applicant and initially see only $x_j$. Each editor's new list consists of $z$. All listings share a strict ordering with editors first. For $m\ge 2$ an isolated move leaves a competitor at $x_j$ and takes $z$, so every $\delta_i=-1$. If all $2m$ move, the original $m$ listings are available and the fixed applicant at $z$ loses their place. The full change is $m-1$, while the derivative is $-2m$. More generally, each $x_j$ is available with probability $p^2$ and $z$ with probability $(1-p)^{2m}$, so $\Phi(p)=mp^2+(1-p)^{2m}$.
+\end{proof}
+
+The result extends to any fixed quota $k$. Add $k$ dummy applicants and $k$ dummy listings. Each dummy applicant ranks a distinct dummy listing first and sees all $k$ dummies. Give every dummy priority over every original applicant at dummy listings; dummy applicants accept only dummy listings. Fill each original list with $k-1$ dummies ranked below its original option. All dummy listings are permanently occupied, preserving the original outcome under every intervention. For any specified order of switching, successive marginal changes telescope to $f(H)-f(\varnothing)$. Computing every marginal at the same baseline discards those interactions. In particular, for a population with a negative initial derivative and positive endpoint change, continuity ensures a sign reversal somewhere along $0<p\le1$.
+
+For quota one the deviation of the joint effect from the sum of the individual effects has sharp bounds (Appendix~\ref{app:menus}).

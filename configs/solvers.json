@@ -1,8 +1,13 @@
 {
   "name": "solvers",
-  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-08"], "sizes": [24, 64], "seeds": 10},
-  "exposures": [{"name": "random_k5", "policy": "random", "k": 5}],
-  "methods": ["reverse_delete", "exhaustive", "exact_assignment", "exact_component", "exact_prefix"],
-  "exhaustive_max_firms": 18,
-  "exact_time_cap": {"24": 30, "64": 30}
+  "_note": "Protocol stage 4 solver controls: the three cut families, prefix cuts without the support master, and baselines. n=12 keeps enough markets under the brute-force limit (private renter firms push n=24 past it).",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-09", "2026-10"], "sizes": [12, 24, 64],
+           "seeds": 10, "seed_start": 1000},
+  "market": {"donors": "evaluation"},
+  "exposures": [{"name": "uniform_k5", "policy": "uniform", "k": 5}],
+  "methods": ["reverse_delete", "blocker_greedy", "prefix_cover", "full_disclosure", "exhaustive",
+              "exact_assignment", "exact_component", "exact_prefix", "exact_prefix_nosupport",
+              "exact_prefix_protect_lower", "exact_prefix_protect_all"],
+  "exhaustive_max_firms": 16,
+  "exact_time_cap": {"12": 300, "24": 300, "64": 900}
 }

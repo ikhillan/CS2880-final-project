@@ -1,0 +1,19 @@
+{
+  "2026-01.csv": {
+    "url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-01.csv",
+    "sha256": "9e3a4b6457647378d94879f017f596f846293e7f5c4cb76745403e59f056ac2b"
+  },
+  "2026-02.csv": {
+    "url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-02.csv",
+    "sha256": "8127567cd66590dd506601257ae1ce16bf6ab78eef72b34cdbedf1223b5585c6"
+  },
+  "2026-03.csv": {
+    "url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-03.csv",
+    "sha256": "9551d1772c95f78254dcfbffce01b2ed4d9d2aad39e0c015c883c9912a9ea7df"
+  },
+  "BLS-snapshot.json": {
+    "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/CUUR0000SA0?startyear=2026&endyear=2026",
+    "sha256": "0a7acd7a8ab979511515614c344088d89fa36f1bbbc8ef12bccb96ef6275e2e8",
+    "reference_table": "https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexhistorical_us_table.htm"
+  }
+}

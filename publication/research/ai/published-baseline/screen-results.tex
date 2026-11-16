@@ -1,0 +1,25 @@
+\subsection{Which results rely on landlord income screening?}
+\label{app:income-stress}
+The screening coefficient is a modeling assumption. In eight seed blocks per season we held the menus, renter rankings, features and trained networks fixed. We drew one independent standard-normal shock per pair. Landlord priorities were the shock plus either zero or $2.5$ times the capped income-to-annual-rent ratio. Changing this coefficient only at allocation time tests how a fixed policy behaves when the landlord rule differs from the training model. We paired both runs on the same shocks in all 384 markets. Our subgroup rate divides the geographically weighted number matched by the weighted number of renters in the group within each block, including renters with no listings. Intervals are marginal 95\% Student intervals over eight paired simulation blocks per season.
+
+\begin{table}[t]
+\centering\small
+\caption{Lower-income match rate when only higher-income renters receive the contextual top-five policy. Uniform and context give percentages. The final column gives the percentage-point difference versus uniform menus and its paired interval.}
+\label{tab:screen-stress}
+\begin{tabular}{llrrrr}
+\toprule
+Supply & Period & Coefficient & Uniform & Context & Difference [95\% interval]\\
+\midrule
+Ordinary & Summer & 0 & 5.40 & 4.95 & $-0.44$ [$-0.90$, $0.02$]\\
+ & & 2.5 & 3.03 & 2.49 & $-0.54$ [$-0.71$, $-0.37$]\\
+ & Winter & 0 & 7.28 & 6.70 & $-0.58$ [$-1.18$, $0.02$]\\
+ & & 2.5 & 4.43 & 3.69 & $-0.74$ [$-1.20$, $-0.28$]\\
+Enriched & Summer & 0 & 51.20 & 55.23 & 4.04 [2.49, 5.58]\\
+ & & 2.5 & 36.96 & 44.69 & 7.72 [5.46, 9.99]\\
+ & Winter & 0 & 54.30 & 58.46 & 4.16 [2.79, 5.53]\\
+ & & 2.5 & 40.01 & 47.48 & 7.47 [5.21, 9.73]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the enriched markets the positive spillover persisted when listings ignored income. Its size fell by 3.69 points in summer [1.75, 5.63] and 3.31 in winter [1.48, 5.14]. Absolute match rates for lower-income renters rose without income screening under both menus (Table~\ref{tab:screen-stress}). With all renters receiving the coordinated contextual menu, its total placement gains over uniform in enriched markets also persisted at coefficient zero, at 1.00 [0.59, 1.40] and 2.12 [0.90, 3.34] points respectively. For ordinary supply that same policy lowered total placement by 3.41 [2.83, 3.98] and 3.20 [2.27, 4.13] points. Marginal intervals and raw rates for every policy and both groups are supplied with the artifact.

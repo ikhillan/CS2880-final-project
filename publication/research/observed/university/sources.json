@@ -1,0 +1,9 @@
+{
+  "publisher": "Ministerio de Educación de Chile, Centro de Estudios; DEMRE",
+  "landing": "https://datosabiertos.mineduc.cl/pruebas-de-admision-a-la-educacion-superior/",
+  "archives": {
+    "2024": ["2024/05/PAES-2024-Postulantes-Totales", "2024/05/PAES-2024-Oferta-Definitiva-Programas"],
+    "2025": ["2025/05/PAES_2025_Postulantes_Totales","2025/05/PAES-2025-Oferta-Definitiva-Programas"],
+    "2026": ["2026/07/PAES-2026-Postulantes","2026/07/PAES-2026-Oferta-Definitiva-Programas"]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "blocks": 100,
+  "seed_start": 2026111300,
+  "shape": [
+    2400,
+    9,
+    64,
+    64
+  ],
+  "n_market": 2400,
+  "order": [
+    "block",
+    "design",
+    "month",
+    "borough"
+  ],
+  "designs": [
+    "uniform",
+    "enriched"
+  ],
+  "months": [
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
+  "boroughs": [
+    "Bronx",
+    "Brooklyn",
+    "Manhattan",
+    "Queens"
+  ],
+  "raw_borough_weights": {
+    "Bronx": 0.11843063377223748,
+    "Brooklyn": 0.3166055407472727,
+    "Manhattan": 0.3595172722474965,
+    "Queens": 0.184940978415536
+  },
+  "prices": [
+    1.0,
+    2.0,
+    4.0
+  ],
+  "noises": [
+    0.5,
+    0.75,
+    1.25
+  ],
+  "reference_matched_vectors": 1296,
+  "sha256": "b02671ebb5763cc083453d7a0373b5eee932c308aaccef075e37688767c0d2ce",
+  "numpy": "2.2.6"
+}

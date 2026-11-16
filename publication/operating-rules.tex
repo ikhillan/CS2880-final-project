@@ -1,0 +1,32 @@
+\section{Choosing the lists before offers and after them}\label{sec:policy}
+A platform that can recommend five programs per applicant has two opportunities to act. Before DA it knows the estimated chance of an offer at each program and the number of seats. Once tentative offers are issued, it also knows which students and seats remain available. The second observation changes what the platform can promise to an individual.
+\input{frontier}
+
+\paragraph{Applying the capacity requirement to national admissions.}
+Starting from the rank-informed network's five suggestions, 177,963 applicants could simultaneously receive a displayed program under some feasible assignment. The full submitted graph allows 179,274. We kept the trained network fixed and required the display to close one quarter, one half, three quarters or all of this 1,311-seat gap. The predicted number of covered offers fell by only 20.19 at the maximum target. Yet program priorities and applicant choices matter: only 19 additional applicants were placed by DA. Twenty-nine previously unmatched people gained and ten previously matched people lost a place relative to the unmodified top five. Even though we allowed more simultaneous assignments, no extra applicant was placed at either of the two intermediate targets below three quarters. Table~\ref{tab:capacity-policy} gives the full sequence.
+
+\begin{table}[ht]\centering\small
+\caption{Same rank-informed network and same 189,399 university applicants. A feasible assignment witnesses each capacity target. Predicted loss is the sum of the covered probability mass sacrificed across applicants, in units of expected covered offers. The last column is DA's change in the number placed relative to the original model menus.}
+\label{tab:capacity-policy}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Fraction of gap & Visible capacity & Displayed slots changed & Predicted loss & DA gain\\\midrule
+None & 177,963 & 0 & 0 & 0\\
+One quarter & 178,291 & 380 & 0.0025 & 0\\
+One half & 178,619 & 740 & 0.1091 & 0\\
+Three quarters & 178,947 & 1,285 & 1.9099 & 6\\
+All & 179,274 & 2,132 & 20.1886 & 19\\\bottomrule
+\end{tabular}\end{table}
+
+We solved the capacitated min-cost flow using replacement costs rounded to billionths. The optima are exact for those integers. The difference from an optimum for unrounded scores is at most $r/10^9$ in total predicted coverage (less than 0.00018 here). We independently certified all eight positive-target integer objectives by matching each primal value to a feasible dual lower bound. A separate flow and cut certify each reported visible capacity. Reordering the flow arcs twice changed some optimal lists while giving the same 19 extra placements at the maximum target. With menus fixed, substituting 0\%, 25\%, 50\% or 75\% of published overbooking for the full amount gave placement gains of 48, 37, 16 and 21. The blind model's full-capacity display added 28 places at the published capacity. The rental simulations give a different scale: the exact repair raised ordinary-sample placement by 1.41 points in summer and 1.60 points in winter. The simple assignment anchor still achieved slightly higher DA placement at the same feasible capacity (Appendix~\ref{app:policy-detail}).
+
+\input{vacancies}
+\paragraph{Who can actually use a vacancy?}
+After the rank-informed university menus cleared, 30,866 applicants had no placement and 21,061 seats remained vacant. Only 160 of the unmatched applicants had submitted any eligible program with a vacancy. Among these, 24 shared just 11 reachable seats. That bottleneck accounts for all 13 people the residual matching could not place. The coordinated referrals placed 147 additional applicants without worsening any incumbent's assignment. In contrast, letting everyone add their own favorite vacancy placed 156 new applicants but displaced 11 incumbents. Running DA in a separate residual market placed 143 with no losses. The median referred option in the maximum extension ranked fourteenth on the applicant's original list. If the referral must be among the applicant's own first five choices, the maximum falls to four. At a rank limit of ten it reaches 61. Each selected applicant may decline. We assume full take-up for the reported volume comparison.
+
+\begin{figure}[ht]\centering
+\includegraphics[width=.78\linewidth]{figures/referral-rank.pdf}
+\caption{How far down their original lists would applicants have to go? Each point is the maximum number of additional placements compatible with retaining all provisional contracts after the rank-informed university model. A rank limit of five admits four new placements; a limit of twenty admits 147. The horizontal axis is a scenario about acceptable options, not observed take-up.}
+\Description{An increasing staircase has 4, 61, 109 and 147 additional placements when referrals may reach original ranks 5, 10, 15 and 20.}
+\label{fig:referral-rank}\end{figure}
+
+The attainable gain depends on what the original rule already achieved. Starting from each applicant's first five reported programs allowed 7,268 additional placements in 2026. Starting from the rank-blind network allowed 61. In the 2,304 simulated rental markets, coordinated referrals added 9,749 placements against 5,761 when each applicant chose their favorite vacancy independently. Giving lower-income applicants priority among equally large extensions increased their additional placements from 3,059 to 3,155 with the same total. These are counts across ordinary and enriched simulation draws. Appendix~\ref{app:policy-detail} gives the designs separately and shows what breaks when tentative offers are forecast rather than observed.

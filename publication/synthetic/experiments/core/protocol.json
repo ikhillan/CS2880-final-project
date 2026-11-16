@@ -1,0 +1,1306 @@
+{
+  "suite": "core",
+  "created_utc": "2026-10-25T21:04:38.181395+00:00",
+  "configs": [
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.25,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "independent",
+      "exposure": 0.5,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.25,
+      "seed": 1019
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1000
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1001
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1002
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1003
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1004
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1005
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1006
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1007
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1008
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1009
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1010
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1011
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1012
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1013
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1014
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1015
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1016
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1017
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1018
+    },
+    {
+      "n": 24,
+      "firms": 10,
+      "components": 4,
+      "preference": "correlated",
+      "exposure": 0.5,
+      "seed": 1019
+    }
+  ],
+  "methods": [
+    "enumeration",
+    "assignment",
+    "component",
+    "prefix",
+    "reverse_delete",
+    "greedy",
+    "prefix_cover",
+    "full"
+  ],
+  "per_method_seconds": 10.0,
+  "workers": 1,
+  "python": "3.13.6 (main, Aug  6 2025, 13:05:20) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "numpy": "2.2.6",
+  "scipy": "1.17.1",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "timing_note": "Sequential methods within each market in hash-rotated order; HiGHS threads=1; markets may run in parallel.",
+  "seed_note": "Pilot seeds excluded. Evaluation seeds are shared across scenario cells: bootstrap seed blocks, preserving within-market method pairing.",
+  "optimal_outcomes": "Core/sensitivity exhaustively enumerate all cost-optimal audit sets; tie-dependent outcome ranges stored separately from solver timings."
+}

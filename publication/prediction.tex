@@ -1,0 +1,22 @@
+\section{What should a shortlist model predict?}\label{sec:prediction}
+A renter's favorite five units can all go to someone else. If the platform knows the distribution of preferences but observes only market attributes $X$, there is another possible prediction target. Let $M=\da(E)$ be the allocation that would result if all feasible listings were visible. Let
+\[
+   p_{ij}(X)=\Pr\{M(i)=j\mid X\},\qquad j\in E(i)\cup\{\bot\}.
+\]
+These probabilities include the possibility of getting no offer. They incorporate competition from other renters for the same listings. In the housing application $M$ is a simulation label. There are no observed full-information allocations.
+
+\begin{theorem}[Placements lost when partners are omitted]\label{thm:omission}
+Take any stable matching $M$ on $E$, any display $D\subseteq E$, and any matching $N$ stable on $D$ with preferences restricted from $E$. Let $H=\{i:M(i)\ne\bot,\ (i,M(i))\notin D\}$, and let $K$ and $T$ be the real listings occupied by $H$ in $M$ and $N$, respectively. Both the number of applicants who go from matched to unmatched and the number who go from unmatched to matched are at most $|H|-|K\cap T|$. The bound $|H|$ on losses can be tight even for disjoint applicant--listing pairs.
+\end{theorem}
+\begin{proof}
+Put $I=B\setminus H$. Remove $H$ and $K$ from $M$. Every surviving assignment is visible in $D$ by definition of $H$. Its restriction is stable for the remaining participants on $D$, since a block there would block $M$ on $E$. Thus the initially matched members of $I$ are $F(S\setminus K)$, using the incumbent lists on $D$. Deleting $H$ and $T$ from $N$ gives the final matched incumbents $F(S\setminus T)$. By Theorem~\ref{thm:occupied-seats}, at most $|T\setminus K|$ members of $I$ lose a placement. Among $H$, all were matched initially and exactly $|H|-|T|$ lose. Their sum is at most $|H|-|K\cap T|$. Only incumbents can gain, and at most $|K\setminus T|$ do so. Here $|K|=|H|$. Deleting the sole edge of each of $r$ isolated pairs gives $r$ losses.
+\end{proof}
+
+\paragraph{A learning objective with an assignment interpretation.}
+For any displayed set of $k_i$ feasible listings per renter, the expected omission count given $X$ is
+\[
+ \mathbb E[|H|\mid X]=\sum_i\left[1-p_{i\bot}(X)-\sum_{j\in D(i)}p_{ij}(X)\right].
+\]
+In each row select the $k_i$ highest $p_{ij}$. This minimizes the expected coarse upper bound on gross losses even though the assignment outcomes depend on the whole display. The same argument permits fixed weights on omitted partners, but such weights by themselves give no group-specific loss bound: the renter who loses can be someone whose own partner stayed visible. A more accurate model of $p_i$ has a quantitative interpretation. For estimated probabilities $s_i$ on listings and the outside option, the excess expected omissions of its top-$k_i$ rule over the Bayes rule are at most $\sum_i\sqrt{2D_{\mathrm{KL}}(p_i\Vert s_i)}$. Indeed, the $s_i$-optimal set has at least the estimated mass of the $p_i$-optimal set. Replacing each of these two estimated masses by its true mass costs at most one total-variation distance, then Pinsker's inequality gives the stated bound. Categorical log loss encourages precisely this conditional-distribution fit. The theorem does not order policies by total placements or by rent burden.
+
+For example, the first renter ranks $x$ above $y$, the second can rent only $y$, and $y$ gives the first renter priority. Under full exposure both are placed. Show the first renter only $y$ and the second loses their sole option to the first. The omitted partner and the lost placement belong to different people. We checked the bound independently on 421,200 preference/display combinations across $2\times2$, $2\times3$ and $3\times2$ markets, and 100,000 random instances with up to eight participants per side. Both gross directions were checked in every instance.

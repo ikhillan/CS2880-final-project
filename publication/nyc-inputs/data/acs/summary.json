@@ -1,0 +1,123 @@
+{
+  "release": "ACS2020-2024",
+  "sources": {
+    "housing": "https://www2.census.gov/programs-surveys/acs/data/pums/2024/5-Year/csv_hny.zip",
+    "geography": "https://www2.census.gov/geo/docs/maps-data/data/rel2020/2020_Census_Tract_to_2020_PUMA.txt",
+    "cpi": "https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexhistorical_us_table.htm",
+    "cpi_2024_annual": "https://www.govinfo.gov/content/pkg/ECONI-2026-08/pdf/ECONI-2026-08.pdf",
+    "guide": "https://www2.census.gov/programs-surveys/acs/tech_docs/pums/2020_2024ACS_PUMS_User_Guide.pdf"
+  },
+  "sha256": {
+    "housing_zip": "393444456bfaf6bf935920852861979253b0a7a79c9eeb8ec0e2a7053c6d478d",
+    "crosswalk": "5262f460b2c8dbe86b00549e916317b1791fdc595c9af72ab18f6f6a67040531",
+    "histogram": "a9b3c373dfe29d769cb1f4cc1fa18defb8ea5fa8760eb79be13fa12986602235"
+  },
+  "cpi_u": {
+    "2024_annual": 313.689,
+    "2026-06": 333.952,
+    "2026-07": 333.918,
+    "2026-08": 334.98
+  },
+  "filters": "TYPEHUGQ=1, TEN=3, NP>=1, positive WGTP and ADJINC, nonmissing income/fields. Recent mover additionally MV=1. Full NYC renter distribution defines threshold.",
+  "income": "HINCP * ADJINC/1e6 converts to 2024 dollars; multiply once by 333.918/313.689 for July 2026 dollars.",
+  "weighted_median_definition": "first ordered income whose cumulative household weight >= half total",
+  "median_income_2024": 64435.014,
+  "median_income_july2026": 68590.26298292895,
+  "max_monthly_rent_40pct_at_median_july2026": 2286.342099430965,
+  "renters_rows": 71908,
+  "renters_weight": 2184936,
+  "recent_rows": 10302,
+  "recent_weight": 299382,
+  "by_borough": {
+    "Bronx": {
+      "renters_rows": 11828,
+      "renters_weight": 419411,
+      "recent_rows": 953,
+      "recent_weight": 35456
+    },
+    "Brooklyn": {
+      "renters_rows": 25639,
+      "renters_weight": 693299,
+      "recent_rows": 3712,
+      "recent_weight": 94786
+    },
+    "Manhattan": {
+      "renters_rows": 15966,
+      "renters_weight": 571981,
+      "recent_rows": 3313,
+      "recent_weight": 107633
+    },
+    "Queens": {
+      "renters_rows": 16767,
+      "renters_weight": 447668,
+      "recent_rows": 2127,
+      "recent_weight": 55368
+    },
+    "Staten Island": {
+      "renters_rows": 1708,
+      "renters_weight": 52577,
+      "recent_rows": 197,
+      "recent_weight": 6139
+    }
+  },
+  "puma_nyc": {
+    "04103": "Manhattan",
+    "04104": "Manhattan",
+    "04107": "Manhattan",
+    "04108": "Manhattan",
+    "04109": "Manhattan",
+    "04110": "Manhattan",
+    "04111": "Manhattan",
+    "04112": "Manhattan",
+    "04121": "Manhattan",
+    "04165": "Manhattan",
+    "04204": "Bronx",
+    "04205": "Bronx",
+    "04207": "Bronx",
+    "04208": "Bronx",
+    "04209": "Bronx",
+    "04210": "Bronx",
+    "04211": "Bronx",
+    "04212": "Bronx",
+    "04221": "Bronx",
+    "04263": "Bronx",
+    "04301": "Brooklyn",
+    "04302": "Brooklyn",
+    "04303": "Brooklyn",
+    "04304": "Brooklyn",
+    "04305": "Brooklyn",
+    "04306": "Brooklyn",
+    "04307": "Brooklyn",
+    "04308": "Brooklyn",
+    "04309": "Brooklyn",
+    "04310": "Brooklyn",
+    "04311": "Brooklyn",
+    "04312": "Brooklyn",
+    "04313": "Brooklyn",
+    "04314": "Brooklyn",
+    "04315": "Brooklyn",
+    "04316": "Brooklyn",
+    "04317": "Brooklyn",
+    "04318": "Brooklyn",
+    "04401": "Queens",
+    "04402": "Queens",
+    "04403": "Queens",
+    "04404": "Queens",
+    "04405": "Queens",
+    "04406": "Queens",
+    "04407": "Queens",
+    "04408": "Queens",
+    "04409": "Queens",
+    "04410": "Queens",
+    "04411": "Queens",
+    "04412": "Queens",
+    "04413": "Queens",
+    "04414": "Queens",
+    "04501": "Staten Island",
+    "04502": "Staten Island",
+    "04503": "Staten Island"
+  },
+  "exclusion_counts": {},
+  "donor_split": "SHA256('ACS2020-2024|' + SERIALNO), first eight digest bytes as big endian unsigned integer modulo 10. Buckets 0\u20136 calibration; 7\u20139 evaluation. Split before aggregation.",
+  "income_group": "lower iff adjusted 2024 income <= median_income_2024 (exact equality included)."
+}

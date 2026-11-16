@@ -1,0 +1,335 @@
+\section{Proofs and additional results}
+\begin{frame}[t,label=singleton]{1. A simpler gap with one client per firm}
+\small
+Start each of $N$ independent copies with
+\[
+ H=\{ax,ay,az,bx,by,bz,cz\}.
+\]
+$\{ay,bx,cz\}$ is already supported and full-market stable.
+DA instead returns $\{ax,by,cz\}$, blocked by $cx$.
+
+\medskip
+Without auditing $c$ or $x$, the only possible addition is $cy$.
+It changes nothing, since $c$ keeps $z$. Auditing either $c$ or $x$ repairs the copy.
+
+\medskip
+Add one hidden isolated pair. With unit costs and private firms,
+\[
+ \supp=1,\qquad \resp=N+1.
+\]
+\sources{The shared-firm construction also shows how audits needed in one part of
+the market can destabilize another part.}
+\end{frame}
+
+\begin{frame}[t,label=master]{2. The support master in equations}
+\fontsize{11}{13}\selectfont
+$x_f\in\{0,1\}$ chooses audits. Exposure $v_{bs}\in[0,1]$ obeys
+\[
+ v_e=1\ (e\in E_0),\qquad
+ v_{bs}\geq x_{f(b)},x_{f(s)},\quad
+ v_{bs}\leq x_{f(b)}+x_{f(s)}\ (bs\notin E_0).
+\]
+Let $\delta(i)$ denote incident pairs. Minimize $\sum_fc_fx_f$ with $z_e\geq0$:
+\begin{align*}
+ \sum_{e\in\delta(i)}z_e&\leq1 &&\text{for every client }i,\\
+ z_{bs}+\sum_{s'\succ_b s}z_{bs'}+\sum_{b'\succ_s b}z_{b's}&\geq1 &&bs\in E,\\
+ z_e&\leq v_e &&e\in E.
+\end{align*}
+For fixed integral $x$, $v$ is integral. Setting hidden $z_e$ to zero gives a face
+of the integral stable-matching polytope, so continuous $z$ is enough.
+\sources{Rothblum (1992). This argument is for a fixed integral audit vector.
+It does not assert integrality when the audit variables are fractional.}
+\end{frame}
+
+\begin{frame}[t,label=replay]{3. Why the prefix constraint is valid}
+\small
+Replay DA in the same sequential proposer order. If all full-prefix exposure
+statuses agree, the next buyer finds the same available choice. The seller
+makes the same comparison. Induction preserves every tentative match.
+
+\medskip
+For a failed component $C$ with edge set $E_C$, let
+$P=(\Pi(M)\cap E_C)\setminus E_0$. If the current exposure is $v^t$, add
+\[
+ \sum_{e\in P:v_e^t=0}v_e+
+ \sum_{e\in P:v_e^t=1}(1-v_e)\geq1.
+\]
+Every successful plan must change one of these statuses, or the same local
+outcome and its blocking pair persist.
+\sources{An unmatched buyer contributes its whole acceptable list. Full-market components
+are independent for matching, even when firms couple their audit decisions.}
+\end{frame}
+
+\begin{frame}[t,label=exactness]{4. Exactness and stopping}
+\small
+Let $\FF_C$ be the firms with clients in component $C$. Every successful plan
+stays feasible for the master. Each failure excludes a new audit assignment.
+\[
+ \begin{array}{ll}
+ \text{Whole-assignment method:}&2^{|\FF|}+1\text{ master solves at most},\\[3pt]
+ \text{Local methods:}&1+\displaystyle\sum_C2^{|\FF_C|}\text{ at most}.
+ \end{array}
+\]
+A verified master candidate is optimal because its cost equals a valid
+lower bound. The same is true when that bound reaches a verified incumbent.
+
+\medskip
+On interruption, use the master's certified dual bound as $L$.
+A candidate supplies $U$ only after DA passes the full-market check.
+\sources{The theorem assumes exact master optimization and exact oracle evaluation.
+Implemented MILP bounds have numerical tolerances. The bounds can be exponential.}
+\end{frame}
+
+\begin{frame}[t,label=round-proof]{5. Two solves versus exponentially many failures}
+\small
+The shared-firm instance has a unique support optimum $\{F_A,F_B\}$.
+Its first failed response produces $N$ constraints
+\[
+ (1-v_{a_ix_i})+(1-v_{b_iy_i})+v_{c_ix_i}\geq1.
+\]
+Any competitive plan contains $F_A,F_B$, so these reduce to $v_{c_ix_i}=1$.
+The second master therefore pays one private repair per copy and certifies $N+2$.
+
+\medskip
+Every set $\{F_A,F_B\}\cup\{f(c_i):i\in T\}$ with $T\subsetneq[N]$ supports stability,
+but DA fails and its cost is below $N+2$. There are $2^N-1$ such sets.
+Whole-assignment cuts must remove each separately.
+\sources{Both methods start with the support master and a verified upper bound.
+The comparison excludes initialization rounds and applies only to the specified cut families.}
+\end{frame}
+
+\begin{frame}[t,label=prefix-cover]{6. A sufficient certificate can cost too much}
+\small
+Let $M^*=\DA(E)$. Exposing every edge in $\Pi(M^*)\setminus E_0$
+reproduces $M^*$ by replay. Paying for these edges is vertex cover on endpoint firms.
+
+\medskip
+But in this two-by-two component,
+\[
+ a:s\succ r,\quad b:s\succ r,\quad
+ s:a\succ b,\quad r:b\succ a,
+\]
+$E_0=\{as,br\}$ already gives $M^*$, while the full prefix contains hidden $bs$.
+That extra disclosure is unnecessary for the outcome.
+
+\medskip
+Take $N$ private copies and one separate switch needing one audit.
+The true optimum is one. Prefix cover costs $N+1$.
+\sources{This also separates prefix completeness from reproducing $M^*$ itself.
+It limits the certificate's cost, not its correctness.}
+\end{frame}
+
+\begin{frame}[t,label=tractable]{7. Two other tractable cases}
+\small
+\textbf{Switch markets with small portfolios.}
+With private sellers, unit costs, distinct endpoint firms, and no repeated
+firm pair, two clients per buying firm give a degree-two firm graph.
+Vertex cover on its paths and cycles is linear-time.
+
+\medskip
+\textbf{Bounded interaction width.}
+For each full-market component $C$, tabulate the local success predicate
+$\phi_C(x|_{\FF_C})$. Make $\FF_C$ a clique in a graph of firms.
+Given a width-$t$ tree decomposition, Boolean constraint DP takes
+\[
+ O\!\left(\sum_C2^{|\FF_C|}\operatorname{poly}(|C|)
+       +2^{t+1}\operatorname{poly}(|I|)\right).
+\]
+\sources{The first result applies only to the switch subclass. The second uses standard
+constraint dynamic programming. Here $|I|$ is input length. A component containing many firms can make $t$ large.}
+\end{frame}
+
+\begin{frame}[t,label=pitfalls]{8. Why simple repair rules can fail}
+\small
+\textbf{Auditing a blocker's endpoints is not necessary.}
+In the switch, $qy$ initially blocks. Auditing $p$'s firm removes the block
+by producing $py,qx$, although that firm represents neither $q$ nor $y$.
+
+\medskip
+\textbf{Blocker reduction need not be submodular.}
+Let $a,b$ both rank $x\succ y$, and $x,y$ both rank $a\succ b$.
+Start with $E_0=\{bx\}$ and private firms.
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Audited buyers & $\varnothing$ & $a$ & $b$ & $a,b$\\
+\midrule
+Number of blockers & 2 & 1 & 2 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+For reduction $g(A)$, $g(a)+g(b)=1<2=g(a,b)+g(\varnothing)$.
+\end{frame}
+
+\begin{frame}[t,label=bonus]{9. A separate model for partnership bonuses}
+\small
+All pairs in $E$ are available, but recommendation scores change:
+\[
+ \widetilde u_i(e)=u_i(e)+\lambda_iF_e,\qquad
+ F_e\in\{0,1\},\quad\lambda_i\geq0.
+\]
+Both endpoints share the same partnership label $F_e$.
+Scores and bonuses are rational. Let $P,Q$ be the strict base and modified
+rankings, with the outside option last.
+
+\medskip
+Define $x\succ_i^*y$ when $i$ prefers $x$ to $y$ in \emph{both} rankings.
+Then
+\[
+ \text{stable under both }P,Q
+ \quad\Longleftrightarrow\quad
+ \text{super-stable under }\succ^*.
+\]
+Existence and construction are polynomial-time by partial-order super-stability.
+\sources{This is a separate model from the access problem. The shared binary label
+enables the reduction to Cseh and Juhos (2021).}
+\end{frame}
+
+\begin{frame}[t,label=bonus-proof]{10. Why the binary label matters}
+\small
+For a candidate pair $e$ and endpoint $i$, let $e_i^M$ be its current match.
+Give the unmatched option label zero. The gain from deviating satisfies
+\[
+ \Delta_i^Q(e)=\Delta_i^P(e)+\lambda_i(F_e-F_{e_i^M}).
+\]
+If $F_e=1$, both endpoints' gains weakly increase. Stability in $Q$ supplies
+an endpoint that rejects $e$ in $Q$, and therefore in $P$ too.
+
+\medskip
+If $F_e=0$, both gains weakly decrease. Use the rejecting endpoint from $P$.
+Thus every unmatched pair has one endpoint rejecting it under both profiles,
+which is exactly super-stability of the intersection orders.
+\sources{Conversely, a common rejecting endpoint prevents blocking in each profile.
+The same rejection holds for independent strengths $\theta_i\in[0,\lambda_i]$
+because each score difference is affine.}
+\end{frame}
+
+\begin{frame}[t,label=bonus-limit]{11. The bonus result has limits}
+\small
+A simultaneous solution need not exist. In a two-by-two market, give everyone
+a base score of one for their diagonal partner and zero for the other.
+Give crossed pairs a bonus of two. The two profiles have different unique stable matchings.
+
+\medskip
+Three label levels also break the binary reduction. Take
+$M=\{ar,ts\}$ and candidate $as$, with
+\[
+ F_{ar}=2,\quad F_{as}=1,\quad F_{ts}=0,\qquad\lambda_i=2.
+\]
+Set $u_a(r)=0,u_a(s)=1$ and $u_s(a)=0,u_s(t)=1$.
+Seller $s$ rejects $as$ under base scores. Buyer $a$ rejects it after bonuses.
+There is no common rejecting endpoint.
+\sources{This disproves that reduction for three levels. It does not prove NP-hardness.
+Use the three-edge acceptable graph $\{ar,as,ts\}$, with sole partners for $r,t$.}
+\end{frame}
+
+\begin{frame}[t,label=repro]{12. What was recorded and checked}
+\small
+\begin{itemize}
+\setlength{\itemsep}{5pt}
+\item 160 core, 32 larger, and 32 cost/portfolio markets.
+The 40 ablation runs reuse core instances.
+\item Eight constructed response-gap sizes and five prefix-cover-gap sizes,
+kept separate from random-market results.
+\item 1,280 core method outputs and 614 optimal plans independently replayed.
+DA, prefix replay, reductions, and small optima checked against enumeration.
+\item CPU runs on ARM64 macOS, one HiGHS thread, fixed seeds,
+rotated method order, source hashes, and explicit time caps.
+\end{itemize}
+\sources{95\% intervals use 20,000 bootstrap replicates over 20 shared seed blocks.
+All final core matchings are perfect because the generator uses balanced complete blocks.
+That is a generator property, not evidence about housing scarcity.}
+\end{frame}
+
+\begin{frame}[t,label=priority]{13. A common priority removes the gap}
+\small
+Suppose all sellers use the same strict priority over buyers.
+There is a unique stable matching $M^*$: clients choose in priority order.
+\[
+ M^*\subseteq H\subseteq E\quad\Longrightarrow\quad\DA(H)=M^*.
+\]
+In any visible graph $H$ containing $M^*$, each full-market choice remains
+available at its turn. Hence
+\[
+ \supp=\resp.
+\]
+We just need to cover the hidden edges of $M^*$ with endpoint-firm audits.
+For side-exclusive firms, weighted bipartite vertex cover solves this by minimum cut.
+\sources{A consequence of serial dictatorship. The minimum-cut step requires side-exclusive firms.
+Other tractable cases appear in Appendix 7.}
+\end{frame}
+
+\begin{frame}[t,label=study]{14. Proposed listing study}
+\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\textbf{What we could observe}\par
+Rents and features in a fixed listing catalogue.\par
+Listing IDs recommended by a fixed AI model.\par
+Census household distributions for generating fictional profiles.
+\end{column}
+\begin{column}{.48\textwidth}
+\textbf{What would remain modeled}\par
+Preferences on both sides.\par
+Agent portfolios and audit costs, unless independently verified.\par
+The matching rule and its resulting allocations.
+\end{column}
+\end{columns}
+\medskip
+Hold catalogue and recommendation count fixed. Randomize listing order,
+repeat prompts, and compare audit policies on the same markets.
+\sources{Proposed, not run. Candidate sources: Two Sigma rental listings and American Community Survey microdata.
+Verify dates and manager-ID meanings. Inquiry interest is not a preference list.
+Do not link Census records to individual listings.}
+\end{frame}
+
+\begin{frame}[t,label=access]{15. The cost of an access target}
+\small
+Fix each modeled buyer's affordable feasible options $F_b$.
+Let $G^+$ be lower-income households with at least one such option.
+\[
+ \mathrm{Access}(A)=\frac{1}{|G^+|}\sum_{b\in G^+}
+ \frac{|\{s\in F_b:bs\in E(A)\}|}{|F_b|}.
+\]
+Let $C(\tau)$ be the cheapest plan that makes DA full-market stable
+and achieves $\mathrm{Access}(A)\geq\tau$. Study
+\[
+ \Delta C(\tau)=C(\tau)-C(0).
+\]
+How does that extra cost change with scarcity, firm concentration,
+and the recommender that chooses $E_0$?
+\sources{A proposed extension, not a completed result. Assume $|G^+|>0$ and
+$\tau\in[0,1]$. Report households with no affordable option separately.
+Access measures options, not eventual leases.}
+\end{frame}
+
+\begin{frame}[t,label=refs-theory]{16. Matching and optimization references}
+\fontsize{9.5}{11.5}\selectfont
+\begin{enumerate}
+\setlength{\itemsep}{3pt}
+\item \href{https://doi.org/10.1080/00029890.1962.11989827}{Gale and Shapley (1962), College Admissions and the Stability of Marriage}.
+\item \href{https://doi.org/10.1016/j.disopt.2016.03.002}{Cseh and Manlove (2016), Stable Marriage and Roommates Problems with Restricted Edges}.
+\item \href{https://arxiv.org/abs/1602.04792}{Rastegari, Goldberg, Manlove (2016), Preference Elicitation in Matching Markets via Interviews: A Study of Offline Benchmarks}.
+\item \href{https://doi.org/10.1613/jair.1.12755}{Boehmer et al.\ (2021), Bribery and Control in Stable Marriage}.
+\item \href{https://arxiv.org/abs/2609.09693}{Aguiar and Hong (2026), The Attention Cost of Stable Matching}. Preprint.
+\item \href{https://doi.org/10.1007/s10107-003-0375-9}{Hooker and Ottosson (2003), Logic-Based Benders Decomposition}.
+\href{https://doi.org/10.1007/BF01586041}{Rothblum (1992), Characterization of Stable Matchings as Extreme Points of a Polytope}.
+\item \href{https://doi.org/10.1016/0304-3975(76)90059-1}{Garey, Johnson, Stockmeyer (1976), Some Simplified NP-Complete Graph Problems}.
+\href{https://doi.org/10.1016/S0304-3975(98)00158-3}{Alimonti and Kann (2000), Some APX-Completeness Results for Cubic Graphs}.
+\item \href{https://hpi.de/friedrich/docs/publications/2021/TEAC.pdf}{Cseh and Juhos (2021), Pairwise Preferences in the Stable Marriage Problem}.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t,label=refs-housing]{17. Housing, platforms, and data}
+\fontsize{10.5}{13}\selectfont
+\begin{enumerate}
+\setlength{\itemsep}{5pt}
+\item \href{https://arxiv.org/abs/2508.18325}{Trabelsi et al.\ (2025), Facilitating Matches on Allocation Platforms}. ECAI.
+\item \href{https://r-t-lab.org/works/housing-gpt-audit/}{Liu, So, Hosoi, D'Ignazio (2024), Racial Steering by Large Language Models}. EAAMO.
+\item \href{https://doi.org/10.1257/app.20160214}{Barwick, Pathak, Wong (2017), Conflicts of Interest and Steering in Residential Brokerage}. AEJ: Applied Economics.
+\item \href{https://ojs.aaai.org/index.php/ICWSM/article/view/7276}{Asplund et al.\ (2020), Auditing Race and Gender Discrimination in Online Housing Markets}. ICWSM.
+\item \href{https://doi.org/10.1215/00703370-9357518}{Besbris, Schachter, Kuk (2021), The Unequal Availability of Rental Housing Information Across Neighborhoods}. Demography.
+\item Proposed data: \href{https://www.kaggle.com/competitions/two-sigma-connect-rental-listing-inquiries/data}{Two Sigma Connect: Rental Listing Inquiries},
+\href{https://www.census.gov/programs-surveys/acs/microdata.html}{Census ACS Public Use Microdata}.
+\end{enumerate}
+\end{frame}

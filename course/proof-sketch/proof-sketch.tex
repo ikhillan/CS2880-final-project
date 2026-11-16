@@ -1,0 +1,632 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Self-contained source: no external bibliography, images, or custom class.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{linkblue}{RGB}{28,65,110}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkblue,
+  citecolor=linkblue,
+  urlcolor=linkblue,
+  pdftitle={Hidden Blocking Pairs: Auditing Intermediaries in Housing Markets},
+  pdfsubject={Research note and proof sketch for Harvard CS 2880},
+  pdfkeywords={stable matching, intermediary, housing, disclosure, NP-completeness}
+}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=1.5em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=3pt,topsep=4pt}
+\allowdisplaybreaks[1]
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\DA}{\operatorname{DA}_{B}}
+\newcommand{\BP}{\operatorname{BP}}
+\newcommand{\SD}{\textsc{StableDisclosure}}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\botv}{\bot}
+\newcommand{\Feas}{\mathcal{F}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{\vspace{-1.5em}\textbf{Hidden Blocking Pairs}\\[4pt]
+  \large Auditing Intermediaries in Housing Markets}
+\author{\normalsize Harvard CS 2880 \quad Research note and proof sketch}
+\date{\normalsize October 25, 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.4em}
+
+\begin{abstract}
+Housing intermediaries may influence which feasible transactions their clients
+discover. This creates a distinction between stability in the disclosed market
+and stability under clients' full opportunities. We formalize a minimum-cost
+disclosure problem: audit brokerage firms, reveal the transactions incident to
+their clients, and require buyer-proposing deferred acceptance to return a
+matching stable in the full market. A reduction from bounded-degree
+\textsc{Vertex Cover} establishes NP-completeness even when every feasible-market
+component is a four-vertex path, preference lists have length at most two, and
+each firm represents at most three clients. As a complementary positive result,
+a shared binary partnership-bonus model reduces simultaneous stability to
+super-stable matching with partial orders. These observations provide a starting
+point for studying the computational and distributional consequences of
+intermediary-controlled information.
+\end{abstract}
+
+\noindent\textbf{Scope and status.}
+The statements proved below concern the explicit models in this note.
+They do not establish novelty relative to the matching, information-acquisition,
+or brokerage literatures. The proposed research contribution is an intervention
+problem and its tractability boundaries; the presence of four economic roles,
+by itself, is not a hardness result.
+
+\section{Motivation and modeling choices}
+
+There are four economic roles: a buyer, the buyer's agent, a seller's agent, and
+a seller. An intermediary may favor a transaction because of its commission,
+expected closing effort, or a relationship with the other intermediary. Such
+relationships can also lower transaction costs. The model therefore does not
+assume that professional collaboration is inherently harmful.
+
+Commission-driven steering has an empirical precedent in residential brokerage
+\cite{barwick2017}. Our narrower theoretical question is:
+\begin{quote}
+\emph{When intermediaries limit access to feasible transactions, what disclosure
+intervention makes the resulting allocation stable for their clients?}
+\end{quote}
+
+We initially study purchases, with one property per seller, fixed representation,
+and fixed transaction terms. Prices, commissions, financing requirements, and
+closing conditions enter feasibility or client preferences. Bargaining,
+endogenous representation, and broker-wide complementarities are outside this
+initial model. A rental application would require a separate interpretation of
+tenants, landlords, and intermediary incentives.
+
+The classical stable-marriage problem is polynomial-time solvable:
+deferred acceptance makes at most one proposal per acceptable pair
+\cite{gale1962}. Thus a complexity claim must identify an additional decision or
+optimization problem.
+
+\section{Client stability and disclosure}
+
+Let \(B\) and \(S\) be finite sets of buyers and sellers. Let
+\(E\subseteq B\times S\) be an explicitly represented graph of mutually
+acceptable transactions. Each client \(i\in B\cup S\) has a strict preference
+order \(\succ_i\) over its acceptable partners, followed by the outside option
+\(\botv\). In particular, every edge in \(E\) is preferred to remaining unmatched.
+
+A matching \(M\subseteq E\) assigns at most one partner to each client.
+Write \(M(i)=\botv\) if \(i\) is unmatched. For any \(H\subseteq E\), define
+\begin{equation}
+\BP_H(M)=
+\left\{(b,s)\in H\setminus M:
+s\succ_b M(b)\ \text{and}\ b\succ_s M(s)
+\right\}.
+\label{eq:blocking}
+\end{equation}
+We use this definition when \(M\) is a matching in \(H\), or in a subset of \(H\).
+
+\begin{definition}[Visible and full-market stability]
+Let \(E_0\subseteq E\) be the initially disclosed graph.
+A matching \(M\subseteq E_0\) is \emph{visibly stable} if
+\(\BP_{E_0}(M)=\varnothing\), and \emph{client-stable in the full market} if
+\(\BP_E(M)=\varnothing\).
+\end{definition}
+
+For example, suppose \(E_0=\{b_1s_1,b_2s_2\}\), while the full market also
+contains \(b_1s_2\) and \(b_2s_1\). If every client prefers its partner in the
+crossed arrangement, the disclosed matching is visibly stable but admits two
+full-market blocking pairs.
+
+\begin{proposition}[Unanimous four-party consent is not a hardness source]
+Suppose representation is fixed and a blocking transaction requires both
+clients and both intermediaries to strictly prefer that transaction.
+Every client-stable matching has no such unanimous blocking transaction.
+Consequently, an outcome without a unanimous block can be found in polynomial
+time whenever these are the only deviation constraints.
+\end{proposition}
+
+\begin{proof}
+A unanimous blocking transaction would, in particular, be a blocking pair for
+the buyer and seller. A client-stable matching rules out that pair.
+Run deferred acceptance on \(E\) to obtain such a matching.
+\end{proof}
+
+This observation separates a four-party consent requirement from the
+information restriction studied below.
+
+\subsection{A firm-level disclosure intervention}
+
+Let \(\Feas\) be a set of brokerage firms. Fixed maps
+\[
+f_B:B\longrightarrow\Feas,
+\qquad
+f_S:S\longrightarrow\Feas
+\]
+record the firms employing the clients' agents. The buying and listing agents
+remain distinct economic roles; a single firm may represent clients in both
+roles. Define a firm's portfolio by
+\[
+C_f=\{b\in B:f_B(b)=f\}\cup\{s\in S:f_S(s)=f\}.
+\]
+
+An audit of firm \(f\) makes all feasible transactions incident to \(C_f\)
+available to their endpoints. For audited firms \(A\subseteq\Feas\), set
+\begin{equation}
+E(A)=E_0\cup
+\left\{(b,s)\in E:
+f_B(b)\in A\ \text{or}\ f_S(s)\in A
+\right\}.
+\label{eq:disclosure}
+\end{equation}
+The disjunction in \eqref{eq:disclosure} is an assumption: auditing either
+endpoint's firm suffices to expose the opportunity. An audit expands access; it
+does not force either client to accept a transaction.
+
+Let
+\begin{equation}
+M(A)=\DA\bigl(E(A),\succ|_{E(A)}\bigr)
+\label{eq:response}
+\end{equation}
+be buyer-proposing deferred acceptance using true client preferences restricted
+to the disclosed graph. Fix any deterministic implementation; with strict
+preferences, the buyer-optimal stable outcome is well-defined.
+
+\begin{definition}[\SD]
+An instance consists of \(B,S,E,E_0,\succ,\Feas,f_B,f_S\), positive integer
+audit costs \((c_f)_{f\in\Feas}\), and a nonnegative integer budget \(K\).
+All graphs and preference lists are explicit, and integers are binary encoded.
+The question is whether there is \(A\subseteq\Feas\) such that
+\[
+\sum_{f\in A}c_f\leq K
+\qquad\text{and}\qquad
+\BP_E(M(A))=\varnothing.
+\]
+The optimization version minimizes \(\sum_{f\in A}c_f\) subject to the same
+stability requirement.
+\end{definition}
+
+The designer is given \(E\) and the full preference profile. This is an
+\emph{offline intervention benchmark}; it does not assume that clients already
+know those opportunities. An adaptive investigator who learns edges or
+preferences through audits faces a different information-acquisition problem.
+
+\section{NP-completeness of selecting disclosures}
+
+\begin{theorem}
+\label{thm:hardness}
+\SD{} is NP-complete. This remains true under all of the following restrictions:
+\begin{enumerate}[label=(\roman*)]
+\item every audit has unit cost;
+\item every firm represents at most three clients in total;
+\item every connected component of the full feasible graph \(E\) is a
+      four-vertex path;
+\item every client has at most two acceptable partners; and
+\item \(E_0\) is a perfect matching of all clients.
+\end{enumerate}
+The matching produced after disclosure is allowed to leave clients unmatched.
+\end{theorem}
+
+\begin{proof}
+\textbf{Membership in \(\NP\).}
+A certificate is an audit set \(A\). Its cost can be checked in polynomial time.
+Construct \(E(A)\), run deferred acceptance, and check every edge of \(E\) using
+\eqref{eq:blocking}. With inverse-rank tables, the proposal process and the
+blocking-pair scan each take \(O(|E|)\) time, apart from input preprocessing.
+Thus a successful audit set is polynomial-time verifiable.
+
+\medskip
+\noindent\textbf{Reduction.}
+We reduce from \textsc{Vertex Cover} on simple graphs of maximum degree three,
+a known NP-complete problem \cite{garey1976}. Let its instance be
+\((G=(V,H),k)\). For each \(v\in V\), create a firm \(f_v\).
+Orient each graph edge arbitrarily, writing \(e=(u,v)\) solely to distinguish
+its two endpoint roles.
+
+For each \(e=(u,v)\in H\), create buyers \(b_e,t_e\), sellers \(s_e,r_e\), and
+exactly three feasible transactions:
+\begin{equation}
+E_e=\{b_es_e,\ b_er_e,\ t_es_e\},
+\qquad
+(E_0)_e=\{b_er_e,\ t_es_e\}.
+\label{eq:gadget}
+\end{equation}
+Here \(b_es_e\) abbreviates the ordered buyer--seller pair \((b_e,s_e)\).
+The complete acceptable preference lists are
+\begin{equation}
+\begin{array}{c@{\qquad}c}
+b_e:\ s_e\succ r_e\succ\botv
+&
+t_e:\ s_e\succ\botv
+\\[3pt]
+s_e:\ b_e\succ t_e\succ\botv
+&
+r_e:\ b_e\succ\botv .
+\end{array}
+\label{eq:preferences}
+\end{equation}
+There are no feasible transactions between different gadgets.
+
+Assign \(b_e\) to firm \(f_u\), and \(s_e\) to firm \(f_v\).
+Assign \(t_e\) and \(r_e\) to two fresh, distinct auxiliary firms, used in no
+other gadget. Set every audit cost to one, and set the disclosure budget to
+\(K=k\). Auditing an auxiliary firm reveals no new edge, because its client's
+only feasible transaction is already in \(E_0\).
+
+\medskip
+\noindent\textbf{Local behavior.}
+For any audit set \(A\), the central transaction \(b_es_e\) is exposed if and
+only if \(f_u\in A\) or \(f_v\in A\). The two possible responses are:
+\begin{center}
+\begin{tabular}{@{}p{0.28\linewidth}p{0.29\linewidth}p{0.32\linewidth}@{}}
+\toprule
+Audits at the endpoints & Deferred-acceptance outcome & Full-market stability\\
+\midrule
+Neither \(f_u\) nor \(f_v\)
+&
+\(\{b_er_e,t_es_e\}\)
+&
+Blocked by \(b_es_e\).
+\\[5pt]
+At least one of \(f_u,f_v\)
+&
+\(\{b_es_e\}\); \(t_e,r_e\) unmatched
+&
+Stable in \(E_e\).
+\\
+\bottomrule
+\end{tabular}
+\end{center}
+In the second row, \(b_e\) and \(s_e\) are mutual first choices. The other
+feasible pairs cannot block: \(b_e\) prefers \(s_e\) to \(r_e\), and \(s_e\)
+prefers \(b_e\) to \(t_e\). Since gadgets are disconnected, their
+deferred-acceptance outcomes and blocking conditions are independent.
+
+\medskip
+\noindent\textbf{Correctness.}
+If \(C\subseteq V\) is a vertex cover with \(|C|\leq k\), audit
+\(A_C=\{f_v:v\in C\}\). Every graph edge has an audited endpoint, so every gadget
+has the stable outcome in the second row. Hence \(M(A_C)\) is stable in \(E\)
+and its audit cost is at most \(K\).
+
+Conversely, suppose an audit set \(A\) of cost at most \(K\) produces an outcome
+stable in \(E\). Remove all auxiliary firms from \(A\); this changes neither
+disclosures nor the outcome. For each graph edge \(e=(u,v)\), stability requires
+\(f_u\in A\) or \(f_v\in A\), since otherwise \(b_es_e\) blocks.
+Therefore
+\[
+C_A=\{v\in V:f_v\in A\}
+\]
+is a vertex cover of size at most \(k\).
+
+\medskip
+\noindent\textbf{Size and restrictions.}
+The construction has \(4|H|\) clients, \(3|H|\) feasible transactions, and
+\(|V|+2|H|\) firms, and can be constructed in polynomial time. A vertex firm
+represents one client per incident graph edge, hence at most three clients.
+An auxiliary firm represents one client. Each feasible component is the path
+\(r_e-b_e-s_e-t_e\); every preference list has length at most two.
+The two outer edges in every gadget form a perfect matching in \(E_0\).
+All claimed restrictions follow.
+\end{proof}
+
+\begin{corollary}
+The minimum-cost disclosure optimization problem is NP-hard, even under the
+restrictions of Theorem~\ref{thm:hardness}.
+\end{corollary}
+
+\begin{remark}[What the reduction establishes]
+The hard task is selecting firm-level disclosures before a polynomial-time
+matching procedure. It is not computing an ordinary stable matching. The
+reduction uses a single audit action that may expose transactions for buyers
+and sellers represented by the same firm. It does not establish hardness when
+buying-agent and listing-agent audit actions are required to be disjoint.
+\end{remark}
+
+\begin{remark}[Stability and participation are separate objectives]
+Initially every gadget has two transactions, while its full-market stable
+outcome has only one. Thus this proof does not show that disclosure increases
+transaction volume, improves every client's outcome, or increases welfare.
+A requirement that the final matching be perfect would define a different
+problem, to which this reduction does not apply.
+\end{remark}
+
+For this constructed family, the minimum number of audits equals the minimum
+vertex-cover size. This correspondence is not an approximation algorithm for
+arbitrary disclosure instances: rematching can couple transactions in ways the
+independent gadgets do not represent.
+
+\section{A tractable partnership-bonus baseline}
+
+Consider a separate model in which all feasible transactions are available,
+but intermediary relationships alter recommendation scores. Keep the same
+acceptable graph \(E\). For every endpoint \(i\) of transaction \(e\), let
+\(u_i(e)\in\mathbb{Q}\) be its base score. Set \(u_i(\botv)\) strictly below all its
+acceptable scores.
+
+Each transaction has a shared label \(F_e\in\{0,1\}\): both endpoints agree on
+whether the intermediaries are partners. For client-specific constants
+\(\lambda_i\in\mathbb{Q}_{\geq0}\), define
+\begin{equation}
+\widetilde u_i(e)=u_i(e)+\lambda_iF_e.
+\label{eq:bonus}
+\end{equation}
+The outside-option score is unchanged, and \(F_{\botv}=0\).
+All rational inputs have binary encodings.
+Let \(P_i\) and \(Q_i\) be the rankings induced by \(u_i\) and
+\(\widetilde u_i\), respectively. Assume both profiles are strict; for this
+proposition, score equalities at these two endpoints of the parameter interval
+are excluded.
+
+A ranking in \(Q\) is a mediated recommendation ranking, not automatically a
+client's true preference or a broker's portfolio-wide utility.
+Requiring stability under both \(P\) and \(Q\) is a deliberate robustness
+criterion, distinct from unanimous four-party consent.
+
+Define an intersection relation on each client's acceptable partners and
+outside option:
+\begin{equation}
+x\succ_i^* y
+\quad\Longleftrightarrow\quad
+x\succ_i^P y\ \text{and}\ x\succ_i^Q y.
+\label{eq:intersection}
+\end{equation}
+This relation is a strict partial order.
+
+\begin{definition}[Super-stability for the intersection orders]
+A matching \(M\subseteq E\) is \emph{super-stable} under \(\succ^*\) if every
+unmatched feasible pair \((b,s)\in E\setminus M\) has an endpoint that strictly
+prefers its current assignment in the partial order:
+\begin{equation}
+M(b)\succ_b^* s
+\quad\text{or}\quad
+M(s)\succ_s^* b.
+\label{eq:superstable}
+\end{equation}
+An incomparable alternative is therefore treated as a possible reason to
+deviate, rather than as a certified rejection.
+\end{definition}
+
+\begin{theorem}[Binary bonuses reduce to partial-order super-stability]
+\label{thm:binary}
+A matching is stable under both \(P\) and \(Q\) if and only if it is
+super-stable under the intersection orders \(\succ^*\).
+Consequently, existence and construction of a simultaneously stable matching
+are polynomial-time solvable.
+\end{theorem}
+
+\begin{proof}
+For a matching \(M\), let \(e_i^M\) denote the transaction containing client \(i\),
+or \(\botv\) if unmatched. For a candidate transaction \(e\in E\setminus M\),
+define the endpoint's gain under each profile:
+\begin{align}
+\Delta_i^P(e)
+ &=u_i(e)-u_i(e_i^M),\\
+\Delta_i^Q(e)
+ &=\Delta_i^P(e)+\lambda_i\bigl(F_e-F_{e_i^M}\bigr).
+\label{eq:gain}
+\end{align}
+
+Suppose first that \(M\) is stable under \(P\) and \(Q\).
+
+If \(F_e=1\), equation~\eqref{eq:gain} gives
+\(\Delta_i^Q(e)\geq\Delta_i^P(e)\) at both endpoints, since
+\(F_{e_i^M}\in\{0,1\}\). Stability under \(Q\), together with strict
+preferences, supplies an endpoint \(i\) with \(\Delta_i^Q(e)<0\).
+Then \(\Delta_i^P(e)\leq\Delta_i^Q(e)<0\), so that same endpoint rejects
+\(e\) under both profiles.
+
+If \(F_e=0\), then \(\Delta_i^Q(e)\leq\Delta_i^P(e)\) at both endpoints.
+Use stability under \(P\) to find an endpoint with
+\(\Delta_i^P(e)<0\). That endpoint also satisfies \(\Delta_i^Q(e)<0\),
+and again rejects \(e\) under both profiles.
+
+Thus every unmatched feasible pair has a common rejecting endpoint, exactly
+as required by \eqref{eq:superstable}.
+
+Conversely, if \eqref{eq:superstable} holds, its rejecting endpoint rejects
+the candidate pair under \(P\) and under \(Q\). Hence no pair blocks in either
+profile.
+
+Finally, the orders \(\succ_i^*\) can be constructed in polynomial time by
+intersecting two strict rankings. Super-stable matching with partial orders
+on both sides is polynomial-time solvable; the algorithmic results of
+Cseh and Juhos cover this case \cite{cseh2021}. Applying that algorithm gives
+a matching or certifies that none exists.
+\end{proof}
+
+\begin{corollary}[Robustness to bounded incentive strengths]
+\label{cor:robust}
+Under the assumptions of Theorem~\ref{thm:binary}, simultaneous stability under
+\(P,Q\) is equivalent to having no strictly blocking pair for every vector
+\[
+(\theta_i)_{i\in B\cup S}\in
+\prod_{i\in B\cup S}[0,\lambda_i],
+\qquad
+u_i^\theta(e)=u_i(e)+\theta_iF_e.
+\]
+Intermediate score ties are allowed; a blocking pair must strictly improve
+both clients' scores.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:binary} gives each candidate pair an endpoint that rejects it
+strictly at \(\theta_i=0\) and \(\theta_i=\lambda_i\).
+The score difference between its current match and the candidate is affine
+in \(\theta_i\), so it remains strictly positive throughout the interval.
+The pair therefore cannot block for any vector \(\theta\).
+The converse follows by choosing the vectors \(\theta=0\) and
+\(\theta=(\lambda_i)_i\).
+\end{proof}
+
+The theorem is an existence test, not an existence guarantee. For example, in
+a complete \(2\times2\) market, let every client's base favorite be its diagonal
+partner, with utility one, and the other partner have utility zero. Label the
+two crossed transactions \(F=1\), the diagonal transactions \(F=0\), and set
+all bonuses to two. Then \(P\) has the unique diagonal stable matching and
+\(Q\) the unique crossed stable matching. There is no simultaneous solution.
+
+\subsection{What changes with three bonus levels?}
+
+The common-rejecting-endpoint proof can fail if bonuses take values
+\(0,1,2\). Here is an explicit example. Let
+\[
+B=\{a,t\},\quad S=\{r,s\},\quad
+E=\{ar,as,ts\},\quad M=\{ar,ts\},
+\]
+and set
+\[
+F_{ar}=2,\qquad F_{as}=1,\qquad F_{ts}=0,\qquad
+\lambda_i=2\ \text{for every client}.
+\]
+Choose
+\[
+u_a(r)=0,\quad u_a(s)=1,\qquad
+u_s(a)=0,\quad u_s(t)=1,
+\]
+with \(u_r(a)=u_t(s)=0\) and outside-option utility \(-1\).
+
+The only candidate pair is \(as\). Under \(P\), seller \(s\) rejects it.
+Under \(Q\), buyer \(a\) rejects it because
+\(\widetilde u_a(ar)=4>3=\widetilde u_a(as)\).
+Thus \(M\) is stable under both profiles, but neither endpoint rejects \(as\)
+under their intersection orders. The binary reduction is therefore invalid
+for this instance.
+
+This counterexample proves failure of a particular reduction, not NP-hardness.
+It also does not imply hardness of the stronger independent-interval
+robustness problem. For arbitrary affine score perturbations with independent
+endpoint parameters, rejection throughout an interval is still captured by
+the intersection of its endpoint rankings.
+
+\section{Relation to existing work and the research target}
+
+Several established models delimit the contribution.
+
+\begin{itemize}
+\item \emph{Information and coordination.}
+Socially stable matching distinguishes communication-enabled blocking pairs
+from other potential deviations \cite{askalidis2013}. Our disclosure model
+also restricts available transactions and selects grouped disclosure actions
+before a specified matching procedure.
+\item \emph{Brokerage incentives.}
+Broker fees, matching choices, and instability have been studied in economic
+models of brokerage \cite{boerner2023}. A new contribution must go beyond the
+observation that intermediaries can have misaligned incentives.
+\item \emph{Contracts and networks.}
+Supply-chain matching with bilateral contracts admits stable outcomes under
+appropriate substitutability conditions \cite{hatfield2012}. Adding commissions
+or additional transaction layers does not automatically establish hardness.
+\item \emph{Multiple preference profiles.}
+Joint stability for two arbitrary profiles is already NP-complete
+\cite{miyazaki2017}. Theorem~\ref{thm:binary} exploits a particular shared-bonus
+structure, so arbitrary-profile hardness does not transfer automatically.
+\item \emph{Multiple matching dimensions.}
+Stable existence for cyclic \(k\)-dimensional preferences is NP-complete for
+\(k\geq3\) \cite{lam2019}. That preference structure should not be imposed on
+housing solely to inherit a known hardness result.
+\end{itemize}
+
+The recommended next step is to develop the disclosure model beyond the
+independent gadgets of Theorem~\ref{thm:hardness}. Three concrete questions are:
+
+\begin{enumerate}
+\item \textbf{Find a tractability boundary.}
+What happens when each firm represents clients on only one side, portfolios
+have size at most two, or the graph coupling firms has restricted structure?
+The proof above does not settle these cases.
+\item \textbf{Design an intervention algorithm.}
+Seek an approximation or parameterized algorithm for general disclosure
+instances, with an explicit guarantee. Selecting a firm that exposes a
+current blocking pair is a heuristic until rematching effects are analyzed.
+\item \textbf{Study discovery and client outcomes.}
+For an adaptive model, specify what an audit reveals and what the investigator
+knows beforehand. Evaluate audit cost, full-market blocking pairs, unmatched
+clients, and client utility or rank distributions. Stability, transaction
+volume, welfare, and distributional impact are distinct criteria.
+\end{enumerate}
+
+A credible first deliverable is a complete model, the two proofs above, a
+comparison with adjacent literature, and one substantive algorithmic or
+structural result. A publication claim would additionally require a systematic
+novelty check and evidence that the chosen intervention model captures a
+meaningful housing-market information friction.
+
+\begin{thebibliography}{10}
+\small
+
+\bibitem{gale1962}
+D.~Gale and L.~S.~Shapley.
+College admissions and the stability of marriage.
+\emph{The American Mathematical Monthly}, 69(1):9--15, 1962.
+\url{https://doi.org/10.1080/00029890.1962.11989827}.
+
+\bibitem{barwick2017}
+P.~J.~Barwick, P.~A.~Pathak, and M.~Wong.
+Conflicts of interest and steering in residential brokerage.
+\emph{American Economic Journal: Applied Economics}, 9(3):191--222, 2017.
+\url{https://doi.org/10.1257/app.20160214}.
+
+\bibitem{garey1976}
+M.~R.~Garey, D.~S.~Johnson, and L.~Stockmeyer.
+Some simplified NP-complete graph problems.
+\emph{Theoretical Computer Science}, 1(3):237--267, 1976.
+\url{https://doi.org/10.1016/0304-3975(76)90059-1}.
+
+\bibitem{cseh2021}
+\'{A}.~Cseh and A.~Juhos.
+Pairwise preferences in the stable marriage problem.
+\emph{ACM Transactions on Economics and Computation}, 9(1), Article~7, 2021.
+\url{https://doi.org/10.1145/3434427}.
+See also the author manuscript, Section~5:
+\url{https://hpi.de/friedrich/docs/publications/2021/TEAC.pdf}.
+
+\bibitem{askalidis2013}
+G.~Askalidis, N.~Immorlica, and E.~Pountourakis.
+Socially stable matchings.
+Preprint, 2013.
+\url{https://arxiv.org/abs/1302.3309}.
+
+\bibitem{boerner2023}
+L.~Boerner and D.~Quint.
+Medieval matching markets.
+\emph{International Economic Review}, 64(1):23--56, 2023.
+\url{https://doi.org/10.1111/iere.12600}.
+
+\bibitem{hatfield2012}
+J.~W.~Hatfield and S.~D.~Kominers.
+Matching in networks with bilateral contracts.
+\emph{American Economic Journal: Microeconomics}, 4(1):176--208, 2012.
+\url{https://doi.org/10.1257/mic.4.1.176}.
+
+\bibitem{miyazaki2017}
+S.~Miyazaki and K.~Okamoto.
+Jointly stable matchings.
+In \emph{28th International Symposium on Algorithms and Computation
+(ISAAC 2017)}, volume~92 of LIPIcs, pages~56:1--56:12, 2017.
+\url{https://doi.org/10.4230/LIPIcs.ISAAC.2017.56}.
+
+\bibitem{lam2019}
+C.-K.~Lam and C.~G.~Plaxton.
+On the existence of three-dimensional stable matchings with cyclic preferences.
+Preprint, 2019.
+\url{https://arxiv.org/abs/1905.02844}.
+
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,942 @@
+{
+  "markets": 480,
+  "blocks": 40,
+  "borough_weights": {
+    "Bronx": 0.12090996204512981,
+    "Brooklyn": 0.3232336321753631,
+    "Manhattan": 0.36704371459847296,
+    "Queens": 0.18881269118103416
+  },
+  "months": [
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
+  "market_seed_root": 20261112,
+  "balanced_permutations": "seed child 8, independent of original market shocks; one new permutation per round",
+  "bootstrap_reps": 5000,
+  "bootstrap_seed": 19112026,
+  "raw_hashes": {
+    "recent_donors.csv": "a9b3c373dfe29d769cb1f4cc1fa18defb8ea5fa8760eb79be13fa12986602235",
+    "summary.json": "11549076c4efceb09ea1bba7c9895d32c62ad6e9740ed9ba8ed2a0b4fac83343",
+    "2026-06.csv": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be",
+    "2026-07.csv": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab",
+    "2026-08.csv": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b",
+    "scarcity.py": "3ca8b82d8bb1fd0552c667b8d3e92e5f68e2d029ed036d4d84eeed43f87ff4e7"
+  },
+  "baseline_results_sha256": "7e95c0b08c7acf34f9193f7511a129eb7be3d0dc6de0acc0465861b166914f85",
+  "rates": {
+    "common": {
+      "full": {
+        "markets": 480,
+        "full_stable": 480,
+        "differs_from_full": 0,
+        "blocking_pairs": 0,
+        "listings_exposed": 30689,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1224,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 11547,
+              "replacements": 3877
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.05226131765571431,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 0.4548521878829199,
+              "replacements": 0.10171600982539487,
+              "display_rent_given_positive": 1791.0776061860204,
+              "display_rent_cell_conditional": 1816.0893106366689,
+              "replacement_fraction_of_slots": 0.2236243169431051
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16490,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 682311,
+              "replacements": 596689
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9211052168895858,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 38.25267810352707,
+              "replacements": 33.45581347932374,
+              "display_rent_given_positive": 3509.9718586908457,
+              "display_rent_cell_conditional": 3510.9169888191527,
+              "replacement_fraction_of_slots": 0.8746005544704323
+            }
+          }
+        }
+      },
+      "uniform": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 97823,
+        "listings_exposed": 26194,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1153,
+              "own_blocker": 340,
+              "changed_assignment": 741,
+              "slots": 7670,
+              "replacements": 1770
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.04970327974918461,
+              "own_blocker": 0.009276442228501137,
+              "changed_assignment": 0.02880040078553343,
+              "slots": 0.3531361780575251,
+              "replacements": 0.04902660568953192,
+              "display_rent_given_positive": 1791.8965616122814,
+              "display_rent_cell_conditional": 1816.5728091061346,
+              "replacement_fraction_of_slots": 0.13883201081013452
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 15849,
+              "own_blocker": 13328,
+              "changed_assignment": 14703,
+              "slots": 85622,
+              "replacements": 67445
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.8857947440416364,
+              "own_blocker": 0.7434692350627953,
+              "changed_assignment": 0.8206004989013362,
+              "slots": 4.796864624203332,
+              "replacements": 3.7626516105659165,
+              "display_rent_given_positive": 3510.695244910045,
+              "display_rent_cell_conditional": 3511.6373909955064,
+              "replacement_fraction_of_slots": 0.784398123637025
+            }
+          }
+        }
+      },
+      "cheapest": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 493088,
+        "listings_exposed": 5407,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 380,
+              "own_blocker": 661,
+              "changed_assignment": 1011,
+              "slots": 7670,
+              "replacements": 0
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.015485581702479378,
+              "own_blocker": 0.018599440788479013,
+              "changed_assignment": 0.042321257012195114,
+              "slots": 0.3531361780575251,
+              "replacements": 0.0,
+              "display_rent_given_positive": 1773.1705800391785,
+              "display_rent_cell_conditional": 1805.1881215657256,
+              "replacement_fraction_of_slots": 0.0
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 3875,
+              "own_blocker": 15832,
+              "changed_assignment": 16014,
+              "slots": 85622,
+              "replacements": 0
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.21076229738312036,
+              "own_blocker": 0.8835842184695216,
+              "changed_assignment": 0.8944182995939579,
+              "slots": 4.796864624203332,
+              "replacements": 0.0,
+              "display_rent_given_positive": 2336.3868535340403,
+              "display_rent_cell_conditional": 2336.943541950502,
+              "replacement_fraction_of_slots": 0.0
+            }
+          }
+        }
+      },
+      "balanced": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 84133,
+        "listings_exposed": 30364,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1407,
+              "own_blocker": 278,
+              "changed_assignment": 780,
+              "slots": 7670,
+              "replacements": 1982
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.06359361586823009,
+              "own_blocker": 0.007395618555577276,
+              "changed_assignment": 0.03210567431708941,
+              "slots": 0.3531361780575251,
+              "replacements": 0.0530404227305116,
+              "display_rent_given_positive": 1796.3346190285724,
+              "display_rent_cell_conditional": 1819.2674734073755,
+              "replacement_fraction_of_slots": 0.150198212548677
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16713,
+              "own_blocker": 12961,
+              "changed_assignment": 14658,
+              "slots": 85622,
+              "replacements": 73857
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9348482655236044,
+              "own_blocker": 0.7224403497400448,
+              "changed_assignment": 0.8187595870995307,
+              "slots": 4.796864624203332,
+              "replacements": 4.123170906715992,
+              "display_rent_given_positive": 3916.8844950563384,
+              "display_rent_cell_conditional": 3918.134461645463,
+              "replacement_fraction_of_slots": 0.8595554033173851
+            }
+          }
+        }
+      },
+      "anchored": {
+        "markets": 480,
+        "full_stable": 480,
+        "differs_from_full": 0,
+        "blocking_pairs": 0,
+        "listings_exposed": 18021,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1224,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 7670,
+              "replacements": 348
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.05226131765571431,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 0.3531361780575251,
+              "replacements": 0.009394686378238806,
+              "display_rent_given_positive": 1774.9819288101965,
+              "display_rent_cell_conditional": 1806.3010930943851,
+              "replacement_fraction_of_slots": 0.026603579474398772
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16490,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 85622,
+              "replacements": 14459
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9211052168895858,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 4.796864624203332,
+              "replacements": 0.8057517985452173,
+              "display_rent_given_positive": 2566.3096170411222,
+              "display_rent_cell_conditional": 2566.968744064897,
+              "replacement_fraction_of_slots": 0.16797467964379698
+            }
+          }
+        }
+      }
+    },
+    "heterogeneous": {
+      "full": {
+        "markets": 480,
+        "full_stable": 480,
+        "differs_from_full": 0,
+        "blocking_pairs": 0,
+        "listings_exposed": 30689,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1118,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 11547,
+              "replacements": 3877
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.04353841287677384,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 0.4548521878829199,
+              "replacements": 0.10171600982539487,
+              "display_rent_given_positive": 1791.0776061860204,
+              "display_rent_cell_conditional": 1816.0893106366689,
+              "replacement_fraction_of_slots": 0.2236243169431051
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16471,
+              "own_blocker": 0,
+              "changed_assignment": 0,
+              "slots": 682311,
+              "replacements": 596689
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9193872878077146,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.0,
+              "slots": 38.25267810352707,
+              "replacements": 33.45581347932374,
+              "display_rent_given_positive": 3509.9718586908457,
+              "display_rent_cell_conditional": 3510.9169888191527,
+              "replacement_fraction_of_slots": 0.8746005544704323
+            }
+          }
+        }
+      },
+      "uniform": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 97957,
+        "listings_exposed": 26194,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1172,
+              "own_blocker": 360,
+              "changed_assignment": 782,
+              "slots": 7670,
+              "replacements": 1770
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.048885683556273235,
+              "own_blocker": 0.009589366236875535,
+              "changed_assignment": 0.02963272561317202,
+              "slots": 0.3531361780575251,
+              "replacements": 0.04902660568953192,
+              "display_rent_given_positive": 1791.8965616122814,
+              "display_rent_cell_conditional": 1816.5728091061346,
+              "replacement_fraction_of_slots": 0.13883201081013452
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16144,
+              "own_blocker": 13347,
+              "changed_assignment": 14676,
+              "slots": 85622,
+              "replacements": 67445
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9024121616105765,
+              "own_blocker": 0.745380156691401,
+              "changed_assignment": 0.8202266935669424,
+              "slots": 4.796864624203332,
+              "replacements": 3.7626516105659165,
+              "display_rent_given_positive": 3510.695244910045,
+              "display_rent_cell_conditional": 3511.6373909955064,
+              "replacement_fraction_of_slots": 0.784398123637025
+            }
+          }
+        }
+      },
+      "cheapest": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 499650,
+        "listings_exposed": 5407,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 323,
+              "own_blocker": 676,
+              "changed_assignment": 919,
+              "slots": 7670,
+              "replacements": 0
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.013181153388126442,
+              "own_blocker": 0.018945221473728374,
+              "changed_assignment": 0.034210288950614176,
+              "slots": 0.3531361780575251,
+              "replacements": 0.0,
+              "display_rent_given_positive": 1773.1705800391785,
+              "display_rent_cell_conditional": 1805.1881215657256,
+              "replacement_fraction_of_slots": 0.0
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 3931,
+              "own_blocker": 15900,
+              "changed_assignment": 15791,
+              "slots": 85622,
+              "replacements": 0
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.21368597805286169,
+              "own_blocker": 0.8872677620118581,
+              "changed_assignment": 0.881144782972699,
+              "slots": 4.796864624203332,
+              "replacements": 0.0,
+              "display_rent_given_positive": 2336.3868535340403,
+              "display_rent_cell_conditional": 2336.943541950502,
+              "replacement_fraction_of_slots": 0.0
+            }
+          }
+        }
+      },
+      "balanced": {
+        "markets": 480,
+        "full_stable": 0,
+        "differs_from_full": 480,
+        "blocking_pairs": 82741,
+        "listings_exposed": 30364,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1412,
+              "own_blocker": 302,
+              "changed_assignment": 899,
+              "slots": 7670,
+              "replacements": 1982
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.06252013631745769,
+              "own_blocker": 0.007902392342553344,
+              "changed_assignment": 0.038672818181202245,
+              "slots": 0.3531361780575251,
+              "replacements": 0.0530404227305116,
+              "display_rent_given_positive": 1796.3346190285724,
+              "display_rent_cell_conditional": 1819.2674734073755,
+              "replacement_fraction_of_slots": 0.150198212548677
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16868,
+              "own_blocker": 13166,
+              "changed_assignment": 14695,
+              "slots": 85622,
+              "replacements": 73857
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9438022123043821,
+              "own_blocker": 0.7341476260134913,
+              "changed_assignment": 0.8221150548464682,
+              "slots": 4.796864624203332,
+              "replacements": 4.123170906715992,
+              "display_rent_given_positive": 3916.8844950563384,
+              "display_rent_cell_conditional": 3918.134461645463,
+              "replacement_fraction_of_slots": 0.8595554033173851
+            }
+          }
+        }
+      },
+      "anchored": {
+        "markets": 480,
+        "full_stable": 473,
+        "differs_from_full": 7,
+        "blocking_pairs": 24,
+        "listings_exposed": 17899,
+        "groups": {
+          "lower": {
+            "counts": {
+              "renters": 12916,
+              "positive": 2584,
+              "matched": 1118,
+              "own_blocker": 0,
+              "changed_assignment": 3,
+              "slots": 7670,
+              "replacements": 369
+            },
+            "standardized": {
+              "positive": 0.15230236844491435,
+              "matched": 0.04353841287677384,
+              "own_blocker": 0.0,
+              "changed_assignment": 0.00020099702670902094,
+              "slots": 0.3531361780575251,
+              "replacements": 0.0098735071084196,
+              "display_rent_given_positive": 1775.0430412444946,
+              "display_rent_cell_conditional": 1806.3419559201766,
+              "replacement_fraction_of_slots": 0.02795948906376629
+            }
+          },
+          "higher": {
+            "counts": {
+              "renters": 17804,
+              "positive": 17578,
+              "matched": 16471,
+              "own_blocker": 24,
+              "changed_assignment": 11,
+              "slots": 85622,
+              "replacements": 14353
+            },
+            "standardized": {
+              "positive": 0.9873891292235059,
+              "matched": 0.9193872878077146,
+              "own_blocker": 0.0014087641191512438,
+              "changed_assignment": 0.0006911604981723105,
+              "slots": 4.796864624203332,
+              "replacements": 0.799787546130686,
+              "display_rent_given_positive": 2565.6603964442093,
+              "display_rent_cell_conditional": 2566.321634976536,
+              "replacement_fraction_of_slots": 0.1667313148874856
+            }
+          }
+        }
+      }
+    }
+  },
+  "paired_contrasts": {
+    "common": {
+      "balanced_minus_cheapest": {
+        "lower": {
+          "matched": {
+            "estimate": 0.04810803416575071,
+            "mc_percentile_95": [
+              0.04468519094990288,
+              0.051538011997343834
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.011203822232901738,
+            "mc_percentile_95": [
+              -0.012581597699666975,
+              -0.00985857343977494
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 23.16403898939393,
+            "mc_percentile_95": [
+              20.250740054014152,
+              26.266302504843836
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 14.079351841649896,
+            "mc_percentile_95": [
+              12.65043134848607,
+              15.389904149837866
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.7240859681404841,
+            "mc_percentile_95": [
+              0.7186057887397304,
+              0.7293245643017788
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.16114386872947684,
+            "mc_percentile_95": [
+              -0.16811730084552787,
+              -0.1540196700969693
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 1580.4976415222982,
+            "mc_percentile_95": [
+              1555.9693830187698,
+              1603.2066882666045
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 1581.190919694961,
+            "mc_percentile_95": [
+              1556.9855675420192,
+              1603.5875235849003
+            ]
+          }
+        }
+      },
+      "anchored_minus_cheapest": {
+        "lower": {
+          "matched": {
+            "estimate": 0.03677573595323493,
+            "mc_percentile_95": [
+              0.034482554018974265,
+              0.039120805440905196
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.018599440788479013,
+            "mc_percentile_95": [
+              -0.02052016786771427,
+              -0.01666712815692459
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 1.811348771017947,
+            "mc_percentile_95": [
+              1.5519506976130741,
+              2.105221061607665
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 1.1129715286595,
+            "mc_percentile_95": [
+              0.9809993863366288,
+              1.2499649056423605
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.7103429195064654,
+            "mc_percentile_95": [
+              0.7045262395179174,
+              0.7160474436393522
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.8835842184695216,
+            "mc_percentile_95": [
+              -0.8891759022489243,
+              -0.8777264374786956
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 229.92276350708198,
+            "mc_percentile_95": [
+              225.95580440504696,
+              233.9738749984633
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 230.0252021143947,
+            "mc_percentile_95": [
+              226.07556278625108,
+              234.06025999910858
+            ]
+          }
+        }
+      },
+      "balanced_minus_uniform": {
+        "lower": {
+          "matched": {
+            "estimate": 0.013890336119045478,
+            "mc_percentile_95": [
+              0.011487360662533551,
+              0.01648309493957933
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.0018808236729238618,
+            "mc_percentile_95": [
+              -0.002882472734748416,
+              -0.0009265529433762857
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 4.438057416291031,
+            "mc_percentile_95": [
+              3.184466333123106,
+              5.744960655346318
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 2.6946643012408913,
+            "mc_percentile_95": [
+              1.9805022026694814,
+              3.362340737205056
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.049053521481968065,
+            "mc_percentile_95": [
+              0.046180311422346215,
+              0.05196016088980493
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.02102888532275049,
+            "mc_percentile_95": [
+              -0.027843429132521365,
+              -0.014152096478033765
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 406.1892501462935,
+            "mc_percentile_95": [
+              391.3899757059368,
+              420.2784234811519
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 406.49707064995664,
+            "mc_percentile_95": [
+              391.79229439293965,
+              420.4670590539557
+            ]
+          }
+        }
+      }
+    },
+    "heterogeneous": {
+      "balanced_minus_cheapest": {
+        "lower": {
+          "matched": {
+            "estimate": 0.04933898292933125,
+            "mc_percentile_95": [
+              0.04581058247230949,
+              0.05286266978334255
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.01104282913117503,
+            "mc_percentile_95": [
+              -0.012537761973445208,
+              -0.009585850709522203
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 23.16403898939393,
+            "mc_percentile_95": [
+              20.250740054014152,
+              26.266302504843836
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 14.079351841649896,
+            "mc_percentile_95": [
+              12.65043134848607,
+              15.389904149837866
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.7301162342515204,
+            "mc_percentile_95": [
+              0.7240556504682991,
+              0.7358756011324863
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.15312013599836682,
+            "mc_percentile_95": [
+              -0.158888603710887,
+              -0.14721996804244938
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 1580.4976415222982,
+            "mc_percentile_95": [
+              1555.9693830187698,
+              1603.2066882666045
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 1581.190919694961,
+            "mc_percentile_95": [
+              1556.9855675420192,
+              1603.5875235849003
+            ]
+          }
+        }
+      },
+      "anchored_minus_cheapest": {
+        "lower": {
+          "matched": {
+            "estimate": 0.030357259488647398,
+            "mc_percentile_95": [
+              0.028165538528102753,
+              0.03272017989797555
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.018945221473728374,
+            "mc_percentile_95": [
+              -0.020905539416877263,
+              -0.016959851661029188
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 1.8724612053160854,
+            "mc_percentile_95": [
+              1.5902960898840148,
+              2.1546005048967114
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 1.1538343544509644,
+            "mc_percentile_95": [
+              0.9931664200253749,
+              1.3189089117023682
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.7057013097548529,
+            "mc_percentile_95": [
+              0.6995359301942221,
+              0.7116951532682001
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.8858589978927068,
+            "mc_percentile_95": [
+              -0.8921372477412919,
+              -0.879003670909789
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 229.273542910169,
+            "mc_percentile_95": [
+              225.45862593019052,
+              233.02140370786591
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 229.3780930260341,
+            "mc_percentile_95": [
+              225.56288038618553,
+              233.12107521835534
+            ]
+          }
+        }
+      },
+      "balanced_minus_uniform": {
+        "lower": {
+          "matched": {
+            "estimate": 0.013634452761184454,
+            "mc_percentile_95": [
+              0.011103628879594407,
+              0.016072817855239462
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.0016869738943221906,
+            "mc_percentile_95": [
+              -0.0025112838961184963,
+              -0.000816100962836428
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 4.438057416291031,
+            "mc_percentile_95": [
+              3.184466333123106,
+              5.744960655346318
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 2.6946643012408913,
+            "mc_percentile_95": [
+              1.9805022026694814,
+              3.362340737205056
+            ]
+          }
+        },
+        "higher": {
+          "matched": {
+            "estimate": 0.041390050693805636,
+            "mc_percentile_95": [
+              0.0380450013424509,
+              0.04467547694566488
+            ]
+          },
+          "own_blocker": {
+            "estimate": -0.011232530677909747,
+            "mc_percentile_95": [
+              -0.017467811110809986,
+              -0.004683523039243771
+            ]
+          },
+          "display_rent_given_positive": {
+            "estimate": 406.1892501462935,
+            "mc_percentile_95": [
+              391.3899757059368,
+              420.2784234811519
+            ]
+          },
+          "display_rent_cell_conditional": {
+            "estimate": 406.49707064995664,
+            "mc_percentile_95": [
+              391.79229439293965,
+              420.4670590539557
+            ]
+          }
+        }
+      }
+    }
+  }
+}

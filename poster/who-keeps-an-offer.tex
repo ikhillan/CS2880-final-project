@@ -1,0 +1,112 @@
+\RequirePackage{fix-cm}
+\documentclass{article}
+\usepackage[paperwidth=48in,paperheight=36in,margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newpxtext}
+\usepackage[default]{sourcesanspro}
+\usepackage{amsmath}
+\usepackage{xcolor,tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={Who keeps an offer?},pdfsubject={Research poster on AI recommendations and stable matching},pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
+\pagestyle{empty}
+\definecolor{ink}{HTML}{152E35}
+\definecolor{teal}{HTML}{096B66}
+\definecolor{rust}{HTML}{A23E32}
+\definecolor{slate}{HTML}{415962}
+\definecolor{light}{HTML}{D5DFDC}
+\definecolor{paper}{HTML}{FCFCF7}
+\definecolor{wash}{HTML}{EAF2EB}
+\newcommand{\sz}[2]{\fontsize{#1}{#2}\selectfont}
+\newcommand{\head}{\rmfamily\bfseries\sz{53}{56}}
+\newcommand{\smallhead}{\sffamily\bfseries\sz{32}{35}}
+\newcommand{\bodyfont}{\sffamily\sz{36}{43}}
+\newcommand{\fine}{\sffamily\sz{19}{23}}
+% Coordinates in inches from the upper left. Each text block remains selectable.
+\newcommand{\puttext}[5]{\node[anchor=north west,inner sep=0pt,outer sep=0pt,align=left,text=ink,text width=#3in] at (#1,#2) {\raggedright #4\spaceskip=0pt\xspaceskip=0pt\relax #5\par};}
+\newcommand{\ruleat}[4]{\draw[light,line width=1.8pt] (#1,#2)--(#3,#4);}
+\newcommand{\sourcefont}{\sffamily\sz{19}{22}\color{slate}}
+\newcommand{\rankdata}{../publication/research/policy/design/referral-ranks.csv}
+\begin{document}
+\noindent\begin{tikzpicture}[remember picture,overlay]
+\begin{scope}[shift={(current page.north west)},x=1in,y=-1in]
+\fill[paper] (0,0) rectangle (48,36);
+\fill[ink] (0,0) rectangle (48,6.35);
+\fill[teal] (0,6.35) rectangle (48,6.46);
+\puttext{1.15}{0.49}{43}{\sffamily\bfseries\sz{23}{25}\color{white!84!teal}}{AI FOR SOCIAL IMPACT\quad / \quad MARKET DESIGN}
+\puttext{1.06}{1.09}{46}{\rmfamily\bfseries\sz{147}{152}\color{white}}{Who keeps an offer?}
+\puttext{1.18}{3.56}{45.3}{\sffamily\sz{47}{52}\color{white}}{A better prediction can leave more applicants without a place.}
+\puttext{1.18}{4.92}{45}{\sffamily\sz{30}{34}\color{white!86!teal}}{Ishan Khillan\enspace\textperiodcentered\enspace Elaine Zhang\enspace\textperiodcentered\enspace Todd Zhou}
+
+\puttext{1.16}{7.18}{21}{\head}{The five-choice test}
+\puttext{1.2}{8.57}{20.1}{\bodyfont}{Families can see five programs plus any guaranteed current-school option. Does keeping the program a family was actually offered on its list help more pupils get a place?}
+\puttext{1.2}{10.95}{20.1}{\smallhead}{One model input changed}
+\puttext{1.2}{11.76}{20.1}{\bodyfont}{Two logistic models learned from 2019 offers. Both saw the programs a family listed. One also saw their order. We froze both models and specified the expected result before opening either test cohort.}
+\puttext{1.2}{15.58}{20.1}{\bodyfont}{We counted how often the five-choice rule retained a recorded offer, then replayed admissions. In deferred acceptance, each pupil applies down their visible list and each program keeps its highest-priority applicants up to capacity.}
+
+\puttext{1.20}{18.15}{20.0}{\sffamily\sz{25}{29}\color{slate}}{Both learned rules beat uniform lists in the earlier cohorts. The comparison here isolates the addition of rank information.}
+\draw[light,line width=1.7pt] (22.2,7.34)--(22.2,19.62);
+\puttext{23.13}{7.18}{23.5}{\head}{Two new cohorts gave the same answer}
+\puttext{23.19}{8.60}{23.25}{\sffamily\sz{27}{32}\color{slate}}{Changes from adding rank to the predictor, across 1,107,244 applicant records in Chile.}
+\puttext{23.20}{10.20}{10.6}{\sffamily\bfseries\sz{122}{126}\color{teal}}{+2,493}
+\puttext{34.86}{10.20}{10.9}{\sffamily\bfseries\sz{122}{126}\color{rust}}{\textminus985}
+\puttext{23.29}{12.44}{11.0}{\smallhead}{historical offers shown}
+\puttext{34.92}{12.44}{11.1}{\smallhead}{placements in the replay}
+\ruleat{23.2}{13.65}{46.75}{13.65}
+\puttext{23.24}{14.03}{4.0}{\sffamily\bfseries\sz{26}{30}\color{slate}}{Cohort}
+\puttext{27.78}{14.03}{8.1}{\sffamily\bfseries\sz{26}{30}\color{slate}}{Additional offers shown}
+\puttext{37.07}{14.03}{9.9}{\sffamily\bfseries\sz{26}{30}\color{slate}}{Change in placements}
+\puttext{23.24}{14.74}{4.1}{\bodyfont}{2022}
+\puttext{27.80}{14.72}{7.6}{\sffamily\bfseries\sz{34}{37}\color{teal}}{+1,143}
+\puttext{37.10}{14.72}{8.9}{\sffamily\bfseries\sz{34}{37}\color{rust}}{\textminus468}
+\puttext{23.24}{15.56}{4.1}{\bodyfont}{2023}
+\puttext{27.80}{15.54}{7.8}{\sffamily\bfseries\sz{34}{37}\color{teal}}{+1,350}
+\puttext{37.10}{15.54}{9}{\sffamily\bfseries\sz{34}{37}\color{rust}}{\textminus517}
+\ruleat{23.2}{16.45}{46.75}{16.45}
+\puttext{23.22}{16.82}{23.1}{\sffamily\sz{32}{38}}{Of the net increase in covered offers, 2,244 were offers families explicitly accepted. In the replay, 1,455 pupils lost a place and 470 gained one.}
+\puttext{23.22}{19.03}{23.1}{\sourcefont}{Table from the Chilean Ministry of Education's school admissions records [1].}
+
+\fill[wash] (0,20.27) rectangle (48,33.70);
+\puttext{1.16}{20.93}{22.0}{\head}{Which vacancies can a student use?}
+\puttext{1.2}{22.27}{20.2}{\bodyfont}{In a separate replay for 189,399 university applicants, 21,061 seats were empty. Of 30,866 unmatched applicants, just 160 had listed an eligible program with a vacancy.}
+\puttext{1.2}{25.33}{20.25}{\smallhead}{An exact limit on safe referrals}
+\puttext{1.2}{26.22}{20.25}{\bodyfont}{Connect each unmatched applicant to the vacancies on their original list. A maximum matching assigns the most referrals that fit while keeping every tentative contract feasible.}
+\puttext{1.20}{29.02}{20.4}{\sffamily\bfseries\sz{58}{64}\color{teal}}{160 \textminus{} (24 \textminus{} 11) = 147}
+\puttext{1.20}{30.32}{20.15}{\sffamily\sz{30}{36}}{A group of 24 applicants shared just 11 reachable seats. One referral per selected applicant attained the bound. Everyone already placed kept a program they ranked at least as highly.}
+\draw[teal!26!white,line width=1.7pt] (22.2,21.14)--(22.2,33.05);
+
+\puttext{23.13}{20.93}{23.5}{\head}{How far down the list?}
+\puttext{23.2}{22.27}{23.10}{\sffamily\sz{32}{38}}{If a referral had to be in the student's first five choices, only four people could gain a place. At a rank limit of ten, the maximum rose to 61.}
+\end{scope}
+% Plot in a normal upward-pointing coordinate system, anchored on the page.
+\begin{scope}[shift={(current page.north west)}]
+\begin{axis}[
+ at={(24.7in,-30.55in)},anchor=south west,width=20.65in,height=5.37in,scale only axis,
+ xmin=1,xmax=20.6,ymin=0,ymax=168,
+ axis lines=left,axis line style={slate,line width=1.6pt},tick style={slate,line width=1.2pt},
+ xtick={1,5,10,15,20},ytick={0,50,100,150},
+ tick label style={font=\sffamily\sz{26}{30},text=slate},
+ ymajorgrids=true,grid style={teal!18!white,line width=1.2pt},clip=false,
+ xlabel={Lowest permitted rank on the student's submitted list},
+ xlabel style={font=\sffamily\sz{25}{29},text=ink,at={(axis description cs:0.5,-.16)}},
+ ylabel={},title={},enlarge x limits=false]
+\addplot+[const plot,mark=none,teal,line width=5pt] table[x=max_rank,y=maximum,col sep=comma]{\rankdata};
+\addplot+[only marks,teal,mark=*,mark size=5pt,mark options={fill=teal,draw=teal}] coordinates {(5,4) (10,61) (15,109) (20,147)};
+\node[anchor=south west,font=\sffamily\bfseries\sz{30}{32},text=teal,inner sep=4pt] at (axis cs:5,7){4};
+\node[anchor=south west,font=\sffamily\bfseries\sz{30}{32},text=teal,inner sep=4pt] at (axis cs:10,63){61};
+\node[anchor=south west,font=\sffamily\bfseries\sz{30}{32},text=teal,inner sep=4pt] at (axis cs:15,111){109};
+\node[anchor=south east,font=\sffamily\bfseries\sz{30}{32},text=teal,inner sep=4pt] at (axis cs:20,149){147};
+\end{axis}
+\end{scope}
+\begin{scope}[shift={(current page.north west)},x=1in,y=-1in]
+\puttext{23.20}{24.19}{22.8}{\sffamily\bfseries\sz{26}{30}\color{slate}}{Maximum additional placements}
+\puttext{23.20}{32.29}{23.0}{\sourcefont}{Graph from the project's exact matching calculations on 2026 regular admissions [2].}
+\puttext{1.20}{34.00}{45.45}{\sffamily\bfseries\sz{22}{25}}{Observed data include submitted lists, offers and responses. Placements under changed recommendations are counterfactual.}
+\puttext{1.20}{34.55}{45.40}{\sourcefont}{[1] Chile MINEDUC, Sistema de Admisión Escolar, 2022--23 applications.\quad [2] Chile MINEDUC, PAES 2026, regular applications and published program seats.}
+\puttext{1.20}{35.06}{45.5}{\sourcefont}{Harvard CS 2880, AI for Social Impact. Poster, table and graph created with OpenAI Codex and \LaTeX{}, 13 November 2026.}
+\end{scope}
+\end{tikzpicture}\null
+\end{document}

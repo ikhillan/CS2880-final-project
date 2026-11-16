@@ -1,0 +1,16 @@
+{
+  "base_commit": "981ed97f6b1c517b8aa9a785531c2592a700133c",
+  "input_sha256": {
+    "hiddenoptions/markets.py": "f3183157830a2f0ac4d90a1673f909ba0413a485adc0dac73a0cf9d0ae1831b5",
+    "hiddenoptions/exposure.py": "49a4589d526a67805222fca9477deb2856ede2770fdd589bf8dae5a9704a52aa",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293",
+    "hiddenoptions/data.py": "5b7ce96b8dbd7538812797bed34aeb1bb0ade7fbad318b16a591d45cbb0288e0",
+    "configs/stage1_pilot.json": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568",
+    "data/reference/cpi_u_us_city_average.csv": "3108cfa6f1593b04d53b7ad66bac8967244a03a903d1c22f2d60b2f27514d995",
+    "data/derived/renter_profiles_v2.csv.gz": "91fe8beb7374dcc911bbf2e7bc7bd9105379af6d32dcd529ad6329695f20199c",
+    "data/firstmover/clean/firstmover_listings_2026-06.csv.gz": "51fea05171c4fc8be550f6e602602cedbbfe7e6851c122676684a7c6f0f05ba3",
+    "data/firstmover/clean/firstmover_listings_2026-07.csv.gz": "34227c63b0ebc0ad7456e0570315a2d3df9935ddaf11d613514ad6c3f3d2b0a8",
+    "data/firstmover/clean/firstmover_listings_2026-08.csv.gz": "45b9b5ba802862bc3765992c93234249c4679c2da2da11fe6b107b30c41f5129"
+  },
+  "configuration": "Exact input provenance for the patched branch checkout. Development raw-data hashes appear in source-inputs.json. Archived regional weights use the original predeclared all-recent-mover geographic totals. Only the calibration profiles enter simulated outcomes."
+}

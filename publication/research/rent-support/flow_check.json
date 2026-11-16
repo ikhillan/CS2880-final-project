@@ -1,0 +1,90 @@
+[
+  {
+    "size": 64,
+    "price_floor": 0,
+    "scope": "pooled",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 2,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 0,
+    "scope": "pooled",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 178,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 0,
+    "scope": "same_market_counts",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 43,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 0,
+    "scope": "original_recipients",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 38,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": 64,
+    "price_floor": 1000,
+    "scope": "pooled",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 2,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 1000,
+    "scope": "pooled",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 138,
+      "strictly_below": 53,
+      "at_optimum": 62
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 1000,
+    "scope": "same_market_counts",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 41,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  },
+  {
+    "size": "whole",
+    "price_floor": 1000,
+    "scope": "original_recipients",
+    "fixed_volume": 217,
+    "max_cheap_edges": {
+      "survey_target": 36,
+      "strictly_below": 54,
+      "at_optimum": 55
+    }
+  }
+]

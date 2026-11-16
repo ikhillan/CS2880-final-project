@@ -1,0 +1,7 @@
+{
+  "template": "EC 2026 official single-column submission kit, used provisionally for an EC 2027 working draft",
+  "official_url": "https://ec26.sigecom.org/wp-content/uploads/2026/01/ec26-submission-style-files.zip",
+  "sha256": "2f9e2264b66e36bb460bc4756a216f8d294c5c87a39fc3ad588093d6b91639c6",
+  "verified": "2026-11-13",
+  "customization": "Blank the submission footer for an unsubmitted working paper. No submission number assigned."
+}

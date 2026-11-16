@@ -1,0 +1,75 @@
+{
+  "n_per_side": 3,
+  "firm_costs": [
+    1,
+    3,
+    2,
+    2,
+    1,
+    4
+  ],
+  "checks": {
+    "graphs": 265,
+    "profiles": 2002,
+    "visible_graph_support_equivalence_checks": 59419,
+    "successful_audits_at_one_blocker": 820368,
+    "successful_expansions_from_at_most_one_blocker": 70501,
+    "weighted_singleton_group_optimum_checks": 475352,
+    "one_blocker_baselines": 17937,
+    "one_blocker_imperfect_baselines": 15957,
+    "flexible_component_blocker_identities": 1632,
+    "positive_group_premium_checks": 480
+  },
+  "two_blocker_example": {
+    "buyer_orders": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      []
+    ],
+    "seller_orders": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      []
+    ],
+    "initial_edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "initial_response": [
+      1,
+      -1,
+      -1
+    ],
+    "initial_blockers": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "protected_group_mask": 1,
+    "ordinary": 1,
+    "protected": 2
+  }
+}

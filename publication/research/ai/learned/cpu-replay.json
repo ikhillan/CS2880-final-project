@@ -1,0 +1,54 @@
+[
+  {
+    "policy": "pointwise",
+    "anchored": false,
+    "n_markets": 1152,
+    "n_renters": 73728,
+    "differing_menus": 101,
+    "different_assigned_partners": 76,
+    "different_match_status": 34,
+    "delta_total": 2,
+    "max_feasible_logp_delta": 0.004439830780029297,
+    "q99_feasible_logp_delta": 0.0011782646179199219,
+    "max_outside_logp_delta": 0.0051174163818359375
+  },
+  {
+    "policy": "pointwise",
+    "anchored": true,
+    "n_markets": 1152,
+    "n_renters": 73728,
+    "differing_menus": 2285,
+    "different_assigned_partners": 1784,
+    "different_match_status": 618,
+    "delta_total": -4,
+    "max_feasible_logp_delta": 0.004439830780029297,
+    "q99_feasible_logp_delta": 0.0011782646179199219,
+    "max_outside_logp_delta": 0.0051174163818359375
+  },
+  {
+    "policy": "context",
+    "anchored": false,
+    "n_markets": 1152,
+    "n_renters": 73728,
+    "differing_menus": 434,
+    "different_assigned_partners": 349,
+    "different_match_status": 130,
+    "delta_total": 10,
+    "max_feasible_logp_delta": 0.008348941802978516,
+    "q99_feasible_logp_delta": 0.0036547183990478516,
+    "max_outside_logp_delta": 0.018014907836914062
+  },
+  {
+    "policy": "context",
+    "anchored": true,
+    "n_markets": 1152,
+    "n_renters": 73728,
+    "differing_menus": 2445,
+    "different_assigned_partners": 1864,
+    "different_match_status": 650,
+    "delta_total": 10,
+    "max_feasible_logp_delta": 0.008348941802978516,
+    "q99_feasible_logp_delta": 0.0036547183990478516,
+    "max_outside_logp_delta": 0.018014907836914062
+  }
+]

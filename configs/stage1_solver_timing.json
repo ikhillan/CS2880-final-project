@@ -1,0 +1,15 @@
+{
+  "name": "stage1_solver_timing",
+  "_note": "Protocol stage 1: time the solver at 24 and 64 per side on four pilot blocks per size, every objective, to size cluster jobs.",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx"], "months": ["2026-06", "2026-07", "2026-08"],
+           "sizes": [24, 64], "seeds": 4, "seed_start": 200},
+  "market": {"donors": "calibration"},
+  "exposures": [
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5}
+  ],
+  "methods": ["reverse_delete", "prefix_cover", "exact_prefix",
+              "reverse_delete_protect_lower", "prefix_cover_protect_lower", "exact_prefix_protect_lower",
+              "reverse_delete_protect_all", "prefix_cover_protect_all", "exact_prefix_protect_all"],
+  "exact_time_cap": {"24": 300, "64": 900}
+}

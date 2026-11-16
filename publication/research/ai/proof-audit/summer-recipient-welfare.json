@@ -1,0 +1,530 @@
+{
+  "enriched:blind": {
+    "raw": {
+      "original": 6826.0,
+      "better": 1076.0,
+      "equal": 5750.0,
+      "worse": 0.0,
+      "changed": 1076.0,
+      "transfer": 1076.0,
+      "lost": 0.0,
+      "stayed": 6826.0,
+      "burden_change": -8.956065654754639,
+      "burden_increased": 411.0,
+      "burden_decreased": 596.0,
+      "common_stayed": 5841.0,
+      "common_burden_change": -8.433868789672854,
+      "common_burden_increased": 399.0,
+      "common_burden_decreased": 571.0
+    },
+    "standardized": {
+      "better": {
+        "value": 16.81247527562418,
+        "paired_95ci": [
+          15.887798508953537,
+          17.732650199550466
+        ],
+        "dropped_bootstraps": 0
+      },
+      "equal": {
+        "value": 83.1875247243758,
+        "paired_95ci": [
+          82.26734980044952,
+          84.11220149104646
+        ],
+        "dropped_bootstraps": 0
+      },
+      "worse": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 0
+      },
+      "changed": {
+        "value": 16.81247527562418,
+        "paired_95ci": [
+          15.887798508953537,
+          17.732650199550466
+        ],
+        "dropped_bootstraps": 0
+      },
+      "transfer": {
+        "value": 16.81247527562418,
+        "paired_95ci": [
+          15.887798508953537,
+          17.732650199550466
+        ],
+        "dropped_bootstraps": 0
+      },
+      "lost": {
+        "value": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_change": {
+        "value": -0.136341841339058,
+        "paired_95ci": [
+          -0.1773775395414332,
+          -0.09477577748549222
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_increased": {
+        "value": 6.259280858447435,
+        "paired_95ci": [
+          5.5856488256097006,
+          6.91307738289828
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_decreased": {
+        "value": 9.286269055005754,
+        "paired_95ci": [
+          8.51965991359174,
+          10.077234068404382
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_change": {
+        "value": -0.1496364035813893,
+        "paired_95ci": [
+          -0.19576542186200865,
+          -0.10262242759163452
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_increased": {
+        "value": 7.017995252444326,
+        "paired_95ci": [
+          6.280229939132789,
+          7.722191866565874
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_decreased": {
+        "value": 10.312229965736888,
+        "paired_95ci": [
+          9.449237567514935,
+          11.236975268421627
+        ],
+        "dropped_bootstraps": 0
+      }
+    }
+  },
+  "enriched:direct": {
+    "raw": {
+      "original": 6826.0,
+      "better": 1251.0,
+      "equal": 3694.0,
+      "worse": 1881.0,
+      "changed": 3132.0,
+      "transfer": 2147.0,
+      "lost": 985.0,
+      "stayed": 5841.0,
+      "burden_change": -15.212988400459292,
+      "burden_increased": 834.0,
+      "burden_decreased": 1165.0,
+      "common_stayed": 5841.0,
+      "common_burden_change": -15.212988400459292,
+      "common_burden_increased": 834.0,
+      "common_burden_decreased": 1165.0
+    },
+    "standardized": {
+      "better": {
+        "value": 19.06387735833454,
+        "paired_95ci": [
+          18.170443070623904,
+          19.932178742044485
+        ],
+        "dropped_bootstraps": 0
+      },
+      "equal": {
+        "value": 54.86215404381659,
+        "paired_95ci": [
+          53.88540328762425,
+          55.8921944131956
+        ],
+        "dropped_bootstraps": 0
+      },
+      "worse": {
+        "value": 26.073968597848868,
+        "paired_95ci": [
+          25.105699992894152,
+          27.043340456566398
+        ],
+        "dropped_bootstraps": 0
+      },
+      "changed": {
+        "value": 45.13784595618341,
+        "paired_95ci": [
+          44.10780558680439,
+          46.11459671237574
+        ],
+        "dropped_bootstraps": 0
+      },
+      "transfer": {
+        "value": 31.526594010468152,
+        "paired_95ci": [
+          30.488333326202476,
+          32.57826126426757
+        ],
+        "dropped_bootstraps": 0
+      },
+      "lost": {
+        "value": 13.61125194571526,
+        "paired_95ci": [
+          12.7717243396348,
+          14.404069017439296
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_change": {
+        "value": -0.24137198554330172,
+        "paired_95ci": [
+          -0.2929917294545044,
+          -0.18571775017566075
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_increased": {
+        "value": 13.918895562318923,
+        "paired_95ci": [
+          13.045789230273963,
+          14.79201970927461
+        ],
+        "dropped_bootstraps": 0
+      },
+      "burden_decreased": {
+        "value": 19.748224106395412,
+        "paired_95ci": [
+          18.665486160076835,
+          20.737961748100478
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_change": {
+        "value": -0.24137198554330172,
+        "paired_95ci": [
+          -0.2929917294545044,
+          -0.18571775017566075
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_increased": {
+        "value": 13.918895562318923,
+        "paired_95ci": [
+          13.045789230273963,
+          14.79201970927461
+        ],
+        "dropped_bootstraps": 0
+      },
+      "common_burden_decreased": {
+        "value": 19.748224106395412,
+        "paired_95ci": [
+          18.665486160076835,
+          20.737961748100478
+        ],
+        "dropped_bootstraps": 0
+      }
+    }
+  },
+  "uniform:blind": {
+    "raw": {
+      "original": 681.0,
+      "better": 25.0,
+      "equal": 656.0,
+      "worse": 0.0,
+      "changed": 25.0,
+      "transfer": 25.0,
+      "lost": 0.0,
+      "stayed": 681.0,
+      "burden_change": -0.4442202806472779,
+      "burden_increased": 10.0,
+      "burden_decreased": 14.0,
+      "common_stayed": 460.0,
+      "common_burden_change": -0.3726171016693116,
+      "common_burden_increased": 9.0,
+      "common_burden_decreased": 12.0
+    },
+    "standardized": {
+      "better": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "equal": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "worse": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "changed": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "transfer": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "lost": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_change": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_increased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_decreased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_change": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_increased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_decreased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      }
+    }
+  },
+  "uniform:direct": {
+    "raw": {
+      "original": 681.0,
+      "better": 50.0,
+      "equal": 323.0,
+      "worse": 308.0,
+      "changed": 358.0,
+      "transfer": 137.0,
+      "lost": 221.0,
+      "stayed": 460.0,
+      "burden_change": -0.4159232139587402,
+      "burden_increased": 60.0,
+      "burden_decreased": 69.0,
+      "common_stayed": 460.0,
+      "common_burden_change": -0.4159232139587402,
+      "common_burden_increased": 60.0,
+      "common_burden_decreased": 69.0
+    },
+    "standardized": {
+      "better": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "equal": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "worse": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "changed": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "transfer": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "lost": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_change": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_increased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "burden_decreased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_change": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_increased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      },
+      "common_burden_decreased": {
+        "value": null,
+        "empty_cells": [
+          [
+            "2026-07",
+            "Manhattan"
+          ],
+          [
+            "2026-08",
+            "Manhattan"
+          ]
+        ]
+      }
+    }
+  }
+}

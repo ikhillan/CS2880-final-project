@@ -1,0 +1,101 @@
+[
+  {
+    "test": 1,
+    "model": "fitted",
+    "training": [
+      2,
+      3
+    ],
+    "coefficients": {
+      "intercept": -0.08805038064844858,
+      "mentee_midrank": -1.9595713463423399,
+      "mentor_midrank": 2.5164223633211105,
+      "mentee_first": -0.1044233104856028,
+      "mentor_first": -1.844327654137543e-05,
+      "inverse_mentee_degree": -0.5668629013099008,
+      "inverse_mentor_degree": 3.5184932156925472,
+      "other_first_demand": -0.8508713220757235,
+      "midrank_product": 0.2336995637226139,
+      "mentee_rank_times_competitor_demand": -0.5639354314661754
+    }
+  },
+  {
+    "test": 1,
+    "model": "graph",
+    "training": [
+      2,
+      3
+    ],
+    "coefficients": {
+      "intercept": 0.3207240689372295,
+      "inverse_mentee_degree": -0.6684819487608136,
+      "inverse_mentor_degree": 2.000149550774563
+    }
+  },
+  {
+    "test": 2,
+    "model": "fitted",
+    "training": [
+      1,
+      3
+    ],
+    "coefficients": {
+      "intercept": -1.8834522125129578,
+      "mentee_midrank": -2.616997500182403,
+      "mentor_midrank": 0.9972346353620672,
+      "mentee_first": 0.305228667135859,
+      "mentor_first": 2.7242415969910785,
+      "inverse_mentee_degree": 0.6874573444297932,
+      "inverse_mentor_degree": 3.089692624883553,
+      "other_first_demand": -1.3463217528786389,
+      "midrank_product": 1.5965658463477144,
+      "mentee_rank_times_competitor_demand": -0.06402273850482419
+    }
+  },
+  {
+    "test": 2,
+    "model": "graph",
+    "training": [
+      1,
+      3
+    ],
+    "coefficients": {
+      "intercept": 0.16808570686772414,
+      "inverse_mentee_degree": 1.5444820814993327,
+      "inverse_mentor_degree": 2.4183464246594815
+    }
+  },
+  {
+    "test": 3,
+    "model": "fitted",
+    "training": [
+      1,
+      2
+    ],
+    "coefficients": {
+      "intercept": -1.4111594556657208,
+      "mentee_midrank": -3.0420163886001124,
+      "mentor_midrank": 0.37624447833188135,
+      "mentee_first": -0.09361239446352097,
+      "mentor_first": 1.952943010693828,
+      "inverse_mentee_degree": 1.7057813240251234,
+      "inverse_mentor_degree": 3.5112302935794997,
+      "other_first_demand": -1.8614510505696154,
+      "midrank_product": 2.2011133594973007,
+      "mentee_rank_times_competitor_demand": 0.38026123862922967
+    }
+  },
+  {
+    "test": 3,
+    "model": "graph",
+    "training": [
+      1,
+      2
+    ],
+    "coefficients": {
+      "intercept": -0.381263602202628,
+      "inverse_mentee_degree": 2.238103238754655,
+      "inverse_mentor_degree": 2.488998919110229
+    }
+  }
+]

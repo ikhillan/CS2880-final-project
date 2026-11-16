@@ -1,0 +1,9 @@
+{
+  "independent_optimal_values": 22244352,
+  "enumerated_quota_displays": 15192064,
+  "preference_priority_graph_combinations": 221184,
+  "graph_capacity_extrema": 768,
+  "responsive_omission_tests": 2519424,
+  "responsive_threat_tests": 4423680,
+  "zero_threat_rank_tests": 3388548
+}

@@ -1,0 +1,3 @@
+# ACM manuscript class source
+
+The copy of acmart.cls in the manuscript directory came from the official EC 2026 submission kit and identifies itself as version 2.16, dated August 27, 2025. Its generated-file notice asks distributors to include the original documented source. This directory supplies acmart.dtx from the corresponding upstream tag, v2.16 (commit 8fdf566e3ba62c6065a4a2869bb125442fbd16cb). The copyright and LaTeX Project Public License notice are at the beginning of that file. [Upstream source](https://github.com/borisveytsman/acmart/blob/8fdf566e3ba62c6065a4a2869bb125442fbd16cb/acmart.dtx)

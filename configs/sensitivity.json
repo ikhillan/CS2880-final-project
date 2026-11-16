@@ -1,28 +1,39 @@
 {
   "name": "sensitivity",
-  "grid": {"boroughs": ["Brooklyn", "Queens", "Bronx"], "months": ["2026-08"], "sizes": [64], "seeds": 10},
+  "_note": "Protocol stage 4: the first 10 held-out uniform blocks at 64 per side, one change at a time. AI arms reuse cached replies when inputs agree; regenerate them when the candidate pool or prompt changes.",
+  "grid": {"boroughs": ["Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"], "months": ["2026-09", "2026-10"],
+           "sizes": [64], "seeds": 10, "seed_start": 1000},
+  "market": {"donors": "evaluation"},
   "variants": [
     {"label": "primary"},
     {"label": "share_30", "share": 0.30},
     {"label": "share_50", "share": 0.50},
-    {"label": "natural_sampling", "design": "natural"},
-    {"label": "firms_uniform", "firm_sampling": "uniform"},
-    {"label": "renter_firms_by_income", "renter_firm_mode": "by_income"},
-    {"label": "renter_firm_size_3", "renter_firm_size": 3},
-    {"label": "renter_firm_size_16", "renter_firm_size": 16},
-    {"label": "landlords_ignore_income", "w_income": 0.0},
-    {"label": "landlords_idiosyncratic", "landlord_noise": 3.0},
-    {"label": "renters_idiosyncratic", "renter_noise": 3.0},
-    {"label": "renters_price_sensitive", "w_price": 6.0},
-    {"label": "supply_tight", "tightness": 0.6},
-    {"label": "citywide_search", "boroughs": [null], "seeds": 30}
+    {"label": "strict_bedrooms", "bedroom_rule": "strict"},
+    {"label": "wp1_s050", "w_p": 1.0, "sigma_r": 0.5}, {"label": "wp1_s075", "w_p": 1.0, "sigma_r": 0.75}, {"label": "wp1_s125", "w_p": 1.0, "sigma_r": 1.25},
+    {"label": "wp2_s050", "w_p": 2.0, "sigma_r": 0.5}, {"label": "wp2_s125", "w_p": 2.0, "sigma_r": 1.25},
+    {"label": "wp4_s050", "w_p": 4.0, "sigma_r": 0.5}, {"label": "wp4_s075", "w_p": 4.0, "sigma_r": 0.75}, {"label": "wp4_s125", "w_p": 4.0, "sigma_r": 1.25},
+    {"label": "no_distance", "w_d": 0.0},
+    {"label": "rent_premium_quality", "quality": "rent_premium"},
+    {"label": "landlord_income_0", "w_income": 0.0},
+    {"label": "landlord_income_1.25", "w_income": 1.25},
+    {"label": "landlord_income_5", "w_income": 5.0},
+    {"label": "common_priority", "common_priority": true},
+    {"label": "renters_32", "sizes": [32], "tightness": 2.0},
+    {"label": "renters_128", "sizes": [128], "tightness": 0.5},
+    {"label": "citywide", "boroughs": [null]},
+    {"label": "net_effective_rent", "rent_column": "net_effective_rent"},
+    {"label": "brokerage_only_audits", "audit_costs": "brokerage_only"},
+    {"label": "portfolio_cost_quarter", "audit_costs": "portfolio_quarter"},
+    {"label": "portfolio_cost_linear", "audit_costs": "portfolio_linear"},
+    {"label": "grouped_renter_agents_6", "renter_firm_size": 6}
   ],
   "exposures": [
-    {"name": "random_k5", "policy": "random", "k": 5},
-    {"name": "random_q40", "policy": "random", "q": 0.4},
-    {"name": "rent_max_k5", "policy": "rent_max", "k": 5}
+    {"name": "uniform_k5", "policy": "uniform", "k": 5},
+    {"name": "uniform_q40", "policy": "uniform", "q": 0.4},
+    {"name": "transparent_k5", "policy": "transparent", "k": 5},
+    {"name": "claude_k5", "policy": "llm", "k": 5}
   ],
-  "methods": ["no_audit", "full_disclosure", "reverse_delete", "prefix_cover", "exact_prefix"],
-  "exact_time_cap": {"64": 60},
-  "enumerate_plans": {"cap": 20, "seconds": 5}
+  "methods": ["no_audit", "exact_prefix", "exact_prefix_protect_lower", "exact_prefix_protect_all"],
+  "exact_time_cap": {"32": 900, "64": 900, "128": 1800},
+  "llm_results": "results/llm/stage2_main/recs.jsonl"
 }

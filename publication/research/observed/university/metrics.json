@@ -1,0 +1,103 @@
+{
+  "2024": {
+    "regular_rows": 1506114,
+    "students": 188707,
+    "programs": 2048,
+    "edges": 1417048,
+    "excluded_status_rows": 89066,
+    "no_edges": 7676,
+    "more_than_five": 102587,
+    "regular_seats": 127813,
+    "extra_seats": 31488,
+    "recorded_offers": 146324,
+    "full_placements": 147746,
+    "baseline_observed_exact": 140234,
+    "match_status_agreement": 183811,
+    "full_assignment_agreement": 179458
+  },
+  "2025": {
+    "regular_rows": 1471991,
+    "students": 189982,
+    "programs": 2080,
+    "edges": 1389942,
+    "excluded_status_rows": 82049,
+    "no_edges": 7203,
+    "more_than_five": 100766,
+    "regular_seats": 134993,
+    "extra_seats": 33278,
+    "recorded_offers": 153028,
+    "full_placements": 154814,
+    "baseline_observed_exact": 145510,
+    "match_status_agreement": 184062,
+    "full_assignment_agreement": 178611
+  },
+  "2026": {
+    "regular_rows": 1413512,
+    "students": 189399,
+    "programs": 2150,
+    "edges": 1328381,
+    "excluded_status_rows": 85131,
+    "no_edges": 7661,
+    "more_than_five": 96310,
+    "regular_seats": 144518,
+    "extra_seats": 35076,
+    "recorded_offers": 156248,
+    "full_placements": 158697,
+    "baseline_observed_exact": 148457,
+    "match_status_agreement": 183166,
+    "full_assignment_agreement": 177267
+  },
+  "base_capacity_2026": {
+    "full_placements": 140226,
+    "baseline_observed_exact": 105097
+  },
+  "fitted": {
+    "feature_mean": [
+      1.5054138126298608,
+      2.9818706665487804,
+      2.3710880998437207,
+      0.30157180162913627,
+      -0.0684405648581034,
+      0.9774944521426099,
+      -0.6013099493360181,
+      0.002520570725299321,
+      1.5507644494475485,
+      3.834171350155011,
+      2.5755042373383565,
+      4.594783550679501,
+      0.021814579313381422
+    ],
+    "feature_sd": [
+      0.845931391624333,
+      2.4581078036053623,
+      0.5405889937672045,
+      1.0859517528682658,
+      2.5063697673951006,
+      1.4810712037296807,
+      1.0751090599460624,
+      4.411132125658674,
+      2.7902018676581095,
+      2.569361783415209,
+      0.7800099244461766,
+      0.6812443189074365,
+      0.14607773082334377
+    ],
+    "weights_intercept_last": [
+      -1.320813190345708,
+      0.26625783381790413,
+      0.0194673721348765,
+      -0.24649399820694012,
+      2.763133364647982,
+      -0.712271293272309,
+      1.0474995330976844,
+      0.060386667163391465,
+      -1.3479307756750771,
+      0.22647720260208867,
+      -0.18006115968851594,
+      0.2155223387836402,
+      -0.08363499789418065,
+      -3.753725689068765
+    ],
+    "fallback_edges_2026": 41922
+  }
+}

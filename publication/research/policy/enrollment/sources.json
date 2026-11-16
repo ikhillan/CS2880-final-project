@@ -1,0 +1,10 @@
+{
+  "2025": {
+    "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2025/05/PAES-2025-Matricula.rar",
+    "archive_sha256": "bbd33ea5bf6c86fd6fa2ee65603ca88e684bddff3f1af96e7448e0d8f2c283f8"
+  },
+  "2026": {
+    "url": "https://datosabiertos.mineduc.cl/wp-content/uploads/2026/07/PAES-2026-Matricula.rar",
+    "archive_sha256": "f85966ec5d1adf226a18e02ac720657ff980f6fe0ebcb1723c7d66d5f5f9c00c"
+  }
+}

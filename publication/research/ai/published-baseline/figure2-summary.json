@@ -1,0 +1,170 @@
+[
+  {
+    "jobs": 20,
+    "crowding": 0.5,
+    "policy": "naive",
+    "mean": 18.397703988404345,
+    "market_sd": 0.41707551780431035
+  },
+  {
+    "jobs": 20,
+    "crowding": 0.5,
+    "policy": "reciprocal",
+    "mean": 20.85906288269188,
+    "market_sd": 0.39306464846216294
+  },
+  {
+    "jobs": 20,
+    "crowding": 0.5,
+    "policy": "release_order",
+    "mean": 22.75156460406227,
+    "market_sd": 0.29944107815991733
+  },
+  {
+    "jobs": 20,
+    "crowding": 0.5,
+    "policy": "equation_order",
+    "mean": 22.964789743763742,
+    "market_sd": 0.2573401527649574
+  },
+  {
+    "jobs": 100,
+    "crowding": 0,
+    "policy": "naive",
+    "mean": 157.0569213181784,
+    "market_sd": 1.8416297703005609
+  },
+  {
+    "jobs": 100,
+    "crowding": 0,
+    "policy": "reciprocal",
+    "mean": 201.0554071685284,
+    "market_sd": 0.8241103448579505
+  },
+  {
+    "jobs": 100,
+    "crowding": 0,
+    "policy": "release_order",
+    "mean": 199.12344797923694,
+    "market_sd": 0.7451442760673082
+  },
+  {
+    "jobs": 100,
+    "crowding": 0,
+    "policy": "equation_order",
+    "mean": 203.5219730407695,
+    "market_sd": 0.6872904252001643
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.25,
+    "policy": "naive",
+    "mean": 127.6982543903736,
+    "market_sd": 0.531379153671067
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.25,
+    "policy": "reciprocal",
+    "mean": 166.63877393931512,
+    "market_sd": 0.7831250298942962
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.25,
+    "policy": "release_order",
+    "mean": 173.6664109653209,
+    "market_sd": 0.6600348399759524
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.25,
+    "policy": "equation_order",
+    "mean": 176.85642495689223,
+    "market_sd": 0.45981897069560346
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.5,
+    "policy": "naive",
+    "mean": 106.3844348830266,
+    "market_sd": 0.18798571922869317
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.5,
+    "policy": "reciprocal",
+    "mean": 129.971356559439,
+    "market_sd": 0.2782023383883167
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.5,
+    "policy": "release_order",
+    "mean": 152.30279469196824,
+    "market_sd": 0.32597562528344465
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.5,
+    "policy": "equation_order",
+    "mean": 154.08735749755834,
+    "market_sd": 0.25487952349654747
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.75,
+    "policy": "naive",
+    "mean": 94.34054396245158,
+    "market_sd": 0.17906959440545048
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.75,
+    "policy": "reciprocal",
+    "mean": 104.11209005948804,
+    "market_sd": 0.3171300624991619
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.75,
+    "policy": "release_order",
+    "mean": 133.31096862081912,
+    "market_sd": 0.12769038172110472
+  },
+  {
+    "jobs": 100,
+    "crowding": 0.75,
+    "policy": "equation_order",
+    "mean": 133.69395090117027,
+    "market_sd": 0.13518500395728894
+  },
+  {
+    "jobs": 100,
+    "crowding": 1,
+    "policy": "naive",
+    "mean": 91.32884796360536,
+    "market_sd": 1.4979556132593925e-14
+  },
+  {
+    "jobs": 100,
+    "crowding": 1,
+    "policy": "reciprocal",
+    "mean": 91.32884796360536,
+    "market_sd": 1.4979556132593925e-14
+  },
+  {
+    "jobs": 100,
+    "crowding": 1,
+    "policy": "release_order",
+    "mean": 117.36627962842503,
+    "market_sd": 0.0
+  },
+  {
+    "jobs": 100,
+    "crowding": 1,
+    "policy": "equation_order",
+    "mean": 117.36627962842503,
+    "market_sd": 0.0
+  }
+]

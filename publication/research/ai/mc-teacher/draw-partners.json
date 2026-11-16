@@ -1,0 +1,13 @@
+{
+  "device": "NVIDIA H200",
+  "seconds": 7.54239095794037,
+  "torch": "2.9.0+cu128",
+  "job": "60229602",
+  "markets": 384,
+  "draws": 128,
+  "stable_outcomes_verified": 49152,
+  "seed": 11271113,
+  "chunk_markets": 4,
+  "input_sha256": "bca6a96b8d5b39b711471eb824b5ac22dc38e1fcfc55fce7b252b0a3250da787",
+  "output_sha256": "7ced0297c00f998c7d977c08348e2a33fe62e34fb1c88dd715bac5598a235959"
+}

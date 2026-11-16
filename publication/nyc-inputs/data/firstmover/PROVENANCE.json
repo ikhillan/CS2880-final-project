@@ -1,0 +1,66 @@
+{
+  "dataset": "FirstMover NYC rental listings at first appearance",
+  "landing_page": "https://www.firstmovernyc.com/open-data",
+  "retrieved_utc": "2026-11-13T04:13:29.466947+00:00",
+  "coverage": "Development months June\u2013August 2026 only; raw publisher rows may include NJ, duplicates, and missing fields. Price is monthly asking rent. Later listing changes are not recorded.",
+  "retrieval": "Public contentUrl fields from the publisher landing page; original bytes retained. SHA-256 hashes pin this snapshot of the main branch.",
+  "files": {
+    "2026-06.csv": {
+      "source_url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-06.csv",
+      "raw_rows": 25503,
+      "website_raw_rows": 25503,
+      "bytes": 17580746,
+      "sha256": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be"
+    },
+    "2026-07.csv": {
+      "source_url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-07.csv",
+      "raw_rows": 25442,
+      "website_raw_rows": 25442,
+      "bytes": 17933762,
+      "sha256": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab"
+    },
+    "2026-08.csv": {
+      "source_url": "https://raw.githubusercontent.com/benfwalla/firstmover-open-data-project/main/public/data/2026-08.csv",
+      "raw_rows": 21597,
+      "website_raw_rows": 21597,
+      "bytes": 15199529,
+      "sha256": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b"
+    }
+  },
+  "columns": [
+    "created_at_utc",
+    "available_date",
+    "id",
+    "street",
+    "unit",
+    "neighborhood",
+    "borough",
+    "zip_code",
+    "state",
+    "latitude",
+    "longitude",
+    "building_type",
+    "bedrooms",
+    "bathrooms",
+    "half_baths",
+    "sqft",
+    "furnished",
+    "is_new_development",
+    "lease_months",
+    "months_free",
+    "price",
+    "net_effective_price",
+    "no_fee",
+    "source_group",
+    "source_type",
+    "has_videos",
+    "has_3d_tour",
+    "media_asset_count",
+    "lead_photo_id",
+    "photo_ids",
+    "open_house_start_utc",
+    "open_house_end_utc",
+    "open_house_appointment_only",
+    "url"
+  ]
+}

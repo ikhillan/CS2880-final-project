@@ -1,0 +1,15 @@
+\paragraph{How expensive is full visible capacity in the rental panels?}
+Using the previously trained contextual network, we compared independent top-five lists with the least-cost displays of Theorem~\ref{thm:capacity-frontier}. Take the attainable capacity range from the original top five up to the full feasible graph; an intermediate policy closes a specified fraction of that gap, rounding its target up to an integer. Priorities and realized preferences enter only the evaluation. In ordinary summer markets the full-capacity policy raises placement by 1.41 points ($[1.26,1.56]$) at a cost of 0.10 points of predicted inclusion probability per renter. In winter these changes are $+1.60$ ($[1.40,1.80]$) and $-0.10$. Measured partner recovery among originally placed renters changes by $+0.02$ and $+0.05$ points, with both intervals spanning zero. In the enriched panels predicted mass falls by 0.39 and 0.53 points, measured recovery falls by 0.57 and 0.68 points and placement rises by 4.29 and 5.58 points. The simpler maximum-weight anchor still places 0.40--0.52 points more than the minimum-loss display in every panel at the same visible capacity. Optimizing the coverage objective can leave room for different stable assignments.
+
+\begin{table}[ht]\centering\small
+\caption{Renter placement percentages in 2,304 paired test markets. The fractional targets specify how much of the available increase in matching capacity is required. The final two policies both realize the full feasible graph's maximum matching size on their displays. All rows use the same previously fitted model and five-slot budget.}
+\label{tab:rental-frontier}\begin{tabular}{@{}lrrrr@{}}\toprule
+ & \multicolumn{2}{c}{Ordinary} & \multicolumn{2}{c}{Enriched}\\
+ & Summer & Winter & Summer & Winter\\\midrule
+Row top five & 51.22 & 52.83 & 65.21 & 65.86\\
+Minimum loss, 25\% of gap & 51.64 & 53.31 & 66.47 & 67.51\\
+Minimum loss, 50\% of gap & 51.99 & 53.70 & 67.48 & 68.89\\
+Minimum loss, 75\% of gap & 52.41 & 54.16 & 68.69 & 70.42\\
+Minimum loss, full capacity & 52.63 & 54.43 & 69.50 & 71.44\\
+Maximum-weight anchor, full capacity & 53.12 & 54.95 & 69.93 & 71.84\\\bottomrule
+\end{tabular}\end{table}

@@ -1,0 +1,75 @@
+\section{Finding the cheapest successful audit}
+\begin{frame}[t,label=solver]{The algorithm}
+\small
+\begin{enumerate}
+\setlength{\itemsep}{9pt}
+\item Find the cheapest plan that supports a full-market stable matching,
+subject to constraints learned so far. This is the \emph{master problem}.
+\item Run DA on that plan. Check for blocking pairs in the full market.
+\item If a pair blocks, add a constraint excluding that failure. Solve again.
+\item Stop when DA passes, or the lower bound reaches the cost of a
+previously verified plan.
+\end{enumerate}
+\sources{Logic-based Benders decomposition (Hooker and Ottosson, 2003), using the
+stable-matching polytope (Rothblum, 1992). Equations: Appendix 2.}
+\end{frame}
+
+\begin{frame}[t,label=prefix]{The part of each list that matters}
+\small
+Suppose a buyer ranks $x\succ y\succ z$ and DA assigns it to $y$.
+Its \emph{prefix} contains $x$ and $y$, even if $x$ was hidden.
+
+For a visible graph $H\subseteq E$, let $M=\DA(H)$. The full prefixes are
+\[
+ \Pi(M)=\{bs\in E:M(b)=\bot\ \text{or}\ s\succeq_b M(b)\}.
+\]
+An unmatched buyer contributes its whole list.
+
+\medskip
+DA never proposes below its eventual partner. Keep every prefix pair
+visible or hidden exactly as before, and the same DA run replays.
+
+\medskip
+To fix a failed outcome, at least one of these visibility choices must change.
+\sources{Proof: Appendix 3. Related DA-prefix reasoning appears in Aguiar and Hong (2026, preprint).}
+\end{frame}
+
+\begin{frame}[t,label=cuts]{Constraints from a failed run}
+\small
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Constraint & What it rules out\\
+\midrule
+Whole assignment & Only this complete vector of firm audits.\\[4pt]
+Component assignment & Every plan keeping the failed component's firm decisions.\\[4pt]
+Component prefix & Every plan preserving the relevant local exposure statuses.\\
+\bottomrule
+\end{tabularx}
+\par\medskip
+For the three-by-three failure, let $v_e$ indicate whether pair $e$ is visible.
+A valid constraint is
+\[
+ (1-v_{ax})+(1-v_{by})+v_{cx}\geq1.
+\]
+At $(v_{ax},v_{by},v_{cx})=(1,1,0)$, the left side is zero: this pattern fails.
+\sources{Changing a term is necessary, not sufficient. We choose the whole audit plan
+before implementation, so a revised plan can omit an optional audit.}
+\end{frame}
+
+\begin{frame}[t,label=guarantees]{What the solver certifies}
+\small
+The master gives a lower bound $L$. A plan that passes the DA check gives
+an upper bound $U$:
+\[
+ L\leq\resp\leq U.
+\]
+Every failure excludes a new audit pattern. With exact master solves,
+the algorithm eventually certifies an optimum. A timeout leaves a verified
+plan and a gap $U-L$.
+
+\medskip
+On the shared-firm construction, prefix cuts need at most two master solves.
+Whole-assignment cuts need at least $2^N-1$ failed DA checks.
+\sources{This round bound compares these cut methods. It is not a polynomial-time
+guarantee. Proofs: Appendices 4--5. Numerical certification uses solver tolerances.}
+\end{frame}

@@ -1,0 +1,13 @@
+{
+  "host": "holygpu8a03101.rc.fas.harvard.edu",
+  "job": "60220045",
+  "partition": "kempner_h200",
+  "device": "NVIDIA H200",
+  "torch": "2.9.0+cu128",
+  "cuda": "12.8",
+  "seconds": 12.241069618146867,
+  "matched_vectors_checked_against_reference": 1296,
+  "allocations_checked_full_visible_stability": 129600,
+  "markets": 2400,
+  "sha256_ranks": "b02671ebb5763cc083453d7a0373b5eee932c308aaccef075e37688767c0d2ce"
+}

@@ -1,0 +1,3 @@
+# Preference sensitivity after observing the selected setting
+
+On the original 240 64-by-64 calibration markets, sweep all nine original renter price/noise pairs in {1,2,4} × {0.5,0.75,1.25}. Each pair reuses the same market draws and preference shocks. Use each setting's own DA number of lower-income placements. Compute the exactly attainable best and worst linearly interpolated sample first quartile across products of local stable allocations; if interpolation is required, enforce attainability of two adjacent order statistics under a single allocation. Report all nine settings, including any result widening the initial interval substantially. This sensitivity is exploratory; it was recorded after learning the results for the selected (4, 0.5) preferences.

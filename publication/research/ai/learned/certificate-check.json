@@ -1,0 +1,9 @@
+{
+  "n": 3,
+  "complete_profiles": 46656,
+  "menu_graphs": 512,
+  "profile_by_menu_pairs": 23887872,
+  "strict_inequalities": 12218904,
+  "min_slack": 0,
+  "max_slack": 3
+}

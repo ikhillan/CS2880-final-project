@@ -1,0 +1,92 @@
+\documentclass[format=acmsmall,review=false]{acmart}
+\usepackage{acm-ec-26}
+\usepackage{booktabs,amsmath,graphicx}
+\setcitestyle{authoryear}
+\title[Who Keeps an Offer?]{Who Keeps an Offer? Predicting Partners and Choosing Shortlists in Matching Markets}
+\author{Anonymous}
+\newcommand{\da}{\operatorname{DA}}
+\newcommand{\co}{C_{\mathrm{stab}}}
+\newcommand{\allp}{C_B}
+\newcommand{\HH}{H_G}
+\setcopyright{none}
+\begin{abstract}
+A platform that recommends five options per applicant can learn to cover more historical offers and still place fewer people. We tested this prediction in two subsequent Chilean school cohorts, with frozen models and both signs specified before acquiring the data. Among 1,107,244 applicants, giving the predictor access to reported rank covered 2,493 additional initial offers, including 2,244 that families explicitly accepted, yet placed 985 fewer applicants under replayed deferred acceptance. The primary comparison with uniform lists favors learning on both outcomes. We then ask what a designer can guarantee. Before matching, a min-cost flow computes the least predicted coverage a platform must sacrifice to accommodate a given number of simultaneous assignments. For 189,399 university applicants, increasing this feasible number by 1,311 produced only 19 additional DA placements. After observing tentative offers, one quota-preserving referral per selected applicant can instead realize a maximum extension of the original contracts without worsening any current recipient's assignment. With 21,061 vacant university seats, only 160 unmatched applicants had listed a reachable program; the exact safe extension placed 147, falling to four if referrals had to be among the applicant's first five choices. Rental simulations and bilateral preference data illustrate how scarcity, coordination and the choice of comparator affect these results. Policy effects hold reported preferences fixed; historical offers and acceptances are observed.
+\end{abstract}
+\begin{document}
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+
+\section{Introduction}
+A school platform recommends five programs to each family. Its engineers find a way to show more families the program they would eventually be offered. Should they change the recommendations? All five programs are also seats for which other families can apply. To answer, one must count people left without a place, including the people whose recommendations never changed.
+
+We study this question in systems that clear shortlists by applicant-proposing deferred acceptance (DA). A natural learning target is the program an applicant would obtain if every submitted option remained visible. This target has a precise justification. If a display omits $r$ original matched pairs, no more than $r$ originally matched applicants can become unmatched; the people who lose can differ from those whose own partners were omitted. We relate predictive loss to this bound and test the resulting recommender in markets built from New York rental advertisements and survey households. Learning roughly doubles full-market partner recovery relative to uniform lists in ordinary markets, yet fewer renters obtain a placement. Most lower-income renters in those markets have no affordable unit to begin with. We keep them in the denominator and examine a deliberately enriched supply scenario separately.
+
+Chilean school and university admissions provide a different test. Students submit preference orders, and public records identify initial offers. Against uniform lists, the primary learned rankings in both systems improve both coverage and placement. But giving an offer predictor the order of a student's choices, in addition to the set of programs, improves coverage at a cost to placement. After seeing this comparison in two school years, we fixed the 2019 models and specified both signs before acquiring two later national cohorts. In each new year, the rank-informed rule covered more historical offers and placed fewer pupils under DA. In the university cohort, the same conclusion held for observed enrollment destinations, including when the model was trained on registrations. Only list coverage is directly measured on these historical outcomes. A placement under changed menus requires a counterfactual replay.
+
+The design question depends on timing. Before any offer exists, how much prediction accuracy would a platform have to give up to accommodate $r$ simultaneous assignments? We give an exact reduction to a minimum-cost capacitated assignment. In university admissions, almost all predicted coverage can coexist with the maximum number of feasible assignments. DA nonetheless realizes little of the extra capacity. Its competition and priority rules still apply to the new lists.
+
+After tentative offers exist, the platform can instead ask which unmatched people can use a remaining seat. We prove the largest number who can be added while keeping every provisional contract available in a stable allocation. One new recommendation per selected applicant suffices, keeping each list within quota, and DA gives every original recipient an assignment weakly preferred to their tentative one. The 2026 university replay has 21,061 empty seats but just 160 unmatched students who listed a reachable program. It is possible to place 147 of them. If the service restricts itself to the student's five highest submitted choices, only four additional placements are possible. This finding describes the limits of curating previously reported options. Finding new options that applicants would actually want is a different intervention.
+
+\section{The market and related work}
+Let $B$ be applicants and $S$ one-capacity listings. Each vertex strictly ranks its neighbors in the bipartite feasibility graph $E$ above the outside option $\bot$. For a displayed graph $D\subseteq E$, applicants propose down their rankings restricted to $D$; each listing retains its favorite proposal so far. Write $\da(D)$ for the final matching and $M(i)$ for $i$'s partner. A pair blocks on $E$ when both parties strictly prefer each other to their assigned partners. DA is stable on the displayed graph and applicant-optimal among its stable matchings \citep{gale1962}. In strict one-to-one markets all stable matchings of a \emph{fixed} graph have the same matched participants \citep{galesoto,roth1986}. Whenever visibility changes, our outcome is the matching returned by DA on the new graph. We rank unmatched below every feasible option.
+
+\citet{menus} describe DA in terms of the menu an applicant faces when others' reports are fixed. \citet{papai} studies when a singleton report attains an object. We use these results to attach an external consequence to each attainable option: which other applicant loses a placement. The consistency of stable allocations under removal of matched pairs is classical \citep{sasaki}. Our coalition result uses this consistency to recover identities after a shortlist change, and the rollout experiment measures the discrepancy from adding single-applicant effects. Competition in two-sided recommendation and interference in platform experiments are already well established \citep{rankings,johari2022}. Our comparisons use explicitly paired assignments under the entire recommendation policy.
+
+Short proposal lists can retain good partners under particular preference models \citep{shortlists}. Other work restricts the pairs allowed to block \citep{askalidis2013} or the pairs permitted in a stable assignment \citep{cseh2016restricted}. Here feasibility, display and full-market stability are distinct. Our burden bounds use threshold costs, in the spirit of optimization of order statistics and model-compatibility tests \citep{gorski2009,ekeland2010}. We use known matching and polyhedral methods to produce sharp finite-market welfare comparisons. Our audit problem is also related to costly expansions of compatibility \citep{facilitate}, input-error mitigation after DA \citep{postmatch}, and incremental matching \citep{incremental}.
+
+Recommendations under partial information have a long history in matching markets. \citet{signals} use informative signals and match recommendations to economize on communication. \citet{pruned} use predicted partner ranks to truncate a side's ordered preferences and analyze full-market stability and proposal counts. Our target is who loses a placement after arbitrary feasible edges are hidden, including people whose own preferences or displays stay fixed. \citet{smartplatforms} document how informing Chilean families about admission risk can change search and improve actual placement. We hold reports fixed to isolate a different question: how two shortlists of the same size compete for seats. \citet{tworound} minimize school reassignments after a market changes. Our decision variable is the list shown to a competitor before DA runs again. \citet{reallocation} study protection of initial endowments through ownership-adjusted priorities. Our certificate uses the original priorities on a changed display. For a comparison with an implemented recommendation algorithm, we reproduce and adapt \citet{rankings}, keeping separate their interview outcome and our unit-capacity allocation.
+
+\paragraph{A displacement fact used below.} Fix a group of applicants whose lists do not change. In a stable assignment, remove all outsiders along with the seats they occupy. The remaining applicants are stably matched in the residual market: a blocking pair there would also block the original assignment. The set of matched applicants is invariant across stable assignments on that residual graph. Removing one available seat can displace at most one incumbent; this follows by adding the seat back using listing-proposing DA. Appendix~\ref{sec:menu} proves this claim and identifies the displaced applicant when one competitor edits a list.
+\citet{sekiya2026} limit exposure on the receiving side of a dating platform and measure changes in mutual contacts in a field experiment. Our capacity requirement asks how many different applicants the displayed graph can assign simultaneously. Our downstream outcome is a priority-respecting allocation. \citet{lepesure} studies guaranteed recommendations of previously unlisted schools using a targeted vacancy market in Chile. Our after-offer result uses omitted options already declared acceptable and gives an exact bound for one fixed-quota substitution per entrant.
+\input{prediction}
+\paragraph{Protecting tentative recipients when competitors change lists.}
+Construct a bipartite graph from competing applicants to the units held by the group to be protected. Include a proposed application to a held unit if its program might rank the competitor above the current holder; if priorities are unknown, keep all such edges. A maximum matching in this graph bounds how many originally matched applicants can become unmatched (Theorem~\ref{thm:threat}). At zero such edges, each protected applicant receives an option weakly preferred to their tentative assignment under applicant-proposing DA. To see why, consider the first time a fixed applicant is rejected by their initial program. An outsider cannot cause the rejection. A different fixed applicant preferred their own tentative assignment to getting this unit, by initial stability. They could not have proposed here before losing their own assignment, contradicting the choice of first rejection. When a competing applicant cannot fill their quota without adding a threat, keep their original list and protect their tentative unit too. Iterate until all remaining applicants can fill their quotas. Appendix~\ref{app:protect-detail} gives the sharp bound and algorithm.
+\input{markets}
+\input{learned}
+\input{guard-results}
+\input{recipient-results}
+\input{rent-veto-results}
+\input{field}
+\input{operating-rules}
+\paragraph{How much can exposure alone change affordability?}
+Even the most favorable allocation in our 240 calibration markets faces a supply limit. At exactly 217 lower-income placements, the lowest attainable first-quartile asking-rent burden is 27.78\%; among assignments stable on the full graph it is 31.21173\%. Appendix~\ref{sec:burden} gives the matching witnesses and threshold bounds. These statements concern those finite rental markets.
+\section{Implications and limits}
+A shortlist that retains more historical offers can leave fewer feasible assignments for everyone else. The admissions comparisons supply a way to audit this distinction before deployment. Evaluate the coverage of recorded offers, then replay the full cohort against both a naive baseline and a practical alternative. Check agreement with the historical allocation before interpreting the replay. Participants could change what they submit under an actual quota, so these calculations do not estimate a behavioral treatment effect.
+
+Housing services can know a great deal about asking rents and very little about who would actually apply, who would receive an offer, and who would accept it. Our network learns the consequences of a specified model of those decisions. Sharing donors across months and changing listing panels tests transfer across catalogues, conditional on that model. It does not test behavioral accuracy. In particular, including income as a screening feature can reproduce disparities from the assumed listing rule. A change in the number of stable placements alone says little about housing quality, search costs or realized leases.
+
+A service that already issues tentative offers could record the pre-update lists and offers, apply the priority-blind protection rule, and check whether displaced applicants keep a placement when listings or participants leave during the search. Departures are outside our fixed-market guarantee. A service with no tentative offers would instead need a market-level evaluation and a way to observe how both competing groups fare. In either setting, an applicant with no feasible unit remains unmatched however accurately the model ranks listings. Our original motivation was the possibility that brokers steer clients toward partners. No public input here records referrals or commissions. A test of that hypothesis would require linked impression, referral, offer and acceptance records.
+\clearpage
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{paper}
+\clearpage
+\appendix
+\section{Supplementary results on the two design interventions}\label{app:policy-detail}
+\input{frontier-rental}
+\input{vacancy-detail}
+\input{responsive}
+\input{externalities}
+\input{guardrail}
+\section{Additional experiments and replication}
+\input{risk-method}
+\input{risk-results}
+\input{replication}
+\input{ai-appendix}
+\section{Data and replay for observed-preference markets}
+\input{paes}
+\input{school-detail}
+\input{holdout-detail}
+\subsection{Mutually submitted mentoring ranks}
+\input{mentor}
+\input{bilateral}
+\input{price-results}
+\input{welfare}
+\input{more-externalities}
+\input{saturation}
+\input{repair-summary}
+\input{audit}
+\input{computational}
+\input{appendix-data}
+\end{document}

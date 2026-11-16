@@ -1,0 +1,13 @@
+\subsection{Validating against observed university registrations}\label{app:enroll}
+We used the ministry's separate PAES registration file, with applicant pseudonyms used only to link records locally \citep{paes}. It contains 146,873 unique students for 2026. Of these, 10,122 fall outside our regular applicant cohort. Of the 189,399 regular applicants, 136,751 have a link and 52,648 have no registration record in this release. The coverage denominator is the 136,751 linked applicants, including 5,271 whose destination is absent from the retained regular graph. The file covers several admission routes. No record here need not mean that the applicant did not attend any institution.
+
+\begin{table}[ht]\centering\small
+\caption{Five-program lists produced by the two offer-trained networks. Historical regular offer describes the program in which a registered applicant was initially invited to enroll. Gains and losses count individual enrolled destinations added or removed by supplying the network with submitted rank.}
+\label{tab:enroll}\begin{tabular}{@{}lrrrrr@{}}\toprule
+Historical regular offer & Students & Blind coverage & Informed coverage & Gained & Lost\\\midrule
+Registered there & 116,638 & 107,773 & 116,284 & 8,580 & 69\\
+Registered elsewhere & 10,264 & 5,758 & 7,063 & 1,446 & 141\\
+No initial regular offer & 9,849 & 5,367 & 6,321 & 976 & 22\\\midrule
+All linked applicants & 136,751 & 118,898 & 129,668 & 11,002 & 232\\\bottomrule
+\end{tabular}\end{table}
+\input{enrollment-target}

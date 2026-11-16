@@ -1,0 +1,918 @@
+{
+  "design": "Paired mixed policies on 480 archived development markets; independent simultaneous DA and explicit full-graph blocker check.",
+  "blocks": 40,
+  "market_seed": 20261112,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 19112026,
+  "input_hashes": {
+    "recent_donors.csv": "a9b3c373dfe29d769cb1f4cc1fa18defb8ea5fa8760eb79be13fa12986602235",
+    "summary.json": "11549076c4efceb09ea1bba7c9895d32c62ad6e9740ed9ba8ed2a0b4fac83343",
+    "2026-06.csv": "961fa3841682c759688218fc175b74fc38da32d5e876edc77b9991c5eaed04be",
+    "2026-07.csv": "9dee3ba99e7a888b7b7f71b1e833c1acd69df0cbd724ec590255de8507a9deab",
+    "2026-08.csv": "2582281c3ab1c5eedd2d3c5b0ac8a4e719ce2251919fcb3aef2929c8088ed10b",
+    "scarcity.py": "3ca8b82d8bb1fd0552c667b8d3e92e5f68e2d029ed036d4d84eeed43f87ff4e7"
+  },
+  "arm_order": "first letter lower-income, second higher-income; U uniform feasible shortlist, C cheapest feasible shortlist",
+  "units": "arm rates percent; standardized group numerator/denominator ratios. distinct_listings_alone divides distinct listings by renters and can exceed 100%.",
+  "raw_renters": {
+    "lower": 12916,
+    "higher": 17804
+  },
+  "arm_rates": {
+    "common": {
+      "UU": {
+        "lower": {
+          "matched": 4.970327974918462,
+          "blocked": 0.9276442228501137,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.944121494308403,
+          "distinct_listings_alone": 10.807879204161544
+        },
+        "higher": {
+          "matched": 88.57947440416363,
+          "blocked": 74.34692350627952,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 96.78893738012499,
+          "distinct_listings_alone": 143.89140008439102
+        }
+      },
+      "CU": {
+        "lower": {
+          "matched": 4.484876097154954,
+          "blocked": 1.3573929904377966,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.089871107907639,
+          "distinct_listings_alone": 9.075889854334012
+        },
+        "higher": {
+          "matched": 88.65730570377248,
+          "blocked": 74.31179465003501,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 96.78893738012499,
+          "distinct_listings_alone": 143.89140008439102
+        }
+      },
+      "UC": {
+        "lower": {
+          "matched": 2.5767299140058992,
+          "blocked": 0.7771521221712575,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.944121494308403,
+          "distinct_listings_alone": 10.807879204161544
+        },
+        "higher": {
+          "matched": 21.20405556752574,
+          "blocked": 88.33322036801896,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 23.00324649569256,
+          "distinct_listings_alone": 28.969799741279296
+        }
+      },
+      "CC": {
+        "lower": {
+          "matched": 1.5485581702479378,
+          "blocked": 1.8599440788479014,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.089871107907639,
+          "distinct_listings_alone": 9.075889854334012
+        },
+        "higher": {
+          "matched": 21.076229738312037,
+          "blocked": 88.35842184695217,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 23.00324649569256,
+          "distinct_listings_alone": 28.969799741279296
+        }
+      }
+    },
+    "heterogeneous": {
+      "UU": {
+        "lower": {
+          "matched": 4.888568355627323,
+          "blocked": 0.9589366236875535,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.944121494308403,
+          "distinct_listings_alone": 10.807879204161544
+        },
+        "higher": {
+          "matched": 90.24121616105765,
+          "blocked": 74.5380156691401,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 96.78893738012499,
+          "distinct_listings_alone": 143.89140008439102
+        }
+      },
+      "CU": {
+        "lower": {
+          "matched": 4.37641413284502,
+          "blocked": 1.3945740533242148,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.089871107907639,
+          "distinct_listings_alone": 9.075889854334012
+        },
+        "higher": {
+          "matched": 90.27443283608558,
+          "blocked": 74.56069633944172,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 96.78893738012499,
+          "distinct_listings_alone": 143.89140008439102
+        }
+      },
+      "UC": {
+        "lower": {
+          "matched": 2.3337397415601235,
+          "blocked": 0.8220438847488465,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.944121494308403,
+          "distinct_listings_alone": 10.807879204161544
+        },
+        "higher": {
+          "matched": 21.54164796952062,
+          "blocked": 88.65106378936511,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 23.00324649569256,
+          "distinct_listings_alone": 28.969799741279296
+        }
+      },
+      "CC": {
+        "lower": {
+          "matched": 1.318115338812644,
+          "blocked": 1.8945221473728373,
+          "choices_gt5": 2.352768467480407,
+          "max_alone": 8.089871107907639,
+          "distinct_listings_alone": 9.075889854334012
+        },
+        "higher": {
+          "matched": 21.368597805286168,
+          "blocked": 88.72677620118581,
+          "choices_gt5": 91.91067004180061,
+          "max_alone": 23.00324649569256,
+          "distinct_listings_alone": 28.969799741279296
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "common": {
+      "matched": {
+        "lower": {
+          "CC_minus_UU": {
+            "pp": -3.4217698046705234,
+            "ci95": [
+              -3.638052178916832,
+              -3.2146345127682716
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.7568118107607342,
+            "ci95": [
+              -0.8377929764142523,
+              -0.6763008443665844
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -2.6649579939097894,
+            "ci95": [
+              -2.8870116195069815,
+              -2.4550831609338024
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": -0.48545187776350696,
+            "ci95": [
+              -0.5833765531965007,
+              -0.39047165006114
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -1.0281717437579614,
+            "ci95": [
+              -1.1314116582156133,
+              -0.9236943743958153
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -2.393598060912562,
+            "ci95": [
+              -2.6215875829145854,
+              -2.1739782283192772
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -2.9363179269070163,
+            "ci95": [
+              -3.1615448051402018,
+              -2.711483740258452
+            ]
+          }
+        },
+        "higher": {
+          "CC_minus_UU": {
+            "pp": -67.5032446658516,
+            "ci95": [
+              -68.10519625112967,
+              -66.88236284713577
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.024997264802430197,
+            "ci95": [
+              -0.06499503981831596,
+              0.018286794009641328
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -67.47824740104917,
+            "ci95": [
+              -68.0854495481309,
+              -66.86291739712206
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.07783129960884372,
+            "ci95": [
+              0.026880089825739584,
+              0.12923599004803135
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -0.1278258292137041,
+            "ci95": [
+              -0.197466685834655,
+              -0.05639428703016885
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -67.3754188366379,
+            "ci95": [
+              -67.98294857973131,
+              -66.74658756329035
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -67.58107596546044,
+            "ci95": [
+              -68.18568833522977,
+              -66.97185149472922
+            ]
+          }
+        },
+        "lower_minus_higher": {
+          "CC_minus_UU": {
+            "pp": 64.08147486118108,
+            "ci95": [
+              63.44578556081909,
+              64.69463274708254
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.731814545958304,
+            "ci95": [
+              -0.8371049649188891,
+              -0.6279059721574873
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 64.81328940713938,
+            "ci95": [
+              64.18329590324271,
+              65.4190104069404
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": -0.5632831773723507,
+            "ci95": [
+              -0.6925273400567027,
+              -0.4340060598520746
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -0.9003459145442573,
+            "ci95": [
+              -1.0509566272346054,
+              -0.757461042064346
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": 64.98182077572534,
+            "ci95": [
+              64.33234455144992,
+              65.5937902470448
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 64.64475803855343,
+            "ci95": [
+              64.01934513547147,
+              65.26077596657838
+            ]
+          }
+        }
+      },
+      "blocked": {
+        "lower": {
+          "CC_minus_UU": {
+            "pp": 0.9322998559977875,
+            "ci95": [
+              0.7924746950932253,
+              1.0700390717822752
+            ]
+          },
+          "switch_lower_average": {
+            "pp": 0.7562703621321634,
+            "ci95": [
+              0.636850287883676,
+              0.8797374857007151
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 0.17602949386562422,
+            "ci95": [
+              0.1111549601151853,
+              0.23904024294968312
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.42974876758768293,
+            "ci95": [
+              0.3012262951507759,
+              0.5552114598327734
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 1.0827919566766437,
+            "ci95": [
+              0.9201701141079962,
+              1.2509471029568653
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -0.1504921006788562,
+            "ci95": [
+              -0.23629939040718623,
+              -0.06454597254312064
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 0.5025510884101047,
+            "ci95": [
+              0.3779308361583342,
+              0.6280567880577169
+            ]
+          }
+        },
+        "higher": {
+          "CC_minus_UU": {
+            "pp": 14.011498340672635,
+            "ci95": [
+              13.528135649884987,
+              14.527073367728102
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.004963688655656995,
+            "ci95": [
+              -0.050713810127789305,
+              0.036189930290232396
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 14.016462029328292,
+            "ci95": [
+              13.55333924368994,
+              14.509184494140587
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": -0.035128856244515116,
+            "ci95": [
+              -0.10692618318849656,
+              0.03349292978331447
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 0.025201478933201127,
+            "ci95": [
+              -0.03155476297783344,
+              0.0871943374391737
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": 13.986296861739433,
+            "ci95": [
+              13.505549409348172,
+              14.504462493254694
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 14.04662719691715,
+            "ci95": [
+              13.595205137340615,
+              14.536731878355685
+            ]
+          }
+        },
+        "lower_minus_higher": {
+          "CC_minus_UU": {
+            "pp": -13.079198484674848,
+            "ci95": [
+              -13.609632696916444,
+              -12.572936956259001
+            ]
+          },
+          "switch_lower_average": {
+            "pp": 0.7612340507878204,
+            "ci95": [
+              0.631483936588083,
+              0.8991486951602901
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -13.840432535462668,
+            "ci95": [
+              -14.349094650630112,
+              -13.373788221136405
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.46487762383219805,
+            "ci95": [
+              0.32226713541051216,
+              0.6050552822349001
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 1.0575904777434426,
+            "ci95": [
+              0.8821599457374344,
+              1.2548449297501112
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -14.13678896241829,
+            "ci95": [
+              -14.64123088291543,
+              -13.655023697626161
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -13.544076108507044,
+            "ci95": [
+              -14.063725408789491,
+              -13.073726448369962
+            ]
+          }
+        }
+      }
+    },
+    "heterogeneous": {
+      "matched": {
+        "lower": {
+          "CC_minus_UU": {
+            "pp": -3.5704530168146795,
+            "ci95": [
+              -3.8164124164102398,
+              -3.328508289265043
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.7638893127648915,
+            "ci95": [
+              -0.8471104760488362,
+              -0.6761209852304508
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -2.806563704049788,
+            "ci95": [
+              -3.046029085581526,
+              -2.574171123727785
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": -0.5121542227823038,
+            "ci95": [
+              -0.6077516181665432,
+              -0.412737888709276
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -1.0156244027474792,
+            "ci95": [
+              -1.1210033656685454,
+              -0.9009356024094637
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -2.5548286140672003,
+            "ci95": [
+              -2.809878681933518,
+              -2.31099488707807
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -3.0582987940323756,
+            "ci95": [
+              -3.2994613569477784,
+              -2.821937615320922
+            ]
+          }
+        },
+        "higher": {
+          "CC_minus_UU": {
+            "pp": -68.87261835577148,
+            "ci95": [
+              -69.50706996454755,
+              -68.20911729462557
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.06991674460325864,
+            "ci95": [
+              -0.11992211996035272,
+              -0.020526108151160925
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -68.80270161116822,
+            "ci95": [
+              -69.43424627852795,
+              -68.14209155409333
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.03321667502793613,
+            "ci95": [
+              -0.008539274014616738,
+              0.07633033064764896
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -0.1730501642344534,
+            "ci95": [
+              -0.2600818051126991,
+              -0.0834577964323538
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -68.69956819153703,
+            "ci95": [
+              -69.33047864200498,
+              -68.04328185446619
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -68.90583503079941,
+            "ci95": [
+              -69.5512012976716,
+              -68.22854569790093
+            ]
+          }
+        },
+        "lower_minus_higher": {
+          "CC_minus_UU": {
+            "pp": 65.3021653389568,
+            "ci95": [
+              64.55314700806623,
+              66.0085241402525
+            ]
+          },
+          "switch_lower_average": {
+            "pp": -0.6939725681616329,
+            "ci95": [
+              -0.8084494459999394,
+              -0.5775929224423747
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 65.99613790711842,
+            "ci95": [
+              65.24674383428847,
+              66.68055768203132
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": -0.54537089781024,
+            "ci95": [
+              -0.6680049580492157,
+              -0.41588384345153045
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": -0.8425742385130257,
+            "ci95": [
+              -1.0028984345335479,
+              -0.6806787219254352
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": 66.14473957746982,
+            "ci95": [
+              65.39407475475902,
+              66.8334978889866
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 65.84753623676704,
+            "ci95": [
+              65.08137728004701,
+              66.54923663776867
+            ]
+          }
+        }
+      },
+      "blocked": {
+        "lower": {
+          "CC_minus_UU": {
+            "pp": 0.9355855236852839,
+            "ci95": [
+              0.7977085049234707,
+              1.0836103548671765
+            ]
+          },
+          "switch_lower_average": {
+            "pp": 0.7540578461303261,
+            "ci95": [
+              0.6452015682450599,
+              0.865483697156425
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 0.1815276775549578,
+            "ci95": [
+              0.11265480922663759,
+              0.25918144933207826
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.4356374296366613,
+            "ci95": [
+              0.3245262877762615,
+              0.5436472821605659
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 1.0724782626239908,
+            "ci95": [
+              0.9244521038815237,
+              1.2242150555628815
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -0.13689273893870701,
+            "ci95": [
+              -0.21370645518729783,
+              -0.05369496473951106
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 0.4999480940486226,
+            "ci95": [
+              0.3808910592151549,
+              0.6297722682724318
+            ]
+          }
+        },
+        "higher": {
+          "CC_minus_UU": {
+            "pp": 14.188760532045707,
+            "ci95": [
+              13.602592603636745,
+              14.781542204128275
+            ]
+          },
+          "switch_lower_average": {
+            "pp": 0.04919654106115834,
+            "ci95": [
+              -0.007399035239590566,
+              0.10505394205495648
+            ]
+          },
+          "switch_higher_average": {
+            "pp": 14.139563990984549,
+            "ci95": [
+              13.563051387406544,
+              14.74094119665916
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.022680670301622463,
+            "ci95": [
+              -0.08473628377722003,
+              0.12875501514586687
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 0.07571241182069421,
+            "ci95": [
+              0.030208789641300304,
+              0.12462548772708938
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": 14.113048120225013,
+            "ci95": [
+              13.535874263740718,
+              14.69524079293042
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": 14.166079861744086,
+            "ci95": [
+              13.568572599293113,
+              14.783128195976897
+            ]
+          }
+        },
+        "lower_minus_higher": {
+          "CC_minus_UU": {
+            "pp": -13.253175008360424,
+            "ci95": [
+              -13.816067299313705,
+              -12.679503872486613
+            ]
+          },
+          "switch_lower_average": {
+            "pp": 0.7048613050691678,
+            "ci95": [
+              0.5853774946592272,
+              0.8238823899282486
+            ]
+          },
+          "switch_higher_average": {
+            "pp": -13.958036313429592,
+            "ci95": [
+              -14.551833161691583,
+              -13.367423702691534
+            ]
+          },
+          "switch_lower_when_higher_U": {
+            "pp": 0.41295675933503884,
+            "ci95": [
+              0.26259258929212775,
+              0.5564631405165165
+            ]
+          },
+          "switch_lower_when_higher_C": {
+            "pp": 0.9967658508032967,
+            "ci95": [
+              0.8355764176208379,
+              1.1647292439047459
+            ]
+          },
+          "switch_higher_when_lower_U": {
+            "pp": -14.24994085916372,
+            "ci95": [
+              -14.831514218938304,
+              -13.679098210552942
+            ]
+          },
+          "switch_higher_when_lower_C": {
+            "pp": -13.666131767695463,
+            "ci95": [
+              -14.293665759484147,
+              -13.03879557928878
+            ]
+          }
+        }
+      }
+    }
+  },
+  "lower_transitions_when_only_higher_switch": {
+    "common": {
+      "uniform": {
+        "one_to_five": {
+          "raw_renters": 1783,
+          "raw_lost": 340,
+          "raw_gained": 8,
+          "percent_of_all_lower": 12.877468377011029,
+          "lost_pp_of_all_lower": 2.2072858615115165,
+          "gained_pp_of_all_lower": 0.03632278534960923,
+          "net_gain_pp_of_all_lower": -2.170963076161907,
+          "net_gain_ci95": [
+            -2.3596805115359625,
+            -1.9872020342030616
+          ]
+        },
+        "six_or_more": {
+          "raw_renters": 801,
+          "raw_lost": 116,
+          "raw_gained": 47,
+          "percent_of_all_lower": 2.352768467480407,
+          "lost_pp_of_all_lower": 0.3736985367749958,
+          "gained_pp_of_all_lower": 0.15106355202434008,
+          "net_gain_pp_of_all_lower": -0.22263498475065574,
+          "net_gain_ci95": [
+            -0.3046928495448689,
+            -0.14132657912964308
+          ]
+        }
+      },
+      "cheapest": {
+        "one_to_five": {
+          "raw_renters": 1783,
+          "raw_lost": 316,
+          "raw_gained": 8,
+          "percent_of_all_lower": 12.877468377011029,
+          "lost_pp_of_all_lower": 2.1349952099589364,
+          "gained_pp_of_all_lower": 0.03632278534960923,
+          "net_gain_pp_of_all_lower": -2.098672424609327,
+          "net_gain_ci95": [
+            -2.2795811325753723,
+            -1.9131297849293225
+          ]
+        },
+        "six_or_more": {
+          "raw_renters": 801,
+          "raw_lost": 265,
+          "raw_gained": 1,
+          "percent_of_all_lower": 2.352768467480407,
+          "lost_pp_of_all_lower": 0.8399631170579951,
+          "gained_pp_of_all_lower": 0.0023176147603053442,
+          "net_gain_pp_of_all_lower": -0.8376455022976897,
+          "net_gain_ci95": [
+            -0.9660042989496906,
+            -0.7216590807412349
+          ]
+        }
+      }
+    },
+    "heterogeneous": {
+      "uniform": {
+        "one_to_five": {
+          "raw_renters": 1783,
+          "raw_lost": 377,
+          "raw_gained": 5,
+          "percent_of_all_lower": 12.877468377011029,
+          "lost_pp_of_all_lower": 2.252150878558348,
+          "gained_pp_of_all_lower": 0.024094754913831923,
+          "net_gain_pp_of_all_lower": -2.2280561236445164,
+          "net_gain_ci95": [
+            -2.4724728140059153,
+            -2.003012826839402
+          ]
+        },
+        "six_or_more": {
+          "raw_renters": 801,
+          "raw_lost": 141,
+          "raw_gained": 36,
+          "percent_of_all_lower": 2.352768467480407,
+          "lost_pp_of_all_lower": 0.4402344612172101,
+          "gained_pp_of_all_lower": 0.11346197079452636,
+          "net_gain_pp_of_all_lower": -0.32677249042268375,
+          "net_gain_ci95": [
+            -0.4270518983362747,
+            -0.2244093310340819
+          ]
+        }
+      },
+      "cheapest": {
+        "one_to_five": {
+          "raw_renters": 1783,
+          "raw_lost": 337,
+          "raw_gained": 5,
+          "percent_of_all_lower": 12.877468377011029,
+          "lost_pp_of_all_lower": 2.1509247060158145,
+          "gained_pp_of_all_lower": 0.024094754913831923,
+          "net_gain_pp_of_all_lower": -2.1268299511019824,
+          "net_gain_ci95": [
+            -2.3784736845414276,
+            -1.8937929403537619
+          ]
+        },
+        "six_or_more": {
+          "raw_renters": 801,
+          "raw_lost": 309,
+          "raw_gained": 3,
+          "percent_of_all_lower": 2.352768467480407,
+          "lost_pp_of_all_lower": 0.9426134818510136,
+          "gained_pp_of_all_lower": 0.011144638920619704,
+          "net_gain_pp_of_all_lower": -0.9314688429303939,
+          "net_gain_ci95": [
+            -1.0592973843969515,
+            -0.8071755315187032
+          ]
+        }
+      }
+    }
+  },
+  "whole_market_graph_capacity": {
+    "UU": {
+      "percent_maximum_matched": 64.2614533584348,
+      "percent_distinct_listings": 87.18019350632412
+    },
+    "CU": {
+      "percent_maximum_matched": 63.76732462674585,
+      "percent_distinct_listings": 87.08888129540462
+    },
+    "UC": {
+      "percent_maximum_matched": 14.298128404457508,
+      "percent_distinct_listings": 17.694757597225966
+    },
+    "CC": {
+      "percent_maximum_matched": 13.515249174035413,
+      "percent_distinct_listings": 16.836309640525663
+    }
+  },
+  "validation": "Both priorities and both same-policy arms exactly matched all archived raw group match/block/choice counts and standardized rates. No visible blockers in any of 3,840 DA runs. All assignments visible and feasible."
+}

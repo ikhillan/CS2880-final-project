@@ -1,0 +1,305 @@
+{
+  "config_sha256": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568",
+  "reference_sha256": "36536b14552eb88157b2fde07a9899e2549033cedf6e38d3a8db0618e54dafba",
+  "design": "20 original blocks per design; four boroughs, Jun\u2013Aug 2026, 240 markets per design",
+  "units": "Occupancy transitions per 100 lower-income renter draws; coverage in listings per market",
+  "bootstrap": {
+    "whole_seed_blocks": 20,
+    "draws": 10000,
+    "seed": 731911
+  },
+  "panels": {
+    "primary": {
+      "k5": {
+        "vacant_to_lower": {
+          "estimate": 0.06096736664701432,
+          "simulation_ci95": [
+            0.02573876079910018,
+            0.10398527789910861
+          ]
+        },
+        "lower_to_vacant": {
+          "estimate": 0.017599703354458485,
+          "simulation_ci95": [
+            0.004380795726272818,
+            0.03459512504867805
+          ]
+        },
+        "lower_to_higher": {
+          "estimate": 1.0615971211746436,
+          "simulation_ci95": [
+            0.850456567923694,
+            1.2764888118470172
+          ]
+        },
+        "higher_to_lower": {
+          "estimate": 0.635375567241575,
+          "simulation_ci95": [
+            0.5047827269099556,
+            0.7818424557156863
+          ]
+        },
+        "net_higher_to_lower": {
+          "estimate": -0.4262215539330686,
+          "simulation_ci95": [
+            -0.6652376710160357,
+            -0.17762210356338645
+          ]
+        },
+        "net_vacant_to_lower": {
+          "estimate": 0.043367663292555834,
+          "simulation_ci95": [
+            0.004627838415286222,
+            0.08711119843202138
+          ]
+        },
+        "lower_match_change_pp": {
+          "estimate": -0.3828538906405128,
+          "simulation_ci95": [
+            -0.6208885277102187,
+            -0.13748107209762536
+          ]
+        },
+        "higher_reached_change": {
+          "estimate": -33.20463728034427,
+          "simulation_ci95": [
+            -33.66215674372448,
+            -32.78361088755741
+          ]
+        },
+        "shared_reached_change": {
+          "estimate": -0.2718796356605272,
+          "simulation_ci95": [
+            -0.3438028301897515,
+            -0.20565578717991562
+          ]
+        },
+        "listings_reached_by_lower": {
+          "estimate": 2.67810854251707,
+          "simulation_ci95": [
+            2.515194639485568,
+            2.8509254582945425
+          ]
+        }
+      },
+      "q40": {
+        "vacant_to_lower": {
+          "estimate": 0.004399925838614621,
+          "simulation_ci95": [
+            0.0,
+            0.013330756565063925
+          ]
+        },
+        "lower_to_vacant": {
+          "estimate": 0.008888046181789445,
+          "simulation_ci95": [
+            0.0,
+            0.021985480746029684
+          ]
+        },
+        "lower_to_higher": {
+          "estimate": 0.5607217311334417,
+          "simulation_ci95": [
+            0.453284107158141,
+            0.6688949962795503
+          ]
+        },
+        "higher_to_lower": {
+          "estimate": 0.2828547484981259,
+          "simulation_ci95": [
+            0.20824710690704967,
+            0.3675049399997781
+          ]
+        },
+        "net_higher_to_lower": {
+          "estimate": -0.2778669826353158,
+          "simulation_ci95": [
+            -0.42360939331287023,
+            -0.12276297381690611
+          ]
+        },
+        "net_vacant_to_lower": {
+          "estimate": -0.004488120343174824,
+          "simulation_ci95": [
+            -0.013417732996175897,
+            0.00011110807432353381
+          ]
+        },
+        "lower_match_change_pp": {
+          "estimate": -0.2823551029784906,
+          "simulation_ci95": [
+            -0.4251728300809975,
+            -0.1305001204325716
+          ]
+        },
+        "higher_reached_change": {
+          "estimate": -15.238065074585464,
+          "simulation_ci95": [
+            -15.689496934567346,
+            -14.809023889743317
+          ]
+        },
+        "shared_reached_change": {
+          "estimate": -0.022415084645385108,
+          "simulation_ci95": [
+            -0.03967433152709526,
+            -0.00604549810225649
+          ]
+        },
+        "listings_reached_by_lower": {
+          "estimate": 2.35113154164521,
+          "simulation_ci95": [
+            2.2255161447445744,
+            2.47859658343649
+          ]
+        }
+      }
+    },
+    "enriched": {
+      "k5": {
+        "vacant_to_lower": {
+          "estimate": 0.4410031739888078,
+          "simulation_ci95": [
+            0.2820145776071381,
+            0.6113997845856507
+          ]
+        },
+        "lower_to_vacant": {
+          "estimate": 2.642634656524906,
+          "simulation_ci95": [
+            2.337676316726514,
+            2.9852650290600846
+          ]
+        },
+        "lower_to_higher": {
+          "estimate": 10.629110285667515,
+          "simulation_ci95": [
+            10.000435103807533,
+            11.210711258452882
+          ]
+        },
+        "higher_to_lower": {
+          "estimate": 21.58032189458344,
+          "simulation_ci95": [
+            20.672000007424156,
+            22.40619670322479
+          ]
+        },
+        "net_higher_to_lower": {
+          "estimate": 10.951211608915926,
+          "simulation_ci95": [
+            9.73349612494302,
+            12.124641690971023
+          ]
+        },
+        "net_vacant_to_lower": {
+          "estimate": -2.2016314825360985,
+          "simulation_ci95": [
+            -2.5699099967859413,
+            -1.8416382346154323
+          ]
+        },
+        "lower_match_change_pp": {
+          "estimate": 8.749580126379827,
+          "simulation_ci95": [
+            7.674447001221397,
+            9.79218852925872
+          ]
+        },
+        "higher_reached_change": {
+          "estimate": -32.845923631027276,
+          "simulation_ci95": [
+            -33.343133057168735,
+            -32.33186930719573
+          ]
+        },
+        "shared_reached_change": {
+          "estimate": -13.043831964161688,
+          "simulation_ci95": [
+            -13.443194056067263,
+            -12.616600230014013
+          ]
+        },
+        "listings_reached_by_lower": {
+          "estimate": 29.103115163874328,
+          "simulation_ci95": [
+            28.785574551935873,
+            29.423229463277885
+          ]
+        }
+      },
+      "q40": {
+        "vacant_to_lower": {
+          "estimate": 0.7408130088925111,
+          "simulation_ci95": [
+            0.5698504081228422,
+            0.9076774859431141
+          ]
+        },
+        "lower_to_vacant": {
+          "estimate": 0.8440905523178159,
+          "simulation_ci95": [
+            0.5848527865186323,
+            1.125281896115167
+          ]
+        },
+        "lower_to_higher": {
+          "estimate": 12.933643663275848,
+          "simulation_ci95": [
+            12.382532237910763,
+            13.5271459618175
+          ]
+        },
+        "higher_to_lower": {
+          "estimate": 11.858996669713056,
+          "simulation_ci95": [
+            11.189226787986696,
+            12.665029212831449
+          ]
+        },
+        "net_higher_to_lower": {
+          "estimate": -1.0746469935627925,
+          "simulation_ci95": [
+            -1.8014878507685326,
+            -0.3734473689837978
+          ]
+        },
+        "net_vacant_to_lower": {
+          "estimate": -0.10327754342530482,
+          "simulation_ci95": [
+            -0.36158378123405044,
+            0.14856204563422368
+          ]
+        },
+        "lower_match_change_pp": {
+          "estimate": -1.1779245369880973,
+          "simulation_ci95": [
+            -2.0074714326087917,
+            -0.38260784269218134
+          ]
+        },
+        "higher_reached_change": {
+          "estimate": -12.23802557378465,
+          "simulation_ci95": [
+            -12.730533358852554,
+            -11.744643421440008
+          ]
+        },
+        "shared_reached_change": {
+          "estimate": -2.3965041507100477,
+          "simulation_ci95": [
+            -2.6453704834102316,
+            -2.141056507174368
+          ]
+        },
+        "listings_reached_by_lower": {
+          "estimate": 32.3301198437246,
+          "simulation_ci95": [
+            32.19799797863887,
+            32.4520680757938
+          ]
+        }
+      }
+    }
+  }
+}

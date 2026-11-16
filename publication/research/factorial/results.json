@@ -1,0 +1,650 @@
+{
+  "design_sha256": "6d8ec8f217c8392b1e9e1ab888aeea47a30eeb453892fc134201e2b29ec88348",
+  "estimand": "UT minus UU, lower-income match rate in percentage points; four-borough standardized",
+  "markets_by_design": {
+    "band listings, ordinary renters": 480,
+    "band listings, selected renters": 480,
+    "ordinary listings, ordinary renters": 480,
+    "ordinary listings, selected renters": 408
+  },
+  "missing_count": 72,
+  "missing_instances": [
+    [
+      84017,
+      "Brooklyn",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84025,
+      "Brooklyn",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84027,
+      "Brooklyn",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84030,
+      "Brooklyn",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84037,
+      "Brooklyn",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84004,
+      "Brooklyn",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84020,
+      "Brooklyn",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84024,
+      "Brooklyn",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84032,
+      "Brooklyn",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84004,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84006,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84007,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84010,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84011,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84012,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84014,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84015,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84016,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84017,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84018,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84019,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84023,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84024,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84026,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84027,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84029,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84031,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84034,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84039,
+      "Manhattan",
+      "2026-06",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84001,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84002,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84003,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84004,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84005,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84006,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84008,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84009,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84010,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84011,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84013,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84014,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84016,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84021,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84022,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84024,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84025,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84026,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84027,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84028,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84029,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84030,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84032,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84033,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84036,
+      "Manhattan",
+      "2026-07",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84001,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84004,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84006,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84009,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84010,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84011,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84012,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84016,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84020,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84023,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84024,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84026,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84027,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84028,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84029,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84031,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84033,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ],
+    [
+      84039,
+      "Manhattan",
+      "2026-08",
+      "ordinary listings, selected renters"
+    ]
+  ],
+  "outcomes": {
+    "available": {
+      "k5": {
+        "ordinary listings, ordinary renters": {
+          "estimate_pp": -0.4287280801144456,
+          "ci95": [
+            -0.6025932292212104,
+            -0.2502555288075187
+          ],
+          "undefined_draws": 0
+        },
+        "ordinary listings, selected renters": {
+          "estimate_pp": -0.7903315305840353,
+          "ci95": [
+            -1.028957010189738,
+            -0.5441760157270547
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, ordinary renters": {
+          "estimate_pp": 3.8167218647736,
+          "ci95": [
+            3.1882413391575968,
+            4.50583391888276
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, selected renters": {
+          "estimate_pp": 8.870338283863557,
+          "ci95": [
+            8.250960394301828,
+            9.529502609077628
+          ],
+          "undefined_draws": 0
+        }
+      },
+      "q40": {
+        "ordinary listings, ordinary renters": {
+          "estimate_pp": -0.2733660616538247,
+          "ci95": [
+            -0.40867981173732976,
+            -0.14055195743930823
+          ],
+          "undefined_draws": 0
+        },
+        "ordinary listings, selected renters": {
+          "estimate_pp": -0.8977077080302603,
+          "ci95": [
+            -1.0588597576711574,
+            -0.7259437451169956
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, ordinary renters": {
+          "estimate_pp": 0.4152238128772062,
+          "ci95": [
+            0.013467396119741189,
+            0.8441464385402522
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, selected renters": {
+          "estimate_pp": -0.9693348214336462,
+          "ci95": [
+            -1.4640374914107077,
+            -0.4610448794813519
+          ],
+          "undefined_draws": 0
+        }
+      }
+    },
+    "joint": {
+      "k5": {
+        "ordinary listings, ordinary renters": {
+          "estimate_pp": -0.43664775364744546,
+          "ci95": [
+            -0.6132681183644895,
+            -0.2559785046741224
+          ],
+          "undefined_draws": 0
+        },
+        "ordinary listings, selected renters": {
+          "estimate_pp": -0.7903315305840353,
+          "ci95": [
+            -1.028957010189738,
+            -0.5441760157270547
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, ordinary renters": {
+          "estimate_pp": 3.484713712529191,
+          "ci95": [
+            2.743977078536072,
+            4.287400990793359
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, selected renters": {
+          "estimate_pp": 8.916548830913378,
+          "ci95": [
+            8.113730294282917,
+            9.719320784079734
+          ],
+          "undefined_draws": 0
+        },
+        "listing_shift_at_ordinary_renters": {
+          "estimate_pp": 3.9213614661766365,
+          "ci95": [
+            3.203650246467002,
+            4.704831051038328
+          ],
+          "undefined_draws": 0
+        },
+        "listing_shift_at_selected_renters": {
+          "estimate_pp": 9.706880361497413,
+          "ci95": [
+            8.954883459786156,
+            10.447117754618716
+          ],
+          "undefined_draws": 0
+        },
+        "renter_shift_on_band_listings": {
+          "estimate_pp": 5.431835118384187,
+          "ci95": [
+            4.498986579778154,
+            6.36926983105479
+          ],
+          "undefined_draws": 0
+        }
+      },
+      "q40": {
+        "ordinary listings, ordinary renters": {
+          "estimate_pp": -0.24843119154988155,
+          "ci95": [
+            -0.40192889290003636,
+            -0.09097299809063904
+          ],
+          "undefined_draws": 0
+        },
+        "ordinary listings, selected renters": {
+          "estimate_pp": -0.8977077080302603,
+          "ci95": [
+            -1.0588597576711574,
+            -0.7259437451169956
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, ordinary renters": {
+          "estimate_pp": 0.3750802015743046,
+          "ci95": [
+            -0.18183181795991582,
+            0.9601696832006588
+          ],
+          "undefined_draws": 0
+        },
+        "band listings, selected renters": {
+          "estimate_pp": -0.9646247838727466,
+          "ci95": [
+            -1.6102387848584543,
+            -0.3222178799857574
+          ],
+          "undefined_draws": 0
+        },
+        "listing_shift_at_ordinary_renters": {
+          "estimate_pp": 0.6235113931241861,
+          "ci95": [
+            0.05068902580679768,
+            1.2393497522340853
+          ],
+          "undefined_draws": 0
+        },
+        "listing_shift_at_selected_renters": {
+          "estimate_pp": -0.0669170758424863,
+          "ci95": [
+            -0.7111431484641736,
+            0.5785710146055182
+          ],
+          "undefined_draws": 0
+        },
+        "renter_shift_on_band_listings": {
+          "estimate_pp": -1.3397049854470513,
+          "ci95": [
+            -2.0448050922836494,
+            -0.6503214429567141
+          ],
+          "undefined_draws": 0
+        }
+      }
+    },
+    "nmarkets_joint": 408,
+    "joint_by_cell": {
+      "Bronx_2026-06": 40,
+      "Bronx_2026-07": 40,
+      "Bronx_2026-08": 40,
+      "Brooklyn_2026-06": 37,
+      "Brooklyn_2026-07": 38,
+      "Brooklyn_2026-08": 36,
+      "Manhattan_2026-06": 20,
+      "Manhattan_2026-07": 15,
+      "Manhattan_2026-08": 22,
+      "Queens_2026-06": 40,
+      "Queens_2026-07": 40,
+      "Queens_2026-08": 40
+    }
+  }
+}

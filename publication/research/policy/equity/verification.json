@@ -1,0 +1,54 @@
+[
+  {
+    "year": 2020,
+    "n": 454415,
+    "pooled_serial_vs_parallel_assignments": 1363245,
+    "reserve_serial_vs_parallel_assignments": 2272075,
+    "most_preferred_blocker_candidates_individually_checked": {
+      "full": 449970,
+      "blind": 404543,
+      "rank": 411931,
+      "only_designated": 406472,
+      "only_other": 409920
+    }
+  },
+  {
+    "year": 2021,
+    "n": 461223,
+    "pooled_serial_vs_parallel_assignments": 1383669,
+    "reserve_serial_vs_parallel_assignments": 2306115,
+    "most_preferred_blocker_candidates_individually_checked": {
+      "full": 449741,
+      "blind": 412181,
+      "rank": 418803,
+      "only_designated": 414460,
+      "only_other": 416543
+    }
+  },
+  {
+    "year": 2022,
+    "n": 570891,
+    "pooled_serial_vs_parallel_assignments": 1712673,
+    "reserve_serial_vs_parallel_assignments": 2854455,
+    "most_preferred_blocker_candidates_individually_checked": {
+      "full": 663514,
+      "blind": 609347,
+      "rank": 616973,
+      "only_designated": 612360,
+      "only_other": 613938
+    }
+  },
+  {
+    "year": 2023,
+    "n": 536353,
+    "pooled_serial_vs_parallel_assignments": 1609059,
+    "reserve_serial_vs_parallel_assignments": 2681765,
+    "most_preferred_blocker_candidates_individually_checked": {
+      "full": 614913,
+      "blind": 561196,
+      "rank": 568322,
+      "only_designated": 564577,
+      "only_other": 564959
+    }
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "year": 2020,
+    "rounds_full": 35,
+    "full_agreement": 432783,
+    "analytic_uniform": {
+      "1": {
+        "full_covered": {
+          "expected_count": 206261.49535214645,
+          "mean_count": 206250.52083333334,
+          "mc_z": 0.30287446223615383
+        },
+        "official_covered": {
+          "expected_count": 207069.5774150998,
+          "mean_count": 207053.45833333334,
+          "mc_z": 0.42259841143440185
+        }
+      },
+      "2": {
+        "full_covered": {
+          "expected_count": 320455.9907042928,
+          "mean_count": 320461.1041666667,
+          "mc_z": -0.1548647245430289
+        },
+        "official_covered": {
+          "expected_count": 320397.1548301997,
+          "mean_count": 320391.4375,
+          "mc_z": 0.16710413202963623
+        }
+      },
+      "3": {
+        "full_covered": {
+          "expected_count": 373456.98605643905,
+          "mean_count": 373485.7916666667,
+          "mc_z": -1.539052402413667
+        },
+        "official_covered": {
+          "expected_count": 372936.7322452992,
+          "mean_count": 372967.0416666667,
+          "mc_z": -1.5410835047873854
+        }
+      },
+      "5": {
+        "full_covered": {
+          "expected_count": 402711.5600940655,
+          "mean_count": 402701.1041666667,
+          "mc_z": 0.953034054155555
+        },
+        "official_covered": {
+          "expected_count": 401883.6370754989,
+          "mean_count": 401876.7291666667,
+          "mc_z": 0.6980260321076566
+        }
+      }
+    },
+    "cutoff_tie_checks": {
+      "blind": 17,
+      "rank": 0
+    },
+    "rounds_first5": 27,
+    "all_partners_identical": {
+      "full": 454415,
+      "first": 454415,
+      "blind": 454415,
+      "rank": 454415
+    },
+    "official_agreement_matched_only": 0.9540260030403256,
+    "official_agreement_outside_only": 0.9366450008212686
+  },
+  {
+    "year": 2021,
+    "rounds_full": 37,
+    "full_agreement": 440582,
+    "analytic_uniform": {
+      "1": {
+        "full_covered": {
+          "expected_count": 215063.6445293068,
+          "mean_count": 215075.66666666666,
+          "mc_z": -0.28845861422272284
+        },
+        "official_covered": {
+          "expected_count": 216191.01664418023,
+          "mean_count": 216173.64583333334,
+          "mc_z": 0.40817675730659736
+        }
+      },
+      "2": {
+        "full_covered": {
+          "expected_count": 331718.2890586136,
+          "mean_count": 331710.9583333333,
+          "mc_z": 0.24818295912191377
+        },
+        "official_covered": {
+          "expected_count": 331838.0332883604,
+          "mean_count": 331833.5416666667,
+          "mc_z": 0.15667149572353137
+        }
+      },
+      "3": {
+        "full_covered": {
+          "expected_count": 385659.4335879204,
+          "mean_count": 385626.4166666667,
+          "mc_z": 1.5697420926870536
+        },
+        "official_covered": {
+          "expected_count": 385228.54993254074,
+          "mean_count": 385212.2083333333,
+          "mc_z": 0.7493056316722443
+        }
+      },
+      "5": {
+        "full_covered": {
+          "expected_count": 414021.3059798676,
+          "mean_count": 414030.3333333333,
+          "mc_z": -0.9026739967019409
+        },
+        "official_covered": {
+          "expected_count": 413258.4998875678,
+          "mean_count": 413265.6666666667,
+          "mc_z": -0.6527716403874267
+        }
+      }
+    },
+    "cutoff_tie_checks": {
+      "blind": 22,
+      "rank": 0
+    },
+    "rounds_first5": 22,
+    "all_partners_identical": {
+      "full": 461223,
+      "first": 461223,
+      "blind": 461223,
+      "rank": 461223
+    },
+    "official_agreement_matched_only": 0.9563702720637027,
+    "official_agreement_outside_only": 0.9431780556758271
+  }
+]

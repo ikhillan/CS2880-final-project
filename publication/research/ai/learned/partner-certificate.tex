@@ -1,0 +1,12 @@
+\begin{proposition}[Retaining a full-market partner]
+Let $E$ have strict, mutually acceptable preferences with unit capacity, and fix any stable matching $M$ on $E$. For any menu graph $H\subseteq E$, every stable matching $M_H$ on $H$ satisfies $|M_H|\ge |M\cap H|$.
+\end{proposition}
+\begin{proof}
+Set $A=M\cap H$. On the market induced by the endpoints of $A$ with edges from $H$, $A$ is perfect and stable: a blocking pair would also block $M$. Add the remaining renters while keeping the listings fixed. Renter-proposing deferred acceptance may postpone all proposals by the entrants until the original renters finish. Every listing that was occupied remains occupied. Add the remaining listings in the same way, using listing-proposing deferred acceptance; every previously occupied renter remains occupied. At each change of proposing side, the set of matched agents on a fixed market is invariant across stable matchings~\cite{galesoto,roth1986}. The final stable cardinality is therefore at least $|A|$. Taking $H=A$ gives equality.
+\end{proof}
+
+For observed market features $X$, let $p_{ij}=\Pr(M(i)=j\mid X)$, with the outside outcome included in the probability vector. For an $X$-measurable menu $H$, $\sum_{(i,j)\in H}p_{ij}$ is a lower bound on conditional expected placements. Under separate row budgets the largest such certificate selects the largest feasible $p_{ij}$ in each row. Writing $S_i(p)$ and $S_i(q)$ for the menus selected by $p$ and estimated probabilities $q$, cancellation gives
+\[
+ p_i(S_i(p))-p_i(S_i(q))\le (p_i-q_i)(S_i(p))+(q_i-p_i)(S_i(q))\le \lVert p_i-q_i\rVert_1.
+\]
+Thus the mean per-renter certificate regret is at most $\sqrt{2D}$, where $D$ is mean excess population cross-entropy relative to the true posterior (Pinsker and Jensen). The bound concerns total placement. A renter whose full-market edge is displayed may still lose it, and maximizing the certificate can leave other placement gains unrealized.

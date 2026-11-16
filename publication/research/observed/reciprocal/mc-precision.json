@@ -1,0 +1,14 @@
+{
+  "draws_per_wave": 4096,
+  "wave_count": 8,
+  "delta_pp": {
+    "recovery": 1.235495626708087,
+    "placement": -5.417870855950696,
+    "mutual_exposed": 6.345947438276466
+  },
+  "conditional_mcse_pp": {
+    "recovery": 0.10553473205188489,
+    "placement": 0.04866841744225078,
+    "mutual_exposed": 0.04277445499411588
+  }
+}

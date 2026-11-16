@@ -1,7 +1,9 @@
 {
   "name": "ladder",
-  "grid": {"boroughs": ["Brooklyn"], "months": ["2026-08"], "sizes": [24, 48, 64, 96, 128, 192, 256], "seeds": 5},
-  "exposures": [{"name": "random_k5", "policy": "random", "k": 5}],
-  "methods": ["reverse_delete", "prefix_cover", "exact_prefix"],
-  "exact_time_cap": {"default": 120}
+  "_note": "How market size affects certification. Laptop or FASRC.",
+  "grid": {"boroughs": ["Brooklyn"], "months": ["2026-08"], "sizes": [24, 48, 64, 96, 128, 192, 256], "seeds": 5, "seed_start": 300},
+  "market": {"donors": "calibration"},
+  "exposures": [{"name": "uniform_k5", "policy": "uniform", "k": 5}],
+  "methods": ["reverse_delete", "prefix_cover", "exact_prefix", "exact_prefix_protect_lower"],
+  "exact_time_cap": {"default": 300}
 }

@@ -1,0 +1,46 @@
+{
+  "partitions": {
+    "train": {
+      "n_markets": 1920,
+      "n_blocks": 80,
+      "unavailable": 0,
+      "tensor_sha": "96f0211f54011dac05c3e5e491966399fa1732c85d23d0bb0a098a9d9c06ba49"
+    },
+    "val": {
+      "n_markets": 384,
+      "n_blocks": 16,
+      "unavailable": 0,
+      "tensor_sha": "8944cdd00ddcc8d299e6293b5002c18433135fa7a5f5442b6e685d87411373c2"
+    },
+    "cal": {
+      "n_markets": 768,
+      "n_blocks": 32,
+      "unavailable": 0,
+      "tensor_sha": "2de7214111c037ebae3f49e4b67f9129d44a4ad860c18c6fbceed9a51cd9b912",
+      "prediction_sha": "c892b3eda349ec920c8fa8a537ebd0c607b82e76bb49632e0b2af5fe147801df",
+      "su_sha": "9a56f9452fb5488750fa5cf5a25a9c972f79e4004dc5b2c1b71de789863b111f",
+      "counts_sha": "7a9a59244b7b30a340ed0d77c209e0cc855170d451fea0dc3ee2f128538d2baa"
+    },
+    "summer": {
+      "n_markets": 1152,
+      "n_blocks": 48,
+      "unavailable": 0,
+      "tensor_sha": "ed87f3b0863248d6f761480092976e35ea94b930c343646d131257316e794c31",
+      "prediction_sha": "d632ff0979667b5192a9ef3306d27a712bb987dc4b552b4ce6d345f10c2b0eb2",
+      "su_sha": "e83df8bea70a9ea0f9f019ae63c5fe129e13523777f4a20b4b45454ea0491723",
+      "counts_sha": "179ab336bdec271acceab0f5980202c9c8aee09727ffde4343f4c1f0fee7e209"
+    },
+    "winter": {
+      "n_markets": 1152,
+      "n_blocks": 48,
+      "unavailable": 0,
+      "tensor_sha": "f5b524bf1e27870a577f3f188975b40e4f698a3be6010cefd38ec71316a38d99",
+      "prediction_sha": "407de9025a98eccdef876c271d5452846d1c71ca3662322f87ae54ede44058ed",
+      "su_sha": "9b42577d4f24807a37bb7f45b0e214812190dc73f3902c914ad311ab2663c877",
+      "counts_sha": "2a0ce46d9f1918a042cc2939e31a151c1252aca295cb7578a4a15f67308ab013"
+    }
+  },
+  "serial_paired_outcome_checks": 2304,
+  "seeds_disjoint": true,
+  "checkpoint_and_prediction_chain_verified": true
+}

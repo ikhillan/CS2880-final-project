@@ -1,0 +1,29 @@
+\section{Attainable affordability with and without stability}\label{sec:burden}
+\subsection{A sharp certificate at fixed placement volume}
+Write $u_{bs}=12r_s/I_b$ for a feasible edge's burden. In each market $m$, form a graph of lower-income renters and all listings, retaining only edges with $u_{bs}\leq t$. Let $\nu_m(t)$ be its maximum matching size. Across markets no assignment can make more than $K(t)=\sum_m\nu_m(t)$ placements at or below $t$. This relaxation gives lower-income renters first claim on every unit and ignores priorities, rank losses and stability.
+
+\begin{proposition}[Burden certificate]\label{prop:burden}
+Fix $N$ placements, with integral order-statistic index $k=1+(N-1)q$ for quantile $q$. If $K(t^*{-})<k$, the $q$-quantile of every feasible assignment with $N$ placements is at least $t^*$. If some such assignment has $k$ or more edges at or below $t^*$, the minimum equals $t^*$.
+\end{proposition}
+\begin{proof}
+The $k$th-smallest burden is below $t^*$ only if at least $k$ chosen edges have smaller burdens. Within each market these edges form a matching in the strict-threshold graph. Their total cannot exceed $K(t^*{-})$. The stated assignment supplies the reverse inequality.
+\end{proof}
+A maximum cheap matching alone need not extend to $N$ placements. One can instead minimize the number of above-threshold edges in an exactly-$N$ matching and search over observed burdens \cite{gorski2009}. The strict threshold $t^*{-}$ includes only edges below $t^*$. For nonintegral $1+(N-1)q$, the interpolated quantile depends on two adjacent order statistics. Our first-quartile calculation has integer index 55.
+
+At the ACS cutoff, only two listing instances across all 240 markets have a qualifying edge. At least 55 would be needed. For the 55th burden, $K(t)$ first reaches 55 at $t^*=0.2777728\ldots$ and equals 54 immediately below. At this threshold 60 listing instances and 145 renters have a qualifying edge. Their feasible pairings accommodate 55. A recorded matching of those 55 extends by 713 disjoint feasible edges. Keeping 162 of the additional edges yields 217 placements with 55th burden $t^*$. Hence \textbf{27.78\% is the best attainable first-quartile burden} on these draws at this placement count. The artifact identifies all 217 edges. Every parameter pair on the grid placed at least 217 lower-income applicants. Changing the utility could move the fitted quartile toward 27.78\%. Reaching 22.00\% at that volume requires different feasible opportunities.
+
+\paragraph{Does a larger catalogue remove the constraint?}
+Keep the original renter draws and the same 217 placements in aggregate. Randomly halve each sampled catalogue, or extend it with a seeded ordering of the remaining borough-month inventory. In all five nested graphs we certify the floor with a lower bound and a matching attaining it (Table~\ref{tab:volume}). The whole-catalogue floor falls to 18.46\%. This pooled bound allows the 217 placements to move between markets as well as between renters. If each market must retain its original number of lower-income placements, the floor is 22.35\%. Keeping exactly the original recipients raises it to 22.46\%. The complete monthly inventories range from 572 to 10,306 listings for 64 renters per draw. At the survey cutoff, exactly 178, 43 and 38 of the 217 placements, respectively, can be cheap under these three constraints. Separate fixed-cardinality min-cost flow solves reproduce these counts. The pooled 178 cheap placements use opportunities from 13 distinct listing records repeated across simulated markets. These are assignments to arrival cohorts, with unknown concurrent availability.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Listings per draw &32&64&128&256&All\\\midrule
+Cheap placements &2&2&9&16&178\\
+Best $Q_{.25}$ (\%) &29.14&27.78&26.85&25.29&18.46\\\bottomrule
+\end{tabular}
+\caption{The same renter draws and 217 pooled lower-income placements. Cheap means at or below the ACS burden of 21.998\%. The quartile requires 55 such placements. The last column uses the entire borough-month arrival catalogue.}
+\label{tab:volume}
+\end{table}
+Removing asks below \$1,000 after sampling leaves the 64-listing result unchanged. With whole catalogues the pooled floor rises to 19.87\%, or 22.40\% with original market counts fixed. This is a sensitivity to unusually low asks, some of which may be genuine. ACS contract rents describe occupied housing and FirstMover records advertised asking rents. A gap between those quantities cannot by itself identify tenant preferences or broker conduct.
+

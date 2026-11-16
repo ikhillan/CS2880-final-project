@@ -1,0 +1,5 @@
+baseline,gain_upper,retained_initial,moved_to_strictly_better,occupied,eligible_edges
+first,7268,150012,0,157280,550992
+cutoff,729,158598,255,159327,537993
+blind,2305,158800,2567,161105,562174
+informed,204,158533,59,158737,530552

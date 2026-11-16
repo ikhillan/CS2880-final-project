@@ -1,0 +1,23 @@
+{
+  "2026-06": {
+    "raw": 25503,
+    "outside_or_unknown_geography": 2117,
+    "ambiguous_unit_retained": 12,
+    "duplicate_unit": 147,
+    "kept": 23239
+  },
+  "2026-07": {
+    "raw": 25442,
+    "outside_or_unknown_geography": 2385,
+    "duplicate_unit": 139,
+    "ambiguous_unit_retained": 9,
+    "kept": 22918
+  },
+  "2026-08": {
+    "raw": 21597,
+    "outside_or_unknown_geography": 1997,
+    "duplicate_unit": 120,
+    "ambiguous_unit_retained": 7,
+    "kept": 19480
+  }
+}

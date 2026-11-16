@@ -1,0 +1,2407 @@
+{
+  "market": {
+    "buyer_prefs": [
+      [
+        16,
+        11,
+        14,
+        2,
+        18,
+        6,
+        7,
+        20,
+        0,
+        9,
+        3,
+        17,
+        15,
+        1,
+        5,
+        4,
+        21,
+        23,
+        22,
+        12,
+        10,
+        13,
+        8,
+        19
+      ],
+      [
+        23,
+        5,
+        3,
+        19,
+        11,
+        14,
+        20,
+        22,
+        8,
+        17,
+        4,
+        12,
+        2,
+        21,
+        0,
+        13,
+        10,
+        18,
+        15,
+        16,
+        9,
+        1,
+        7,
+        6
+      ],
+      [
+        22,
+        17,
+        20,
+        18,
+        9,
+        8,
+        14,
+        2,
+        1,
+        6,
+        7,
+        13,
+        3,
+        12,
+        21,
+        23,
+        4,
+        11,
+        19,
+        5,
+        15,
+        0,
+        16,
+        10
+      ],
+      [
+        8,
+        21,
+        0,
+        2,
+        6,
+        4,
+        19,
+        15,
+        13,
+        16,
+        23,
+        9,
+        22,
+        5,
+        18,
+        11,
+        20,
+        17,
+        3,
+        12,
+        14,
+        1,
+        10,
+        7
+      ],
+      [
+        17,
+        15,
+        10,
+        3,
+        22,
+        5,
+        7,
+        2,
+        18,
+        11,
+        16,
+        0,
+        6,
+        8,
+        9,
+        14,
+        23,
+        20,
+        21,
+        12,
+        19,
+        1,
+        13,
+        4
+      ],
+      [
+        0,
+        7,
+        21,
+        15,
+        23,
+        14,
+        18,
+        8,
+        2,
+        22,
+        9,
+        17,
+        11,
+        16,
+        1,
+        20,
+        4,
+        12,
+        6,
+        10,
+        5,
+        3,
+        13,
+        19
+      ],
+      [
+        8,
+        21,
+        16,
+        1,
+        4,
+        14,
+        22,
+        9,
+        6,
+        17,
+        5,
+        13,
+        11,
+        0,
+        15,
+        3,
+        12,
+        2,
+        19,
+        10,
+        7,
+        20,
+        18,
+        23
+      ],
+      [
+        4,
+        17,
+        13,
+        21,
+        11,
+        16,
+        12,
+        10,
+        7,
+        14,
+        23,
+        9,
+        20,
+        5,
+        22,
+        0,
+        3,
+        18,
+        1,
+        6,
+        8,
+        19,
+        2,
+        15
+      ],
+      [
+        19,
+        6,
+        14,
+        4,
+        7,
+        21,
+        18,
+        11,
+        3,
+        22,
+        15,
+        20,
+        12,
+        13,
+        0,
+        5,
+        1,
+        23,
+        2,
+        17,
+        16,
+        9,
+        8,
+        10
+      ],
+      [
+        4,
+        17,
+        16,
+        11,
+        1,
+        2,
+        22,
+        23,
+        9,
+        21,
+        8,
+        0,
+        6,
+        14,
+        18,
+        19,
+        7,
+        12,
+        15,
+        13,
+        20,
+        5,
+        3,
+        10
+      ],
+      [
+        2,
+        4,
+        8,
+        14,
+        1,
+        15,
+        5,
+        22,
+        7,
+        18,
+        11,
+        12,
+        10,
+        21,
+        20,
+        16,
+        0,
+        6,
+        23,
+        3,
+        9,
+        13,
+        19,
+        17
+      ],
+      [
+        1,
+        18,
+        7,
+        2,
+        17,
+        0,
+        16,
+        10,
+        13,
+        20,
+        19,
+        8,
+        12,
+        21,
+        15,
+        6,
+        4,
+        11,
+        14,
+        9,
+        22,
+        5,
+        23,
+        3
+      ],
+      [
+        8,
+        10,
+        9,
+        12,
+        4,
+        0,
+        2,
+        19,
+        13,
+        7,
+        21,
+        3,
+        18,
+        11,
+        1,
+        23,
+        20,
+        15,
+        6,
+        16,
+        22,
+        14,
+        5,
+        17
+      ],
+      [
+        21,
+        7,
+        20,
+        18,
+        11,
+        8,
+        9,
+        13,
+        4,
+        19,
+        6,
+        3,
+        16,
+        15,
+        5,
+        22,
+        14,
+        1,
+        17,
+        0,
+        10,
+        2,
+        12,
+        23
+      ],
+      [
+        3,
+        21,
+        18,
+        7,
+        6,
+        4,
+        23,
+        13,
+        17,
+        2,
+        22,
+        8,
+        20,
+        15,
+        12,
+        5,
+        16,
+        0,
+        11,
+        19,
+        10,
+        1,
+        9,
+        14
+      ],
+      [
+        12,
+        9,
+        20,
+        21,
+        18,
+        6,
+        8,
+        0,
+        2,
+        5,
+        13,
+        1,
+        16,
+        11,
+        15,
+        10,
+        14,
+        19,
+        17,
+        23,
+        3,
+        4,
+        7,
+        22
+      ],
+      [
+        3,
+        19,
+        7,
+        20,
+        15,
+        1,
+        12,
+        2,
+        23,
+        13,
+        6,
+        21,
+        9,
+        14,
+        5,
+        0,
+        18,
+        4,
+        22,
+        17,
+        11,
+        10,
+        16,
+        8
+      ],
+      [
+        6,
+        23,
+        11,
+        13,
+        0,
+        9,
+        19,
+        7,
+        20,
+        16,
+        14,
+        12,
+        18,
+        5,
+        4,
+        2,
+        22,
+        8,
+        15,
+        10,
+        17,
+        1,
+        3,
+        21
+      ],
+      [
+        21,
+        14,
+        19,
+        0,
+        7,
+        13,
+        16,
+        22,
+        20,
+        9,
+        3,
+        18,
+        6,
+        4,
+        8,
+        10,
+        2,
+        15,
+        12,
+        23,
+        17,
+        11,
+        5,
+        1
+      ],
+      [
+        2,
+        12,
+        3,
+        10,
+        20,
+        22,
+        19,
+        1,
+        11,
+        7,
+        14,
+        4,
+        6,
+        21,
+        18,
+        0,
+        15,
+        9,
+        5,
+        13,
+        8,
+        16,
+        17,
+        23
+      ],
+      [
+        19,
+        23,
+        18,
+        6,
+        10,
+        5,
+        3,
+        4,
+        8,
+        16,
+        9,
+        21,
+        11,
+        17,
+        20,
+        22,
+        13,
+        14,
+        1,
+        7,
+        12,
+        15,
+        2,
+        0
+      ],
+      [
+        15,
+        1,
+        4,
+        20,
+        13,
+        12,
+        19,
+        5,
+        9,
+        2,
+        22,
+        10,
+        7,
+        23,
+        16,
+        0,
+        18,
+        17,
+        8,
+        3,
+        14,
+        6,
+        11,
+        21
+      ],
+      [
+        10,
+        16,
+        23,
+        11,
+        21,
+        8,
+        22,
+        18,
+        19,
+        17,
+        6,
+        14,
+        4,
+        0,
+        7,
+        9,
+        15,
+        2,
+        12,
+        1,
+        13,
+        5,
+        20,
+        3
+      ],
+      [
+        3,
+        22,
+        20,
+        4,
+        14,
+        1,
+        19,
+        23,
+        2,
+        0,
+        15,
+        21,
+        18,
+        16,
+        5,
+        10,
+        8,
+        6,
+        17,
+        13,
+        9,
+        11,
+        7,
+        12
+      ]
+    ],
+    "seller_prefs": [
+      [
+        21,
+        8,
+        23,
+        6,
+        11,
+        0,
+        10,
+        2,
+        22,
+        16,
+        1,
+        9,
+        17,
+        19,
+        15,
+        20,
+        3,
+        12,
+        18,
+        7,
+        14,
+        5,
+        4,
+        13
+      ],
+      [
+        8,
+        11,
+        12,
+        4,
+        23,
+        7,
+        19,
+        1,
+        6,
+        15,
+        0,
+        13,
+        5,
+        9,
+        21,
+        2,
+        17,
+        14,
+        18,
+        22,
+        10,
+        16,
+        3,
+        20
+      ],
+      [
+        18,
+        10,
+        4,
+        11,
+        8,
+        6,
+        22,
+        20,
+        3,
+        13,
+        5,
+        17,
+        2,
+        9,
+        0,
+        19,
+        21,
+        1,
+        15,
+        12,
+        7,
+        14,
+        23,
+        16
+      ],
+      [
+        19,
+        6,
+        0,
+        1,
+        5,
+        16,
+        8,
+        9,
+        20,
+        3,
+        17,
+        15,
+        22,
+        14,
+        7,
+        13,
+        21,
+        2,
+        18,
+        11,
+        4,
+        10,
+        23,
+        12
+      ],
+      [
+        4,
+        18,
+        8,
+        2,
+        19,
+        0,
+        1,
+        7,
+        16,
+        3,
+        20,
+        17,
+        6,
+        22,
+        11,
+        15,
+        14,
+        9,
+        21,
+        12,
+        13,
+        10,
+        5,
+        23
+      ],
+      [
+        15,
+        20,
+        13,
+        14,
+        23,
+        5,
+        19,
+        9,
+        17,
+        2,
+        0,
+        22,
+        7,
+        21,
+        8,
+        1,
+        4,
+        18,
+        6,
+        3,
+        10,
+        16,
+        11,
+        12
+      ],
+      [
+        0,
+        23,
+        13,
+        4,
+        11,
+        5,
+        2,
+        14,
+        17,
+        12,
+        18,
+        21,
+        8,
+        19,
+        6,
+        10,
+        20,
+        22,
+        16,
+        15,
+        9,
+        3,
+        1,
+        7
+      ],
+      [
+        0,
+        1,
+        6,
+        17,
+        22,
+        14,
+        20,
+        2,
+        10,
+        15,
+        16,
+        8,
+        19,
+        21,
+        18,
+        23,
+        13,
+        12,
+        5,
+        11,
+        3,
+        9,
+        4,
+        7
+      ],
+      [
+        0,
+        19,
+        3,
+        13,
+        15,
+        10,
+        12,
+        7,
+        11,
+        22,
+        23,
+        16,
+        18,
+        6,
+        21,
+        8,
+        17,
+        1,
+        5,
+        2,
+        14,
+        20,
+        4,
+        9
+      ],
+      [
+        14,
+        13,
+        4,
+        8,
+        2,
+        22,
+        1,
+        17,
+        23,
+        15,
+        0,
+        7,
+        16,
+        5,
+        18,
+        9,
+        3,
+        12,
+        21,
+        20,
+        19,
+        6,
+        10,
+        11
+      ],
+      [
+        17,
+        22,
+        9,
+        2,
+        7,
+        21,
+        12,
+        3,
+        4,
+        1,
+        11,
+        8,
+        14,
+        6,
+        13,
+        10,
+        16,
+        0,
+        19,
+        5,
+        20,
+        15,
+        23,
+        18
+      ],
+      [
+        14,
+        8,
+        22,
+        5,
+        17,
+        11,
+        13,
+        6,
+        9,
+        16,
+        23,
+        3,
+        1,
+        20,
+        10,
+        2,
+        21,
+        0,
+        15,
+        19,
+        12,
+        4,
+        18,
+        7
+      ],
+      [
+        19,
+        14,
+        21,
+        12,
+        2,
+        22,
+        13,
+        15,
+        4,
+        17,
+        3,
+        9,
+        10,
+        16,
+        11,
+        5,
+        23,
+        6,
+        1,
+        20,
+        0,
+        8,
+        7,
+        18
+      ],
+      [
+        20,
+        23,
+        10,
+        8,
+        18,
+        5,
+        4,
+        3,
+        7,
+        14,
+        6,
+        17,
+        9,
+        13,
+        22,
+        19,
+        16,
+        12,
+        11,
+        2,
+        15,
+        0,
+        21,
+        1
+      ],
+      [
+        22,
+        23,
+        10,
+        13,
+        3,
+        4,
+        5,
+        16,
+        2,
+        8,
+        20,
+        1,
+        18,
+        14,
+        6,
+        21,
+        15,
+        12,
+        7,
+        0,
+        17,
+        11,
+        19,
+        9
+      ],
+      [
+        13,
+        2,
+        0,
+        14,
+        3,
+        5,
+        11,
+        4,
+        1,
+        6,
+        21,
+        15,
+        7,
+        10,
+        19,
+        17,
+        16,
+        20,
+        22,
+        12,
+        18,
+        8,
+        23,
+        9
+      ],
+      [
+        20,
+        2,
+        12,
+        22,
+        10,
+        13,
+        7,
+        9,
+        21,
+        8,
+        3,
+        6,
+        0,
+        14,
+        17,
+        11,
+        19,
+        18,
+        16,
+        15,
+        1,
+        5,
+        23,
+        4
+      ],
+      [
+        15,
+        11,
+        13,
+        20,
+        1,
+        0,
+        19,
+        5,
+        17,
+        10,
+        21,
+        18,
+        16,
+        23,
+        8,
+        3,
+        4,
+        22,
+        9,
+        7,
+        14,
+        2,
+        6,
+        12
+      ],
+      [
+        0,
+        13,
+        17,
+        21,
+        22,
+        23,
+        9,
+        16,
+        18,
+        15,
+        19,
+        10,
+        6,
+        2,
+        7,
+        4,
+        5,
+        8,
+        11,
+        14,
+        1,
+        12,
+        20,
+        3
+      ],
+      [
+        20,
+        11,
+        19,
+        8,
+        12,
+        18,
+        9,
+        5,
+        14,
+        2,
+        17,
+        6,
+        23,
+        4,
+        13,
+        10,
+        22,
+        21,
+        7,
+        1,
+        3,
+        15,
+        0,
+        16
+      ],
+      [
+        14,
+        10,
+        23,
+        13,
+        21,
+        20,
+        22,
+        1,
+        7,
+        2,
+        17,
+        9,
+        18,
+        5,
+        4,
+        11,
+        15,
+        16,
+        6,
+        3,
+        0,
+        19,
+        12,
+        8
+      ],
+      [
+        9,
+        14,
+        1,
+        7,
+        10,
+        23,
+        15,
+        3,
+        16,
+        6,
+        21,
+        19,
+        17,
+        22,
+        13,
+        11,
+        8,
+        4,
+        20,
+        2,
+        12,
+        0,
+        18,
+        5
+      ],
+      [
+        18,
+        9,
+        17,
+        13,
+        22,
+        8,
+        5,
+        10,
+        1,
+        3,
+        16,
+        15,
+        19,
+        21,
+        12,
+        4,
+        6,
+        23,
+        0,
+        20,
+        11,
+        2,
+        14,
+        7
+      ],
+      [
+        12,
+        15,
+        11,
+        1,
+        3,
+        10,
+        19,
+        13,
+        2,
+        0,
+        4,
+        17,
+        21,
+        7,
+        14,
+        18,
+        16,
+        5,
+        23,
+        6,
+        22,
+        20,
+        9,
+        8
+      ]
+    ],
+    "buyer_firms": [
+      3,
+      2,
+      2,
+      3,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      2,
+      4,
+      2,
+      4,
+      4,
+      3,
+      0,
+      3,
+      4,
+      3,
+      1,
+      1,
+      0
+    ],
+    "seller_firms": [
+      5,
+      9,
+      5,
+      8,
+      9,
+      8,
+      5,
+      5,
+      9,
+      5,
+      9,
+      6,
+      6,
+      7,
+      7,
+      6,
+      8,
+      8,
+      7,
+      6,
+      7,
+      6,
+      8,
+      7
+    ],
+    "costs": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "initial_edges": [
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        16
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        0,
+        22
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        21
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        23
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        5,
+        16
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        5,
+        21
+      ],
+      [
+        5,
+        22
+      ],
+      [
+        5,
+        23
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        6,
+        17
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        6,
+        20
+      ],
+      [
+        6,
+        23
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        7,
+        16
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        7,
+        19
+      ],
+      [
+        7,
+        22
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        8,
+        17
+      ],
+      [
+        8,
+        20
+      ],
+      [
+        8,
+        23
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        9,
+        16
+      ],
+      [
+        9,
+        17
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        20
+      ],
+      [
+        9,
+        22
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        10,
+        18
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        11,
+        19
+      ],
+      [
+        12,
+        19
+      ],
+      [
+        12,
+        22
+      ],
+      [
+        12,
+        23
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        15,
+        18
+      ],
+      [
+        16,
+        10
+      ],
+      [
+        16,
+        11
+      ],
+      [
+        16,
+        12
+      ],
+      [
+        16,
+        14
+      ],
+      [
+        16,
+        15
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        20
+      ],
+      [
+        16,
+        23
+      ],
+      [
+        17,
+        1
+      ],
+      [
+        17,
+        3
+      ],
+      [
+        17,
+        5
+      ],
+      [
+        17,
+        16
+      ],
+      [
+        17,
+        17
+      ],
+      [
+        17,
+        20
+      ],
+      [
+        18,
+        4
+      ],
+      [
+        18,
+        12
+      ],
+      [
+        18,
+        15
+      ],
+      [
+        18,
+        20
+      ],
+      [
+        18,
+        22
+      ],
+      [
+        18,
+        23
+      ],
+      [
+        19,
+        5
+      ],
+      [
+        19,
+        17
+      ],
+      [
+        19,
+        22
+      ],
+      [
+        20,
+        7
+      ],
+      [
+        20,
+        12
+      ],
+      [
+        20,
+        13
+      ],
+      [
+        20,
+        15
+      ],
+      [
+        20,
+        16
+      ],
+      [
+        20,
+        18
+      ],
+      [
+        20,
+        19
+      ],
+      [
+        21,
+        4
+      ],
+      [
+        21,
+        5
+      ],
+      [
+        21,
+        8
+      ],
+      [
+        21,
+        13
+      ],
+      [
+        21,
+        14
+      ],
+      [
+        21,
+        15
+      ],
+      [
+        21,
+        17
+      ],
+      [
+        21,
+        18
+      ],
+      [
+        21,
+        20
+      ],
+      [
+        21,
+        23
+      ],
+      [
+        22,
+        1
+      ],
+      [
+        22,
+        4
+      ],
+      [
+        22,
+        13
+      ],
+      [
+        22,
+        15
+      ],
+      [
+        22,
+        17
+      ],
+      [
+        22,
+        18
+      ],
+      [
+        22,
+        19
+      ],
+      [
+        22,
+        20
+      ],
+      [
+        23,
+        0
+      ],
+      [
+        23,
+        5
+      ],
+      [
+        23,
+        10
+      ],
+      [
+        23,
+        11
+      ],
+      [
+        23,
+        13
+      ],
+      [
+        23,
+        14
+      ],
+      [
+        23,
+        18
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        23,
+        22
+      ],
+      [
+        23,
+        23
+      ]
+    ],
+    "name": "n24_f10_c1_independent_e0.25_s1011",
+    "metadata": {
+      "n": 24,
+      "firms": 10,
+      "components": 1,
+      "preference": "independent",
+      "target_exposure": 0.25,
+      "seed": 1011,
+      "mixed": false,
+      "weighted": false,
+      "low_access": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "partnership_log_odds": 1.3862943611198906,
+      "access_log_odds": -0.6931471805599453,
+      "logistic_intercept": -1.348980818128323,
+      "realized_exposure": 0.2465277777777778
+    }
+  },
+  "results": [
+    {
+      "mask": 992,
+      "cost": 5.0,
+      "evaluations": 15,
+      "optimal": false,
+      "status": "feasible",
+      "elapsed": 0.002412374975392595,
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "reverse_delete",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "mask": 747,
+      "cost": 7.0,
+      "elapsed": 0.008241708012064919,
+      "evaluations": 50,
+      "optimal": false,
+      "status": "feasible",
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "greedy",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 2.0
+    },
+    {
+      "name": "n24_f10_c1_independent_e0.25_s1011",
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "elapsed": 0.00752016602200456,
+      "prefix_edges": 55,
+      "cover_constraints": 23,
+      "matching": [
+        11,
+        23,
+        9,
+        8,
+        17,
+        15,
+        22,
+        4,
+        14,
+        16,
+        2,
+        1,
+        13,
+        18,
+        21,
+        0,
+        3,
+        6,
+        7,
+        12,
+        19,
+        5,
+        10,
+        20
+      ],
+      "bound_scope": "prefix_cover_problem",
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "prefix_cover",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "mask": 1023,
+      "cost": 10.0,
+      "optimal": false,
+      "status": "feasible",
+      "elapsed": 2.374988980591297e-06,
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "full",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 5.0
+    },
+    {
+      "status": "optimal",
+      "optimal": true,
+      "elapsed": 0.06575083298957907,
+      "evaluations": 387,
+      "mask": 31,
+      "cost": 5.0,
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "enumeration",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c1_independent_e0.25_s1011",
+      "variant": "assignment",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.12822779102134518,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.12109608299215324,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 2502,
+          "variables": 1162,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "assignment",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c1_independent_e0.25_s1011",
+      "variant": "component",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.1262407919857651,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.11940524997771718,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 2502,
+          "variables": 1162,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "component",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    },
+    {
+      "name": "n24_f10_c1_independent_e0.25_s1011",
+      "variant": "prefix",
+      "stable_support": true,
+      "status": "optimal",
+      "optimal": true,
+      "mask": 992,
+      "cost": 5.0,
+      "lower_bound": 5.0,
+      "upper_bound": 5.0,
+      "absolute_gap": 0.0,
+      "elapsed": 0.1261567500187084,
+      "rounds": 1,
+      "cuts": 0,
+      "evaluations": 16,
+      "log": [
+        {
+          "round": 1,
+          "milp_status": 0,
+          "milp_time": 0.11921699999948032,
+          "lower_bound": 5.0,
+          "upper_bound": 5.0,
+          "candidate_cost": 5.0,
+          "blockers": 0,
+          "cuts_added": 0,
+          "constraints": 2502,
+          "variables": 1162,
+          "bound_inconsistent": false
+        }
+      ],
+      "instance": "n24_f10_c1_independent_e0.25_s1011",
+      "method": "prefix",
+      "config": {
+        "n": 24,
+        "firms": 10,
+        "components": 1,
+        "preference": "independent",
+        "exposure": 0.25,
+        "seed": 1011
+      },
+      "metrics": {
+        "initial_blockers": 87,
+        "final_blockers": 0,
+        "initial_cardinality": 21,
+        "final_cardinality": 24,
+        "buyer_rank_score": 0.9114583333333334,
+        "seller_rank_score": 0.7152777777777778,
+        "buyer_score_change": 0.3350694444444445,
+        "seller_score_change": 0.07812500000000001,
+        "buyers_harmed": 5,
+        "sellers_harmed": 9,
+        "buyers_helped": 17,
+        "sellers_helped": 13,
+        "initial_buyer_score": 0.576388888888889,
+        "initial_seller_score": 0.6371527777777778,
+        "lower_access_buyer_change": 0.4131944444444444,
+        "lower_access_buyer_harmed_fraction": 0.16666666666666666,
+        "higher_access_buyer_change": 0.2569444444444444,
+        "higher_access_buyer_harmed_fraction": 0.25
+      },
+      "reference_optimum": 5.0,
+      "excess_cost": 0.0
+    }
+  ],
+  "method_order": [
+    "reverse_delete",
+    "greedy",
+    "prefix_cover",
+    "full",
+    "enumeration",
+    "assignment",
+    "component",
+    "prefix"
+  ],
+  "optimal_outcome_sensitivity": {
+    "count": 2,
+    "masks": [
+      31,
+      992
+    ],
+    "elapsed": 0.040298957988852635,
+    "ranges": {
+      "buyers_harmed": [
+        5,
+        5
+      ],
+      "sellers_harmed": [
+        9,
+        9
+      ],
+      "buyer_score_change": [
+        0.3350694444444445,
+        0.3350694444444445
+      ],
+      "seller_score_change": [
+        0.07812500000000001,
+        0.07812500000000001
+      ],
+      "lower_access_buyer_change": [
+        0.4131944444444444,
+        0.4131944444444444
+      ],
+      "higher_access_buyer_change": [
+        0.2569444444444444,
+        0.2569444444444444
+      ],
+      "lower_access_buyer_harmed_fraction": [
+        0.16666666666666666,
+        0.16666666666666666
+      ],
+      "higher_access_buyer_harmed_fraction": [
+        0.25,
+        0.25
+      ],
+      "final_cardinality": [
+        24,
+        24
+      ]
+    }
+  }
+}
