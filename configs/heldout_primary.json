@@ -1,0 +1,94 @@
+{
+  "name": "heldout_primary",
+  "_note": "Held-out primary test (Sep-Oct 2026): evaluation donors, fresh seeds, top-5 arms only. Haiku 5.5 high, frozen prompt from the development pilot.",
+  "grid": {
+    "boroughs": [
+      "Manhattan",
+      "Brooklyn",
+      "Queens",
+      "Bronx",
+      "Staten Island"
+    ],
+    "months": [
+      "2026-09",
+      "2026-10"
+    ],
+    "sizes": [
+      64
+    ],
+    "seeds": 20,
+    "seed_start": 300
+  },
+  "market": {
+    "donors": "evaluation"
+  },
+  "variants": [
+    {
+      "label": "primary"
+    },
+    {
+      "label": "enriched",
+      "design": "enriched",
+      "seeds": 20,
+      "seed_start": 350
+    }
+  ],
+  "exposures": [
+    {
+      "name": "uniform_k5",
+      "policy": "uniform",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "claude_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "full",
+      "policy": "full"
+    },
+    {
+      "name": "gpt_k5",
+      "policy": "llm",
+      "k": 5
+    }
+  ],
+  "methods": [
+    "no_audit"
+  ],
+  "group_switch": [
+    {
+      "name": "claude_vs_uniform",
+      "a": "uniform_k5",
+      "b": "claude_k5"
+    },
+    {
+      "name": "transparent_vs_uniform_k5",
+      "a": "uniform_k5",
+      "b": "transparent_k5"
+    },
+    {
+      "name": "gpt_vs_uniform",
+      "a": "uniform_k5",
+      "b": "gpt_k5"
+    }
+  ],
+  "llm_results": "results/llm/heldout_primary/recs.jsonl",
+  "llm": {
+    "route": "huit_api_platform",
+    "model": "gpt-6-luna",
+    "reasoning_effort": "none",
+    "max_tokens": 300,
+    "min_interval_s": 0.5,
+    "price_per_million": [
+      0.1,
+      0.5
+    ]
+  }
+}
