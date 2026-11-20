@@ -88,6 +88,11 @@
     {
       "name": "full",
       "policy": "full"
+    },
+    {
+      "name": "gpt_k5",
+      "policy": "llm",
+      "k": 5
     }
   ],
   "methods": [
@@ -113,7 +118,23 @@
       "name": "transparent_vs_uniform_q40",
       "a": "uniform_q40",
       "b": "transparent_q40"
+    },
+    {
+      "name": "gpt_vs_uniform",
+      "a": "uniform_k5",
+      "b": "gpt_k5"
     }
   ],
-  "llm_results": "results/llm/stage1_pilot/recs.jsonl"
+  "llm_results": "results/llm/stage1_pilot/recs.jsonl",
+  "llm": {
+    "route": "huit_api_platform",
+    "model": "gpt-6-luna",
+    "reasoning_effort": "none",
+    "max_tokens": 300,
+    "min_interval_s": 0.5,
+    "price_per_million": [
+      0.1,
+      0.5
+    ]
+  }
 }
