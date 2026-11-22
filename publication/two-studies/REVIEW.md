@@ -1,0 +1,30 @@
+# Build the anonymous review copy
+
+The working paper and the review copy use identical manuscript text, including the AI-use appendix. The review copy uses the EC 2026 class and style supplied by the conference. The last official call we could verify on November 14, 2026 was EC 2026. Its 18-page main-text allowance excludes the title page and bibliography and permits an appendix. The review copy omits the old conference's submission footer and leaves the submission number unassigned. [SIGecom events](https://sigecom.hosting.acm.org/events.html) · [EC 2026 call and style kit](https://ec26.sigecom.org/call-for-contributions-acm/papers/)
+
+From a repository checkout, run this in the paper directory. In the standalone source distribution the class, style, and bibliography style are also at the top level.
+
+```sh
+TEXINPUTS=.:..: BSTINPUTS=.:..: latexmk -pdf -halt-on-error review.tex
+```
+
+The cover says “Anonymous review draft.” The same source can accept an assigned number using the macro `\ECPaperNumber` before `\input{review.tex}`. Check the target year's call when preparing an actual submission. The named source archive contains bylines, branch links and project history. The anonymous outputs are the review PDF and a separate code archive for the seat-retention extension, including the shared institutional engine, preparation scripts, public-data acquisition instructions and aggregate results.
+
+## AI-assisted work
+
+The group proposed the intermediation question, planned and implemented the original housing simulation, and reported the scarcity of affordable listings in its pilot. OpenAI Codex (GPT-6 family) assisted extensively with later proof construction and counterexamples, implementation and verification of model comparisons, analysis of the public cohorts, and drafting and revision of the manuscript. The project record identifies the model family. It does not preserve a per-turn checkpoint identifier for earlier work.
+
+Representative research requests included “Can we test whether the prediction-versus-placement tradeoff holds on a real matching dataset with observed preferences, then fold that evidence into the paper?” and “Make sure the theory, experiments, and NYC–Chile connection are clear and defensible.” Revisions narrowed the school claims to the historical labels and specified replays, tested alternative pursuit orders, and traced the changing assignments. Program outputs and independent implementations support the reported numerical claims. The latest revision also includes AI-assisted algorithm design, new reductions, exhaustive checks and evaluation of risk under held-out simulated lotteries.
+
+The model in the rental experiment was a separate system. The saved batch records use Anthropic's model identifier `claude-haiku-5-5`. The prompt asked the model to pick five apartment listings from the renter's feasible candidates using the presented budget, household needs, target area and listing attributes. Exact selections were reused throughout the replays. The pilot records supply the prompt template and response indices, with the cache-authentication limitation described in the paper.
+
+The institutional appendix reports the four-year D1 fit, the reconstructed menu comparisons, the allocation rules and the finite lottery certificates. Only aggregate national results are distributed.
+
+The behavioral extension distinguishes observed complementary choices, local risk-warning effects, and simulated responses to the two menus. The review copy includes the responder-set calculation and the second-stage capacity test.
+
+The field study section compares Chile’s actual randomized advice interventions with a 2021 national replay for the same year and grades. The appendix documents the published-table analysis, the enrollment label under intervention, and the distinction between direct and market-wide effects.
+
+
+## Seat retention and submission status
+
+The review manuscript includes the finite-panel hardness result, the Chilean upper and lower bounds, the learned prospective rule and the rule that retains seats under all lottery orders. The working and anonymous copies use identical scientific text. As of November 14, 2026, SIGecom's conference listing ends with EC 2026, whose registration is closed. We could not verify a 2027 call or submission portal. The archive builds the paper in the available 2026 format; the manuscript has not been filed with the conference. [Official conference list](https://www.sigecom.org/events.html) · [Closed 2026 portal](https://ec26.hotcrp.com/)

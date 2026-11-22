@@ -1,0 +1,90 @@
+\subsection{Seat retention when pupils can switch schools}\label{sec:seat-retention-theory}
+Let $R^s$ be the set of pupils placed by the old menu on priority draw $s$.
+Seat retention requires every pupil in $R^s$ to be placed after the menus change.
+The program they receive may differ, and previously unmatched pupils may enter.
+Here we derive an exact formulation for the fixed-priority benchmark. The
+institutional tests in the text use the actual grade sequence and recompute
+sibling priorities.
+
+\paragraph{An exact feasibility test across draws}
+Let $x_{ij}\in\{0,1\}$ indicate inclusion of $j$ on $i$'s new menu. Impose
+the candidate sets, quotas, and fixed common options used in the design.
+On each draw introduce binary assignment variables $y^s_{ij}\le x_{ij}$,
+with one place at most for each pupil and capacity $q_j$ for each program $j$.
+For every $i\in R^s$, require $\sum_j y^s_{ij}=1$. For every candidate pair
+also impose
+\[
+q_j\sum_{k:\ k\succeq_i j} y^s_{ik}
+ +\sum_{h:\ h\succ^s_j i} y^s_{hj}\ \ge\ q_j x_{ij}.
+\]
+For a displayed course, either $i$ receives a weakly preferred course or all
+its seats go to pupils who outrank $i$. These inequalities rule out exactly
+the blocking pairs. If the new DA outcome retains the incumbents, it gives
+such a witness. Conversely, if a witness exists, applicant-optimality of DA
+gives each pupil a weakly preferred outcome, which keeps every matched pupil
+placed. This equivalence applies to strict responsive priorities.
+The proof uses standard stability and applicant-optimality for fixed strict priorities \citep{gale1962,roth1986}. To optimize historical school hits, maximize $\sum_i h_i$ subject to
+$0\le h_i\le 1$ and $h_i\le \sum_{j:\mathrm{school}(j)=\ell_i}x_{ij}$
+for each observed school label $\ell_i$. A capacity-feasible witness alone
+would overstate what is possible: with one seat each at $u,v$, a higher-priority
+pupil listing $u,v$ displaces a pupil who lists only $u$, even though the
+assignment $(v,u)$ would seat both. Separate conditional grade witnesses can
+also fail to describe a family-linked rollout (Appendix~\ref{sec:institution}).
+
+\begin{theorem}\label{thm:seat-retain}
+For an explicit panel of priorities, deciding whether a menu can gain at
+least $K$ historical partner hits while retaining every old recipient on every
+draw is NP-complete. This holds with unit seats, one common priority order per
+draw, at most three options on each menu, and one binary substitution on each
+editable row. The historical labels themselves can be a full-list DA outcome
+on a draw in the panel. All pupils have seats under the old menus on all draws. Parameterized by the required gain $K$, the problem is W[1]-hard.
+\end{theorem}
+\begin{proof}
+Reduce from Independent Set, or equivalently from the clique problem on the
+complement graph \citep{downeyClique}. For each vertex $i$ give four pupils
+$t_i,g_i,h_i,d_i$ six private schools $p_i,x_i,b_i,q_i,r_i,s_i$.
+The sole school shared by different vertices is $z$. Everyone has strict
+preferences over the options displayed below, in order, and each school has
+one seat.
+\[
+\begin{array}{c|c|c}
+\text{pupil}&\text{full list}&\text{permitted menus}\\\hline
+ t_i&p_i,x_i,b_i&(p_i,b_i)\text{ or }(p_i,x_i)\\
+ g_i&p_i,q_i&(p_i,q_i)\\
+ h_i&x_i,z,r_i&(x_i,z,r_i)\\
+ d_i&r_i,s_i&(r_i,s_i)
+\end{array}
+\]
+The old menu for $t_i$ is $(p_i,b_i)$. Call a vertex selected when it switches
+to $(p_i,x_i)$. Draw one common priority order for each edge $\{u,v\}$, as
+follows. Put all the $d$ pupils first, followed by the disjoint pairs
+$(g_i,t_i)$ at its endpoints and $(t_i,g_i)$ elsewhere, then all the $h$
+pupils. Fix all unspecified orders by vertex index.
+On the old menus everyone is placed. Only at an endpoint can a switch change
+an assignment, since other $t_i$ win their first choice $p_i$. A switched
+endpoint takes $x_i$ from $h_i$, whose private fallback $r_i$ is occupied by
+$d_i$. The displaced $h_i$ must receive the unique seat $z$ to remain placed.
+Thus the edge draw retains everyone exactly when at most one of its endpoints
+switches.
+
+Add one common reference order putting the four groups in order $g,t,h,d$ and using vertex indices within groups.
+Every menu retains everyone on this draw. Each $t_i$ who loses $p_i$ takes
+$b_i$ or $x_i$. An $h_i$ displaced at $x_i$ can take $z$ or its own $r_i$.
+Any $d_i$ displaced from $r_i$ has private $s_i$. Use full-list DA on this
+reference draw to define every pupil's target. Each $t_i$ receives its private
+$x_i$. The targets of all other pupils lie on their fixed menus. Consequently
+the gain over the old menus is exactly the number of switched vertices.
+A gain of $K$ retaining everyone on the panel is feasible precisely when the
+graph admits an independent set of size at least $K$. The construction has
+polynomial size. Given the menus, DA checks all draws and verifies their
+score in polynomial time. The reduction from Clique on the complement preserves $K$, giving the parameterized claim.
+\end{proof}
+The reduction also preserves the objective value. If $m$ is the number of editable rows, a polynomial-time $m^{1-\varepsilon}$-approximation to the maximum \emph{additional} hits for any fixed $0<\varepsilon<1$ would give the same approximation to Maximum Clique on an $m$-vertex graph by taking its complement and reading out the selected rows. This is NP-hard \citep{zuckerman2007}. The factor concerns gain over the baseline; the old hits on fixed rows contribute an additive constant to total coverage.
+
+On the reference draw any switch by $t_i$ changes its assigned course from
+$b_i$ to $x_i$. Insisting on exact baseline courses therefore permits zero
+gain in this construction. With a graph consisting of $m$ disjoint edges,
+seat retention permits exactly $m$ additional hits. This proves an unbounded
+additive gap and demonstrates why an exact-course ceiling cannot upper-bound
+retention. Thus the polynomial stable-witness screen for preserving a named assignment across draws has no direct counterpart that optimizes this weaker protection unless P$=$NP. The reduction uses an explicitly specified panel. Its complexity
+conclusion does not assume a particular law for Chilean lotteries.

@@ -1,0 +1,565 @@
+{
+  "packet_sha256": "bb950eb7ed7f616eedd38915c4f21e565bf89e36d43093d990e001644d3f952e",
+  "format_version": 1,
+  "data_kind": "frozen_rental_replay",
+  "versions": {
+    "python": "3.13.12",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.3"
+  },
+  "input_hashes": {
+    "census_pums/acs_pums_2020_2024_nyc_households.csv": "de00887bcd86152a8ee9af1aa9ae9f1bc555026d548dbf04d3172eb9f8a47305",
+    "data/reference/cpi_u_us_city_average.csv": "3108cfa6f1593b04d53b7ad66bac8967244a03a903d1c22f2d60b2f27514d995",
+    "data/firstmover/clean/firstmover_listings_2026-06.csv.gz": "51fea05171c4fc8be550f6e602602cedbbfe7e6851c122676684a7c6f0f05ba3",
+    "data/firstmover/clean/firstmover_listings_2026-07.csv.gz": "34227c63b0ebc0ad7456e0570315a2d3df9935ddaf11d613514ad6c3f3d2b0a8",
+    "data/firstmover/clean/firstmover_listings_2026-08.csv.gz": "45b9b5ba802862bc3765992c93234249c4679c2da2da11fe6b107b30c41f5129",
+    "data/firstmover/clean/firstmover_listings_2026-09.csv.gz": "7fc60bcaa6956ddef0ea3df97a3bc624b710bad033daf5a2dd165d652ec397c3",
+    "data/firstmover/clean/firstmover_listings_2026-10.csv.gz": "0a44784c051207c90344fb0259b969bc4908fbfa156c90f91b26488f05776076",
+    "data/firstmover/clean/firstmover_listings_2025-06.csv.gz": "9743ccbed54006fc140c64cebcfacb6dd3500511576ffdcb4a1ddca3e61e2e56",
+    "data/firstmover/clean/firstmover_listings_2025-07.csv.gz": "3e619dc66a09bf1e2e02821ad8a2e2b1f82ce76e65e16ee8a8620a05f4afe788",
+    "data/firstmover/clean/firstmover_listings_2025-08.csv.gz": "fec3d4e58ffa8bcf6e006d5612acb4ac62bae873baa8a905200a63d9f1a4adfb",
+    "findings/gpt-luna-rentals/stage1_pilot/gpt_recs.jsonl.gz": "fae7b97fa4d8b09f8193f70a39179d9d72b6cf9e6a9440f16b8d49dcffa7f683",
+    "findings/gpt-luna-rentals/heldout_primary/gpt_recs.jsonl.gz": "e2956f74d5b76e1df2337feaeae1b791fe3daeefb5e71fa43c387c23261a975f",
+    "findings/gpt-luna-rentals/heldout_replication/gpt_recs.jsonl.gz": "027f05e8d2392be2c88c1aab69a47d876f780547d2f66117cb1b8d5b38121b92"
+  },
+  "source_hashes": {
+    "experiments/rental_anchor_access_export.py": "347da0a26de3934f09f62ff586212af71155b8fa311a5961c61c92273a959650",
+    "experiments/rental_capacity_anchor.py": "731151a736ca9cc1186b20973240b3f408837b576dfa2a1e9dc31ae3fb1a2ab8",
+    "experiments/config.py": "2313b845c578e5dd3bb8d3bba4799c1a02d82d2dea141e214868271780b6c86d",
+    "hiddenoptions/data.py": "5b7ce96b8dbd7538812797bed34aeb1bb0ade7fbad318b16a591d45cbb0288e0",
+    "hiddenoptions/markets.py": "f3183157830a2f0ac4d90a1673f909ba0413a485adc0dac73a0cf9d0ae1831b5",
+    "hiddenoptions/exposure.py": "49a4589d526a67805222fca9477deb2856ede2770fdd589bf8dae5a9704a52aa",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293",
+    "experiments_jobs/capacity_anchor.py": "0844d7a8a7a43a4c8f890434e6e8eadd5b9b23d8dd47449629c865fbb5c375eb",
+    "configs/stage1_pilot.json": "f9ab9792482e8215062238bba5d1e77214196d997a2bf380847ae40b46a20688",
+    "configs/heldout_primary.json": "2214e1c9dfbc585b7c92ec8f26d0d8fcc95375ca90df4ee84cfd794b203397d5",
+    "configs/heldout_replication.json": "497fc3118442619ef36217bdaa168da01797ecc5ef7a99bd1865f1c53ac1dbde",
+    "findings/rental-capacity-gpt/stage1_pilot/anchor.csv": "fb9833af682cf54842eabd48d65518e690c3884055d7b55a72e8a47cf2e01962",
+    "findings/rental-capacity-gpt/stage1_pilot/capacity_levels.csv": "1c0c735e9b0eca7e52f112a988288e1cd80d8f5ddeb54dfa123d28b008d717c9",
+    "findings/rental-capacity-gpt/heldout_primary/anchor.csv": "b42d6ead591c0175f4dc2ec63a31df9d6c3d8554cb34b9b19ffed20ad4272e03",
+    "findings/rental-capacity-gpt/heldout_primary/capacity_levels.csv": "c6412ec97171d1e3d5f5ef7b39f5ace4b1a0640bf2d23782b86fad6a6bf0894d",
+    "findings/rental-capacity-gpt/heldout_replication/anchor.csv": "ba64c75435f88ea57d30966f7c29064d16223d2fb5ceee8138f3328e3dd74ba7",
+    "findings/rental-capacity-gpt/heldout_replication/capacity_levels.csv": "dde49eb61484880f8b2b512edcde3f47ab8da4547f80243daa57f1e04e1925ca"
+  },
+  "counts": {
+    "planned": 1600,
+    "exported": 1280,
+    "skipped": 320
+  },
+  "skip_boroughs": {
+    "Staten Island": 320
+  },
+  "cache_validation": {
+    "stage1_pilot": {
+      "markets": 480,
+      "cached_calls": 20740,
+      "candidate_hashes_verified": 20740
+    },
+    "heldout_primary": {
+      "markets": 320,
+      "cached_calls": 13580,
+      "candidate_hashes_verified": 13580
+    },
+    "heldout_replication": {
+      "markets": 480,
+      "cached_calls": 20795,
+      "candidate_hashes_verified": 20795
+    }
+  },
+  "archived_reproduction_checks": [
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 64.8828125,
+      "archived_percent": 64.8828125,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 68.39192708333333,
+      "archived_percent": 68.39192708333333,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 13.3984375,
+      "archived_percent": 13.3984375,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 66.84895833333333,
+      "archived_percent": 66.84895833333333,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 67.47395833333333,
+      "archived_percent": 67.47395833333333,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 4.166666666666667,
+      "archived_percent": 4.166666666666667,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 36.6796875,
+      "archived_percent": 36.6796875,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 69.08854166666667,
+      "archived_percent": 69.08854166666667,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 49.778645833333336,
+      "archived_percent": 49.778645833333336,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 49.928385416666664,
+      "archived_percent": 49.928385416666664,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 50.618489583333336,
+      "archived_percent": 50.618489583333336,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 3.0989583333333335,
+      "archived_percent": 3.0989583333333335,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 51.158854166666664,
+      "archived_percent": 51.158854166666664,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 51.2109375,
+      "archived_percent": 51.2109375,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 0.29296875,
+      "archived_percent": 0.29296875,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 30.149739583333332,
+      "archived_percent": 30.149739583333332,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 47.28515625,
+      "archived_percent": 47.28515625,
+      "matches": true
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 27.845052083333332,
+      "archived_percent": 27.845052083333332,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 63.173828125,
+      "archived_percent": 63.173828125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 67.197265625,
+      "archived_percent": 67.197265625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 12.822265625,
+      "archived_percent": 12.822265625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 66.865234375,
+      "archived_percent": 66.865234375,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 67.12890625,
+      "archived_percent": 67.12890625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 2.28515625,
+      "archived_percent": 2.28515625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 34.4140625,
+      "archived_percent": 34.4140625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 68.26171875,
+      "archived_percent": 68.26171875,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 49.23828125,
+      "archived_percent": 49.23828125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 51.728515625,
+      "archived_percent": 51.728515625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 52.51953125,
+      "archived_percent": 52.51953125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 2.705078125,
+      "archived_percent": 2.705078125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 53.10546875,
+      "archived_percent": 53.10546875,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 53.125,
+      "archived_percent": 53.125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 0.09765625,
+      "archived_percent": 0.09765625,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 30.048828125,
+      "archived_percent": 30.048828125,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 49.130859375,
+      "archived_percent": 49.130859375,
+      "matches": true
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 29.482421875,
+      "archived_percent": 29.482421875,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 63.483072916666664,
+      "archived_percent": 63.483072916666664,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 68.40494791666667,
+      "archived_percent": 68.40494791666667,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 15.546875,
+      "archived_percent": 15.546875,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 66.7578125,
+      "archived_percent": 66.7578125,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 67.19401041666667,
+      "archived_percent": 67.19401041666667,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 4.270833333333333,
+      "archived_percent": 4.270833333333333,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 35.924479166666664,
+      "archived_percent": 35.924479166666664,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 69.49869791666667,
+      "archived_percent": 69.49869791666667,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 50.33203125,
+      "archived_percent": 50.33203125,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "placed",
+      "observed_percent": 50.670572916666664,
+      "archived_percent": 50.670572916666664,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "anchor_placed",
+      "observed_percent": 51.634114583333336,
+      "archived_percent": 51.634114583333336,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "gpt",
+      "metric": "lists_changed",
+      "observed_percent": 3.8802083333333335,
+      "archived_percent": 3.8802083333333335,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "placed",
+      "observed_percent": 52.897135416666664,
+      "archived_percent": 52.897135416666664,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "anchor_placed",
+      "observed_percent": 52.916666666666664,
+      "archived_percent": 52.916666666666664,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "random",
+      "metric": "lists_changed",
+      "observed_percent": 0.3450520833333333,
+      "archived_percent": 0.3450520833333333,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "placed",
+      "observed_percent": 30.078125,
+      "archived_percent": 30.078125,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "anchor_placed",
+      "observed_percent": 48.743489583333336,
+      "archived_percent": 48.743489583333336,
+      "matches": true
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "arm": "score",
+      "metric": "lists_changed",
+      "observed_percent": 29.765625,
+      "archived_percent": 29.765625,
+      "matches": true
+    }
+  ],
+  "api_calls": 0,
+  "preferences": "original modeled rental preferences; not observed household choices",
+  "score_convention": "exact integer dense rank of u_observable; no quantization",
+  "gpt_whole_set_order": "ascending local indices when degree<=5; no model preference observed",
+  "contains_raw_identifiers_or_salaries": false,
+  "source_manifest_path": "results/anchor-access/rental-panel.manifest.json",
+  "source_manifest_sha256": "660fd07435f12760591e5ebf8cc07eb76e0a448c1a760003eaa72d7e1bfa9586"
+}

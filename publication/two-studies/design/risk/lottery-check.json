@@ -1,0 +1,8 @@
+{
+  "max_vertices": 5,
+  "passed": true,
+  "labeled_graphs": 1098,
+  "graph_budget_pairs": 6502,
+  "candidate_displays": 59808,
+  "candidate_display_priority_scenarios": 298248
+}

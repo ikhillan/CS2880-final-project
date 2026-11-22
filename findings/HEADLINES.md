@@ -10,7 +10,7 @@ Short version. Full numbers, intervals and caveats are in [`README.md`](README.m
 
 The Chile extension uses two logistic classifiers trained on 2019 records and tested on the 2022–25 application cohorts. Reports, priorities, initial offers and April enrollments come from administrative records. Placement under changed menus is a counterfactual replay. [Current Chile results and source tables](chile/README.md)
 
-1. **GPT's lists place fewer people in both NYC markets.** Placement falls 2–4 pp in rentals and 15–18 pp in jobs, in every window. Their displayed pairs support smaller maximum matchings, consistent with concentration on popular options. The capacity of the shown lists falls by 9–11 pp in rentals and about 20 pp in jobs. The gap between maximum feasible matching and deferred acceptance is also smaller, offsetting part of the capacity loss. An anchor chosen from a maximum matching on all feasible pairs recovers 3.5–4.9 pp in enriched rentals and 13–16 pp in jobs. Its mean rental placement reaches or exceeds plain random. These are aggregate placement gains, with individual retention still to be checked. This is the most constructive result, and it's a concrete version of the paper's capacity argument.
+1. **Coordination improves placement, but does not protect every recipient.** GPT's lists place 2–4 pp fewer people in enriched rentals and 15–18 pp fewer in jobs than random lists. A one-option anchor recovers 3.5–4.9 pp in enriched rentals and 13–16 pp in jobs. The completed [rental access audit](rental-anchor-access/README.md) finds gross exits in every window/design: the held-out enriched anchor adds 449 entrants but loses 37 GPT recipients. A stronger Balanced + GPT policy places another 6.61–12.83 pp across the six rental cells, while covering 3.05–6.06 pp fewer full-information assignments than the anchor; both signs survive the within-cell simultaneous intervals. Balanced menus keep the same lengths but may replace several options. This is a tradeoff between coordinated policies, not a universal impossibility: Balanced + GPT beats random on both mean outcomes. Jobs anchor coverage and individual exits remain unmeasured.
 
 2. **In the NYC simulations, the group with more feasible options has the larger placement decline.** That's higher-income renters (46 feasible listings against 14), who lose about 6 pp. In jobs it's lower-wage seekers (about 21 feasible jobs against 11), who lose about 23 pp.
 
@@ -54,6 +54,8 @@ When gpt-6-luna picks the 5 options each person sees, fewer people get placed th
 | Capacity of the shown lists cut | **−20 to −22** jobs; **−9 to −11** rentals | Both markets |
 | One coordinated menu position wins back | **+13 to +16** jobs; **+3.5 to +4.9** rentals | Jobs primary; rentals enriched |
 | Anchored GPT vs plain random, rentals | **+1.5, +0.3, +1.6** (mean differences) | Enriched rentals, 3 windows |
+| Balanced GPT vs anchored GPT | **+6.61 to +12.83 placed; −3.05 to −6.06 coverage** | All 6 rental window/design cells; unequal edit budgets |
+| More placements can include incumbent losses | **449 entrants, 37 exits** | Anchor vs GPT, held-out enriched rentals |
 | Gap in missed better options widens (T) | **+7 to +8** rentals; **+4** jobs (natural draws) | Both markets |
 | Rank-informed model vs rank-blind | **+4,638 April hits, −1,670 placements** | Chile, 2022–25 counterfactual replays |
 | Pupils with no initial offer bear most net loss | **7.4% of linked sample, 76.0% of net placement decline** | Chile |
@@ -63,7 +65,7 @@ Both NYC studies show a reduction in maximum feasible matching on the displayed 
 
 ## Capacity, and the one-slot repair
 
-Replacing at most one displayed option with an anchor from a maximum feasible matching substantially increases placement. The anchor uses the entire feasible graph. It preserves the list length, and the reported outcome is the headcount after deferred acceptance clears again. Jobs remain 2.6 and 1.5 pp below random in the two windows. Enriched rentals reach or exceed random in mean placement.
+Replacing at most one displayed option with an anchor from a maximum feasible matching increases mean placement in these panels. The anchor uses the entire feasible graph and preserves list length. Jobs remain 2.6 and 1.5 pp below random in the two windows. Enriched rentals reach or exceed random in mean placement, but the held-out difference is uncertain. The [new rental follow-up](rental-anchor-access/README.md) measures coverage and individual exits: it does not establish coverage equivalence or retention, and broader balancing places substantially more people than the anchor.
 
 ![GPT lists place fewer people; one reserved slot wins most of it back](strongest_results_placement.png)
 

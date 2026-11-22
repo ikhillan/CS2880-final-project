@@ -1,0 +1,203 @@
+{
+  "fit_sha256": "122413f014977a69ddd213e41b87a3979b4b979dd9414c97b7c4a1fe91ae4f75",
+  "years": [
+    {
+      "year": 2024,
+      "archive_sha256": "15db323cec4bbc7f1ad9677605996eed9568195adacf64df65a4ad8835c6ee59",
+      "eligible_applications": 1633626,
+      "repeated_published_orders_within_course": 0,
+      "missing_published_orders": 0,
+      "direct_counts": [
+        {
+          "year": 2024,
+          "group": "all",
+          "policy": "full",
+          "n": 473482,
+          "historical_offered": 439038,
+          "official_shown": 439020,
+          "placed": 439370,
+          "agreement": 457327
+        },
+        {
+          "year": 2024,
+          "group": "priority",
+          "policy": "full",
+          "n": 283544,
+          "historical_offered": 267894,
+          "official_shown": 267883,
+          "placed": 268056,
+          "agreement": 274078
+        },
+        {
+          "year": 2024,
+          "group": "other",
+          "policy": "full",
+          "n": 189938,
+          "historical_offered": 171144,
+          "official_shown": 171137,
+          "placed": 171314,
+          "agreement": 183249
+        },
+        {
+          "year": 2024,
+          "group": "all",
+          "policy": "blind",
+          "n": 473482,
+          "historical_offered": 439038,
+          "official_shown": 436455,
+          "placed": 439812,
+          "agreement": 453437
+        },
+        {
+          "year": 2024,
+          "group": "priority",
+          "policy": "blind",
+          "n": 283544,
+          "historical_offered": 267894,
+          "official_shown": 266732,
+          "placed": 268237,
+          "agreement": 272281
+        },
+        {
+          "year": 2024,
+          "group": "other",
+          "policy": "blind",
+          "n": 189938,
+          "historical_offered": 171144,
+          "official_shown": 169723,
+          "placed": 171575,
+          "agreement": 181156
+        },
+        {
+          "year": 2024,
+          "group": "all",
+          "policy": "rank",
+          "n": 473482,
+          "historical_offered": 439038,
+          "official_shown": 438190,
+          "placed": 439331,
+          "agreement": 456198
+        },
+        {
+          "year": 2024,
+          "group": "priority",
+          "policy": "rank",
+          "n": 283544,
+          "historical_offered": 267894,
+          "official_shown": 267503,
+          "placed": 268046,
+          "agreement": 273551
+        },
+        {
+          "year": 2024,
+          "group": "other",
+          "policy": "rank",
+          "n": 189938,
+          "historical_offered": 171144,
+          "official_shown": 170687,
+          "placed": 171285,
+          "agreement": 182647
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "archive_sha256": "2975f1041677d1fd648e5c88c44b9d2b0f42bd8864240636910af0527790bb15",
+      "eligible_applications": 1560996,
+      "repeated_published_orders_within_course": 0,
+      "missing_published_orders": 0,
+      "direct_counts": [
+        {
+          "year": 2025,
+          "group": "all",
+          "policy": "full",
+          "n": 463923,
+          "historical_offered": 430712,
+          "official_shown": 430687,
+          "placed": 431174,
+          "agreement": 447709
+        },
+        {
+          "year": 2025,
+          "group": "priority",
+          "policy": "full",
+          "n": 277961,
+          "historical_offered": 262806,
+          "official_shown": 262790,
+          "placed": 263096,
+          "agreement": 268350
+        },
+        {
+          "year": 2025,
+          "group": "other",
+          "policy": "full",
+          "n": 185962,
+          "historical_offered": 167906,
+          "official_shown": 167897,
+          "placed": 168078,
+          "agreement": 179359
+        },
+        {
+          "year": 2025,
+          "group": "all",
+          "policy": "blind",
+          "n": 463923,
+          "historical_offered": 430712,
+          "official_shown": 428752,
+          "placed": 431457,
+          "agreement": 444996
+        },
+        {
+          "year": 2025,
+          "group": "priority",
+          "policy": "blind",
+          "n": 277961,
+          "historical_offered": 262806,
+          "official_shown": 261918,
+          "placed": 263216,
+          "agreement": 267101
+        },
+        {
+          "year": 2025,
+          "group": "other",
+          "policy": "blind",
+          "n": 185962,
+          "historical_offered": 167906,
+          "official_shown": 166834,
+          "placed": 168241,
+          "agreement": 177895
+        },
+        {
+          "year": 2025,
+          "group": "all",
+          "policy": "rank",
+          "n": 463923,
+          "historical_offered": 430712,
+          "official_shown": 430076,
+          "placed": 431136,
+          "agreement": 446960
+        },
+        {
+          "year": 2025,
+          "group": "priority",
+          "policy": "rank",
+          "n": 277961,
+          "historical_offered": 262806,
+          "official_shown": 262516,
+          "placed": 263088,
+          "agreement": 268028
+        },
+        {
+          "year": 2025,
+          "group": "other",
+          "policy": "rank",
+          "n": 185962,
+          "historical_offered": 167906,
+          "official_shown": 167560,
+          "placed": 168048,
+          "agreement": 178932
+        }
+      ]
+    }
+  ]
+}

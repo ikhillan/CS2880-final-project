@@ -1,0 +1,33 @@
+[
+  {
+    "year": 2022,
+    "maximum_blind_logit_error": 2.6645352591003757e-15,
+    "maximum_rank_logit_error": 7.105427357601002e-15,
+    "differing_aggregate_columns": []
+  },
+  {
+    "year": 2023,
+    "maximum_blind_logit_error": 3.552713678800501e-15,
+    "maximum_rank_logit_error": 6.217248937900877e-15,
+    "differing_aggregate_columns": [
+      "edited_vs_each_other"
+    ]
+  },
+  {
+    "year": 2024,
+    "maximum_blind_logit_error": 3.552713678800501e-15,
+    "maximum_rank_logit_error": 7.105427357601002e-15,
+    "differing_aggregate_columns": [
+      "blind_rows_vs_base"
+    ]
+  },
+  {
+    "year": 2025,
+    "maximum_blind_logit_error": 3.552713678800501e-15,
+    "maximum_rank_logit_error": 7.105427357601002e-15,
+    "differing_aggregate_columns": [
+      "edited_vs_each_other",
+      "blind_rows_vs_base"
+    ]
+  }
+]

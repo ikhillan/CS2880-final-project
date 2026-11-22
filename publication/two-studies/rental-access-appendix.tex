@@ -1,0 +1,151 @@
+\section{Public rental coordination and access replay}\label{app:rental-access}
+\paragraph{Panels and timing.}
+The development window uses June--August 2026 ads and calibration donors;
+the original held-out window uses September--October 2026 ads and evaluation
+donors; replication uses June--August 2025 ads and evaluation donors.
+Each supply design has 240, 160 and 240 supported markets, respectively,
+with 64 renters and 64 unit-capacity listings. The original 320 Staten Island
+supply failures remain omitted and recorded; no replacement markets are
+drawn. The analysis was specified on November 22, 2026 after the original
+placement results were known. It is a post-hoc simulation audit of all three
+windows, including the ordinary design with limited feasible supply.
+
+\paragraph{Information and algorithms.}
+Random, GPT and the transparent observable-score rule each show at most five
+feasible listings. Anyone with at most five sees their full feasible set.
+The original anchor $A$ maximizes matching cardinality and then reuse of
+shown pairs; inserting its assigned listing replaces one existing option.
+We reproduce the original GPT last-pick and random deletion conventions.
+The same operation is applied to random and score menus.
+
+For balancing, let $d_{ij}\in\{0,1\}$ indicate a displayed feasible pair,
+$q_i$ the original menu length, and $\ell_j=\sum_i d_{ij}$.
+The rule $B$ minimizes $\sum_j\ell_j^2$ subject to
+$\sum_j d_{ij}=q_i$, then maximizes $\sum_{ij}s_{ij}d_{ij}$ among minimizers.
+For $B(G)$, cached picks receive descending integer scores; unlisted options
+tie at zero. This censored score convention does not assert that the unlisted
+options have zero relevance. A min-cost flow represents each listing's
+successive exposure costs by $1,3,5,\ldots$, with a bounded integer multiplier
+making load minimization lexicographically prior to relevance. Unlike $A$,
+$B$ can replace several menu positions. It guarantees neither maximum
+matching cardinality nor DA recipient retention.
+
+The model-informed controls $B(\mathrm{Score})$ and $A_s(G)$ use the
+simulator's deterministic observable utility coefficients. The latter first
+maximizes assignment cardinality, then normalized within-person score rank,
+and inserts that anchor into GPT menus. These are stronger information
+benchmarks, not independently learned relevance models. No policy observes
+realized preference shocks, landlord priorities, full-list assignments or
+baseline recipients. Table~\ref{tab:rental-controls} includes every fixed
+policy, so the favorable score controls are not suppressed.
+
+\begin{table}[ht]\centering\small
+\caption{All nine fixed rental policies. Rates in percent; coverage is the
+equal-market conditional mean. These are levels, not paired significance
+tests. The archived contrasts contain the paired intervals.}\label{tab:rental-controls}
+\textit{Ordinary supply}\\[3pt]
+\input{rental-access/controls-primary}\\[9pt]
+\textit{Enriched supply}\\[3pt]
+\input{rental-access/controls-enriched}
+\end{table}
+
+\paragraph{Inference.}
+Each window/design has 20 seed blocks. We average market-specific conditional
+coverage within seed and then equally across seeds; placement includes all
+64 renters. The release separately labels pooled-recipient and unconditional
+coverage. Shared 10,000-draw paired bootstrap resamples operate on whole seed
+blocks. The primary family has four comparisons---$A(G)-G$,
+$A(G)-\mathrm{Random}$, $A(G)-A(\mathrm{Random})$, and $B(G)-A(G)$---times
+placement and conditional coverage. Within each window/design, simultaneous
+intervals use the 95th percentile of the maximum absolute centered bootstrap
+deviation across these eight estimates. They are approximate sensitivity
+intervals, not finite-sample guarantees or a single adjustment across all
+windows. Other controls and subgroup intervals are exploratory and pointwise.
+Intervals describe variability across the specified simulations, not
+uncertainty about NYC housing-market effects. Undefined conditional
+denominators remain undefined in the distributed tables.
+
+\begin{table}[ht]\centering\small
+\caption{Balancing cached GPT ranks versus the original GPT anchor,
+$B(G)-A(G)$. Percentage points with simultaneous intervals from the same
+eight-comparison families as Table~\ref{tab:rental-access}. Exits count
+recipients under $A(G)$ who become unmatched under $B(G)$.}\label{tab:rental-balancing}
+\input{rental-access/balanced-table}
+\end{table}
+
+\begin{table}[ht]\centering\small
+\caption{A model-informed score anchor versus the original GPT anchor,
+$A_s(G)-A(G)$. Percentage points with exploratory pointwise intervals.
+These gains show that the balancing comparison is not an inherent
+prediction--placement impossibility.}\label{tab:rental-score}
+\input{rental-access/score-table}
+\end{table}
+
+In enriched markets, balancing observable scores yields 81.56\%, 80.29\%
+and 81.67\% placement, slightly above balancing GPT ranks in each window.
+Its coverage change relative to $A(G)$ is $-1.40$, $+0.02$ and $-1.57$
+points; the middle pointwise interval spans zero. The simulator-informed
+ranker is therefore an important control, not evidence that GPT scores
+are essential to the congestion improvement.
+
+\paragraph{Individual outcomes.}
+Exits count previously placed people who become unmatched; entrants count
+the reverse transition. Their difference must equal the net placement gain.
+The worse-rank endpoint treats every feasible listing as better than being
+unmatched. Ranks and their normalized costs are ordinal summaries under the
+fixed preference model, not measured welfare. Table~\ref{tab:rental-groups}
+sums counts across the three windows without treating appearances as unique
+households. Income rows partition the population, as do the four degree rows;
+the two partitions must not be added together. Per-window subgroup estimates
+and their support are retained in the source tables.
+
+\begin{table}[ht]\centering\small
+\caption{Individual transitions under $A(G)-G$, summed descriptively over
+the three windows. Worse rank includes exits. Degree means the number of
+feasible listings before any menu is chosen.}\label{tab:rental-groups}
+\input{rental-access/groups-table}
+\end{table}
+
+Balancing also creates benefits for unchanged-menu applicants. When
+$q_i$ equals feasible degree, the full feasible set is the only permissible
+menu. For the enriched held-out group's 2,328 appearances with one to five
+options, $B(G)-A(G)$ gives 349 entrants and 15 exits. The mean seed-specific
+placement gain is 14.41 points (exploratory pointwise interval
+$[13.27,15.51]$). The corresponding gains are 14.73 and 14.91 points in
+development and replication. This mechanism can help or hurt people whose
+own choices are unchanged; it does not establish household welfare effects.
+
+\paragraph{Anchor tie sensitivity.}
+We repeat the GPT and random anchors under 20 fixed applicant/listing index
+permutations per market. Each person's deletion order remains fixed within
+this sensitivity. Counts are averaged within market before rates are formed;
+the draws are not new independent markets. Table~\ref{tab:rental-ties} shows
+that positive mean incumbent exits persist. Original-anchor levels are in
+Table~\ref{tab:rental-controls}; the source tables also retain both randomized
+anchors' paired contrasts and transition counts.
+
+\begin{table}[ht]\centering\small
+\caption{GPT anchor averaged over 20 tie draws per market. Expected exits are
+relative to the original GPT allocation; fractional counts average those
+draws, not people. Coverage uses the same conditional estimand.}\label{tab:rental-ties}
+\input{rental-access/ties-table}
+\end{table}
+
+\paragraph{Verification and release.}
+No new language-model calls were made. The reconstructed markets use public
+listing/survey inputs and the committed GPT caches. The exporter verifies
+55,115 cached candidate hashes and 54 original placement, anchored-placement
+and menu-change means. All 36 downstream placement checks against the original
+released tables also agree to numerical precision. The reconstruction checks
+feasibility, personal menu lengths,
+assignment headcounts and transition identities. The run manifest records
+1,280 markets, 20 completed shards, input-packet and analysis-source hashes.
+The paper capsule contains only aggregate outputs; its manifest authenticates
+the six aggregate source files and compact input-provenance record. Run
+\texttt{python3 rental-access/rebuild.py} to verify
+them and regenerate every table in this section. The repository's
+\texttt{findings/rental-anchor-access/} release supplies the protocol and
+316,680 seed-level count rows, without household or listing records. Rebuilding
+from those counts reproduces all released estimates and intervals within
+$10^{-10}$; the release retains the comparison report. This replay
+does not recover the missing jobs outcomes or measure responses to advice.

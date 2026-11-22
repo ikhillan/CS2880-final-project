@@ -1,0 +1,51 @@
+period,design,borough,month,unavailable,market_draws
+primary,enriched,Bronx,2026-09,,400
+primary,enriched,Bronx,2026-10,,400
+primary,enriched,Brooklyn,2026-09,,400
+primary,enriched,Brooklyn,2026-10,,400
+primary,enriched,Manhattan,2026-09,"enriched design: the affordability band (rent <= $2,032, the 0.75 quantile of G+ budgets) has 29 listings, need 32 (cell unestimable)",400
+primary,enriched,Manhattan,2026-10,,400
+primary,enriched,Queens,2026-09,,400
+primary,enriched,Queens,2026-10,,400
+primary,enriched,Staten Island,2026-09,"enriched design: the affordability band (rent <= $2,100, the 0.75 quantile of G+ budgets) has 4 listings, need 32 (cell unestimable)",400
+primary,enriched,Staten Island,2026-10,"enriched design: the affordability band (rent <= $2,100, the 0.75 quantile of G+ budgets) has 4 listings, need 32 (cell unestimable)",400
+primary,uniform,Bronx,2026-09,,400
+primary,uniform,Bronx,2026-10,,400
+primary,uniform,Brooklyn,2026-09,,400
+primary,uniform,Brooklyn,2026-10,,400
+primary,uniform,Manhattan,2026-09,,400
+primary,uniform,Manhattan,2026-10,,400
+primary,uniform,Queens,2026-09,,400
+primary,uniform,Queens,2026-10,,400
+primary,uniform,Staten Island,2026-09,asked for 64 listings from a pool of 14,400
+primary,uniform,Staten Island,2026-10,asked for 64 listings from a pool of 22,400
+replication_2025,enriched,Bronx,2025-06,,100
+replication_2025,enriched,Bronx,2025-07,,100
+replication_2025,enriched,Bronx,2025-08,,100
+replication_2025,enriched,Brooklyn,2025-06,,100
+replication_2025,enriched,Brooklyn,2025-07,,100
+replication_2025,enriched,Brooklyn,2025-08,,100
+replication_2025,enriched,Manhattan,2025-06,,100
+replication_2025,enriched,Manhattan,2025-07,,100
+replication_2025,enriched,Manhattan,2025-08,,100
+replication_2025,enriched,Queens,2025-06,,100
+replication_2025,enriched,Queens,2025-07,,100
+replication_2025,enriched,Queens,2025-08,,100
+replication_2025,enriched,Staten Island,2025-06,"enriched design: the affordability band (rent <= $1,897, the 0.75 quantile of G+ budgets) has 4 listings, need 32 (cell unestimable)",100
+replication_2025,enriched,Staten Island,2025-07,"enriched design: the affordability band (rent <= $2,100, the 0.75 quantile of G+ budgets) has 8 listings, need 32 (cell unestimable)",100
+replication_2025,enriched,Staten Island,2025-08,"enriched design: the affordability band (rent <= $2,100, the 0.75 quantile of G+ budgets) has 7 listings, need 32 (cell unestimable)",100
+replication_2025,uniform,Bronx,2025-06,,100
+replication_2025,uniform,Bronx,2025-07,,100
+replication_2025,uniform,Bronx,2025-08,,100
+replication_2025,uniform,Brooklyn,2025-06,,100
+replication_2025,uniform,Brooklyn,2025-07,,100
+replication_2025,uniform,Brooklyn,2025-08,,100
+replication_2025,uniform,Manhattan,2025-06,,100
+replication_2025,uniform,Manhattan,2025-07,,100
+replication_2025,uniform,Manhattan,2025-08,,100
+replication_2025,uniform,Queens,2025-06,,100
+replication_2025,uniform,Queens,2025-07,,100
+replication_2025,uniform,Queens,2025-08,,100
+replication_2025,uniform,Staten Island,2025-06,asked for 64 listings from a pool of 37,100
+replication_2025,uniform,Staten Island,2025-07,asked for 64 listings from a pool of 29,100
+replication_2025,uniform,Staten Island,2025-08,asked for 64 listings from a pool of 30,100

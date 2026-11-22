@@ -1,0 +1,23 @@
+{
+  "data_kind": "frozen_rental_replay",
+  "packet_sha256": "bb950eb7ed7f616eedd38915c4f21e565bf89e36d43093d990e001644d3f952e",
+  "complete_shards": 20,
+  "markets": 1280,
+  "bootstrap_draws": 10000,
+  "inference_seed": 0,
+  "ties_per_market": 20,
+  "tie_estimand": "rates_of_mean_counts_within_market_then_mean_seed_rates",
+  "post_hoc_followup": true,
+  "primary_family_size_per_window_variant": 8,
+  "primary_coverage_metric": "coverage_market_mean",
+  "original_placement_reproduced": true,
+  "source_hashes": {
+    "experiments_jobs/anchor_access.py": "68845ee120c2c9b79e2cf807e8645586e39b5b78f5d7edb429f4188d5d41dbbc",
+    "experiments_jobs/coordinated_policies.py": "ecc0113899e593683dc9bfe517948787e26beb5b6a3b23f6f49066f793e0f59e",
+    "experiments_jobs/anchor_access_metrics.py": "6f23c249c3306a26f0e6e5f52c3bf1f8ba557e0b053596507d97c8bd74e4af6b",
+    "experiments_jobs/capacity_anchor.py": "0844d7a8a7a43a4c8f890434e6e8eadd5b9b23d8dd47449629c865fbb5c375eb",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293"
+  },
+  "analysis_source_sha256": "65f6abd79a6693bc11765438b841aa197e681b5bb77913645de3a631b29f8573",
+  "counts_are_not_field_outcomes": true
+}

@@ -1,0 +1,33 @@
+{
+  "fixed_assignment": {
+    "candidate_displays": 88,
+    "priority_checks": 24144
+  },
+  "draw_dependent": [
+    {
+      "incumbent_contenders": 1,
+      "loss_probability": "1/6"
+    },
+    {
+      "incumbent_contenders": 2,
+      "loss_probability": "1/12"
+    },
+    {
+      "incumbent_contenders": 3,
+      "loss_probability": "1/20"
+    },
+    {
+      "incumbent_contenders": 4,
+      "loss_probability": "1/30"
+    },
+    {
+      "incumbent_contenders": 5,
+      "loss_probability": "1/42"
+    },
+    {
+      "incumbent_contenders": 6,
+      "loss_probability": "1/56"
+    }
+  ],
+  "passed": true
+}

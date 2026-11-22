@@ -1,0 +1,9 @@
+year,group,applicants,returner_with_omission_pupils,returner_with_open_omission_pupils,repeated_open_omission_pupils,returned_same_grade_pupils,named_any_pupils,repeated_eligible_pupils,repeated_below_continuity_pupils,outside_original_course_pupils,outside_original_school_pupils,omitted_by_blind_pupils,omitted_by_rank_pupils,omitted_by_either_pupils,awarded_then_enrolled_at_omitted_pupils,awarded_then_enrolled_at_new_school_pupils
+2022,all_gross_exits,811,39,33,9,116,116,40,0,109,109,4,9,9,2,30
+2022,exits_never_offered,124,10,6,1,65,65,12,0,64,64,0,1,1,0,20
+2023,all_gross_exits,703,21,17,6,107,107,33,0,105,100,1,6,6,1,35
+2023,exits_never_offered,134,6,3,0,81,81,20,0,80,78,0,0,0,0,29
+2024,all_gross_exits,642,26,15,5,88,88,21,0,87,86,1,5,5,1,29
+2024,exits_never_offered,139,9,2,0,64,64,8,0,63,63,0,0,0,0,22
+2025,all_gross_exits,479,20,15,3,97,97,21,0,96,95,1,3,3,0,28
+2025,exits_never_offered,111,6,3,0,73,73,12,0,73,72,0,0,0,0,19

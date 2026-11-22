@@ -1,0 +1,7 @@
+split,year,draws,exits,new_recipients,course_switches,school_switches
+holdout_course,2022,128,0,0,2560,2176
+holdout_course,2023,128,0,0,2506,2250
+holdout_course,2024,128,0,0,5601,5217
+holdout_family,2022,32,0,0,640,544
+holdout_family,2023,32,0,0,627,563
+holdout_family,2024,32,0,0,1406,1310

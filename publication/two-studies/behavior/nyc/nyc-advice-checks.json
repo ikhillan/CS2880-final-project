@@ -1,0 +1,17 @@
+{
+  "pairs": 32,
+  "n_markets": 480,
+  "n_people": 30720,
+  "independent_allocation_checks": 432,
+  "independent_applicant_checks": 27648,
+  "interior_clears": 184320,
+  "inputs": {
+    "cache": "d8d2667efe424381028e3235858d692a23a2567f1caaddb4ef489069a42953e9",
+    "market_config": "b1c79d8c312b9d546978fb64bb195406394514fe384a8a781d21a253fd449568"
+  },
+  "files": {
+    "nyc-markets.csv": "c2e675e98ecb560afad4a25a76aecec56be19b6152374cd8cddca6a288f996a3",
+    "nyc-advice-counts.npz": "e030d662843561bc64075c540f9d591bee97a05db6f8b99e8509cb1c30451513",
+    "nyc-advice-results.csv": "3e0484af785075db091f2c311db1f85da2832a44ac817ab0bb26d66d6b386213"
+  }
+}

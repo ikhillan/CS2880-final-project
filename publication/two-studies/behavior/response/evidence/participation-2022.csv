@@ -1,0 +1,9 @@
+year,scenario,position,responders,reapplicants,can_add_either,adding_blind,adding_rank,blind_april,rank_april,blind_linked_placed,rank_linked_placed,blind_placed,rank_placed,exits,entries
+2022,one_school,tail,same_grade,45158,5000,4986,4976,444313,445306,504848,504410,520864,520359,808,303
+2022,one_school,tail,same_grade_never_offered,21371,2109,2102,2103,444266,445267,504848,504407,520864,520357,811,304
+2022,one_school,original,same_grade,45158,5000,4986,4976,444313,445306,504833,504407,520848,520356,797,305
+2022,one_school,original,same_grade_never_offered,21371,2109,2102,2103,444266,445267,504848,504407,520864,520357,811,304
+2022,least_congested_school,tail,same_grade,45158,5000,4986,4976,444296,445308,504851,504428,520866,520381,787,302
+2022,least_congested_school,tail,same_grade_never_offered,21371,2109,2102,2103,444259,445257,504849,504408,520865,520358,811,304
+2022,least_congested_school,original,same_grade,45158,5000,4986,4976,444296,445308,504838,504421,520853,520375,783,305
+2022,least_congested_school,original,same_grade_never_offered,21371,2109,2102,2103,444259,445257,504849,504408,520865,520358,811,304

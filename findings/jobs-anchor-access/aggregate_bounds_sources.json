@@ -1,0 +1,28 @@
+{
+  "description": "Arithmetic outer bounds from published aggregate levels; not a new jobs replay or confidence intervals.",
+  "coverage_estimand": "pooled full-information recipients; not mean per-seed conditional coverage",
+  "sharpness": "Binary margin bounds are sharp without mechanism restrictions. Joint DA/anchor sharpness is not claimed.",
+  "checks": {
+    "binary_population_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "invented_two_person_single_row_transitions": 2048
+  },
+  "source_sha256": {
+    "configs/jobs_frozen.json": "70966aa8b9a22926a8f445ba489a52d1302d029d24b86db65b5acb815f8f9899",
+    "configs/jobs_replication.json": "a358bcd59760f06b00227e02300810c768962e413a783e0ae73471343a13004a",
+    "experiments_jobs/accuracy.py": "24c8d969c0fd6688c018f727a130bbcbc2c9780c299a02d3cc31138f8b2a0643",
+    "experiments_jobs/capacity_anchor.py": "0844d7a8a7a43a4c8f890434e6e8eadd5b9b23d8dd47449629c865fbb5c375eb",
+    "findings/jobs-gpt-frozen/accuracy.csv": "914e4819cf83d0db81232f97571308392cdc3d979c5f99d87aee44bd7a5ca4ac",
+    "findings/jobs-gpt-frozen/anchor.csv": "b07f39f604e110398e80fc501d19df4eeedd317bf0a28bf392cb4a37680141cd",
+    "findings/jobs-gpt-frozen/capacity_levels.csv": "8783b51b46436fc1dab2b976add1659de488d8aaf720df97e551ef13c65691ae",
+    "findings/jobs-gpt-frozen/replication/accuracy.csv": "f3c588d33e57d59fd394fc4219d6d837002b4e2ccdfa0822fc83142e3d0906a4",
+    "findings/jobs-gpt-frozen/replication/anchor.csv": "41046a39639196c767a9728dd77c86a9495ef912e45f9c245267e2979502a631",
+    "findings/jobs-gpt-frozen/replication/capacity_levels.csv": "78b84674302d46ee5e326f08e336f48184432018ad976d198bb786acd9ce0737",
+    "hiddenoptions/jobs/markets.py": "fa3c73f521d7ef9d93e99302525208a12db4eef3d17cce6de87c6c67670cb082"
+  }
+}

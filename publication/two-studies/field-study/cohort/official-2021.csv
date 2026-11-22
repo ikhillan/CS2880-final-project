@@ -1,0 +1,7 @@
+year,report,group,applicants,same_course_or_outside,same_offer_status,official_only,replay_only,both_placed_different_course
+2021,all_submitted,all,461223,461223,461223,0,0,0
+2021,all_submitted,submitted_below_continuity,1056,1056,1056,0,0,0
+2021,all_submitted,official_below_continuity,7,7,7,0,0,0
+2021,all_submitted,younger_block,32042,32042,32042,0,0,0
+2021,all_submitted,no_official_offer,39263,39263,39263,0,0,0
+2021,all_submitted,official_offer,421960,421960,421960,0,0,0

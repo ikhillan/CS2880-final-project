@@ -1,0 +1,17 @@
+year,scenario,policy,permille,seed,applicants,changed_original_course,changed_contract_category
+2024,binding,blind,0,2,473482,0,0
+2024,all_tail,blind,1000,2,473482,0,0
+2024,one_school_original,blind,415,2,473482,0,0
+2024,one_school_tail,blind,415,2,473482,0,0
+2024,least_congested_school_tail,blind,415,2,473482,0,0
+2024,one_or_two_schools_tail,blind,415,2,473482,0,0
+2024,relisted_tail,blind,1000,2,473482,0,0
+2024,relisted_nooffer_original,blind,1000,2,473482,0,0
+2024,binding,rank,0,2,473482,0,0
+2024,all_tail,rank,1000,2,473482,0,0
+2024,one_school_original,rank,415,2,473482,0,0
+2024,one_school_tail,rank,415,2,473482,0,0
+2024,least_congested_school_tail,rank,415,2,473482,0,0
+2024,one_or_two_schools_tail,rank,415,2,473482,0,0
+2024,relisted_tail,rank,1000,2,473482,0,0
+2024,relisted_nooffer_original,rank,1000,2,473482,0,0

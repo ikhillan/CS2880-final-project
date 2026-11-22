@@ -1,0 +1,99 @@
+{
+  "status": "all_released_estimates_and_intervals_reproduced",
+  "absolute_tolerance": 1e-10,
+  "numerical_outcome_input": "seed_counts.csv.gz",
+  "packet_or_raw_inputs_used": false,
+  "ignored_original_market_count_columns": [
+    "markets",
+    "markets_expected",
+    "missing_markets",
+    "paired_markets",
+    "unpaired_markets"
+  ],
+  "checks": [
+    {
+      "table": "levels",
+      "rows": 6006,
+      "numeric_columns_checked": [
+        "mean",
+        "lo",
+        "hi",
+        "available_seed_mean",
+        "seeds_total",
+        "seeds_available",
+        "expected_seeds",
+        "valid_bootstrap_draws",
+        "bootstrap_draws",
+        "numerator_total",
+        "denominator_total"
+      ],
+      "max_absolute_difference": 5.820766091346741e-11,
+      "matches": true
+    },
+    {
+      "table": "transitions",
+      "rows": 9828,
+      "numeric_columns_checked": [
+        "mean",
+        "lo",
+        "hi",
+        "available_seed_mean",
+        "seeds_total",
+        "seeds_available",
+        "expected_seeds",
+        "valid_bootstrap_draws",
+        "bootstrap_draws",
+        "numerator_total",
+        "denominator_total"
+      ],
+      "max_absolute_difference": 3.637978807091713e-12,
+      "matches": true
+    },
+    {
+      "table": "contrasts",
+      "rows": 7098,
+      "numeric_columns_checked": [
+        "mean",
+        "lo",
+        "hi",
+        "available_seed_mean",
+        "seeds_total",
+        "seeds_available",
+        "expected_seeds",
+        "valid_bootstrap_draws",
+        "bootstrap_draws"
+      ],
+      "max_absolute_difference": 0.0,
+      "matches": true
+    },
+    {
+      "table": "primary",
+      "rows": 48,
+      "numeric_columns_checked": [
+        "mean",
+        "lo",
+        "hi",
+        "available_seed_mean",
+        "seeds_total",
+        "seeds_available",
+        "expected_seeds",
+        "valid_bootstrap_draws",
+        "bootstrap_draws",
+        "simultaneous_lo",
+        "simultaneous_hi",
+        "family_size",
+        "simultaneous_critical_value",
+        "family_confidence_level"
+      ],
+      "max_absolute_difference": 0.0,
+      "matches": true
+    },
+    {
+      "table": "reproduction",
+      "rows": 36,
+      "matches": true,
+      "max_absolute_difference": 2.842170943040401e-14
+    }
+  ],
+  "release_helper_sha256": "f381d0ec2b35666b11398e89ad922fe943cdb98c945a8bc15bc141fd4ead4e0b"
+}

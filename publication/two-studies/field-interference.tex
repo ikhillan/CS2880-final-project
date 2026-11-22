@@ -1,0 +1,25 @@
+\paragraph{What randomized receipt can identify in a congested mechanism}
+For a market of $n$ applicants let $Z_i$ indicate which menu applicant $i$ receives, $Y_i(z)$ indicate whether they obtain a seat, and $T(z)=\sum_iY_i(z)$. For this calculation suppose each $Z_i$ is independently Bernoulli with probability $p$. Let $f(p)=\mathbb E_p[T(Z)]/n$. An own-treatment contrast at saturation $p$ averages
+$D(p)=n^{-1}\sum_i \mathbb E_p[Y_i(1,Z_{-i})-Y_i(0,Z_{-i})]$.
+Differentiating the finite multilinear expectation with respect to each coordinate gives
+\[
+f'(p)=D(p)+\frac{1}{n}\sum_{i}\sum_{h\ne i}
+\mathbb E_p[Y_h(1,Z_{-i})-Y_h(0,Z_{-i})].
+\]
+Thus $f(1)-f(0)$ integrates the own and spillover effects across saturations. This is the finite-market distinction between direct effects and spillovers under interference \citep{munrointerference}. Cluster randomization at the level of entire closed markets could compare their total outcomes when the treatment matches the proposed deployment.
+
+The sign can reverse even when the baseline recommends everyone's first choice and the prediction target is full-list DA in the same market. Give schools $x,y,w$ one seat each. Pupils $a,b$ rank $x,y,w$, and $c$ ranks $y,x,w$. The priority orders are $c,a,b$ at $x$, $b,a,c$ at $y$, and $a,b,c$ at $w$. With full lists, $b$ loses $x$ to $a$ and displaces $c$ at $y$. Pupil $c$ displaces $a$ at $x$, and $a$ eventually takes $w$. The full-list partners are therefore $(w,y,x)$. Policy $A$ recommends $(x,x,y)$, everyone's first choice. Policy $B$ recommends $(y,y,y)$. Full-list partner coverage rises from zero to one because $b$ now sees $y$. Placements fall from two to one.
+
+Each pupil pursues their single recommendation. Under $A$, pupil $a$ always wins $x$. Switching $a$ to $B$ costs a seat precisely when $b$ also gets $B$. Pupil $b$ always wins $y$ under $B$, and wins $x$ under $A$ only when $a$ leaves it. Pupil $c$ has an identical menu under both policies. Their own placement effects are $-p,1-p,0$. Meanwhile, $y$ is always filled, and $x$ is filled unless both $a$ and $b$ get $B$. Thus $D(p)=(1-2p)/3$ while $f(p)=(2-p^2)/3$. For every $0<p<1/2$, the average direct effect is positive and increasing saturation reduces total expected placements.
+
+We also enumerated every labeled market with three pupils, three unit-capacity schools, one choice per pupil under each policy and strict priorities. There are $3^6(3!)^3=157{,}464$ such markets. Of the 38,880 in which full rollout reduces the placement count, 8,424 have $D(1/4)>0$. Enumerating all eight treatment vectors in each market verifies the derivative identity and its integral by exact integer arithmetic. The counts illustrate the mechanism within this finite family. They carry no population weights.
+
+\paragraph{An experiment inside the 2021 replay}
+At each of five adoption probabilities ($.25,.45,.50,.55,.75$), we independently assigned the two frozen menus across pupils, including all grades, and ran the institutional allocation. Pupils with identical menus contribute exactly zero to the own-treatment contrast. They remain in the population and can change placement. We used 64 independent pairs of negatively coupled randomizations at each probability, for 640 national allocations. Let $L$ be the historically linked entry-grade group, $n_L=|L|$, and $Y_i(\mathbf 0)$ the known all-blind outcome. For one simulated assignment the centered estimator of its average own-treatment effect is
+\[
+ \frac{1}{n_L}\sum_{i\in L:\,m_{Ai}\ne m_{Bi}}
+ \frac{Z_i-p}{p(1-p)}\{Y_i(Z)-Y_i(\mathbf 0)\}.
+\]
+Conditional on $Z_{-i}$, the expected summand is $Y_i(1,Z_{-i})-Y_i(0,Z_{-i})$. The centering term has mean zero. For Monte Carlo standard errors we average within each pair before taking variation across pairs.
+
+At half adoption the own-menu placement effect averaged $-0.0321$ percentage points (Monte Carlo SE $0.00023$). Replacing 45\% adoption with 55\% changed the population placement rate by $-0.0153$ points. Dividing by the 0.10 change in adoption gives a slope of $-0.1526$ points per unit adoption (SE $0.0042$). This is a finite difference, whereas the own-menu estimate is evaluated at a single probability. The deterministic comparison of full adoption with no adoption is $-0.1540$ points. The three numbers answer different evaluation questions even when the menus, applicants and priorities are identical. Simulation error describes only the randomized menu assignments conditional on this fixed market.

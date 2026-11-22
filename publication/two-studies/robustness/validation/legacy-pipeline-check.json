@@ -1,0 +1,75 @@
+{
+  "same_input_and_model": true,
+  "verified_files": [
+    {
+      "filename": "2024.bin",
+      "bytes": 52781208,
+      "sha256": "74c79c7313e0cd260e0289508f6df28cc9e67bf5162cccf7d5458b89a0f92e20"
+    },
+    {
+      "filename": "2024-full.mask",
+      "bytes": 1633626,
+      "sha256": "7e8c1e5a05cd94d8272d7c69b241068369441157f1c94b4be06d78420f80641c"
+    },
+    {
+      "filename": "2024-full.partners",
+      "bytes": 1893928,
+      "sha256": "358a1ad311a0a6f4d4d07d74cae2eedb219979560035345ad40560a48e91224d"
+    },
+    {
+      "filename": "2024-blind.mask",
+      "bytes": 1633626,
+      "sha256": "3b3c36bcbfc22ddfa93be0578196aa1495991796feb33b48d1a9ed6bb384e8bc"
+    },
+    {
+      "filename": "2024-blind.partners",
+      "bytes": 1893928,
+      "sha256": "8ff3b70df20585e6416f13089fdbebd093eaa1cb54adad5dc9529e7fe7db8b38"
+    },
+    {
+      "filename": "2024-rank.mask",
+      "bytes": 1633626,
+      "sha256": "0659730a599ecb1db2adfa02d49cdedd752e4e7bf0b42fa58f50c70b4ca2d97d"
+    },
+    {
+      "filename": "2024-rank.partners",
+      "bytes": 1893928,
+      "sha256": "aab63b1ebac1213f09f0978d3c39a43720189dba8832959a8084cbb329ddb8ea"
+    },
+    {
+      "filename": "2025.bin",
+      "bytes": 50767408,
+      "sha256": "c580e81a6f5fe4606bf22e019898a4fb61358b651d56b6fda07108019c97238c"
+    },
+    {
+      "filename": "2025-full.mask",
+      "bytes": 1560996,
+      "sha256": "270524c5692b9187d71ca9da054035372e769c55e3b2b55b0b9ec1d1e1c05a50"
+    },
+    {
+      "filename": "2025-full.partners",
+      "bytes": 1855692,
+      "sha256": "7c5482a90c09dc7a8b62e5c535ce1c1432d942ae65be68b9663ee4be8a77c082"
+    },
+    {
+      "filename": "2025-blind.mask",
+      "bytes": 1560996,
+      "sha256": "19e6fc37b02907753471e73189a71e8f783dd508c4e361795690d8410c8ffb3c"
+    },
+    {
+      "filename": "2025-blind.partners",
+      "bytes": 1855692,
+      "sha256": "ad52bb007b0a3b2f886c7827f35e4af3481bf0243242afbb8d6609ce26de3347"
+    },
+    {
+      "filename": "2025-rank.mask",
+      "bytes": 1560996,
+      "sha256": "96ad600a6ee3c6dede81c68c95153ac5b9e771e28ef3dc2def7ff709c28a5ead"
+    },
+    {
+      "filename": "2025-rank.partners",
+      "bytes": 1855692,
+      "sha256": "99c87cc32640968e0cd078d548b8534334bbc772ce32dfe2f4dc66bfe51c3f6e"
+    }
+  ]
+}

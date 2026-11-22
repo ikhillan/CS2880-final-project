@@ -94,12 +94,13 @@ def rentals():
 
 
 def anchors():
-    fig, ax = plt.subplots(figsize=(6.0, 3.1))
+    fig, ax = plt.subplots(figsize=(9.3, 2.2))
     for y, suffix in enumerate(("replication/", "")):
         base = "findings/jobs-gpt-frozen/" + suffix
         pair = one(rows(base + "accuracy_pairs.csv"), rule="GPT (5 jobs)",
                    baseline="Random (5 jobs)", group="all")
         anchor = one(rows(base + "anchor.csv"), variant="primary", rule="GPT (5 jobs)")
+        random_anchor = one(rows(base + "anchor.csv"), variant="primary", rule="Random (5 jobs)")
         before = [100 * float(pair["d_placed" + s]) for s in ("", "_lo", "_hi")]
         after = [float(anchor["anchored_vs_random" + s]) for s in ("", "_lo", "_hi")]
         assert abs(after[0] - before[0] - float(anchor["gain"])) < 1e-8
@@ -111,13 +112,17 @@ def anchors():
             ax.text(p, y-.22, f"{p:.1f}", ha="center", color=color, fontsize=12)
         ax.text((before[0]+after[0])/2, y+.18, f"+{float(anchor['gain']):.1f} pp",
                 ha="center", fontsize=12)
+        p, lo, hi = [float(random_anchor["gain" + suffix]) for suffix in ("", "_lo", "_hi")]
+        ax.errorbar(p, y, xerr=[[p-lo], [hi-p]], fmt="D", color=GREY, ms=6,
+                    capsize=4, lw=1.4, label="Random + anchor" if y == 1 else None, zorder=3)
+        ax.text(p, y-.22, f"+{p:.1f}", ha="center", color=GREY, fontsize=12)
     ax.axvline(0, color=GREY, ls="--", lw=1)
     ax.set_yticks([0, 1], ["Replication", "Frozen"])
     ax.set_ylim(-.55, 1.6)
     ax.set_xlim(-21, 2)
     ax.set_xticks([-20, -15, -10, -5, 0])
     ax.set_xlabel("Placement difference (pp; 0 = random)", fontsize=12)
-    ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.23), ncol=2, frameon=False)
+    ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.25), ncol=3, frameon=False)
     clean(ax)
     save(fig, "jobs-anchor.pdf")
 
@@ -176,6 +181,77 @@ def retention():
     save(fig, "retention.pdf")
 
 
+def access_tables():
+    """Generate the access audit from released rows, with explicit comparators."""
+    base = "findings/rental-anchor-access/"
+    primary = rows(base + "primary.csv")
+    transitions = rows(base + "transitions.csv")
+    contrasts = rows(base + "contrasts.csv")
+    levels = rows(base + "levels.csv")
+    data = HERE / "data"
+    data.mkdir(exist_ok=True)
+    pairs = [("anchor_gpt", "gpt", r"GPT $\to$ Anchor"),
+             ("balanced_gpt", "anchor_gpt", r"Anchor $\to$ Balanced")]
+
+    def delta(window, variant, arm, comparator, metric):
+        r = one(primary, window=window, variant=variant, group="all",
+                arm=arm, comparator=comparator, metric=metric)
+        assert r["status"] == "ok" and r["simultaneous_family_complete"] == "True"
+        return [100*float(r[k]) for k in ("mean", "simultaneous_lo", "simultaneous_hi")]
+
+    def exits(window, variant, arm, comparator):
+        r = one(transitions, window=window, variant=variant, group="all", arm=arm,
+                baseline=comparator, metric="gross_exits")
+        count = float(r["numerator_total"])
+        assert count.is_integer()
+        return int(count)
+
+    main = [r"\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{\hspace{5mm}}r@{}}\toprule",
+            r"Change & Coverage & Placed & Exits\\\midrule"]
+    for arm, comparator, label in pairs:
+        c = delta("heldout_primary", "enriched", arm, comparator, "coverage_market_mean")[0]
+        p = delta("heldout_primary", "enriched", arm, comparator, "placed")[0]
+        x = exits("heldout_primary", "enriched", arm, comparator)
+        main.append(f"{label} & ${c:+.1f}$ pp & ${p:+.1f}$ pp & {x} " + r"\\")
+    main.append(r"\bottomrule\end{tabularx}")
+    (data / "rental-access-main.tex").write_text("\n".join(main)+"\n")
+
+    for arm, comparator, _ in pairs:
+        table = [r"\begin{tabular}{@{}llrrr@{}}\toprule",
+                 r"Design & Window & $\Delta$ coverage & $\Delta$ placement & Exits\\\midrule"]
+        for variant, design in (("primary", "Ordinary"), ("enriched", "Enriched")):
+            for window, name in (("stage1_pilot", "Development"),
+                                 ("heldout_primary", "Held out"),
+                                 ("heldout_replication", "Replication")):
+                vals = [delta(window, variant, arm, comparator, m)
+                        for m in ("coverage_market_mean", "placed")]
+                formatted = [f"${p:+.2f}$ [{lo:.2f}, {hi:.2f}]" for p, lo, hi in vals]
+                table.append(" & ".join([design, name, *formatted,
+                             str(exits(window, variant, arm, comparator))])+r"\\")
+        table.append(r"\bottomrule\end{tabular}")
+        (data / f"rental-access-{arm}.tex").write_text("\n".join(table)+"\n")
+
+    controls = [r"\begin{tabular}{@{}lrr@{}}\toprule",
+                r"Policy & Coverage (\%) & Placement (\%)\\\midrule"]
+    for arm, label in (("random", "Random"), ("gpt", "GPT"), ("score", "Model-informed score"),
+                       ("anchor_random", "Anchor + random"), ("anchor_gpt", "Anchor + GPT"),
+                       ("anchor_score", "Anchor + score"), ("balanced_gpt", "Balanced + GPT"),
+                       ("balanced_score", "Balanced + score"), ("score_anchor_gpt", "Score anchor + GPT")):
+        vals = [100*float(one(levels, window="heldout_primary", variant="enriched",
+                             group="all", arm=arm, metric=m)["mean"])
+                for m in ("coverage_market_mean", "placed")]
+        controls.append(f"{label} & {vals[0]:.2f} & {vals[1]:.2f} " + r"\\")
+    controls.append(r"\bottomrule\end{tabular}")
+    (data / "rental-access-controls.tex").write_text("\n".join(controls)+"\n")
+
+    spill = one(contrasts, window="heldout_primary", variant="enriched", group="degree_1_5",
+                arm="balanced_gpt", comparator="anchor_gpt", metric="placed")
+    assert float(one(contrasts, window="heldout_primary", variant="enriched", group="degree_1_5",
+                     arm="balanced_gpt", comparator="anchor_gpt", metric="coverage_market_mean")["mean"]) == 0
+    (data / "rental-access-macros.tex").write_text(
+        r"\newcommand{\unchangedMenuGain}{" + f"{100*float(spill['mean']):.1f}" + "}\n")
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 13,
@@ -184,8 +260,9 @@ def main():
     anchors()
     incidence()
     retention()
+    access_tables()
     (HERE / "figure-sources.json").write_text(json.dumps(sources, indent=2, sort_keys=True)+"\n")
-    print("Built three main figures and one appendix figure from", len(sources),
+    print("Built three main figures, one appendix figure and access tables from", len(sources),
           "aggregate sources, with PDF and PNG versions.")
 
 

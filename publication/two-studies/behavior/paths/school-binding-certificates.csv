@@ -1,0 +1,5 @@
+year,applicants,changed_menus,potential_witnesses,unplaced_both,loss,loss_identical_row,loss_self_witness,loss_other_witness,loss_longest_path,gain,gain_identical_row,gain_self_witness,gain_other_witness,gain_longest_path,shared_endpoints
+2022,570891,16167,2403,48945,744,496,228,516,5,276,239,26,250,4,144
+2023,536353,16747,2559,42194,711,508,180,531,7,194,167,19,175,7,96
+2024,473482,18012,2708,33518,633,451,154,479,7,152,130,16,136,5,56
+2025,463923,15793,2071,32348,439,297,131,308,5,118,99,14,104,5,40

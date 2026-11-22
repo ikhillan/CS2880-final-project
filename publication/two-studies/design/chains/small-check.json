@@ -1,0 +1,28 @@
+{
+  "exhaustive_two_by_two": 1296,
+  "separating_examples": [
+    {
+      "direct": 0,
+      "chain": 1,
+      "upper": 1,
+      "best_one_swap_DA": 1
+    },
+    {
+      "direct": 0,
+      "chain": 0,
+      "upper": 1,
+      "best_one_swap_DA": 1
+    },
+    {
+      "direct": 0,
+      "chain": 0,
+      "upper": 1,
+      "best_one_swap_DA": 0
+    }
+  ],
+  "locked_row": [
+    0,
+    0,
+    1
+  ]
+}

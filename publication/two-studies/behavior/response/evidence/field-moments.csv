@@ -1,0 +1,10 @@
+published_table,outcome,estimand,value,reported_se,authors_dataverse_file_id
+II,Add any,local discontinuity,0.216,0.010,5862803
+II,Add as last,local discontinuity,0.205,0.009,5862803
+II,Add to middle,local discontinuity,0.017,0.004,5862803
+II,Schools Added,local discontinuity,0.340,0.026,5862803
+II,Placed to preference,local discontinuity,0.038,0.009,5862803
+II,Add any undersubscribed,local discontinuity,0.073,0.007,5862803
+II,Schools Added,IV per induced school adder,1.573,0.090,5862803
+III,Add any,fitted below-threshold mean,0.199,,5862809
+III,Add any,derived above-threshold level,0.415,,5862809

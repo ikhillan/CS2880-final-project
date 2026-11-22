@@ -1,0 +1,10 @@
+source,panel,column,outcome,estimate,reported_se,unit,table_access
+popup,B,1,Add any,0.216,0.01,proportion,https://dataverse.harvard.edu/api/access/datafile/5862803
+popup,B,1,Add as last,0.205,0.009,proportion,https://dataverse.harvard.edu/api/access/datafile/5862803
+popup,B,1,Drop any,-0.001,0.004,proportion,https://dataverse.harvard.edu/api/access/datafile/5862803
+popup,C,1,Placed to preference,0.038,0.009,proportion,https://dataverse.harvard.edu/api/access/datafile/5862803
+popup,C,1,Enrolled in placed,0.024,0.01,proportion,https://dataverse.harvard.edu/api/access/datafile/5862803
+whats,C,1,Add any,0.033,0.002,proportion,https://dataverse.harvard.edu/api/access/datafile/5862829
+whats,C,1,Schools Added,0.075,0.007,schools,https://dataverse.harvard.edu/api/access/datafile/5862829
+whats,D,1,Add any,0.044,0.003,proportion,https://dataverse.harvard.edu/api/access/datafile/5862829
+whats,D,1,Schools Added,0.112,0.011,schools,https://dataverse.harvard.edu/api/access/datafile/5862829

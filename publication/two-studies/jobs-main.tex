@@ -1,0 +1,47 @@
+\section{Coordinating job recommendations}\label{sec:jobs}
+The jobs simulation asks whether coordinating one menu position can recover
+placements, and whether that repair improves on an equally coordinated
+baseline. It uses Revelio job postings and Census job-seeker profiles, with
+modeled preferences and one seat per posting. Each policy shows up to five
+feasible postings. The primary design contains 240 markets from August--October
+2025 and 160 from the November--December replication, with 24 seekers and
+24 postings per market. The same saved \texttt{gpt-6-luna} recommendations,
+preferences and feasible pairs are used in the comparisons below.
+
+\begin{table}[ht]\centering\small
+\caption{Jobs, primary design. Differences in percentage points. Coverage is
+conditional on having a full-list DA partner; placement includes everyone.
+The last column compares two coordinated policies and reports point estimates
+only: its paired interval is not available in the released aggregates.}
+\label{tab:jobs-coordination}
+\input{jobs/table}
+\end{table}
+
+GPT places fewer seekers in both windows. Its coverage advantage is
+$1.6$ points in the frozen sample (95\% interval $[0.2,3.1]$) and $0.8$
+in replication ($[-1.4,3.3]$). The second interval leaves the coverage
+comparison unresolved. As in the rental exercise, this target is a simulated
+full-list partner, not observed employment.
+
+The anchor computes a maximum matching on all feasible pairs, preferring
+already displayed pairs among equal-cardinality matchings. Each assigned
+seeker receives that posting on their menu; a hidden anchor replaces the
+last GPT pick, preserving menu length. DA then clears the revised menus.
+Proposition~\ref{prop:anchor-capacity} shows that the anchor certifies full
+matching capacity when its recipients have nonempty menus, yet a single
+edit can still reduce the number placed by DA.
+The placement gain is $13.0$ points in the frozen sample and $15.9$ in
+replication. Applying the same anchor construction to random menus gives
+higher mean placement than anchored GPT: the gaps are $2.81$ and $2.01$
+points. Thus the gains relative to the original GPT menus do not establish a
+placement advantage over coordinated random exposure.
+
+The released results do not report coverage after anchoring, gross exits,
+entrants or individual rank changes. An aggregate gain can therefore coexist
+with losses for previous recipients: the menu-edit counts bound possible
+gross exits by 459 and 308, respectively, without identifying actual exits
+(Proposition~\ref{prop:menu-edit-budget}). Recomputing those endpoints for all four
+policies, with paired uncertainty and group outcomes, is the next access
+audit; it requires the licensed posting inputs and saved response caches.
+No results from that audit are claimed here. Appendix~\ref{app:jobs}
+specifies the information sets, existing evidence and pending comparisons.

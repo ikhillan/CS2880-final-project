@@ -1,0 +1,118 @@
+\ifdefined\ECReviewCopy
+  \documentclass[format=acmsmall,review=false]{acmart}
+  \usepackage{acm-ec-26}
+\else
+  \documentclass[acmsmall,nonacm]{acmart}
+  \settopmatter{printacmref=false,printccs=false}
+  \pagestyle{plain}
+  \renewcommand{\authorsaddresses}{}
+\fi
+\usepackage{booktabs,amsmath,graphicx,array}
+\setcitestyle{authoryear}
+\setcopyright{none}
+\newcommand{\da}{\operatorname{DA}}
+\title{Who Gets a Place? Shortlists in Housing, Jobs, and Schools}
+\subtitle{Prediction, capacity, and protection in matching markets}
+\ifdefined\ECReviewCopy
+  \ifdefined\ECPaperNumber
+    \author{Submission \ECPaperNumber}
+  \else
+    \author{Anonymous review draft}
+  \fi
+\else
+\author{Ishan Khillan}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\author{Elaine Zhang}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\author{Todd Zhou}
+\affiliation{\institution{Harvard University}\city{Cambridge}\state{Massachusetts}\country{USA}}
+\renewcommand{\shortauthors}{Khillan, Zhang, and Zhou}
+\fi
+\begin{abstract}
+A shortlist can cover more reference options while leaving fewer applicants placed. We reconstruct the initial course or no-offer outcome of all 2,044,649 applicant-years in four Chilean cohorts. Adding submitted rank to an offer predictor puts the historically attended school on 4,638 more menus and leaves 1,670 fewer enrollment-linked pupils placed under binding menus. A jobs simulation shows that coordinating one GPT menu position recovers aggregate placements but does not outperform equally coordinated random menus. A post-hoc audit of 1,280 public-data rental markets then measures individual outcomes: the same repair raises placement while some previous recipients lose access. Balancing all menu positions gains another 6.61--12.83 placement points at a coverage cost relative to that repair, yet improves both outcomes relative to uncoordinated random menus. The tradeoff depends on the policies and information available. We then ask what a platform can guarantee before a lottery. If every baseline allocation must remain stable on a specified panel, edits separate across pupils. If pupils may switch schools but every baseline recipient must retain a seat, maximizing coverage is NP-hard even with unit seats and a common priority order per draw. Under Chile's rules, hindsight gains lie between 642 and 4,620 historical enrollment hits on three design panels. A pre-assignment rule has an all-order retention proof and gains 28 hits; a learned rule gains 50 but loses an incumbent in each of two fresh lottery panels. These results separate reference coverage, aggregate placement and individual protection. Changed-menu outcomes are simulations or counterfactual replays, not observed deployment effects.
+\end{abstract}
+\begin{document}
+\ifdefined\ECReviewCopy
+  \begin{titlepage}
+  \maketitle
+  \thispagestyle{empty}
+  \end{titlepage}
+\else
+  \maketitle
+\fi
+\section{Introduction}
+A platform can score a school recommendation by asking whether it included the school a pupil later attended. A family also needs to know whether it will get a seat when others use the same service. We compared two rules trained on 2019 Chilean admissions offers. Both select up to five courses from the family's submitted list and keep any guaranteed continuity course. One also uses the family's submitted rank as a predictor. We evaluated the two rules on four later national cohorts.
+
+We first reconstructed Chile's initial offers, including schools' reserved seats, pupils' guaranteed return to their current school and the effect of an older sibling's assignment. The public course or no-offer record agrees in every case. On the hypothetical menus, using rank covered 4,638 more April schools and placed 1,670 fewer of the same 1,969,120 linked applicants. That is 2.36 more schools covered and 0.85 fewer placements per 1,000. The 145,450 linked pupils who had received no initial offer accounted for 76.0\% of the net placement decline. They also lost 43 April-school hits. Against the simpler alternative of keeping the family's first five discretionary choices, the rank-informed predictor gained both hits and placements in every year. The choice of benchmark matters. We also test what happens when families pursue schools beyond the display. Reapplication records supply actual school identities. A risk-warning experiment motivates response rates. A separate randomized trial highlighted individual schools and followed families through enrollment. We compare its published estimates with a replay for the same application year and entry grades. We can bound the coverage comparison for any common set of responders and re-clear the market when the bound reverses its sign.
+
+Which losses come from a pupil losing access to their old course, and which require a change elsewhere? We give a path that starts at a lost seat and identifies a distinct applicant whose two assignments switch order between the two policies. The result allows both the available options and the order of application to change. In the fixed-priority Chilean benchmark, 1,834 of the 2,527 pupils who lost a simulated placement still had their former course on their new list. Each of these losses has a witness on another applicant's changed list. The paths locate a necessary disagreement between the two allocations. They do not predict the effect of changing a single witness's list in isolation.
+
+The original motivation came from rental search. Can a service uncover an affordable apartment a household would otherwise miss? In ordinary New York draws, 5,425 of 6,617 lower-income renter instances had no feasible listing at all. The ads and survey budgets let us vary the supply households can afford. They leave household rankings, applications and leases unobserved. Chile supplies submitted preferences, offers and enrollment, along with a protected seat that can make a five-course menu different from a simple cutoff. We use a common first-five benchmark to compare the mechanisms across settings. We also let people recover omitted options in different orders. No Chilean family received either hypothetical menu, and centralized deferred acceptance in the rental study is a model of competition.
+
+A jobs simulation supplies a third test of the design question. GPT menus place fewer seekers than equal-length random menus in both time windows. Reserving one position for an option from a maximum feasible matching recovers much of the aggregate loss. Applying the same coordination to random menus still gives higher mean placement. The jobs aggregates bound, but do not identify, individual exits (Section~\ref{sec:jobs}). We therefore audit the same repair using public rental GPT menus across all three original windows and both supply designs. The new replay observes incumbent exits despite net placement gains, including people whose own menus are unchanged. A full-menu balancing rule achieves substantially higher placement but lower coverage than the one-position repair. It beats uncoordinated random on both outcomes, and an additional model-informed score control improves both over the repair. These comparisons identify policy-dependent congestion costs, not an inherent incompatibility between prediction and placement (Section~\ref{sec:rental-access}).
+
+We study two decisions that a platform could take at different times. Before priorities are drawn, it can test a menu against several possible lotteries. A finite list gives an exact computational guarantee and lets us measure how much of that guarantee survives a new draw. If the platform instead promises only that every old recipient will still get a seat, two individually harmless edits can compete for the same vacancy. Deciding whether a target gain is attainable is NP-complete even with no failed draws. We bound the predictive gains under this promise and evaluate two pre-assignment rules. Once tentative offers exist, the platform can ask who would prefer to move to a vacancy and who could use the freed seat. In Chile, allowing every such move, even without enforcing school priorities, leaves most of the placement deficit intact. These bounds on repair give the studies a common question: how many people can curation help when the available options stay fixed?
+
+\section{What each experiment measures}\label{sec:design}
+Let $E$ be the bipartite graph of pairs treated as acceptable in the replay. It contains the retained regular-round reports in Chile, modeled feasible apartments in New York, or modeled eligible job postings. A displayed graph $D\subseteq E$ lists the programs an applicant can pursue in the binding-menu replay. Unless stated otherwise, proposals follow the original order on each displayed list. Section~\ref{sec:response} also varies this order. Each applicant strictly orders acceptable programs above being unplaced. The fixed-priority benchmark used for the path and vacancy-chain results has the following structure. A program has a fixed capacity and a strict priority ordering over applicants. It holds the highest-priority acceptable applicants who have proposed, up to its capacity. In the rental and primary jobs simulations each listing or posting has one place. Let $M=\da(E)$ be the full-list allocation and $N_D=\da(D)$ the policy allocation; an unplaced applicant receives $\bot$. Stability means that no displayed pair would both prefer to match, taking account of vacancies and priorities. DA on a fixed graph is polynomial-time and applicant-optimal among its stable allocations \citep{gale1962,roth1986}.
+
+For applicant $i$, define
+\[
+ C_i(D)=\mathbf{1}\{M(i)\ne\bot,\ (i,M(i))\in D\},\qquad
+ P_i(D)=\mathbf{1}\{N_D(i)\ne\bot\}.
+\]
+Placement counts any acceptable assignment. It gives no extra credit for a first choice. Section~\ref{sec:ranks} measures rank separately. For these two indicators, rates use all applicants: a person without a full-list partner contributes zero to coverage and can still receive a place after the lists change. The jobs study and new rental GPT follow-up instead report conditional coverage; their distinct averaging schemes are stated in Sections~\ref{sec:jobs} and~\ref{sec:rental-access}. Placement still retains everyone. In Chile we also compute coverage of historical offers and April schools, using the stated linked population for the latter. For policies $A$ and $B$, the ordered pair $(C_i(B)-C_i(A),P_i(B)-P_i(A))$ belongs to a three-by-three table. One cell counts people who newly see their full-list partner yet lose a placement. We use a separate indicator for exact equality of the two personal menus to identify people whose options stayed fixed while competitors' lists changed. Unchanged coverage by itself does not imply that a menu stayed fixed.
+
+\begin{table}[ht]\centering\small
+\caption{Three studies with distinct inputs and coverage targets. All evaluate placement after the proposed menus clear. Each school application cycle is a national cohort.}\label{tab:design}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.15\linewidth}@{\hspace{.02\linewidth}}>{\raggedright\arraybackslash}p{.27\linewidth}@{\hspace{.02\linewidth}}>{\raggedright\arraybackslash}p{.26\linewidth}@{\hspace{.02\linewidth}}>{\raggedright\arraybackslash}p{.26\linewidth}@{}}\toprule
+& New York rentals & New York jobs & Chilean schools\\\midrule
+Inputs & Rental ads and survey profiles; modeled preferences & Job postings and survey profiles; modeled preferences & Submitted ranks, seat and family rules\\
+Menus & Uniform, Haiku, GPT and coordinated GPT menus & Random five, GPT five, and their coordinated anchors & Rank-blind and rank-informed predictors; five discretionary courses plus entitlement\\
+Reference & Simulated partner; all renters for Haiku, conditional for GPT & Simulated full-list partner; conditional on a match & Historical offer, April school, or replay course, as stated\\
+Evaluation & Pilot and independent first-five check; GPT follow-up reuses three windows & Frozen months and temporal replication; individual anchor audit pending & Frozen 2019 models; four later cohorts\\
+\bottomrule\end{tabular}
+\end{table}
+
+\paragraph{Relation to prior work}
+Competition between recommended options has a long history. \citet{rankings} optimize rankings jointly when job seekers apply and employers decide whom to interview. \citet{signals} study recommendations that reduce communication in matching markets. \citet{pruned} link unmatched hospitals under prefix truncation to missed stable partners. Our comparisons permit deletions anywhere on a submitted list and trace who is displaced. We use the classical invariance of matched participants on a fixed graph and results on entry and consistency \citep{galesoto,roth1986,crawford1991,sasaki}. \citet{boehmer2021} change preferences to enforce a matching outcome, and \citet{boehmerheeger2025} seek a nearby stable allocation after imposing or forbidding pairs. Our seat-retention problem asks whether one set of menus keeps the recipients of several different baseline allocations placed.
+
+\citet{aguiarhong2026} compare feasible and stable assignments on restricted graphs using Chilean school data. \citet{smartplatforms} measure responses to admission-risk advice. \citet{schoolSearch} combine observed search with randomized information, and \citet{informedEquilibrium} model how congestion and changes in school quality affect the returns to information at scale. \citet{saeDecade} documents movement after the centralized assignment. \citet{munrointerference} studies treatment spillovers in designed markets. Here we hold seats and priorities fixed, compare frozen menus against a later enrollment outcome and trace individual losses after clearing. \citet{liu2024housing} audit the housing options language models recommend. Our rental exercise asks what happens to those recommendations when several households compete for the same unit.
+
+\input{chile}
+\input{observed-search}
+\input{orders}
+\input{design-main}
+\input{retention-main}
+\input{common-comparison}
+\input{nyc}
+\input{jobs-main}
+\input{rental-access-main}
+\input{response}
+\input{field-validation}
+\input{discussion}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{paper}
+\clearpage
+\appendix
+\input{theory}
+\input{ordinal}
+\input{comparison}
+\input{rollout-screen}
+\input{slot-repair}
+\input{lottery-boundary}
+\input{lottery-evidence}
+\input{institution-appendix}
+\input{retention-theory}
+\input{retention-evidence}
+\input{behavior-appendix}
+\input{field-appendix}
+\input{portfolio-evidence}
+\input{adoption}
+\input{referrals}
+\input{chains}
+\input{school-sensitivity}
+\input{jobs-appendix}
+\input{rental-access-appendix}
+\input{ai-use}
+\end{document}

@@ -2,11 +2,12 @@
 
 **Harvard CS 2880 · AI for Social Impact**
 
-When applicants compete for limited seats, a shortlist can cover more historical offers while leaving fewer people placed under deferred acceptance. We study this question using Chilean admissions records, bilateral preference data, and simulated New York rental markets. We give an algorithm for choosing lists before matching and a second rule for referring unmatched applicants to vacant seats after tentative offers.
+When applicants compete for limited seats, a shortlist can cover more historical offers while leaving fewer people placed under deferred acceptance. We study this question using Chilean admissions records and simulated New York rental and job markets, with supporting bilateral-preference benchmarks. We give an algorithm for choosing lists before matching and a second rule for referring unmatched applicants to vacant seats after tentative offers.
 
 - [Research poster (PDF)](poster/who-keeps-an-offer.pdf)
-- [Working paper (PDF)](publication/ACM_EC_RECOVERY_AND_PLACEMENT.pdf)
-- [Manuscript sources, datasets and replication instructions](publication/README.md)
+- [Current three-setting working paper (PDF)](publication/two-studies/who-gets-a-place.pdf)
+- [Current manuscript sources and evidence](publication/two-studies/README.md)
+- [Earlier manuscript and replication archive](publication/README.md)
 - [Original course experiment setup](EXPERIMENT_SETUP.md)
 
 The administrative records supply submitted preferences, offers, and subsequent decisions. Placements under different shortlists are counterfactual replays. The publication directory includes study protocols, model weights, simulation panels, aggregate field results, and the LaTeX source. The individual administrative records can be obtained from the original providers through the study-specific instructions.

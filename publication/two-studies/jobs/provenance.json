@@ -1,0 +1,23 @@
+{
+  "source_commit": "ab2ba86d7755f5df3b09ed4fb5d95f707511790f",
+  "source_repository": "https://github.com/ikhillan/CS2880-final-project",
+  "sources": {
+    "sources/frozen-accuracy_pairs.csv": {
+      "repository_path": "findings/jobs-gpt-frozen/accuracy_pairs.csv",
+      "sha256": "99e8c1f68da6dc7ca14fc75f5f52129b6e0ba107d44c57c6ba9c42edbf698074"
+    },
+    "sources/frozen-anchor.csv": {
+      "repository_path": "findings/jobs-gpt-frozen/anchor.csv",
+      "sha256": "b07f39f604e110398e80fc501d19df4eeedd317bf0a28bf392cb4a37680141cd"
+    },
+    "sources/replication-accuracy_pairs.csv": {
+      "repository_path": "findings/jobs-gpt-frozen/replication/accuracy_pairs.csv",
+      "sha256": "5c06ebc610a08e6af33b4b8ffbd748443b9514216cf3871c275dc032e62846e6"
+    },
+    "sources/replication-anchor.csv": {
+      "repository_path": "findings/jobs-gpt-frozen/replication/anchor.csv",
+      "sha256": "41046a39639196c767a9728dd77c86a9495ef912e45f9c245267e2979502a631"
+    }
+  },
+  "status": "Existing released aggregates; no new market replay"
+}

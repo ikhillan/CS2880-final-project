@@ -1,0 +1,3 @@
+window,observations,placed_before,placed_after,changed_menus,net_entries,gross_exit_lower,gross_exit_upper,gross_exit_upper_pct_all,interpretation
+frozen,5760,3595,4341,1205,746,0,459,7.96875,valid outer interval; not observed exits or sharp identified bounds
+replication,3840,2437,3049,920,612,0,308,8.020833333333334,valid outer interval; not observed exits or sharp identified bounds

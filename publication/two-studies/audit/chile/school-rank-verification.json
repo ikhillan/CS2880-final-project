@@ -1,0 +1,26 @@
+[
+  {
+    "year": 2022,
+    "serial_batched_assignment_checks": 1712673,
+    "verified_group_threshold_rows": 620,
+    "verified_transition_rows": 5
+  },
+  {
+    "year": 2023,
+    "serial_batched_assignment_checks": 1609059,
+    "verified_group_threshold_rows": 465,
+    "verified_transition_rows": 5
+  },
+  {
+    "year": 2024,
+    "serial_batched_assignment_checks": 1420446,
+    "verified_group_threshold_rows": 230,
+    "verified_transition_rows": 5
+  },
+  {
+    "year": 2025,
+    "serial_batched_assignment_checks": 1391769,
+    "verified_group_threshold_rows": 480,
+    "verified_transition_rows": 5
+  }
+]

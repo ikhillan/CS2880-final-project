@@ -1,0 +1,7 @@
+/n/home05/kkl/cs2880-anchor-access-20261122/experiments_jobs/anchor_access_release.py:102: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  x, y = a[column].fillna("").astype(str), b[column].fillna("").astype(str)
+{
+  "release": "findings/rental-anchor-access",
+  "seed_rows": 316680,
+  "status": "all_released_estimates_and_intervals_reproduced"
+}

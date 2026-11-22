@@ -1,5 +1,6 @@
 \documentclass[aspectratio=169,14pt]{beamer}
 \input{preamble}
+\input{data/rental-access-macros}
 \hypersetup{pdftitle={Recommendations in markets with limited capacity}}
 \begin{document}
 
@@ -47,17 +48,17 @@ If many people receive the same suggestions, their outcomes depend on one anothe
 
 % 4: 2:45--3:55
 \begin{frame}{Three results, three contributions}
-\textbf{Rentals: coverage rises while placement falls.}\par
-Held out: \textcolor{blue}{+8.1 points of coverage}, \alert{$-3.7$ points of placement}.
+\textbf{Rentals: more placements, but some people lose access.}\par
+Anchor versus GPT: \textcolor{blue}{+4.0 placement points}; \alert{37 lose access}.
 
 \medskip
-\textbf{Jobs: coordination recovers much of the loss.}\par
-One anchored menu position recovers \textcolor{blue}{13--16 points} of placement across two windows.
+\textbf{Jobs: the coordinated baseline matters.}\par
+Anchored random beats anchored GPT by \textcolor{blue}{2.8 and 2.0 points}.
 
 \medskip
 \textbf{Chile: pupils without offers bear most of the loss.}\par
-No initial offer: \textcolor{blue}{7.4\% of the sample}, \alert{76.0\% of the net placement decline}.
-\source{Points are percentage points. NYC: simulated markets, GPT versus random (rentals) or anchored versus original GPT (jobs). Chile: counterfactual rank-informed versus rank-blind replay.}
+No initial offer: \textcolor{blue}{7.4\% of the sample}, \alert{76.0\% of the net loss}.
+\source{NYC allocations are simulated. Rentals: enriched held-out panel, 10,240 renter appearances; 37 prior recipients become unplaced. Jobs: published point estimates. Chile: counterfactual rank-informed versus rank-blind replay.}
 \end{frame}
 
 % 5: 3:55--5:05
@@ -99,8 +100,8 @@ B & $\{x\}$ & no seat
 \begin{tabularx}{\textwidth}{@{}p{2.0cm}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
 \toprule
 Setting & Inputs and preferences & Policy comparison\\\midrule
-NYC rentals & Listings and ACS renters.\newline Simulated preferences. & GPT versus random menus\\
-NYC jobs & Revelio and ACS profiles.\newline Simulated preferences. & GPT versus random menus\\
+NYC rentals & Listings and ACS renters.\newline Simulated preferences. & GPT, anchors, load balancing\\
+NYC jobs & Revelio and ACS profiles.\newline Simulated preferences. & GPT, random and anchors\\
 Chile schools & Administrative applications.\newline Submitted ranks. & Rank-informed versus rank-blind classifiers\\
 \bottomrule
 \end{tabularx}\par
@@ -119,24 +120,13 @@ Chile schools & Administrative applications.\newline Submitted ranks. & Rank-inf
 \end{frame}
 
 % 8: 7:30--8:40
-\begin{frame}{Jobs: coordination recovers 13--16 points}
-\begin{columns}[T,onlytextwidth]
-\begin{column}{.40\textwidth}
-\small
-Find a maximum matching on \textbf{all feasible pairs}.
-
-\medskip
-Put each matched option on its recipient's menu.
-
-\medskip
-Replace one other option if needed, keeping list length.
-\end{column}
-\begin{column}{.59\textwidth}
-\includegraphics[width=.95\linewidth]{figures/jobs-anchor.pdf}
-\end{column}
-\end{columns}
-\takeaway{Placement recovers. Coverage and individual retention still need checking.}
-\source{Simulated primary design, 95\% seed-block intervals. GPT's coverage advantage is unresolved in replication. Sources: frozen and replication anchor.csv and accuracy\_pairs.csv.}
+\begin{frame}{Jobs: the coordinated comparison}
+{\small Reserve one matching-based option. Keep each menu's length.}
+\begin{center}
+\includegraphics[width=.96\textwidth]{figures/jobs-anchor.pdf}
+\end{center}
+\takeaway{Anchored GPT trails anchored random by 2.8 and 2.0 points.}
+\source{Simulated allocations. Intervals compare each policy with plain random, not the two anchored policies. Jobs post-anchor coverage and exits remain unidentified. Sources: frozen/replication anchor.csv and accuracy\_pairs.csv.}
 \end{frame}
 
 % 9: 8:40--9:55
@@ -227,37 +217,32 @@ The interval remains too wide to establish the optimal tradeoff.
 \end{frame}
 
 % 14: 14:05--15:25
-\begin{frame}{Protection before the lottery}
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{\hspace{4mm}}r@{}}
-\toprule
-Rule & Hit gain & \multicolumn{2}{c}{Incumbent exits}\\
- & & 384 draws & 96 draws\\\midrule
-Structural, all-order proof & $+28$ & $0$ & $0$\\
-Learned, design-panel checks & $+50$ & $1$ & $1$\\
-\bottomrule
-\end{tabularx}\par
+\begin{frame}{Rentals: count who loses access}
+{\small Held-out enriched panel: 160 markets, 10,240 renter appearances.}
 \medskip
+\small
+\renewcommand{\arraystretch}{1.35}
+\input{data/rental-access-main}
+\par\medskip
 \normalsize
-After applications arrive, the structural rule freezes interacting menus around pupils without a guaranteed fallback.
+Balancing spreads recommendations across listings. It can replace several options per menu.
 
-\takeaway{Neither rule improves coverage for pupils with no initial offer.}
-\source{2022--24, before ordinary assignment. Fresh course and school/family lotteries for the same cohorts. Coverage is scored once. Learned calibration: 2021 reports and April 2022 labels. Source: findings/chile/prospective.csv.}
+\takeaway{Renters with 1--5 options gain \unchangedMenuGain{} placement points while their own menus stay unchanged.}
+\source{Simulated transitions. Rows use different baselines. Exits are prior recipients now unplaced. Equal menu lengths; unequal edit budgets. All panels, controls and uncertainty are in the appendix.}
 \end{frame}
 
 % 15: 15:25--16:30
 \begin{frame}{Broader impacts: who gets access?}
-\textbf{Protection can preserve exclusion.}\par
-Our guaranteed rule produces no new entrants in the paired test lotteries.
+\textbf{A net gain can hide individual losses.}\par
+Count entrants, exits, and worse assignments.
 
 \medskip
-\textbf{Historical outcomes reflect constrained choices.}\par
-Predicting enrollment does not establish that families are better off.
+\textbf{Prediction is not a welfare measure.}\par
+Historical choices reflect constraints. Better advice cannot create seats.
 
 \medskip
 \textbf{A deployment needs recourse.}\par
-Audit the full market. Let people add options and seek human correction or appeal.
+Let people add options and seek human correction or appeal.
 \source{The final paragraph gives design recommendations, not tested interventions. Broader-impact framing: ICML 2026 call for papers and NeurIPS ethics guidelines. Sources and further limitations are in the appendix.}
 \end{frame}
 
@@ -266,11 +251,11 @@ Audit the full market. Let people add options and seek human correction or appea
 Recommendation quality depends on what happens when everyone acts on the recommendations.
 
 \medskip
-We measure the placement cost, show a capacity-aware repair, and formalize protection for each recipient.
+Coordination can improve coverage and placement together. Protecting every recipient is a further requirement.
 
 \medskip
 \textbf{Next experiment}\par
-Measure coverage and gross exits under the anchor, then compare with coordinated baselines using the same information.
+Test retention-constrained recommendations when people can add options, ignore advice, or change their rankings.
 
 \vfill
 \textcolor{muted}{Thank you.}

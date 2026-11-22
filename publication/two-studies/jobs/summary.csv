@@ -1,0 +1,3 @@
+window,gpt_minus_random_coverage_pp,gpt_minus_random_placement_pp,anchor_gain_pp,anchored_gpt_minus_anchored_random_pp,coordinated_gap_interval,gpt_minus_random_accurate_lo_pp,gpt_minus_random_accurate_hi_pp,gpt_minus_random_placed_lo_pp,gpt_minus_random_placed_hi_pp
+frozen,1.61219105469634,-15.52083333333333,12.951388888888886,-2.8125,not identified by released aggregate tables,0.2397333340448088,3.054698711003091,-16.597222222222225,-14.409722222222221
+replication,0.8483445941495169,-17.473958333333332,15.937499999999993,-2.005208333333343,not identified by released aggregate tables,-1.4403397096780717,3.2721060137417513,-18.90625,-16.015624999999996

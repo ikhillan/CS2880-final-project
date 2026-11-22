@@ -1,0 +1,359 @@
+{
+  "release_format_version": 1,
+  "source_kind": "reconstructed_rental_counterfactual",
+  "counts_are_not_field_outcomes": true,
+  "post_hoc_followup": true,
+  "packet_sha256": "bb950eb7ed7f616eedd38915c4f21e565bf89e36d43093d990e001644d3f952e",
+  "packet_included": false,
+  "individual_or_market_outcome_records_included": false,
+  "seed_count_columns": [
+    "window",
+    "variant",
+    "seed",
+    "arm",
+    "baseline",
+    "group",
+    "metric",
+    "numerator",
+    "denominator"
+  ],
+  "seed_count_rows": 316680,
+  "panel_counts": [
+    {
+      "window": "heldout_primary",
+      "variant": "enriched",
+      "markets": 160,
+      "seeds": 20
+    },
+    {
+      "window": "heldout_primary",
+      "variant": "primary",
+      "markets": 160,
+      "seeds": 20
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "enriched",
+      "markets": 240,
+      "seeds": 20
+    },
+    {
+      "window": "heldout_replication",
+      "variant": "primary",
+      "markets": 240,
+      "seeds": 20
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "enriched",
+      "markets": 240,
+      "seeds": 20
+    },
+    {
+      "window": "stage1_pilot",
+      "variant": "primary",
+      "markets": 240,
+      "seeds": 20
+    }
+  ],
+  "planned_markets": 1600,
+  "skipped_markets": 320,
+  "input_sha256": {
+    "census_pums/acs_pums_2020_2024_nyc_households.csv": "de00887bcd86152a8ee9af1aa9ae9f1bc555026d548dbf04d3172eb9f8a47305",
+    "data/firstmover/clean/firstmover_listings_2025-06.csv.gz": "9743ccbed54006fc140c64cebcfacb6dd3500511576ffdcb4a1ddca3e61e2e56",
+    "data/firstmover/clean/firstmover_listings_2025-07.csv.gz": "3e619dc66a09bf1e2e02821ad8a2e2b1f82ce76e65e16ee8a8620a05f4afe788",
+    "data/firstmover/clean/firstmover_listings_2025-08.csv.gz": "fec3d4e58ffa8bcf6e006d5612acb4ac62bae873baa8a905200a63d9f1a4adfb",
+    "data/firstmover/clean/firstmover_listings_2026-06.csv.gz": "51fea05171c4fc8be550f6e602602cedbbfe7e6851c122676684a7c6f0f05ba3",
+    "data/firstmover/clean/firstmover_listings_2026-07.csv.gz": "34227c63b0ebc0ad7456e0570315a2d3df9935ddaf11d613514ad6c3f3d2b0a8",
+    "data/firstmover/clean/firstmover_listings_2026-08.csv.gz": "45b9b5ba802862bc3765992c93234249c4679c2da2da11fe6b107b30c41f5129",
+    "data/firstmover/clean/firstmover_listings_2026-09.csv.gz": "7fc60bcaa6956ddef0ea3df97a3bc624b710bad033daf5a2dd165d652ec397c3",
+    "data/firstmover/clean/firstmover_listings_2026-10.csv.gz": "0a44784c051207c90344fb0259b969bc4908fbfa156c90f91b26488f05776076",
+    "data/reference/cpi_u_us_city_average.csv": "3108cfa6f1593b04d53b7ad66bac8967244a03a903d1c22f2d60b2f27514d995",
+    "findings/gpt-luna-rentals/heldout_primary/gpt_recs.jsonl.gz": "e2956f74d5b76e1df2337feaeae1b791fe3daeefb5e71fa43c387c23261a975f",
+    "findings/gpt-luna-rentals/heldout_replication/gpt_recs.jsonl.gz": "027f05e8d2392be2c88c1aab69a47d876f780547d2f66117cb1b8d5b38121b92",
+    "findings/gpt-luna-rentals/stage1_pilot/gpt_recs.jsonl.gz": "fae7b97fa4d8b09f8193f70a39179d9d72b6cf9e6a9440f16b8d49dcffa7f683"
+  },
+  "export_source_sha256": {
+    "configs/heldout_primary.json": "2214e1c9dfbc585b7c92ec8f26d0d8fcc95375ca90df4ee84cfd794b203397d5",
+    "configs/heldout_replication.json": "497fc3118442619ef36217bdaa168da01797ecc5ef7a99bd1865f1c53ac1dbde",
+    "configs/stage1_pilot.json": "f9ab9792482e8215062238bba5d1e77214196d997a2bf380847ae40b46a20688",
+    "experiments/config.py": "2313b845c578e5dd3bb8d3bba4799c1a02d82d2dea141e214868271780b6c86d",
+    "experiments/rental_anchor_access_export.py": "347da0a26de3934f09f62ff586212af71155b8fa311a5961c61c92273a959650",
+    "experiments/rental_capacity_anchor.py": "731151a736ca9cc1186b20973240b3f408837b576dfa2a1e9dc31ae3fb1a2ab8",
+    "experiments_jobs/capacity_anchor.py": "0844d7a8a7a43a4c8f890434e6e8eadd5b9b23d8dd47449629c865fbb5c375eb",
+    "findings/rental-capacity-gpt/heldout_primary/anchor.csv": "b42d6ead591c0175f4dc2ec63a31df9d6c3d8554cb34b9b19ffed20ad4272e03",
+    "findings/rental-capacity-gpt/heldout_primary/capacity_levels.csv": "c6412ec97171d1e3d5f5ef7b39f5ace4b1a0640bf2d23782b86fad6a6bf0894d",
+    "findings/rental-capacity-gpt/heldout_replication/anchor.csv": "ba64c75435f88ea57d30966f7c29064d16223d2fb5ceee8138f3328e3dd74ba7",
+    "findings/rental-capacity-gpt/heldout_replication/capacity_levels.csv": "dde49eb61484880f8b2b512edcde3f47ab8da4547f80243daa57f1e04e1925ca",
+    "findings/rental-capacity-gpt/stage1_pilot/anchor.csv": "fb9833af682cf54842eabd48d65518e690c3884055d7b55a72e8a47cf2e01962",
+    "findings/rental-capacity-gpt/stage1_pilot/capacity_levels.csv": "1c0c735e9b0eca7e52f112a988288e1cd80d8f5ddeb54dfa123d28b008d717c9",
+    "hiddenoptions/data.py": "5b7ce96b8dbd7538812797bed34aeb1bb0ade7fbad318b16a591d45cbb0288e0",
+    "hiddenoptions/exposure.py": "49a4589d526a67805222fca9477deb2856ede2770fdd589bf8dae5a9704a52aa",
+    "hiddenoptions/markets.py": "f3183157830a2f0ac4d90a1673f909ba0413a485adc0dac73a0cf9d0ae1831b5",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293"
+  },
+  "evaluation_source_sha256": {
+    "experiments_jobs/anchor_access.py": "68845ee120c2c9b79e2cf807e8645586e39b5b78f5d7edb429f4188d5d41dbbc",
+    "experiments_jobs/coordinated_policies.py": "ecc0113899e593683dc9bfe517948787e26beb5b6a3b23f6f49066f793e0f59e",
+    "experiments_jobs/anchor_access_metrics.py": "6f23c249c3306a26f0e6e5f52c3bf1f8ba557e0b053596507d97c8bd74e4af6b",
+    "experiments_jobs/capacity_anchor.py": "0844d7a8a7a43a4c8f890434e6e8eadd5b9b23d8dd47449629c865fbb5c375eb",
+    "hiddenoptions/matching.py": "f3d9e7b527789a07e585a4277a1c7263225f040924931531b38afcc1d7bd3293"
+  },
+  "analysis_source_sha256": "65f6abd79a6693bc11765438b841aa197e681b5bb77913645de3a631b29f8573",
+  "release_helper_sha256": "f381d0ec2b35666b11398e89ad922fe943cdb98c945a8bc15bc141fd4ead4e0b",
+  "run_manifests": [
+    {
+      "shard": 0,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 1,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 2,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 3,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 4,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 5,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 6,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 7,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 8,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 9,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 10,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 11,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 12,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 13,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 14,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 15,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 16,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 17,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 18,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    },
+    {
+      "shard": 19,
+      "shards": 20,
+      "markets": 64,
+      "tie_draws": 20,
+      "versions": {
+        "python": "3.12.12",
+        "numpy": "2.0.2",
+        "scipy": "1.16.3",
+        "pandas": "2.3.3"
+      }
+    }
+  ],
+  "aggregation": "Validate and average policy ties within market; transform market coverage; sum counts within seed.",
+  "uncertainty_scope": "Shared paired seed-block bootstrap of modeled rental counterfactuals, not uncertainty about field effects.",
+  "coverage_market_mean": "Within each seed: sum defined market coverage fractions / number of defined markets. Zero denominators remain undefined.",
+  "rebuild_command": "python -m experiments_jobs.anchor_access_release rebuild --release findings/rental-anchor-access",
+  "released_file_sha256": {
+    "seed_counts.csv.gz": "8035d323ad3621b9e9e2c96980832e544e6ef274d535b631e29d21c67cce0b1c",
+    "manifest.json": "ccac66ba92a5fcd67d0bbbd6ca3be47bf435cd261c174a2f185905bb034eb228",
+    "levels.csv": "7b092a7176b2dfedf86171dbe20780d40c75a2d1de122eec4a380939650a2592",
+    "transitions.csv": "b5b96667acaf059f88b9caa6b1b456820fdb93c99aec62ac240b16cbe8ea6c41",
+    "contrasts.csv": "337a0b816b665ae7ca823e91bea2b5c17386655c63fd53baaac2d314d794cf63",
+    "primary.csv": "d401d17ee819cb9d555b3e9e10547a0b91611b1d8261c4ec2b14bd0c5d0203e7",
+    "reproduction.csv": "76c160a2ae1e671136c985bfd35626f3db2d183abe99e99c329a78f6fc7ee3bd"
+  }
+}

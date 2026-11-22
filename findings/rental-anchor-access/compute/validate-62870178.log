@@ -1,0 +1,14 @@
+...............................                                          [100%]
+31 passed in 19.29s
+Shard 0/1: 20/40 markets
+Shard 0/1: 40/40 markets
+              window  variant          arm    comparator               metric      mean        lo       hi status
+synthetic_validation invented   anchor_gpt           gpt coverage_conditional  0.004167  0.000000 0.012500     ok
+synthetic_validation invented   anchor_gpt        random coverage_conditional  0.047500 -0.038333 0.133333     ok
+synthetic_validation invented   anchor_gpt anchor_random coverage_conditional  0.056667 -0.029167 0.140833     ok
+synthetic_validation invented balanced_gpt    anchor_gpt coverage_conditional  0.033333 -0.015854 0.080833     ok
+synthetic_validation invented   anchor_gpt           gpt               placed  0.008333  0.000000 0.020833     ok
+synthetic_validation invented   anchor_gpt        random               placed -0.004167 -0.041667 0.029167     ok
+synthetic_validation invented   anchor_gpt anchor_random               placed -0.012500 -0.050000 0.025000     ok
+synthetic_validation invented balanced_gpt    anchor_gpt               placed  0.016667 -0.016667 0.050000     ok
+Wrote results/validation/analysis; data kind: synthetic_validation

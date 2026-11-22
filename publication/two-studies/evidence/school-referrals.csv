@@ -1,0 +1,9 @@
+year,policy,rank_limit,applicants,initially_placed,vacant_seats,unmatched_with_option,eligible_edges,reachable_vacancies,max_extension,post_referral_placed,named_referrals_verified,incumbent_rank_losses,minimum_cut
+2022,blind,top5,570891,521670,601097,0,0,0,0,521670,0,0,0
+2022,blind,any,570891,521670,601097,0,0,0,0,521670,0,0,0
+2022,rank,top5,570891,521202,601565,0,0,0,0,521202,0,0,0
+2022,rank,any,570891,521202,601565,128,339,5401,127,521329,127,0,127
+2023,blind,top5,536353,493965,640234,0,0,0,0,493965,0,0,0
+2023,blind,any,536353,493965,640234,0,0,0,0,493965,0,0,0
+2023,rank,top5,536353,493448,640751,1,1,1,1,493449,1,0,1
+2023,rank,any,536353,493448,640751,97,160,3550,97,493545,97,0,97

@@ -1,0 +1,13 @@
+contrast,outcome,reported_n,estimate,se_lower,se_upper,normal95_lower_using_se_upper,normal95_upper_using_se_upper
+maps_plus_info_vs_control,submitted_application,3111,0.03000000,0.01300000,0.01300000,0.00452047,0.05547953
+maps_plus_info_vs_control,first_ranked_highlight_worthy,2770,0.02500000,0.02100000,0.02100000,-0.01615924,0.06615924
+maps_plus_info_vs_control,second_ranked_highlight_worthy,2580,0.05400000,0.02200000,0.02200000,0.01088079,0.09711921
+maps_plus_info_vs_control,assigned,2817,0.00200000,0.01100000,0.01100000,-0.01955960,0.02355960
+maps_plus_info_vs_control,enrolled_at_assigned_school,2748,0.03500000,0.01900000,0.01900000,-0.00223932,0.07223932
+maps_plus_info_vs_control,enrolled_highlight_worthy,2446,0.03300000,0.02300000,0.02300000,-0.01207917,0.07807917
+maps_plus_info_vs_info_only,submitted_application,3111,0.02300000,0.00000000,0.02600000,-0.02795906,0.07395906
+maps_plus_info_vs_info_only,first_ranked_highlight_worthy,2770,0.02400000,0.00000000,0.04200000,-0.05831849,0.10631849
+maps_plus_info_vs_info_only,second_ranked_highlight_worthy,2580,0.03800000,0.00000000,0.04400000,-0.04823842,0.12423842
+maps_plus_info_vs_info_only,assigned,2817,-0.01000000,0.00000000,0.02200000,-0.05311921,0.03311921
+maps_plus_info_vs_info_only,enrolled_at_assigned_school,2748,0.02000000,0.00100000,0.03900000,-0.05643860,0.09643860
+maps_plus_info_vs_info_only,enrolled_highlight_worthy,2446,0.02000000,0.00000000,0.04600000,-0.07015834,0.11015834

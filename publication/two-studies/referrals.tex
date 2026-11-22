@@ -1,0 +1,20 @@
+\section{How many vacancies could one referral fill?}\label{sec:remedy}
+With tentative offers in hand, could the platform fill a vacancy by referring one unmatched applicant to it? We consider only affordable, feasible apartments or eligible courses already on the original report. Each referral must preserve the existing contracts together in a stable allocation.
+\input{referral}
+
+\begin{table}[ht]\centering\small
+\caption{Largest number of named referrals compatible with retaining all existing contracts in one stable allocation. NYC uses simulated Haiku offers. Chile uses rank-informed pooled DA offers. All counts use instances in their own row. A vacancy must be at an affordable, feasible listing or an eligible course already on the pupil's reported list.}\label{tab:ref}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+& Vacant seats & Unplaced with an option & Any rank & Top five\\\midrule
+NYC ordinary & 7,972 & 757 & 683 & 204\\
+NYC enriched & 5,990 & 2,527 & 1,926 & 370\\
+Chile 2022 & 601,565 & 128 & 127 & 0\\
+Chile 2023 & 640,751 & 97 & 97 & 1\\\bottomrule
+\end{tabular}
+\end{table}
+
+In ordinary NYC markets only 37 unplaced lower-income renter instances could use any vacancy. Of the maximum 683 additional placements, at least 22 and at most 25 could go to them. In enriched markets 1,601 unplaced lower-income renters could use a vacancy. Maximizing total referrals first, then minimizing or maximizing referrals to this group, gave 1,002--1,085 lower-income recipients among 1,926 placements. Both supply and the households sampled change across these designs.
+
+Many residual school seats were in courses that no unmatched pupil had listed. With full take-up, at most 224 placements could be added across the two years. Just one was possible within the family's top five. Neither year had an eligible referral after the rank-blind allocation, so even after each policy's largest extension the rank-informed policy placed 761 fewer pupils. After uniform rental menus the corresponding maxima were 215 ordinary and 518 enriched placements.
+
+We verified the school maxima with a second national flow implementation. We replaced each selected applicant's last discretionary option with their referral, reran DA, and checked each named assignment, the weak improvement for earlier recipients, the quota and continuity rights. A service would need to observe current offers, elicit acceptable alternatives and give each family a chance to decline. Table~\ref{tab:ref} reports the opportunities available under those conditions.

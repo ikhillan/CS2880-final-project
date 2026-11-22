@@ -1,0 +1,165 @@
+\section{Jobs: evidence and the pending access audit}\label{app:jobs}
+\paragraph{Design and information.}
+The primary simulation samples four occupations, 20 seed blocks and three
+frozen months (August--October 2025), followed by two replication months
+(November--December). It uses ACS 2020--2024 person records from the evaluation
+donor partition and Revelio postings for the New York metropolitan area.
+Each primary market contains 24 seekers and 24 postings, stratified by wage
+group, with one opening per posting. Feasibility includes the specified pay
+floor and seniority rule. Preferences and employer priorities are modeled;
+the frozen wage weight is 2 and the seeker-noise scale is 0.75. Subsequent
+calibration did not resolve the mismatch between ACS annual earnings and
+posted salaries. These are conditional simulation results, not observed
+applications, hiring, or effects of using an employment service.
+
+The model receives structured occupation, experience proxy, education and pay
+floor information, plus anonymized posting IDs, salary ranges and seniority.
+It does not receive employer names, posting text or the seeker's wage group.
+The recorded calls use \texttt{gpt-6-luna} through the approved HUIT route,
+with reasoning disabled and at most 300 completion tokens. A dated model
+snapshot is unavailable; the run manifest records returned model strings and
+send times. Cached replies fix the evaluated menus.
+
+\paragraph{Endpoints and paired comparisons.}
+Let $M$ be full-list DA, $N_D$ the assignment from menu policy $D$, and
+$B_M=\{i:M(i)\ne\bot\}$. The jobs coverage rate is
+$|B_M|^{-1}\sum_{i\in B_M}\mathbf1\{(i,M(i))\in D\}$.
+Placement uses all seekers: $|B|^{-1}\sum_i\mathbf1\{N_D(i)\ne\bot\}$.
+The former is conditional, unlike the all-renter coverage rates in
+Section~\ref{sec:twonyc}. The historical-school coverage in Chile uses pupils
+linked to April registers. These targets and denominators are kept separate.
+The published jobs differences average paired seed-block contrasts; intervals
+resample the 20 blocks 10,000 times. The original GPT placement differences
+have intervals $[-16.6,-14.4]$ and $[-18.9,-16.0]$ points. Anchor gains have
+intervals $[11.9,13.9]$ and $[14.8,17.1]$ points. Repeated bootstrap draws
+do not add markets or independent donor populations.
+
+\paragraph{What coordination uses.}
+Both anchored policies access the same entire feasible graph and capacities.
+The assignment first maximizes cardinality and then reuse of displayed pairs.
+An already displayed anchor changes nothing; otherwise one displayed posting
+is replaced. GPT drops its last-ranked displayed pick; the random arm uses
+its seeded drop rule. Neither construction uses a full-list partner label
+to choose its anchor. Maximum feasible cardinality is an upper bound on DA
+placement and supplies no individual retention guarantee.
+
+\paragraph{What the anchor certifies.}
+Write $\nu(G)$ for the maximum matching cardinality of a feasible slot graph
+$G$. A displayed posting exposes all its feasible slots.
+\begin{proposition}\label{prop:anchor-capacity}
+Let $M^*$ be a maximum matching of $E$. Insert its assigned posting into each
+recipient's menu if absent, replacing one displayed posting. If every
+recipient of $M^*$ has a nonempty original menu, the resulting graph $D'$
+satisfies $\nu(D')=\nu(E)$ and preserves each person's posting quota.
+Nevertheless, a maximum-cardinality anchor that also maximizes reuse of
+displayed pairs can raise displayed capacity while reducing DA placement.
+This can occur with four applicants, unit seats, two options on every menu,
+strict preferences and priorities, and only one changed menu.
+\end{proposition}
+\begin{proof}
+Every pair of $M^*$ remains displayed or is inserted. Thus
+$M^*\subseteq D'\subseteq E$, proving the capacity equality. Replacement of
+one posting by a previously absent posting preserves each nonempty quota.
+
+For the second claim, use the following preferences, written best first.
+Options absent from a preference list are infeasible. Menus are sets; their
+printed order is not an application order.
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}\toprule
+Applicant & Feasible preferences & Original menu & Edited menu\\\midrule
+$a$ & $3,2,0,1$ & $\{0,1\}$ & $\{0,1\}$\\
+$b$ & $2,3,0,1$ & $\{0,1\}$ & $\{0,1\}$\\
+$c$ & $3,0,2$   & $\{0,3\}$ & $\{0,2\}$\\
+$d$ & $0,1,3$   & $\{1,3\}$ & $\{1,3\}$\\\bottomrule
+\end{tabular}\end{center}
+Each option has one seat. Its priority order, highest first, is
+\[
+\begin{aligned}
+0 &: c\succ a\succ b\succ d, & 1 &: d\succ a\succ b,\\
+2 &: a\succ b\succ c,       & 3 &: c\succ d\succ b\succ a.
+\end{aligned}
+\]
+The original display has capacity three because nobody sees option 2.
+The anchor $(0,1,2,3)$, in applicant order, seats everyone and reuses three
+displayed pairs; reusing four is impossible. It is therefore a valid
+maximum-reuse maximum matching. Insert option 2 for $c$ and drop option 3.
+This drop can be the recommender's last pick, even though $c$ prefers 3 in
+the evaluation preferences. Only $c$'s menu changes. The original DA
+assignment is $(0,\bot,3,1)$. After the edit, $c$ takes 0, displacing $a$;
+neither $a$ nor $b$ can displace $d$ at 1. The new assignment is
+$(\bot,\bot,0,1)$. Hence capacity rises from three to four while placement
+falls from three to two, with one incumbent exit and no entrant.
+\end{proof}
+The example fixes a permitted anchor and drop rule. It does not assert failure
+under every matching tie or drop convention, or estimate how frequently such
+losses occur. The repository's coordinated-policy checks exercise this
+instance against the archived anchor and DA implementations.
+
+\paragraph{An edit-budget bound on individual exits.}
+\begin{proposition}\label{prop:menu-edit-budget}
+Fix strict applicant preferences, strict receiver priorities, feasibility and
+responsive capacities. Compare applicant-proposing DA before and after edits
+to $C$ applicants' menus. Let $X$ count recipients who become unmatched,
+$Y$ count previously unmatched applicants who receive a seat, and
+$\Delta=Y-X$ be the placement change. Then
+\[
+X\le C,\qquad Y\le C,\qquad X\le C-\max(\Delta,0).
+\]
+\end{proposition}
+\begin{proof}
+For a single edited applicant $i$, first run DA without $i$, obtaining
+recipient set $R$. DA's rejection argument and applicant optimality imply
+that its outcome is independent of the order of eligible proposals
+\citep[Theorem~2]{gale1962}. We may therefore postpone $i$'s first proposal
+until this smaller run terminates, then continue DA. Its previously unmatched
+applicants have exhausted their menus. Along the ensuing rejection chain
+there is at most one applicant still making proposals; a receiver replacing
+a held applicant does not lose an occupied seat. The final recipient set is
+therefore $R$, $R\cup\{i\}$, or
+$(R\setminus\{r\})\cup\{i\}$ for some $r\in R$.
+Apply this description separately to $i$'s old and new menus: their recipient
+sets differ by at most one applicant in each direction. For $C$ edits,
+change the menus sequentially. Every final exit or entry occurs at an
+intermediate step, giving $X,Y\le C$. Finally $Y=X+\Delta$ gives the last
+inequality. Responsive capacities admit the same rejection-chain argument.
+\end{proof}
+The bound concerns any-seat receipt, not posting or rank changes. Exits need
+not belong to the edited group. The bound sums across disjoint markets but
+does not cover endogenous priorities or changes to others' preferences.
+
+In the frozen jobs panel, $N=5{,}760$, placement changes from $3{,}595$ to
+$4{,}341$, and $C=1{,}205$. Thus $0\le X\le 459$; in replication,
+$N=3{,}840$, placement changes from $2{,}437$ to $3{,}049$ and $C=920$,
+giving $0\le X\le308$. These upper bounds are 7.969\% and 8.021\% of
+all seeker--market observations. Counts are reconstructed from the released
+means because every primary market has 24 seekers and equal weight.
+These are outer intervals, not confidence intervals, observed exits, or
+sharp bounds under this anchor. Actual transitions require individual records.
+
+\paragraph{Available evidence and remaining computation.}
+The aggregate source tables give anchored GPT placement rates of 75.3646\%
+and 79.4010\%, compared with 78.1771\% and 81.4063\% for anchored random.
+Subtracting these released means gives $-2.8125$ and $-2.00521$ points.
+Their paired uncertainty cannot be recovered by subtracting marginal
+intervals. The pending replay must evaluate random, GPT, anchored random
+and anchored GPT on identical markets, retain assignment identities, and
+count exits, entrants and rank changes relative to each specified baseline.
+It must also measure post-anchor coverage, preserve each menu budget, verify
+feasibility and complete cached responses, and report outcomes by wage group.
+Apart from the outer bounds above, this manuscript contains no new result for
+those endpoints. The current
+integration has aggregate tables but lacks the licensed extract and private
+reply caches required for that replay.
+
+\paragraph{Timing and reproduction.}
+The market design was frozen on November 15, 2026. Coverage and capacity/anchor
+analyses followed the frozen-window outcomes but were specified before the
+replication requests. The new coverage-after-anchoring, individual-access
+and coordinated-baseline uncertainty analyses are follow-ups on both windows.
+The original configurations and implementation are in
+\texttt{configs/jobs\_frozen.json}, \texttt{configs/jobs\_replication.json}
+and \texttt{experiments\_jobs/} at the repository root.
+\texttt{python3 jobs/rebuild.py} verifies the four public source files against
+\texttt{jobs/provenance.json}, then rebuilds Table~\ref{tab:jobs-coordination}
+and \texttt{jobs/access-bounds.csv}. It runs no new markets or model calls;
+postings, identifiers and reply caches are excluded.

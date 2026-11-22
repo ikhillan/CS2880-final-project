@@ -1,0 +1,51 @@
+{
+  "analysis": "Post-hoc public GPT rental anchor and access replay",
+  "source_directory": "findings/rental-anchor-access",
+  "sources": {
+    "sources/primary.csv": {
+      "repository_path": "findings/rental-anchor-access/primary.csv",
+      "sha256": "d401d17ee819cb9d555b3e9e10547a0b91611b1d8261c4ec2b14bd0c5d0203e7",
+      "bytes": 17786
+    },
+    "sources/levels.csv": {
+      "repository_path": "findings/rental-anchor-access/levels.csv",
+      "sha256": "7b092a7176b2dfedf86171dbe20780d40c75a2d1de122eec4a380939650a2592",
+      "bytes": 1168393
+    },
+    "sources/transitions.csv": {
+      "repository_path": "findings/rental-anchor-access/transitions.csv",
+      "sha256": "b5b96667acaf059f88b9caa6b1b456820fdb93c99aec62ac240b16cbe8ea6c41",
+      "bytes": 2025380
+    },
+    "sources/contrasts.csv": {
+      "repository_path": "findings/rental-anchor-access/contrasts.csv",
+      "sha256": "337a0b816b665ae7ca823e91bea2b5c17386655c63fd53baaac2d314d794cf63",
+      "bytes": 1299422
+    },
+    "sources/reproduction.csv": {
+      "repository_path": "findings/rental-anchor-access/reproduction.csv",
+      "sha256": "76c160a2ae1e671136c985bfd35626f3db2d183abe99e99c329a78f6fc7ee3bd",
+      "bytes": 5101
+    },
+    "sources/manifest.json": {
+      "repository_path": "findings/rental-anchor-access/manifest.json",
+      "sha256": "ccac66ba92a5fcd67d0bbbd6ca3be47bf435cd261c174a2f185905bb034eb228",
+      "bytes": 1212
+    }
+  },
+  "input_provenance_sha256": "475741fb7b7a94913c53fcba8251e123bd018c82a7d2bdf5e54901fbd3613770",
+  "public_reproduction": {
+    "seed_counts.csv.gz": {
+      "repository_path": "findings/rental-anchor-access/seed_counts.csv.gz",
+      "sha256": "8035d323ad3621b9e9e2c96980832e544e6ef274d535b631e29d21c67cce0b1c"
+    },
+    "release_manifest.json": {
+      "repository_path": "findings/rental-anchor-access/release_manifest.json",
+      "sha256": "5ab9380a818a75ca6f6ec27e44b3ded9a63c0f7cca600a5d31efdf4600a84ecf"
+    },
+    "rebuild_validation.json": {
+      "repository_path": "findings/rental-anchor-access/rebuild_validation.json",
+      "sha256": "7922b1fc669f02bba6653cb498a8a3225fc173e25c1e896253dbfd8360a4ef6b"
+    }
+  }
+}

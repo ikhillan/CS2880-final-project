@@ -1,0 +1,20 @@
+{
+  "markets": 480,
+  "market_sizes": [
+    64,
+    64
+  ],
+  "independent_antithetic_pairs": 64,
+  "interior_clears": 184320,
+  "aggregate_rows": 307200,
+  "endpoint_scenario_panels": 10,
+  "archived_endpoint_group_estimates_and_95pct_intervals_reproduced_per_field_atol_pp": 1e-10,
+  "n_exact_midpoint_coverage_identities": 30720,
+  "output_sha256": {
+    "rental-rollout.csv": "f8a84acf7fb88f023b146168dcbbe475b4daaf73ea0c49ae8e93c14171f16910",
+    "rental-rollout-counts.csv.gz": "68714eb584576efea91c74d6f812a8f5805e4c2f5d864e5d0970e930d3992f01",
+    "rental-midpoint-own.csv.gz": "7bdaf40eec1de6a59cc5a6ba25d31464db89b68db06d227020296d143541c20c",
+    "rental-sensitivity.csv": "a892d1a3a07c424cb2fa1fb5c714d117caee593d97b86b61a8eb1595b9d4d1a7",
+    "rental-sensitivity-counts.csv.gz": "bb159f58d052b87a666b6c603efc8d74f80b4ec6198077390f0a81031ca166a5"
+  }
+}

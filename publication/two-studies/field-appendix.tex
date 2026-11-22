@@ -1,0 +1,39 @@
+\section{Connecting the randomized evidence to the replay}\label{sec:field-audit}
+\paragraph{What the public trial can test}
+The 2021 Explorer trial (AEA RCT Registry 7998) assigned treatment after a baseline survey. Of 3,948 recruited families, 3,111 opened the explorer. Treatment-specific information appeared inside it. Open rates were similar across arms. The published regressions use different samples for submission, the ranked choices, assignment, and the school of enrollment. Submission itself responded to treatment. The between-arm differences in these regressions therefore cannot be read as transitions for a common set of pupils. A school qualified for highlighting when its monthly fee was below CLP 50,000 and its official quality category was medium or high. The second-rank result measures the type of school a family reported second. A measure of coverage would instead ask whether a specified menu included a particular pupil's eventual school.
+
+We extracted the authors' reported coefficients, standard errors and sample sizes from the March 2026 revision \citep{schoolSearch}. We changed the sign of nonassignment to express the result as assignment. To isolate the effect of adding highlights and visible attributes to the counts, subtract the counts-only coefficient from the highlights-plus-counts coefficient in the same regression. Their covariance is unpublished. If their standard errors are $s_1,s_2$, Cauchy--Schwarz gives $\mathrm{SE}(\hat\beta_2-\hat\beta_1)\leq s_1+s_2$. The intervals in Table~\ref{tab:field} use $1.96(s_1+s_2)$ and rounded inputs. They are marginal normal-approximation envelopes. For the comparison with the basic map we also test the joint directional claim that a qualifying second choice became more likely and any assignment became less likely. The null is the union of the two opposite weak inequalities. Testing each component one-sided and taking the larger $p$-value gives an intersection--union test regardless of their correlation. The component values are .007 and .572, respectively. The joint $p=.572$ offers little evidence for the directional claim in this comparison. We chose this diagnostic after seeing the published outcomes. The subgroup contrast in Section~\ref{sec:field} is also one of several outcomes reported by the authors.
+
+\paragraph{When the recommendation actually names an omitted school}
+In a separate intervention in the same cycle, families could open a personalized report before the deadline. It listed schools within two kilometers that they had omitted, ordered by quality. It also described their existing list and warned some families about risk. Using randomized geographic access as an instrument for opening the report, \citet{schoolSearch} estimate a 6.1-point increase in adding any school (SE 1.8, $N=2{,}116$). The first stage was 57.8 points (SE 1.8). The estimated change in enrollment at a qualifying school was $-3.1$ points (SE 5.7, $N=1{,}850$). Their Table II measures neither the identity of the school added nor receipt of any seat. We use this as evidence that some families revise a submitted list. Applying 6.1 points as a take-up rate for either of our five-course policies would require additional assumptions.
+
+\paragraph{Enrollment can change because of the list}
+A 2010 Chilean trial offers a closer measure of enrollment at a named school. \citet{informedEquilibrium} randomized preschools to an information package with a video and a card listing up to 30 nearby primary schools. In their Appendix Table O-4, among 975 families yet to enroll, assignment to the package reduced subsequent enrollment at a listed school by 15.9 points (preschool-clustered SE 3.3). In the 934 observations with school value added, the normalized value added of the school attended rose by 0.099 (SE 0.037, main Table I). A family could act on information and choose a school beyond the card. These outcomes describe the schools families chose. Neither measures whether more children secured a seat. The trial predates centralized admissions.
+
+The measurement issue can be stated precisely. Write $h(m,y)=\mathbf 1\{y\in m\}$ for enrollment at a school on a fixed menu. Let $Y^0$ be enrollment without the proposed advice and $Y^j$ enrollment if policy $j$ is deployed throughout the market, with nonenrollment a separate value. For any pair of frozen menus $m_A,m_B$, the difference between (i) their respective on-policy hit difference and (ii) the hit difference computed with $Y^0$ is
+\[
+ \mathbb E\big[h(m_B,Y^B)-h(m_B,Y^0)\big]
+ -\mathbb E\big[h(m_A,Y^A)-h(m_A,Y^0)\big].
+\]
+Its absolute value is at most $\Pr(Y^B\ne Y^0)+\Pr(Y^A\ne Y^0)$, since each indicator can change only if enrollment changes. The historical register supplies a common label for scoring. Without policy assignments it cannot identify either correction term.
+
+\paragraph{A national comparison for the entry grades}
+Chile's 2021 SAE release covers applications for the 2022 school year. We used every applicant to run the mechanism, including older siblings competing in other grades, then selected pre-kindergarten, kindergarten and first grade. The 207,578 such applicants include 6,987 without an April 2022 register link. The full institutional replay agrees with the released initial course or nonassignment for every entry-grade pupil and every other applicant. We reused the frozen 2019 models and the masks previously generated for 2021. This was a development cohort and the comparison with the trial was retrospective. Historical applications include any search or advice families experienced that year. The trial's Appendix Table A.IV reports the same 207,578 national entry-grade applicants. Application lists were longer among the participating controls who applied \citep{schoolSearch}. The following counts describe the specified national counterfactual and have no sampling error conditional on its inputs.
+
+\begin{table}[ht]\centering\small
+\caption{Both menus are cleared nationally. Changes are rank-informed minus rank-blind. The first two outcomes count only pupils linked to the April register. The last includes unlinked pupils.}\label{tab:entry-field}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+ & Applicants & Linked & April hits & Linked placements & All placements\\\midrule
+Pre-kindergarten & 108,398 & 104,507 & $+464$ & $-187$ & $-210$\\
+Kindergarten & 36,381 & 34,967 & $+102$ & $-45$ & $-50$\\
+First grade & 62,799 & 61,117 & $+137$ & $-77$ & $-84$\\\midrule
+Three entry grades & 207,578 & 200,591 & $+703$ & $-309$ & $-344$\\
+All grades & 461,223 & 448,187 & $+1{,}072$ & $-468$ & $-514$\\\bottomrule
+\end{tabular}
+\end{table}
+In the linked entry grades, 133 pupils gained a placement and 442 lost one. The full deployment changed coverage by $+0.350$ percentage points and placement by $-0.154$ points. Both a gain and a loss of this size fit inside the trial's marginal assignment interval. Overlap alone cannot validate a simulation because the treatments, populations and outcomes differ.
+
+\input{field-interference}
+
+\paragraph{A deployment test}
+A platform could save predictions from both models for the same pre-advice reports. In markets assigned usual service, the April register would then score both menus against the same outcome under usual service. To estimate deployment effects, randomize sufficiently many admissions markets to the two rules, record all suggestions shown and all applications submitted, and follow every eligible pupil through assignment and enrollment, including pupils whose own lists stay identical. Cross-market applications or sibling links require a shared randomization unit or an explicit spillover analysis. Pre-specify any placement and common-label coverage as separate endpoints, count nonapplication in the eligible denominator, and report missing register links by arm. This design could distinguish a better predictor from a policy that gives more families access to a seat.

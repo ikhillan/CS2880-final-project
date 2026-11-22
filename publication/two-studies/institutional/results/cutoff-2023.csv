@@ -1,0 +1,7 @@
+year,report,group,applicants,same_course_or_outside,same_offer_status,official_only,replay_only,both_placed_different_course
+2023,policy_pool,all,536353,536314,536350,2,1,36
+2023,policy_pool,submitted_below_continuity,2010,1998,2010,0,0,12
+2023,policy_pool,official_below_continuity,12,0,12,0,0,12
+2023,policy_pool,younger_block,40874,40856,40873,1,0,17
+2023,policy_pool,no_official_offer,43465,43464,43464,0,1,0
+2023,policy_pool,official_offer,492888,492850,492886,2,0,36

@@ -1,0 +1,30 @@
+{
+  "stable_witness": {
+    "markets": 9000,
+    "feasible_assignments": 68616,
+    "stable_assignments": 9186,
+    "protected_set_checks": 72000
+  },
+  "historical_DA_gadget": [
+    {
+      "vertices": 2,
+      "draw_menu_pairs": 4,
+      "graph_menu_pairs": 8
+    },
+    {
+      "vertices": 3,
+      "draw_menu_pairs": 24,
+      "graph_menu_pairs": 64
+    },
+    {
+      "vertices": 4,
+      "draw_menu_pairs": 96,
+      "graph_menu_pairs": 1024
+    },
+    {
+      "vertices": 5,
+      "draw_menu_pairs": 320,
+      "graph_menu_pairs": 32768
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+design,group,n,newly_shown,newly_shown_named,newly_shown_other,newly_shown_unplaced,named_uniform,named_haiku,named_gain,named_loss
+enriched,all,15360,2012,1277,594,141,1108,1661,1373,820
+enriched,higher_income,7680,1514,998,457,59,722,1240,1063,545
+enriched,lower_income,7680,498,279,137,82,386,421,310,275
+primary,all,15360,1720,1056,556,108,903,1426,1170,647
+primary,higher_income,8743,1669,1025,543,101,824,1328,1122,618
+primary,lower_income,6617,51,31,13,7,79,98,48,29

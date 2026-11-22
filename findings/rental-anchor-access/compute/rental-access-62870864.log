@@ -1,0 +1,70 @@
+Completed shard 5
+Completed shard 1
+Completed shard 3
+Completed shard 0
+Completed shard 6
+Completed shard 7
+Completed shard 2
+Completed shard 4
+Completed shard 13
+Completed shard 10
+Completed shard 14
+Completed shard 9
+Completed shard 15
+Completed shard 8
+Completed shard 12
+Completed shard 11
+Completed shard 17
+Completed shard 18
+Completed shard 16
+Completed shard 19
+             window  variant          arm    comparator               metric      mean        lo        hi status
+    heldout_primary enriched   anchor_gpt           gpt coverage_market_mean -0.003300 -0.005285 -0.001508     ok
+    heldout_primary enriched   anchor_gpt        random coverage_market_mean  0.077911  0.066615  0.089706     ok
+    heldout_primary enriched   anchor_gpt anchor_random coverage_market_mean  0.078056  0.066565  0.089991     ok
+    heldout_primary enriched balanced_gpt    anchor_gpt coverage_market_mean -0.030472 -0.038765 -0.022360     ok
+    heldout_primary enriched   anchor_gpt           gpt               placed  0.040234  0.036230  0.044238     ok
+    heldout_primary enriched   anchor_gpt        random               placed  0.003320 -0.003223  0.009377     ok
+    heldout_primary enriched   anchor_gpt anchor_random               placed  0.000684 -0.005566  0.006445     ok
+    heldout_primary enriched balanced_gpt    anchor_gpt               placed  0.126465  0.122656  0.130762     ok
+    heldout_primary  primary   anchor_gpt           gpt coverage_market_mean -0.000126 -0.001412  0.001209     ok
+    heldout_primary  primary   anchor_gpt        random coverage_market_mean  0.094620  0.074008  0.114644     ok
+    heldout_primary  primary   anchor_gpt anchor_random coverage_market_mean  0.094642  0.073836  0.114713     ok
+    heldout_primary  primary balanced_gpt    anchor_gpt coverage_market_mean -0.051326 -0.064180 -0.037328     ok
+    heldout_primary  primary   anchor_gpt           gpt               placed  0.007910  0.006250  0.009668     ok
+    heldout_primary  primary   anchor_gpt        random               placed -0.005859 -0.010156 -0.001074     ok
+    heldout_primary  primary   anchor_gpt anchor_random               placed -0.006055 -0.010352 -0.001270     ok
+    heldout_primary  primary balanced_gpt    anchor_gpt               placed  0.066113  0.060059  0.071875     ok
+heldout_replication enriched   anchor_gpt           gpt coverage_market_mean -0.002524 -0.004660 -0.000371     ok
+heldout_replication enriched   anchor_gpt        random coverage_market_mean  0.076249  0.067481  0.084985     ok
+heldout_replication enriched   anchor_gpt anchor_random coverage_market_mean  0.076610  0.068173  0.084889     ok
+heldout_replication enriched balanced_gpt    anchor_gpt coverage_market_mean -0.041657 -0.047420 -0.035750     ok
+heldout_replication enriched   anchor_gpt           gpt               placed  0.049219  0.045833  0.052865     ok
+heldout_replication enriched   anchor_gpt        random               placed  0.016471  0.011523  0.021615     ok
+heldout_replication enriched   anchor_gpt anchor_random               placed  0.012109  0.007617  0.016797     ok
+heldout_replication enriched balanced_gpt    anchor_gpt               placed  0.127734  0.124349  0.131185     ok
+heldout_replication  primary   anchor_gpt           gpt coverage_market_mean -0.001347 -0.003602  0.001517     ok
+heldout_replication  primary   anchor_gpt        random coverage_market_mean  0.092290  0.081663  0.103354     ok
+heldout_replication  primary   anchor_gpt anchor_random coverage_market_mean  0.091847  0.081341  0.102806     ok
+heldout_replication  primary balanced_gpt    anchor_gpt coverage_market_mean -0.058507 -0.066117 -0.050382     ok
+heldout_replication  primary   anchor_gpt           gpt               placed  0.009635  0.008008  0.011393     ok
+heldout_replication  primary   anchor_gpt        random               placed -0.012630 -0.015885 -0.009570     ok
+heldout_replication  primary   anchor_gpt anchor_random               placed -0.012826 -0.016081 -0.009766     ok
+heldout_replication  primary balanced_gpt    anchor_gpt               placed  0.076237  0.072070  0.080859     ok
+       stage1_pilot enriched   anchor_gpt           gpt coverage_market_mean -0.001603 -0.003731  0.000447     ok
+       stage1_pilot enriched   anchor_gpt        random coverage_market_mean  0.078550  0.068398  0.088488     ok
+       stage1_pilot enriched   anchor_gpt anchor_random coverage_market_mean  0.079376  0.069043  0.089295     ok
+       stage1_pilot enriched balanced_gpt    anchor_gpt coverage_market_mean -0.037046 -0.043124 -0.031013     ok
+       stage1_pilot enriched   anchor_gpt           gpt               placed  0.035091  0.030988  0.039323     ok
+       stage1_pilot enriched   anchor_gpt        random               placed  0.015430  0.009766  0.021094     ok
+       stage1_pilot enriched   anchor_gpt anchor_random               placed  0.009180  0.003906  0.014388     ok
+       stage1_pilot enriched balanced_gpt    anchor_gpt               placed  0.128320  0.123892  0.132878     ok
+       stage1_pilot  primary   anchor_gpt           gpt coverage_market_mean -0.000603 -0.002798  0.001460     ok
+       stage1_pilot  primary   anchor_gpt        random coverage_market_mean  0.099508  0.085620  0.113348     ok
+       stage1_pilot  primary   anchor_gpt anchor_random coverage_market_mean  0.098287  0.084726  0.111935     ok
+       stage1_pilot  primary balanced_gpt    anchor_gpt coverage_market_mean -0.060598 -0.070015 -0.051029     ok
+       stage1_pilot  primary   anchor_gpt           gpt               placed  0.006901  0.005078  0.008854     ok
+       stage1_pilot  primary   anchor_gpt        random               placed -0.005404 -0.009701 -0.001497     ok
+       stage1_pilot  primary   anchor_gpt anchor_random               placed -0.005924 -0.010091 -0.002148     ok
+       stage1_pilot  primary balanced_gpt    anchor_gpt               placed  0.070052  0.066732  0.073112     ok
+Wrote results/rental-anchor-access-analysis; data kind: frozen_rental_replay

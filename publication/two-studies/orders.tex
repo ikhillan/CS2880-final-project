@@ -1,0 +1,27 @@
+\section{Why can a pupil lose a course that stayed on their list?}\label{sec:order-certificate}
+Consider a pupil placed under $A$ who lists the same course under $B$ and goes unplaced. Someone with higher priority must now hold that seat. Following this change leads to an applicant who would choose differently under the two lists.
+
+Take two policies $A$ and $B$. They may change which programs appear, their order, or both. Programs keep their capacities and strict priorities. For each applicant let $\succ_i^A,\succ_i^B$ be the orders they would use to apply. In each order, place the outside option $\bot$ below all listed programs and above every omitted one. This convention records whether a program is available to an applicant. We still evaluate a first choice by the family's original report. For arbitrary stable assignments $M_A,M_B$ on the respective lists, define
+\[
+ W=\{h:M_A(h)\succ_h^A M_B(h)\ \text{and}\ M_B(h)\succ_h^B M_A(h)\}.
+\]
+Thus a witness ranks the assignment from each policy above the alternative when using that policy's list. No comparison between two omitted programs is needed.
+
+\begin{theorem}\label{thm:order-witness}
+Each applicant placed only under $A$ can be linked to a distinct person in $W$. If that applicant's former program remains on their $B$ list, the witness is someone else. The same claims hold separately for applicants placed only under $B$. Both bounds can be attained simultaneously.
+\end{theorem}
+\begin{proof}
+At each program cancel its common holders, then pair departing holders one-to-one with incoming holders until one side is exhausted. Start from an applicant placed only under $A$. At the current applicant $i$, the old assignment $j=M_A(i)$ ranks above $M_B(i)$ under $A$. If $M_B(i)$ ranks above $j$ under $B$, stop at $i\in W$. At the start this happens exactly when $B$ has omitted the lost program.
+
+Otherwise $i$ wants $j$ under $B$. Program $j$ is real and listed under $B$, so stability makes it full of holders who outrank $i$. Its incoming holders cover all its departures. Follow $i$'s pairing to an arrival $h$. Under $A$, $h$ ranks $M_A(h)$ above $j=M_B(h)$: either $j$ was omitted, or $h$ would otherwise block with $j$, where $h$ outranks the former holder $i$. This is the same condition we started with. Continue at $h$. Each applicant has at most one predecessor and the starting applicants have none. The paths cannot meet or cycle, so each ends at its own witness. Exchange $A$ and $B$ for the gain paths.
+
+For equality take two one-seat programs $x,y$ and three applicants. One lists only $x$, one lists only $y$, and one has highest priority at both. Switching the last applicant's order from $x,y$ to $y,x$ displaces one specialist and places the other. The same person witnesses both changes. Disjoint copies attain any integer bound.
+\end{proof}
+
+\paragraph{Binding shortlists}
+When the two policies preserve the underlying order wherever both list a program, a witness must have an assigned program omitted on the other list. In the fixed-priority pooled replay, of the 2,527 Chilean applicants who lost their placement under the rank-informed rule, 693 no longer listed their old program. The remaining 1,834 still listed it, including 1,752 whose \emph{entire} menu stayed the same. We traced these 1,834 losses to 1,834 distinct other applicants with edited menus. Reversing the comparison, 665 of 740 gains reached another person. In the ordinary and enriched NYC simulations of Section~\ref{sec:twonyc}, 299 of 945 and 439 of 2,110 losses, respectively, occurred with the old apartment still on the list. Paths crossed up to seven programs in Chile and three in NYC. The trace certifies a chain in the two allocations. Several valid pairings can exist.
+
+\paragraph{Identical option sets}
+With a common graph, a witness must be placed under both policies and reverse the order of their two assigned programs. If the orders also coincide, $W$ is empty, recovering invariance of the matched set \citep{roth1986}. When families try the recommendations first and then append every omitted eligible option (Section~\ref{sec:response}), 9,027 records met this reversal condition. We traced 1,871 losses and 540 gains to distinct witnesses within each direction. We also traced all 1,231 gross changes in the corresponding rental scenarios. As a finite check of the general result, we enumerated all pairs of stable outcomes across all ordered lists, strict priorities and capacity vectors in $\{0,1,2,3\}^2$ in markets with three applicants and two programs. Both path constructions passed on 9,068,610 comparisons, including 8,867,592 with unequal graphs.
+
+This question differs from asking which contracts are possible given only acceptability and one side's rankings \citep{oneSide}, whether a single preference profile rationalizes observed assignments \citep{revealedStability}, or which new stable assignment lies close to an earlier one \citep{evolving}. Here the two policies and assignments are given. The paths identify a distinct edited comparison behind each loss, including a loss experienced by an applicant who kept their former option.

@@ -1,0 +1,124 @@
+# Who Gets a Place? Shortlists in Housing, Jobs, and Schools
+
+This paper compares shortlists in Chilean school admissions, NYC rental simulations and a separate NYC jobs simulation. It links four Chilean application cohorts to enrollment the following April, tests what happens when applicants go beyond the five recommendations, and studies protection when recipients can switch schools. The original rental pilot uses archived Haiku outputs; a separate post-hoc replay uses the public GPT menus across three windows to audit coordination and individual access. The jobs section uses the team's released GPT aggregates, including a coordinated-random baseline. Chilean offer predictors were frozen after training on 2019 data. Each study keeps its own reference target and denominator explicit.
+
+[Read the current paper](who-gets-a-place.pdf) · [Final referee assessment](FINAL_REVIEW.md) · [Anonymous review build](REVIEW.md) · [Search, enrollment and replication](behavior/README.md) · [Earlier referee assessment](REFEREE_AUDIT.md) · [Previous robustness evidence](audit/README.md)
+
+The review documents above describe the imported research snapshot. They are
+historical audit records, not assessments of the jobs integration. Its exact
+tracked source, subsequent edits and build instructions are in
+[INTEGRATION.md](INTEGRATION.md) and [import-provenance.json](import-provenance.json).
+
+## What does the jobs anchor establish?
+
+Across the frozen and replication windows, coordinating one menu position
+raises placement under GPT by 13.0 and 15.9 percentage points. Applying the
+same construction to random menus still gives higher mean placement than
+anchored GPT, by 2.8125 and 2.00521 points. These last comparisons are derived
+point estimates; paired intervals are not available in the released aggregate
+tables. The new audit of post-anchor coverage, gross exits, entrants and rank
+changes remains pending the licensed inputs and private response caches.
+No new jobs replay or recommender call is included. Under fixed strict DA,
+the number of edited menus bounds possible gross exits by 459 and 308 in
+the two panels. These are outer bounds, not observed transition counts.
+
+[Jobs methods](jobs-appendix.tex) · [Verified source tables and derived means](jobs/summary.csv) · [Source hashes](jobs/provenance.json)
+
+Run `python3 jobs/rebuild.py` from this directory to authenticate the four
+public source tables and regenerate the jobs table. Jobs coverage is
+conditional on a full-list match; the retained Haiku rental table uses all
+renters. Chile's April-school coverage uses enrollment-linked applicant-years.
+
+## What happens after coordinating the public rental menus?
+
+The completed GPT follow-up reconstructs all 1,280 supported markets in three
+previously evaluated windows and both supply designs. The original one-position
+anchor raises placement but produces incumbent exits: 87, 37 and 78 in the
+enriched panels. Balancing all menu positions gains another 12.65–12.83
+placement points there while losing 3.05–4.17 conditional coverage points
+relative to the anchor. It improves both outcomes over uncoordinated random
+menus. Model-informed score controls also improve both over the original
+anchor, so the comparison does not establish an inherent tradeoff or the
+necessity of GPT rankings. Balancing permits more edits per person while
+preserving menu length.
+
+This is a post-hoc modeled-allocation audit, not a field effect or a fresh
+held-out evaluation. All ordinary panels, nine fixed controls, subgroup
+transitions and 20-draw anchor sensitivity are included in the manuscript.
+Run `python3 rental-access/rebuild.py` to authenticate the public aggregates
+and regenerate seven tables. It also checks the compact input provenance:
+55,115 candidate hashes, 54 exporter comparisons, 36 downstream placement
+checks, and all 320 original supply omissions.
+
+[Rental access results](rental-access-main.tex) · [Methods and all controls](rental-access-appendix.tex) · [Source hashes](rental-access/provenance.json)
+
+## Can every old recipient keep a seat and switch schools?
+
+This revision compares the 314-hit full-contract certificate with protection of each previously seated pupil. It gives a reduction from Independent Set, checks constructive lower bounds on the same national lottery panels, and evaluates two policies on held-out priorities. The learned rule gains 50 historical enrollment hits and loses a baseline recipient in one of 384 fresh matched-course draws. A more conservative rule gains 28 and has an all-order proof. [Seat-retention results and reproduction](retention/README.md)
+
+## What changed when Chilean families received named recommendations?
+
+Chile’s 2021 School Explorer trial measured applications, assignment and later enrollment. Our comparison of the published randomized arms finds a change in second choices and an imprecise placement effect. We also reconstructed the same national application year. Among 200,591 linked entry-grade pupils, the rank-informed predictor gained 703 enrollment hits and lost 309 placements. Of those net lost places, 237 fell on pupils whose own displays stayed identical. [Field studies, national benchmark and mixed-adoption experiments](field-study/README.md)
+
+## The Chilean institutional replay
+
+The reconstructed regular round matches every initial course and no-offer outcome in the four evaluation years. The rank-informed menus cover 4,638 more eventual schools and place 1,670 fewer register-linked pupils. The three-cohort April-school ceiling on 1,024 matched draws per cohort changes from 278 under pooled seats to 314 with reserves, continuity and family rules. The path and post-offer flow calculations retain the fixed-priority benchmark. [Data, implementation and annual results](institutional/README.md) · [Reproduction instructions](institutional/REPRODUCTION.md)
+
+## When families pursue other schools
+
+Across 154,988 same-grade reapplicants, 139,190 named a school absent from the entire original list. We re-cleared the regular allocation with the exact formerly omitted courses families listed again. We separately tested the new schools against common complementary vacancies and measured how the comparison changes when different families keep searching. The placement deficit persists in the field-motivated simulations. The coverage advantage can reverse. [Behavioral tests, bounds, code and results](behavior/response/README.md)
+
+## What can the platform change?
+
+Before the lottery, one can optimize menu edits over a specified set of priority draws. The artifact includes the complexity proof, the 768-draw independent evaluation, a control matched on edit counts, and historical offer and enrollment comparisons. After tentative offers, a flow of voluntary moves can place additional applicants. A second flow certifies how far even a priority-free repair could go. [Lottery optimization](design/risk/README.md) · [Vacancy-chain certificates](design/chains/README.md) · [Cutoff-based recommendation and ablations](design/portfolio/README.md)
+
+## Read the results
+
+| Question | Aggregate evidence |
+| --- | --- |
+| Does full-list partner visibility increase while placement falls? | [Rental policy effects and block intervals](evidence/policy-rates.csv) · [School counts and denominators](evidence/school-levels.csv) · [Alternative school benchmarks](evidence/school-benchmarks.csv) |
+| Who gained or lost a placement? | [Rental joint transitions](evidence/joint.csv) · [School joint transitions](evidence/school-joint.csv) · [Rental named assignments](evidence/named-partners.csv) · [School named assignments](evidence/school-named.csv) |
+| Where can the model trace displacement? | [Number of paths by length](evidence/displacement-paths.csv) · [Exhaustive three-by-three market verifier](analysis/verify_paths.cpp) |
+| Could a referral recover a place? | [NYC](evidence/rental-referrals.csv) · [Chile](evidence/school-referrals.csv) · [Chilean display capacity](evidence/school-capacity.csv) |
+
+The rental effect estimates average borough-month rates with frozen ACS weights and equal month weights. Their intervals resample entire simulation blocks. Gross placement and referral counts pool repeated renter instances without geographic reweighting. The school cohorts report exact counts for each deterministic allocation replay. A pupil can appear in successive application years. The two pairs of Chilean cohorts have separate pre-data sign records. The [later-cohort validation plan](robustness/VALIDATION_PLAN.md) is timestamped at Git commit 261e1e7. The [shared benchmark, additional tests and reproduction instructions](robustness/README.md) distinguish the directional validation from exploratory analyses.
+
+## Build the paper
+
+The standalone source archive includes the class, bibliography style, figures, aggregate evidence and a copy of the working paper. With TeX Live installed, run `latexmk -pdf -halt-on-error main.tex` from its top-level directory. In a repository checkout, run the following from this paper's directory to use the archived class and bibliography style in its parent.
+
+```sh
+TEXINPUTS=.:..: BSTINPUTS=.:..: latexmk -pdf -halt-on-error main.tex
+```
+
+The figures and the aggregate consistency checks require Python, NumPy, pandas and matplotlib. To rebuild the figures from the distributed data, run `python analysis/loss_figure.py` and `python robustness/rollout_figure.py`. To reconcile the independently computed estimates, run `python analysis/verify_tables.py` and `python robustness/verify_robustness.py`. The [referee audit](audit/README.md) has additional verification commands.
+
+## Reproduce the analyses
+
+Start from the [upstream research checkout](https://github.com/ikhillan/CS2880-final-project/tree/f0c4f653159062df31992e96c4f967ed02f9a33d). Install its Python requirements. Set `REPO` to that checkout's absolute path. The rental code uses its three June–August 2026 cleaned listing releases, calibrated Census renter profiles and committed Haiku selections. Data rebuilding instructions are in the [rental pilot](https://github.com/ikhillan/CS2880-final-project/tree/f0c4f653159062df31992e96c4f967ed02f9a33d/findings/claude-haiku-pilot). From this paper's directory run
+
+```sh
+mkdir -p replay
+python analysis/rental_replay.py --repo "$REPO" --out replay
+(cd "$REPO" && python -m experiments.pilot_referrals --output "$REPO/results/rental-referrals-check.csv")
+```
+
+Prepare the private school market binaries, masks and partner vectors using the [original 2019 fits and school preparation](https://github.com/ikhillan/CS2880-final-project/tree/f0c4f653159062df31992e96c4f967ed02f9a33d/publication/research/observed/school) and the [2022/23 preparation and export instructions](https://github.com/ikhillan/CS2880-final-project/tree/f0c4f653159062df31992e96c4f967ed02f9a33d/publication/research/policy/equity). Set `NUMERIC` to the resulting private directory. The [original ministry releases](https://datosabiertos.mineduc.cl/sistema-de-admision-escolar-sae/) provide the inputs. The paper distributes aggregate results. The public protocols in the research checkout distinguish the original sign test and the later accepted-offer analysis.
+
+```sh
+mkdir -p replay
+python analysis/paired_school.py --publication "$REPO/publication" --numeric "$NUMERIC" --out replay
+python analysis/school_capacity.py --published "$REPO/publication" --numeric "$NUMERIC" --out replay/school-capacity.csv
+python analysis/school_referrals.py --published "$REPO/publication" --numeric "$NUMERIC" --out replay/school-referrals.csv
+python analysis/displacement_paths.py --repo "$REPO" --school-reader analysis/paired_school.py --school-numeric "$NUMERIC" --out replay/displacement-paths.csv
+c++ -O3 -std=c++17 -I"$REPO/publication/research/observed/school" analysis/school_controls.cpp -o replay/school_controls
+c++ -O3 -std=c++17 -I"$REPO/publication/research/observed/school" analysis/school_flow_check.cpp -o replay/school_flow_check
+for year in 2022 2023; do
+  replay/school_controls "$NUMERIC/$year.bin" "$year" "replay/school-controls-$year.csv"
+  replay/school_flow_check "$NUMERIC/$year.bin" "$year" "$NUMERIC" > "replay/school-independent-$year.csv"
+done
+c++ -O3 -std=c++17 analysis/verify_paths.cpp -o replay/verify_paths
+replay/verify_paths > replay/path-exhaustive.json
+```
+
+The independent school flow verifier uses a single national graph per cohort. The primary visible-capacity calculation solves disjoint grade graphs and the referral routine uses the programs' residual capacity. The verified maxima agree under both implementations. The enumerator checks stability by direct blocking-pair tests and includes all three-by-three unit markets up to relabeling. These finite checks supplement the analytical proofs in the manuscript.

@@ -1,0 +1,41 @@
+\subsection{Choosing a list before the lottery}\label{sec:scenario-boundary}
+Suppose a platform has $m$ possible priority draws, listed explicitly.
+A draw supplies a strict priority order at each program. Applicant preferences,
+candidate pools, capacities, scores and protected options are fixed.
+On draw $s$, let $M^s=\da_s(A)$ be the assignment on the old menus.
+The platform must choose a single display $D$ before it learns $s$.
+Call a draw a failure of the stable-witness requirement if $M^s$ is infeasible or unstable on $D$.
+The old assignment can vary by draw.
+
+\begin{theorem}\label{thm:scenario-budget}
+For an explicit list of equally likely draws, the maximum additive score subject to at most $b$ witness failures is computable in polynomial time for each fixed $b$. When $b$ is part of the input, deciding whether score $K$ can be reached is NP-complete and W[1]-hard parameterized by $b$. The hardness already holds with unit seats, a common priority order at all programs in each draw, the same baseline assignment in every draw, and two options on each editable menu. The same NP-completeness and parameterized hardness hold if a draw instead counts as a failure only when some old recipient loses their placement under DA.
+\end{theorem}
+\begin{proof}
+For any nonempty set $H$ of draws to protect, define $L_i^s$ and $V_i^s$ as in Proposition~\ref{prop:slots}, using $M^s$ and the priorities in $s$.
+The required options and the eligible options for row $i$ are respectively
+\[
+ L_i(H)=\bigcup_{s\in H}L_i^s,\qquad
+ V_i(H)=\bigcap_{s\in H}V_i^s .
+\]
+A single display protects all draws in $H$ exactly when
+$L_i(H)\subseteq D_i\subseteq V_i(H)$ and $|D_i|=q_i$ for every $i$.
+This follows by imposing Proposition~\ref{prop:slots} in each draw.
+The old menus meet all these constraints. Retain the required options and take the highest-scored eligible options in the remaining slots. For $0\le b<m$, enumerate the $\binom{m}{b}$ sets of draws to allow to fail and optimize on each complement.
+A display failing fewer than $b$ draws is considered since its failed draws can be extended to a set of size $b$.
+For $b=m$, fill the menus using only the institutional protections.
+This gives a polynomial algorithm for fixed $b$, including $b=0$.
+The enumeration concerns the witness requirement. It does not establish a polynomial algorithm for a placement-only requirement on unrestricted markets.
+
+For hardness, start with a simple graph $G=(V,E)$ and a clique target $2\le k\le |V|$. Create one draw per vertex and two applicants per edge $e$. Applicant $i_e$ ranks $y_e\succ x_e\succ z_e$ and must show two of these options, including $x_e$. Their old menu is $\{x_e,z_e\}$. Applicant $h_e$ lists only $y_e$. All three programs have one seat and occur in no other edge's lists. The only positive score is one for displaying $y_e$ to $i_e$. On the old menus every $i_e$ gets $x_e$ and every $h_e$ gets $y_e$. In draw $v$, rank $i_e$ above $h_e$ exactly when $v\in e$. Concatenating these ordered pairs in a fixed edge order gives one strict priority order common to all programs in that draw.
+
+Let $S$ be the edges whose applicants switch to $\{x_e,y_e\}$. If $v\in e\in S$, applicant $i_e$ takes $y_e$ from $h_e$, who then has no placement. If $e\notin S$ or $v\notin e$, both old placements survive in the gadget. Thus the failed draws for either requirement are exactly $\bigcup_{e\in S} e$, and the score is $|S|$. With $b=k$ and $K=\binom{k}{2}$, the score is attainable exactly when $G$ contains a $k$-clique: a simple graph on at most $k$ vertices has at most $\binom{k}{2}$ edges, with equality only for a clique. Both decision problems are in NP by guessing the menus and checking each explicit draw, using DA for the placement criterion. The reduction preserves the parameter $k$, and parameterized Clique is W[1]-complete \citep[Corollary~3.2]{downeyClique}.
+\end{proof}
+
+Hardness also applies at a fixed percentage of failures. Fix a rational $0<\alpha<1$. Before the reduction, add $p$ mutually adjacent vertices joined to every original vertex, choosing the smallest $p\ge0$ with $k+p\ge\alpha(|V|+p)$. Then add isolated vertices until the graph has $m=\lceil (k+p)/\alpha\rceil$ vertices. These additions take polynomial size for fixed $\alpha$, preserve the clique decision at target $k+p$, and give $\lfloor\alpha m\rfloor=k+p$. If distinct priority profiles are required, append $m$ applicants with one private seat each. Use a different cyclic order of this irrelevant block in each draw. The distribution above is uniform on the listed scenarios. It makes no assumption of uniformity on the set of all priority permutations.
+
+The reduction realizes a familiar combinatorial problem inside a matching market. Each edit earns a point, and distinct failed draws count against a shared budget even when several edits fail on the same draw. This is the set-union knapsack objective of \citet{setUnionKnapsack}; the construction makes these sets arise from actual lost placements. Related work optimizes the choice of a matching across uncertain preference profiles \citep{aziz_uncertain,chenMultimodal}. Here the design variables are the displayed edges and the old assignment in each draw is given by the baseline policy. For one predetermined assignment and all refinements of tied priorities, stability under every refinement is the classical super-stability condition \citep[Proposition~2]{irvingSuper}. Protecting the old DA assignment separately in each listed draw permits those assignments to differ.
+
+\paragraph{What changes under a uniform lottery?}
+The distribution of priority orders matters. Suppose the baseline assignment is the same $M$ on every draw in the support, program priorities have fixed tiers, and each pair within a tied tier has equal chances of coming first. This includes a uniform common lottery and independent uniform program lotteries. For any menu, either $M$ stays stable on every supported draw or failure has probability at least $1/2$. A dropped partner fails on every draw. Otherwise, take a pair that blocks on some draw. The applicant always prefers the program to their partner in $M$. A vacancy or an incumbent in a strictly lower tier gives a certain block. In the remaining case, the applicant outranks a particular tied incumbent with probability $1/2$, which suffices to block. Consequently every failure tolerance below one half gives the same witness-constrained optimum as zero tolerance in this special case. With two tied applicants contesting one incumbent's seat, the threshold is attained.
+
+A draw-dependent baseline changes the conclusion even under a uniform common lottery. Give every program one seat. Applicant $a$ lists only $x$. Each of $t\ge1$ others lists only $y$. Applicant $i$ changes from $x,z,w$ to $x,y,z$, ordered as written, with private $z,w$. The only possible blocking edge at the old outcome is $(i,y)$. It blocks exactly when $a$ precedes $i$ and $i$ precedes all $t$ original applicants to $y$. Then $i$ takes $y$ and its former holder goes unplaced. This event has probability $1/[(t+2)(t+1)]$. An edit can therefore violate the guarantee on an arbitrarily small share of draws even when every old partner stays available.

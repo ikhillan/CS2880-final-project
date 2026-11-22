@@ -62,25 +62,25 @@ which makes that protection more flexible than freezing their entire assignment.
 SLIDE 4 — Three results, three contributions
 02:45–03:55 | 70 seconds
 
-Three results organize the paper.
+Three findings organize the paper.
 
-Rentals show the prediction–placement tradeoff. In the held-out enriched
-sample, GPT improves coverage by 8.1 percentage points while placement falls
-3.7 points. Those opposite directions repeat in all three windows. An
-individual prediction target can miss what happens when people compete.
+First, aggregate gains do not guarantee individual protection. In our rental
+replay, anchoring GPT menus gains four percentage points of placement in the
+held-out enriched panel. Yet 37 previously placed renters become unplaced.
+Those are modeled transitions across 10,240 renter appearances, not observed
+housing losses.
 
-Jobs give us a constructive test. Coordinating one menu position recovers
-thirteen to sixteen points of placement. We have not yet measured the
-anchor's effects on coverage, ranks, or individual exits, so this establishes
-aggregate placement recovery.
+Second, the baseline matters. Anchoring also helps random job menus. That
+coordinated random policy places more people than anchored GPT in both
+published windows, by 2.8 and 2.0 percentage points. We should compare
+coordination with coordination.
 
-Chile shows whom the aggregate can conceal. Pupils without a historical
+Third, the distribution matters. In Chile, pupils without a historical
 initial offer make up 7.4 percent of the linked sample and account for
-76 percent of the net placement decline. That group also loses placements
-against the family's first five courses, even when total placement rises.
+76 percent of the net placement decline under rank-informed menus.
 
-These findings lead to the theory question: what can recommendations improve
-while protecting each recipient?
+Together these results lead to a constructive question: how much can a
+recommender improve while protecting every baseline recipient?
 
 
 SLIDE 5 — One person's menu can affect someone else
@@ -150,28 +150,26 @@ concrete next step: can we use the available options more effectively
 without making anyone's menu longer?
 
 
-SLIDE 8 — Jobs: coordination recovers 13–16 points
+SLIDE 8 — Jobs: the coordinated comparison
 07:30–08:40 | 70 seconds
 
 Jobs show a larger placement loss: 15.5 points in the frozen sample and
-17.5 in replication. The five-option coverage advantage is unresolved in
-replication; its interval spans zero.
+17.5 in replication. We repair the menus by computing a maximum matching
+on all feasible pairs. Each matched option becomes an anchor on its
+recipient's menu, replacing one option if necessary. List lengths stay fixed.
 
-For the repair, compute a maximum matching on all feasible pairs and use its
-assigned options as anchors. Add each anchor to its recipient's menu,
-replacing one option if needed. The list length stays fixed. Then rerun
-deferred acceptance.
+The connected points show that this recovers thirteen to sixteen points.
+Now apply exactly the same coordination to random menus. Those gray diamonds
+are the stronger comparison: anchored random still places more people than
+anchored GPT, by 2.8 points in the frozen sample and 2.0 in replication.
 
-The connected points show the recovery: thirteen points in the frozen
-sample and sixteen in replication. Anchored GPT still places fewer people
-than random, by 2.6 and 1.5 points respectively. The intervals shown are
-paired, seed-block intervals.
+The intervals drawn compare each policy with plain random. The public totals
+do not supply the paired interval between the two anchored policies.
 
-This is a substantial gain using information about the whole market.
-The analysis has not measured coverage after anchoring, rank changes, or
-gross exits. We therefore still need to learn whether the recovered
-placements preserve relevant options and protect people who were already
-placed. That question connects the repair to Chile.
+Those totals also cannot tell us who lost a placement, or whether reference
+coverage survived. We need individual transitions for that. We can run that
+check on the public rental menus, and will return to it after defining what
+it means to protect a recipient.
 
 
 SLIDE 9 — Chile: the placement loss is uneven
@@ -277,65 +275,64 @@ to optimality.
 
 There is also a deployment gap. These menus use historical labels and protect
 the supplied design draws. They establish what is attainable in that
-benchmark. They do not establish protection on an unseen lottery. That leads
-to the next test.
+benchmark. They do not establish protection on an unseen lottery. The appendix
+separately tests rules chosen before assignment. For the rental anchor, we
+can ask a more direct question: does it actually retain prior recipients?
 
 
-SLIDE 14 — Protection before the lottery
+SLIDE 14 — Rentals: count who loses access
 14:05–15:25 | 80 seconds
 
-We freeze two ministry-side rules after applications arrive, before the ordinary lottery. Current-cohort initial
-offers, realized tie-breaks, and April outcomes cannot choose the menus.
+We reconstructed all 1,280 available rental markets and verified every cached
+GPT candidate list. No new model calls were needed. This table shows the
+original held-out enriched panel. This audit reuses those windows; it is not
+fresh held-out validation of the new policies.
 
-The structural rule identifies shared options that guarantee a seat under
-every permitted lottery order. It freezes relevant competitor and family
-interactions around pupils without that guarantee, and fills remaining
-positions using submitted rank. Its proof covers every strict ordinary
-tie ordering under the reconstructed mechanism and fixed inputs.
+First compare anchored GPT with original GPT. Placement rises four points,
+but 37 prior recipients lose access. Coverage falls slightly; our simultaneous
+interval includes zero. That does not establish preservation.
 
-The learned rule scores changes using an earlier cohort and passes the design
-panel. Both rules face the same fresh lotteries: 384 matched-course draws and
-96 school-and-family-ticket draws across the three evaluation cohorts.
+Next compare balancing with the anchor. Balancing spreads recommendations
+across listings using exact flow optimization. It gains another 12.6 placement
+points, loses three coverage points, and displaces 171 prior recipients. It
+keeps list lengths fixed, but can replace more than one option per person.
 
-The structural rule gains 28 net historical hits and has zero incumbent exits
-in all 480 tests. The learned rule gains 50 hits, but has one exit in each
-test generator. Its design-panel certificate did not generalize.
+Relative to plain random, balancing actually improves both coverage and
+placement. So this is not an unavoidable conflict between the two objectives.
 
-These are held-out lotteries on the same populations. Coverage gains are
-scored once. The structural rule's simulations check its proven guarantee.
-The learned failure shows why passing many simulated lotteries is a weaker
-assurance.
+The clearest competition result concerns renters with only one to five
+feasible options. Their own menus cannot change, yet their placement rises
+14.4 points under balancing. Changing other people's recommendations changes
+their access. These are simulated allocations with fixed preferences.
 
 
 SLIDE 15 — Broader impacts: who gets access?
 15:25–16:30 | 65 seconds
 
-The social objective needs to include people who currently lack access.
-Neither prospective Chile rule changes historical-school coverage for pupils
-with no initial offer. The structural rule produces no new entrants on the
-paired test panels. It protects recipients, but does not yet solve the access
-problem that motivated us.
+The social objective needs to include both current recipients and people
+who lack access. A policy can increase total placement while displacing
+some recipients. A policy that protects every recipient can also preserve
+existing exclusion. Our prospective Chile guarantee, detailed in the
+appendix, produces no new entrants on the paired test lotteries.
 
-There are other limits. Families can apply beyond a shortlist, schools differ
-in quality, and historical enrollment reflects constraints as well as choice.
-Retaining any seat can still mean moving someone to a less preferred school.
+Coverage is not welfare. Historical enrollment reflects constraints as well
+as choice. Retaining any seat can still mean moving someone to a less
+preferred school. Better recommendations also cannot create affordable
+housing or additional school seats.
 
-A responsible evaluation should therefore report exits, entrants, school
-changes, and group outcomes alongside prediction scores. Deployment would
-also require behavioral evidence about how people use recommendations and
-which protections they value. For AI for Social Impact, the technical
-challenge is to coordinate useful recommendations while making those
-distributional consequences and guarantees explicit.
+A responsible evaluation should report entrants, exits, worse assignments,
+and group outcomes. People should be able to add options and seek correction
+or appeal. We have not tested those safeguards or actual responses to our
+advice. That behavioral evidence is needed before deployment.
 
 
 SLIDE 16 — What we learned and what comes next
 16:30–17:00 | 30 seconds
 
-Recommendation quality has a market-level dimension. Coverage, simultaneous
-capacity, and protection of individuals can move differently.
+Recommendation quality has a market-level dimension. Coordination can improve
+coverage and placement together, but higher totals do not protect every person.
 
-Our next experiment measures coverage and gross exits under the NYC anchor,
-then compares it with coordinated baselines using the same information and
-menu budget. In Chile, the challenge is improving access for unplaced pupils
-while preserving a credible protection guarantee. Those tests connect the
-measured gains to the social objective.
+We now have individual access tests, stronger coordinated comparisons, and a
+formal retention problem. The next step is to optimize under that protection
+and test what happens when people add options or ignore advice. That connects
+the algorithms to the choices people actually make.

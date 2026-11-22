@@ -1,0 +1,7 @@
+year,policy,scope,maximum,source_renters_or_pupils,reachable_capacity,baseline,after,worse,named
+2023,blind,display,523531,536057,1030291,493965,,,
+2023,blind,top5,0,0,0,493965,493965,0,0
+2023,blind,any,0,0,0,493965,493965,0,0
+2023,rank,display,523378,536057,1029218,493448,,,
+2023,rank,top5,1,1,1,493448,493449,0,1
+2023,rank,any,97,97,3550,493448,493545,0,97

@@ -1,0 +1,13 @@
+table,panel,column,sample,outcome,unit,controls,estimate,clustered_se,n,normal_95_lo,normal_95_hi
+O-4,A,1,all,enroll_listed,probability,randomization,-0.118,0.029,1775,-0.17484,-0.06116
+O-4,A,2,all,enroll_listed,probability,expanded,-0.112,0.030,1775,-0.17080,-0.05320
+O-4,A,6,all,choose_top_five_given_listed,probability,expanded,0.064,0.039,1136,-0.01244,0.14044
+O-4,B,1,already_enrolled,enroll_listed,probability,randomization,-0.007,0.054,596,-0.11284,0.09884
+O-4,B,2,already_enrolled,enroll_listed,probability,expanded,0.004,0.053,596,-0.09988,0.10788
+O-4,B,6,already_enrolled,choose_top_five_given_listed,probability,expanded,0.025,0.069,389,-0.11024,0.16024
+O-4,C,1,pre_enrollment,enroll_listed,probability,randomization,-0.172,0.032,975,-0.23472,-0.10928
+O-4,C,2,pre_enrollment,enroll_listed,probability,expanded,-0.159,0.033,975,-0.22368,-0.09432
+O-4,C,6,pre_enrollment,choose_top_five_given_listed,probability,expanded,0.090,0.041,639,0.00964,0.17036
+I,A,6,all,attended_school_value_added,normalized_units,expanded,0.035,0.030,1701,-0.02380,0.09380
+I,B,6,already_enrolled,attended_school_value_added,normalized_units,expanded,-0.025,0.058,578,-0.13868,0.08868
+I,C,6,pre_enrollment,attended_school_value_added,normalized_units,expanded,0.099,0.037,934,0.02648,0.17152

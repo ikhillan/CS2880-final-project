@@ -1,0 +1,5 @@
+year,scenario,permille,rep,n,linked,adding_blind,adding_rank,edges_added_blind,edges_added_rank,blind_placed,rank_placed,blind_linked_placed,rank_linked_placed,blind_april,rank_april,blind_first,rank_first,blind_offers,rank_offers,blind_nooffer_linked_placed,rank_nooffer_linked_placed,blind_nooffer_april,rank_nooffer_april,exits,entries,potential_blind,potential_rank
+2025,relisted_original,1000,0,463923,444971,148,199,234,311,430998,430657,415415,415108,366003,367061,240671,241276,428763,430084,384,149,7391,7366,475,134,148,199
+2025,relisted_tail,1000,0,463923,444971,148,199,234,311,430999,430658,415415,415109,366003,367061,240665,241272,428763,430084,384,150,7391,7366,476,135,148,199
+2025,relisted_nooffer_original,1000,0,463923,444971,28,30,28,30,431000,430655,415416,415106,365989,367037,240664,241273,428752,430076,385,150,7391,7366,479,134,28,30
+2025,relisted_nooffer_tail,1000,0,463923,444971,28,30,28,30,431000,430655,415416,415106,365989,367037,240664,241273,428752,430076,385,150,7391,7366,479,134,28,30

@@ -1,0 +1,3 @@
+year,scenario,applicants,blind_eligible,informed_eligible,jointly_eligible,blind_original_hits,informed_original_hits,blind_only,common,informed_only
+2022,one_school,570891,40823,40820,40554,444227,445234,1039,334,220
+2022,least_congested_school,570891,40823,40820,40554,444227,445234,808,275,327

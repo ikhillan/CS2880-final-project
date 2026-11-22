@@ -1,0 +1,68 @@
+\section{Does coordination retain individual access?}\label{sec:rental-access}
+The missing jobs records prevent a direct audit of its individual transitions.
+We can test the same repair using the public rental GPT menus. This follow-up
+reconstructs all 1,280 supported markets across the original development,
+held-out and replication windows, including both supply designs. It uses
+\texttt{gpt-6-luna}, not the Haiku menus in Section~\ref{sec:twonyc}.
+The outcomes of these windows were already known when we designed the audit.
+Their names describe the original experiment; none is an untouched test of
+this follow-up.
+
+Write $A(G)$ for a maximum-cardinality, maximum-reuse anchor applied to GPT
+menus $G$. We keep every personal menu length fixed and rerun DA with the
+same modeled preferences and listing priorities. Placement includes everyone.
+Here coverage is the equal-market mean fraction of full-list recipients whose
+partner appears on the menu. This differs from the unconditional, geographically
+weighted Haiku rates above. Table~\ref{tab:rental-access} reports paired
+simulation intervals adjusted jointly for eight planned contrasts within
+each window and design, as specified in Appendix~\ref{app:rental-access}.
+
+\begin{table}[ht]\centering\small
+\caption{Rental GPT follow-up: $A(G)-G$, in percentage points, with 95\%
+simultaneous seed-bootstrap intervals. Exits are actual replay transition
+counts, not losses observed in the housing market. Appearances can repeat
+households across draws.}\label{tab:rental-access}
+\input{rental-access/main-table}
+\end{table}
+
+The anchor gains 3.51--4.92 placement points in enriched markets, with
+positive simultaneous intervals. The gains are only 0.69--0.96 points in
+ordinary markets, whose simultaneous intervals include zero. Estimated
+coverage changes are negative in all six panels. None excludes zero after
+the eight-contrast adjustment; this does not establish coverage equivalence.
+The net gains also conceal incumbent losses: enriched panels have 87, 37 and
+78 exits, and 472, 275 and 457 appearances move to a worse modeled rank,
+counting loss of a seat as worse than any feasible apartment.
+
+The coordinated benchmark again matters. Relative to anchored random,
+anchored GPT's placement differences are $-0.59$, $-0.61$ and $-1.28$ points
+in ordinary markets, and $+0.92$, $+0.07$ and $+1.21$ in enriched markets.
+Only the last window in each design excludes zero under the simultaneous
+adjustment. It retains higher reference coverage than anchored random in
+all six panels. These comparisons do not support one universally best policy.
+
+A stronger congestion control changes the conclusion about placement.
+$B(G)$ rebuilds all menus to minimize squared listing exposure, then preserves
+as much cached GPT rank score as that minimum permits. Against $A(G)$ it
+gains 6.61--7.62 placement points in ordinary markets and 12.65--12.83 in
+enriched markets, while losing 5.13--6.06 and 3.05--4.17 coverage points,
+respectively. Both directions exclude zero in all six simultaneous comparisons.
+This is a tradeoff between these policies, not an impossibility result.
+Balancing uses the same information and menu lengths but can edit several
+positions, so this is not a comparison between two one-slot repairs.
+Indeed, $B(G)$ has higher placement and coverage than uncoordinated random
+menus in all six panels.
+A control using the simulator's observable utility scores improves both
+coverage and placement over $A(G)$ in every panel with positive pointwise
+intervals; it uses information beyond the cached GPT rankings.
+
+Individual protection remains a separate requirement. Across the enriched
+panels, 11 exits occur among 8,337 appearances with only one to five feasible
+options. Their menus already contain every option and are unchanged by the
+anchor. Other renters' edits can therefore remove access even when a person's
+own menu is complete. This is the same allocation externality studied in
+Chile, under a different preference model and without a field-effect claim.
+Spillovers can also help: in the enriched held-out panel, balancing raises
+placement by 14.41 points among renters with one to five feasible options,
+whose menus remain fixed. Even this larger improvement is not individual
+protection: balancing causes 171 incumbent exits overall relative to $A(G)$.

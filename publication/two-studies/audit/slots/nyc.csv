@@ -1,0 +1,5 @@
+site,panel,pool,markets,people,placed,proposed_rows,whole_rows_flagged,score_edited_rows,baseline_replaced_options,proposed_options_outside_baseline,proposed_new_options_kept,improved_assignments,full_control_placed,full_control_placement_gain_vs_b,full_full_control_coverage,full_full_control_gain_vs_b,full_reference_edges,full_baseline,full_missed,full_outside_pool,full_blocks,full_no_slot,full_candidate_gain,full_whole_oracle_gain,full_slot_oracle_gain,full_slot_score_gain
+NYC,primary,union,240,15360,7858,8309,6899,8147,23570,33563,23570,67,7820,432,7820,5510,7820,1443,6377,4657,1129,0,867,132,591,243
+NYC,primary,all,240,15360,7858,8309,6899,8147,23570,33563,23570,67,7820,432,7820,5510,7820,1443,6377,0,4363,0,867,132,2014,243
+NYC,enriched,union,240,15360,10268,12329,9595,12204,36384,49510,36384,80,10451,1081,10451,7816,10451,1723,8728,6716,1350,0,912,133,662,193
+NYC,enriched,all,240,15360,10268,12329,9595,12204,36384,49510,36384,80,10451,1081,10451,7816,10451,1723,8728,0,5710,0,912,133,3018,193

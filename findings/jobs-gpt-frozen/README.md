@@ -54,6 +54,8 @@ Each seeker's list keeps its length, but one slot is reserved for a job from a m
 | GPT, half list | 6.2% | 75.6 | 77.7 | +2.2 | +2.4 | +1.9 | −0.7 |
 | Honest ranker, 5 jobs | 52.1% | 35.1 | 73.6 | +38.5 | +47.9 | +29.2 | −4.3 |
 
+These are aggregate placement gains. The released jobs tables do not measure the anchor's reference-job coverage, gross exits or individual rank changes. The original jobs inputs and saved menus were unavailable for the November 22 follow-up, so these gaps remain open for jobs. The [completed rental audit](../rental-anchor-access/README.md) applies the same anchor to the fully reconstructed public rental panels: it finds gross exits despite higher placement, and a broader balancing control outperforms the anchor on placement while losing coverage. Rental results do not fill in missing jobs outcomes or establish GPT's superiority to coordinated alternatives.
+
 ## Repair cost and protection
 - **Cheapest stable repair:** about 3.7 of 12.1 firms for GPT k5, against 3.9 for random (`methods.csv`). Reverse-delete and prefix cover are near-optimal heuristics.
 - **Protection:** preventing additional avoidable losses costs essentially nothing extra. The protected lower-wage or all-seeker set excludes people worse off even under full-information, seeker-optimal stable matching; see [`protection_sets`](../../hiddenoptions/audit.py). The premium is 0 in nearly all markets, and at most 1 audit in about 1% of them (`premium.csv`).

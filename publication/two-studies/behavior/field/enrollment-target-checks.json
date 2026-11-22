@@ -1,0 +1,26 @@
+[
+  {
+    "year": 2022,
+    "register_linked_applicants": 549997,
+    "eligible_edges_rebuilt_from_C1": 1921827,
+    "checked_linked_population_rows": 12
+  },
+  {
+    "year": 2023,
+    "register_linked_applicants": 516921,
+    "eligible_edges_rebuilt_from_C1": 1843453,
+    "checked_linked_population_rows": 12
+  },
+  {
+    "year": 2024,
+    "register_linked_applicants": 457231,
+    "eligible_edges_rebuilt_from_C1": 1633626,
+    "checked_linked_population_rows": 12
+  },
+  {
+    "year": 2025,
+    "register_linked_applicants": 444971,
+    "eligible_edges_rebuilt_from_C1": 1560996,
+    "checked_linked_population_rows": 12
+  }
+]

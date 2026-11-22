@@ -1,0 +1,9 @@
+support,period,design,bm_cells,positive_coverage_cells,negative_placement_cells,delta_coverage_pp,delta_placement_pp
+own,primary,enriched,7,7,7,17.620281738839196,-20.03755740826609
+own,primary,uniform,8,8,8,20.664628345191897,-15.262527665407784
+own,replication_2025,enriched,12,12,12,18.23368227572169,-18.92010669125153
+own,replication_2025,uniform,12,12,12,20.04688241277711,-15.296254973744047
+common_to_both_designs,primary,enriched,7,7,7,17.620281738839196,-20.03755740826609
+common_to_both_designs,primary,uniform,7,7,7,20.961298471991583,-14.604690102722786
+common_to_both_designs,replication_2025,enriched,12,12,12,18.23368227572169,-18.92010669125153
+common_to_both_designs,replication_2025,uniform,12,12,12,20.04688241277711,-15.296254973744047

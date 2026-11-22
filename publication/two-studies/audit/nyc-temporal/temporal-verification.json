@@ -1,0 +1,15 @@
+{
+  "independent_synchronous_checks_markets": 39,
+  "independent_synchronous_checks_assignments": 124800,
+  "independent_synchronous_checks_allocations": 1950,
+  "independent_prefix_rank_guarantees": 741,
+  "all_aggregate_rates_match_second_weighting_implementation": true,
+  "output_sha256": {
+    "temporal-common-support.csv": "23ae372cc88c6250cf51adcdcefa8524be87af39daeb49c7467373d69ed3fb1c",
+    "temporal-draws.npz": "3f306cdeb5445aeff5a0e0f48b7357e3d2d27f26955af340067e4395bdf23ecb",
+    "temporal-markets.csv.gz": "cfa50dc6876d3c483e9dfa7201b77633c749027a5cf6ea049456dc6ed9676b9c",
+    "temporal-receipt.json": "8d273d2034af2f680f1eeb8723e01d14677f0581879b81335a273994305c7fea",
+    "temporal-summary.csv": "aa125bfffc049f2cb61b0eeb547b699cd2f99aea4eaa37013d40caf6bf87b0ef",
+    "temporal-support.csv": "0d9905a8c04edd659b5bd42ce76f6468e1f5814f890e0d1da8de0d46c868ecc5"
+  }
+}

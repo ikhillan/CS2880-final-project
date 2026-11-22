@@ -1,0 +1,19 @@
+# Chilean offers and the shortlist ceiling
+
+We reconstructed the initial regular-round offer for each of 2,044,649 applicants in 2022–25 from school capacities (A1), applicant attributes (B1), ranked applications and recorded priorities (C1), and family links (F1). The comparator joins the saved course predictions to the initial fields in D1. All four cohorts match exactly at course level, including pupils without an offer. The ministry does not report which category of seat an applicant occupies. Doğan, Imamura and Yenmez previously reproduced the original assignments for 2017–25. This analysis asks how the seat and family rules affect a platform's choice of menus. [Ministry releases](https://datosabiertos.mineduc.cl/sistema-de-admision-escolar-sae/) · [Published reconstruction, Appendix S7](https://arxiv.org/html/2610.28471v1#S7.SS1) · [Rules and sources](RULES.md)
+
+[Run the reconstruction](REPRODUCTION.md) · [Historical validation choices](VALIDATION_PLAN.md) · [Ceiling specification](CEILING_PLAN.md)
+
+## Reading the results
+
+| Question | Files in this release |
+| --- | --- |
+| Does the engine reproduce initial offers? | [Full reports, 2022](results/all-2022.csv), [2023](results/all-2023.csv), [2024](results/all-2024.csv), [2025](results/all-2025.csv). The corresponding `cutoff` tables retain the shortlist model's original eligibility cutoff. |
+| Which rules change the historical fit? | Annual `ablation` tables add capacity rules, seat categories, sibling priority, then family list promotion. [2022 example](results/ablation-2022.csv) |
+| What happens to pupils in a policy replay? | The annual `transitions` tables count all applicants and historical strata. The `linked` and `first` tables independently evaluate both alternatives among April-register-linked pupils. [Transitions](results/transitions-2025.csv) · [Rank-blind comparison](results/linked-2025.csv) · [First-five comparison](results/first-2025.csv) |
+| How many pupils' April schools could a protected menu add? | [All support sizes, two targets, four specifications](results/ceiling-summary.csv) · [Pupil overlap, aggregated by year](results/ceiling-overlap.csv) · [Re-clearing the oracle menu](results/exact-design-checks.csv) |
+| Which family dependencies are visible in the actual priorities? | [Reversals within a school](results/lottery-architecture.csv) · [Adjacency of F1-linked applicants](results/family-adjacency.csv) |
+
+Each row labeled `paired` uses the reconstructed mechanism with the original within-course, within-tier draws. A separate uniform interleaving supplies the cross-tier comparisons required by the seat-specific rule. Rows labeled `family` share a family ticket order across courses at a school. Rows labeled `course-family` redraw it at each course. The April oracle changes one row for each additional pupil and holds other rows at their original menus. All 3,072 matched design re-clears return every original course and seat type. Its independent test uses 64 further draws per cohort under the matched specification and 16 per cohort under each family specification. An applicant named in multiple years contributes one observation in each year. Individual records, inferred family groups and assignments stay in local scratch space.
+
+From this directory, `python3 verify_fidelity.py` checks agreement, annual denominators, group partitions and linked counts from the published aggregates. Run `python3 verify_comparisons.py` to reconcile the original pooled results, both menu comparators and all matched design draws. Run `python3 family_witness.py` for the two-grade example in the appendix. With the full research checkout, `python3 test_institution.py --school /path/to/publication/research/observed/school --markets 600` checks an independent synchronous implementation on 600 generated markets.
