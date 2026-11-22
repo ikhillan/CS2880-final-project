@@ -27,7 +27,7 @@ Primary variant, 240 markets, in percentage points of seekers. Each difference i
 | Honest ranker, 5 jobs | −42.9 [−44.1, −41.6] | −56.2 | — | −0.5 [−1.9, 0.9] |
 
 - **Levels:** under full information, deferred acceptance places 79.9% of seekers. Random 5-job lists place 77.9%, GPT 62.4%, and the honest ranker 35.1%.
-- **Accuracy** is the share of seekers matched under full information whose full-information job was on their list. GPT's edge over random is small, and it is **not robust**: under the calibrated preferences (below) it falls to −0.2 [−1.5, 1.0]. Placement is the robust finding.
+- **Accuracy** is the share of seekers matched under full information whose full-information job was on their list. GPT's edge over random is small, and it is **not robust**: under the calibrated preferences (below) it falls to −0.2 [−1.5, 1.0], and in the held-out replication it is +0.8 [−1.5, 3.3]. Placement is the robust finding.
 - **GPT sits between random and the honest ranker:**
   - **Salary:** it does not steer by salary. The mean salary percentile shown is 0.47 for both groups, against 0.86 / 0.72 for the honest ranker (`rec_profile.csv`).
   - **Concentration:** its lists still overlap across seekers. The three most-recommended postings in a market take 37% of all slots (random 27%, honest ranker 56%), and 18% of postings are never shown (random 4%, honest ranker 63%) (`rec_concentration.csv`).
@@ -76,6 +76,36 @@ Rerunning the primary variant at the calibrated weights reuses the GPT answers (
 | Anchor gain, 5 jobs | +13.0 | +12.9 |
 | Accuracy, 5 jobs | +1.6 [0.2, 3.0] | **−0.2 [−1.5, 1.0]** |
 
+## Held-out replication: Nov–Dec 2025 (`replication/`)
+
+`configs/jobs_replication.json` is the frozen design applied to the two reserved months: 4 occupations × 2 months × 20 seeds × 4 variants, 640 markets. No design choice was changed after seeing the frozen results. Seeds 0–19 are reused, but the markets are new because the month is part of every RNG key.
+- **Requests:** 29,390, all valid, all returned as `gpt-6-luna`. They were sent 2026-11-21 23:39 to 2026-11-22 03:40 EST, in two sessions with resume-from-cache, at about $2.40.
+- **Checks:** every plan passed the full-market and protection checks, and exact methods certified every optimum. No market skipped the GPT arm.
+
+Primary variant, 160 markets, rule minus random in pp with 95% seed-block intervals:
+
+| | Frozen (Aug–Oct) | Replication (Nov–Dec) |
+|---|---|---|
+| Placed, GPT 5 jobs | −15.5 [−16.6, −14.4] | **−17.5** [−19.0, −16.1] |
+| — lower-wage / higher-wage | −22.6 / −8.5 | −23.0 / −12.0 |
+| Placed, GPT half list | −2.8 | −3.3 [−4.3, −2.4] |
+| Placed, honest ranker 5 jobs | −42.9 | −43.9 |
+| Accuracy, GPT 5 jobs | +1.6 [0.2, 3.0] | **+0.8 [−1.5, 3.3]** |
+| Accuracy, GPT half list | +3.4 [1.2, 5.9] | +3.2 [0.8, 5.7] |
+| Capacity share of the drop, GPT 5 jobs | 1.27 | 1.28 |
+| Anchor gain, GPT 5 jobs | +13.0 | +15.9 [14.8, 17.1] |
+| Anchored GPT vs random | −2.6 | −1.5 [−2.4, −0.7] |
+| Top-3 share / never shown, GPT 5 jobs | 37% / 18% | 36% / 16% |
+| Exact repair cost, GPT vs random (firms) | 3.7 vs 3.9 | 3.8 vs 3.9 |
+| Worse off after repair, GPT 5 jobs | 17% | 16% |
+| Protection premium | ≈ 0 | ≈ 0 (positive in < 1% of markets) |
+
+Levels: full information places 83.1%, random 5-job lists 80.9%, GPT 63.5% and the honest ranker 37.1%.
+
+**What holds and what doesn't:**
+- **Holds:** the placement loss, its size for lower-wage seekers, the capacity explanation, the anchor recovery and the near-zero protection premium. The replication interval for GPT k5 placement doesn't overlap zero and is close to the frozen estimate.
+- **Doesn't hold:** GPT k5's accuracy edge over random is not significant in the replication. Together with the calibrated sensitivity, this means the "more accurate" half of the claim holds only for the half-list arm. For 5-job lists the result is "places fewer, about as accurate".
+
 ## Caveats
 - **Calibration:** the preferences are uncalibrated in the frozen primary, and calibration cannot fit the wage-change target at any grid point.
 - **Seeker-side firms:** these are synthetic six-person agents, a shortcut the housing side has since dropped.
@@ -85,7 +115,7 @@ Rerunning the primary variant at the calibrated weights reuses the GPT answers (
 - **Analyses added after the freeze:** accuracy, capacity/anchor, protection, recommendation profile and calibration were all added after the frozen run, so they are exploratory. They are logged under `later_additions` in `jobs_manifest.json`.
 - **Model version:** `gpt-6-luna` has no dated snapshot, so `model_returned` and send times are logged instead.
 - **Code version:** the commit closest to the run is `a5b4bb2`; the working tree at run time was not recorded.
-- **Not run yet:** the held-out replication (2025-11 and 2025-12, `configs/jobs_replication.json`, about $2.40).
+- **Replication summary layout:** the replication's `summary.md` comes from the current `experiments/analyze.py`, which has no theory-check section, so `replication/` has no `theory.csv`.
 
 ## Files
 - `accuracy.csv`, `accuracy_pairs.csv`: accuracy and placement, by group and as paired differences against random.
@@ -96,6 +126,7 @@ Rerunning the primary variant at the calibrated weights reuses the GPT answers (
 - `viability.md`: cell sizes and the four-way partition by group for the frozen months.
 - `calibrated/`: the same tables at the calibrated weights, primary variant.
 - `calibration/`: the calibration grid and the selected point.
+- `replication/`: the same tables for the held-out months (Nov–Dec 2025), all variants.
 
 ## Reproduce
 You need the Revelio extract at `data/job_postings/raw/revelio_job_postings.csv` (sha256 in `revelio_2025_manifest.json`) and the ACS person file. With HUIT API access:
@@ -111,4 +142,7 @@ python -m experiments_jobs.describe_markets configs/jobs_frozen.json
 python -m experiments_jobs.calibrate configs/jobs_calibrate.json
 python -m experiments_jobs.remap_llm configs/jobs_frozen.json configs/jobs_frozen_calibrated.json
 python -m experiments_jobs.run configs/jobs_frozen_calibrated.json   # then accuracy / capacity_anchor / recommendation_profile
+# held-out replication: same steps with configs/jobs_replication.json; then
+python -m experiments_jobs.premium jobs_replication     # premium.py takes the run name, not the config path
+python -m experiments.analyze jobs_replication          # summary.md, methods.csv, groups.csv
 ```

@@ -244,9 +244,10 @@
         "llm_q50"
       ],
       "run_dates": [
-        "2026-11-15 (jobs_frozen: 43,596 requests, all ok, sent 11:21 to 18:31 ET)"
+        "2026-11-15 (jobs_frozen: 43,596 requests, all ok, sent 11:21 to 18:31 ET)",
+        "2026-11-21 to 2026-11-22 (jobs_replication: 29,390 requests, all ok, sent 2026-11-21 23:39 to 2026-11-22 03:40 ET, two sessions resumed from cache)"
       ],
-      "model_returned": "gpt-6-luna (every jobs_frozen response)"
+      "model_returned": "gpt-6-luna (every jobs_frozen and jobs_replication response)"
     }
   },
   "license": {

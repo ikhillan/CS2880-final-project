@@ -95,9 +95,16 @@ Calibration and sensitivity (after the freeze, exploratory): `experiments_jobs/c
 
 All later analyses are logged under `later_additions` in `jobs_manifest.json`.
 
+Held-out replication (2025-11 and 2025-12, run 2026-11-21 to 22): `configs/jobs_replication.json`, frozen design and weights, 640 markets, 29,390 GPT requests, all valid. Every plan passed its stability check. Primary variant, against random:
+- GPT 5-job lists place 17.5 fewer [−19.0, −16.1] (lower-wage 23.0, higher-wage 12.0); half lists 3.3 fewer; the honest ranker 43.9 fewer.
+- Capacity share of the drop is 1.28. The anchor recovers 15.9, leaving GPT 1.5 below random.
+- The protection premium is about zero, and 16% of seekers end worse off.
+- GPT k5's accuracy edge is not significant (+0.8 [−1.5, 3.3]). Half lists keep theirs (+3.2 [0.8, 5.7]).
+
+Tables are in `findings/jobs-gpt-frozen/replication/`.
+
 ## 8. Open items
 
-- Held-out replication, 2025-11 and 2025-12: `configs/jobs_replication.json`, about 29,400 GPT requests (about $2.40), frozen weights.
 - Stated-salary share (the manifest's stop rule) cannot be measured from a pull that keeps stated salaries only; a WRDS count query over all NY-metro postings would settle it.
 - Seeker-side firms are synthetic six-person agents; the housing side moved to one firm per renter. Changing this is a new versioned run.
 - Experience proxy: age-based; the symmetric level rule showed it can dominate feasibility for older seekers.
