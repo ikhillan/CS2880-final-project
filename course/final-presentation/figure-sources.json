@@ -1,0 +1,8 @@
+{
+  "findings/chile/group_comparison.csv": "5c2f7bbe54f1d032812d476a06051dcfa29fba4ec441a619f3fb4c99d744c69e",
+  "findings/chile/retention_bounds.csv": "18241aa1b142d6accb72e51458693d26eaeced06440f03d23df5b8bfc66d0924",
+  "findings/jobs-gpt-frozen/accuracy_pairs.csv": "99e8c1f68da6dc7ca14fc75f5f52129b6e0ba107d44c57c6ba9c42edbf698074",
+  "findings/jobs-gpt-frozen/anchor.csv": "b07f39f604e110398e80fc501d19df4eeedd317bf0a28bf392cb4a37680141cd",
+  "findings/jobs-gpt-frozen/replication/accuracy_pairs.csv": "5c06ebc610a08e6af33b4b8ffbd748443b9514216cf3871c275dc032e62846e6",
+  "findings/jobs-gpt-frozen/replication/anchor.csv": "41046a39639196c767a9728dd77c86a9495ef912e45f9c245267e2979502a631"
+}

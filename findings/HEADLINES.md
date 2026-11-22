@@ -2,6 +2,8 @@
 
 Short version. Full numbers, intervals and caveats are in [`README.md`](README.md).
 
+[17-minute course presentation, narration and technical appendix](../course/final-presentation/README.md)
+
 **Setup.** `gpt-6-luna` picks 5 options per person; we compare against 5 random options on the same markets and clear the market with deferred acceptance. There are two simulation studies:
 - **NYC rentals:** [`gpt-luna-rentals/`](gpt-luna-rentals/README.md), 3 windows.
 - **NYC job postings:** [`jobs-gpt-frozen/`](jobs-gpt-frozen/README.md), Revelio data, frozen design plus a held-out replication.

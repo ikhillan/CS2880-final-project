@@ -1,0 +1,333 @@
+RECOMMENDATIONS IN MARKETS WITH LIMITED CAPACITY
+Presenter guide — 17:00, 16 slides
+
+The text below is a spoken script. Slide headings and time cues are not spoken.
+The timing allows short pauses for the diagrams and results. Rehearse the final
+version aloud; use the end times as checkpoints rather than rushing individual
+sentences. Numbers refer to the released aggregate evidence in findings/.
+
+
+SLIDE 1 — Recommendations in markets with limited capacity
+00:00–00:30 | 30 seconds
+
+Our project asks what happens when a recommendation system helps people choose
+among options that other people also need. Think about apartments, jobs, or
+school seats. We usually evaluate recommendations one person at a time. But
+these markets clear jointly. We study when better coverage of an individual
+target comes with fewer people placed, and how to improve recommendations
+while protecting people who already receive a seat.
+
+
+SLIDE 2 — Why this matters
+00:30–01:20 | 50 seconds
+
+Imagine a family trying to find a school. A short, relevant list can save time
+and make a confusing process manageable. That is a useful role for AI.
+
+But suppose many families receive overlapping lists. Every recommendation can
+look sensible on its own, while the lists collectively leave some families
+without a place. The effect can reach someone whose own recommendations never
+changed.
+
+For social impact, we therefore need to ask who gains access, who loses access,
+and what protection the system can actually promise. A higher prediction score
+does not answer those questions. The allocation mechanism and the available
+seats matter too.
+
+
+SLIDE 3 — Problem statement
+01:20–02:45 | 85 seconds
+
+There are three objects to keep separate. First, each person has a set of
+feasible options. Second, a recommendation policy selects a short menu from
+that set. Third, a matching mechanism assigns people using the displayed
+options, their preferences, and the options' capacities and priorities.
+
+We measure reference-option coverage: does the menu contain a specified target
+for this person? We also measure placement: does the person receive any option
+when everyone competes for the available capacity?
+
+Those targets differ across our studies. In the NYC simulations, the reference
+is the person's assignment when all feasible options are available. Coverage
+is measured among people with such an assignment. In Chile, the reference is
+the school recorded in the following April's enrollment register. That is an
+observed historical outcome, not a direct measure of preference or welfare.
+
+Our first question is whether higher coverage can coexist with lower
+placement. Our second is constructive: how much can coverage improve if every
+baseline recipient must still receive a seat? We allow them to switch schools,
+which makes that protection more flexible than freezing their entire assignment.
+
+
+SLIDE 4 — Main findings
+02:45–03:55 | 70 seconds
+
+There are three results to take away.
+
+First, the Chile comparison shows why aggregate results need a distributional
+audit. Adding submitted rank to the predictor gives 4,638 more historical
+enrollment-school hits and 1,670 fewer placements. Pupils with no historical
+initial offer account for about three quarters of that net decline.
+
+Second, in the NYC simulations, GPT shortlists place fewer people than equally
+short random lists. The decline is two to four percentage points in rentals
+and fifteen to eighteen points in jobs. Coordinating one position on each
+menu recovers much of that loss.
+
+Third, allowing school switches while retaining seats expands the gains we
+can demonstrate. But finding the best protected menus is computationally hard.
+Our strongest prospective protection rule has modest coverage gains. A learned
+alternative gains more coverage and fails the retention requirement on fresh
+lotteries. We will show that failure alongside the positive results.
+
+
+SLIDE 5 — One person's menu can affect someone else
+03:55–05:05 | 70 seconds
+
+Here is the smallest example behind the problem. There are two pupils, A and
+B, and two schools, x and y, with one seat each. A prefers x to y. B only
+accepts x. Initially, A sees only y and B sees only x. Both get a place.
+
+Now replace A's recommendation with x. Both pupils still see exactly one
+option. School x gives A higher priority than B, so deferred acceptance gives
+x to A. B receives no seat, and y stays empty.
+
+A receives a preferred school. B loses access even though B's own menu never
+changed. That is the externality we want to measure.
+
+The number of displayed choices has stayed fixed, but the number of people
+those choices can accommodate has fallen from two to one. This is why we
+evaluate the menus jointly rather than scoring each recommendation in isolation.
+
+
+SLIDE 6 — Evaluation design
+05:05–06:20 | 75 seconds
+
+We use the three settings for different parts of the question. NYC rentals
+and jobs let us study an actual language model choosing shortlists. The input
+profiles and listings draw on market data, but preferences and allocations
+are simulated. We compare policies on the same markets and include held-out
+time windows.
+
+Chile gives us submitted applications, institutional priorities, historical
+offers, and linked enrollment records. Two classifiers trained on 2019
+applications predict initial offers. One uses submitted rank; the other does
+not. Their menus are then evaluated on later cohorts.
+
+The reconstructed admissions mechanism reproduces every released course or
+no-offer outcome in about 2.04 million audited applicant-years across 2022
+through 2025. About 1.97 million have an April enrollment link.
+
+That agreement checks historical reconstruction. Changed-menu outcomes remain
+counterfactual replays with reports and supply held fixed. We do not observe
+families receiving these recommendations and responding to them. The settings
+connect through capacity and competition, while their evidence supports
+different claims.
+
+
+SLIDE 7 — NYC shortlists reduce placement
+06:20–07:30 | 70 seconds
+
+Start with rentals. GPT gains about eight percentage points of coverage of the
+full-information assignment, yet placement falls in all three windows. Jobs
+show a larger placement decline: 15.5 points in the frozen sample and 17.5 in
+the replication. The jobs coverage advantage is uncertain in the replication;
+its interval includes zero.
+
+These comparisons use the same markets. Coverage asks whether the person's
+full-information partner appears on the shortlist, conditional on having
+that partner. Placement counts everyone. We should not read an eight-point
+coverage gain as an eight-point welfare gain.
+
+The displayed options also support smaller maximum matchings under GPT. So
+the problem includes a loss of simultaneous capacity in the menus themselves.
+This observation does not establish why the model selects overlapping
+options. It does motivate coordinating recommendations across people, which
+is the next experiment.
+
+
+SLIDE 8 — One coordinated option recovers much of the loss
+07:30–08:40 | 70 seconds
+
+The repair starts from the full feasible graph. We compute a maximum matching
+and use its assigned options as anchors. For each person with an anchor, we
+reserve one menu position for that option, replacing another option if needed.
+The menu stays the same length, and we rerun deferred acceptance.
+
+This recovers roughly thirteen to sixteen percentage points of placement in
+jobs and three and a half to five points in enriched rentals. Rental mean
+placement reaches or exceeds plain random lists. Jobs remain below random.
+
+The anchor is useful because it coordinates recommendations across people.
+It requires access to the full feasible graph, which is a meaningful
+information requirement.
+
+It also gives us an unresolved question. More people placed overall could
+include new entrants alongside people losing their old seats. The current
+anchor result measures the aggregate gain. Chile motivates checking those
+individual exits explicitly.
+
+
+SLIDE 9 — Pupils with no initial offer bear most of the loss
+08:40–09:55 | 75 seconds
+
+In Chile, compare the rank-informed and rank-blind predictors. Across four
+cohorts, adding rank yields 4,638 extra April-school hits and 1,670 fewer
+placements among enrollment-linked pupils. The pooled changes are small in
+percentage points: about plus 0.236 for coverage and minus 0.085 for placement.
+
+The group breakdown is more revealing. Pupils with no historical initial offer
+make up 7.4 percent of the linked sample, yet account for 76 percent of the
+net placement decline: 1,270 places. Their own historical-school coverage also
+falls slightly.
+
+We define that group using historical outcomes after the policies are fixed.
+A prospective recommender cannot know who will receive no offer in the coming
+lottery.
+
+In a separate 2021 entry-grade replay, 237 of 309 net placement losses occur
+among pupils whose own menu stays unchanged. That locates interference inside
+the replay. It is not an effect estimated from a randomized deployment of
+these predictors. The related field experiment does not identify that contrast.
+
+
+SLIDE 10 — The baseline changes the aggregate conclusion
+09:55–10:45 | 50 seconds
+
+There is an important qualification. Compare the rank-informed predictor with
+the family's first five discretionary courses instead. It gains both
+outcomes: 9,800 additional historical-school hits and 8,143 placements overall.
+
+So improving predictions does not inevitably reduce placement. The tradeoff
+we found concerns a specific pair of policies.
+
+The group result still matters. Against first-five, pupils with no initial
+offer lose 2,860 placements even though total placement rises. A favorable
+aggregate comparison can therefore leave an access problem unresolved.
+
+That is why we show both baselines and group outcomes. The policy question
+needs to specify what changes, relative to which alternative, and for whom.
+
+
+SLIDE 11 — What does it mean to protect a recipient?
+10:45–11:40 | 55 seconds
+
+There are several possible promises. We could preserve someone's exact course
+and seat category. We could let them switch schools while guaranteeing that
+they remain placed. Or we could only require total placement not to fall.
+These are different requirements.
+
+We study the middle one. On a given lottery draw, compare the proposed policy
+with the baseline using the same priorities. Count every pupil who receives a
+baseline seat and becomes unplaced after the change. We require that count,
+the gross exits, to be zero.
+
+New pupils can enter, and existing recipients can switch schools. Retention
+does not guarantee an equally preferred school. The constraint protects all
+baseline recipients, including pupils without an enrollment-register link.
+
+
+SLIDE 12 — Optimizing coverage with seat retention
+11:40–13:00 | 80 seconds
+
+The optimization question is to maximize additional historical-school
+coverage, subject to zero incumbent exits on every lottery in a specified
+panel. One menu policy must work across the whole panel.
+
+We restrict the choices: preserve options shared by the two starting policies,
+choose other options from their union, and keep each menu's length fixed.
+That makes the comparison a defined optimization problem. Since the objective
+uses the evaluation cohort's April outcomes, its optimum is a hindsight
+benchmark.
+
+In the fixed-priority model with strict preferences and responsive school
+priorities, we have an exact integer formulation. It requires a stable
+assignment retaining the incumbents on each draw. Applicant-optimality then
+connects these witnesses to deferred acceptance.
+
+Finding menus that achieve a target gain is NP-complete, even with unit seats
+and one common priority order on each supplied draw. The reduction encodes
+conflicting menu changes as competing for a shared fallback seat. Checking a
+chosen policy remains polynomial. The hardness is in choosing menus across
+the panel, not in running Gale–Shapley. This theorem uses a fixed-priority
+benchmark; the institutional replay handles Chile's additional rules separately.
+
+
+SLIDE 13 — School switches permit more coverage
+13:00–14:05 | 65 seconds
+
+We now compare the protection requirements on the same design lotteries:
+1,024 per cohort for 2022 through 2024.
+
+Preserving every baseline course and seat type permits exactly 314 additional
+historical-school hits within the allowed menu family. If recipients can
+switch schools while keeping a seat, we construct menus gaining 642 hits.
+The certified upper bound is 4,620. Without protection, the optimum is 4,823.
+
+The achieved retention gain is more than twice the exact-assignment optimum.
+The interval from 642 to 4,620 is an optimization gap, not a confidence
+interval. We have not solved the retention problem to optimality.
+
+There is also a deployment gap. These menus use historical labels and protect
+the supplied design draws. They establish what is attainable in that
+benchmark. They do not establish protection on an unseen lottery. That leads
+to the next test.
+
+
+SLIDE 14 — Protection before the lottery
+14:05–15:25 | 80 seconds
+
+We freeze two ministry-side rules after applications arrive, before the ordinary lottery. Current-cohort initial
+offers, realized tie-breaks, and April outcomes cannot choose the menus.
+
+The structural rule identifies shared options that guarantee a seat under
+every permitted lottery order. It freezes relevant competitor and family
+interactions around pupils without that guarantee, and fills remaining
+positions using submitted rank. Its proof covers every strict ordinary
+tie ordering under the reconstructed mechanism and fixed inputs.
+
+The learned rule scores changes using an earlier cohort and passes the design
+panel. Both rules face the same fresh lotteries: 384 matched-course draws and
+96 school-and-family-ticket draws across the three evaluation cohorts.
+
+The structural rule gains 28 net historical hits and has zero incumbent exits
+in all 480 tests. The learned rule gains 50 hits, but has one exit in each
+test generator. Its design-panel certificate did not generalize.
+
+These are held-out lotteries on the same populations. Coverage gains are
+scored once. The structural rule's simulations check its proven guarantee.
+The learned failure shows why passing many simulated lotteries is a weaker
+assurance.
+
+
+SLIDE 15 — Broader impacts: who gets access?
+15:25–16:30 | 65 seconds
+
+The social objective needs to include people who currently lack access.
+Neither prospective Chile rule changes historical-school coverage for pupils
+with no initial offer. The structural rule produces no new entrants on the
+paired test panels. It protects recipients, but does not yet solve the access
+problem that motivated us.
+
+There are other limits. Families can apply beyond a shortlist, schools differ
+in quality, and historical enrollment reflects constraints as well as choice.
+Retaining any seat can still mean moving someone to a less preferred school.
+
+A responsible evaluation should therefore report exits, entrants, school
+changes, and group outcomes alongside prediction scores. Deployment would
+also require behavioral evidence about how people use recommendations and
+which protections they value. For AI for Social Impact, the technical
+challenge is to coordinate useful recommendations while making those
+distributional consequences and guarantees explicit.
+
+
+SLIDE 16 — What we learned and what comes next
+16:30–17:00 | 30 seconds
+
+Recommendation quality has a market-level dimension. Coverage, simultaneous
+capacity, and protection of individuals can move differently.
+
+Our next experiment audits who exits and enters under the NYC anchor, then
+compares it with a retention-constrained repair. In Chile, the challenge is
+improving access for unplaced pupils while preserving a credible protection
+guarantee. This connects matching theory to the social objective.
