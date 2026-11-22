@@ -59,26 +59,28 @@ baseline recipient must still receive a seat? We allow them to switch schools,
 which makes that protection more flexible than freezing their entire assignment.
 
 
-SLIDE 4 — Main findings
+SLIDE 4 — Three results, three contributions
 02:45–03:55 | 70 seconds
 
-There are three results to take away.
+Three results organize the paper.
 
-First, the Chile comparison shows why aggregate results need a distributional
-audit. Adding submitted rank to the predictor gives 4,638 more historical
-enrollment-school hits and 1,670 fewer placements. Pupils with no historical
-initial offer account for about three quarters of that net decline.
+Rentals show the prediction–placement tradeoff. In the held-out enriched
+sample, GPT improves coverage by 8.1 percentage points while placement falls
+3.7 points. Those opposite directions repeat in all three windows. An
+individual prediction target can miss what happens when people compete.
 
-Second, in the NYC simulations, GPT shortlists place fewer people than equally
-short random lists. The decline is two to four percentage points in rentals
-and fifteen to eighteen points in jobs. Coordinating one position on each
-menu recovers much of that loss.
+Jobs give us a constructive test. Coordinating one menu position recovers
+thirteen to sixteen points of placement. We have not yet measured the
+anchor's effects on coverage, ranks, or individual exits, so this establishes
+aggregate placement recovery.
 
-Third, allowing school switches while retaining seats expands the gains we
-can demonstrate. But finding the best protected menus is computationally hard.
-Our strongest prospective protection rule has modest coverage gains. A learned
-alternative gains more coverage and fails the retention requirement on fresh
-lotteries. We will show that failure alongside the positive results.
+Chile shows whom the aggregate can conceal. Pupils without a historical
+initial offer make up 7.4 percent of the linked sample and account for
+76 percent of the net placement decline. That group also loses placements
+against the family's first five courses, even when total placement rises.
+
+These findings lead to the theory question: what can recommendations improve
+while protecting each recipient?
 
 
 SLIDE 5 — One person's menu can affect someone else
@@ -125,70 +127,74 @@ connect through capacity and competition, while their evidence supports
 different claims.
 
 
-SLIDE 7 — NYC shortlists reduce placement
+SLIDE 7 — Rentals: better coverage, fewer placements
 06:20–07:30 | 70 seconds
 
-Start with rentals. GPT gains about eight percentage points of coverage of the
-full-information assignment, yet placement falls in all three windows. Jobs
-show a larger placement decline: 15.5 points in the frozen sample and 17.5 in
-the replication. The jobs coverage advantage is uncertain in the replication;
-its interval includes zero.
+The rental plot shows every window. Compare GPT with equally short random
+menus on the same markets. Coverage rises by about eight percentage points
+in development, held out, and replication. Placement falls by about two,
+3.7, and 3.3 points. All six intervals exclude zero.
 
-These comparisons use the same markets. Coverage asks whether the person's
-full-information partner appears on the shortlist, conditional on having
-that partner. Placement counts everyone. We should not read an eight-point
-coverage gain as an eight-point welfare gain.
+The intervals here use the released market bootstrap. These are enriched
+markets built from rental and household data, with simulated preferences and
+screening. The results describe those constructed markets.
 
-The displayed options also support smaller maximum matchings under GPT. So
-the problem includes a loss of simultaneous capacity in the menus themselves.
-This observation does not establish why the model selects overlapping
-options. It does motivate coordinating recommendations across people, which
-is the next experiment.
+Coverage asks whether the person's full-information assignment appears on
+the shortlist, conditional on having that assignment. Placement counts
+everyone. Higher coverage therefore does not establish higher welfare.
+
+The displayed pairs also support smaller maximum matchings under GPT. The
+menus themselves admit fewer simultaneous placements, even before asking
+which matching deferred acceptance selects. That makes coordination a
+concrete next step: can we use the available options more effectively
+without making anyone's menu longer?
 
 
-SLIDE 8 — One coordinated option recovers much of the loss
+SLIDE 8 — Jobs: coordination recovers 13–16 points
 07:30–08:40 | 70 seconds
 
-The repair starts from the full feasible graph. We compute a maximum matching
-and use its assigned options as anchors. For each person with an anchor, we
-reserve one menu position for that option, replacing another option if needed.
-The menu stays the same length, and we rerun deferred acceptance.
+Jobs show a larger placement loss: 15.5 points in the frozen sample and
+17.5 in replication. The five-option coverage advantage is unresolved in
+replication; its interval spans zero.
 
-This recovers roughly thirteen to sixteen percentage points of placement in
-jobs and three and a half to five points in enriched rentals. Rental mean
-placement reaches or exceeds plain random lists. Jobs remain below random.
+For the repair, compute a maximum matching on all feasible pairs and use its
+assigned options as anchors. Add each anchor to its recipient's menu,
+replacing one option if needed. The list length stays fixed. Then rerun
+deferred acceptance.
 
-The anchor is useful because it coordinates recommendations across people.
-It requires access to the full feasible graph, which is a meaningful
-information requirement.
+The connected points show the recovery: thirteen points in the frozen
+sample and sixteen in replication. Anchored GPT still places fewer people
+than random, by 2.6 and 1.5 points respectively. The intervals shown are
+paired, seed-block intervals.
 
-It also gives us an unresolved question. More people placed overall could
-include new entrants alongside people losing their old seats. The current
-anchor result measures the aggregate gain. Chile motivates checking those
-individual exits explicitly.
+This is a substantial gain using information about the whole market.
+The analysis has not measured coverage after anchoring, rank changes, or
+gross exits. We therefore still need to learn whether the recovered
+placements preserve relevant options and protect people who were already
+placed. That question connects the repair to Chile.
 
 
-SLIDE 9 — Pupils with no initial offer bear most of the loss
+SLIDE 9 — Chile: the placement loss is uneven
 08:40–09:55 | 75 seconds
 
-In Chile, compare the rank-informed and rank-blind predictors. Across four
-cohorts, adding rank yields 4,638 extra April-school hits and 1,670 fewer
-placements among enrollment-linked pupils. The pooled changes are small in
-percentage points: about plus 0.236 for coverage and minus 0.085 for placement.
+In Chile, adding submitted rank to the predictor gains 4,638 historical-school
+hits and loses 1,670 placements across the four linked cohorts. The graph
+shows how that placement change differs between groups.
 
-The group breakdown is more revealing. Pupils with no historical initial offer
-make up 7.4 percent of the linked sample, yet account for 76 percent of the
-net placement decline: 1,270 places. Their own historical-school coverage also
-falls slightly.
+Both bars use the same axis and each group's own denominator. The 145,450
+pupils without a historical initial offer lose 0.873 percentage points of
+placement. The roughly 1.82 million with an offer lose 0.022 points.
+For the no-offer group, replayed placement falls from 1.55 percent to
+0.68 percent.
 
-We define that group using historical outcomes after the policies are fixed.
-A prospective recommender cannot know who will receive no offer in the coming
-lottery.
+That group is 7.4 percent of the linked sample but accounts for 76 percent
+of the net placement decline: 1,270 places. This divides the group's net
+loss by the total net loss; entrants and exits both enter the accounting.
 
-In a separate 2021 entry-grade replay, 237 of 309 net placement losses occur
-among pupils whose own menu stays unchanged. That locates interference inside
-the replay. It is not an effect estimated from a randomized deployment of
-these predictors. The related field experiment does not identify that contrast.
+Historical offer status defines the groups after policies are fixed.
+It is unavailable before the ordinary assignment. These are changes in
+counterfactual allocations under fixed reports. We have not observed families
+receiving either predictor's advice and changing their applications.
 
 
 SLIDE 10 — The baseline changes the aggregate conclusion
@@ -265,8 +271,9 @@ switch schools while keeping a seat, we construct menus gaining 642 hits.
 The certified upper bound is 4,620. Without protection, the optimum is 4,823.
 
 The achieved retention gain is more than twice the exact-assignment optimum.
-The interval from 642 to 4,620 is an optimization gap, not a confidence
-interval. We have not solved the retention problem to optimality.
+The lower and upper bounds, 642 and 4,620, leave an optimization gap.
+They are not a confidence interval. We have not solved the retention problem
+to optimality.
 
 There is also a deployment gap. These menus use historical labels and protect
 the supplied design draws. They establish what is attainable in that
@@ -327,7 +334,8 @@ SLIDE 16 — What we learned and what comes next
 Recommendation quality has a market-level dimension. Coverage, simultaneous
 capacity, and protection of individuals can move differently.
 
-Our next experiment audits who exits and enters under the NYC anchor, then
-compares it with a retention-constrained repair. In Chile, the challenge is
-improving access for unplaced pupils while preserving a credible protection
-guarantee. This connects matching theory to the social objective.
+Our next experiment measures coverage and gross exits under the NYC anchor,
+then compares it with coordinated baselines using the same information and
+menu budget. In Chile, the challenge is improving access for unplaced pupils
+while preserving a credible protection guarantee. Those tests connect the
+measured gains to the social objective.

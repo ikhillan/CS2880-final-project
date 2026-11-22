@@ -1,14 +1,14 @@
-"""Three presentation figures from committed aggregate evidence."""
+"""Three main presentation figures and one appendix figure from released evidence."""
 import csv
 import hashlib
 import json
 from pathlib import Path
+import re
 
 import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.ticker import PercentFormatter
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -22,6 +22,13 @@ def rows(relative):
     sources[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     with path.open(newline="") as stream:
         return list(csv.DictReader(stream))
+
+
+def source_text(relative):
+    path = REPO / relative
+    content = path.read_bytes()
+    sources[relative] = hashlib.sha256(content).hexdigest()
+    return content.decode()
 
 
 def one(table, **keys):
@@ -40,7 +47,50 @@ def clean(ax):
 
 def save(fig, name):
     fig.savefig(OUT / name, bbox_inches="tight", metadata={"CreationDate": None, "ModDate": None})
+    fig.savefig(OUT / Path(name).with_suffix(".png"), bbox_inches="tight", dpi=170)
     plt.close(fig)
+
+
+def rentals():
+    # Both metrics use the paired market-bootstrap intervals released here.
+    # The source rounds all percentage-point estimates to one decimal place.
+    lines = source_text("findings/gpt-luna-rentals/accuracy.txt").splitlines()
+    number = r"[+-]?\d+(?:\.\d+)?"
+    pattern = re.compile(
+        rf"gpt_k5:.*?\(d acc ({number}) \[({number}),({number})\], "
+        rf"d placed ({number}) \[({number}),({number})\]\)"
+    )
+    windows = (("stage1_pilot", "Development 2026"),
+               ("heldout_primary", "Held out 2026"),
+               ("heldout_replication", "Replication 2025"))
+    fig, ax = plt.subplots(figsize=(9.3, 2.8))
+    for y, (window, _) in zip((2, 1, 0), windows):
+        matching = [line for line in lines if line.split()[:2] == [window, "enriched"]]
+        if len(matching) != 1 or (match := pattern.search(matching[0])) is None:
+            raise ValueError(f"Missing or ambiguous rental accuracy record for {window}")
+        values = list(map(float, match.groups()))
+        for (point, low, high), color, label in (
+            (values[:3], BLUE, "Reference-option coverage"),
+            (values[3:], RUST, "Placement"),
+        ):
+            if not low <= point <= high:
+                raise ValueError(f"Rental interval excludes estimate for {window} {label}")
+            ax.errorbar(point, y, xerr=[[point-low], [high-point]], fmt="o",
+                        color=color, ms=7, capsize=4, lw=1.5,
+                        label=label if y == 2 else None, zorder=3)
+            ax.text(point, y+.19, f"{point:+.1f}", ha="center", va="bottom",
+                    color=color, fontsize=13)
+    ax.axvline(0, color=GREY, ls="--", lw=1)
+    ax.set_yticks([2, 1, 0], [label for _, label in windows])
+    ax.set_ylim(-.45, 2.55)
+    ax.set_xlim(-5.5, 10.5)
+    ax.set_xticks([-4, 0, 4, 8])
+    ax.set_xlabel("Difference from random menus (percentage points; 0 = random)", fontsize=12)
+    ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.23), ncol=2, frameon=False,
+              fontsize=12)
+    ax.xaxis.grid(True, color="#eeeeee")
+    clean(ax)
+    save(fig, "rentals.pdf")
 
 
 def anchors():
@@ -66,7 +116,7 @@ def anchors():
     ax.set_ylim(-.55, 1.6)
     ax.set_xlim(-21, 2)
     ax.set_xticks([-20, -15, -10, -5, 0])
-    ax.set_xlabel("Placement difference from random (pp)", fontsize=12)
+    ax.set_xlabel("Placement difference (pp; 0 = random)", fontsize=12)
     ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.23), ncol=2, frameon=False)
     clean(ax)
     save(fig, "jobs-anchor.pdf")
@@ -74,20 +124,30 @@ def anchors():
 
 def incidence():
     table = rows("findings/chile/group_comparison.csv")
-    group = one(table, year="total", comparison="rank_vs_blind", group="no_initial_offer")
-    all_people = one(table, year="total", comparison="rank_vs_blind", group="all_linked")
-    shares = [100*int(group["linked_applicant_years"])/int(all_people["linked_applicant_years"]),
-              100*int(group["placement_change"])/int(all_people["placement_change"])]
-    fig, ax = plt.subplots(figsize=(9.3, 2.2))
-    ax.barh([1, 0], shares, color=[GREY, RUST], height=.38)
-    ax.set_yticks([1, 0], ["Share of linked applicants", "Share of net placement loss"])
-    for y, value in zip([1, 0], shares):
-        ax.text(value+2, y, f"{value:.1f}%", va="center", fontsize=16,
-                color=RUST if y == 0 else GREY)
-    ax.set_xlim(0, 100)
+    fig, ax = plt.subplots(figsize=(9.3, 2.5))
+    labels = []
+    for y, group, name, color in (
+        (1, "no_initial_offer", "No initial offer", RUST),
+        (0, "initial_offer", "Had an initial offer", GREY),
+    ):
+        row = one(table, year="total", comparison="rank_vs_blind", group=group)
+        n = int(row["linked_applicant_years"])
+        change = int(row["rank_placed"]) - int(row["baseline_placed"])
+        if change != int(row["placement_change"]):
+            raise ValueError(f"Chile placement accounting disagrees for {group}")
+        value = 100 * change / n
+        if abs(value - float(row["placement_change_pp"])) > 1e-8:
+            raise ValueError(f"Chile placement rate disagrees for {group}")
+        labels.append(f"{name}\nn = {n:,}")
+        ax.barh(y, value, color=color, height=.32, zorder=2)
+        ax.text(value-.025, y, f"{value:.3f}".replace("-", "−"),
+                va="center", ha="right", fontsize=15, color=color)
+    ax.axvline(0, color=GREY, lw=1)
+    ax.set_yticks([1, 0], labels, fontsize=13)
+    ax.set_xlim(-1.05, .10)
     ax.set_ylim(-.5, 1.5)
-    ax.set_xticks([0, 25, 50, 75, 100])
-    ax.xaxis.set_major_formatter(PercentFormatter())
+    ax.set_xticks([-1, -.75, -.5, -.25, 0])
+    ax.set_xlabel("Within-group placement change: rank-informed − rank-blind (pp)", fontsize=12)
     ax.xaxis.grid(True, color="#eeeeee")
     clean(ax)
     save(fig, "chile-incidence.pdf")
@@ -120,11 +180,13 @@ def main():
     OUT.mkdir(exist_ok=True)
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 13,
                          "pdf.fonttype": 42, "ps.fonttype": 42})
+    rentals()
     anchors()
     incidence()
     retention()
     (HERE / "figure-sources.json").write_text(json.dumps(sources, indent=2, sort_keys=True)+"\n")
-    print("Built three figures from", len(sources), "aggregate source tables.")
+    print("Built three main figures and one appendix figure from", len(sources),
+          "aggregate sources, with PDF and PNG versions.")
 
 
 if __name__ == "__main__":

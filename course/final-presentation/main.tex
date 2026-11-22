@@ -46,18 +46,18 @@ If many people receive the same suggestions, their outcomes depend on one anothe
 \end{frame}
 
 % 4: 2:45--3:55
-\begin{frame}{Main findings}
-\textbf{Better coverage can accompany fewer placements.}\par
-Chile: \textcolor{blue}{+4,638} historical-school hits, \alert{1,670 fewer} replayed placements.
+\begin{frame}{Three results, three contributions}
+\textbf{Rentals: coverage rises while placement falls.}\par
+Held out: \textcolor{blue}{+8.1 points of coverage}, \alert{$-3.7$ points of placement}.
 
 \medskip
-\textbf{Coordination recovers much of the loss.}\par
-NYC jobs: coordinating one menu position recovers \textcolor{blue}{13--16 percentage points} of placement.
+\textbf{Jobs: coordination recovers much of the loss.}\par
+One anchored menu position recovers \textcolor{blue}{13--16 points} of placement across two windows.
 
 \medskip
-\textbf{Protecting each recipient is a stricter requirement.}\par
-We give a retention guarantee and bounds on what can improve.
-\source{Chile: 1,969,120 linked applicant-years, 2022--25, rank-informed versus rank-blind. Jobs: GPT menus versus their anchored versions. Full sources in the appendix.}
+\textbf{Chile: pupils without offers bear most of the loss.}\par
+No initial offer: \textcolor{blue}{7.4\% of the sample}, \alert{76.0\% of the net placement decline}.
+\source{Points are percentage points. NYC: simulated markets, GPT versus random (rentals) or anchored versus original GPT (jobs). Chile: counterfactual rank-informed versus rank-blind replay.}
 \end{frame}
 
 % 5: 3:55--5:05
@@ -110,27 +110,16 @@ Chile schools & Administrative applications.\newline Submitted ranks. & Rank-inf
 \end{frame}
 
 % 7: 6:20--7:30
-\begin{frame}{NYC shortlists reduce placement}
-GPT minus random, in percentage points.
-
-\medskip
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{}}
-\toprule
- & Coverage & Placement\\\midrule
-Rentals, held-out enriched & $+8.1$ & $-3.7$\\
-Jobs, frozen & $+1.6$ & $-15.5$\\
-Jobs, replication & $+0.8$ & $-17.5$\\
-\bottomrule
-\end{tabularx}\par
-\medskip
-The jobs replication coverage interval spans zero.\par
-The placement decline repeats in both job windows.
-\source{Coverage: full-information assigned option appears on the menu, among people with such an assignment. Placement: everyone in the market. Intervals and all rental windows are in the appendix. Sources: rental accuracy.txt and jobs accuracy\_pairs.csv.}
+\begin{frame}{Rentals: better coverage, fewer placements}
+\begin{center}
+\includegraphics[width=.96\textwidth]{figures/rentals.pdf}
+\end{center}
+\takeaway{The same conflict appears in all three sampled windows.}
+\source{Enriched simulated markets. Coverage uses people with a full-information match; placement uses everyone. GPT minus random with 95\% market-bootstrap intervals for both outcomes. Source: findings/gpt-luna-rentals/accuracy.txt.}
 \end{frame}
 
 % 8: 7:30--8:40
-\begin{frame}{One coordinated option recovers much of the loss}
+\begin{frame}{Jobs: coordination recovers 13--16 points}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{.40\textwidth}
 \small
@@ -143,22 +132,22 @@ Put each matched option on its recipient's menu.
 Replace one other option if needed, keeping list length.
 \end{column}
 \begin{column}{.59\textwidth}
-\includegraphics[width=.96\linewidth]{figures/jobs-anchor.pdf}
+\includegraphics[width=.95\linewidth]{figures/jobs-anchor.pdf}
 \end{column}
 \end{columns}
-\takeaway{Aggregate gains do not guarantee that each recipient keeps a place.}
-\source{NYC jobs. Differences from random with 95\% seed-block intervals. Sources: frozen and replication anchor.csv and accuracy\_pairs.csv.}
+\takeaway{Placement recovers. Coverage and individual retention still need checking.}
+\source{Simulated primary design, 95\% seed-block intervals. GPT's coverage advantage is unresolved in replication. Sources: frozen and replication anchor.csv and accuracy\_pairs.csv.}
 \end{frame}
 
 % 9: 8:40--9:55
-\begin{frame}{Pupils with no initial offer bear most of the loss}
-Chile, rank-informed versus rank-blind menus.
+\begin{frame}{Chile: the placement loss is uneven}
+Rank-informed minus rank-blind, within each historical group.
 \begin{center}
-\includegraphics[width=.93\textwidth]{figures/chile-incidence.pdf}
+\includegraphics[width=.88\textwidth]{figures/chile-incidence.pdf}
 \end{center}
-\textbf{1,270 of 1,670 net lost placements}\par
-Their own historical-school coverage falls by 43 hits.
-\source{2022--25, linked applicant-years. The group contains 145,450 of 1,969,120 records. Initial-offer status is a historical outcome used for analysis after policies are fixed. Source: findings/chile/group\_comparison.csv.}
+\textbf{No initial offer: 7.4\% of the sample, 76.0\% of the net loss.}\par
+That is 1,270 of 1,670 net lost placements.
+\source{2022--25, linked applicant-years. Counterfactual placements with fixed reports. Bars use each group's own denominator; 76\% is a share of the net decline, not a probability of harm. Source: findings/chile/group\_comparison.csv.}
 \end{frame}
 
 % 10: 9:55--10:45
@@ -221,10 +210,19 @@ $\mathcal D$: fixed common options, candidate union, and menu quotas.
 % 13: 13:00--14:05
 \begin{frame}{School switches permit more coverage}
 {\small Same menu family and 1,024 design lotteries per cohort, 2022--24.}
-\begin{center}
-\includegraphics[width=.90\textwidth]{figures/retention.pdf}
-\end{center}
-\takeaway{Switches more than double the demonstrated gain. The remaining optimization gap is large.}
+\medskip
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{}}
+\toprule
+Protection & Achieved gain & Upper bound\\\midrule
+Same course and seat type & $314$ & $314$\\
+Seat retained, school may change & $642$ & $4,620$\\
+\bottomrule
+\end{tabularx}\par
+\normalsize
+\takeaway{Allowing switches more than doubles the demonstrated gain.}
+The interval remains too wide to establish the optimal tradeoff.
 \source{Additional historical-school hits, summed over three cohort problems. These are hindsight bounds on the finite panel, not gains from a deployable policy. Source: findings/chile/retention\_bounds.csv.}
 \end{frame}
 
@@ -272,7 +270,7 @@ We measure the placement cost, show a capacity-aware repair, and formalize prote
 
 \medskip
 \textbf{Next experiment}\par
-Test whether the NYC anchor's gains survive a requirement of \textcolor{blue}{zero incumbent exits}.
+Measure coverage and gross exits under the anchor, then compare with coordinated baselines using the same information.
 
 \vfill
 \textcolor{muted}{Thank you.}
