@@ -1,15 +1,15 @@
 # Headline findings: recommended shortlists in NYC rentals, NYC job postings and Chilean school admissions
 
-Two simulation studies ask the same question. When an LLM chooses the 5 options each person sees, how does the market turn out compared with 5 random options? Both use `gpt-6-luna` through the HUIT API Platform with the same settings (reasoning off, at most 300 tokens, every reply valid). Both use seeker-proposing deferred acceptance and test on held-out months. A third study asks the same question with observed data: Chilean school admissions, where the lists come from logistic classifiers instead of an LLM (see *Observed check* below). Details and full tables:
+Two simulation studies ask the same question. When an LLM chooses the 5 options each person sees, how does the market turn out compared with 5 random options? Both use `gpt-6-luna` through the HUIT API Platform with the same settings (reasoning off, at most 300 tokens, every reply valid). Both use seeker-proposing deferred acceptance and test on held-out months. The Chile study uses classifiers trained on earlier administrative records and reconstructs allocations on later submitted reports. Its altered-menu placements are counterfactual replays (see *Chilean school admissions* below). Details and full tables:
 
 - **Rentals:** [`gpt-luna-rentals/`](gpt-luna-rentals/README.md). StreetEasy-style listings × ACS renters, 64 × 64 markets. Windows: development (Jun–Aug 2026), held out (Sep–Oct 2026), replication (Jun–Aug 2025).
 - **Jobs:** [`jobs-gpt-frozen/`](jobs-gpt-frozen/README.md). Revelio postings × ACS seekers, 24 × 24 markets in 4 occupations. Windows: frozen (Aug–Oct 2025) and held-out replication (Nov–Dec 2025).
 - **Earlier model:** [`claude-haiku-pilot/`](claude-haiku-pilot/README.md), the rental development run with Claude Haiku 5.5.
-- **Schools (observed):** [`publication/research/observed/school/`](../publication/research/observed/school/README.md). This is the Chilean school-admission system's regular round. Two ridge logistic models are trained on 2019 and tested on 2020 and 2021 (915,638 applicant-years). It has no LLM.
+- **Schools:** [Current 2022–25 Chile results](chile/README.md), with administrative reports, initial offers and linked April enrollments. Two frozen 2019 classifiers select course menus. The original [2020–21 analysis](../publication/research/observed/school/README.md) remains an earlier benchmark with an official-offer target and pooled-seat approximation.
 
 ## The comparison in one table
 
-GPT 5 options minus random 5 options, in percentage points, on the same markets. Ranges span the windows; brackets are 95% seed-block intervals (10,000 draws).
+GPT 5 options minus random 5 options, in percentage points, on the same markets. Ranges span the windows. Jobs intervals use seed-block resampling. Rental placement, capacity and T tables use seed blocks, while the separate `accuracy.txt` coverage check uses 2,000 market-bootstrap draws. See the source-specific methods below.
 
 | | Rentals | Jobs |
 |---|---|---|
@@ -25,44 +25,27 @@ The accuracy and placement rows use each study's headline design: rental enriche
 
 T is the change in the lower- minus higher-group gap in the share who miss a better option. A "better option" is a hidden blocking pair: an option they weren't shown, that would take them, and that they prefer.
 
-## Three-way comparison: Chilean schools, NYC rentals, NYC jobs
+## Three-way comparison with the current Chile results
 
-These charts follow the presentation's framing: a baseline rule A and a "smarter" rule B in each setting, both picking 5 options per person.
-- **Chile:** rule A is the rank-blind classifier, rule B the rank-informed one.
-- **NYC rentals and jobs:** rule A is random lists, rule B is GPT.
+Chile compares the rank-informed and rank-blind predictors on 2022–25 records. NYC compares GPT and random menus. Chile shows up to five discretionary courses plus any continuity entitlement. The NYC policies show up to five options.
 
-Each panel has its own scale, because the effects differ by about 100× between Chile and jobs.
+![Reference-option coverage and placement under the three policy comparisons](three_way_accuracy_placement.png)
 
-![The smarter rule places fewer people in all three settings, with equal or better accuracy](three_way_accuracy_placement.png)
+- **Chile.** Coverage of the April enrollment school rises by 4,638 hits and replayed placement falls by 1,670, among 1,969,120 linked applicant-years. This is +0.236 and −0.085 percentage points. The actual initial assignment is reconstructed independently on all 2,044,649 applicants.
+- **Rentals.** Full-information-match coverage rises by about 8 pp while placement falls by 2–4 pp in the enriched design.
+- **Jobs.** Placement falls by 15–18 pp. The five-job coverage advantage is significant in the frozen sample and unresolved in the replication, whose interval includes zero.
 
-- **Direction:** in all three settings, placement falls under rule B in every year or window.
-- **Size:** about 0.1 pp in Chile (roughly 520 families a year), 2–4 pp in rentals and 15–18 pp in jobs.
-- **Accuracy:** rule B is more accurate in Chile and rentals. In jobs it is about as accurate as random, so the loss there comes from concentration alone.
+![Placement changes for groups defined in each setting](three_way_who_loses.png)
 
-![The placement loss lands on the group with more options](three_way_who_loses.png)
+The Chile panel groups pupils by whether they received an initial offer. Those without one are 7.4% of the linked sample and account for 76.0% of the net placement decline. The NYC panels use income or prior wage groups. These comparisons show who bears the cost in each market. They do not isolate list length as a causal driver.
 
-- **Who loses:** in each setting, the group with more feasible options takes most of the loss. In Chile, that means families with more than 5 choices, whose lists get cut. In rentals it's higher-income renters, and in jobs it's lower-wage seekers.
-- **Bystanders:** Chilean families with 5 or fewer choices still lose a little, even though their own lists never change. That's the congestion spillover.
-
-The same three settings against one shared baseline (random 5-option lists) show where each rule B lands:
-
-![More accurate is not more placed: GPT loses placements, Chile's classifiers gain](strongest_results_accuracy_vs_placement.png)
-
-Against random lists, Chile's classifiers are more accurate *and* place slightly more families. GPT places fewer than random in both NYC markets.
-
-**Sources and caveats:**
-- **Chile values:** `publication/research/observed/school/summary.csv` (k = 5; 2020 and 2021 test years).
-- **Earlier deck:** it showed 2022–25 Chile cohorts (−1,670 placed in total). Those figures aren't in the repo, so they aren't charted here.
-- **Accuracy definitions differ:** Chile counts the official offer being on the list; NYC counts the full-information match.
-- **Regenerate:** `python scripts/three_way_charts.py findings`.
+Chile coverage uses all pupils with an April enrollment link. NYC coverage is conditional on having a full-information match, while NYC placement includes all people in the sampled market. Every panel uses its own scale. The individual counts and denominators are in the [Chile evidence package](chile/README.md), rental `accuracy.txt` and jobs `accuracy_pairs.csv` files. Rebuild the figures with `python scripts/three_way_charts.py findings`.
 
 ## Three findings
 
-**1. GPT's lists are concentrated, and concentration costs placements in both markets.** On five-option lists, GPT places fewer people than random in every window of both studies. The jobs loss is about five times larger. Two things drive the difference:
-- **Accuracy edge:** GPT's 5-job lists are about as accurate as random lists, so nothing offsets the concentration. Renter lists are about 8 points more accurate.
-- **Coverage:** five slots cover a larger share of a job seeker's options (about 17 feasible) than of a renter's (about 29).
+**1. GPT's displayed pairs support fewer simultaneous matches in both markets.** On five-option lists, GPT places fewer people than random in every window of both studies. The jobs loss is about five times larger. These markets differ in supply, preferences and the fraction of feasible options shown. The cross-domain comparison does not identify which difference explains the larger jobs effect.
 
-**The capacity decomposition shows the mechanism in both markets** (jobs: `jobs-gpt-frozen/`; rentals: [`rental-capacity-gpt/`](rental-capacity-gpt/README.md)).
+**The capacity decomposition accounts for the placement difference in both markets** (jobs: `jobs-gpt-frozen/`; rentals: [`rental-capacity-gpt/`](rental-capacity-gpt/README.md)).
 
 | GPT vs random, pp | Rentals, enriched (3 windows) | Jobs, primary (frozen / replication) |
 |---|---|---|
@@ -72,17 +55,17 @@ Against random lists, Chile's classifiers are more accurate *and* place slightly
 | One reserved slot: gain | +3.5 to +4.9 | +13.0 / +15.9 |
 | Anchored GPT vs plain random | +1.5, +0.3, +1.6 | −2.6 / −1.5 |
 
-- **Capacity:** in both markets GPT's lists cut capacity sharply. Concentration means the shown pairs can't hold everyone: in jobs, GPT's top three postings take 37% of slots against 27% under random.
-- **Offset:** in rentals, fewer collisions win back about two-thirds of the lost capacity. In jobs only about a fifth comes back.
-- **Reserved slot:** it removes the whole rental loss and most of the jobs loss.
+- **Capacity:** in both markets GPT's lists cut maximum matching size sharply. In jobs, GPT's top three postings take 37% of slots against 27% under random, consistent with concentration contributing to this loss.
+- **Offset:** the gap between maximum matching and deferred-acceptance placement shrinks under GPT. This arithmetic offset is larger in rentals. The decomposition alone does not identify an independent causal effect of concentration.
+- **Reserved slot:** it recovers the rental loss in mean enriched placement and most of the jobs loss. The anchor uses all feasible pairs to construct a maximum matching. Aggregate improvement does not show whether each former recipient stays placed. The Chile retention experiment tracks that individual requirement.
 
 The paper's own learned rental model shows the same rental pattern (`publication/research/observed/capacity/`).
 
-**2. The placement loss falls on whichever group has more options.**
+**2. The group with more feasible options has the larger decline in these NYC simulations.**
 - **Rentals:** higher-income renters average 46 feasible listings against 14. They lose 6 to 7 points of placement, while lower-income renters barely move.
 - **Jobs:** the pay floor reverses this. Lower-wage seekers have about 21 feasible jobs against 11, and they lose about 23 points.
 
-The rule is the same in both markets: GPT concentrates the long lists, and the people with long lists bear the cost.
+The ordering reverses between the two NYC domains. Feasible-set size is one possible explanation, and a controlled comparison holding other attributes fixed remains to be done.
 
 **3. GPT widens the group gap in missed better options when markets are drawn as they come; with oversampling it's mixed.**
 - **Natural draws:** in markets drawn without oversampling (rental primary, jobs natural), T is +3.6 to +4.5 in every window of both studies. At the jobs calibrated weights it is +3.6 / +3.0 [−0.7, 6.5].
@@ -96,53 +79,45 @@ The rule is the same in both markets: GPT concentrates the long lists, and the p
 |---|---|---|
 | Higher group, own lists switched to GPT | 86% → **80%** (GPT helps) | 39% → **45%** (GPT hurts) |
 | Lower group, own lists switched to GPT | 38% → 37% (no change) | 75% → **81%** (GPT hurts) |
-| Spillover onto the other group | none | none |
+| Cross-group effects | depend on the other group's policy | depend on the other group's policy |
 | S_L / S_H (pp) | −0.6 / **+7.3** | **+6.6** / **−5.8** |
 | T | +6.7 | +0.8 |
 
-- **Rentals:** the gap widens because GPT's lists *help* higher-income renters find better homes, while doing nothing for lower-income renters.
+- **Rentals:** higher-income renters have a lower missed-option rate under the displayed own-list comparison. A lower hidden-blocking-pair rate alone does not establish better placement or higher utility.
 - **Jobs:** GPT's lists *hurt* each wage group through its own lists, by similar amounts. The replication gives S_L +9.1 [6.6, 11.5] and S_H −6.5 [−8.9, −4.0], with T +2.6.
 
-So a near-zero jobs T is not "no effect". It's two significant harms that cancel in the gap. In both markets, essentially all the movement comes from a group's own lists, not from competition with the other group.
+The two contributions have opposite signs and largely cancel in the jobs gap. They are Shapley contributions to the gap, each incorporating direct and cross-group changes. In the frozen jobs sample, switching lower-wage menus when higher-wage menus already use GPT raises the higher-wage missed-option rate by 2.71 pp. The reverse switch raises the lower-wage rate by 2.81 pp. These conditional cross-effects have no separate confidence intervals in the aggregate release. [Four policy combinations](jobs-gpt-frozen/group_switch.csv)
 
 ## Accuracy is not the same thing as placement
 
 The team's claim was that a recommender can be more accurate and still place fewer people.
 - **Rentals:** it holds cleanly against random lists.
-- **Jobs:** it holds only for half-length lists (+3.4 / +3.2 accuracy, −2.8 / −3.3 placed). For 5-job lists the result is "about as accurate, far fewer placed". That's stronger evidence that list concentration, not accuracy, drives placement.
-- **Schools:** it holds between the two classifiers, but not against random lists (next section).
+- **Jobs:** half-length lists show positive coverage and negative placement differences in both windows (+3.4 / +3.2 coverage, −2.8 / −3.3 placed). Five-job lists improve coverage by 1.6 pp in the frozen sample. The replication estimate is +0.8 pp with an interval spanning −1.4 to +3.3 pp, leaving that coverage comparison unresolved.
+- **Schools:** the current institutional replay shows the tradeoff between the two classifiers. Against first-five, the rank-informed classifier improves both outcomes overall. The earlier pooled-seat study also found both classifiers ahead of random on both outcomes.
 
-## Observed check: Chilean school admissions
+## Chilean school admissions
 
-Todd's study is the only one with real preferences, priorities and lotteries. It has a different setup from the GPT studies:
-- **Lists:** each family's 5-school list is a subset of the schools it actually applied to.
-- **Models:** two ridge logistic models predict the official offer. One is *rank-blind*: it uses the choice set and program demand. The other is *rank-informed*: it also uses where the family ranked each school.
-- **Placement:** deferred acceptance with the published lotteries and priorities, which approximates the real mechanism.
-- **Accuracy:** whether the *official* offer is on the list, rather than the full-information match.
+The current results include four application cohorts, 2022–25, and reconstruct the course or no-offer result in all 2,044,649 released initial assignments. Under counterfactual menus, the rank-informed predictor covers more historically attended schools and leaves fewer pupils placed than the rank-blind predictor. [Chile headline results, denominators and reproduction](chile/README.md)
 
-At 5 schools, against random 5-school lists (percentage points, 2020 / 2021):
+| Outcome across 1,969,120 linked applicant-years | Rank-informed minus rank-blind |
+| --- | ---: |
+| April enrollment school appears on the menu | +4,638 |
+| Pupils placed in the replay | −1,670 |
+| Pupils with no initial offer: placements | −1,270 |
+| Pupils with no initial offer: April-school coverage | −43 |
 
-| | Rank-blind | Rank-informed |
-|---|---|---|
-| Accuracy, all applicants | +1.8 / +1.5 | +2.1 / +1.9 |
-| Placed, all applicants | **+0.28 / +0.24** | **+0.17 / +0.13** |
-| Placed, families with more than 5 choices | +4.8 / +4.3 | +4.2 / +3.8 |
-| Placed, families with 5 or fewer choices (own list unchanged) | −0.13 / −0.07 | −0.19 / −0.15 |
+The third row is 76.0% of the net placement decline, borne by a group making up 7.4% of the linked sample. The study's independent 2021 entry-grade replay locates 237 of 309 net lost placements among people whose own menu stays unchanged. A related randomized school-advice trial supplies evidence about family response, but it did not evaluate these two predictors.
 
-Rank-informed minus rank-blind: accuracy +0.32 / +0.33, placed −0.12 / −0.11, about 520 fewer families placed each year.
+The baseline matters. Against the family's first five discretionary courses, the rank-informed predictor gains 9,800 April-school hits and 8,143 placements overall, while the group with no initial offer loses 2,860 placements. The earlier 2020–21 official-offer comparison against random lists remains in the [original source study](../publication/research/observed/school/README.md). Its target, cohorts and allocation model differ from the extension above.
 
-How it fits with the GPT studies:
-- **Against random lists, the classifiers place *more* families, and GPT places fewer.** "More accurate, fewer placed" appears in Chile only when rank information is added to an already-good model. GPT's lists lose placements to random lists in both NYC markets, so they do worse than a simple learned ranker on what matters for placement.
-- **The congestion spillover appears in observed data too.** Families whose own list never changes still lose a little placement when everyone else's list is recommended. It's the same mechanism as finding 1: one person's list affects everyone else's chances.
-- **Gains and losses concentrate where lists are cut.** Almost all the movement is among families with more than 5 choices, as finding 2 would predict. Most Chilean families list 5 or fewer schools, which is why the all-applicant effects are tiny.
-- **Not directly comparable:** no LLM, no T and no audits. The groups are administrative (priority, grade) rather than income, and the accuracy measure differs.
+The theoretical contribution concerns protection before assignment. Within the fixed common/union menu family, on three panels of 1,024 lotteries, preserving exact courses and seat types permits 314 additional historical hits. Preserving each recipient's seat while allowing school changes permits at least 642, with a certified upper bound of 4,620. These are hindsight bounds on the finite design panel. The corresponding target-gain decision problem is NP-complete on an explicit panel. Two rules using pre-assignment data were frozen and tested on fresh lotteries. The rule with an all-order guarantee under the reconstructed mechanism gains 28 historical hits and has no incumbent exits. The learned rule gains 50 and incurs one exit on each held-out generator. These modest gains and the open optimization gap should accompany the constructive result. [Theory and tests](chile/README.md)
 
 ## Repair, protection and audit costs (jobs only)
 
 The rental runs report no audits. In the jobs markets:
 - **Repair cost:** the cheapest stable repair costs about the same under GPT as under random (3.7–3.8 vs 3.9 firms).
-- **Protection:** protecting lower-wage seekers, or all seekers, from ending worse than their first-round match costs essentially nothing extra.
-- **Losers:** about 16–17% of seekers still hold a worse job after the repair.
+- **Protection:** preventing additional avoidable losses for lower-wage seekers, or all seekers, costs essentially nothing extra. The protected set excludes people who are worse off even under full-information, seeker-optimal stable matching; see [`protection_sets`](../hiddenoptions/audit.py).
+- **Losers:** about 16–17% of seekers belong to that excluded set and receive a worse outcome after the repair, which can include becoming unmatched. Thus the near-zero premium does not establish protection for every first-round recipient. Chile's seat-retention requirement includes every incumbent, but permits a different school and does not guarantee a preferred school.
 
 These results use synthetic six-person seeker-side agents. The one-firm-per-seeker check below tests them under the housing convention: costs rise, but every conclusion holds.
 
@@ -162,11 +137,11 @@ Tables are in `jobs-gpt-frozen/firm1/`.
 | GPT 5 jobs vs random, replication | 3.80 vs 3.87 (−0.07 [−0.12, −0.02]) | 6.04 vs 6.34 (**−0.31** [−0.49, −0.11]) |
 | Who gets audited, GPT 5 jobs (frozen) | 3.1 seeker agents + 0.6 employers | 0.8 seekers + 4.9 employers |
 | Worse off after repair, GPT / random | 17% / 24% | 17% / 25% |
-| Protection premium | ≈ 0 | ≈ 0 (at most 2 firms, in < 3% of markets) |
+| Protection premium, excluding unavoidable losers | ≈ 0 | ≈ 0 (at most 2 firms, in < 3% of markets) |
 
 - **Repairs cost more:** they go from about 4 firms to about 6. They also switch from overriding seekers to auditing employers, because overriding one person now buys much less.
 - **GPT stays cheaper to repair than random,** and its advantage grows (−0.46 and −0.31 firms). Every optimum was certified, and every plan passed the stability check.
-- **No change:** who ends up worse off, and the near-zero cost of protection.
+- **No change:** who ends up worse off, and the near-zero cost of preventing additional avoidable losses.
 - **Not affected at all:** placement, accuracy, T and the capacity results don't involve audits, so firm grouping doesn't change them.
 
 ## What differs between the two GPT studies
@@ -187,6 +162,6 @@ Tables are in `jobs-gpt-frozen/firm1/`.
 - **Missed better options are not the same as placement:** "miss a better option" and "placed" can move in opposite directions. In rentals, GPT cuts higher-income renters' misses while also cutting their placement (finding 2). Report both, and don't read T as a welfare measure on its own.
 - **What was pre-specified:**
   - **Protocol estimands:** T, the group switch and the protection premium were named in the shared protocol (`EXPERIMENT_SETUP.md`) before either GPT study ran.
-  - **Accuracy and capacity/anchor:** added after results in both studies (`rental_accuracy.py`; the paper's own capacity follow-up). In jobs they were committed before the held-out replication, which they passed: placement −17.5, capacity share 1.28, anchor +15.9.
+  - **Accuracy and capacity/anchor:** added after results in both studies (`rental_accuracy.py`; the paper's own capacity follow-up). In jobs they were committed before the held-out replication. Placement loss (−17.5 pp), the ratio of capacity loss to placement loss (1.28), and anchor recovery (+15.9 pp) repeat there. The five-job coverage advantage remains uncertain.
   - **Rest:** calibrated T, one firm per seeker and the rental capacity check (`rental-capacity-gpt/`) are post hoc.
   - **Record:** details are in `jobs_manifest.json` under `later_additions`.

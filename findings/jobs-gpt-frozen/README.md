@@ -42,7 +42,7 @@ Change in placed = change in capacity − change in shortfall. *Capacity* is the
 | GPT, half list | −2.8 | −4.8 | −2.0 | 1.72 |
 | Honest ranker, 5 jobs | −42.9 | −51.0 | −8.1 | 1.19 |
 
-The whole drop comes from capacity: concentrated lists send many seekers to the same few jobs. The shortfall actually shrinks, meaning there are fewer collisions than under random lists. A capacity share above 1 means capacity explains more than the full drop.
+The reduction in maximum matching capacity exceeds the placement decline; a smaller deferred-acceptance shortfall offsets part of it. The lists are more concentrated, consistent with a capacity loss. The decomposition is an accounting identity and does not by itself identify concentration as the sole cause or measure the number of collisions.
 
 ## One reserved slot recovers most of it (`anchor.csv`)
 
@@ -56,8 +56,8 @@ Each seeker's list keeps its length, but one slot is reserved for a job from a m
 
 ## Repair cost and protection
 - **Cheapest stable repair:** about 3.7 of 12.1 firms for GPT k5, against 3.9 for random (`methods.csv`). Reverse-delete and prefix cover are near-optimal heuristics.
-- **Protection** (no lower-wage seeker, or no seeker, ends worse than their first-round match): it costs essentially nothing extra. The premium is 0 in nearly all markets, and at most 1 audit in about 1% of them (`premium.csv`).
-- **Repairs leave losers:** after the repair, 17% of seekers under GPT k5 hold a worse-ranked job than their first-round match. This is the same pattern as in housing (`groups.csv`, `worse_off`).
+- **Protection:** preventing additional avoidable losses costs essentially nothing extra. The protected lower-wage or all-seeker set excludes people worse off even under full-information, seeker-optimal stable matching; see [`protection_sets`](../../hiddenoptions/audit.py). The premium is 0 in nearly all markets, and at most 1 audit in about 1% of them (`premium.csv`).
+- **Repairs leave losers:** after the repair, 17% of seekers under GPT k5 receive a worse outcome than their first-round match, which can include becoming unmatched. These unavoidable losers are excluded from the protection guarantee (`groups.csv`, `worse_off`).
 
 ## Sensitivity: calibrated preferences (`calibrated/`, `calibration/`)
 
@@ -181,7 +181,7 @@ Paired differences resample seed blocks with 10,000 draws.
 - **Missing pull information:** the share of postings with a stated salary cannot be checked from this pull, which keeps stated salaries only. 10.5% of rows have no employer key.
 - **What was specified when:** the design was frozen on 2026-11-15 without named outcomes, and every analysis here was coded after that. Their standing differs (`later_additions` in `jobs_manifest.json`):
   - **T, group switch and protection premium** are protocol estimands, named in `EXPERIMENT_SETUP.md` before the jobs freeze.
-  - **Accuracy, capacity/anchor, protection, recommendation profile and calibration** were committed before the held-out replication ran, so the replication tests them as specified in advance. They replicated.
+  - **Accuracy, capacity/anchor, protection, recommendation profile and calibration** were committed before the held-out replication ran, so the replication tests them as specified in advance. Capacity loss and anchor recovery repeat. The five-job coverage advantage remains uncertain in replication, whose interval spans zero.
   - **T and group-switch code, calibrated T and one firm per seeker** came after both windows.
   - **Frozen-month results** of everything except the protocol estimands are exploratory.
 - **Model version:** `gpt-6-luna` has no dated snapshot, so `model_returned` and send times are logged instead.

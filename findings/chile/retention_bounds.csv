@@ -1,0 +1,5 @@
+year,design_national_draws,exact_contract_gain,attained_retention_gain,retention_upper,unconstrained_optimum_gain,incumbent_exit_events,entrant_events,retained_course_switch_events
+2022,1024,96,170,1350,1425,0,217,71492
+2023,1024,111,199,1564,1633,0,32,78912
+2024,1024,107,273,1706,1765,0,689,174238
+total,3072,314,642,4620,4823,0,938,324642

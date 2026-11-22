@@ -1,0 +1,17 @@
+year,rule,lottery,linked_applicant_years,new_historical_hits,lost_historical_hits,net_historical_hit_change,no_initial_offer_hit_change,simulated_national_draws,draws_with_exit,incumbent_exit_events,entrant_events,retained_school_switch_events
+2022,learned,course,549997,38,29,9,0,128,0,0,103,1390
+2023,learned,course,516921,42,20,22,0,128,1,1,1,901
+2024,learned,course,457231,54,35,19,0,128,0,0,0,1154
+total,learned,course,1524149,134,84,50,0,384,1,1,104,3445
+2022,structural,course,549997,28,30,-2,0,128,0,0,0,2176
+2023,structural,course,516921,30,25,5,0,128,0,0,0,2250
+2024,structural,course,457231,57,32,25,0,128,0,0,0,5217
+total,structural,course,1524149,115,87,28,0,384,0,0,0,9643
+2022,learned,family,549997,38,29,9,0,32,1,1,27,367
+2023,learned,family,516921,42,20,22,0,32,0,0,1,224
+2024,learned,family,457231,54,35,19,0,32,0,0,0,288
+total,learned,family,1524149,134,84,50,0,96,1,1,28,879
+2022,structural,family,549997,28,30,-2,0,32,0,0,0,544
+2023,structural,family,516921,30,25,5,0,32,0,0,0,563
+2024,structural,family,457231,57,32,25,0,32,0,0,0,1310
+total,structural,family,1524149,115,87,28,0,96,0,0,0,2417

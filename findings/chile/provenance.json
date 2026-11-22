@@ -1,0 +1,181 @@
+{
+  "repository": "https://github.com/ikhillan/CS2880-final-project",
+  "commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+  "files": {
+    "sources/all-2022.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/all-2022.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "fb218c5ee7c9d84c15f289cd4d6d263d5e878d4f0a779b8297aef12f00bd65b1"
+    },
+    "sources/all-2023.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/all-2023.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "e8d7955d145d2ac424d166dc4cd08c14aa395fcc6aacd40a9807c8bc11394b4a"
+    },
+    "sources/all-2024.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/all-2024.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "328ed8d90b795c13ceffcccd2cd56ced787d6c8ef5f48db454fe297d00cdf2ab"
+    },
+    "sources/all-2025.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/all-2025.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "908c42964043abd46cd9f937a8e592d00e692d13dd7a460c5f7e1c9455db871e"
+    },
+    "sources/ceiling-summary.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/ceiling-summary.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "b1264f99081238ce696667b829300e41540cf243f388ad54d618b3369224c034"
+    },
+    "sources/coverage-groups.csv": {
+      "upstream_path": "publication/two-studies/retention/coverage-groups.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "e12d7cff275f778f89db71828acd54e6b856209e9000c17cb24d4040be05e6c3"
+    },
+    "sources/exact-design-checks.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/exact-design-checks.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "ef1bff22db9800a7d307870cb1315bb6241bdcf053f95a18fc0b4c984c7a9bfd"
+    },
+    "sources/field-entry-2021.csv": {
+      "upstream_path": "publication/two-studies/field-study/cohort/entry-2021.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "46f47d15c1de5f1dbd39e1a5298d99312dbe94f095de8ee971e4e7c2f10a2004"
+    },
+    "sources/field-mixed-endpoints.csv": {
+      "upstream_path": "publication/two-studies/field-study/mixed/mixed-endpoints.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "978937c4d1303a080fe6a510315215b6bd6fd3ad94fbe977c6047fa1ffc8c388"
+    },
+    "sources/first-2022.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/first-2022.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "9fa0f728bd1af1f7d005e107b4a417c1a93890541a1658a65bcffdd230954476"
+    },
+    "sources/first-2023.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/first-2023.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "1b54c3d76ce32f5246877f6e3cbc75d465d820f32ed362dba80f6bf86d2bcca8"
+    },
+    "sources/first-2024.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/first-2024.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "6ff37e3b0466bfd3ab947fc91ba84302e2ac3b58ada2104f279e814e002b5b8a"
+    },
+    "sources/first-2025.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/first-2025.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "e7ef66481d963884e2967ad852912b3030975682e3b43904a146aff795d79b88"
+    },
+    "sources/learned-coverage.csv": {
+      "upstream_path": "publication/two-studies/retention/policy/coverage.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "db289e7fef4b666e0cd12c663b86f1e3b4976cd6f47aae6380a7c9dc9eb09e44"
+    },
+    "sources/learned-design-audit.csv": {
+      "upstream_path": "publication/two-studies/retention/policy/design_audit.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "70856c4ed4ad83fa1979009bd036e8fa6a8062dbcd83f3e3b5f6045343dd83ac"
+    },
+    "sources/learned-holdout-course.csv": {
+      "upstream_path": "publication/two-studies/retention/policy/holdout_course.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "b67c6fdd3f920a5a2f453e924bbb235bc4b0aabc5b21f2bbcc7b56c38e375e9b"
+    },
+    "sources/learned-holdout-family.csv": {
+      "upstream_path": "publication/two-studies/retention/policy/holdout_family.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "5d50bb34238102ced637a4e93fb739559ad401520d318b594b8f6ba607e790d9"
+    },
+    "sources/linked-2022.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/linked-2022.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "021bc78e400443413e03443198694ff8cec053d1a46dc7a5a9057409ca157670"
+    },
+    "sources/linked-2023.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/linked-2023.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "2f3b66ad2573934d39861779d74b9a32ae591e6463ad43900586acce33e11590"
+    },
+    "sources/linked-2024.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/linked-2024.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "3826cd229637661dd30def6f79ad9844468784d5a9254ff460b535484e9d0503"
+    },
+    "sources/linked-2025.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/linked-2025.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "f4c0b66d7902ea84f77f36f28f35b7478bff0f0d6b28c62c4dad43d2e696a816"
+    },
+    "sources/retention-draws-2022.csv": {
+      "upstream_path": "publication/two-studies/retention/bounds/aggregates/2022-addback-draws.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "926e42b9fac2d04938964d4aa0404b8f1c06141d3c1b4fb3dbea887313b6579f"
+    },
+    "sources/retention-draws-2023.csv": {
+      "upstream_path": "publication/two-studies/retention/bounds/aggregates/2023-addback-draws.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "7d90cb5822723d7efa922c679ef4edc0fbdc0a4730c647a7f0a103f95acfb70d"
+    },
+    "sources/retention-draws-2024.csv": {
+      "upstream_path": "publication/two-studies/retention/bounds/aggregates/2024-addback-draws.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "1d6c5f0c997684881a5f40808d07ba3a405a2cc6522e60b72f84261e33e51ac2"
+    },
+    "sources/retention-mask-scores.csv": {
+      "upstream_path": "publication/two-studies/retention/bounds/aggregates/mask-scores.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "2055df699a29e8106cea9aff8fb474e0246ffd7354e3cdcca0afe7467d4abed4"
+    },
+    "sources/retention-selection.csv": {
+      "upstream_path": "publication/two-studies/retention/bounds/aggregates/selection.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "c05578370ee76f6bde8b861a4d83ec7a229db89c26ad6ddc59b2ed574e525c53"
+    },
+    "sources/retention-upper-2022.csv": {
+      "upstream_path": "publication/two-studies/retention/upper/results/joint-2022.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "8972ed5e947a2e549f89e8c4a758200b9bc439e1f38db2858ce95ab66da4d140"
+    },
+    "sources/retention-upper-2023.csv": {
+      "upstream_path": "publication/two-studies/retention/upper/results/joint-2023.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "c199c7724dc811657515c76750288cefa96dc38b05172696274c1c6e2fbb0080"
+    },
+    "sources/retention-upper-2024.csv": {
+      "upstream_path": "publication/two-studies/retention/upper/results/joint-2024.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "456fa25ae9d7279dce94dc90a983cc64d8d08582f63b72ec862544aa2a10963b"
+    },
+    "sources/structural-holdout-course.csv": {
+      "upstream_path": "publication/two-studies/retention/comparison/holdout_course.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "17aaf5ac51187326f532ae3cfaa35d779669872763110e595255fedee05f1adc"
+    },
+    "sources/structural-holdout-family.csv": {
+      "upstream_path": "publication/two-studies/retention/comparison/holdout_family.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "1fa48917b9d1658a5a011cf53859f58af031b60909f7800dc26b0e4a072799fc"
+    },
+    "sources/transitions-2022.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/transitions-2022.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "4134c2f0ab1ac9279ba26a60764ad456c6c8774b7ad755df48ee202932687090"
+    },
+    "sources/transitions-2023.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/transitions-2023.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "ce9f7af3ae5f69845836cc300e7332815fc09413188d84d49afbcffde726ebd4"
+    },
+    "sources/transitions-2024.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/transitions-2024.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "bb63a3e3a9f143e36cafd204091d83e266a54a0445f1d87863897063ccec1e0d"
+    },
+    "sources/transitions-2025.csv": {
+      "upstream_path": "publication/two-studies/institutional/results/transitions-2025.csv",
+      "upstream_commit": "75830f6c4f5d210def18920f92db3a2100c93ca6",
+      "sha256": "a9bf8093f1800facc788f8d2e5bf7cc2f43d56cc76f8840fa7bb122de775f891"
+    }
+  }
+}
