@@ -38,13 +38,13 @@ Capacity: one opening per posting in the primary run. `expected_hires` (a Reveli
 
 ## 4. Exposure policies and audit methods
 
-Each policy shows a seeker min(5, |E_b|) postings (or ⌈0.5 |E_b|⌉ in the `q50` arm): `uniform` (random), `transparent` (honest recommender), `salary_max`, `salary_min`, `under_leveled` (lowest seniority first), and `llm` (saved recommender output, not yet run). Audit methods are the housing set: no audit, full disclosure, reverse-delete, blocker greedy, prefix cover, exhaustive, and the exact Benders solver with prefix and assignment cuts, 15-second cap.
+Each policy shows a seeker min(5, |E_b|) postings (or ⌈0.5 |E_b|⌉ in the `q50` arm): `uniform` (random), `transparent` (honest recommender), `salary_max`, `salary_min`, `under_leveled` (lowest seniority first), and `llm` (saved gpt-6-luna output; run 2026-11-15 for the frozen comparison, §7). Audit methods are the housing set: no audit, full disclosure, reverse-delete, blocker greedy, prefix cover, exhaustive, and the exact Benders solver with prefix and assignment cuts, 15-second cap.
 
 ## 5. Months and sampling
 
 From the 2025 pull: development 2025-01 to 2025-07, frozen comparison 2025-08 to 2025-10, held out 2025-11 and 2025-12. A `JobCatalog` loads only the months a config names, so a development run cannot read frozen months. The pilot uses April and May, four cells, n = 24, 20 seeds, stratified design (half lower-wage seekers, half higher-wage, both with at least one feasible posting in the cell; half of postings from the top salary quartile of the cell, `posting_band = "top"`). Variants: `natural` (no stratification), `bottomband` (the housing-style bottom-quartile oversample), `nolevel` (no level condition), `payband0` and `payband25` (employer pay-band weight 0 and 2.5). The posting oversample favors the group the feasibility cap binds: the rent cap binds lower-income renters in housing, and the pay floor binds higher-wage seekers here.
 
-Calibration target for $w_w$, $\sigma_r$: the distribution of $\log(s_j / W_b)$ among matched seekers under full-disclosure DA against job-switcher wage-growth quantiles (Atlanta Fed Wage Growth Tracker; national, a known mismatch). Not yet run.
+Calibration target for $w_w$, $\sigma_r$: the distribution of $\log(s_j / W_b)$ among matched seekers under full-disclosure DA against job-switcher wage-growth quantiles (Atlanta Fed Wage Growth Tracker; national, a known mismatch). Not run before freezing; run on 2026-11-21 as a sensitivity (§7).
 
 ## 6. Pilot results (960 markets, 2026-11-10)
 
@@ -81,11 +81,25 @@ Two cautions. At k = 5 most of the group gap reflects list length, since lower-w
 
 **Earlier runs, superseded.** (1) Symmetric level rule (|gap| ≤ 2), bottom-quartile oversample, 800 markets: 47% of higher-wage seekers had no feasible posting in the draw, because the age-based experience proxy put older, higher earners at levels 4–6 while most postings are level 1–2. (2) One-sided level rule, higher-wage draw conditioned on options, bottom-quartile oversample, 800 markets: 30% still had none, because the oversample favored the group the cap does not bind. That run is reproduced exactly by the `bottomband` variant above.
 
-## 7. Open items
+## 7. Frozen comparison with the GPT arm (2026-11-15 to 2026-11-21)
 
-- LLM arm: `hiddenoptions/jobs/llm.py` (structured fields only; no `company`, no `rcid`, no text) and an OpenAI-format client for the HUIT API Platform. Revelio approved the HUIT AI Sandbox; the API Platform route awaits HUIT's confirmation of the same no-training agreement, then Revelio's. Credits: $10/month Community tier for the pilot, SEAS credit redemption for the full run.
-- A jobs `describe_markets.py`: stated-salary share by month and cell, feasible degree by group, employer-portfolio skew.
-- Calibration, then freezing `jobs_manifest.json`.
-- Experience proxy: age-based; the symmetric level rule showed it can dominate feasibility for older seekers. Revisit if calibration or the LLM arm pattern by age.
+`jobs_manifest.json` was frozen on 2026-11-15 with the pilot preference weights (uncalibrated). `configs/jobs_frozen.json`: months 2025-08 to 2025-10, evaluation donors, variants primary, natural, payband0, payband25, 960 markets. LLM arm: `gpt-6-luna` via the HUIT API Platform (Revelio approval 2026-11-13), reasoning effort none, 43,596 requests, all valid. Full write-up and aggregate tables: `findings/jobs-gpt-frozen/README.md`. Headlines for the primary variant, against random lists of the same length:
+
+- GPT's 5-job lists place 15.5 points fewer seekers (lower-wage 22.6, higher-wage 8.5); half-length lists 2.8 fewer. The honest ranker places 42.9 fewer.
+- The drop is all capacity (the shown pairs cannot hold everyone; GPT's top three postings take 37% of slots vs 27% for random), not collisions.
+- Reserving one slot per list for a job from a maximum assignment recovers 13.0 points for GPT (17.3 lower-wage), leaving it 2.6 below random.
+- Accuracy (full-information job on the list) is +1.6 points over random, but this is not robust to calibration (below).
+- Protection premiums are essentially zero; about 17% of seekers end worse than their first-round match after the cheapest repair.
+
+Calibration and sensitivity (after the freeze, exploratory): `experiments_jobs/calibrate.py` with Atlanta Fed job-switcher targets (median 4.14%, p25/p75 from the all-worker spread; the tracker's growth is 100·ln, so targets are g/100) selects w_w = 1, σ_r = 1.25 at a grid corner, with a nearly flat loss (0.339 vs 0.358 at the frozen point). No setting fits lower-wage seekers' wage change (+0.56 log points vs +0.04 target). The primary variant rerun at those weights (`configs/jobs_frozen_calibrated.json`, GPT answers reused by `experiments_jobs/remap_llm.py`) gives the same placement, capacity and anchor results; GPT's accuracy edge disappears (−0.2 [−1.5, 1.0]).
+
+All later analyses are logged under `later_additions` in `jobs_manifest.json`.
+
+## 8. Open items
+
+- Held-out replication, 2025-11 and 2025-12: `configs/jobs_replication.json`, about 29,400 GPT requests (about $2.40), frozen weights.
+- Stated-salary share (the manifest's stop rule) cannot be measured from a pull that keeps stated salaries only; a WRDS count query over all NY-metro postings would settle it.
+- Seeker-side firms are synthetic six-person agents; the housing side moved to one firm per renter. Changing this is a new versioned run.
+- Experience proxy: age-based; the symmetric level rule showed it can dominate feasibility for older seekers.
 - `plan_spread` should map slots back to postings before comparing allocations when capacity > 1.
-- `analyze.py` reports all-false `children`/`no_children` rows for jobs; ignore or filter.
+- `analyze.py` reports all-false `children`/`no_children` rows for jobs; ignore or filter (filtered in `findings/jobs-gpt-frozen/groups.csv`).

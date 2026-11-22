@@ -2,8 +2,21 @@
   "name": "jobs_calibration",
   "domain": "jobs",
   "grid": {
-    "cells": ["291141", "533032", "412031", "311131"],
-    "months": ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07"],
+    "cells": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "months": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07"
+    ],
     "size": 64,
     "seeds": 20,
     "seed_start": 1000
@@ -16,17 +29,31 @@
     "w_payband": 1.0
   },
   "search": {
-    "w_wage": [1, 2, 4],
-    "seeker_noise": [0.5, 0.75, 1.25]
+    "w_wage": [
+      1,
+      2,
+      4
+    ],
+    "seeker_noise": [
+      0.5,
+      0.75,
+      1.25
+    ]
   },
   "targets": {
-    "log_wage_change_quantiles": [null, null, null],
-    "source": "FILL: Atlanta Fed Wage Growth Tracker, job switchers, 2025, p25/p50/p75 of 12-month wage growth"
+    "log_wage_change_quantiles": [
+      -0.00886,
+      0.04143,
+      0.14386
+    ],
+    "source": "Atlanta Fed Wage Growth Tracker, wage-growth-data.xlsx (data dated 2026-10-08, downloaded 2026-11-21). Averages over the development months 2025-01..2025-07 of 3-month moving averages: job-switcher median 4.143 (data_overall, 'Job Switcher'); all-worker p25 -0.800, median 4.229, p75 14.471 (data_chart2).",
+    "construction": "The tracker defines growth as 100*ln(w_t/w_{t-12}), so a target is g/100 with no log(1+g) step. The tracker publishes only the median for job switchers, so p25 and p75 are the switcher median plus the all-worker gaps (p25 - median = -5.029, p75 - median = 10.242). This assumes switchers have the same spread as all workers, which is a modeled choice. Hourly wages and national data, against posted annual salary vs prior annual wage in NYC: known mismatches."
   },
   "_notes": [
-    "Targets are log(1 + g/100), where g is the tracker's percent wage growth for job switchers at the 25th, 50th and 75th percentiles. The tracker's data download (Excel) has the percentile series; take the 2025 average, or the months that match the development months.",
+    "Targets are g/100, where g is the tracker's 100*ln wage growth (see targets.construction). The first version of this note said log(1 + g/100), which is wrong for this tracker; the difference is under 0.01.",
     "The tracker is national; NYC is not separately available. Record this as a known mismatch.",
     "64 per side, natural sampling (no stratification), calibration donors only, seeds 1000-1019, disjoint from the pilot's 0-19.",
-    "9 settings x 4 cells x 7 months x 20 seeds = 5,040 market builds with DA only; expect tens of minutes."
+    "9 settings x 4 cells x 7 months x 20 seeds = 5,040 market builds with DA only; expect tens of minutes.",
+    "Run on 2026-11-21, after the frozen comparison, as a sensitivity: the frozen primary keeps the pilot values (w_wage 2, seeker_noise 0.75). Logged under later_additions in jobs_manifest.json."
   ]
 }

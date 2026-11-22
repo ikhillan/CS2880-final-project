@@ -54,21 +54,26 @@
     "employer_attributes": {
       "agency_flag": "name-based heuristic on company (staffing, recruit, talent, agency); modeled",
       "company_table_optional": {
-        "table": "FILL or null",
+        "table": null,
         "join_key": "rcid",
-        "headcount_field": "FILL or null (if null, Q_j = seniority + within-cell salary percentile)",
-        "naics_field": "FILL or null (if present, replaces name heuristic with NAICS 5613)"
+        "headcount_field": null,
+        "naics_field": null,
+        "note": "No company table was pulled. Q_j is the within-market standardized log salary plus a common shock (see preferences.seeker_score)"
       }
     },
     "diagnostics_to_record": {
-      "rows_by_month": null,
-      "stated_salary_share_by_month": null,
-      "stated_salary_share_by_occupation_group": null,
-      "hourly_conversion_share": null,
-      "remote_share": null,
-      "unresolved_employer_share": null,
-      "top_employer_portfolio_share": null,
-      "stop_rule": "if stated-salary share < 0.70 in NY metro, stop and revisit design"
+      "computed_on": "2026-11-21, from data/job_postings/raw/revelio_job_postings.csv (sha256 matches revelio_2025_manifest.json)",
+      "rows_by_month": {
+        "2025-01": 231183, "2025-02": 230892, "2025-03": 225521, "2025-04": 266460, "2025-05": 266248, "2025-06": 287922,
+        "2025-07": 320414, "2025-08": 313520, "2025-09": 312076, "2025-10": 290290, "2025-11": 278587, "2025-12": 248842
+      },
+      "stated_salary_share_by_month": "not measurable from this pull: the query keeps salary_predicted = false only, so every row (100%) has a stated salary; the share among all NY-metro postings needs a second count query on WRDS",
+      "stated_salary_share_by_occupation_group": "not measurable from this pull (same reason)",
+      "hourly_conversion_share": "no conversion applied; 1.7% of kept rows have a salary midpoint below $1,000, which looks hourly",
+      "remote_share": "8.7% of rows dropped as Fully Remote, Remote In Territory or Temporarily Remote",
+      "unresolved_employer_share": "10.5% of rows have no rcid",
+      "top_employer_portfolio_share": "largest employer 0.8% of kept rows; top 10 employers 5.6%",
+      "stop_rule": "if stated-salary share < 0.70 in NY metro, stop and revisit design. Not checkable from this pull; see stated_salary_share_by_month"
     },
     "table_last_updated": "2026-11-03"
   },
@@ -96,10 +101,10 @@
   },
   "seekers": {
     "source": "ACS 2020-2024 five-year PUMS, person file, 55 NYC PUMAs (scripts/fetch_census_pums.py)",
-    "download_url": "FILL",
-    "downloaded_on": null,
+    "download_url": "https://www2.census.gov/programs-surveys/acs/data/pums/2024/5-Year (BASE in scripts/fetch_census_pums.py)",
+    "downloaded_on": "2026-11-10 (local file timestamp)",
     "geography": "five boroughs only; postings span the NY metro (known mismatch, read as commuting)",
-    "puma_crosswalk_url": "FILL",
+    "puma_crosswalk_url": "TIGERweb 2020 PUMAs (scripts/fetch_puma_boundaries.py; data/geo/nyc_puma2020.provenance.json)",
     "filters": {
       "age": [
         22,
@@ -116,7 +121,7 @@
     "weight": "PWGTP",
     "group_variable": "WAGP in July 2026 dollars",
     "group_cutoff_rule": "person-weighted median WAGP*ADJINC of all NYC seekers in the frame",
-    "group_cutoff_value": null,
+    "group_cutoff_value": "58,656.82 in 2024 dollars (WAGP x ADJINC; weighted median of the 136,835-record frame, computed 2026-11-21 by hiddenoptions.jobs.markets.load_seekers). The code compares in 2024 dollars, not July 2026 dollars as group_variable says; the split is the same either way because one CPI factor scales every seeker",
     "sensitivity_group_variable": "SCHL >= bachelor's",
     "donor_partition": {
       "hash": "crc32(SERIALNO|SPORDER) mod 100",
@@ -179,8 +184,9 @@
       "config": "configs/jobs_calibrate.json",
       "markets": "natural, 64 per side, calibration donors, dev months, seeds 1000-1019",
       "target": "Atlanta Fed Wage Growth Tracker, job switchers, p25/p50/p75 (national; known mismatch)",
-      "target_values": null,
-      "status": "not run before freezing"
+      "target_values": [-0.00886, 0.04143, 0.14386],
+      "target_construction": "see targets in configs/jobs_calibrate.json: switcher median, with p25/p75 from all-worker gaps; tracker growth is 100*ln, so target = g/100",
+      "status": "not run before freezing. Run 2026-11-21 after the frozen comparison: selects w_wage 1, seeker_noise 1.25 (grid corner), loss 0.339 vs 0.358 at the frozen (2, 0.75); loss ranges 0.339-0.370 over the grid. Every setting puts the lower-wage median log raise near +0.56 vs a +0.04 target, so the misfit comes from the feasibility rule and the ACS-annual-wage vs posted-salary comparison, not from the weights. Results: results/jobs_calibration/"
     },
     "selected": {
       "w_wage": 2.0,
@@ -237,7 +243,10 @@
         "llm_k5",
         "llm_q50"
       ],
-      "run_dates": []
+      "run_dates": [
+        "2026-11-15 (jobs_frozen: 43,596 requests, all ok, sent 11:21 to 18:31 ET)"
+      ],
+      "model_returned": "gpt-6-luna (every jobs_frozen response)"
     }
   },
   "license": {
@@ -255,8 +264,8 @@
         "revelio": "2026-11-09: use in protected LLM environments (HUIT AI Sandbox) permitted"
       },
       "huit_api_platform": {
-        "huit": "FILL: date and wording of HUIT's reply / FAQ statement that inputs are not used for training; Level 3 approved",
-        "revelio": "FILL: date and wording of Revelio's confirmation for the API route",
+        "huit": "HUIT API Platform approved for Level 3 data; no-training terms per HUIT FAQ (portal docs, ais-openai-direct-limited). Copied from revelio_2025_manifest.json",
+        "revelio": "2026-11-13: Revelio Labs confirmed use through the HUIT API Platform (OpenAI Direct). Copied from revelio_2025_manifest.json",
         "data_classification": "licensed research data, no personal information; judged Level 3 or below"
       }
     }
@@ -264,15 +273,15 @@
   "rng": {
     "seed_blocks": 20,
     "keys": {
-      "seeker": null,
-      "posting": null,
-      "pair": null,
-      "policy": null
+      "seeker": "default_rng([seed, crc32('cell|month|n_seekers|n_postings|seekers')]) in hiddenoptions/jobs/markets.py _rng",
+      "posting": "same, stream 'postings'",
+      "pair": "same, stream 'preferences' (seeker and employer shocks); seeker-side firms use stream 'firms'",
+      "policy": "default_rng([seed, crc32('market_id|exposure|salt')]) in hiddenoptions/exposure.py; LLM posting order is seeded in hiddenoptions/jobs/llm.py build_request"
     }
   },
   "code": {
-    "repo": "FILL",
-    "commit": "FILL: commit hash that runs the frozen comparison",
+    "repo": "https://github.com/ikhillan/CS2880-final-project",
+    "commit": "a5b4bb23c07a99eb69465282c82ced6e4b8e4581 (2026-11-15, last commit before the LLM run and frozen comparison). The working-tree state at run time was not recorded; 69611df (2026-11-16) later committed changes to experiments_jobs/run.py and hiddenoptions/jobs/markets.py",
     "source_hashes": {}
   },
   "cells": {
@@ -313,8 +322,19 @@
   },
   "freeze_checklist_status": {
     "calibration": "skipped (uncalibrated values frozen)",
-    "provenance_sha256_bytes": "FILL",
-    "viability_reviewed": "FILL",
-    "code_commit": "FILL"
+    "provenance_sha256_bytes": "checked 2026-11-21: extract sha256 630d2e2f...eb88 and 727,863,065 bytes match revelio_2025_manifest.json; SQL sha256 matches",
+    "viability_reviewed": "pilot: results/jobs_pilot/viability.md (2026-11-15). Frozen months: results/jobs_frozen/viability.md (2026-11-21, after the run)",
+    "code_commit": "a5b4bb2 (see code.commit)"
+  },
+  "later_additions": {
+    "note": "Analyses added after the frozen comparison ran. All are exploratory: none was named before the frozen-month outcomes were seen. They reuse the saved GPT answers and make no API calls.",
+    "items": [
+      {"what": "protected repairs (lower-wage and all), protect / protect_methods in configs/jobs_frozen.json", "script": "experiments_jobs/premium.py", "date": "2026-11-16", "outputs": "results/jobs_frozen/premium.{md,csv}"},
+      {"what": "what each policy shows: salary and seniority percentile, concentration and overlap", "script": "experiments_jobs/recommendation_profile.py", "date": "2026-11-15", "outputs": "results/jobs_frozen/rec_*.csv, rec_profile.md"},
+      {"what": "accuracy vs placement", "script": "experiments_jobs/accuracy.py", "date": "2026-11-16", "outputs": "results/jobs_frozen/accuracy.{md,csv}, accuracy_pairs.csv"},
+      {"what": "capacity decomposition and one reserved (anchor) slot", "script": "experiments_jobs/capacity_anchor.py", "date": "2026-11-21", "outputs": "results/jobs_frozen/capacity_anchor.md, capacity_*.csv, anchor.csv"},
+      {"what": "preference calibration on development months (see preferences.calibration)", "script": "experiments_jobs/calibrate.py", "date": "2026-11-21", "outputs": "results/jobs_calibration/grid.csv, selected.json"},
+      {"what": "calibrated-weights sensitivity: jobs_frozen primary variant at w_wage 1, seeker_noise 1.25; GPT answers reused via experiments_jobs/remap_llm.py (same seekers, postings, feasibility; prompts had the jobs_frozen posting order)", "script": "configs/jobs_frozen_calibrated.json", "date": "2026-11-21", "outputs": "results/jobs_frozen_calibrated/"}
+    ]
   }
 }

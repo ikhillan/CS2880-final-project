@@ -1,0 +1,138 @@
+{
+  "name": "jobs_replication",
+  "domain": "jobs",
+  "study_manifest": "jobs_manifest.json",
+  "grid": {
+    "cells": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "months": [
+      "2025-11",
+      "2025-12"
+    ],
+    "sizes": [
+      24
+    ],
+    "seeds": 20
+  },
+  "market": {
+    "design": "stratified",
+    "posting_band": "top",
+    "donors": "evaluation",
+    "capacity": "one",
+    "share": 0.8,
+    "level_gap": 2,
+    "w_wage": 2.0,
+    "seeker_noise": 0.75,
+    "w_payband": 1.0
+  },
+  "tightness": 1.0,
+  "variants": [
+    {
+      "label": "primary"
+    },
+    {
+      "label": "natural",
+      "design": "natural"
+    },
+    {
+      "label": "payband0",
+      "w_payband": 0.0
+    },
+    {
+      "label": "payband25",
+      "w_payband": 2.5
+    }
+  ],
+  "exposures": [
+    {
+      "name": "uniform_k5",
+      "policy": "random",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "salary_max_k5",
+      "policy": "salary_max",
+      "k": 5
+    },
+    {
+      "name": "salary_min_k5",
+      "policy": "salary_min",
+      "k": 5
+    },
+    {
+      "name": "under_leveled_k5",
+      "policy": "under_leveled",
+      "k": 5
+    },
+    {
+      "name": "uniform_q50",
+      "policy": "random",
+      "q": 0.5
+    },
+    {
+      "name": "llm_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "llm_q50",
+      "policy": "llm",
+      "q": 0.5
+    }
+  ],
+  "llm": {
+    "route": "huit_api_platform",
+    "model": "gpt-6-luna",
+    "max_tokens": 300,
+    "price_per_million": [
+      0.1,
+      0.5
+    ],
+    "min_interval_s": 0.5,
+    "reasoning_effort": "none"
+  },
+  "llm_results": "results/llm/jobs_replication/recs.jsonl",
+  "methods": [
+    "no_audit",
+    "full_disclosure",
+    "reverse_delete",
+    "blocker_greedy",
+    "prefix_cover",
+    "exhaustive",
+    "exact_prefix",
+    "exact_assignment"
+  ],
+  "exhaustive_max_firms": 18,
+  "exact_time_cap": {
+    "24": 15.0,
+    "default": 15.0
+  },
+  "analysis_method": "exact_prefix",
+  "enumerate_plans": {
+    "cap": 200,
+    "seconds": 30
+  },
+  "_notes": [
+    "Held-out replication of jobs_frozen: months 2025-11 and 2025-12 (jobs_manifest.json held_out_replication), evaluation donors. Every market and LLM field is copied unchanged from jobs_frozen.json; only name, months and llm_results differ.",
+    "Seeds 0-19 as in jobs_frozen: market RNG keys include the month, so these are different markets.",
+    "llm: gpt-6-luna via the HUIT API Platform, reasoning_effort none, same prompt as jobs_frozen. Record run dates and model_returned in jobs_manifest.json.",
+    "protect: protected repairs as in jobs_frozen (later analysis there; named in advance here)."
+  ],
+  "protect": [
+    "lower",
+    "all"
+  ],
+  "protect_methods": [
+    "reverse_delete",
+    "exact_prefix"
+  ]
+}
