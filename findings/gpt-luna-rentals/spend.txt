@@ -1,0 +1,4 @@
+heldout_replication/gpt_k5: 20,795 replies, 24,200,102 in / 561,465 out tokens, $2.70
+stage1_pilot/gpt_k5: 20,740 replies, 24,119,998 in / 559,980 out tokens, $2.69
+heldout_primary/gpt_k5: 13,580 replies, 16,451,501 in / 366,660 out tokens, $1.83
+total: 55,115 replies, $7.22 at list price (batch requests may be billed at half)

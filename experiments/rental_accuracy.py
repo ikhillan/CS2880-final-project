@@ -34,8 +34,8 @@ def one(task):
     out = {"label": label, "cfg_seed": spec.seed}
     for ex in exposures:
         built = build_exposure(m, ex, _llm)
-        if built is None:
-            return None
+        if built is None:  # no saved replies for this arm: skip the arm, keep the market
+            continue
         e0 = built[0]
         b, _ = deferred_acceptance(m.inst, e0)
         idx = np.where(matched_full)[0]
@@ -55,7 +55,7 @@ def main():
             rs = [r for r in rows if r["label"] == label]
             base = np.array([r["uniform_k5"] for r in rs])
             line = [f"{cfg['name']:20s} {label:9s} n={len(rs)}"]
-            for a in ARMS:
+            for a in [a for a in ARMS if rs and all(a in r for r in rs)]:
                 x = np.array([r[a] for r in rs])
                 d = x - base
                 rng = np.random.default_rng(0)
