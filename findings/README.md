@@ -25,6 +25,37 @@ The accuracy and placement rows use each study's headline design: rental enriche
 
 T is the change in the lower- minus higher-group gap in the share who miss a better option. A "better option" is a hidden blocking pair: an option they weren't shown, that would take them, and that they prefer.
 
+## Three-way comparison: Chilean schools, NYC rentals, NYC jobs
+
+These charts follow the presentation's framing: a baseline rule A and a "smarter" rule B in each setting, both picking 5 options per person.
+- **Chile:** rule A is the rank-blind classifier, rule B the rank-informed one.
+- **NYC rentals and jobs:** rule A is random lists, rule B is GPT.
+
+Each panel has its own scale, because the effects differ by about 100× between Chile and jobs.
+
+![The smarter rule places fewer people in all three settings, with equal or better accuracy](three_way_accuracy_placement.png)
+
+- **Direction:** in all three settings, placement falls under rule B in every year or window.
+- **Size:** about 0.1 pp in Chile (roughly 520 families a year), 2–4 pp in rentals and 15–18 pp in jobs.
+- **Accuracy:** rule B is more accurate in Chile and rentals. In jobs it is about as accurate as random, so the loss there comes from concentration alone.
+
+![The placement loss lands on the group with more options](three_way_who_loses.png)
+
+- **Who loses:** in each setting, the group with more feasible options takes most of the loss. In Chile, that means families with more than 5 choices, whose lists get cut. In rentals it's higher-income renters, and in jobs it's lower-wage seekers.
+- **Bystanders:** Chilean families with 5 or fewer choices still lose a little, even though their own lists never change. That's the congestion spillover.
+
+The same three settings against one shared baseline (random 5-option lists) show where each rule B lands:
+
+![More accurate is not more placed: GPT loses placements, Chile's classifiers gain](strongest_results_accuracy_vs_placement.png)
+
+Against random lists, Chile's classifiers are more accurate *and* place slightly more families. GPT places fewer than random in both NYC markets.
+
+**Sources and caveats:**
+- **Chile values:** `publication/research/observed/school/summary.csv` (k = 5; 2020 and 2021 test years).
+- **Earlier deck:** it showed 2022–25 Chile cohorts (−1,670 placed in total). Those figures aren't in the repo, so they aren't charted here.
+- **Accuracy definitions differ:** Chile counts the official offer being on the list; NYC counts the full-information match.
+- **Regenerate:** `python scripts/three_way_charts.py findings`.
+
 ## Three findings
 
 **1. GPT's lists are concentrated, and concentration costs placements in both markets.** On five-option lists, GPT places fewer people than random in every window of both studies. The jobs loss is about five times larger. Two things drive the difference:
