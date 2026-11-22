@@ -18,14 +18,15 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+REPS = 2000  # seed-block bootstrap draws; --reps 10000 for the final tables, as the protocol asks
 
 
-def ci(df: pd.DataFrame, col: str, reps: int = 2000) -> tuple[float, float]:
+def ci(df: pd.DataFrame, col: str, reps: int | None = None) -> tuple[float, float]:
     per_seed = df.groupby("seed")[col].mean().dropna().to_numpy()
     if len(per_seed) < 2:
         return float("nan"), float("nan")
     rng = np.random.default_rng(0)
-    means = per_seed[rng.integers(0, len(per_seed), (reps, len(per_seed)))].mean(1)
+    means = per_seed[rng.integers(0, len(per_seed), (reps or REPS, len(per_seed)))].mean(1)
     return float(np.quantile(means, 0.025)), float(np.quantile(means, 0.975))
 
 
@@ -40,7 +41,10 @@ def md(d: pd.DataFrame) -> str:
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("name")
+    ap.add_argument("--reps", type=int, default=2000, help="bootstrap draws (protocol final analysis: 10000)")
     args = ap.parse_args()
+    global REPS
+    REPS = args.reps
     out = ROOT / "results" / args.name
     rows = []
     for line in open(out / "runs.jsonl"):

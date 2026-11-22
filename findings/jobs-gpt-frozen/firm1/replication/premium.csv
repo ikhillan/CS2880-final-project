@@ -1,0 +1,17 @@
+group,variant,exposure,markets,c_da,c_protected,premium,premium_lo,premium_hi,positive_share,max_premium,protected,unavoidable,uncertified_dropped
+all,primary,llm_k5,160,6.0375,6.0375,0.0,0.0,0.0,0.0,0,11.2875,3.94375,0
+all,primary,llm_q50,160,4.6375,4.64375,0.00625,0.0,0.01875,0.00625,1,13.6125,5.2125,0
+all,primary,salary_max_k5,160,6.2,6.2,0.0,0.0,0.0,0.0,0,6.2125,2.06875,0
+all,primary,salary_min_k5,160,5.8625,5.8625,0.0,0.0,0.0,0.0,0,10.14375,3.2625,0
+all,primary,transparent_k5,160,6.16875,6.16875,0.0,0.0,0.0,0.0,0,6.70625,2.21875,0
+all,primary,under_leveled_k5,160,6.16875,6.175,0.00625,0.0,0.01875,0.00625,1,11.41875,2.85625,0
+all,primary,uniform_k5,160,6.34375,6.34375,0.0,0.0,0.0,0.0,0,13.425,5.98125,0
+all,primary,uniform_q50,160,5.55,5.575,0.025,0.00625,0.05,0.025,1,13.73125,5.86875,0
+lower,primary,llm_k5,160,6.0375,6.0375,0.0,0.0,0.0,0.0,0,6.325,1.83125,0
+lower,primary,llm_q50,160,4.6375,4.6375,0.0,0.0,0.0,0.0,0,8.24375,2.625,0
+lower,primary,salary_max_k5,160,6.2,6.2,0.0,0.0,0.0,0.0,0,2.8125,1.15,0
+lower,primary,salary_min_k5,160,5.8625,5.8625,0.0,0.0,0.0,0.0,0,5.21875,0.38125,0
+lower,primary,transparent_k5,160,6.16875,6.16875,0.0,0.0,0.0,0.0,0,3.075,1.28125,0
+lower,primary,under_leveled_k5,160,6.16875,6.175,0.00625,0.0,0.01875,0.00625,1,6.61875,0.91875,0
+lower,primary,uniform_k5,160,6.34375,6.34375,0.0,0.0,0.0,0.0,0,7.88125,3.0375,0
+lower,primary,uniform_q50,160,5.55,5.56875,0.01875,0.0,0.0375,0.01875,1,8.05,3.425,0

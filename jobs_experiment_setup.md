@@ -96,17 +96,25 @@ Calibration and sensitivity (after the freeze, exploratory): `experiments_jobs/c
 All later analyses are logged under `later_additions` in `jobs_manifest.json`.
 
 Held-out replication (2025-11 and 2025-12, run 2026-11-21 to 22): `configs/jobs_replication.json`, frozen design and weights, 640 markets, 29,390 GPT requests, all valid. Every plan passed its stability check. Primary variant, against random:
-- GPT 5-job lists place 17.5 fewer [−19.0, −16.1] (lower-wage 23.0, higher-wage 12.0); half lists 3.3 fewer; the honest ranker 43.9 fewer.
+- GPT 5-job lists place 17.5 fewer [−18.9, −16.0] (lower-wage 23.0, higher-wage 12.0); half lists 3.3 fewer; the honest ranker 43.9 fewer.
 - Capacity share of the drop is 1.28. The anchor recovers 15.9, leaving GPT 1.5 below random.
 - The protection premium is about zero, and 16% of seekers end worse off.
-- GPT k5's accuracy edge is not significant (+0.8 [−1.5, 3.3]). Half lists keep theirs (+3.2 [0.8, 5.7]).
+- GPT k5's accuracy edge is not significant (+0.8 [−1.4, 3.3]). Half lists keep theirs (+3.2 [0.7, 5.7]), though at the calibrated weights the frozen-month edge is borderline (+1.6 [−0.0, 3.4]).
 
 Tables are in `findings/jobs-gpt-frozen/replication/`.
+
+Rental-comparable T (`experiments_jobs/contrast_T.py`, added 2026-11-22): the change in the lower- minus higher-wage gap in hidden-blocking-pair share, GPT k5 vs random. Cells are weighted equally.
+- **Natural design** (the counterpart of the rental primary): +4.3 [1.9, 6.8] frozen and +4.2 [0.5, 7.8] replication.
+- **Stratified primary** (the counterpart of rental enriched, where rentals get +6.7 to +8.5): +0.8 [−1.5, 3.1] and +2.6 [−0.5, 5.7].
+- **Why the stratified gap barely moves:** GPT raises misses for both wage groups about equally. Frozen T comes from a no-audit rerun (`configs/jobs_frozen_noaudit.json`) whose outcomes match `jobs_frozen` exactly.
+- **Calibrated weights:** natural +3.6 [0.7, 6.5] frozen and +3.0 [−0.7, 6.5] replication; stratified +1.4 and +2.6, neither significant. The pattern holds.
+- **Group switch** (`experiments_jobs/group_switch.py`): primary S_L +6.6 / +9.1 and S_H −5.8 / −6.5, all significant. Each wage group is hurt by its own GPT lists, and the harms cancel in T. Rentals differ: there S_H is about +7, from GPT lowering higher-income misses.
+- **Draws:** all jobs intervals now use 10,000 seed-block draws, like the rentals. Intervals moved by at most 0.2 pp.
 
 ## 8. Open items
 
 - Stated-salary share (the manifest's stop rule) cannot be measured from a pull that keeps stated salaries only; a WRDS count query over all NY-metro postings would settle it.
-- Seeker-side firms are synthetic six-person agents; the housing side moved to one firm per renter. Changing this is a new versioned run.
+- Seeker-side firms: the frozen design uses synthetic six-person agents; the housing side uses one firm per renter. Sensitivity run 2026-11-22 (`configs/jobs_{frozen,replication}_firm1.json`). Repair costs rise from about 4 to about 6 firms and shift from overriding seekers to auditing employers. GPT stays cheaper to repair than random (−0.46 / −0.31 firms), 17% end worse off and the protection premium stays near 0. Results: `findings/jobs-gpt-frozen/firm1/`.
 - Experience proxy: age-based; the symmetric level rule showed it can dominate feasibility for older seekers.
 - `plan_spread` should map slots back to postings before comparing allocations when capacity > 1.
 - `analyze.py` reports all-false `children`/`no_children` rows for jobs; ignore or filter (filtered in `findings/jobs-gpt-frozen/groups.csv`).

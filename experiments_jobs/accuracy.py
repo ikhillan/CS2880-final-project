@@ -28,6 +28,7 @@ from experiments_jobs.config import domain_modules, expand_labeled, load_config
 from hiddenoptions.matching import deferred_acceptance
 
 ROOT = Path(__file__).resolve().parents[1]
+REPS = 2000  # seed-block bootstrap draws; --reps 10000 for the final tables, as the protocol asks
 GROUPS = ("all", "lower_wage", "higher_wage")
 # (rule, baseline) pairs compared, by exposure name in the config; missing names are skipped
 PAIRS = [("llm_k5", "uniform_k5"), ("llm_q50", "uniform_q50"), ("transparent_k5", "uniform_k5")]
@@ -36,12 +37,12 @@ LABELS = {"uniform_k5": "Random (5 jobs)", "llm_k5": "GPT (5 jobs)", "transparen
           "under_leveled_k5": "Most junior (5 jobs)", "uniform_q50": "Random (half list)", "llm_q50": "GPT (half list)"}
 
 
-def seed_ci(per_seed: pd.Series, reps: int = 2000) -> tuple[float, float]:
+def seed_ci(per_seed: pd.Series, reps: int | None = None) -> tuple[float, float]:
     x = per_seed.dropna().to_numpy()
     if len(x) < 2:
         return float("nan"), float("nan")
     rng = np.random.default_rng(0)
-    means = x[rng.integers(0, len(x), (reps, len(x)))].mean(1)
+    means = x[rng.integers(0, len(x), (reps or REPS, len(x)))].mean(1)
     return float(np.quantile(means, 0.025)), float(np.quantile(means, 0.975))
 
 
@@ -65,7 +66,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("config")
     ap.add_argument("--variant", default="primary", help='variant label, or "all"')
+    ap.add_argument("--reps", type=int, default=2000, help="bootstrap draws (protocol final analysis: 10000)")
     args = ap.parse_args()
+    global REPS
+    REPS = args.reps
     cfg = load_config(args.config)
     markets_mod, exposure_mod, _ = domain_modules(cfg)
     catalog = markets_mod.JobCatalog(months=tuple(cfg["grid"]["months"]))

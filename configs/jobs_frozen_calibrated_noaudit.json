@@ -1,0 +1,107 @@
+{
+  "name": "jobs_frozen_calibrated_noaudit",
+  "domain": "jobs",
+  "study_manifest": "jobs_manifest.json",
+  "grid": {
+    "cells": [
+      "291141",
+      "533032",
+      "412031",
+      "311131"
+    ],
+    "months": [
+      "2025-08",
+      "2025-09",
+      "2025-10"
+    ],
+    "sizes": [
+      24
+    ],
+    "seeds": 20
+  },
+  "market": {
+    "design": "stratified",
+    "posting_band": "top",
+    "donors": "evaluation",
+    "capacity": "one",
+    "share": 0.8,
+    "level_gap": 2,
+    "w_wage": 1.0,
+    "seeker_noise": 1.25,
+    "w_payband": 1.0
+  },
+  "tightness": 1.0,
+  "variants": [
+    {
+      "label": "primary"
+    },
+    {
+      "label": "natural",
+      "design": "natural"
+    }
+  ],
+  "exposures": [
+    {
+      "name": "uniform_k5",
+      "policy": "random",
+      "k": 5
+    },
+    {
+      "name": "transparent_k5",
+      "policy": "transparent",
+      "k": 5
+    },
+    {
+      "name": "salary_max_k5",
+      "policy": "salary_max",
+      "k": 5
+    },
+    {
+      "name": "salary_min_k5",
+      "policy": "salary_min",
+      "k": 5
+    },
+    {
+      "name": "under_leveled_k5",
+      "policy": "under_leveled",
+      "k": 5
+    },
+    {
+      "name": "uniform_q50",
+      "policy": "random",
+      "q": 0.5
+    },
+    {
+      "name": "llm_k5",
+      "policy": "llm",
+      "k": 5
+    },
+    {
+      "name": "llm_q50",
+      "policy": "llm",
+      "q": 0.5
+    }
+  ],
+  "llm": {
+    "route": "huit_api_platform",
+    "model": "gpt-6-luna",
+    "max_tokens": 300,
+    "price_per_million": [
+      0.1,
+      0.5
+    ],
+    "min_interval_s": 0.5,
+    "reasoning_effort": "none"
+  },
+  "llm_results": "results/llm/jobs_frozen_calibrated_noaudit/recs.jsonl",
+  "methods": [
+    "no_audit"
+  ],
+  "exhaustive_max_firms": 18,
+  "exact_time_cap": {
+    "24": 15.0,
+    "default": 15.0
+  },
+  "analysis_method": "exact_prefix",
+  "notes": "Calibrated-weights sensitivity for the rental-comparable T (added 2026-11-22): jobs_frozen markets at the calibrated w_wage and seeker_noise (configs/jobs_frozen_calibrated.json), primary and natural variants, no audits. GPT answers reused from jobs_frozen via experiments_jobs/remap_llm.py; no API calls."
+}

@@ -7,7 +7,7 @@ the same seekers and postings with the same feasible sets. The recommender promp
 Only market_id changes, because it hashes every spec field. That breaks the lookup of saved answers, and it also changes
 the seed that shuffles posting order in the prompt. This script pairs markets by (cell, month, size, seed, variant) and
 rewrites market_id, so the saved answers are reused. Caveat to report: the answers were given to prompts with the posting
-order of the source config. It checks that each paired market has the same seekers, postings and feasibility before
+order of the source config. A second one: random and rule-based shortlists seed on market_id, so those arms are redrawn (the recommender's lists are reused as they are). It checks that each paired market has the same seekers, postings and feasibility before
 remapping, and makes no API calls.
 """
 from __future__ import annotations

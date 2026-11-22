@@ -41,6 +41,7 @@ from experiments_jobs.config import domain_modules, expand_labeled, load_config
 from hiddenoptions.matching import deferred_acceptance
 
 ROOT = Path(__file__).resolve().parents[1]
+REPS = 2000  # seed-block bootstrap draws; --reps 10000 for the final tables, as the protocol asks
 FIELDS = ["salary_pct", "seniority_pct", "level_gap"]
 
 
@@ -130,12 +131,12 @@ def overlap(market, e0: np.ndarray) -> dict:
     return out
 
 
-def ci(df: pd.DataFrame, col: str, reps: int = 2000) -> tuple[float, float]:
+def ci(df: pd.DataFrame, col: str, reps: int | None = None) -> tuple[float, float]:
     per_seed = df.groupby("seed")[col].mean().dropna().to_numpy()
     if len(per_seed) < 2:
         return float("nan"), float("nan")
     rng = np.random.default_rng(0)
-    means = per_seed[rng.integers(0, len(per_seed), (reps, len(per_seed)))].mean(1)
+    means = per_seed[rng.integers(0, len(per_seed), (reps or REPS, len(per_seed)))].mean(1)
     return float(np.quantile(means, 0.025)), float(np.quantile(means, 0.975))
 
 
@@ -143,7 +144,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("config")
     ap.add_argument("--variant", default="primary", help="variant label to profile (default primary)")
+    ap.add_argument("--reps", type=int, default=2000, help="bootstrap draws (protocol final analysis: 10000)")
     args = ap.parse_args()
+    global REPS
+    REPS = args.reps
     cfg = load_config(args.config)
     markets_mod, exposure_mod, _ = domain_modules(cfg)
     catalog = markets_mod.JobCatalog(months=tuple(cfg["grid"]["months"]))
