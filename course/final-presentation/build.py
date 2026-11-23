@@ -1,4 +1,5 @@
 """Build the Beamer talk, technical appendix and timed narration PDF."""
+import json
 import os
 from pathlib import Path
 import re
@@ -36,6 +37,7 @@ pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
 \renewcommand{\familydefault}{\sfdefault}
 \begin{document}
 """
+    build_cues = json.loads((HERE / "video-builds.json").read_text())["builds"]
     chunks = [preamble]
     seconds_total = 0
     words = 0
@@ -59,6 +61,11 @@ pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
         chunks.append(r"{\color{navy}\textbf{" + tex_escape(timing) + r"}}\par\medskip")
         for para in re.split(r"\n\s*\n", narration.strip()):
             chunks.append(tex_escape(" ".join(para.split())) + "\n\\par")
+        reveal_cues = [b["anchor"] for b in build_cues if b["slide"] == int(number) and b["anchor"]]
+        if reveal_cues:
+            chunks.append(r"\vfill{\small\textbf{Advance the live slides at these words}\par}")
+            for cue in reveal_cues:
+                chunks.append(r"{\small ``" + tex_escape(cue) + r"''}\par")
     if not 960 <= seconds_total <= 1080:
         raise ValueError(f"Narration should be around 17 minutes: {seconds_total} seconds")
     chunks.append(r"\end{document}")
@@ -93,6 +100,7 @@ def main():
     subprocess.run([sys.executable, str(HERE/"make_figures.py")], check=True, env=env)
     make_notes()
     compile_pdf("main.tex", "presentation.pdf")
+    compile_pdf("video-builds.tex", "video-builds.pdf")
     compile_pdf("technical-appendix.tex", "technical-appendix.pdf")
     compile_pdf("speaker-notes.tex", "speaker-notes.pdf")
 

@@ -1,0 +1,1164 @@
+[
+  {
+    "slide": 1,
+    "index": 0,
+    "text": "Imagine you and I are both looking for an apartment. Suppose the app changes one apartment on your list. Could that cost me the apartment I would otherwise get? To see how that can happen, start with two people and two seats.",
+    "spoken_text": "Imagine you and I are both looking for an apartment. Suppose the app changes one apartment on your list. Could that cost me the apartment I would otherwise get? To see how that can happen, start with two people and two seats.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 0,
+    "text": "Let's start with two applicants and two school seats. A prefers school x to school y. B accepts only x. And school x gives A priority over B.",
+    "spoken_text": "Let's start with two applicants and two school seats. A prefers school x to school y. B accepts only x. And school x gives A priority over B.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 1,
+    "text": "At first, A sees y and B sees x. Both get a seat.",
+    "spoken_text": "At first, A sees y and B sees x. Both get a seat.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 2,
+    "text": "Now change only A's recommendation. Show A school x instead.",
+    "spoken_text": "Now change only A's recommendation. Show A school x instead.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 3,
+    "text": "Both applicants still see just one option. But now they compete for the same seat. A gets x, B gets nothing, and y sits empty.",
+    "spoken_text": "Both applicants still see just one option. But now they compete for the same seat. A gets x, B gets nothing, and y sits empty.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 4,
+    "text": "From A's perspective, the recommendation got better. B's shortlist did not change at all, yet B lost a place.",
+    "spoken_text": "From A's perspective, the recommendation got better. B's shortlist did not change at all, yet B lost a place.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 5,
+    "text": "Imagine evaluating that change with two separate surveys. A could report that the app finally showed the school they wanted. B could report that the screen looked exactly the same. Both accounts would be accurate.",
+    "spoken_text": "Imagine evaluating that change with two separate surveys. A could report that the app finally showed the school they wanted. B could report that the screen looked exactly the same. Both accounts would be accurate.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 6,
+    "text": "You would still have missed the empty seat and the person who used to have one.",
+    "spoken_text": "You would still have missed the empty seat and the person who used to have one.",
+    "role": "female"
+  },
+  {
+    "slide": 2,
+    "index": 7,
+    "text": "That's the interaction we want to understand. We would miss it if we evaluated each person's recommendations separately.",
+    "spoken_text": "That's the interaction we want to understand. We would miss it if we evaluated each person's recommendations separately.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 0,
+    "text": "First, a recommender chooses a short list of feasible options. Then an assignment rule decides who gets which place.",
+    "spoken_text": "First, a recommender chooses a short list of feasible options. Then an assignment rule decides who gets which place.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 1,
+    "text": "We keep track of three outcomes. Placement means receiving any place. Coverage means that a particular reference choice appears on the shortlist.",
+    "spoken_text": "We keep track of three outcomes. Placement means receiving any place. Coverage means that a particular reference choice appears on the shortlist.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 2,
+    "text": "And an exit means someone has a place under the comparison policy but loses it under the new one.",
+    "spoken_text": "And an exit means someone has a place under the comparison policy but loses it under the new one.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 3,
+    "text": "A coverage hit is easy to score from a person's list once the reference is known. A placement is different. You need all the submitted lists, the capacity of each option, and the rule that decides among competing applicants.",
+    "spoken_text": "A coverage hit is easy to score from a person's list once the reference is known. A placement is different. You need all the submitted lists, the capacity of each option, and the rule that decides among competing applicants.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 4,
+    "text": "That's why we rerun the allocation with everyone in the market whenever we change a policy.",
+    "spoken_text": "That's why we rerun the allocation with everyone in the market whenever we change a policy.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 5,
+    "text": "For rentals, the reference is the apartment assigned when every feasible option is available. For Chile, it's the school recorded in later enrollment.",
+    "spoken_text": "For rentals, the reference is the apartment assigned when every feasible option is available. For Chile, it's the school recorded in later enrollment.",
+    "role": "female"
+  },
+  {
+    "slide": 3,
+    "index": 6,
+    "text": "We want to improve recommendations while keeping every baseline recipient matched somewhere. They can switch schools. That is a weaker promise than keeping the same school, or getting a school they like more.",
+    "spoken_text": "We want to improve recommendations while keeping every baseline recipient matched somewhere. They can switch schools. That is a weaker promise than keeping the same school, or getting a school they like more.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 0,
+    "text": "In our New York rental simulation, take the renters with only one to five feasible apartments. Our policies already show them every option, so their personal shortlists cannot change.",
+    "spoken_text": "In our New York rental simulation, take the renters with only one to five feasible apartments. Our policies already show them every option, so their personal shortlists cannot change.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 1,
+    "text": "With the one-option anchor, their match rate is 13.1 percent.",
+    "spoken_text": "With the one-option anchor, their match rate is 13.1 percent.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 2,
+    "text": "With balanced shortlists across the market, it rises to 27.5 percent.",
+    "spoken_text": "With balanced shortlists across the market, it rises to 27.5 percent.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 3,
+    "text": "That's more than double, with exactly the same choices on their own lists. Only other renters' recommendations changed.",
+    "spoken_text": "That's more than double, with exactly the same choices on their own lists. Only other renters' recommendations changed.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 4,
+    "text": "Think of someone who can afford only three of the listings. They already see all three. A prediction about which of those apartments they want cannot explain a change in their match here.",
+    "spoken_text": "Think of someone who can afford only three of the listings. They already see all three. A prediction about which of those apartments they want cannot explain a change in their match here.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 5,
+    "text": "To find the explanation, we have to look at who else is applying.",
+    "spoken_text": "To find the explanation, we have to look at who else is applying.",
+    "role": "female"
+  },
+  {
+    "slide": 4,
+    "index": 6,
+    "text": "We held the apartments, renters and assignment rule fixed across both runs. That lets us see how much the other renters' lists can matter. The next comparison asks whether the same thing can happen in school admissions.",
+    "spoken_text": "We held the apartments, renters and assignment rule fixed across both runs. That lets us see how much the other renters' lists can matter. The next comparison asks whether the same thing can happen in school admissions.",
+    "role": "female"
+  },
+  {
+    "slide": 5,
+    "index": 0,
+    "text": "For rentals, we start with the apartment lists that GPT suggested. The listings and household profiles come from market and survey data, while preferences, landlord priorities and assignments are modeled.",
+    "spoken_text": "For rentals, we start with the apartment lists that G P T suggested. The listings and household profiles come from market and survey data, while preferences, landlord priorities and assignments are modeled.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 1,
+    "text": "We reconstruct 1,280 markets. In each one, the two policies face the same renters and apartments.",
+    "spoken_text": "We reconstruct 1,280 markets. In each one, the two policies face the same renters and apartments.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 2,
+    "text": "We also pair the random draws across policies. Otherwise, a lucky set of preferences could look like an algorithmic improvement.",
+    "spoken_text": "We also pair the random draws across policies. Otherwise, a lucky set of preferences could look like an algorithmic improvement.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 3,
+    "text": "For the follow-up, we resample twenty seed blocks ten thousand times, keeping all policies together within each draw. Renters sharing a market are not independent observations.",
+    "spoken_text": "For the follow-up, we resample twenty seed blocks ten thousand times, keeping all policies together within each draw. Renters sharing a market are not independent observations.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 4,
+    "text": "We analyzed these three periods before, and some of the same apartments appear again. The finding tells us how different policies behave on those markets.",
+    "spoken_text": "We analyzed these three periods before, and some of the same apartments appear again. The finding tells us how different policies behave on those markets.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 5,
+    "text": "There is also a supply limit. Of the markets originally planned, 320 could not be built under the Staten Island supply requirements. We kept those failures in the accounting.",
+    "spoken_text": "There is also a supply limit. Of the markets originally planned, 320 could not be built under the Staten Island supply requirements. We kept those failures in the accounting.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 6,
+    "text": "The enriched sample asks what a recommender can do when there are options to allocate. A household with no feasible apartment cannot gain access through a better ranking alone.",
+    "spoken_text": "The enriched sample asks what a recommender can do when there are options to allocate. A household with no feasible apartment cannot gain access through a better ranking alone.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 7,
+    "text": "Chile gives us families' submitted rankings and actual admissions rules. Our reconstruction matches the released course or no-offer outcomes for about two million applicant-years.",
+    "spoken_text": "Chile gives us families' submitted rankings and actual admissions rules. Our reconstruction matches the released course or no-offer outcomes for about two million applicant-years.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 8,
+    "text": "In a separate 2021 entry-grade replay, 237 of 309 net lost placements fall among pupils whose own shortlists stay fixed.",
+    "spoken_text": "In a separate 2021 entry-grade replay, 237 of 309 net lost placements fall among pupils whose own shortlists stay fixed.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 9,
+    "text": "That is a counterfactual comparison, not a school-advice trial. The later cohorts we'll discuss are counterfactuals too.",
+    "spoken_text": "That is a counterfactual comparison, not a school-advice trial. The later cohorts we'll discuss are counterfactuals too.",
+    "role": "male1"
+  },
+  {
+    "slide": 5,
+    "index": 10,
+    "text": "Both settings let us ask how other people's recommendations change your access, using different kinds of evidence.",
+    "spoken_text": "Both settings let us ask how other people's recommendations change your access, using different kinds of evidence.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 0,
+    "text": "The first rule coordinates one option. We call it the anchor. Find a maximum matching across all feasible pairs. When several maximum matchings exist, prefer pairs already on the shortlists.",
+    "spoken_text": "The first rule coordinates one option. We call it the anchor. Find a maximum matching across all feasible pairs. When several maximum matchings exist, prefer pairs already on the shortlists.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 1,
+    "text": "Then put each assigned option onto that person's list, replacing at most one option.",
+    "spoken_text": "Then put each assigned option onto that person's list, replacing at most one option.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 2,
+    "text": "The second rule coordinates the whole shortlist. Count how often each listing is recommended, and minimize the sum of those counts squared. Concentrating recommendations on a few listings becomes expensive.",
+    "spoken_text": "The second rule coordinates the whole shortlist. Count how often each listing is recommended, and minimize the sum of those counts squared. Concentrating recommendations on a few listings becomes expensive.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 3,
+    "text": "Among equally balanced solutions, favor the saved GPT ranks. We solve this using standard min-cost flow.",
+    "spoken_text": "Among equally balanced solutions, favor the saved G P T ranks. We solve this using standard min-cost flow.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 4,
+    "text": "There is a simple marginal cost behind that optimization. The first recommendation to a listing costs one unit. The next costs three, then five. Those are the differences between successive squares.",
+    "spoken_text": "There is a simple marginal cost behind that optimization. The first recommendation to a listing costs one unit. The next costs three, then five. Those are the differences between successive squares.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 5,
+    "text": "If two feasible apartments are equally useful for our tie breaker, the algorithm has a reason to recommend the less crowded one. Nobody has reserved it. Applicants still compete according to preferences and priorities.",
+    "spoken_text": "If two feasible apartments are equally useful for our tie breaker, the algorithm has a reason to recommend the less crowded one. Nobody has reserved it. Applicants still compete according to preferences and priorities.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 6,
+    "text": "Neither rule sees the realized preference shocks, landlord rankings or reference assignments. They use feasibility and saved recommendations.",
+    "spoken_text": "Neither rule sees the realized preference shocks, landlord rankings or reference assignments. They use feasibility and saved recommendations.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 7,
+    "text": "There are two different matchings in this experiment. The anchor matching tells the platform which suggestions to add. It is a planning calculation. Then we run applicant-proposing deferred acceptance on the shortlists.",
+    "spoken_text": "There are two different matchings in this experiment. The anchor matching tells the platform which suggestions to add. It is a planning calculation. Then we run applicant-proposing deferred acceptance on the shortlists.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 8,
+    "text": "The person a planner earmarked for an apartment can still lose it in the assignment. That gap is exactly where a retention question arises.",
+    "spoken_text": "The person a planner earmarked for an apartment can still lose it in the assignment. That gap is exactly where a retention question arises.",
+    "role": "male1"
+  },
+  {
+    "slide": 6,
+    "index": 9,
+    "text": "Both keep each person's list length fixed. But balancing can replace several options, while the anchor replaces at most one. Neither rule explicitly protects existing recipients.",
+    "spoken_text": "Both keep each person's list length fixed. But balancing can replace several options, while the anchor replaces at most one. Neither rule explicitly protects existing recipients.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 0,
+    "text": "Before adding coordination, look at GPT against random shortlists of the same length. Blue shows the coverage difference. Orange shows the placement difference. Zero would mean no change from random.",
+    "spoken_text": "Before adding coordination, look at G P T against random shortlists of the same length. Blue shows the coverage difference. Orange shows the placement difference. Zero would mean no change from random.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 1,
+    "text": "Across the three enriched calendar windows, GPT gains about eight percentage points of coverage and loses about two to four points of placement. The directions repeat, and the original market-bootstrap intervals exclude zero.",
+    "spoken_text": "Across the three enriched calendar windows, G P T gains about eight percentage points of coverage and loses about two to four points of placement. The directions repeat, and the original market-bootstrap intervals exclude zero.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 2,
+    "text": "Those original error bars resample markets. Our follow-up uses paired seed-block intervals, including a simultaneous ninety-five percent band across four comparisons and two outcomes.",
+    "spoken_text": "Those original error bars resample markets. Our follow-up uses paired seed-block intervals, including a simultaneous ninety-five percent band across four comparisons and two outcomes.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 3,
+    "text": "We use the largest deviation across those eight estimates to set a common margin. This addresses the extra chances to find a favorable result when looking at several comparisons together.",
+    "spoken_text": "We use the largest deviation across those eight estimates to set a common margin. This addresses the extra chances to find a favorable result when looking at several comparisons together.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 4,
+    "text": "So the lists are better at including the full-list reference assignment. But that doesn't translate into more people getting apartments when the lists are used together.",
+    "spoken_text": "So the lists are better at including the full-list reference assignment. But that doesn't translate into more people getting apartments when the lists are used together.",
+    "role": "male1"
+  },
+  {
+    "slide": 7,
+    "index": 5,
+    "text": "These enriched markets deliberately include affordable listings and renters with feasible options. We also report the ordinary sampling design and the uncertainty details in the appendix.",
+    "spoken_text": "These enriched markets deliberately include affordable listings and renters with feasible options. We also report the ordinary sampling design and the uncertainty details in the appendix.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 0,
+    "text": "Now put the four policies on the same graph. Moving right means more reference coverage. Moving up means more people placed.",
+    "spoken_text": "Now put the four policies on the same graph. Moving right means more reference coverage. Moving up means more people placed.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 1,
+    "text": "Starting from random, GPT moves right but slightly down. Adding the anchor moves GPT upward, with a small coverage change.",
+    "spoken_text": "Starting from random, G P T moves right but slightly down. Adding the anchor moves G P T upward, with a small coverage change.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 2,
+    "text": "Balancing moves much farther up. Compared with the anchor, it gains another 12.6 percentage points of placement and loses about three points of coverage in this panel.",
+    "spoken_text": "Balancing moves much farther up. Compared with the anchor, it gains another 12.6 percentage points of placement and loses about three points of coverage in this panel.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 3,
+    "text": "But compare balancing with random, and both outcomes improve. So this isn't an unavoidable conflict between coverage and placement. It depends on which policies we compare.",
+    "spoken_text": "But compare balancing with random, and both outcomes improve. So this isn't an unavoidable conflict between coverage and placement. It depends on which policies we compare.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 4,
+    "text": "A stronger control is random recommendations with the same anchoring rule.",
+    "spoken_text": "A stronger control is random recommendations with the same anchoring rule.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 5,
+    "text": "In this panel, anchored GPT places only seven more renter appearances, out of ten thousand two hundred forty, and the paired interval for the placement difference crosses zero.",
+    "spoken_text": "In this panel, anchored G P T places only seven more renter appearances, out of ten thousand two hundred forty, and the paired interval for the placement difference crosses zero.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 6,
+    "text": "GPT improves reference coverage against that control; we cannot attribute a clear placement gain to GPT.",
+    "spoken_text": "G P T improves reference coverage against that control; we cannot attribute a clear placement gain to G P T.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 7,
+    "text": "The comparison between balancing and anchoring was more consistent. Across all six combinations of calendar window and sampling design, balancing raised placement and lowered reference coverage.",
+    "spoken_text": "The comparison between balancing and anchoring was more consistent. Across all six combinations of calendar window and sampling design, balancing raised placement and lowered reference coverage.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 8,
+    "text": "The simultaneous intervals for those two differences excluded zero in every combination. That is a pattern across these simulations. It is still possible to improve both outcomes when the starting rule is different.",
+    "spoken_text": "The simultaneous intervals for those two differences excluded zero in every combination. That is a pattern across these simulations. It is still possible to improve both outcomes when the starting rule is different.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 9,
+    "text": "These are means for the September and October enriched panel. A score-based control, with extra information from the simulation, improves both measures further. We haven't established GPT as the best recommender.",
+    "spoken_text": "These are means for the September and October enriched panel. A score-based control, with extra information from the simulation, improves both measures further. We haven't established G P T as the best recommender.",
+    "role": "male1"
+  },
+  {
+    "slide": 8,
+    "index": 10,
+    "text": "Now, who gains or loses a match?",
+    "spoken_text": "Now, who gains or loses a match?",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 0,
+    "text": "Compare the anchor with the original GPT lists, on the same rental markets.",
+    "spoken_text": "Compare the anchor with the original G P T lists, on the same rental markets.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 1,
+    "text": "First, 449 renter appearances gain a place.",
+    "spoken_text": "First, 449 renter appearances gain a place.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 2,
+    "text": "Then there are 37 exits: appearances that had a place under GPT and lose it under the anchor.",
+    "spoken_text": "Then there are 37 exits: appearances that had a place under G P T and lose it under the anchor.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 3,
+    "text": "Subtract those losses and the net gain is 412 placements.",
+    "spoken_text": "Subtract those losses and the net gain is 412 placements.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 4,
+    "text": "The denominator is ten thousand two hundred forty simulated renter appearances. We also check what happens beyond matched versus unmatched: two hundred seventy-five appearances receive a worse modeled rank under the anchor.",
+    "spoken_text": "The denominator is ten thousand two hundred forty simulated renter appearances. We also check what happens beyond matched versus unmatched: two hundred seventy-five appearances receive a worse modeled rank under the anchor.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 5,
+    "text": "These measures can overlap. Preserving a place and preserving the quality of that place are different promises.",
+    "spoken_text": "These measures can overlap. Preserving a place and preserving the quality of that place are different promises.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 6,
+    "text": "Reporting just 412 would leave out the people who lost access. Balancing has the same issue: it places many more people, but causes 171 exits relative to the anchor.",
+    "spoken_text": "Reporting just 412 would leave out the people who lost access. Balancing has the same issue: it places many more people, but causes 171 exits relative to the anchor.",
+    "role": "male1"
+  },
+  {
+    "slide": 9,
+    "index": 7,
+    "text": "Someone who appears in two simulated markets contributes two records. An exit here means a change between assignments on the same simulated market.",
+    "spoken_text": "Someone who appears in two simulated markets contributes two records. An exit here means a change between assignments on the same simulated market.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 0,
+    "text": "Now return to the group in our opening result: renters with one to five feasible apartments. They already see everything. Neither coordination rule can change their own shortlist.",
+    "spoken_text": "Now return to the group in our opening result: renters with one to five feasible apartments. They already see everything. Neither coordination rule can change their own shortlist.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 1,
+    "text": "Their match rate rises from 13.1 to 27.5 percent when the rest of the market moves from anchoring to balancing. Across this subgroup, 349 appearances gain a match and 15 lose one.",
+    "spoken_text": "Their match rate rises from 13.1 to 27.5 percent when the rest of the market moves from anchoring to balancing. Across this subgroup, 349 appearances gain a match and 15 lose one.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 2,
+    "text": "This subgroup contains two thousand three hundred twenty-eight renter appearances. In raw counts, the number matched goes from three hundred four to six hundred thirty-eight.",
+    "spoken_text": "This subgroup contains two thousand three hundred twenty-eight renter appearances. In raw counts, the number matched goes from three hundred four to six hundred thirty-eight.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 3,
+    "text": "The displayed percentages average seed-level rates, so those averages and the pooled counts use different weighting.",
+    "spoken_text": "The displayed percentages average seed-level rates, so those averages and the pooled counts use different weighting.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 4,
+    "text": "The middle window's pointwise interval for the gain runs from about 13.3 to 15.5 percentage points. Across windows, some properties recur.",
+    "spoken_text": "The middle window's pointwise interval for the gain runs from about 13.3 to 15.5 percentage points. Across windows, some properties recur.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 5,
+    "text": "Repeating a result with those listings is informative about the mechanism, but it would be a mistake to read the three estimates as three independent housing interventions.",
+    "spoken_text": "Repeating a result with those listings is informative about the mechanism, but it would be a mistake to read the three estimates as three independent housing interventions.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 6,
+    "text": "In the three enriched rental windows, the subgroup gains between 14.4 and 14.9 percentage points.",
+    "spoken_text": "In the three enriched rental windows, the subgroup gains between 14.4 and 14.9 percentage points.",
+    "role": "male1"
+  },
+  {
+    "slide": 10,
+    "index": 7,
+    "text": "Because their own choices stay fixed, those changes must come through competition with other renters. We can look for the same issue when people compete for jobs.",
+    "spoken_text": "Because their own choices stay fixed, those changes must come through competition with other renters. We can look for the same issue when people compete for jobs.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 0,
+    "text": "Consider the jobs replication. We use New York metro postings and survey-based seeker profiles. In each simulated market, people see up to five feasible jobs.",
+    "spoken_text": "Consider the jobs replication. We use New York metro postings and survey-based seeker profiles. In each simulated market, people see up to five feasible jobs.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 1,
+    "text": "The experiment pairs the same seekers and postings across policies. The outcome is the assignment in that simulation.",
+    "spoken_text": "The experiment pairs the same seekers and postings across policies. The outcome is the assignment in that simulation.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 2,
+    "text": "With GPT shortlists, 63.5 percent get a placement. Coordinate just one option on each list, and that rises to 79.4 percent. That is 612 additional placements on net across 3,840 seeker appearances.",
+    "spoken_text": "With G P T shortlists, 63.5 percent get a placement. Coordinate just one option on each list, and that rises to 79.4 percent. That is 612 additional placements on net across 3,840 seeker appearances.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 3,
+    "text": "Then apply the same anchoring rule to random shortlists. That simple control reaches 81.4 percent. Coordination explains a great deal of the recovery.",
+    "spoken_text": "Then apply the same anchoring rule to random shortlists. That simple control reaches 81.4 percent. Coordination explains a great deal of the recovery.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 4,
+    "text": "This comparison gives us no placement advantage to claim for the language model.",
+    "spoken_text": "This comparison gives us no placement advantage to claim for the language model.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 5,
+    "text": "Here is what we can learn even with only the published totals. The anchor changed 920 personal lists. Under the fixed priorities in this jobs model, changing one list can create at most one new recipient.",
+    "spoken_text": "Here is what we can learn even with only the published totals. The anchor changed 920 personal lists. Under the fixed priorities in this jobs model, changing one list can create at most one new recipient.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 6,
+    "text": "To see why, remove that seeker, then add them back. Rejections travel down a single chain. Several people can switch jobs, but only one person at a time is looking for a vacancy.",
+    "spoken_text": "To see why, remove that seeker, then add them back. Rejections travel down a single chain. Several people can switch jobs, but only one person at a time is looking for a vacancy.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 7,
+    "text": "So there can be at most 920 entrants across these edits. Entrants minus exits equals the net gain of 612. Subtraction gives an upper bound of 308 exits, and zero is also consistent with the bounds.",
+    "spoken_text": "So there can be at most 920 entrants across these edits. Entrants minus exits equals the net gain of 612. Subtraction gives an upper bound of 308 exits, and zero is also consistent with the bounds.",
+    "role": "male1"
+  },
+  {
+    "slide": 11,
+    "index": 8,
+    "text": "We cannot tell which individuals lost a match or measure coverage after the anchor from these totals. Chile's individual application records let us follow that question further.",
+    "spoken_text": "We cannot tell which individuals lost a match or measure coverage after the anchor from these totals. Chile's individual application records let us follow that question further.",
+    "role": "male1"
+  },
+  {
+    "slide": 12,
+    "index": 0,
+    "text": "In Chile, families tell us which schools they want and in what order. We can hold those rankings fixed as we change the shortlists and run admissions again.",
+    "spoken_text": "In Chile, families tell us which schools they want and in what order. We can hold those rankings fixed as we change the shortlists and run admissions again.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 1,
+    "text": "We compare two classifiers trained on an earlier cohort to predict initial offers. One uses submitted rank; the other doesn't. They choose shortlists for later cohorts.",
+    "spoken_text": "We compare two classifiers trained on an earlier cohort to predict initial offers. One uses submitted rank; the other doesn't. They choose shortlists for later cohorts.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 2,
+    "text": "We then check coverage of later enrollment and rerun admissions on those shortlists.",
+    "spoken_text": "We then check coverage of later enrollment and rerun admissions on those shortlists.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 3,
+    "text": "The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements compared with the rank-blind policy.",
+    "spoken_text": "The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements compared with the rank-blind policy.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 4,
+    "text": "The graph separates pupils by whether they historically received an initial offer. Each bar has its own group's denominator.",
+    "spoken_text": "The graph separates pupils by whether they historically received an initial offer. Each bar has its own group's denominator.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 5,
+    "text": "Pupils with no initial offer are 7.4 percent of the linked sample, but account for 76 percent of the net placement loss.",
+    "spoken_text": "Pupils with no initial offer are 7.4 percent of the linked sample, but account for 76 percent of the net placement loss.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 6,
+    "text": "That is 1,270 net lost placements in the smaller group, a decline of 0.873 percentage points.",
+    "spoken_text": "That is 1,270 net lost placements in the smaller group, a decline of 0.873 percentage points.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 7,
+    "text": "Those losses come from comparing two simulated assignments for the same pupils. They fall disproportionately on families who went through the original admissions round without an offer.",
+    "spoken_text": "Those losses come from comparing two simulated assignments for the same pupils. They fall disproportionately on families who went through the original admissions round without an offer.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 8,
+    "text": "The four cohorts contribute just under two million linked applicant-years. The net loss combines 2,397 exits and 727 entries.",
+    "spoken_text": "The four cohorts contribute just under two million linked applicant-years. The net loss combines 2,397 exits and 727 entries.",
+    "role": "male2"
+  },
+  {
+    "slide": 12,
+    "index": 9,
+    "text": "A study observing only how many children got seats would miss those movements in opposite directions.",
+    "spoken_text": "A study observing only how many children got seats would miss those movements in opposite directions.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 0,
+    "text": "Keep the rank-informed policy, but compare it with each family's first five discretionary courses.",
+    "spoken_text": "Keep the rank-informed policy, but compare it with each family's first five discretionary courses.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 1,
+    "text": "Now both totals improve: 9,800 more enrollment hits and 8,143 more placements. Once again, the prediction–placement conflict depends on the comparison.",
+    "spoken_text": "Now both totals improve: 9,800 more enrollment hits and 8,143 more placements. Once again, the prediction–placement conflict depends on the comparison.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 2,
+    "text": "Yet pupils without a historical initial offer still lose 2,860 placements against this alternative.",
+    "spoken_text": "Yet pupils without a historical initial offer still lose 2,860 placements against this alternative.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 3,
+    "text": "A policy can look better in aggregate and still make access worse for people we especially hoped to help.",
+    "spoken_text": "A policy can look better in aggregate and still make access worse for people we especially hoped to help.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 4,
+    "text": "There is a timing detail here. We identify the no-offer group using what happened historically, after fixing the policies. It helps us audit who bore a loss.",
+    "spoken_text": "There is a timing detail here. We identify the no-offer group using what happened historically, after fixing the policies. It helps us audit who bore a loss.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 5,
+    "text": "It would give a new policy information from the future if we used that outcome to choose whom to protect before assignment.",
+    "spoken_text": "It would give a new policy information from the future if we used that outcome to choose whom to protect before assignment.",
+    "role": "male2"
+  },
+  {
+    "slide": 13,
+    "index": 6,
+    "text": "It also reminds us that matching historical enrollment isn't the same as improving welfare. To move beyond those averages, we need a precise requirement for who should remain protected.",
+    "spoken_text": "It also reminds us that matching historical enrollment isn't the same as improving welfare. To move beyond those averages, we need a precise requirement for who should remain protected.",
+    "role": "male2"
+  },
+  {
+    "slide": 14,
+    "index": 0,
+    "text": "We can write that requirement as a design problem.",
+    "spoken_text": "We can write that requirement as a design problem.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 1,
+    "text": "Fix the baseline shortlists and a supplied set of priority draws. Choose one new policy that works across every draw. We want more reference hits, with every baseline recipient still getting a seat on each draw.",
+    "spoken_text": "Fix the baseline shortlists and a supplied set of priority draws. Choose one new policy that works across every draw. We want more reference hits, with every baseline recipient still getting a seat on each draw.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 2,
+    "text": "They may switch schools, but they cannot become unplaced.",
+    "spoken_text": "They may switch schools, but they cannot become unplaced.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 3,
+    "text": "For the Chile application, we keep options shared by the rank-blind and rank-informed policies, choose the remaining options from their union, and preserve each list's length.",
+    "spoken_text": "For the Chile application, we keep options shared by the rank-blind and rank-informed policies, choose the remaining options from their union, and preserve each list's length.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 4,
+    "text": "Deciding whether a target gain is achievable is NP-complete, even with unit seats and lists of at most three options. Checking a proposed policy with deferred acceptance is still polynomial.",
+    "spoken_text": "Deciding whether a target gain is achievable is N P complete, even with unit seats and lists of at most three options. Checking a proposed policy with deferred acceptance is still polynomial.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 5,
+    "text": "The certificate is simply the proposed shortlists. We run deferred acceptance on every supplied draw, compare each recipient with the corresponding baseline, and count the hits.",
+    "spoken_text": "The certificate is simply the proposed shortlists. We run deferred acceptance on every supplied draw, compare each recipient with the corresponding baseline, and count the hits.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 6,
+    "text": "The shortlists stay fixed across draws; the resulting assignments can change. That is why verification is efficient, even though finding the best policy is hard.",
+    "spoken_text": "The shortlists stay fixed across draws; the resulting assignments can change. That is why verification is efficient, even though finding the best policy is hard.",
+    "role": "female"
+  },
+  {
+    "slide": 14,
+    "index": 7,
+    "text": "This theorem uses fixed, strict priorities on an explicit panel. We test Chile's family-linked rules separately. The next picture explains where the computational difficulty comes from.",
+    "spoken_text": "This theorem uses fixed, strict priorities on an explicit panel. We test Chile's family-linked rules separately. The next picture explains where the computational difficulty comes from.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 0,
+    "text": "Start with a graph. Each vertex represents an edit that adds one reference hit. For each edge, we construct a priority draw where its two endpoint edits can interfere.",
+    "spoken_text": "Start with a graph. Each vertex represents an edit that adds one reference hit. For each edge, we construct a priority draw where its two endpoint edits can interfere.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 1,
+    "text": "On this draw, choosing edit u displaces one already-matched pupil toward the fallback seat. That edit alone is safe.",
+    "spoken_text": "On this draw, choosing edit u displaces one already-matched pupil toward the fallback seat. That edit alone is safe.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 2,
+    "text": "Now choose edit v as well. A second pupil needs the same fallback seat, and one of them must lose a place.",
+    "spoken_text": "Now choose edit v as well. A second pupil needs the same fallback seat, and one of them must lose a place.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 3,
+    "text": "Other vertex edits are harmless on this particular draw.",
+    "spoken_text": "Other vertex edits are harmless on this particular draw.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 4,
+    "text": "We repeat this construction for every edge. One fixed set of edits must work on every draw, so it cannot contain both endpoints of any edge. The safe choices form an independent set.",
+    "spoken_text": "We repeat this construction for every edge. One fixed set of edits must work on every draw, so it cannot contain both endpoints of any edge. The safe choices form an independent set.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 5,
+    "text": "Each chosen edit adds one hit. Maximizing safe gains would therefore solve Independent Set.",
+    "spoken_text": "Each chosen edit adds one hit. Maximizing safe gains would therefore solve Independent Set.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 6,
+    "text": "The construction also includes a reference draw. Running full-list deferred acceptance there generates the historical targets themselves, so the reduction doesn't rely on arbitrary target labels.",
+    "spoken_text": "The construction also includes a reference draw. Running full-list deferred acceptance there generates the historical targets themselves, so the reduction doesn't rely on arbitrary target labels.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 7,
+    "text": "There is one conflict draw per graph edge, plus that one reference draw, so the instance grows polynomially. A safe gain of at least K exists exactly when K mutually nonadjacent vertices exist.",
+    "spoken_text": "There is one conflict draw per graph edge, plus that one reference draw, so the instance grows polynomially. A safe gain of at least K exists exactly when K mutually nonadjacent vertices exist.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 8,
+    "text": "The same construction tells us something else. Imagine a graph made of disjoint edges. Keeping everyone's exact original assignment allows zero selected edits on the reference draw.",
+    "spoken_text": "The same construction tells us something else. Imagine a graph made of disjoint edges. Keeping everyone's exact original assignment allows zero selected edits on the reference draw.",
+    "role": "female"
+  },
+  {
+    "slide": 15,
+    "index": 9,
+    "text": "Keeping everyone seated lets us choose one endpoint from each edge. With more edges, the gap can grow as large as we like. So an exact-assignment ceiling cannot automatically be used as a ceiling for seat retention.",
+    "spoken_text": "Keeping everyone seated lets us choose one endpoint from each edge. With more edges, the gap can grow as large as we like. So an exact-assignment ceiling cannot automatically be used as a ceiling for seat retention.",
+    "role": "female"
+  },
+  {
+    "slide": 16,
+    "index": 0,
+    "text": "Back in Chile, we compare two promises on the same design panels: 1,024 lotteries per cohort, for 2022 through 2024.",
+    "spoken_text": "Back in Chile, we compare two promises on the same design panels: 1,024 lotteries per cohort, for 2022 through 2024.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 1,
+    "text": "The stricter promise keeps every baseline recipient in the same course and seat type. Within our allowed shortlist family, the maximum additional enrollment coverage is exactly 314 hits.",
+    "spoken_text": "The stricter promise keeps every baseline recipient in the same course and seat type. Within our allowed shortlist family, the maximum additional enrollment coverage is exactly 314 hits.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 2,
+    "text": "The looser promise lets people switch schools, as long as everyone keeps a seat. We construct shortlists that gain 642 hits. The certified upper bound is 4,620.",
+    "spoken_text": "The looser promise lets people switch schools, as long as everyone keeps a seat. We construct shortlists that gain 642 hits. The certified upper bound is 4,620.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 3,
+    "text": "Allowing switches gives us more than twice the demonstrated gain. But there's a wide gap to the upper bound. We haven't solved this problem to optimality.",
+    "spoken_text": "Allowing switches gives us more than twice the demonstrated gain. But there's a wide gap to the upper bound. We haven't solved this problem to optimality.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 4,
+    "text": "The new shortlist must keep courses shared by the rank-blind and rank-informed policies. Its remaining slots come from the union of those two original lists. Its length stays fixed.",
+    "spoken_text": "The new shortlist must keep courses shared by the rank-blind and rank-informed policies. Its remaining slots come from the union of those two original lists. Its length stays fixed.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 5,
+    "text": "That constraint makes the comparison interpretable. It also sets the scope of the number 314. A platform allowed to add arbitrary new courses would face a different optimization problem.",
+    "spoken_text": "That constraint makes the comparison interpretable. It also sets the scope of the number 314. A platform allowed to add arbitrary new courses would face a different optimization problem.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 6,
+    "text": "The gap measures what the optimization has left unresolved. We have a concrete policy for the lower endpoint and a mathematical bound for the upper endpoint.",
+    "spoken_text": "The gap measures what the optimization has left unresolved. We have a concrete policy for the lower endpoint and a mathematical bound for the upper endpoint.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 7,
+    "text": "Protection covers every baseline recipient, including those without an enrollment link. Only the coverage objective needs that link.",
+    "spoken_text": "Protection covers every baseline recipient, including those without an enrollment link. Only the coverage objective needs that link.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 8,
+    "text": "These are hindsight benchmarks: they use the evaluation cohorts' later enrollment labels to choose edits. A real policy wouldn't have those labels before assignment.",
+    "spoken_text": "These are hindsight benchmarks: they use the evaluation cohorts' later enrollment labels to choose edits. A real policy wouldn't have those labels before assignment.",
+    "role": "male2"
+  },
+  {
+    "slide": 16,
+    "index": 9,
+    "text": "So we also test rules using only information available at that point.",
+    "spoken_text": "So we also test rules using only information available at that point.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 0,
+    "text": "Here are two such rules. We freeze them after applications arrive and before the ordinary assignment. Neither uses that cohort's realized offers or later enrollment to select shortlists.",
+    "spoken_text": "Here are two such rules. We freeze them after applications arrive and before the ordinary assignment. Neither uses that cohort's realized offers or later enrollment to select shortlists.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 1,
+    "text": "The structural rule restricts interactions around applicants without a guaranteed fallback. Its proof covers all permitted ordinary lottery orders, for the fixed inputs and reconstructed mechanism.",
+    "spoken_text": "The structural rule restricts interactions around applicants without a guaranteed fallback. Its proof covers all permitted ordinary lottery orders, for the fixed inputs and reconstructed mechanism.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 2,
+    "text": "The proof starts with common options that already guarantee a pupil a seat. Around pupils lacking that guarantee, it freezes the relevant competitors and family interactions. This limits where edits can propagate.",
+    "spoken_text": "The proof starts with common options that already guarantee a pupil a seat. Around pupils lacking that guarantee, it freezes the relevant competitors and family interactions. This limits where edits can propagate.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 3,
+    "text": "We keep the same three cohorts and draw fresh priorities. There are 384 course-level cohort draws and 96 cohort draws using school and family tickets. This tests new lottery orders for the same applicants.",
+    "spoken_text": "We keep the same three cohorts and draw fresh priorities. There are 384 course-level cohort draws and 96 cohort draws using school and family tickets. This tests new lottery orders for the same applicants.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 4,
+    "text": "It gains 28 enrollment hits and has zero exits in the test panels.",
+    "spoken_text": "It gains 28 enrollment hits and has zero exits in the test panels.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 5,
+    "text": "The learned rule passes its design-panel checks and gains 50 hits. But it has one exit in each of two fresh test panels.",
+    "spoken_text": "The learned rule passes its design-panel checks and gains 50 hits. But it has one exit in each of two fresh test panels.",
+    "role": "male2"
+  },
+  {
+    "slide": 17,
+    "index": 6,
+    "text": "Twenty-eight is a small gain. What matters here is the difference between a proof covering the allowed orders and a rule that happened to pass many simulated draws. More testing alone doesn't turn the second into the first.",
+    "spoken_text": "Twenty-eight is a small gain. What matters here is the difference between a proof covering the allowed orders and a rule that happened to pass many simulated draws. More testing alone doesn't turn the second into the first.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 0,
+    "text": "The retention guarantee still leaves a social-impact question. Protecting people who already have a place can leave everyone else out.",
+    "spoken_text": "The retention guarantee still leaves a social-impact question. Protecting people who already have a place can leave everyone else out.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 1,
+    "text": "Our structural Chile rule has no new entrants on the reported paired test lotteries. It keeps baseline recipients placed, but doesn't expand access for those who were unplaced under the baseline.",
+    "spoken_text": "Our structural Chile rule has no new entrants on the reported paired test lotteries. It keeps baseline recipients placed, but doesn't expand access for those who were unplaced under the baseline.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 2,
+    "text": "So the next objective must count both groups: the people we protect and the people still waiting for an opportunity.",
+    "spoken_text": "So the next objective must count both groups: the people we protect and the people still waiting for an opportunity.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 3,
+    "text": "For a school district, that would mean reporting two columns at minimum. Of those who would have received a seat under the old policy, how many still get one? Of those who would have gone without, how many now have a seat?",
+    "spoken_text": "For a school district, that would mean reporting two columns at minimum. Of those who would have received a seat under the old policy, how many still get one? Of those who would have gone without, how many now have a seat?",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 4,
+    "text": "A rule can score perfectly in the first column while the second stays at zero.",
+    "spoken_text": "A rule can score perfectly in the first column while the second stays at zero.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 5,
+    "text": "How people would act on our recommendations is an open question. They may ignore advice or add choices. Before deployment, they should be able to correct mistakes and seek human review or appeal.",
+    "spoken_text": "How people would act on our recommendations is an open question. They may ignore advice or add choices. Before deployment, they should be able to correct mistakes and seek human review or appeal.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 6,
+    "text": "Those are proposed safeguards, not interventions we've tested.",
+    "spoken_text": "Those are proposed safeguards, not interventions we've tested.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 7,
+    "text": "And keeping a seat may mean a worse school. Historical enrollment and modeled ranks aren't complete welfare measures.",
+    "spoken_text": "And keeping a seat may mean a worse school. Historical enrollment and modeled ranks aren't complete welfare measures.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 8,
+    "text": "Recommendations can redistribute opportunities, but they cannot create affordable apartments or school capacity.",
+    "spoken_text": "Recommendations can redistribute opportunities, but they cannot create affordable apartments or school capacity.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 9,
+    "text": "Even the structural rule's coverage gain is a net figure. In 115 applicant records the historical school appears for the first time. In 87 it disappears. None of those losses violates seat retention.",
+    "spoken_text": "Even the structural rule's coverage gain is a net figure. In 115 applicant records the historical school appears for the first time. In 87 it disappears. None of those losses violates seat retention.",
+    "role": "male2"
+  },
+  {
+    "slide": 18,
+    "index": 10,
+    "text": "The mathematical promise protects placement status; it does not protect every useful option or every pupil's preference satisfaction.",
+    "spoken_text": "The mathematical promise protects placement status; it does not protect every useful option or every pupil's preference satisfaction.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 0,
+    "text": "In a 2021 Chilean field experiment by Agte and colleagues, families were randomly assigned different versions of a school map. The basic version showed the schools.",
+    "spoken_text": "In a 2021 Chilean field experiment by Agte and colleagues, families were randomly assigned different versions of a school map. The basic version showed the schools.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 1,
+    "text": "Another version gave counts by price and quality and highlighted inexpensive schools with medium or high official quality ratings. Families could apply anywhere.",
+    "spoken_text": "Another version gave counts by price and quality and highlighted inexpensive schools with medium or high official quality ratings. Families could apply anywhere.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 2,
+    "text": "Compared with the basic map, the highlighted version raised application submission by three percentage points. It raised the share ranking a qualifying school second by 5.4 points.",
+    "spoken_text": "Compared with the basic map, the highlighted version raised application submission by three percentage points. It raised the share ranking a qualifying school second by 5.4 points.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 3,
+    "text": "But the estimate for receiving any assignment was only 0.2 points, with an approximate interval from minus two to plus 2.4 points. That leaves both gains and losses plausible.",
+    "spoken_text": "But the estimate for receiving any assignment was only 0.2 points, with an approximate interval from minus two to plus 2.4 points. That leaves both gains and losses plausible.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 4,
+    "text": "The outcomes use different samples. A qualifying second choice met the criteria. We don't know whether that particular school appeared on that family's map. The trial establishes that families can respond to information.",
+    "spoken_text": "The outcomes use different samples. A qualifying second choice met the criteria. We don't know whether that particular school appeared on that family's map. The trial establishes that families can respond to information.",
+    "role": "male2"
+  },
+  {
+    "slide": 19,
+    "index": 5,
+    "text": "It doesn't tell us what would happen if everyone received our shortlists.",
+    "spoken_text": "It doesn't tell us what would happen if everyone received our shortlists.",
+    "role": "male2"
+  },
+  {
+    "slide": 20,
+    "index": 0,
+    "text": "Here is a reason to care about that last distinction. Take a market with three pupils and three seats. The old rule shows the first two pupils school X, and the third pupil school Y. The new rule points everyone to Y.",
+    "spoken_text": "Here is a reason to care about that last distinction. Take a market with three pupils and three seats. The old rule shows the first two pupils school X, and the third pupil school Y. The new rule points everyone to Y.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 1,
+    "text": "At Y, the second pupil has top priority, followed by the first and then the third.",
+    "spoken_text": "At Y, the second pupil has top priority, followed by the first and then the third.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 2,
+    "text": "Imagine that each pupil independently has a one-in-four chance of receiving the new rule. For the first pupil, switching hurts only when the second pupil also switches.",
+    "spoken_text": "Imagine that each pupil independently has a one-in-four chance of receiving the new rule. For the first pupil, switching hurts only when the second pupil also switches.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 3,
+    "text": "For the second pupil, switching helps when the first pupil stays with X and takes that seat. The third pupil sees Y either way. That gives individual effects of minus one quarter, plus three quarters, and zero.",
+    "spoken_text": "For the second pupil, switching helps when the first pupil stays with X and takes that seat. The third pupil sees Y either way. That gives individual effects of minus one quarter, plus three quarters, and zero.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 4,
+    "text": "Their average is positive, one sixth.",
+    "spoken_text": "Their average is positive, one sixth.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 5,
+    "text": "Now switch everyone. Under the old rule, X and Y each filled a seat. Under the new rule, everyone competes at Y. Only one seat fills.",
+    "spoken_text": "Now switch everyone. Under the old rule, X and Y each filled a seat. Under the new rule, everyone competes at Y. Only one seat fills.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 6,
+    "text": "A positive direct effect in a small trial coexists with a drop from two placements to one at full rollout.",
+    "spoken_text": "A positive direct effect in a small trial coexists with a drop from two placements to one at full rollout.",
+    "role": "female"
+  },
+  {
+    "slide": 20,
+    "index": 7,
+    "text": "A field test of the whole policy should therefore track everyone sharing those seats, including families who never changed their own list.",
+    "spoken_text": "A field test of the whole policy should therefore track everyone sharing those seats, including families who never changed their own list.",
+    "role": "female"
+  },
+  {
+    "slide": 21,
+    "index": 0,
+    "text": "A shortlist reaches beyond the person receiving it. It changes who competes for the available places.",
+    "spoken_text": "A shortlist reaches beyond the person receiving it. It changes who competes for the available places.",
+    "role": "female"
+  },
+  {
+    "slide": 21,
+    "index": 1,
+    "text": "Our experiments make that interaction visible. Our theory asks what it takes to improve recommendations while protecting existing recipients.",
+    "spoken_text": "Our experiments make that interaction visible. Our theory asks what it takes to improve recommendations while protecting existing recipients.",
+    "role": "female"
+  },
+  {
+    "slide": 21,
+    "index": 2,
+    "text": "Coordination can improve the totals. The harder design question is how to open opportunities for people without a place while keeping those who already have one matched somewhere. Thank you.",
+    "spoken_text": "Coordination can improve the totals. The harder design question is how to open opportunities for people without a place while keeping those who already have one matched somewhere. Thank you.",
+    "role": "female"
+  }
+]

@@ -1,14 +1,12 @@
 # CS 2880 presentation and course archive
 
-The current presentation is **Who gets a place?**, an 18-slide talk of approximately 17 minutes for Harvard's AI for Social Impact course. Its main finding is that a group's match rate rises from 13.1% to 27.5% when other people's shortlists change, even though the group's own shortlists remain identical. These are modeled rental outcomes; the talk connects them to recipient protection in Chilean admissions.
+**Who gets a place?** is a 21-slide, 17-minute, 40-second presentation for Harvard's AI for Social Impact course. In the NYC rental simulation, other people's recommendations changed a fixed-shortlist subgroup's placement rate from 13.1% to 27.5%. The talk examines how this can happen, tests a coordinated jobs baseline, and uses Chilean admissions to ask which recipients an algorithm can protect.
 
-- [Narrated presentation (MP4)](final-presentation/presentation-narrated.mp4), included for team sharing, with a disclosed synthetic voice, optional captions and slide chapters.
-- [Main slides (PDF)](final-presentation/presentation.pdf)
-- [Speaker notes (PDF)](final-presentation/speaker-notes.pdf) and [editable narration](final-presentation/presenter-guide.txt)
-- [Technical appendix (PDF)](final-presentation/technical-appendix.pdf), with detailed comparisons, uncertainty, model controls and proofs.
-- [Presentation sources, evidence and rebuild instructions](final-presentation/README.md)
-
-The [current working paper](../publication/two-studies/who-gets-a-place.pdf) and [manuscript sources](../publication/two-studies/README.md) are separate artifacts. The presentation revision did not change the paper or experiments. [Current findings](../findings/README.md) document the evidence used in the talk.
+- [Narrated video](final-presentation/presentation-narrated.mp4) and [short American voice preview](final-presentation/presentation-voice-preview.mp3)
+- [Main slides](final-presentation/presentation.pdf) and [technical appendix](final-presentation/technical-appendix.pdf)
+- [Speaker notes](final-presentation/speaker-notes.pdf) and [editable script](final-presentation/presenter-guide.txt)
+- [Evidence, cast credits and video rebuild instructions](final-presentation/README.md)
+- [Working paper](../publication/two-studies/who-gets-a-place.pdf) and [research findings](../findings/README.md)
 
 ## Earlier course materials
 

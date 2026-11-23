@@ -1,0 +1,1999 @@
+{
+  "method": "Whisper forced alignment of the exact display text",
+  "model_sha256": "d3dd57d32accea0b295c96e26691aa14d8822fac7d9d27d5dc00b4ca2826dd03",
+  "whisper_version": "20240930",
+  "clips": {
+    "b053ce9cc127029142a30de5d6b188a749d79c300cd73ff45fb053ff610c55ca": [
+      {
+        "start": 0.0,
+        "text": "Imagine you and I are both looking for an apartment."
+      },
+      {
+        "start": 2.0,
+        "text": "Suppose the app changes one apartment on your list."
+      },
+      {
+        "start": 4.06,
+        "text": "Could that cost me the apartment I would otherwise get?"
+      },
+      {
+        "start": 5.92,
+        "text": "To see how that can happen, start with two people and two seats."
+      }
+    ],
+    "0e81aeb451227a9270173e405bb3ff23e037a2224973d4a8373edc662f85496e": [
+      {
+        "start": 0.0,
+        "text": "Let's start with two applicants and two school seats."
+      },
+      {
+        "start": 2.5,
+        "text": "A prefers school x to school y. B accepts only x."
+      },
+      {
+        "start": 5.44,
+        "text": "And school x gives A priority over B."
+      }
+    ],
+    "7e61d815d60e82244ded94ff49c082e209149d0f74e2f7020d36b48b67fcdd6c": [
+      {
+        "start": 0.0,
+        "text": "At first, A sees y and B sees x. Both get a seat."
+      }
+    ],
+    "3984f3a6bf5d22f8f5d27945d09e6feb1e3aa8c55371fc901ea91e0d020dbebc": [
+      {
+        "start": 0.0,
+        "text": "Now change only A's recommendation. Show A school x instead."
+      }
+    ],
+    "799defba9d7c1a9c7132d3375144529f46864400457ecb2e2a182ce7ee491d34": [
+      {
+        "start": 0.0,
+        "text": "Both applicants still see just one option. But now they compete for the same seat."
+      },
+      {
+        "start": 4.12,
+        "text": "A gets x, B gets nothing, and y sits empty."
+      }
+    ],
+    "b9f4c7a1ca2f7954d24b4840b2a685aa95421fc0156d5aa8340e993d31778513": [
+      {
+        "start": 0.0,
+        "text": "From A's perspective, the recommendation got better."
+      },
+      {
+        "start": 2.6,
+        "text": "B's shortlist did not change at all, yet B lost a place."
+      }
+    ],
+    "3eb9731fde69d6d36bb93ecf39003fba157378095aa47e48ee955db7af4483d1": [
+      {
+        "start": 0.0,
+        "text": "Imagine evaluating that change with two separate surveys."
+      },
+      {
+        "start": 2.78,
+        "text": "A could report that the app finally showed the school they wanted."
+      },
+      {
+        "start": 5.2,
+        "text": "B could report that the screen looked exactly the same."
+      },
+      {
+        "start": 7.48,
+        "text": "Both accounts would be accurate."
+      }
+    ],
+    "268ae3a79c9586069612817f4876a2e4f21115d1fae618a29ad15e9719dc6361": [
+      {
+        "start": 0.0,
+        "text": "You would still have missed the empty seat and the person who used to have one."
+      }
+    ],
+    "cf1a8499449c34a16d6895b25646b6f37ef148e581d6ca57459e49270fff7be7": [
+      {
+        "start": 0.0,
+        "text": "That's the interaction we want to understand."
+      },
+      {
+        "start": 2.12,
+        "text": "We would miss it if we evaluated each person's recommendations separately."
+      }
+    ],
+    "484a23a3b0c9363f94c45b3752e02402b010d183e845b718f1ac7d48a4eb62f6": [
+      {
+        "start": 0.0,
+        "text": "First, a recommender chooses a short list of feasible options."
+      },
+      {
+        "start": 2.84,
+        "text": "Then an assignment rule decides who gets which place."
+      }
+    ],
+    "9ea88e61df3ef3c621bec4d04603979a5469a3694f0c54b17fe0b218849e71e6": [
+      {
+        "start": 0.0,
+        "text": "We keep track of three outcomes. Placement means receiving any place."
+      },
+      {
+        "start": 3.48,
+        "text": "Coverage means that a particular reference choice appears on the shortlist."
+      }
+    ],
+    "b6b94a5a0e766445d135307f2ee137a56a1c2b0a5f7fdfe567f9a7df66e778c4": [
+      {
+        "start": 0.0,
+        "text": "And an exit means someone has a place under"
+      },
+      {
+        "start": 1.74,
+        "text": "the comparison policy but loses it under the new one."
+      }
+    ],
+    "62174e25b6fc3aa4a8ae176a5d6461fdce44c0cbbab803a4ef98bc381e4da875": [
+      {
+        "start": 0.0,
+        "text": "A coverage hit is easy to score from a person's list once the reference is known."
+      },
+      {
+        "start": 3.54,
+        "text": "A placement is different. You need all the submitted lists,"
+      },
+      {
+        "start": 6.14,
+        "text": "the capacity of each option, and the rule that decides among competing applicants."
+      }
+    ],
+    "b87879ad00c84b12dc501f35f56ca4bc90959bf2373d5774deef85c8ac2e1379": [
+      {
+        "start": 0.0,
+        "text": "That's why we rerun the allocation with everyone"
+      },
+      {
+        "start": 1.76,
+        "text": "in the market whenever we change a policy."
+      }
+    ],
+    "d6d51ba94dd1bc638a0135d5629e6786349e8bfc0b6ca7a27f7b60f1fbd99aa1": [
+      {
+        "start": 0.0,
+        "text": "For rentals, the reference is the apartment assigned when every feasible"
+      },
+      {
+        "start": 2.6,
+        "text": "option is available. For Chile, it's the school recorded in later enrollment."
+      }
+    ],
+    "99ae08390f568e11d34554753a193da8ad25e0a0cd66abf689a5cd0f068920ff": [
+      {
+        "start": 0.0,
+        "text": "We want to improve recommendations while keeping every"
+      },
+      {
+        "start": 2.2,
+        "text": "baseline recipient matched somewhere. They can switch schools."
+      },
+      {
+        "start": 4.98,
+        "text": "That is a weaker promise than keeping the same school,"
+      },
+      {
+        "start": 6.94,
+        "text": "or getting a school they like more."
+      }
+    ],
+    "c806f59dc2c99d83bd3adcd1d858f7b59ced3496aba583eebc78ab2c41369da2": [
+      {
+        "start": 0.0,
+        "text": "In our New York rental simulation,"
+      },
+      {
+        "start": 1.48,
+        "text": "take the renters with only one to five feasible apartments."
+      },
+      {
+        "start": 4.04,
+        "text": "Our policies already show them every option,"
+      },
+      {
+        "start": 5.52,
+        "text": "so their personal shortlists cannot change."
+      }
+    ],
+    "def7f8260bd72c3b9b1151dc83d6e7b09d61ab77b539d64c32d97ac428930a76": [
+      {
+        "start": 0.0,
+        "text": "With the one-option anchor, their match rate is 13.1 percent."
+      }
+    ],
+    "99e0e64f94032fd38a55bcb99ecb7cb2f9d56f0bc158a38d4844507bff18120e": [
+      {
+        "start": 0.0,
+        "text": "With balanced shortlists across the market, it rises to 27.5 percent."
+      }
+    ],
+    "137ff0230c17b40f7c2c8f25b8bb0d3a1109b1277360a5da157b30cbecabe491": [
+      {
+        "start": 0.0,
+        "text": "That's more than double, with exactly the same choices on their own lists."
+      },
+      {
+        "start": 3.22,
+        "text": "Only other renters' recommendations changed."
+      }
+    ],
+    "bc15374888f8e0f3f451564e7d48e364e81bdd5362d39f8a1266ec97057d70a5": [
+      {
+        "start": 0.0,
+        "text": "Think of someone who can afford only three of the listings."
+      },
+      {
+        "start": 2.5,
+        "text": "They already see all three. A prediction about which of those"
+      },
+      {
+        "start": 4.56,
+        "text": "apartments they want cannot explain a change in their match here."
+      }
+    ],
+    "d765e57c97d62e52e8d5f89fbdfae5a40f310b804cb50e8774497c1006479924": [
+      {
+        "start": 0.0,
+        "text": "To find the explanation, we have to look at who else is applying."
+      }
+    ],
+    "d91713520444bc8860c700627b9446c09911c586a42379f3fb88611d4dd329cf": [
+      {
+        "start": 0.0,
+        "text": "We held the apartments, renters and assignment rule fixed across both runs."
+      },
+      {
+        "start": 3.22,
+        "text": "That lets us see how much the other renters' lists can matter."
+      },
+      {
+        "start": 5.68,
+        "text": "The next comparison asks whether the same thing can happen in school admissions."
+      }
+    ],
+    "d5d3d1d429994e7d25ffb00ae256530c5ddef0c785cfc8487c5d2b6caf51b82e": [
+      {
+        "start": 0.0,
+        "text": "For rentals, we start with the apartment lists that GPT suggested."
+      },
+      {
+        "start": 3.22,
+        "text": "The listings and household profiles come from market and survey data,"
+      },
+      {
+        "start": 5.9,
+        "text": "while preferences, landlord priorities and assignments are modeled."
+      }
+    ],
+    "68bdc4adcf24b574d66a518bab30dc4829aee36d6535250025205a2240dd03d8": [
+      {
+        "start": 0.0,
+        "text": "We reconstruct 1,280 markets."
+      },
+      {
+        "start": 2.6,
+        "text": "In each one, the two policies face the same renters and apartments."
+      }
+    ],
+    "5759e68ca4cc1f57160372bbfb1ed10eb855a11fcf3a2baacbf7bbaa79ceb794": [
+      {
+        "start": 0.0,
+        "text": "We also pair the random draws across policies. Otherwise,"
+      },
+      {
+        "start": 2.96,
+        "text": "a lucky set of preferences could look like an algorithmic improvement."
+      }
+    ],
+    "6663f91ef415c89e9eba91ea584f1dadb7684f8c15bc88d45269fa41f5545f24": [
+      {
+        "start": 0.0,
+        "text": "For the follow-up, we resample twenty seed blocks ten thousand times,"
+      },
+      {
+        "start": 2.94,
+        "text": "keeping all policies together within each draw."
+      },
+      {
+        "start": 5.02,
+        "text": "Renters sharing a market are not independent observations."
+      }
+    ],
+    "4f65cf4fad3d4f9cab3fcb45c53c8e9942179171bff8b0ce07fd0d0f35f5000f": [
+      {
+        "start": 0.0,
+        "text": "We analyzed these three periods before,"
+      },
+      {
+        "start": 1.82,
+        "text": "and some of the same apartments appear again."
+      },
+      {
+        "start": 3.5,
+        "text": "The finding tells us how different policies behave on those markets."
+      }
+    ],
+    "77e0f7ee6c6bdebf3fe2b0b18c5405ba5ddbd37c8aea905de5ba05b9fe7cf108": [
+      {
+        "start": 0.0,
+        "text": "There is also a supply limit. Of the markets originally planned,"
+      },
+      {
+        "start": 2.94,
+        "text": "320 could not be built under the Staten Island supply requirements."
+      },
+      {
+        "start": 5.78,
+        "text": "We kept those failures in the accounting."
+      }
+    ],
+    "5ef120081b6b0b3e107ee5faac0c3d0751e8ce5ed8e55d15e0c37890989721f0": [
+      {
+        "start": 0.0,
+        "text": "The enriched sample asks what a recommender can do when"
+      },
+      {
+        "start": 2.24,
+        "text": "there are options to allocate. A household with no feasible"
+      },
+      {
+        "start": 4.4,
+        "text": "apartment cannot gain access through a better ranking alone."
+      }
+    ],
+    "a8c45109b7be841780e7b75f48a06e6d6a5c7132caca6f9cbcf5ebe8eebe36f6": [
+      {
+        "start": 0.0,
+        "text": "Chile gives us families' submitted rankings and actual admissions rules."
+      },
+      {
+        "start": 3.4,
+        "text": "Our reconstruction matches the released course or no-offer"
+      },
+      {
+        "start": 5.12,
+        "text": "outcomes for about two million applicant-years."
+      }
+    ],
+    "01f0a6e1fd1bced403878506619a258ff9de92398cb109b14110bf692d0cd984": [
+      {
+        "start": 0.0,
+        "text": "In a separate 2021 entry-grade replay,"
+      },
+      {
+        "start": 2.72,
+        "text": "237 of 309 net lost placements fall among pupils whose own shortlists stay fixed."
+      }
+    ],
+    "8b80d75e4563acc2ec0524de9e5d2283f03d566e2fcdea0683108d3db63f81d2": [
+      {
+        "start": 0.0,
+        "text": "That is a counterfactual comparison, not a school-advice trial."
+      },
+      {
+        "start": 3.24,
+        "text": "The later cohorts we'll discuss are counterfactuals too."
+      }
+    ],
+    "5358e7a9a6a4df6f9b9e9d766b047d8cfc08dafaa825b473390be30c9560448f": [
+      {
+        "start": 0.0,
+        "text": "Both settings let us ask how other people's recommendations"
+      },
+      {
+        "start": 2.12,
+        "text": "change your access, using different kinds of evidence."
+      }
+    ],
+    "6b2d465d70fec0de7e7cad00394f1126808e5712cde88a314d1bfd5dbd4df8fd": [
+      {
+        "start": 0.0,
+        "text": "The first rule coordinates one option. We call it the anchor."
+      },
+      {
+        "start": 3.06,
+        "text": "Find a maximum matching across all feasible pairs."
+      },
+      {
+        "start": 5.3,
+        "text": "When several maximum matchings exist, prefer pairs already on the shortlists."
+      }
+    ],
+    "5813e7591e24a7bff03f075d918723338729650d4c34e342cba20d0a98c0c716": [
+      {
+        "start": 0.0,
+        "text": "Then put each assigned option onto that person's list,"
+      },
+      {
+        "start": 2.4,
+        "text": "replacing at most one option."
+      }
+    ],
+    "e85be1b80e6ddd3a6f22b29bcbf2d099b5446b16cb1e666fc4e28da638df0901": [
+      {
+        "start": 0.0,
+        "text": "The second rule coordinates the whole shortlist."
+      },
+      {
+        "start": 2.24,
+        "text": "Count how often each listing is recommended,"
+      },
+      {
+        "start": 4.02,
+        "text": "and minimize the sum of those counts squared."
+      },
+      {
+        "start": 5.82,
+        "text": "Concentrating recommendations on a few listings becomes expensive."
+      }
+    ],
+    "a49c07e50fea2731a6eaac511d761d4e6b6ae02517f5e0b3b39165ef75007ddf": [
+      {
+        "start": 0.0,
+        "text": "Among equally balanced solutions, favor the saved GPT ranks."
+      },
+      {
+        "start": 3.54,
+        "text": "We solve this using standard min-cost flow."
+      }
+    ],
+    "f253bea769f9005aca5ae1a223a6e8d0caf4b628cda6b055b074994368fcfda6": [
+      {
+        "start": 0.0,
+        "text": "There is a simple marginal cost behind that optimization."
+      },
+      {
+        "start": 2.9,
+        "text": "The first recommendation to a listing costs one unit."
+      },
+      {
+        "start": 5.24,
+        "text": "The next costs three, then five."
+      },
+      {
+        "start": 6.88,
+        "text": "Those are the differences between successive squares."
+      }
+    ],
+    "f2d72594643a8816cc3ebbeb9cc56739206de694f7d9310418b2671ea45abfe7": [
+      {
+        "start": 0.0,
+        "text": "If two feasible apartments are equally useful for our tie breaker,"
+      },
+      {
+        "start": 2.84,
+        "text": "the algorithm has a reason to recommend the less crowded one."
+      },
+      {
+        "start": 5.28,
+        "text": "Nobody has reserved it."
+      },
+      {
+        "start": 6.5,
+        "text": "Applicants still compete according to preferences and priorities."
+      }
+    ],
+    "6a79c62141017448206c544fcc606150b54e1e71778812ba461a4dcd6372df55": [
+      {
+        "start": 0.0,
+        "text": "Neither rule sees the realized preference shocks,"
+      },
+      {
+        "start": 2.24,
+        "text": "landlord rankings or reference assignments."
+      },
+      {
+        "start": 3.98,
+        "text": "They use feasibility and saved recommendations."
+      }
+    ],
+    "e05479b28a3be7f2c0a553fb638724fe818168f1f48abc8b5a9a273af86f2262": [
+      {
+        "start": 0.0,
+        "text": "There are two different matchings in this experiment."
+      },
+      {
+        "start": 2.16,
+        "text": "The anchor matching tells the platform which suggestions to add."
+      },
+      {
+        "start": 4.42,
+        "text": "It is a planning calculation."
+      },
+      {
+        "start": 5.6,
+        "text": "Then we run applicant-proposing deferred acceptance on the shortlists."
+      }
+    ],
+    "6f10aad3836727d1064165a5de36c753db724ed460e259da76aea61400a81a5a": [
+      {
+        "start": 0.0,
+        "text": "The person a planner earmarked for an apartment can still lose it in"
+      },
+      {
+        "start": 2.5,
+        "text": "the assignment. That gap is exactly where a retention question arises."
+      }
+    ],
+    "f2a0940b25cce4658500fd222dd231e846e11d7c6aec44f4c64e3f584d61d54f": [
+      {
+        "start": 0.0,
+        "text": "Both keep each person's list length fixed."
+      },
+      {
+        "start": 2.2,
+        "text": "But balancing can replace several options, while the anchor replaces at most one."
+      },
+      {
+        "start": 5.5,
+        "text": "Neither rule explicitly protects existing recipients."
+      }
+    ],
+    "e312a7656803aa8921d94d6658769567a9f81dd233b2f30878b481374a251603": [
+      {
+        "start": 0.0,
+        "text": "Before adding coordination, look at GPT against random shortlists"
+      },
+      {
+        "start": 2.58,
+        "text": "of the same length. Blue shows the coverage difference."
+      },
+      {
+        "start": 5.16,
+        "text": "Orange shows the placement difference. Zero would mean no change from random."
+      }
+    ],
+    "d780c7eafdd61ed7077ea04f98366c1a5ebf91c3d2c28a1532f54ec4862e5c2f": [
+      {
+        "start": 0.0,
+        "text": "Across the three enriched calendar windows, GPT gains about eight percentage"
+      },
+      {
+        "start": 3.34,
+        "text": "points of coverage and loses about two to four points of placement."
+      },
+      {
+        "start": 5.96,
+        "text": "The directions repeat, and the original market-bootstrap intervals exclude zero."
+      }
+    ],
+    "b1dff6e9c66d1be3c5e889208bc7cdbfe9a7acf6141be432d5f0d39a1459d4cb": [
+      {
+        "start": 0.0,
+        "text": "Those original error bars resample markets."
+      },
+      {
+        "start": 2.32,
+        "text": "Our follow-up uses paired seed-block intervals, including a simultaneous"
+      },
+      {
+        "start": 4.92,
+        "text": "ninety-five percent band across four comparisons and two outcomes."
+      }
+    ],
+    "4690fa0b0b7e6416fae1ab46c50488d8cfc57ff15208abf6571021b95892425e": [
+      {
+        "start": 0.0,
+        "text": "We use the largest deviation across those eight estimates to set a common margin."
+      },
+      {
+        "start": 3.44,
+        "text": "This addresses the extra chances to find a favorable"
+      },
+      {
+        "start": 5.0,
+        "text": "result when looking at several comparisons together."
+      }
+    ],
+    "15443d6be2e8997e9e2116ac51aa5d642be5431e9201abe9a016175df8e73798": [
+      {
+        "start": 0.0,
+        "text": "So the lists are better at including the full-list reference assignment."
+      },
+      {
+        "start": 2.9,
+        "text": "But that doesn't translate into more people getting"
+      },
+      {
+        "start": 4.26,
+        "text": "apartments when the lists are used together."
+      }
+    ],
+    "7b1c435befeb59ee7e1692d7a85e26f840190a63445b1cdbb35bb5dbca378dfa": [
+      {
+        "start": 0.0,
+        "text": "These enriched markets deliberately include affordable listings"
+      },
+      {
+        "start": 2.24,
+        "text": "and renters with feasible options. We also report the ordinary"
+      },
+      {
+        "start": 5.26,
+        "text": "sampling design and the uncertainty details in the appendix."
+      }
+    ],
+    "e48b38dcf9e3dbdf7dea91b71e9fe605b63a8502afcd837807d9444e82ebee79": [
+      {
+        "start": 0.0,
+        "text": "Now put the four policies on the same graph."
+      },
+      {
+        "start": 2.18,
+        "text": "Moving right means more reference coverage."
+      },
+      {
+        "start": 4.12,
+        "text": "Moving up means more people placed."
+      }
+    ],
+    "6a69392957ac21e8f8f1e63d21d39f09d9d81342c353b35470f4cb720ba3747f": [
+      {
+        "start": 0.0,
+        "text": "Starting from random, GPT moves right but slightly down."
+      },
+      {
+        "start": 3.22,
+        "text": "Adding the anchor moves GPT upward, with a small coverage change."
+      }
+    ],
+    "b9912bcf2d9e5b98b148d5c99359588b124379fe9e80f5bc7eb91aeda81d3157": [
+      {
+        "start": 0.0,
+        "text": "Balancing moves much farther up."
+      },
+      {
+        "start": 1.88,
+        "text": "Compared with the anchor, it gains another 12.6 percentage points"
+      },
+      {
+        "start": 4.3,
+        "text": "of placement and loses about three points of coverage in this panel."
+      }
+    ],
+    "76f5a585272e2e23875da0dc42a5c4a110430a5f528c009923e5183985ecaa4c": [
+      {
+        "start": 0.0,
+        "text": "But compare balancing with random, and both outcomes improve."
+      },
+      {
+        "start": 2.98,
+        "text": "So this isn't an unavoidable conflict between coverage and placement."
+      },
+      {
+        "start": 5.58,
+        "text": "It depends on which policies we compare."
+      }
+    ],
+    "706983d1e6be56f7e879270c8a1d8674d0e74333c864ba2a62ab73fb17d332b7": [
+      {
+        "start": 0.0,
+        "text": "A stronger control is random recommendations"
+      },
+      {
+        "start": 1.52,
+        "text": "with the same anchoring rule."
+      }
+    ],
+    "c42c7ced5668fcd0dad9e66fa9fc11754af902765fa75782e4aec0eae1432851": [
+      {
+        "start": 0.0,
+        "text": "In this panel, anchored GPT places only seven more renter appearances,"
+      },
+      {
+        "start": 3.26,
+        "text": "out of ten thousand two hundred forty,"
+      },
+      {
+        "start": 4.64,
+        "text": "and the paired interval for the placement difference crosses zero."
+      }
+    ],
+    "a98ae7baca3747d0c9a114c6ab42b380a0a76eebc43559856f4dce80c4d678b8": [
+      {
+        "start": 0.0,
+        "text": "GPT improves reference coverage against that control;"
+      },
+      {
+        "start": 2.92,
+        "text": "we cannot attribute a clear placement gain to GPT."
+      }
+    ],
+    "377c4e19beb3d6e30d301e591a34d36d9d29d226ffabd1e380ba33fc82124aad": [
+      {
+        "start": 0.0,
+        "text": "The comparison between balancing and anchoring was more consistent."
+      },
+      {
+        "start": 2.96,
+        "text": "Across all six combinations of calendar window and sampling design,"
+      },
+      {
+        "start": 5.78,
+        "text": "balancing raised placement and lowered reference coverage."
+      }
+    ],
+    "785f9dafba0249572f3e9802929f09ccddb9d17d98f1f4faa79317e2f5f1ccb9": [
+      {
+        "start": 0.0,
+        "text": "The simultaneous intervals for those two differences excluded zero in"
+      },
+      {
+        "start": 2.92,
+        "text": "every combination. That is a pattern across these simulations. It is still"
+      },
+      {
+        "start": 6.36,
+        "text": "possible to improve both outcomes when the starting rule is different."
+      }
+    ],
+    "588c440b57bf2167f3d88963a56b2f0228afdca04b72cf364b299a8dbaaccc6e": [
+      {
+        "start": 0.0,
+        "text": "These are means for the September and October enriched panel."
+      },
+      {
+        "start": 3.04,
+        "text": "A score-based control, with extra information from the simulation,"
+      },
+      {
+        "start": 5.42,
+        "text": "improves both measures further. We haven't established GPT as the best recommender."
+      }
+    ],
+    "d1ca14867dae8990101ddb1f025a68cfac1b8036d37d989294990df63a699bc3": [
+      {
+        "start": 0.0,
+        "text": "Now, who gains or loses a match?"
+      }
+    ],
+    "f4a62d133b649fbbff4f8e63e1f8cf56abe639349a768621ec3232709c301011": [
+      {
+        "start": 0.0,
+        "text": "Compare the anchor with the original GPT lists, on the same rental markets."
+      }
+    ],
+    "0d768c1e06d75a56b0e8cb41b0378379092d8dfd68045c7f73ec07bd2503ebc9": [
+      {
+        "start": 0.0,
+        "text": "First, 449 renter appearances gain a place."
+      }
+    ],
+    "cf92e97882d4622fe8abfbeddef96ac910478367b0a7f620df837293791cefcf": [
+      {
+        "start": 0.0,
+        "text": "Then there are 37 exits:"
+      },
+      {
+        "start": 1.68,
+        "text": "appearances that had a place under GPT and lose it under the anchor."
+      }
+    ],
+    "6631112cffe735970067cc21deec98824c3e9aa9d5d4dc4d5702c0a9949a25c9": [
+      {
+        "start": 0.0,
+        "text": "Subtract those losses and the net gain is 412 placements."
+      }
+    ],
+    "72a133ea216c1a5643ce6a75b39452a8b37bbdbc9640c004f7520b546c741d39": [
+      {
+        "start": 0.0,
+        "text": "The denominator is ten thousand two hundred"
+      },
+      {
+        "start": 1.78,
+        "text": "forty simulated renter appearances."
+      },
+      {
+        "start": 3.7,
+        "text": "We also check what happens beyond matched versus unmatched: two hundred"
+      },
+      {
+        "start": 6.34,
+        "text": "seventy-five appearances receive a worse modeled rank under the anchor."
+      }
+    ],
+    "4ac3d02a33123dd3b50360217cf6464f817abc1b80395d71192b23c8eb4e6607": [
+      {
+        "start": 0.0,
+        "text": "These measures can overlap. Preserving a place and preserving"
+      },
+      {
+        "start": 2.22,
+        "text": "the quality of that place are different promises."
+      }
+    ],
+    "0ef027d772a3e007bec5bc65cb0d8af131340446b01ee479d8b41fb4c7db01e2": [
+      {
+        "start": 0.0,
+        "text": "Reporting just 412 would leave out the people who lost access."
+      },
+      {
+        "start": 3.2,
+        "text": "Balancing has the same issue: it places many more people,"
+      },
+      {
+        "start": 5.64,
+        "text": "but causes 171 exits relative to the anchor."
+      }
+    ],
+    "b489c361f6d02bffac6f4895a503171f663af06a0e0ff1bb0583c4924cfcc471": [
+      {
+        "start": 0.0,
+        "text": "Someone who appears in two simulated markets contributes two records."
+      },
+      {
+        "start": 3.46,
+        "text": "An exit here means a change between assignments on the same simulated market."
+      }
+    ],
+    "7619409714a7301886e4fffac718ebddc15451cc8bc150f6278f9323dac16b9a": [
+      {
+        "start": 0.0,
+        "text": "Now return to the group in our opening result:"
+      },
+      {
+        "start": 2.04,
+        "text": "renters with one to five feasible apartments. They already see everything."
+      },
+      {
+        "start": 5.14,
+        "text": "Neither coordination rule can change their own shortlist."
+      }
+    ],
+    "322d5e8bf95eee0e5e42a28cb3f3fe089b7477f73eb8f9b0fb45080d0795149b": [
+      {
+        "start": 0.0,
+        "text": "Their match rate rises from 13.1 to 27.5 percent when"
+      },
+      {
+        "start": 3.0,
+        "text": "the rest of the market moves from anchoring to balancing."
+      },
+      {
+        "start": 4.96,
+        "text": "Across this subgroup, 349 appearances gain a match and 15 lose one."
+      }
+    ],
+    "be1b67cafd3c3d2f0b55d81a8139a74d1f5db305bdb2f693073a5935a00fdb7d": [
+      {
+        "start": 0.0,
+        "text": "This subgroup contains two thousand three hundred twenty-eight renter appearances."
+      },
+      {
+        "start": 3.26,
+        "text": "In raw counts, the number matched goes from"
+      },
+      {
+        "start": 4.92,
+        "text": "three hundred four to six hundred thirty-eight."
+      }
+    ],
+    "62c56c34d17eb99697f0d0408ce2724632ea6d8d0984495bcadd9b1cef5604af": [
+      {
+        "start": 0.0,
+        "text": "The displayed percentages average seed-level rates,"
+      },
+      {
+        "start": 2.22,
+        "text": "so those averages and the pooled counts use different weighting."
+      }
+    ],
+    "6368154995c0f774699f0da95894ed30c993ad716e1cba5fb91e34e2cfa7c77e": [
+      {
+        "start": 0.0,
+        "text": "The middle window's pointwise interval for the gain runs from about"
+      },
+      {
+        "start": 2.46,
+        "text": "13.3 to 15.5 percentage points. Across windows, some properties recur."
+      }
+    ],
+    "ff2d740be7e67b4cc7b3ab55671d6d85e37354003c3733f0dc832ab6751596a8": [
+      {
+        "start": 0.0,
+        "text": "Repeating a result with those listings is informative about the mechanism,"
+      },
+      {
+        "start": 2.76,
+        "text": "but it would be a mistake to read the three"
+      },
+      {
+        "start": 3.94,
+        "text": "estimates as three independent housing interventions."
+      }
+    ],
+    "9a6e57d6e74fe6e26ecfca9c50363313e89c1c3fb021169aa51e9d1b64bf8b19": [
+      {
+        "start": 0.0,
+        "text": "In the three enriched rental windows,"
+      },
+      {
+        "start": 1.6,
+        "text": "the subgroup gains between 14.4 and 14.9 percentage points."
+      }
+    ],
+    "19dfa7544f9096499c5cce082290cbe5d26abd09cb5d70b11795ed029b0f3972": [
+      {
+        "start": 0.0,
+        "text": "Because their own choices stay fixed,"
+      },
+      {
+        "start": 1.82,
+        "text": "those changes must come through competition with other renters."
+      },
+      {
+        "start": 4.12,
+        "text": "We can look for the same issue when people compete for jobs."
+      }
+    ],
+    "4892ecc16966887a8456e865362f177e252d76b9a7b9244bc12f2159ea353f89": [
+      {
+        "start": 0.0,
+        "text": "Consider the jobs replication."
+      },
+      {
+        "start": 1.64,
+        "text": "We use New York metro postings and survey-based seeker profiles."
+      },
+      {
+        "start": 4.56,
+        "text": "In each simulated market, people see up to five feasible jobs."
+      }
+    ],
+    "5afc1fb26f5396ebd4bae53891481ba0a9aaba543f920f6c33c7ea59717182fd": [
+      {
+        "start": 0.0,
+        "text": "The experiment pairs the same seekers and postings across policies."
+      },
+      {
+        "start": 3.4,
+        "text": "The outcome is the assignment in that simulation."
+      }
+    ],
+    "34affa27122e9955d5d6c032f1140eedfb5cc875f648c48330fc704e8897cb64": [
+      {
+        "start": 0.0,
+        "text": "With GPT shortlists, 63.5 percent get a placement."
+      },
+      {
+        "start": 3.52,
+        "text": "Coordinate just one option on each list, and that rises to 79.4 percent."
+      },
+      {
+        "start": 7.16,
+        "text": "That is 612 additional placements on net across 3,840 seeker appearances."
+      }
+    ],
+    "a071b3726eb35f8539c6488509b7711526c45418ce1ec9232d9e448fab9f70ea": [
+      {
+        "start": 0.0,
+        "text": "Then apply the same anchoring rule to random shortlists."
+      },
+      {
+        "start": 2.72,
+        "text": "That simple control reaches 81.4 percent."
+      },
+      {
+        "start": 5.02,
+        "text": "Coordination explains a great deal of the recovery."
+      }
+    ],
+    "316be9edfbcd6c2f99f15bff8f4d9126b63f9895204c24124abefca404fab804": [
+      {
+        "start": 0.0,
+        "text": "This comparison gives us no placement advantage to claim for the language model."
+      }
+    ],
+    "094c2a198ad3b82ed5654b8d555b11f7720aeaf14fc28c20fce96e21cc504001": [
+      {
+        "start": 0.0,
+        "text": "Here is what we can learn even with only the published totals."
+      },
+      {
+        "start": 2.54,
+        "text": "The anchor changed 920 personal lists."
+      },
+      {
+        "start": 4.66,
+        "text": "Under the fixed priorities in this jobs model,"
+      },
+      {
+        "start": 6.38,
+        "text": "changing one list can create at most one new recipient."
+      }
+    ],
+    "98d52b09b79879c917266074cd845ee855edc72fc14ee019e5c580d88e3f33e3": [
+      {
+        "start": 0.0,
+        "text": "To see why, remove that seeker, then add them back."
+      },
+      {
+        "start": 2.86,
+        "text": "Rejections travel down a single chain. Several people can switch jobs,"
+      },
+      {
+        "start": 5.78,
+        "text": "but only one person at a time is looking for a vacancy."
+      }
+    ],
+    "a0627662c11917b29fdc385e1da4046018b545d35bb0a580f4f85045b4017aa2": [
+      {
+        "start": 0.0,
+        "text": "So there can be at most 920 entrants across these edits."
+      },
+      {
+        "start": 2.88,
+        "text": "Entrants minus exits equals the net gain of 612."
+      },
+      {
+        "start": 5.62,
+        "text": "Subtraction gives an upper bound of 308 exits,"
+      },
+      {
+        "start": 7.72,
+        "text": "and zero is also consistent with the bounds."
+      }
+    ],
+    "c4fc4ee5f03583e63fb6f4aa6ba012361b6aa8b8e81579d00f9f4920955f4f09": [
+      {
+        "start": 0.0,
+        "text": "We cannot tell which individuals lost a match"
+      },
+      {
+        "start": 1.88,
+        "text": "or measure coverage after the anchor from these totals."
+      },
+      {
+        "start": 4.08,
+        "text": "Chile's individual application records let us follow that question further."
+      }
+    ],
+    "934b39b8c4f499a4fe1cc83b0fcb422b3776afd9ee4661ab869cb4f41bbdbd3e": [
+      {
+        "start": 0.0,
+        "text": "In Chile, families tell us which schools they want and in what order. We can"
+      },
+      {
+        "start": 2.84,
+        "text": "hold those rankings fixed as we change the shortlists and run admissions again."
+      }
+    ],
+    "fcf1c19e1347ec1cc3487b36b874e6ceba543a4a746536bec0048e4e47f8f3a1": [
+      {
+        "start": 0.0,
+        "text": "We compare two classifiers trained on an earlier cohort to predict initial offers."
+      },
+      {
+        "start": 3.64,
+        "text": "One uses submitted rank; the other doesn't."
+      },
+      {
+        "start": 5.44,
+        "text": "They choose shortlists for later cohorts."
+      }
+    ],
+    "f2dce3a838a82269cbaee16c82f9724bbeca53857ff1e79adca50356838a369b": [
+      {
+        "start": 0.0,
+        "text": "We then check coverage of later enrollment and rerun admissions on those shortlists."
+      }
+    ],
+    "475372d31e4ac48caabccad3a46c96d8bf2d30185a4303f64dc8186c88c8a5c3": [
+      {
+        "start": 0.0,
+        "text": "The rank-informed policy gains 4,638 enrollment hits overall,"
+      },
+      {
+        "start": 3.6,
+        "text": "but loses 1,670 placements compared with the rank-blind policy."
+      }
+    ],
+    "8e3897d7946eb96a10e87d626cbba7c771888e913e941a40863d8f89601450d0": [
+      {
+        "start": 0.0,
+        "text": "The graph separates pupils by whether they historically received an initial offer."
+      },
+      {
+        "start": 3.34,
+        "text": "Each bar has its own group's denominator."
+      }
+    ],
+    "24933110271741c0e8cfff944cc6efac4c092156c01f5b757e1f0ed9e845b2c8": [
+      {
+        "start": 0.0,
+        "text": "Pupils with no initial offer are 7.4 percent of the linked sample,"
+      },
+      {
+        "start": 2.72,
+        "text": "but account for 76 percent of the net placement loss."
+      }
+    ],
+    "992a087a16c1db7ac1b68e0efd70577143e5f996b9d3b6c7348437e51989bd3b": [
+      {
+        "start": 0.0,
+        "text": "That is 1,270 net lost placements in the smaller group,"
+      },
+      {
+        "start": 2.94,
+        "text": "a decline of 0.873 percentage points."
+      }
+    ],
+    "75a84cc346d3812f947caebb7188e6475f4ff8a705324662b9e0b1a480b9f912": [
+      {
+        "start": 0.0,
+        "text": "Those losses come from comparing two simulated assignments for the same pupils."
+      },
+      {
+        "start": 3.34,
+        "text": "They fall disproportionately on families who went"
+      },
+      {
+        "start": 4.66,
+        "text": "through the original admissions round without an offer."
+      }
+    ],
+    "4444ac14f373e2e000aa0721db8e0055007c2ff34f18574be227058cabfb3b3d": [
+      {
+        "start": 0.0,
+        "text": "The four cohorts contribute just under two million linked applicant-years."
+      },
+      {
+        "start": 3.1,
+        "text": "The net loss combines 2,397 exits and 727 entries."
+      }
+    ],
+    "2aa9e11ab0093ccc96cf14fb0b338f426fc19e4ebad9583d440ebad6047d0d3e": [
+      {
+        "start": 0.0,
+        "text": "A study observing only how many children got seats"
+      },
+      {
+        "start": 1.76,
+        "text": "would miss those movements in opposite directions."
+      }
+    ],
+    "b877f15857ddac176b48ee35807aaa004191b31247a68034672e4df2f179b44a": [
+      {
+        "start": 0.0,
+        "text": "Keep the rank-informed policy,"
+      },
+      {
+        "start": 1.24,
+        "text": "but compare it with each family's first five discretionary courses."
+      }
+    ],
+    "0c155c6da20c074748d7345fa430fbdbee8990a7f1c0200bfece3735da9e1d55": [
+      {
+        "start": 0.0,
+        "text": "Now both totals improve: 9,800 more enrollment hits and 8,143 more placements."
+      },
+      {
+        "start": 5.04,
+        "text": "Once again, the prediction\u2013placement conflict depends on the comparison."
+      }
+    ],
+    "ed4e380b00ed1a546c7c5b873eb362b789d52cdfba4f2e679322f8537774a2fc": [
+      {
+        "start": 0.0,
+        "text": "Yet pupils without a historical initial offer still"
+      },
+      {
+        "start": 1.98,
+        "text": "lose 2,860 placements against this alternative."
+      }
+    ],
+    "883c7ae90d4c5c176ac71fff34a22d07f05817088331b8ac37dd39769cf08648": [
+      {
+        "start": 0.0,
+        "text": "A policy can look better in aggregate and still make"
+      },
+      {
+        "start": 1.8,
+        "text": "access worse for people we especially hoped to help."
+      }
+    ],
+    "ea39d2776db19c1b057569e10d6a9c0277b1177bfe2d67beab7f10e3d429c55a": [
+      {
+        "start": 0.0,
+        "text": "There is a timing detail here."
+      },
+      {
+        "start": 1.6,
+        "text": "We identify the no-offer group using what happened historically,"
+      },
+      {
+        "start": 3.92,
+        "text": "after fixing the policies. It helps us audit who bore a loss."
+      }
+    ],
+    "ed9418b39617f354cb7f4d493fa3108287fb6c30096649ad588cade6e35ccdf9": [
+      {
+        "start": 0.0,
+        "text": "It would give a new policy information from the future if we"
+      },
+      {
+        "start": 1.92,
+        "text": "used that outcome to choose whom to protect before assignment."
+      }
+    ],
+    "b20c876b4dae53c65bb5a21d4b71c810b7f5edf3fd2fad7cb337ca58c60fe8b8": [
+      {
+        "start": 0.0,
+        "text": "It also reminds us that matching historical enrollment isn't"
+      },
+      {
+        "start": 2.04,
+        "text": "the same as improving welfare. To move beyond those averages,"
+      },
+      {
+        "start": 4.44,
+        "text": "we need a precise requirement for who should remain protected."
+      }
+    ],
+    "4975c3d15a308cfffc3a909bab09fd89cb7c7e32d943bf51344efd9baf7e99a0": [
+      {
+        "start": 0.0,
+        "text": "We can write that requirement as a design problem."
+      }
+    ],
+    "d1ca65dfebc3d676540f90895058387c28120924cbf6be00c9b37e63ff4bcf86": [
+      {
+        "start": 0.0,
+        "text": "Fix the baseline shortlists and a supplied set of priority draws."
+      },
+      {
+        "start": 2.94,
+        "text": "Choose one new policy that works across every draw. We want more reference hits,"
+      },
+      {
+        "start": 6.3,
+        "text": "with every baseline recipient still getting a seat on each draw."
+      }
+    ],
+    "96486861b5109f223ad6aabc229f884fa1d071c78aabd7c599381d61d3fd1318": [
+      {
+        "start": 0.0,
+        "text": "They may switch schools, but they cannot become unplaced."
+      }
+    ],
+    "fa5cb5d4dc81910355fbda8487f7d7256a9e4be28320c61d39e593d27ab08840": [
+      {
+        "start": 0.0,
+        "text": "For the Chile application,"
+      },
+      {
+        "start": 1.18,
+        "text": "we keep options shared by the rank-blind and rank-informed policies,"
+      },
+      {
+        "start": 4.0,
+        "text": "choose the remaining options from their union, and preserve each list's length."
+      }
+    ],
+    "0a0169b953b6a97ddd10c94f35fbb8e48d2b03723e2592c9244b9cb37cfe439a": [
+      {
+        "start": 0.0,
+        "text": "Deciding whether a target gain is achievable is NP-complete,"
+      },
+      {
+        "start": 2.82,
+        "text": "even with unit seats and lists of at most three options."
+      },
+      {
+        "start": 5.46,
+        "text": "Checking a proposed policy with deferred acceptance is still polynomial."
+      }
+    ],
+    "c990ad86f4281da403c604d65172dc1247533281daec1213b4ac435c2894c9d0": [
+      {
+        "start": 0.0,
+        "text": "The certificate is simply the proposed shortlists."
+      },
+      {
+        "start": 2.68,
+        "text": "We run deferred acceptance on every supplied draw, compare each"
+      },
+      {
+        "start": 5.14,
+        "text": "recipient with the corresponding baseline, and count the hits."
+      }
+    ],
+    "453b3bd1f501721ee14153d4fe092363cc615bedf72c94fdace39316c68e3c0c": [
+      {
+        "start": 0.0,
+        "text": "The shortlists stay fixed across draws; the resulting assignments can change."
+      },
+      {
+        "start": 3.52,
+        "text": "That is why verification is efficient,"
+      },
+      {
+        "start": 4.8,
+        "text": "even though finding the best policy is hard."
+      }
+    ],
+    "cd06a9fbedaa9c2c5167b0782f354e6d7624d848d3243cbca6809c0728597eb1": [
+      {
+        "start": 0.0,
+        "text": "This theorem uses fixed, strict priorities on an explicit panel."
+      },
+      {
+        "start": 3.46,
+        "text": "We test Chile's family-linked rules separately."
+      },
+      {
+        "start": 5.62,
+        "text": "The next picture explains where the computational difficulty comes from."
+      }
+    ],
+    "ff57aa16d4b9392e7317becaf3a125e45fe5c8465273f87bab70b46431d61d9f": [
+      {
+        "start": 0.0,
+        "text": "Start with a graph."
+      },
+      {
+        "start": 1.2,
+        "text": "Each vertex represents an edit that adds one reference hit. For each edge,"
+      },
+      {
+        "start": 4.36,
+        "text": "we construct a priority draw where its two endpoint edits can interfere."
+      }
+    ],
+    "8f33436cb1b04d2a5af070b80e2da10211b2984a0e21f4c92d10c8e6036349f8": [
+      {
+        "start": 0.0,
+        "text": "On this draw, choosing edit u displaces one already-matched"
+      },
+      {
+        "start": 2.58,
+        "text": "pupil toward the fallback seat. That edit alone is safe."
+      }
+    ],
+    "82b86b38f95c4c7ef6e6c4aadea2a3e26f9a13fa8ffa79fa5e9df8c08b211b23": [
+      {
+        "start": 0.0,
+        "text": "Now choose edit v as well."
+      },
+      {
+        "start": 2.2,
+        "text": "A second pupil needs the same fallback seat, and one of them must lose a place."
+      }
+    ],
+    "9d7b324a78dc0eb9c4b65d1890ccaef62fbc029d70fd489dac02406d28e7be93": [
+      {
+        "start": 0.0,
+        "text": "Other vertex edits are harmless on this particular draw."
+      }
+    ],
+    "c2e906e4cccad52022edbab52a9ff3d880a0960fec8fca1a9099758016052983": [
+      {
+        "start": 0.0,
+        "text": "We repeat this construction for every edge."
+      },
+      {
+        "start": 2.18,
+        "text": "One fixed set of edits must work on every draw,"
+      },
+      {
+        "start": 4.18,
+        "text": "so it cannot contain both endpoints of any edge."
+      },
+      {
+        "start": 6.58,
+        "text": "The safe choices form an independent set."
+      }
+    ],
+    "3aef08be76bd1f703b85deb1c43a27675a903a8fa08e5eb96d5b4cb354621abb": [
+      {
+        "start": 0.0,
+        "text": "Each chosen edit adds one hit."
+      },
+      {
+        "start": 1.86,
+        "text": "Maximizing safe gains would therefore solve Independent Set."
+      }
+    ],
+    "6a115b442e4856c56184f263933ac126ae9d27da1164ce60ca0cfd95cc34822c": [
+      {
+        "start": 0.0,
+        "text": "The construction also includes a reference draw."
+      },
+      {
+        "start": 2.42,
+        "text": "Running full-list deferred acceptance there generates the historical targets"
+      },
+      {
+        "start": 4.86,
+        "text": "themselves, so the reduction doesn't rely on arbitrary target labels."
+      }
+    ],
+    "374785d0a4ef795b1c0a4f8f9023c0904329240d93da8c0856a576f345d77033": [
+      {
+        "start": 0.0,
+        "text": "There is one conflict draw per graph edge, plus that one reference draw,"
+      },
+      {
+        "start": 3.06,
+        "text": "so the instance grows polynomially. A safe gain of at least"
+      },
+      {
+        "start": 5.38,
+        "text": "K exists exactly when K mutually nonadjacent vertices exist."
+      }
+    ],
+    "cf64b8cf90f4e3c2f5a21bd58defc9d2a6cb7a4b9ef3405232a756b92de6ae72": [
+      {
+        "start": 0.0,
+        "text": "The same construction tells us something else."
+      },
+      {
+        "start": 2.24,
+        "text": "Imagine a graph made of disjoint edges. Keeping everyone's exact"
+      },
+      {
+        "start": 4.92,
+        "text": "original assignment allows zero selected edits on the reference draw."
+      }
+    ],
+    "b0ae4622042e993a21215ddd1f9758341d0f4f5390e8bbf31d18f454b614285e": [
+      {
+        "start": 0.0,
+        "text": "Keeping everyone seated lets us choose one endpoint from each edge."
+      },
+      {
+        "start": 3.22,
+        "text": "With more edges, the gap can grow as large as we like. So an exact-assignment"
+      },
+      {
+        "start": 6.36,
+        "text": "ceiling cannot automatically be used as a ceiling for seat retention."
+      }
+    ],
+    "c2163a56699bbb655dc032376f01033924609bc178c69a1608527b112a18428a": [
+      {
+        "start": 0.0,
+        "text": "Back in Chile, we compare two promises on the same design panels:"
+      },
+      {
+        "start": 2.94,
+        "text": "1,024 lotteries per cohort, for 2022 through 2024."
+      }
+    ],
+    "524738ce1fc76ac7a166daf4a3f3626a235c9ac3449df4b8510076d4bb5ce777": [
+      {
+        "start": 0.0,
+        "text": "The stricter promise keeps every baseline recipient in the same"
+      },
+      {
+        "start": 2.28,
+        "text": "course and seat type. Within our allowed shortlist family,"
+      },
+      {
+        "start": 4.48,
+        "text": "the maximum additional enrollment coverage is exactly 314 hits."
+      }
+    ],
+    "85a402f8642cb1f32166c2d9e1e3579adaac84a82574ab6f11f635519714e6ce": [
+      {
+        "start": 0.0,
+        "text": "The looser promise lets people switch schools, as long as everyone keeps a seat."
+      },
+      {
+        "start": 3.0,
+        "text": "We construct shortlists that gain 642 hits. The certified upper bound is 4,620."
+      }
+    ],
+    "5368a19992e24c2da4ac20b9671c3cf0c02694247b610afadfdd0628f02a913c": [
+      {
+        "start": 0.0,
+        "text": "Allowing switches gives us more than twice the demonstrated gain."
+      },
+      {
+        "start": 2.42,
+        "text": "But there's a wide gap to the upper bound."
+      },
+      {
+        "start": 3.86,
+        "text": "We haven't solved this problem to optimality."
+      }
+    ],
+    "ac4d779b24c20f2e12478aad320364984339fa3a15863027aeac4a860adc64e4": [
+      {
+        "start": 0.0,
+        "text": "The new shortlist must keep courses shared by the rank-blind and rank-informed"
+      },
+      {
+        "start": 2.64,
+        "text": "policies. Its remaining slots come from the union of those two original lists."
+      },
+      {
+        "start": 5.92,
+        "text": "Its length stays fixed."
+      }
+    ],
+    "25107e6e66e2437b008c9da3a49dedc6fb6ddaa0f10ae25acf735a1940089e9a": [
+      {
+        "start": 0.0,
+        "text": "That constraint makes the comparison interpretable."
+      },
+      {
+        "start": 2.22,
+        "text": "It also sets the scope of the number 314. A platform allowed to add"
+      },
+      {
+        "start": 5.1,
+        "text": "arbitrary new courses would face a different optimization problem."
+      }
+    ],
+    "e0a974d8aa1335350cdb56514a32bce8d707142ea650297b0ee92a2783c459cf": [
+      {
+        "start": 0.0,
+        "text": "The gap measures what the optimization has left unresolved."
+      },
+      {
+        "start": 2.42,
+        "text": "We have a concrete policy for the lower endpoint"
+      },
+      {
+        "start": 3.82,
+        "text": "and a mathematical bound for the upper endpoint."
+      }
+    ],
+    "0e27e5ddd4ab8ac5a51187b71f3d214da33d1864f951080031c95e10d8c94182": [
+      {
+        "start": 0.0,
+        "text": "Protection covers every baseline recipient,"
+      },
+      {
+        "start": 1.88,
+        "text": "including those without an enrollment link."
+      },
+      {
+        "start": 3.68,
+        "text": "Only the coverage objective needs that link."
+      }
+    ],
+    "9ee8d57e37fe85e647557835be0425896812c603eae895f0959075b1e035cf9f": [
+      {
+        "start": 0.0,
+        "text": "These are hindsight benchmarks:"
+      },
+      {
+        "start": 1.54,
+        "text": "they use the evaluation cohorts' later enrollment labels to choose edits."
+      },
+      {
+        "start": 4.4,
+        "text": "A real policy wouldn't have those labels before assignment."
+      }
+    ],
+    "d5154f8afe39aa142761b306700d51f4f7ed94bdc6d73de2263d27dc558d1717": [
+      {
+        "start": 0.0,
+        "text": "So we also test rules using only information available at that point."
+      }
+    ],
+    "e3a1756099205c6e0f10b2b67e0e6b1c7bc04c1fec7ca7301d12d6a14c92b7bf": [
+      {
+        "start": 0.0,
+        "text": "Here are two such rules."
+      },
+      {
+        "start": 1.44,
+        "text": "We freeze them after applications arrive and before the ordinary assignment."
+      },
+      {
+        "start": 4.14,
+        "text": "Neither uses that cohort's realized offers or later enrollment to select shortlists."
+      }
+    ],
+    "4bd1d6790b2a1fc7a915f401643debc7c2ae0c59cae6a51d169f981686d9a73a": [
+      {
+        "start": 0.0,
+        "text": "The structural rule restricts interactions around applicants without"
+      },
+      {
+        "start": 2.3,
+        "text": "a guaranteed fallback. Its proof covers all permitted ordinary lottery orders,"
+      },
+      {
+        "start": 5.38,
+        "text": "for the fixed inputs and reconstructed mechanism."
+      }
+    ],
+    "eb19e381e30c6395e478bf3f98d57004d1cace1f5a65f1175846aae0835d0082": [
+      {
+        "start": 0.0,
+        "text": "The proof starts with common options that already guarantee a pupil a seat."
+      },
+      {
+        "start": 3.08,
+        "text": "Around pupils lacking that guarantee,"
+      },
+      {
+        "start": 4.58,
+        "text": "it freezes the relevant competitors and family interactions."
+      },
+      {
+        "start": 6.84,
+        "text": "This limits where edits can propagate."
+      }
+    ],
+    "4fc03790a2b150daf416b890862ddae4c4efa9d6c3da3490a62afd5f4c9fe9c9": [
+      {
+        "start": 0.0,
+        "text": "We keep the same three cohorts and draw fresh priorities."
+      },
+      {
+        "start": 2.78,
+        "text": "There are 384 course-level cohort draws and 96 cohort draws using school"
+      },
+      {
+        "start": 5.96,
+        "text": "and family tickets. This tests new lottery orders for the same applicants."
+      }
+    ],
+    "db13064183ab32a6a79f7fd7ff3f5108a5fc382ff7f79cd9a5509fe759edca79": [
+      {
+        "start": 0.0,
+        "text": "It gains 28 enrollment hits and has zero exits in the test panels."
+      }
+    ],
+    "1b0bb60978ec8f54ef6afdf505708cc992b49eb9785301d267d3660a42085b53": [
+      {
+        "start": 0.0,
+        "text": "The learned rule passes its design-panel checks and gains 50 hits."
+      },
+      {
+        "start": 2.86,
+        "text": "But it has one exit in each of two fresh test panels."
+      }
+    ],
+    "49d262e849686a023d597958e85fb089d7f76120c13f5a86b6ccccdb0620d616": [
+      {
+        "start": 0.0,
+        "text": "Twenty-eight is a small gain."
+      },
+      {
+        "start": 1.6,
+        "text": "What matters here is the difference between a proof covering the allowed"
+      },
+      {
+        "start": 3.44,
+        "text": "orders and a rule that happened to pass many simulated draws."
+      },
+      {
+        "start": 5.94,
+        "text": "More testing alone doesn't turn the second into the first."
+      }
+    ],
+    "d0fc76cae4bbc563679e7ec0e56147eb2efa37cddba9571119178518a1a70109": [
+      {
+        "start": 0.0,
+        "text": "The retention guarantee still leaves a social-impact question."
+      },
+      {
+        "start": 2.72,
+        "text": "Protecting people who already have a place can leave everyone else out."
+      }
+    ],
+    "c78614f6388d93536e47124b2e7ad2cc15c0ffe7b16480328f7218f921ee3d78": [
+      {
+        "start": 0.0,
+        "text": "Our structural Chile rule has no new entrants on the reported"
+      },
+      {
+        "start": 2.1,
+        "text": "paired test lotteries. It keeps baseline recipients placed,"
+      },
+      {
+        "start": 4.58,
+        "text": "but doesn't expand access for those who were unplaced under the baseline."
+      }
+    ],
+    "81b6981160ae391199a6f581ccd5f8f24936a3c9ba7f074bc5f30ac3118ccc27": [
+      {
+        "start": 0.0,
+        "text": "So the next objective must count both groups:"
+      },
+      {
+        "start": 2.1,
+        "text": "the people we protect and the people still waiting for an opportunity."
+      }
+    ],
+    "af264cc3ef21acad16b761cfcc6463cbcbfa32390d41681476fd34849375141d": [
+      {
+        "start": 0.0,
+        "text": "For a school district, that would mean reporting two columns at minimum."
+      },
+      {
+        "start": 2.8,
+        "text": "Of those who would have received a seat under the old policy,"
+      },
+      {
+        "start": 4.62,
+        "text": "how many still get one?"
+      },
+      {
+        "start": 5.6,
+        "text": "Of those who would have gone without, how many now have a seat?"
+      }
+    ],
+    "dfd0b4ce566f17c86a3005c0202723b172e0058fb1a6661dad479e81f4fc54e3": [
+      {
+        "start": 0.0,
+        "text": "A rule can score perfectly in the first column while the second stays at zero."
+      }
+    ],
+    "80ab50532972c2e6b112b150d5a2e72b8dc57a4e03ba7f875c0a9df4364512e3": [
+      {
+        "start": 0.0,
+        "text": "How people would act on our recommendations is an open question."
+      },
+      {
+        "start": 2.66,
+        "text": "They may ignore advice or add choices. Before deployment,"
+      },
+      {
+        "start": 4.96,
+        "text": "they should be able to correct mistakes and seek human review or appeal."
+      }
+    ],
+    "03009ef423e5dc78b7c16ad8e5b4f3c96c6125511fc2964edd2bfcb19378b326": [
+      {
+        "start": 0.0,
+        "text": "Those are proposed safeguards, not interventions we've tested."
+      }
+    ],
+    "6b116686ca35009ef9fa5629b58a13a488fc849ee61a3f2e8d5c4960c5ee377c": [
+      {
+        "start": 0.0,
+        "text": "And keeping a seat may mean a worse school."
+      },
+      {
+        "start": 1.86,
+        "text": "Historical enrollment and modeled ranks aren't complete welfare measures."
+      }
+    ],
+    "fec0da9a3b4569219f38c14e572844ce0585564b507953f422dd92627cd4dbda": [
+      {
+        "start": 0.0,
+        "text": "Recommendations can redistribute opportunities,"
+      },
+      {
+        "start": 2.0,
+        "text": "but they cannot create affordable apartments or school capacity."
+      }
+    ],
+    "1a470a26fd2fbbcaed0c0cd0cd9bdc0530ec47bc883919aedbb32ec9b373ea4a": [
+      {
+        "start": 0.0,
+        "text": "Even the structural rule's coverage gain is a net figure."
+      },
+      {
+        "start": 2.24,
+        "text": "In 115 applicant records the historical school appears for the first time."
+      },
+      {
+        "start": 5.28,
+        "text": "In 87 it disappears. None of those losses violates seat retention."
+      }
+    ],
+    "d962245e20c607f1ea395fd6ccde8e4bc414bfca6da2f305b777a2dc93bc7188": [
+      {
+        "start": 0.0,
+        "text": "The mathematical promise protects placement status;"
+      },
+      {
+        "start": 2.06,
+        "text": "it does not protect every useful option or every pupil's preference satisfaction."
+      }
+    ],
+    "322d17fe5b5a30e6f23093218fdacf58d04f113c3d456dae2d62c960a3959bbb": [
+      {
+        "start": 0.0,
+        "text": "In a 2021 Chilean field experiment by Agte and colleagues,"
+      },
+      {
+        "start": 2.88,
+        "text": "families were randomly assigned different versions of a school map."
+      },
+      {
+        "start": 5.04,
+        "text": "The basic version showed the schools."
+      }
+    ],
+    "a92fd985437015bb8706e828c913bc26f13c96d832660f1d7efb2ef1b71c5754": [
+      {
+        "start": 0.0,
+        "text": "Another version gave counts by price and quality and highlighted"
+      },
+      {
+        "start": 2.18,
+        "text": "inexpensive schools with medium or high official quality ratings."
+      },
+      {
+        "start": 4.92,
+        "text": "Families could apply anywhere."
+      }
+    ],
+    "b94db7e954984ee2e5aab3897850edf7aaaabfea6b9119d8c24f1139f8e07a41": [
+      {
+        "start": 0.0,
+        "text": "Compared with the basic map, the highlighted version"
+      },
+      {
+        "start": 1.82,
+        "text": "raised application submission by three percentage points."
+      },
+      {
+        "start": 3.96,
+        "text": "It raised the share ranking a qualifying school second by 5.4 points."
+      }
+    ],
+    "d4fef39fd346f8ebf38f16fa0f101ffc3dc2762ce8be3cc5f453e41b5b520856": [
+      {
+        "start": 0.0,
+        "text": "But the estimate for receiving any assignment was only 0.2 points,"
+      },
+      {
+        "start": 2.86,
+        "text": "with an approximate interval from minus two to plus 2.4 points."
+      },
+      {
+        "start": 5.72,
+        "text": "That leaves both gains and losses plausible."
+      }
+    ],
+    "2ed666611d8c4403578178aaead697dea243ee1ff97e599bba9aecc9e5b576c5": [
+      {
+        "start": 0.0,
+        "text": "The outcomes use different samples. A qualifying second choice met the criteria."
+      },
+      {
+        "start": 3.56,
+        "text": "We don't know whether that particular school appeared on that family's map."
+      },
+      {
+        "start": 5.86,
+        "text": "The trial establishes that families can respond to information."
+      }
+    ],
+    "21a307a30fb4fea62f557dc30920691952e62b8ccea587f569f97d9df6470257": [
+      {
+        "start": 0.0,
+        "text": "It doesn't tell us what would happen if everyone received our shortlists."
+      }
+    ],
+    "655cd1fd30851416d6340612e539eb04f7f2c0e432594add8050327798f3d74e": [
+      {
+        "start": 0.0,
+        "text": "Here is a reason to care about that last distinction."
+      },
+      {
+        "start": 2.62,
+        "text": "Take a market with three pupils and three seats."
+      },
+      {
+        "start": 4.68,
+        "text": "The old rule shows the first two pupils school X, and the third pupil school Y."
+      },
+      {
+        "start": 8.12,
+        "text": "The new rule points everyone to Y."
+      }
+    ],
+    "5a86440779f2d1a3298ee5507aa09ea5df0a194a9871bed68590efa58547166f": [
+      {
+        "start": 0.0,
+        "text": "At Y, the second pupil has top priority, followed by the first and then the third."
+      }
+    ],
+    "b775aad238e10025436344a826f0c12ec0d49cc5bccd1a2cd894afda0e2c2b91": [
+      {
+        "start": 0.0,
+        "text": "Imagine that each pupil independently has"
+      },
+      {
+        "start": 2.02,
+        "text": "a one-in-four chance of receiving the new rule."
+      },
+      {
+        "start": 4.1,
+        "text": "For the first pupil, switching hurts only when the second pupil also switches."
+      }
+    ],
+    "b81c3a77a2dbf3b36912cdb8091f40700e2264a82b34685c9c32ee76ed32bdf0": [
+      {
+        "start": 0.0,
+        "text": "For the second pupil, switching helps when the first pupil stays"
+      },
+      {
+        "start": 2.48,
+        "text": "with X and takes that seat. The third pupil sees Y either way."
+      },
+      {
+        "start": 5.72,
+        "text": "That gives individual effects of minus one quarter, plus three quarters, and zero."
+      }
+    ],
+    "88c50ab0bee2ce8ed7b90a93a0fe3535600e81d2890e0a5e1c36e5b2eaadb11f": [
+      {
+        "start": 0.0,
+        "text": "Their average is positive, one sixth."
+      }
+    ],
+    "64455739603c38b5c075d85de70f2e7cf574d4b6d06ef2f920e421471d566a40": [
+      {
+        "start": 0.0,
+        "text": "Now switch everyone. Under the old rule, X and Y each filled a seat."
+      },
+      {
+        "start": 3.86,
+        "text": "Under the new rule, everyone competes at Y. Only one seat fills."
+      }
+    ],
+    "c2ba7cdf73ad51766265374fc096d2b1203ff757c93fd7b9956e462b18dc39f9": [
+      {
+        "start": 0.0,
+        "text": "A positive direct effect in a small trial coexists"
+      },
+      {
+        "start": 2.4,
+        "text": "with a drop from two placements to one at full rollout."
+      }
+    ],
+    "2a5b9234b5b195a1d52e31ce3d51d3a41a76abc16482213a178de5b2a715dc80": [
+      {
+        "start": 0.0,
+        "text": "A field test of the whole policy should therefore track everyone sharing"
+      },
+      {
+        "start": 2.6,
+        "text": "those seats, including families who never changed their own list."
+      }
+    ],
+    "74a5780f78987c979662b7331a5438040a3ebc4932f900f97f8de66b50934e7e": [
+      {
+        "start": 0.0,
+        "text": "A shortlist reaches beyond the person receiving it."
+      },
+      {
+        "start": 2.28,
+        "text": "It changes who competes for the available places."
+      }
+    ],
+    "3adbc5422ee9a21ef74258449008d04d43685a19a7684f6b0b02eef70aef35f9": [
+      {
+        "start": 0.0,
+        "text": "Our experiments make that interaction visible. Our theory asks what it"
+      },
+      {
+        "start": 3.22,
+        "text": "takes to improve recommendations while protecting existing recipients."
+      }
+    ],
+    "fc9c04ec81b72a18aace330ae9ef23eedf1ccc913bf0aa2ff1674fb319efdbe6": [
+      {
+        "start": 0.0,
+        "text": "Coordination can improve the totals."
+      },
+      {
+        "start": 1.86,
+        "text": "The harder design question is how to open opportunities for people without"
+      },
+      {
+        "start": 4.22,
+        "text": "a place while keeping those who already have one matched somewhere. Thank you."
+      }
+    ]
+  }
+}

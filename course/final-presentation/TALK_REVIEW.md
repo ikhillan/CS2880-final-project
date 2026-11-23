@@ -1,6 +1,6 @@
 # What this talk can honestly claim
 
-Reviewed 22 November 2026 against the aggregate evidence and the current proof statements. This review concerns the presentation. The paper and experiments were not edited.
+Reviewed against the released aggregate evidence and current proof statements. This revision changes presentation and narration only: no new experiments and no paper edits.
 
 ## Overall judgment
 
@@ -10,7 +10,8 @@ The earlier deck was accurate in many details but fragmented. It moved from rent
 
 ## Findings worth emphasizing
 
-- **Unchanged-shortlist spillovers:** in the September–October enriched rental replay, placement rises from 13.12% to 27.53% for renters with one to five feasible options under balancing versus the anchor. The main talk rounds these to **13.1% and 27.5%**. Their own shortlists cannot change. This is a large effect within the specified simulation, not an estimated field effect. The subgroup has 2,328 modeled appearances and also has 15 exits.
+- **Unchanged-shortlist spillovers:** this rental subgroup gains **14.7, 14.4 and 14.9 placement points** across the three original enriched windows. In September–October, its seed-mean rate rises from **13.1% to 27.5%** although its own shortlists cannot change. Counts reconcile as 304 originally matched − 15 exits + 349 entrants = 638 matched, among 2,328 modeled appearances. This is a simulation effect, not an estimated field effect.
+- **A complementary administrative replay:** among 200,591 linked 2021 Chilean entry-grade applicants, 237 of 309 net placement losses occur on unchanged personal shortlists. These are net counterfactual changes, not gross exits or an identified treatment effect from the related field experiment.
 - **Individual protection differs from a higher total:** anchoring yields 449 entrants and 37 exits relative to GPT, or 412 net additional placements among 10,240 modeled appearances. The 37 exits affect about 0.57% of original recipients. Balancing causes 171 exits relative to the anchor despite larger total gains.
 - **The comparator matters:** balanced menus improve both placement and reference coverage over plain random; Chile's rank-informed menus improve both aggregate outcomes over first-five. The evidence does not imply an unavoidable prediction–placement tradeoff.
 - **A coupled design problem:** optimizing coverage with retention across an explicit priority panel is NP-complete in the stated fixed-priority model, although checking a chosen menu policy with deferred acceptance is polynomial. The reduction and assumptions belong in the appendix as well as the spoken explanation.
@@ -22,12 +23,8 @@ Recommendation congestion, gross-transition accounting, maximum matching, and co
 
 The stronger score controls and coordinated random results prevent a general claim of LLM superiority. The main narration explicitly acknowledges the stronger model-informed score control; detailed jobs comparisons stay in the appendix. The social-impact claim is an evaluation and design lesson about access. It is not evidence that actual households or families benefited from receiving these recommendations.
 
-## Decisions in the revised talk
+## What the audience sees
 
-The main deck has 18 slides and approximately 17 minutes of narration. Slide 4 states the 13.1% to 27.5% finding immediately after the problem definition. The rental story continues through slide 10; slides 11–12 introduce the Chilean distributional question. Slide 13 states the mathematical problem and theorem, slide 14 explains the proof intuition, slide 15 gives the hindsight bounds, and slide 16 presents the prospective test. Slide 17 addresses ethics and exclusion; slide 18 closes. Three empirical figures appear in the timed talk.
+Slides 1–4 introduce a two-applicant example, define outcomes and state the fixed-shortlist result. Slides 5–10 show where the rental data come from, derive the marginal exposure cost in min-cost flow and follow both entrants and exits. Slide 11 gives the jobs replication and a worked outer bound on the missing exit count. Slides 12–13 distinguish who loses placements in Chile from which comparator changes the national total. Slides 14–17 give the decision problem, reduction, hindsight bracket and prospective rule tests. Slide 18 examines the risk of protecting only those who already have seats. Slides 19–20 separate real responses to school-map advice from the effect of assigning the same policy to everyone. Slide 21 closes with the access question.
 
-There is no dedicated limits slide. The main discussion still identifies modeled and counterfactual outcomes, reused calendar windows, unequal edit budgets, the stronger score control, losses hidden by net gains, the wide optimization bracket, and the small prospective guarantee. These facts change the interpretation and cannot be omitted to make the results look stronger. Detailed jobs results, secondary panels, full controls, uncertainty settings, mechanism assumptions and proof details remain in the appendix.
-
-Ishan's newest findings were already included. His older physical-unit deduplication work exposes a limit worth stating: rental calendar windows have property overlap. No input catalogs or cached experiments were changed. See LATEST_GITHUB_REVIEW.md for verified commits and counts.
-
-The narrated MP4 is included for team sharing. Its voice is synthetic and identified as such; the speech model and intermediate assets remain ignored. A student recording can use the same script. The generated narration is not a recording of any named author, and its measured duration is recorded in the narration manifest.
+Three empirical figures, short comparison tables and staged reveals carry the main results. The appendix gives the remaining comparisons and proof details. The three American voices are synthetic. The selected pitch-preserving playback factor is 1.45 relative to the three-voice audition. [Presentation and verification details](README.md)

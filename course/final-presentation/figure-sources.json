@@ -1,4 +1,5 @@
 {
+  "findings/chile/field_cohort.csv": "e4bafbbc7f88b5e1ddabe3f03c23c9eed2338eb47bcaf9b542aa4f2baa820212",
   "findings/chile/group_comparison.csv": "5c2f7bbe54f1d032812d476a06051dcfa29fba4ec441a619f3fb4c99d744c69e",
   "findings/chile/prospective.csv": "8b4b83f6e166c1a3ad2399c95a37be519dc9112ccba6f51768c36dc71e46bcec",
   "findings/chile/retention_bounds.csv": "18241aa1b142d6accb72e51458693d26eaeced06440f03d23df5b8bfc66d0924",
@@ -10,5 +11,8 @@
   "findings/rental-anchor-access/contrasts.csv": "337a0b816b665ae7ca823e91bea2b5c17386655c63fd53baaac2d314d794cf63",
   "findings/rental-anchor-access/levels.csv": "7b092a7176b2dfedf86171dbe20780d40c75a2d1de122eec4a380939650a2592",
   "findings/rental-anchor-access/primary.csv": "d401d17ee819cb9d555b3e9e10547a0b91611b1d8261c4ec2b14bd0c5d0203e7",
-  "findings/rental-anchor-access/transitions.csv": "b5b96667acaf059f88b9caa6b1b456820fdb93c99aec62ac240b16cbe8ea6c41"
+  "findings/rental-anchor-access/transitions.csv": "b5b96667acaf059f88b9caa6b1b456820fdb93c99aec62ac240b16cbe8ea6c41",
+  "publication/two-studies/field-study/interference/interference-market.csv": "59f8365bb9a34bee27122aa3342771e4fe7054dbf61a7965f2b8212693447375",
+  "publication/two-studies/field-study/interference/scalar.json": "7118d26b6af2939e14d698824cc480ad237b32988c9a85852dee2186fbccbcf7",
+  "publication/two-studies/field-study/trials/explorer-contrasts.csv": "815af377c6a12167865ea471eed0d03025efaa4b933afd7c0dd12a78a4d25cde"
 }

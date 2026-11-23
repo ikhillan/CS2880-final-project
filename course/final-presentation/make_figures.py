@@ -101,6 +101,11 @@ def anchors():
                    baseline="Random (5 jobs)", group="all")
         anchor = one(rows(base + "anchor.csv"), variant="primary", rule="GPT (5 jobs)")
         random_anchor = one(rows(base + "anchor.csv"), variant="primary", rule="Random (5 jobs)")
+        if suffix == "replication/":
+            rates = {"jobsBefore": anchor["placed"], "jobsAfter": anchor["anchor_placed"],
+                     "jobsRandomAfter": random_anchor["anchor_placed"]}
+            (HERE / "data/jobs-main-macros.tex").write_text("".join(
+                f"\\newcommand{{\\{name}}}{{{float(value):.1f}}}\n" for name, value in rates.items()))
         before = [100 * float(pair["d_placed" + s]) for s in ("", "_lo", "_hi")]
         after = [float(anchor["anchored_vs_random" + s]) for s in ("", "_lo", "_hi")]
         assert abs(after[0] - before[0] - float(anchor["gain"])) < 1e-8
@@ -253,6 +258,29 @@ def access_tables():
         r = one(levels, window="heldout_primary", variant="enriched", group="degree_1_5",
                 arm=arm, metric="placed")
         macros[name] = f"{100*float(r['mean']):.1f}"
+    subgroup_counts = {}
+    for metric, name in (("baseline_placed", "subgroupBeforeCount"),
+                         ("after_placed", "subgroupAfterCount"),
+                         ("gross_entrants", "subgroupEntrants"),
+                         ("gross_exits", "subgroupExits")):
+        r = one(transitions, window="heldout_primary", variant="enriched",
+                group="degree_1_5", arm="balanced_gpt", baseline="anchor_gpt",
+                metric=metric)
+        count = float(r["numerator_total"])
+        assert r["status"] == "ok" and count.is_integer() and count >= 0
+        subgroup_counts[name] = int(count)
+        macros[name] = str(int(count))
+    assert (subgroup_counts["subgroupBeforeCount"]
+            - subgroup_counts["subgroupExits"]
+            + subgroup_counts["subgroupEntrants"]
+            == subgroup_counts["subgroupAfterCount"])
+    for window, name in (("stage1_pilot", "subgroupGainDev"),
+                         ("heldout_primary", "subgroupGainPrimary"),
+                         ("heldout_replication", "subgroupGainRep")):
+        r = one(contrasts, window=window, variant="enriched", group="degree_1_5",
+                arm="balanced_gpt", comparator="anchor_gpt", metric="placed")
+        assert r["status"] == "ok"
+        macros[name] = f"{100*float(r['mean']):.1f}"
     for arm, comparator, prefix in (("anchor_gpt", "gpt", "anchor"),
                                     ("balanced_gpt", "anchor_gpt", "balanced")):
         for metric, suffix in (("gross_exits", "Exits"), ("gross_entrants", "Entrants")):
@@ -286,8 +314,6 @@ def policy_comparison():
     ax.set_xticks([16, 20, 24, 28])
     ax.set_yticks([60, 65, 70, 75, 80])
     ax.grid(True, color="#e9edef", lw=.8)
-    ax.text(.02, .94, "Higher and farther right = more of both", transform=ax.transAxes,
-            fontsize=11, color=GREY, va="top")
     clean(ax)
     save(fig, "rental-policies.pdf")
 
@@ -306,8 +332,39 @@ def chile_tables():
         macros[prefix+"Gain"] = c["net_historical_hit_change"]
         macros[prefix+"CourseExits"] = c["incumbent_exit_events"]
         macros[prefix+"FamilyExits"] = f["incumbent_exit_events"]
+    field = one(rows("findings/chile/field_cohort.csv"), year="2021")
+    linked = int(field["linked_applicant_years"])
+    assert 0 < linked <= int(field["entry_grade_applicant_years"])
+    assert 0 <= int(field["changed_menu_applicant_years"]) <= linked
+    total_change = int(field["simulated_placement_change"])
+    unchanged_change = int(field["simulated_unchanged_menu_placement_change"])
+    assert total_change <= unchanged_change < 0
+    # Positive magnitudes of net placement declines, not gross exits.
+    macros["fieldUnchangedLoss"] = str(-unchanged_change)
+    macros["fieldTotalLoss"] = str(-total_change)
     (data / "chile-main-macros.tex").write_text("".join(
         f"\\newcommand{{\\{k}}}{{{v}}}\n" for k,v in macros.items()))
+
+
+def field_tables():
+    base = "publication/two-studies/field-study/"
+    trial = rows(base + "trials/explorer-contrasts.csv")
+    macros = {}
+    for outcome, name in [("submitted_application", "submission"),
+                          ("second_ranked_highlight_worthy", "secondChoice"), ("assigned", "anySeat")]:
+        row = one(trial, contrast="maps_plus_info_vs_control", outcome=outcome)
+        macros[name] = f"{100 * float(row['estimate']):.1f}"
+        macros[name + "SE"] = f"{100 * float(row['se_upper']):.1f}"
+        macros[name + "N"] = f"{int(row['reported_n']):,}"
+    toy = rows(base + "interference/interference-market.csv")
+    for arm, key in [("0", "oldPlaces"), ("1", "newPlaces")]:
+        row = one(toy, a_arm=arm, b_arm=arm, c_arm=arm)
+        macros[key] = row["total"]
+    enumeration = json.loads(source_text(base + "interference/scalar.json"))
+    macros["directPositive"] = f"{enumeration['positive_direct_and_rollout_loss']:,}"
+    macros["rolloutLoss"] = f"{enumeration['negative_rollout']:,}"
+    (HERE / "data/field-main-macros.tex").write_text("".join(
+        f"\\newcommand{{\\{name}}}{{{value}}}\n" for name, value in macros.items()))
 
 
 def main():
@@ -321,6 +378,7 @@ def main():
     access_tables()
     policy_comparison()
     chile_tables()
+    field_tables()
     (HERE / "figure-sources.json").write_text(json.dumps(sources, indent=2, sort_keys=True)+"\n")
     print("Built five figures and presentation tables from", len(sources),
           "aggregate sources, with PDF and PNG versions.")
