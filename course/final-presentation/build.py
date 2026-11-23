@@ -21,8 +21,9 @@ def tex_escape(text):
 def make_notes():
     guide = (HERE / "presenter-guide.txt").read_text()
     parts = re.split(r"(?m)^SLIDE (\d+) — (.+)\n", guide)
-    if len(parts) != 49:
-        raise ValueError("Expected 16 timed slide sections")
+    slide_count = len(re.findall(r"\\begin\{frame\}", (HERE / "main.tex").read_text()))
+    if len(parts) != 1 + 3*slide_count:
+        raise ValueError(f"Expected {slide_count} timed slide sections")
     preamble = r"""\documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,geometry,xcolor,hyperref}
@@ -49,6 +50,8 @@ pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
             raise ValueError("Non-contiguous slide timing")
         seconds_total += duration
         words += len(narration.split())
+        if int(number) != (index+2)//3:
+            raise ValueError("Slide narration numbers are not sequential")
         if index > 1:
             chunks.append(r"\newpage")
         chunks.append(r"{\small Harvard CS 2880 / AI for Social Impact}\par")
@@ -56,11 +59,11 @@ pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
         chunks.append(r"{\color{navy}\textbf{" + tex_escape(timing) + r"}}\par\medskip")
         for para in re.split(r"\n\s*\n", narration.strip()):
             chunks.append(tex_escape(" ".join(para.split())) + "\n\\par")
-    if seconds_total != 1020:
-        raise ValueError(f"Narration target differs: {seconds_total}")
+    if not 960 <= seconds_total <= 1080:
+        raise ValueError(f"Narration should be around 17 minutes: {seconds_total} seconds")
     chunks.append(r"\end{document}")
     (HERE / "speaker-notes.tex").write_text("\n".join(chunks)+"\n")
-    print(f"Narration: {words} words, 16 slides, {seconds_total//60}:00 planned duration.")
+    print(f"Narration: {words} words, {slide_count} slides, {seconds_total//60}:{seconds_total%60:02d} planned duration.")
 
 
 def compile_pdf(source, output):

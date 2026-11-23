@@ -1,5 +1,6 @@
 {
   "findings/chile/group_comparison.csv": "5c2f7bbe54f1d032812d476a06051dcfa29fba4ec441a619f3fb4c99d744c69e",
+  "findings/chile/prospective.csv": "8b4b83f6e166c1a3ad2399c95a37be519dc9112ccba6f51768c36dc71e46bcec",
   "findings/chile/retention_bounds.csv": "18241aa1b142d6accb72e51458693d26eaeced06440f03d23df5b8bfc66d0924",
   "findings/gpt-luna-rentals/accuracy.txt": "8a4a32129dd740dc1c2fafc41c65a0f9e2b4f9f2a3fc51ea73d87e2532bba4a3",
   "findings/jobs-gpt-frozen/accuracy_pairs.csv": "99e8c1f68da6dc7ca14fc75f5f52129b6e0ba107d44c57c6ba9c42edbf698074",

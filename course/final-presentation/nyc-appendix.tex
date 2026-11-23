@@ -20,6 +20,15 @@ Rental capacity tables separately use seed-block intervals.
 \source{\texttt{findings/gpt-luna-rentals/accuracy.txt}; \texttt{findings/jobs-gpt-frozen/accuracy\_pairs.csv} and its \texttt{replication/} counterpart. Conditional coverage and all-person placement have different denominators.}
 \end{frame}
 
+\begin{frame}{Jobs: compare coordination with coordination}
+Reserve one maximum-matching option on each recipient's menu.
+\begin{center}
+\includegraphics[width=.93\textwidth]{figures/jobs-anchor.pdf}
+\end{center}
+\takeaway{Coordinated random exceeds coordinated GPT by 2.81 and 2.01 pp.}
+\source{Published jobs aggregates. Intervals compare each arm with plain random, not the two anchored arms. Post-anchor coverage and individual transitions are unavailable. This result is a secondary control, not a jobs retention audit.}
+\end{frame}
+
 \begin{frame}{Capacity accounting and the anchor's remaining gap}
 \small
 Let $C(D)$ be the maximum matching size on the displayed graph,
@@ -40,6 +49,25 @@ $1.54\ [0.68,2.40]$ pp.
 \item Jobs post-anchor coverage and transitions are unavailable. The rental replay measures them separately.
 \end{itemize}
 \source{\texttt{findings/jobs-gpt-frozen/anchor.csv}, \texttt{capacity\_decomposition.csv}, replication tables; \texttt{hiddenoptions/audit.py}, \texttt{protection\_sets}.}
+\end{frame}
+
+\begin{frame}{Rental data provenance and overlap}
+\small
+The public GPT menus contain 55,115 cached replies across three calendar windows.
+Every candidate hash was verified against the reconstructed market inputs.
+The source findings are pinned to commit \texttt{6c44e7e}.
+
+\medskip
+\textbf{A limit on the window comparison.}
+The GPT catalogs preserve the original physical-unit overlaps.
+Under the identifiable-URL rule, 992 of 13,776 September listings and
+1,100 of 13,838 October listings also appear in development.
+
+\medskip
+These are full-catalog counts, not overlap counts among the sampled markets.
+The follow-up is a post-hoc comparison on reused calendar windows,
+not independent property-level validation.
+\source{Source and overlap checks: LATEST\_GITHUB\_REVIEW.md. Deduplication implementation: a29e233. Applying its exclusions would change candidates and require a new recommendation cache. The paired policy comparisons here preserve the original catalogs.}
 \end{frame}
 
 \begin{frame}{The new rental replay}

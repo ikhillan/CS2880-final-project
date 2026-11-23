@@ -1,0 +1,2577 @@
+{
+  "synthetic_narration": true,
+  "voice": "af_heart",
+  "voice_is_not_an_author": true,
+  "engine": "kokoro-onnx",
+  "engine_version": "0.6.1",
+  "package_versions": {
+    "kokoro-onnx": "0.6.1",
+    "onnxruntime": "1.32.0",
+    "soundfile": "0.14.0",
+    "numpy": "2.4.6",
+    "imageio-ffmpeg": "0.8.1"
+  },
+  "base_model": "https://huggingface.co/hexgrad/Kokoro-82M",
+  "model_release": "https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1",
+  "model_license": "Apache-2.0",
+  "wrapper_license": "MIT",
+  "model_sha256": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a",
+  "voice_pack_sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+  "speech_speed": 0.88,
+  "automatic_speed_adjustment": false,
+  "speech_truncated": false,
+  "timing_mode": "guide",
+  "guide_sha256": "067d6155543f41e242c92814262c186aa377104c58eec4363abb50ef0a6f8d8b",
+  "pdf_sha256": "b558986f717a4fd14d9723ab721c45eb219d7ef31af14e5034c7c1fe18c5044d",
+  "renderer_sha256": "7db2706b9eafbbe16341ef848ac00e90b3f6f4fc77d9e90b70385ed83a1e8500",
+  "sample_rate": 24000,
+  "planned_total_seconds": 1026,
+  "actual_total_seconds": 1026.0,
+  "narration_sha256": "8fecad926fbc917b22d5bbabb284e24ffb9e3bf0c965076d509d4f514c14a59c",
+  "captions": "Measured synthesized sentence/clause boundaries; not forced word alignment.",
+  "full_text_and_caption_boundaries_verified": true,
+  "ffmpeg_version": "ffmpeg version 9.0 Copyright (c) 2000-2026 the FFmpeg developers",
+  "frames_per_second": 24,
+  "slides": [
+    {
+      "slide": 1,
+      "title": "Who gets a place?",
+      "start": 0.0,
+      "end": 18.0,
+      "duration": 18.0,
+      "planned_duration": 18,
+      "minimum_duration": 17.298583333333333,
+      "speech_and_inter_sentence_seconds": 16.198583333333332,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.4514166666666668,
+      "overrun_seconds": 0.0,
+      "words": 36,
+      "cues": [
+        {
+          "text": "We study how AI recommendations change access to opportunities with limited capacity.",
+          "spoken_text": "We study how A I recommendations change access to opportunities with limited capacity.",
+          "audio_sha256": "249590b7c7b361b3405a4ba07fb179fcd807965b110a091d83863d1fc958516a",
+          "cache_file": "audio-cache/a31ef96381dca51fc1e30784049c8ee229f6b69c6db8f33c4ea2b23ad6ef3d61.wav",
+          "start": 0.35,
+          "end": 6.565291666666667
+        },
+        {
+          "text": "A useful list for one person can change someone else's outcome.",
+          "spoken_text": "A useful list for one person can change someone else's outcome.",
+          "audio_sha256": "358bedd7236ee4c43cc8edf2afe69fa9bfeedf5e319ee5f095688479fad3907a",
+          "cache_file": "audio-cache/2750095fd563a83590625bb9c00389712734a43179a67b54b7f6583827ec4ed7.wav",
+          "start": 6.745291666666667,
+          "end": 10.932583333333334
+        },
+        {
+          "text": "Our question is simple: when everyone follows the recommendations, who gets a place?",
+          "spoken_text": "Our question is simple: when everyone follows the recommendations, who gets a place?",
+          "audio_sha256": "bbc2f4e848840769d83719851250f71bb25d4f381c657d87dd0c25482be99262",
+          "cache_file": "audio-cache/65cd528f9328e771484cff761aff66662d83adca284284bebcb4a8fed542c703.wav",
+          "start": 11.112583333333333,
+          "end": 16.548583333333333
+        }
+      ]
+    },
+    {
+      "slide": 2,
+      "title": "A better suggestion can hurt someone else",
+      "start": 18.0,
+      "end": 71.0,
+      "duration": 53.0,
+      "planned_duration": 53,
+      "minimum_duration": 52.98970833333333,
+      "speech_and_inter_sentence_seconds": 51.88970833333333,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.7602916666666673,
+      "overrun_seconds": 0.0,
+      "words": 137,
+      "cues": [
+        {
+          "text": "Start with two applicants and two school seats.",
+          "spoken_text": "Start with two applicants and two school seats.",
+          "audio_sha256": "fbc3d12677c1a9f6e03ca981a918a5475e8c80d5a6791436b4744d69ef535818",
+          "cache_file": "audio-cache/c322daea71e395427634d47fb9a0d4b3538a35d6b13e485409c4cd152dfc1a2b.wav",
+          "start": 18.35,
+          "end": 21.133291666666665
+        },
+        {
+          "text": "Applicant A prefers school x to school y.",
+          "spoken_text": "Applicant A prefers school x to school y.",
+          "audio_sha256": "9271c18a974ea608a11612b3022255e234b0723edac926e45e80c6a8fbfd0166",
+          "cache_file": "audio-cache/30fad74b951c0852f908c2d5cfe1d08f3a7d257440fabcd4e4e5978f9380b0a3.wav",
+          "start": 21.313291666666668,
+          "end": 24.022624999999998
+        },
+        {
+          "text": "Applicant B accepts only x.",
+          "spoken_text": "Applicant B accepts only x.",
+          "audio_sha256": "d05c20430a7cfec4e492671720d8ce02b2a72fa5e26d6bebbdee805754ce5e39",
+          "cache_file": "audio-cache/3ac184afb724300e83afdfdabdc1d147236d081adb240485bbed357b57aac0e8.wav",
+          "start": 24.202625,
+          "end": 26.557958333333332
+        },
+        {
+          "text": "School x gives A priority over B.",
+          "spoken_text": "School x gives A priority over B.",
+          "audio_sha256": "9ed96d234250b9d600c136669655c09f8b8d1c9a836bb8a90e5a5a31b0717f05",
+          "cache_file": "audio-cache/5e01ef0ca2aaf7f38c1295aeb627d323b39bef07c8967fd19e23e55c51290cfb.wav",
+          "start": 26.73795833333333,
+          "end": 29.148625
+        },
+        {
+          "text": "Initially, A is shown y and B is shown x.",
+          "spoken_text": "Initially, A is shown y and B is shown x.",
+          "audio_sha256": "f52722011175b39ca89b35a0e18902e579a499b807480a79d15bdac877c2ae26",
+          "cache_file": "audio-cache/d9a98a98be1d152366f6ff01df72a7e0fbaad40da6649eada4bbd5d978f64ca9.wav",
+          "start": 29.328625000000002,
+          "end": 32.19325
+        },
+        {
+          "text": "The blue lines show their assignments.",
+          "spoken_text": "The blue lines show their assignments.",
+          "audio_sha256": "f735838b08e090343f119f351259fd6c7a119471af9ba2fcbbe86816edb2a70e",
+          "cache_file": "audio-cache/f008a57b6022837e70af8496bbc1c44f2e53230e392ed0567bd084892ca11b79.wav",
+          "start": 32.37325,
+          "end": 34.57058333333333
+        },
+        {
+          "text": "Both get a seat.",
+          "spoken_text": "Both get a seat.",
+          "audio_sha256": "0121fc673471643af17731147a04fff3d60f532ccacbed261960f0cefe23d4b9",
+          "cache_file": "audio-cache/c9e29987241541a402140521ee7d9a12731dd2ba1b6614a6135ee9aca7762e6e.wav",
+          "start": 34.75058333333334,
+          "end": 36.03058333333333
+        },
+        {
+          "text": "Now change only A's recommendation.",
+          "spoken_text": "Now change only A's recommendation.",
+          "audio_sha256": "b6e58cc1e431d4513392f9d01a753a58c74a40b865153672cfaa34adc00f92d5",
+          "cache_file": "audio-cache/b49cac29dac2ff7b2ac7a179d87201ded9040a1d32f6da6763b3741d05a6f303.wav",
+          "start": 36.21058333333333,
+          "end": 38.855916666666666
+        },
+        {
+          "text": "A sees x instead of y.",
+          "spoken_text": "A sees x instead of y.",
+          "audio_sha256": "ce080e3f1388a11ad5de31f16ade21bc4dcaa25202407852366a28b9d19893f0",
+          "cache_file": "audio-cache/605b2ae9c077538ed898361e14545b50644a97f288ee7a4c6f26df5a5c0d6299.wav",
+          "start": 39.035916666666665,
+          "end": 40.913250000000005
+        },
+        {
+          "text": "Both applicants still see exactly one school.",
+          "spoken_text": "Both applicants still see exactly one school.",
+          "audio_sha256": "58cfedbe953255f0986ca23e67f11a364fe130f6acaf6f0c63cb376993e63f8f",
+          "cache_file": "audio-cache/7367148cf553c2c62ec5f639b0f0e1294d3ccc0846cc74a94e833c85a2090a85.wav",
+          "start": 41.09325,
+          "end": 43.80258333333333
+        },
+        {
+          "text": "But they now compete for x, and A has higher priority.",
+          "spoken_text": "But they now compete for x, and A has higher priority.",
+          "audio_sha256": "90ba12061f89700715e1859de7646b00ec1d158e61f61d5585e26b13c1b937b0",
+          "cache_file": "audio-cache/2ef894510bd9456b2f850d43a54e4114ac069229989b9bcc2b3cf753b05c1752.wav",
+          "start": 43.98258333333334,
+          "end": 47.56520833333333
+        },
+        {
+          "text": "A gets x, B gets no seat, and y stays empty.",
+          "spoken_text": "A gets x, B gets no seat, and y stays empty.",
+          "audio_sha256": "9c98a09b731cd98f571aab5682db4d1bf603ddec6da22b4adf2ab27d1fcafbba",
+          "cache_file": "audio-cache/d6d1bf8c8753f2e77ed37151589a0daf3b857e404345fa57663147a6b12226c2.wav",
+          "start": 47.74520833333334,
+          "end": 51.261208333333336
+        },
+        {
+          "text": "The new suggestion helps A.",
+          "spoken_text": "The new suggestion helps A.",
+          "audio_sha256": "789f4a3741af97a56a86eb1580a57e62229ee6022719e56fc312c2296e4063aa",
+          "cache_file": "audio-cache/6e8015889629e7703584a4a4eced00fbfcd5ea96c4b0d84d6da597a27566fec1.wav",
+          "start": 51.441208333333336,
+          "end": 53.2645
+        },
+        {
+          "text": "B's own list has not changed at all, but B loses access.",
+          "spoken_text": "B's own list has not changed at all, but B loses access.",
+          "audio_sha256": "9317b5ffdb5c7576df5e0d7980ffd8a80a0681710995538800d1253718d4e643",
+          "cache_file": "audio-cache/4f1498e5ba5c967389a537a2fe726b7868f7abeb1e3517f64bf6fb889f7814d7.wav",
+          "start": 53.4445,
+          "end": 57.30045833333333
+        },
+        {
+          "text": "That is the basic reason to evaluate recommendations jointly.",
+          "spoken_text": "That is the basic reason to evaluate recommendations jointly.",
+          "audio_sha256": "1fbe7957cecbff0a0e1e2d1a87b9127c8bf7ac09b4c05c6054ef1e03228e42ba",
+          "cache_file": "audio-cache/9870f50d6071551ea11fb476fdc042decb114dc8d344cb6496ee1fb7a3690031.wav",
+          "start": 57.48045833333333,
+          "end": 61.91641666666667
+        },
+        {
+          "text": "A person's outcome depends on what other people are encouraged to pursue.",
+          "spoken_text": "A person's outcome depends on what other people are encouraged to pursue.",
+          "audio_sha256": "fcc2cc9886b1beb01aff0ee56589f7c891ce141fe3a2733ee6d667bfe2b9cdac",
+          "cache_file": "audio-cache/d0dca3639148b66eb683bbcf8ae8c322013c312efe2db63b277e4ad4718737e0.wav",
+          "start": 62.09641666666667,
+          "end": 66.72304166666666
+        },
+        {
+          "text": "This can happen in housing and jobs as well as schools.",
+          "spoken_text": "This can happen in housing and jobs as well as schools.",
+          "audio_sha256": "121855f8eec4abd1b713f0eaeb57c0b7feec694c3106bcb32880de203e3da980",
+          "cache_file": "audio-cache/cdda775c268661dd2fbd7ebbb602b5d8408b31fbebba10d5bf86c7a3275e794a.wav",
+          "start": 66.90304166666667,
+          "end": 70.23970833333334
+        }
+      ]
+    },
+    {
+      "slide": 3,
+      "title": "Choose a shortlist, then assign the places",
+      "start": 71.0,
+      "end": 126.0,
+      "duration": 55.0,
+      "planned_duration": 55,
+      "minimum_duration": 54.86295833333333,
+      "speech_and_inter_sentence_seconds": 53.76295833333333,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.8870416666666685,
+      "overrun_seconds": 0.0,
+      "words": 131,
+      "cues": [
+        {
+          "text": "We separate the recommendations from the assignment rule.",
+          "spoken_text": "We separate the recommendations from the assignment rule.",
+          "audio_sha256": "8bc17541cb823c6ba7f3d7567b9956eea421abb249dd1db8306487d5ba3428a8",
+          "cache_file": "audio-cache/65ba5576135a2c0b41e5f54d57cb86869edd8b45f9006f17265df475a601d9c1.wav",
+          "start": 71.35,
+          "end": 74.85733333333333
+        },
+        {
+          "text": "First, the recommender chooses a shortlist of feasible options for each person.",
+          "spoken_text": "First, the recommender chooses a shortlist of feasible options for each person.",
+          "audio_sha256": "4f51c18c8e0dc13242de546a45e7b390bd5ce29e84f4f71b237254556c563020",
+          "cache_file": "audio-cache/e4cef9760da0af5ec66de5aacf0aafd47550b8f13b50f347e9bc0a1b676cb05a.wav",
+          "start": 75.03733333333334,
+          "end": 80.48329166666667
+        },
+        {
+          "text": "Then the assignment rule decides who gets which place.",
+          "spoken_text": "Then the assignment rule decides who gets which place.",
+          "audio_sha256": "53a93fee39e5c8391962dc21e9a162e8a8bb45bebd9fc6c3d760bb193dbea07e",
+          "cache_file": "audio-cache/6b0136e714611bda946b978cffbe1a83fe430f6dab81ffe03b3e6dc4faa9ead3.wav",
+          "start": 80.66329166666667,
+          "end": 83.91591666666666
+        },
+        {
+          "text": "We measure three things.",
+          "spoken_text": "We measure three things.",
+          "audio_sha256": "b71b3fcc84ee9cd1094f13a8e4a15d6a8f5561fc14947be1218e8fd0902417d6",
+          "cache_file": "audio-cache/c2e724d7d5585da2d22af7c14b2067702c1b971276b5d32ddaf59d6ec513c401.wav",
+          "start": 84.09591666666667,
+          "end": 85.74725
+        },
+        {
+          "text": "A match means someone receives a place.",
+          "spoken_text": "A match means someone receives a place.",
+          "audio_sha256": "2199a68c3232fdebbb7ae066dda4da3b980d5ad26484a9e3c31e4e1c57baa8d4",
+          "cache_file": "audio-cache/35d432e49d7ff2036881ac91e8f931adf30eeb53290e386490a3e9d386657344.wav",
+          "start": 85.92725,
+          "end": 88.18720833333333
+        },
+        {
+          "text": "Target coverage means a particular reference choice appears on their shortlist.",
+          "spoken_text": "Target coverage means a particular reference choice appears on their shortlist.",
+          "audio_sha256": "ea1dc0abe8617d16b5b3fee02ab7fd8703cfd2d6d8cba14f43ca099d2da1d467",
+          "cache_file": "audio-cache/039ce41ae8cc05d51acc66abd32d830583ff1beadf215d26be5a0d80a50fd31e.wav",
+          "start": 88.36720833333334,
+          "end": 93.48320833333334
+        },
+        {
+          "text": "A lost match means someone receives a place under one policy, but not under the policy we compare it with.",
+          "spoken_text": "A lost match means someone receives a place under one policy, but not under the policy we compare it with.",
+          "audio_sha256": "293cb96b0fbca077ef18c4bcf7fc66010716bb980b4e5ab8abdde4986de40473",
+          "cache_file": "audio-cache/120f8b2660058ec68400b15895decdb2f454ab6b52591dca2a42e99594af7b3e.wav",
+          "start": 93.66320833333333,
+          "end": 100.44183333333334
+        },
+        {
+          "text": "The reference differs across our studies.",
+          "spoken_text": "The reference differs across our studies.",
+          "audio_sha256": "2b17cf2983d1876382d08e8c2070c3a48a3077695aba405c06592cba21edf2da",
+          "cache_file": "audio-cache/a051f5c88f77af54e698fc11d81296818bad25bb1851f6952777c45feeb28a12.wav",
+          "start": 100.62183333333334,
+          "end": 103.10645833333334
+        },
+        {
+          "text": "In rentals it is the simulated assignment when all feasible options are available.",
+          "spoken_text": "In rentals it is the simulated assignment when all feasible options are available.",
+          "audio_sha256": "f476399ff502ee20d839e79c12563418e97827440550943962bc526bcd0662bc",
+          "cache_file": "audio-cache/17cc655617e8d51a967f0bf4a0a84b076e454dc297a26aa0f762807af377246f.wav",
+          "start": 103.28645833333334,
+          "end": 109.04375
+        },
+        {
+          "text": "In Chile it is the school recorded in later enrollment.",
+          "spoken_text": "In Chile it is the school recorded in later enrollment.",
+          "audio_sha256": "32631046b19b6f7a7c93f26a680fa132d0024665cb233cae6cab67405285e19c",
+          "cache_file": "audio-cache/ee6e3333260ca14826c1617a9590ad09b8cf425d988647bdbb21480f98b84439.wav",
+          "start": 109.22375,
+          "end": 112.94304166666666
+        },
+        {
+          "text": "Our question is whether recommendations can improve while everyone who had a place stays matched somewhere.",
+          "spoken_text": "Our question is whether recommendations can improve while everyone who had a place stays matched somewhere.",
+          "audio_sha256": "597c46a22349f949fd62ed8620af6bef8fd4b3a4ccc388ff5ef9587ea59ad02d",
+          "cache_file": "audio-cache/f7aef916951ad14ad3ea28fbcea0315cfe32b2d8a1df29ff568c1eb3fb32bf28.wav",
+          "start": 113.12304166666667,
+          "end": 119.284375
+        },
+        {
+          "text": "They may switch schools.",
+          "spoken_text": "They may switch schools.",
+          "audio_sha256": "9ffdb41281f8f4d68465371b73cb98c8c9192b83b579618fe22e236a9e946d47",
+          "cache_file": "audio-cache/7f24ab7d44625ae850c07c839cdd03c481f738715166014a18f43bbc11bb45ef.wav",
+          "start": 119.46437499999999,
+          "end": 120.925
+        },
+        {
+          "text": "Keeping a seat does not necessarily mean getting a better school.",
+          "spoken_text": "Keeping a seat does not necessarily mean getting a better school.",
+          "audio_sha256": "43f4d41161193ac6647dc93ddffce9afaf3b343f502f0a60ccd706eaab277934",
+          "cache_file": "audio-cache/91057912f325ad877b6a448b37c4498b3feb213c8d4aa2598a4ad99f15179a3a.wav",
+          "start": 121.10499999999999,
+          "end": 125.11295833333332
+        }
+      ]
+    },
+    {
+      "slide": 4,
+      "title": "Same personal shortlists. Twice the match rate.",
+      "start": 126.0,
+      "end": 176.0,
+      "duration": 50.0,
+      "planned_duration": 50,
+      "minimum_duration": 49.01841666666667,
+      "speech_and_inter_sentence_seconds": 47.918416666666666,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.731583333333333,
+      "overrun_seconds": 0.0,
+      "words": 108,
+      "cues": [
+        {
+          "text": "Here is our clearest finding.",
+          "spoken_text": "Here is our clearest finding.",
+          "audio_sha256": "b7c361bede3611d72b09475688010516e0d804137b5f3a8129dd2939529095bb",
+          "cache_file": "audio-cache/07dda840382d9414d8efcf2abff3cae051a6d66f8d065c957e20f97d9ce1cd8f.wav",
+          "start": 126.35,
+          "end": 128.12066666666666
+        },
+        {
+          "text": "In the rental simulation, focus on renters with only one to five feasible apartments.",
+          "spoken_text": "In the rental simulation, focus on renters with only one to five feasible apartments.",
+          "audio_sha256": "a3f2a89f55c8ea7ae5c654e447b997e3a582458922a9269feeeb241442d68595",
+          "cache_file": "audio-cache/a94e3b1c6740a1d3c21c11faa26888729975e791e29c5687f1944389f0f3388b.wav",
+          "start": 128.30066666666667,
+          "end": 134.15195833333334
+        },
+        {
+          "text": "Every policy already shows them all their options.",
+          "spoken_text": "Every policy already shows them all their options.",
+          "audio_sha256": "a60155a11ca90a4c378b89953967babb3d1b940b0f69424a98aac915c3d9516f",
+          "cache_file": "audio-cache/9a4052786404ddf457859e3c107b532ed6272546939c614a839974afac5b54f8.wav",
+          "start": 134.33195833333332,
+          "end": 137.49925
+        },
+        {
+          "text": "Their match rate rises from 13.1 percent to 27.5 percent when we change how recommendations are coordinated across the market.",
+          "spoken_text": "Their match rate rises from 13.1 percent to 27.5 percent when we change how recommendations are coordinated across the market.",
+          "audio_sha256": "217d266d9acb08d57ff3556ab0b0bc93c8c01755345b90161ad96881ba4801ff",
+          "cache_file": "audio-cache/8854b3f8c02eff23bd6ae736061951eac404e780172d525905da8a2fc57a37ec.wav",
+          "start": 137.67925,
+          "end": 148.27654166666667
+        },
+        {
+          "text": "That is more than double.",
+          "spoken_text": "That is more than double.",
+          "audio_sha256": "d9ec7f560a53b769458d30a5d89527a3a101dc1dcd336a32eb8eb1e6c7378fd4",
+          "cache_file": "audio-cache/aa730e5e469c995885158bd039038dce81387280b47ef652c79b97ded2a77dd3.wav",
+          "start": 148.45654166666668,
+          "end": 149.949875
+        },
+        {
+          "text": "Yet their own shortlists stay exactly the same.",
+          "spoken_text": "Yet their own shortlists stay exactly the same.",
+          "audio_sha256": "14b5f691b7d9bae4a2550e6903c19c608ef44cca0c1f2d50c7e525f7a49470e5",
+          "cache_file": "audio-cache/43338b09f31bf7bca49f6e51707b81d0e738483005a33c4086abb99116d2b59a.wav",
+          "start": 150.129875,
+          "end": 152.96720833333333
+        },
+        {
+          "text": "Only other renters' shortlists change.",
+          "spoken_text": "Only other renters' shortlists change.",
+          "audio_sha256": "26fde1627fa0f44e97ff144d9f98001198c01239339b9d90afd6c6d3b074b2fb",
+          "cache_file": "audio-cache/ef74d148a2981d3fed4680420d31b51ecf377c2f4d1d44db62a418c04b38f58b.wav",
+          "start": 153.14720833333334,
+          "end": 155.57920833333333
+        },
+        {
+          "text": "We compare a policy coordinating one option with a policy balancing the whole shortlist.",
+          "spoken_text": "We compare a policy coordinating one option with a policy balancing the whole shortlist.",
+          "audio_sha256": "d6d6ec31543cf299cf210872649d35a8667abd9b96e30079511f9713950bbdb9",
+          "cache_file": "audio-cache/e356a891d608c86b214f262ec60c9be2b8b3ae347f0f5713d2b81cc5988a8132.wav",
+          "start": 155.75920833333333,
+          "end": 161.76983333333334
+        },
+        {
+          "text": "I will explain both shortly.",
+          "spoken_text": "I will explain both shortly.",
+          "audio_sha256": "4387867ccc9e62f8229565f238a37fac2f9e6e552df72ac958a3cd56b66bbb7f",
+          "cache_file": "audio-cache/1cff9d35fcbe98bc6f3f4c4b59c7724a723b59e1315d41321920c1bd0d8285ac.wav",
+          "start": 161.94983333333334,
+          "end": 163.7845
+        },
+        {
+          "text": "The result shows how much competition can matter even when your own recommendations never change.",
+          "spoken_text": "The result shows how much competition can matter even when your own recommendations never change.",
+          "audio_sha256": "02773daaa1f1b5a0f2b775c362069f77e62bd891bbaa3068c7a010dbf431f038",
+          "cache_file": "audio-cache/0db8eb630dccb2d8f20f9ad563688a1f9ea93dc8154dda6e814774032f289c3f.wav",
+          "start": 163.9645,
+          "end": 170.11445833333335
+        },
+        {
+          "text": "It is a simulation result, not measured housing outcomes.",
+          "spoken_text": "It is a simulation result, not measured housing outcomes.",
+          "audio_sha256": "3aa00b813d71a97b9197fdf0311c831808cb7190ad6b3915f2a9bf24c191ce26",
+          "cache_file": "audio-cache/c811644f16ecc06b107d61318e78f57da5ff3380b1e51e509a9c4a7e14d24a37.wav",
+          "start": 170.29445833333332,
+          "end": 174.26841666666667
+        }
+      ]
+    },
+    {
+      "slide": 5,
+      "title": "Why study rentals and school admissions?",
+      "start": 176.0,
+      "end": 247.0,
+      "duration": 71.0,
+      "planned_duration": 71,
+      "minimum_duration": 70.39833333333333,
+      "speech_and_inter_sentence_seconds": 69.29833333333333,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.3516666666666737,
+      "overrun_seconds": 0.0,
+      "words": 131,
+      "cues": [
+        {
+          "text": "The settings serve different purposes.",
+          "spoken_text": "The settings serve different purposes.",
+          "audio_sha256": "6eb39025e5c5d37b75ad038922b93c874c793dabd863ba5a25ce3efd180270dc",
+          "cache_file": "audio-cache/0a9e54ceca736c916d8348b1e3058d6acac9d93b541ea5ded61c986478efad73.wav",
+          "start": 176.35,
+          "end": 178.526
+        },
+        {
+          "text": "Rentals let us study actual saved GPT recommendations and compare ways to coordinate them.",
+          "spoken_text": "Rentals let us study actual saved G P T recommendations and compare ways to coordinate them.",
+          "audio_sha256": "bc07f834f961c8e52864d42ed7e1dc0a5f2c488e72281e4f33063acf8d3433ff",
+          "cache_file": "audio-cache/3a2a46abc346f56cbc70634ee6db5ab972ac49679c1050888890f6b87dbbff5c.wav",
+          "start": 178.706,
+          "end": 185.56995833333335
+        },
+        {
+          "text": "Listings and household profiles come from market and survey data, but renter preferences, landlord priorities, and resulting assignments are modeled.",
+          "spoken_text": "Listings and household profiles come from market and survey data, but renter preferences, landlord priorities, and resulting assignments are modeled.",
+          "audio_sha256": "2357881c52ef1007d915dbeddf354d7c00979b222d2c739e572660c73c31ceac",
+          "cache_file": "audio-cache/0b68e545bc2adb45ebe7791f6340383e765239fe098567dc301c4624437d9bf8.wav",
+          "start": 185.74995833333332,
+          "end": 195.95458333333335
+        },
+        {
+          "text": "We reconstruct 1,280 markets and verify all 55,115 cached candidate hashes.",
+          "spoken_text": "We reconstruct 1,280 markets and verify all 55,115 cached candidate hashes.",
+          "audio_sha256": "c6e944bea734f6630bfc06143c135185e06c232660dd594f141b61829d76f979",
+          "cache_file": "audio-cache/42e659e8bae6f894d35b7a64c448c22ccb8ce7be30a1146544d7ecdf17ca654b.wav",
+          "start": 196.13458333333332,
+          "end": 204.83320833333335
+        },
+        {
+          "text": "These new comparisons use previously analyzed calendar windows.",
+          "spoken_text": "These new comparisons use previously analyzed calendar windows.",
+          "audio_sha256": "ec1483297cbdc197574ba6178070f2b2a7a730b6626e1c3819cf38dc31691bd2",
+          "cache_file": "audio-cache/633d515784182ab6977b36d537618d6d864481c2e8548c1c46feab8c5ccb4774.wav",
+          "start": 205.01320833333332,
+          "end": 209.29583333333335
+        },
+        {
+          "text": "Some homes recur across them, so this is a follow-up analysis, not independent property-level validation.",
+          "spoken_text": "Some homes recur across them, so this is a follow-up analysis, not independent property-level validation.",
+          "audio_sha256": "fdd614d649deb1b0f1e4af674a00b01c19238f2cce5077dd16bddbd2632a12f9",
+          "cache_file": "audio-cache/f0b86fc6361c8f844701030402180659d9b96e6d2f4de0ca28eb613ce5a7b5a1.wav",
+          "start": 209.47583333333333,
+          "end": 216.9385
+        },
+        {
+          "text": "Chile gives us families' submitted rankings and the actual admissions rules.",
+          "spoken_text": "Chile gives us families' submitted rankings and the actual admissions rules.",
+          "audio_sha256": "1f51aa8fd9aa80b8e221cbad6ea4046f0e30badc419eb1b73ae50d897bcc249d",
+          "cache_file": "audio-cache/3e96a655fd93d3a13a05a9e151e47a571c9804bb2b3f7137fa25e933784281cf.wav",
+          "start": 217.11849999999998,
+          "end": 221.82779166666666
+        },
+        {
+          "text": "Our reconstruction matches the released course or no-offer outcomes in about two million audited applicant-years.",
+          "spoken_text": "Our reconstruction matches the released course or no-offer outcomes in about two million audited applicant-years.",
+          "audio_sha256": "7550b935459ca608212f94e2eb38df7f5efa3c0e494580dc8fc3237caea3b7fd",
+          "cache_file": "audio-cache/9d728436722d378e573f561db8d459f99b08791194b0c5a24b4d9c92261d6d68.wav",
+          "start": 222.00779166666666,
+          "end": 229.49041666666668
+        },
+        {
+          "text": "That checks institutional fidelity.",
+          "spoken_text": "That checks institutional fidelity.",
+          "audio_sha256": "5350872b2dc3465a0f902ae1f5c4d2191e2f78adae5bde1f6db058c4887d50e6",
+          "cache_file": "audio-cache/18cba722c4d2f8467c5813057b988831fe56259ea4d9932ae419767c03e7962e.wav",
+          "start": 229.67041666666665,
+          "end": 231.88908333333333
+        },
+        {
+          "text": "The new shortlists still produce counterfactual outcomes under fixed reports.",
+          "spoken_text": "The new shortlists still produce counterfactual outcomes under fixed reports.",
+          "audio_sha256": "0bc154678088138555a262fa2e5ae00b6f1c01ac8354c511dd90c89af1f1f41e",
+          "cache_file": "audio-cache/fdebb7da060e90f116d37c102c81fb3ab0e74e559a0c7f0338c584501cdc4ee7.wav",
+          "start": 232.06908333333334,
+          "end": 236.970375
+        },
+        {
+          "text": "The connection across settings is competition for limited capacity, not an assumption that housing and schools behave identically.",
+          "spoken_text": "The connection across settings is competition for limited capacity, not an assumption that housing and schools behave identically.",
+          "audio_sha256": "de2ef76a0dfa900ad6219340e6a3e8b606c9633f8993da5863d4f4c91a4b1bc5",
+          "cache_file": "audio-cache/ebca65829704bad97b84a228355b4ab07beb30143b234876298581809466b2c6.wav",
+          "start": 237.150375,
+          "end": 245.6483333333333
+        }
+      ]
+    },
+    {
+      "slide": 6,
+      "title": "Two ways to coordinate recommendations",
+      "start": 247.0,
+      "end": 318.0,
+      "duration": 71.0,
+      "planned_duration": 71,
+      "minimum_duration": 70.1195,
+      "speech_and_inter_sentence_seconds": 69.01950000000001,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.6304999999999978,
+      "overrun_seconds": 0.0,
+      "words": 144,
+      "cues": [
+        {
+          "text": "We test two simple coordination approaches.",
+          "spoken_text": "We test two simple coordination approaches.",
+          "audio_sha256": "26a326e9df6d53082d4abdbdd5c498efcf4fd06ef4a5d6a46bca751cb311d5c5",
+          "cache_file": "audio-cache/defe6834f8af02215145be392de7a98c6769f67705777cb90a877e2b23172d0a.wav",
+          "start": 247.35,
+          "end": 250.20866666666666
+        },
+        {
+          "text": "The anchor first computes a maximum matching on all feasible pairs.",
+          "spoken_text": "The anchor first computes a maximum matching on all feasible pairs.",
+          "audio_sha256": "ef11873592c4f38b71589e64abcb5e0a96847ae9034f2702fa8586e43a8b5bc3",
+          "cache_file": "audio-cache/c4aa11765334c2a58f6e4b55ffb403b3ef2a4b21c8f44480d93b5cdaa717e8e3.wav",
+          "start": 250.38866666666667,
+          "end": 255.02395833333333
+        },
+        {
+          "text": "It prefers pairs already on the shortlists when several maximum matchings are available.",
+          "spoken_text": "It prefers pairs already on the shortlists when several maximum matchings are available.",
+          "audio_sha256": "557dbd7eec41c01c5da8cea7f5fd58ec54bf1f0fe95cfd300c4c6512caab04f2",
+          "cache_file": "audio-cache/e2d9ca4a135de6186699ffc21a067b57773cf852f3d4668b663a2857a06729e1.wav",
+          "start": 255.20395833333333,
+          "end": 260.7579166666667
+        },
+        {
+          "text": "Each assigned option is then inserted into its recipient's shortlist, replacing at most one option.",
+          "spoken_text": "Each assigned option is then inserted into its recipient's shortlist, replacing at most one option.",
+          "audio_sha256": "7af091e6f9d599fb4a87f119a09a5d858cf9f1bf214aa5bd9f1b2e204d187882",
+          "cache_file": "audio-cache/3edbde4fa18d4d51fbc65b85f56fb716370a9702364c5cf87b3b3e6bcb58500a.wav",
+          "start": 260.93791666666664,
+          "end": 267.96254166666665
+        },
+        {
+          "text": "List lengths stay fixed.",
+          "spoken_text": "List lengths stay fixed.",
+          "audio_sha256": "4ace68f04a55af6a884d1ad850814d625b760b72cf1f77c97c06b5f6588336df",
+          "cache_file": "audio-cache/0fb37adc5f41b15d75fe04ee5c3d16a1edbe11019ba1208d2a3b66c8eecfd8ea.wav",
+          "start": 268.14254166666666,
+          "end": 269.763875
+        },
+        {
+          "text": "Balancing takes a broader approach.",
+          "spoken_text": "Balancing takes a broader approach.",
+          "audio_sha256": "730df44e39085ab445747cafeb8445977a80931a832e0539768ed64b0c997e9e",
+          "cache_file": "audio-cache/d6dc34a5f4cff4f5f3ebc3b19643df298a6d8f650d1429ef9654858588174cb9.wav",
+          "start": 269.943875,
+          "end": 272.25783333333334
+        },
+        {
+          "text": "Count how many times each listing is recommended.",
+          "spoken_text": "Count how many times each listing is recommended.",
+          "audio_sha256": "e071122c86eab6e7eea74e4f1edf2fe3945408d32cd7522dd49d8f36826919b0",
+          "cache_file": "audio-cache/47b0859f570625d79a8bcd35be81b874feaf676fdd20fdb3a8a6623c049e0af2.wav",
+          "start": 272.43783333333334,
+          "end": 275.6165
+        },
+        {
+          "text": "Minimize the sum of those counts squared, which discourages everyone from seeing the same few listings.",
+          "spoken_text": "Minimize the sum of those counts squared, which discourages everyone from seeing the same few listings.",
+          "audio_sha256": "62b2b8d4b638e2c2d68555e01f65efe9d9f481da25919ac545f09a92f1e60e4e",
+          "cache_file": "audio-cache/d237fd47904cbe7840053ed4f7b312d0af4ae84b9fc776e9b34832337e9a1c06.wav",
+          "start": 275.7965,
+          "end": 282.0104583333333
+        },
+        {
+          "text": "Among equally balanced shortlists, favor options higher in the saved GPT ranking.",
+          "spoken_text": "Among equally balanced shortlists, favor options higher in the saved G P T ranking.",
+          "audio_sha256": "a3b51200d02f8763c03780cc9a7f76c1d43671b2bd4f67367c48d26fa0f7502b",
+          "cache_file": "audio-cache/831e4d11b49cdd7cf9d9d0279d04f7b5e7bfce081b6587dda84be8fb5324ee73.wav",
+          "start": 282.1904583333333,
+          "end": 288.05174999999997
+        },
+        {
+          "text": "We solve this exactly with min-cost flow.",
+          "spoken_text": "We solve this exactly with min-cost flow.",
+          "audio_sha256": "b8236e8f3343a1861f0a244dd42a7993107923c250fb9e61072a3f0c54d19fd8",
+          "cache_file": "audio-cache/66ef95e91ab772f2186112c3ef75cd4325bb20bb66349fdb768521ef82528243.wav",
+          "start": 288.23175,
+          "end": 291.046375
+        },
+        {
+          "text": "Both policies use feasible pairs and saved recommendations.",
+          "spoken_text": "Both policies use feasible pairs and saved recommendations.",
+          "audio_sha256": "ac960012b76e3e7e60ee75a520c887e27b30ec49cfccc96e9989b5b0a7003361",
+          "cache_file": "audio-cache/1add3442118e1d3a2815d89d6281636251f618755201a218125be3ff7de95c76.wav",
+          "start": 291.226375,
+          "end": 295.5416666666667
+        },
+        {
+          "text": "Neither sees the realized preference shocks, landlord priorities, or reference assignments.",
+          "spoken_text": "Neither sees the realized preference shocks, landlord priorities, or reference assignments.",
+          "audio_sha256": "f526d2c9c6c9fff797b74ed577003e977c6880d976684f6df82e9080cb019afa",
+          "cache_file": "audio-cache/dc2376878d60dd2b0e82d027ff0e96922c082a81b70183e09797b5c78a4af7f9.wav",
+          "start": 295.7216666666667,
+          "end": 301.70095833333335
+        },
+        {
+          "text": "Balancing can replace several options per person.",
+          "spoken_text": "Balancing can replace several options per person.",
+          "audio_sha256": "40dc0dc910d60677f0f580530af1266289620fe4d9fd7470b0a11f5a89c433d6",
+          "cache_file": "audio-cache/dbd0fc10f49e5faa04f14488b07ecc8f22f9ddf0625f83a856301e073a3b772a.wav",
+          "start": 301.88095833333335,
+          "end": 305.04825
+        },
+        {
+          "text": "It is a stronger coordination control, not an equal-edit-budget comparison with the one-option anchor.",
+          "spoken_text": "It is a stronger coordination control, not an equal-edit-budget comparison with the one-option anchor.",
+          "audio_sha256": "559751c55d166a81ab4a35f9174bcec27a57454bcdcce5c0eff53a76ce402f3d",
+          "cache_file": "audio-cache/00ce5c7fb4793f5c011d406776161297fd04d6ecd45e0ea03c146b39fcfbc296.wav",
+          "start": 305.22825,
+          "end": 312.11620833333336
+        },
+        {
+          "text": "Neither approach imposes an individual retention constraint.",
+          "spoken_text": "Neither approach imposes an individual retention constraint.",
+          "audio_sha256": "d080bb02dea5f190c058658283f21873b4cea23bef91093670414f534fe404a5",
+          "cache_file": "audio-cache/8a86de65024b130034dd093936d5a3e605bed7cbb1fd595039f837385279658c.wav",
+          "start": 312.2962083333333,
+          "end": 316.3695
+        }
+      ]
+    },
+    {
+      "slide": 7,
+      "title": "Individual coverage misses the placement loss",
+      "start": 318.0,
+      "end": 373.0,
+      "duration": 55.0,
+      "planned_duration": 55,
+      "minimum_duration": 54.329125,
+      "speech_and_inter_sentence_seconds": 53.229124999999996,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.4208750000000023,
+      "overrun_seconds": 0.0,
+      "words": 112,
+      "cues": [
+        {
+          "text": "First look at the original comparison with random shortlists of the same length.",
+          "spoken_text": "First look at the original comparison with random shortlists of the same length.",
+          "audio_sha256": "bc321815f535f214008e8bbadef18106e0badaf4051683ab474696f698bd644f",
+          "cache_file": "audio-cache/07be4502328e0865eb69179f56528f559e98f4d787a46889f093f345452b2ebf.wav",
+          "start": 318.35,
+          "end": 323.3933333333333
+        },
+        {
+          "text": "Blue is reference-option coverage.",
+          "spoken_text": "Blue is reference-option coverage.",
+          "audio_sha256": "43abe054969572de91664368c898dd8017d707c542e341fda286169c917930c0",
+          "cache_file": "audio-cache/cb61bb92ec75522b30de03e74ab02c53918666ce995e1eef8004686c4f3ffdd3.wav",
+          "start": 323.5733333333333,
+          "end": 325.844625
+        },
+        {
+          "text": "Orange is placement.",
+          "spoken_text": "Orange is placement.",
+          "audio_sha256": "a0fa7e047ac199fa79f87c786af48774581bc316fcfb929bb70e390a3294fd1a",
+          "cache_file": "audio-cache/5c3ae0a8750a25bbdec3b5ae0feb5d42d27cace31c812613c022282ddb875807.wav",
+          "start": 326.024625,
+          "end": 327.53929166666666
+        },
+        {
+          "text": "Zero means no difference from random.",
+          "spoken_text": "Zero means no difference from random.",
+          "audio_sha256": "bf6d29f9b66f4c7d91e95998b36c2b84292760b022910ddc1ed7c94d0d766627",
+          "cache_file": "audio-cache/420333cba4bec520f2e4d59d7027a7a4727d29f543141504fa451be40716741d.wav",
+          "start": 327.71929166666666,
+          "end": 330.08729166666666
+        },
+        {
+          "text": "Across all three enriched calendar windows, GPT increases coverage by about eight percentage points.",
+          "spoken_text": "Across all three enriched calendar windows, G P T increases coverage by about eight percentage points.",
+          "audio_sha256": "4e130e71d1a4c2a95cf47ef94e67b0d0b4d70c657aa4674a49278fafb59d3e05",
+          "cache_file": "audio-cache/6fa2b8e6eaf3edf04930fe2748df59f6bf31d9473c453d44b943a2f83849f4fa.wav",
+          "start": 330.26729166666667,
+          "end": 337.62191666666666
+        },
+        {
+          "text": "Placement falls by about two to four points.",
+          "spoken_text": "Placement falls by about two to four points.",
+          "audio_sha256": "eb745c07d9b58c2232a999b32e6753828ba6bd11a47ab4aafb99039a9f9eaf63",
+          "cache_file": "audio-cache/181f29629c7fe5d489a86d77b8595ef055598c1f7f38e90afbf2d2e9daf4e0fe.wav",
+          "start": 337.80191666666667,
+          "end": 340.48991666666666
+        },
+        {
+          "text": "The directions repeat, and the original market-bootstrap intervals exclude zero.",
+          "spoken_text": "The directions repeat, and the original market-bootstrap intervals exclude zero.",
+          "audio_sha256": "97c43a92f195bbbd5d6a095f38e385ad513ea09f6b6c38e7a92a6cc817ff78cc",
+          "cache_file": "audio-cache/39650e3fb725f56dd6634f073f52de85f990553891443a44cbed9324ae73ed50.wav",
+          "start": 340.66991666666667,
+          "end": 345.7545416666667
+        },
+        {
+          "text": "This does not mean GPT makes worse predictions about everything.",
+          "spoken_text": "This does not mean G P T makes worse predictions about everything.",
+          "audio_sha256": "f888e7279c78eeb0fa7938ccdf4ea919cf5e977ea0db997823b806ebb0b24263",
+          "cache_file": "audio-cache/e6a169bd7d06a2b6d559d6d20ded38f976bedf86a9f32c9a3e9b97121133c93b.wav",
+          "start": 345.9345416666667,
+          "end": 350.49716666666666
+        },
+        {
+          "text": "It means that covering an individual's full-list assignment does not determine how many people can be placed when everyone's shortlists interact.",
+          "spoken_text": "It means that covering an individual's full-list assignment does not determine how many people can be placed when everyone's shortlists interact.",
+          "audio_sha256": "bbb3f812f26ec5f5a4c05e0daa1db4421bafc6fb614548f21150a7d0e14969e6",
+          "cache_file": "audio-cache/6299a86a339189f894ccc076185df9530a65766d6365b289de86cabbc924d212.wav",
+          "start": 350.67716666666666,
+          "end": 359.80383333333333
+        },
+        {
+          "text": "These markets deliberately include affordable listings and renters with feasible options.",
+          "spoken_text": "These markets deliberately include affordable listings and renters with feasible options.",
+          "audio_sha256": "ba8c2ccf81a12c754df5cf64df9fe527f9637401d4a71f3eb43ca4902394317c",
+          "cache_file": "audio-cache/d793d6fca9d3ee5b59b9f058cb4794089c6af78a98175d15f5356a4ec9bc6ef8.wav",
+          "start": 359.98383333333334,
+          "end": 365.9318333333333
+        },
+        {
+          "text": "The ordinary sampling design and all uncertainty details are in the appendix.",
+          "spoken_text": "The ordinary sampling design and all uncertainty details are in the appendix.",
+          "audio_sha256": "6c6bec83391a3d09768727084d54d395d402bf66dcbc9f1e3718f1a994dfa081",
+          "cache_file": "audio-cache/e9fbb4f6e2f50039079359d2d3bcb5ad1a2a7a0743d84681b7d9eb5fae1be3d0.wav",
+          "start": 366.1118333333333,
+          "end": 371.579125
+        }
+      ]
+    },
+    {
+      "slide": 8,
+      "title": "Coordination changes the comparison",
+      "start": 373.0,
+      "end": 440.0,
+      "duration": 67.0,
+      "planned_duration": 67,
+      "minimum_duration": 66.662875,
+      "speech_and_inter_sentence_seconds": 65.562875,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.0871250000000003,
+      "overrun_seconds": 0.0,
+      "words": 149,
+      "cues": [
+        {
+          "text": "Now put four policies on the same axes.",
+          "spoken_text": "Now put four policies on the same axes.",
+          "audio_sha256": "5945e980b24cff4cf7c634ff58faeaada7d6bfc3054a160b2a407774ec10fd42",
+          "cache_file": "audio-cache/c7d3f285cd20f8e585d3ebb9d0d5ce1474021100cf2a56383ab7a81e1cb915f6.wav",
+          "start": 373.35,
+          "end": 376.0479583333333
+        },
+        {
+          "text": "Farther right means more reference coverage.",
+          "spoken_text": "Farther right means more reference coverage.",
+          "audio_sha256": "3b9ebc5f3ba437deb62e1c9a6bdfd19b2796014ff3d1e634706ca20e9c30c0e1",
+          "cache_file": "audio-cache/01f7ac2c29b763b86e05d32e0745c7cfe6b934ada530d90deb386c9c8503f42a.wav",
+          "start": 376.22795833333333,
+          "end": 378.9359166666667
+        },
+        {
+          "text": "Higher means more people placed.",
+          "spoken_text": "Higher means more people placed.",
+          "audio_sha256": "47c4ec8ffc197646a42a9a489215fc64358c9535f3dafdfcc392eaa58090bb38",
+          "cache_file": "audio-cache/bf4ae674ea72022e166a8c584c2200adc792c00c8021a16b09c6306b5b2f58f0.wav",
+          "start": 379.1159166666667,
+          "end": 381.1639166666667
+        },
+        {
+          "text": "Random shortlists are on the left.",
+          "spoken_text": "Random shortlists are on the left.",
+          "audio_sha256": "71871c77bc19e65c4fb7036c6e90a5f689003024589c43523846d86232ea8ab5",
+          "cache_file": "audio-cache/a21bbfaad7d258c1897729b4d802bf5268930123715e4ca5a251f9ebffadde45.wav",
+          "start": 381.34391666666664,
+          "end": 383.50854166666664
+        },
+        {
+          "text": "GPT moves right, but slightly down.",
+          "spoken_text": "G P T moves right, but slightly down.",
+          "audio_sha256": "08b4cf29a1c777678cc165a8a92284a330d885653e288d8453490b4eb576ebed",
+          "cache_file": "audio-cache/e7cc6db63d0cebcc4d39ea2a7d25f61a540aa1296c79144e81080ac40751815f.wav",
+          "start": 383.68854166666665,
+          "end": 386.49316666666664
+        },
+        {
+          "text": "The one-option anchor moves GPT upward, recovering placement with a small change in coverage.",
+          "spoken_text": "The one-option anchor moves G P T upward, recovering placement with a small change in coverage.",
+          "audio_sha256": "3b291d1adce7a171d95d4aa22b11f5ab6556e4a463dc50562db5fa92105f48f5",
+          "cache_file": "audio-cache/f7abc52918a8370c2295d309cfd42f1017bb3db9c6c7b266845f0d2f0ee58d06.wav",
+          "start": 386.67316666666665,
+          "end": 393.2497916666667
+        },
+        {
+          "text": "Balanced shortlists go much higher.",
+          "spoken_text": "Balanced shortlists go much higher.",
+          "audio_sha256": "8c9f5f66a2b6be2a7e1ed68d7f75e5a8ab4b1040df667b73cc914b80c33adfff",
+          "cache_file": "audio-cache/f6c306cda676c2e265b7e8282524d83e4b97044ec8e8bfa9d6c68152b235ce2b.wav",
+          "start": 393.4297916666667,
+          "end": 395.563125
+        },
+        {
+          "text": "Relative to the anchor, they gain another 12.6 percentage points of placement while losing about three points of reference coverage in this panel.",
+          "spoken_text": "Relative to the anchor, they gain another 12.6 percentage points of placement while losing about three points of reference coverage in this panel.",
+          "audio_sha256": "bac24be2d6b0bef15fc5f2fab5f23a101a4ef1e5d3ca8d170e797a8ed23ad22f",
+          "cache_file": "audio-cache/f1f5d7f9b6d7932428fbcd4daa1f87f06a1fbcfc486d126f48fc8f32aba10f70.wav",
+          "start": 395.743125,
+          "end": 404.83708333333334
+        },
+        {
+          "text": "The comparison matters.",
+          "spoken_text": "The comparison matters.",
+          "audio_sha256": "6a9dd3288c71dfca6895f81129864e90bb077fc9ac299452627e3d8fbb24bf0b",
+          "cache_file": "audio-cache/360a70e2115158b714663959a0de128ce81be6a390e00f9545589ca6c466ab10.wav",
+          "start": 405.01708333333335,
+          "end": 406.6044166666667
+        },
+        {
+          "text": "Relative to plain random, balancing improves both outcomes.",
+          "spoken_text": "Relative to plain random, balancing improves both outcomes.",
+          "audio_sha256": "fe45a886413f55a5a3943838c7c6eed7bc3adbb9b7b6e183ee2921f7614c2157",
+          "cache_file": "audio-cache/4d046e3f33428213631dd3c0aa29ee678ecd2d5b215e6054351780c73a20ed96.wav",
+          "start": 406.7844166666667,
+          "end": 410.91770833333334
+        },
+        {
+          "text": "So the evidence does not show an unavoidable conflict between coverage and placement.",
+          "spoken_text": "So the evidence does not show an unavoidable conflict between coverage and placement.",
+          "audio_sha256": "e2240f86fdc9fb9bcbf988ba253fe8a109ae783380a88faa28cf04fe8eb77be0",
+          "cache_file": "audio-cache/09fd6f83e6179f284003e4185608435b4068996efa4c0928a0051589fd0239b2.wav",
+          "start": 411.09770833333334,
+          "end": 416.59770833333334
+        },
+        {
+          "text": "These are point means for the September and October enriched panel.",
+          "spoken_text": "These are point means for the September and October enriched panel.",
+          "audio_sha256": "76e9f28c6a55d982dc9e2fe30f06e0bcad70d19f8f11d967f96258de4f91bb80",
+          "cache_file": "audio-cache/5fb3e4ae410b8e89a626d64ae1789b3dd29565c4f990889ec0c8759c6116268b.wav",
+          "start": 416.77770833333335,
+          "end": 420.76433333333335
+        },
+        {
+          "text": "A control using extra information from the simulation improves both measures further.",
+          "spoken_text": "A control using extra information from the simulation improves both measures further.",
+          "audio_sha256": "0dc7b74132bd12e67fb334964f4ce1570e2d2a0660b4d4eaaf6ba2dd6869b261",
+          "cache_file": "audio-cache/bfaef59edcf6943177f4208572a2467ae0a4b7d3d7a25fc9754f0371974ff2b3.wav",
+          "start": 420.94433333333336,
+          "end": 426.583625
+        },
+        {
+          "text": "Detailed controls and paired intervals are in the appendix.",
+          "spoken_text": "Detailed controls and paired intervals are in the appendix.",
+          "audio_sha256": "570283af465fdf624af416fb0f24e7cc5c60369c4b308a6dbfe5033b420aa56c",
+          "cache_file": "audio-cache/1e5819d6796742b7333192671ca7270b189116b38df9972529139462cb208449.wav",
+          "start": 426.763625,
+          "end": 430.52425
+        },
+        {
+          "text": "We have not established GPT as the best recommender.",
+          "spoken_text": "We have not established G P T as the best recommender.",
+          "audio_sha256": "76d95a5dcda3f8d5a94713382bb13976b76614226a81f469afe7287f28c15d2d",
+          "cache_file": "audio-cache/e768b5323c5ef64f07e754d5c27d4de6bfafb179bf7029fe8a43f8feb0d365d6.wav",
+          "start": 430.70425,
+          "end": 434.51025
+        },
+        {
+          "text": "This plot also cannot tell us whether any individual is protected.",
+          "spoken_text": "This plot also cannot tell us whether any individual is protected.",
+          "audio_sha256": "1431851168203457112cbe8add4d5a09268b3bb4fc18ccca99f80a5c37a51f9a",
+          "cache_file": "audio-cache/083585e56613c8abb79e8586b3179e2442acbd3d100bfc6e9be0b5f0c51b35ae.wav",
+          "start": 434.69025,
+          "end": 438.912875
+        }
+      ]
+    },
+    {
+      "slide": 9,
+      "title": "A net gain does not tell us who gained",
+      "start": 440.0,
+      "end": 494.0,
+      "duration": 54.0,
+      "planned_duration": 54,
+      "minimum_duration": 53.93108333333333,
+      "speech_and_inter_sentence_seconds": 52.83108333333333,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.8189166666666665,
+      "overrun_seconds": 0.0,
+      "words": 117,
+      "cues": [
+        {
+          "text": "Return to the anchor and compare it with the original GPT shortlists on exactly the same markets.",
+          "spoken_text": "Return to the anchor and compare it with the original G P T shortlists on exactly the same markets.",
+          "audio_sha256": "d4c9b0fa638ed0fc6208aa0ea0a6820a091f04e089d3be1a452f0dd84d091a01",
+          "cache_file": "audio-cache/172f651d25c22270f26c37f46de136a26476b2e1407c14a1a0f731ece4e9ec64.wav",
+          "start": 440.35,
+          "end": 447.48129166666666
+        },
+        {
+          "text": "There are 449 newly placed renter appearances.",
+          "spoken_text": "There are 449 newly placed renter appearances.",
+          "audio_sha256": "176c0eb88e1aacbcbbdc929fe70769a0c10f01f3dcd82cffa45186f3cd1e1b28",
+          "cache_file": "audio-cache/47f0afc77c031f21d59ac6f3090314420d9df30ff75035cc98282757ef6a7ca0.wav",
+          "start": 447.66129166666667,
+          "end": 451.8059166666667
+        },
+        {
+          "text": "There are also 37 exits: people who were placed before and are now unplaced.",
+          "spoken_text": "There are also 37 exits: people who were placed before and are now unplaced.",
+          "audio_sha256": "ed6cb79f4878f6aed06ac9f4a149a8c50107403199b0a18859c5db1aa7771c5f",
+          "cache_file": "audio-cache/f9a5de2584bc75e78ce5cc547ea8387878d2189c88d3e61701f098341d73cfbe.wav",
+          "start": 451.98591666666664,
+          "end": 457.5185416666667
+        },
+        {
+          "text": "Subtracting the exits from the entrants gives the 412 net gain.",
+          "spoken_text": "Subtracting the exits from the entrants gives the 412 net gain.",
+          "audio_sha256": "eab60de12c2bbbf5dc156c3e5d6d093a634b1f9cbda3fd9656393240c3573a07",
+          "cache_file": "audio-cache/8e53cffc29860c3b007e9b221d3aae7cfde07a82684a8c7d204df1ac57c669cb.wav",
+          "start": 457.69854166666664,
+          "end": 462.66520833333334
+        },
+        {
+          "text": "Reporting only that net gain would hide the loss of access.",
+          "spoken_text": "Reporting only that net gain would hide the loss of access.",
+          "audio_sha256": "aed470fb95080233e896d16a5d27ba722e52fa430e138441af9d0ab502302299",
+          "cache_file": "audio-cache/b7c9da15f462aa6f15586c89b25ccdb60921ba154d1a9b2bd6d979aabc0362e7.wav",
+          "start": 462.84520833333335,
+          "end": 466.6585
+        },
+        {
+          "text": "The more effective balancing policy has the same issue.",
+          "spoken_text": "The more effective balancing policy has the same issue.",
+          "audio_sha256": "1d8418cad7ea86bf8295e8f32cf91b792d02891d44c65fb4b28cd23cc4ad1ffa",
+          "cache_file": "audio-cache/30b3c41b38c30007552c18c09d712e45c9e3fb9e2d0f405fb36bb800fa073277.wav",
+          "start": 466.8385,
+          "end": 470.40845833333333
+        },
+        {
+          "text": "Compared with the anchor, it creates many more placements but also causes 171 exits.",
+          "spoken_text": "Compared with the anchor, it creates many more placements but also causes 171 exits.",
+          "audio_sha256": "ab8f33fdc8b9bd087d1ba99e1f437f9f7cfa89a0519e6dc6e38f20c5990b311f",
+          "cache_file": "audio-cache/0896393a34386ed675961c438b9fc02967efa26e56fb2d0cbfd7b7ae3c46463f.wav",
+          "start": 470.58845833333334,
+          "end": 477.3557916666667
+        },
+        {
+          "text": "An exit is defined relative to a named policy.",
+          "spoken_text": "An exit is defined relative to a named policy.",
+          "audio_sha256": "553bf7ff8e311142394d7adb940eeae65c1eac688552ae7d7ff256c3be23bafb",
+          "cache_file": "audio-cache/25ca0a7186888fb869bfec5404c7c59b82e5241d7d84479ef864f255c7080b22.wav",
+          "start": 477.5357916666667,
+          "end": 481.12845833333336
+        },
+        {
+          "text": "These counts describe repeated simulated appearances, not unique households.",
+          "spoken_text": "These counts describe repeated simulated appearances, not unique households.",
+          "audio_sha256": "c7f61a03314078acf17fe1a1db5c254fa80f9337980993851d8aca597aeffea0",
+          "cache_file": "audio-cache/cafc84936c0ed3a45030a1f0768e0acc41dec3f6167c3369101ff7c04ae1789e.wav",
+          "start": 481.3084583333333,
+          "end": 486.4884583333333
+        },
+        {
+          "text": "Their role is to test an individual protection claim that an average placement rate cannot establish.",
+          "spoken_text": "Their role is to test an individual protection claim that an average placement rate cannot establish.",
+          "audio_sha256": "5deee815275836c945b309d69f07b0020d9f39b9506f8238a8a6bdaa61d3356c",
+          "cache_file": "audio-cache/b01e387b6a279e2f7460c1837b65d1c22868176e02fcbd620f686ade8206e5b2.wav",
+          "start": 486.6684583333333,
+          "end": 493.18108333333333
+        }
+      ]
+    },
+    {
+      "slide": 10,
+      "title": "Why can an unchanged shortlist help you?",
+      "start": 494.0,
+      "end": 550.0,
+      "duration": 56.0,
+      "planned_duration": 56,
+      "minimum_duration": 55.38175,
+      "speech_and_inter_sentence_seconds": 54.281749999999995,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.3682500000000033,
+      "overrun_seconds": 0.0,
+      "words": 117,
+      "cues": [
+        {
+          "text": "The cleanest competition result concerns renters with only one to five feasible listings.",
+          "spoken_text": "The cleanest competition result concerns renters with only one to five feasible listings.",
+          "audio_sha256": "eac2b518f6fa9233225c9a41c4bd5b9fa95f16d320180e396c77cf38279e4f8b",
+          "cache_file": "audio-cache/1e44c2b32975ffa861541fa89efd83ad90d881ba9b8ec30c6dc476d5c103b9b4.wav",
+          "start": 494.35,
+          "end": 500.478625
+        },
+        {
+          "text": "Our policies show up to five options, so these renters already see everything.",
+          "spoken_text": "Our policies show up to five options, so these renters already see everything.",
+          "audio_sha256": "99899614b557022fb3e01d9e64acbf88319f07af04c930d59dbb4ce5878737fb",
+          "cache_file": "audio-cache/b97489e46c40d92d725184483e1ee3f1e0c1cf9e87f9a92822786bde492e2adc.wav",
+          "start": 500.658625,
+          "end": 505.5199166666667
+        },
+        {
+          "text": "Their personal shortlists cannot change.",
+          "spoken_text": "Their personal shortlists cannot change.",
+          "audio_sha256": "3f333bffc130446317cccdff87cbdf119831651199c39c80b6a1714f4e15dd8f",
+          "cache_file": "audio-cache/4c6175abaa070e1720c8bb45beb3e120b0471ebb3cdbffd6ed3efb3732786dea.wav",
+          "start": 505.6999166666667,
+          "end": 508.0679166666667
+        },
+        {
+          "text": "When the whole market uses the anchor, this group's placement rate is 13.1 percent.",
+          "spoken_text": "When the whole market uses the anchor, this group's placement rate is 13.1 percent.",
+          "audio_sha256": "0443ee328e7923e0af14d27cce1b1e2085d7997dea0dd18bebab0933d9a181ae",
+          "cache_file": "audio-cache/f4fe71a078053b96a522ed2abd3c79453a159621d86d7cb95d6da4c2e838c40b.wav",
+          "start": 508.24791666666664,
+          "end": 513.9185833333333
+        },
+        {
+          "text": "Under balancing, it is 27.5 percent.",
+          "spoken_text": "Under balancing, it is 27.5 percent.",
+          "audio_sha256": "9f5b25698179d22b6f6746c7cfce02e497fb8a7374a28888935168f0ba43a4c4",
+          "cache_file": "audio-cache/a39da9c259b2ad1ed8aa05f9938aa873c38fed589742bbffeca93c58f789aeb5.wav",
+          "start": 514.0985833333333,
+          "end": 517.615875
+        },
+        {
+          "text": "That is a 14.4-point gain even though the group's own recommendations are identical.",
+          "spoken_text": "That is a 14.4-point gain even though the group's own recommendations are identical.",
+          "audio_sha256": "fa8d832bdb8c622a2f156e2ffda6d8b8aa802460b94aa1425593aa7836e33957",
+          "cache_file": "audio-cache/e3164e6d8759facd01db53f3961ba4b68907c27e907b5d2f60e43355a09e9a55.wav",
+          "start": 517.795875,
+          "end": 524.0425416666667
+        },
+        {
+          "text": "The change comes from other renters' shortlists.",
+          "spoken_text": "The change comes from other renters' shortlists.",
+          "audio_sha256": "c4ee484530c402257af5ebca4eda55df71ca3bf0cea78db0ca034b966cdcba9b",
+          "cache_file": "audio-cache/c3ce5c2a5414cc19b89d1ee11569917a376e1e578f16980ae22c856abe3cbd08.wav",
+          "start": 524.2225416666666,
+          "end": 526.9418333333333
+        },
+        {
+          "text": "Coordinating those shortlists changes who competes for each listing.",
+          "spoken_text": "Coordinating those shortlists changes who competes for each listing.",
+          "audio_sha256": "2fba4bfad685aab03b0e0ae09ccc43a010460c802e5f97cedef7a6a6162e61f7",
+          "cache_file": "audio-cache/e986e41673d49b299c1a4112170b31abba14c0f532c48b503ac6805756481a15.wav",
+          "start": 527.1218333333334,
+          "end": 531.5137916666666
+        },
+        {
+          "text": "This is a sizable positive spillover inside the model.",
+          "spoken_text": "This is a sizable positive spillover inside the model.",
+          "audio_sha256": "556524f8ff205522226447fb7add2ea0161dc97d12e0d234aaba7a45632f726a",
+          "cache_file": "audio-cache/f291ae3f85d17056598ed23f256e9e2793e97cb37c7aa028bf64550ec79e6a4d.wav",
+          "start": 531.6937916666667,
+          "end": 535.4144583333333
+        },
+        {
+          "text": "It still does not protect every member of the group: 15 previously placed appearances lose access under balancing.",
+          "spoken_text": "It still does not protect every member of the group: 15 previously placed appearances lose access under balancing.",
+          "audio_sha256": "b5f581a8f00b3c63e5bc0291717e2df108ce4663f56c5b836f64dd76ab306924",
+          "cache_file": "audio-cache/d0c3de398bf779d7e5fee7453a0269305485a5d3964c854c83a9e29f4645c838.wav",
+          "start": 535.5944583333334,
+          "end": 543.5604583333334
+        },
+        {
+          "text": "Better group outcomes and zero individual losses remain different claims.",
+          "spoken_text": "Better group outcomes and zero individual losses remain different claims.",
+          "audio_sha256": "d03cbee64f234f58aa4a85ed3cbef23f9e9bc25c3165e332a5eef83e77282eae",
+          "cache_file": "audio-cache/653a2ba5ffb7ea89ea4b6e75ec071e1b7f9a551137f65c0fa9884a4a369a4ee7.wav",
+          "start": 543.7404583333333,
+          "end": 548.63175
+        }
+      ]
+    },
+    {
+      "slide": 11,
+      "title": "Chile: the losses are concentrated",
+      "start": 550.0,
+      "end": 642.0,
+      "duration": 92.0,
+      "planned_duration": 92,
+      "minimum_duration": 91.87758333333333,
+      "speech_and_inter_sentence_seconds": 90.77758333333334,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.8724166666666662,
+      "overrun_seconds": 0.0,
+      "words": 186,
+      "cues": [
+        {
+          "text": "Rentals give us controlled comparisons, but their preferences are modeled.",
+          "spoken_text": "Rentals give us controlled comparisons, but their preferences are modeled.",
+          "audio_sha256": "a9ec0a853b09aad6d263c62eeba4325f79ca9b39b65cd0a0beaa4e41cfd07ab3",
+          "cache_file": "audio-cache/b94ff6d817881ca4a483b29b7ad719438fc7a716124d111c745df293526ecdd6.wav",
+          "start": 550.35,
+          "end": 555.0393333333334
+        },
+        {
+          "text": "Chile lets us examine the same access question using families' submitted rankings and a reconstruction of the admissions rules.",
+          "spoken_text": "Chile lets us examine the same access question using families' submitted rankings and a reconstruction of the admissions rules.",
+          "audio_sha256": "e689f3a84a4b5d091721b3fa9f3b7fb663bbd417a147504137c84168395699da",
+          "cache_file": "audio-cache/1c26e3318524fac41079d9f17c422fc61520f729ec8105b25b5573f457604821.wav",
+          "start": 555.2193333333333,
+          "end": 563.7259583333333
+        },
+        {
+          "text": "We compare two classifiers trained on an earlier cohort to predict initial offers.",
+          "spoken_text": "We compare two classifiers trained on an earlier cohort to predict initial offers.",
+          "audio_sha256": "75b7d60dd4ef5e5a74b0a2cb9b793c6b2580c211152ddd50987bad379b042440",
+          "cache_file": "audio-cache/4397aca23341f3693f504a5ed5e99e3063d8a003d2095671a270d7146e79d23d.wav",
+          "start": 563.9059583333334,
+          "end": 569.37325
+        },
+        {
+          "text": "One uses submitted rank, and the other does not.",
+          "spoken_text": "One uses submitted rank, and the other does not.",
+          "audio_sha256": "4ef40ff15796507ad5d053ac5bba5da7591c6bf2a58fa6e381ad86fc593aee85",
+          "cache_file": "audio-cache/63691885236f014b117a6f8a726261804d76822975f037073096adbcf2b595ba.wav",
+          "start": 569.55325,
+          "end": 572.6012083333334
+        },
+        {
+          "text": "They select short shortlists for later cohorts.",
+          "spoken_text": "They select short shortlists for later cohorts.",
+          "audio_sha256": "747fc6fd3c2145bb08dccc889bd5a17387b5a6501c62ce892131dac2bcd725aa",
+          "cache_file": "audio-cache/1eb2e887a75c98df6db1e84bcc0ca68375f55845c641404e98dd930700c2283c.wav",
+          "start": 572.7812083333333,
+          "end": 575.575875
+        },
+        {
+          "text": "We score coverage against later observed enrollment and replay admissions on the selected options.",
+          "spoken_text": "We score coverage against later observed enrollment and replay admissions on the selected options.",
+          "audio_sha256": "f0d2dfafc322a9e02d0b42dfd9a25440384a221d4d9119f69e0863188e085a36",
+          "cache_file": "audio-cache/e0c07754a4fcf1e242941d416058b6be58d46ccf6a6f6fc61c3c7523c41da254.wav",
+          "start": 575.755875,
+          "end": 582.3325
+        },
+        {
+          "text": "The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements relative to rank-blind shortlists.",
+          "spoken_text": "The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements relative to rank-blind shortlists.",
+          "audio_sha256": "ca1305942bbfee590b72c8996dc8300d19e4299f8e8d993cddaf9ddb71fb615d",
+          "cache_file": "audio-cache/49561a208e3d245a756739fded6da0a274329e806c265734712fb4c9eb604c1c.wav",
+          "start": 582.5125,
+          "end": 594.8804583333333
+        },
+        {
+          "text": "The graph separates pupils by whether they historically received an initial offer.",
+          "spoken_text": "The graph separates pupils by whether they historically received an initial offer.",
+          "audio_sha256": "c40efbc7c6b4ab9425a9e1ebc00ee5f5f8c18a7a8ed92c29321d2cce79568b06",
+          "cache_file": "audio-cache/dfb848542cf01a673b78462d080a19b984e9804f31ce4b2833ac55d411c74dfb.wav",
+          "start": 595.0604583333334,
+          "end": 600.0397916666667
+        },
+        {
+          "text": "Each bar uses its own group's denominator.",
+          "spoken_text": "Each bar uses its own group's denominator.",
+          "audio_sha256": "0dfefc4afde6d3581f8febe073348a2412de37ac16bf94e47d719d3a9ec273bb",
+          "cache_file": "audio-cache/81c7a2a39685688e2dfc25b81b5cc7641020d4722fffce9b7d0509e37937e123.wav",
+          "start": 600.2197916666667,
+          "end": 603.0144583333333
+        },
+        {
+          "text": "Pupils with no initial offer make up 7.4 percent of the linked sample but account for 76 percent of the net placement loss.",
+          "spoken_text": "Pupils with no initial offer make up 7.4 percent of the linked sample but account for 76 percent of the net placement loss.",
+          "audio_sha256": "7d419b175f43a4236940afb2bc0a160b3cd38303b5884eeb62c25010af347bb3",
+          "cache_file": "audio-cache/bc8398fcc19be365fef138f955a94ce84f1f14be2274f940c3692d83955b1289.wav",
+          "start": 603.1944583333334,
+          "end": 612.4264166666667
+        },
+        {
+          "text": "That is 1,270 net lost placements in the smaller group.",
+          "spoken_text": "That is 1,270 net lost placements in the smaller group.",
+          "audio_sha256": "3ffba7b2e75bf5029c91dc476e6ae37fec1cd4126ad02fd1a0df662aed904bba",
+          "cache_file": "audio-cache/701f9898af12e5b17ba42b17b2cae94bb1dd3782ba78ed02c0c90cf120a7fe28.wav",
+          "start": 612.6064166666666,
+          "end": 617.7864166666667
+        },
+        {
+          "text": "Its placement rate falls by 0.873 percentage points in the counterfactual comparison.",
+          "spoken_text": "Its placement rate falls by 0.873 percentage points in the counterfactual comparison.",
+          "audio_sha256": "b96eaaa55a58daaa2542f09b690e316a120349dac2f28d50b11637d00eed7be2",
+          "cache_file": "audio-cache/2190f7e270b686120b54fdf9be5549a9894e5640218ae0e263b6616078846e28.wav",
+          "start": 617.9664166666666,
+          "end": 624.8630416666666
+        },
+        {
+          "text": "These are not revoked official offers.",
+          "spoken_text": "These are not revoked official offers.",
+          "audio_sha256": "88c7813fe080bd3c7762cc3ef2a4ce6eb13426ba6e83581f885fd1b058ab208a",
+          "cache_file": "audio-cache/8f4c8e274bfaaa74c45447ee4d580dabe2b778976ac23f15166f460001d87738.wav",
+          "start": 625.0430416666667,
+          "end": 627.431
+        },
+        {
+          "text": "Historical offer status defines the groups; placement loss compares two new shortlist policies under fixed reported preferences.",
+          "spoken_text": "Historical offer status defines the groups; placement loss compares two new shortlist policies under fixed reported preferences.",
+          "audio_sha256": "c3f3df04876bf5aaf7a14711037606e005e1c1e935779dc176c9f4e7530bbbdd",
+          "cache_file": "audio-cache/e664cef222a458636adad8376ca80eb2bec3d5357ed5ba1551a901cf97c31675.wav",
+          "start": 627.611,
+          "end": 636.5342916666666
+        },
+        {
+          "text": "The concentration of the loss is what motivates the protection question.",
+          "spoken_text": "The concentration of the loss is what motivates the protection question.",
+          "audio_sha256": "9311e832cd91f409afb0a99f33f1cc3a45c39d3457b866a13b9efd3e85c4a12e",
+          "cache_file": "audio-cache/75854e4ebcb00e1f0ce47b29352150151891fcc1b01ba278816dacef655e9921.wav",
+          "start": 636.7142916666667,
+          "end": 641.1275833333333
+        }
+      ]
+    },
+    {
+      "slide": 12,
+      "title": "The comparison policy matters",
+      "start": 642.0,
+      "end": 697.0,
+      "duration": 55.0,
+      "planned_duration": 55,
+      "minimum_duration": 54.107791666666664,
+      "speech_and_inter_sentence_seconds": 53.00779166666666,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.6422083333333362,
+      "overrun_seconds": 0.0,
+      "words": 104,
+      "cues": [
+        {
+          "text": "There is an important check on that result.",
+          "spoken_text": "There is an important check on that result.",
+          "audio_sha256": "65be290955c35d8f128eb18d6f5779c8edf9e972cbf3446c035383a8833391ea",
+          "cache_file": "audio-cache/7e1bcac67e9c7c73faa884ddf231a4b7a4458d25a2589ea0b5fae4d289b086e5.wav",
+          "start": 642.35,
+          "end": 644.706625
+        },
+        {
+          "text": "Compare the same rank-informed policy with each family's first five discretionary courses instead.",
+          "spoken_text": "Compare the same rank-informed policy with each family's first five discretionary courses instead.",
+          "audio_sha256": "ae694b721177733da056839d3be6368f222bbe65b952f594217cd95c756c67c8",
+          "cache_file": "audio-cache/a6bad9dfa510533c774a4bb6b20930f2ff78ffafef887dab2793ad9d911d5d19.wav",
+          "start": 644.886625,
+          "end": 651.7092916666667
+        },
+        {
+          "text": "Now it improves both aggregates: 9,800 more enrollment hits and 8,143 more placements.",
+          "spoken_text": "Now it improves both aggregates: 9,800 more enrollment hits and 8,143 more placements.",
+          "audio_sha256": "a09803e34b343c79f018a89f207e76df472fff15d9473489c669c95eadb39de8",
+          "cache_file": "audio-cache/80b68ae01766d28eeb5af3ce318ad68da898d0d46c65f573250e32095cce3967.wav",
+          "start": 651.8892916666666,
+          "end": 660.6959583333334
+        },
+        {
+          "text": "Again, a prediction\u2013placement conflict is not inevitable.",
+          "spoken_text": "Again, a prediction\u2013placement conflict is not inevitable.",
+          "audio_sha256": "3344ecdc4d571c00513377637c52dbbd5df6b58f66e3c45a4d4691b7b6047114",
+          "cache_file": "audio-cache/9f94ff65b7dd2780a43cc32d734be5f47eecaa52be2f2f05aa961fd150627f92.wav",
+          "start": 660.8759583333333,
+          "end": 664.7985833333333
+        },
+        {
+          "text": "But the group without a historical initial offer still loses 2,860 counterfactual placements against this alternative.",
+          "spoken_text": "But the group without a historical initial offer still loses 2,860 counterfactual placements against this alternative.",
+          "audio_sha256": "c1bad4c002a1cb4ec41cf1dc6ea3a4a089845793cac10b38721315ed9d941594",
+          "cache_file": "audio-cache/7903977a88054ef0498de67b7fb1e55e42c0f854944786e66ba6a0548c9e33be.wav",
+          "start": 664.9785833333333,
+          "end": 674.5732083333334
+        },
+        {
+          "text": "That is why the comparison policy and the affected population both need to be visible.",
+          "spoken_text": "That is why the comparison policy and the affected population both need to be visible.",
+          "audio_sha256": "0b289cbfc031265b5d6536112a0882ed0830dd8f1cd6fc171453f0bf5c572d6f",
+          "cache_file": "audio-cache/c3fd05bc8687e03757c212ab8c5622498ca9fd52a99ef2d8c14b272b622e4951.wav",
+          "start": 674.7532083333333,
+          "end": 680.8945
+        },
+        {
+          "text": "An overall improvement can coexist with worse access for a particular group.",
+          "spoken_text": "An overall improvement can coexist with worse access for a particular group.",
+          "audio_sha256": "62817726b26cf54e5808011fc0b48f2232e136a93ced69c186e68cdf25478d76",
+          "cache_file": "audio-cache/c3bb89dffc4f33ed21a91ec06f472165449b0e2db08820201913ce7f082c4da6.wav",
+          "start": 681.0745,
+          "end": 686.435125
+        },
+        {
+          "text": "We should not treat the historical enrollment target as welfare, or assume that a larger total resolves the distributional question.",
+          "spoken_text": "We should not treat the historical enrollment target as welfare, or assume that a larger total resolves the distributional question.",
+          "audio_sha256": "dadfbe322838097f3a13f58f6abc273af446b81c520440e6a47786587f138e6e",
+          "cache_file": "audio-cache/3c79d6739859b899bd1eb788100f7806aca07f33546273b3bc0d026abbc647cd.wav",
+          "start": 686.615125,
+          "end": 695.3577916666667
+        }
+      ]
+    },
+    {
+      "slide": 13,
+      "title": "Choosing shortlists with zero exits is hard",
+      "start": 697.0,
+      "end": 758.0,
+      "duration": 61.0,
+      "planned_duration": 61,
+      "minimum_duration": 60.70104166666667,
+      "speech_and_inter_sentence_seconds": 59.60104166666667,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.0489583333333314,
+      "overrun_seconds": 0.0,
+      "words": 131,
+      "cues": [
+        {
+          "text": "Here is the mathematical design problem.",
+          "spoken_text": "Here is the mathematical design problem.",
+          "audio_sha256": "9bb4eeb70afe47631b24819883b4622a1d5dd54cfce0310d4f550a8a7124cdf2",
+          "cache_file": "audio-cache/62fbc9cb4b0ef5728c440be64d96e1976c59433154f55a75e80ae5d50066e079.wav",
+          "start": 697.35,
+          "end": 700.0806666666666
+        },
+        {
+          "text": "Fix the baseline shortlists and a supplied set of priority draws.",
+          "spoken_text": "Fix the baseline shortlists and a supplied set of priority draws.",
+          "audio_sha256": "ce35ea1c770494ec7906081185a644cd10174ae73ed3768c662cd73e00db8546",
+          "cache_file": "audio-cache/8bfc567105f41387e623ee7eb1d36eaf6794352c08e6ab68b79b76cc25ec2f96.wav",
+          "start": 700.2606666666667,
+          "end": 704.5772916666666
+        },
+        {
+          "text": "Choose one new shortlist policy that works across every draw.",
+          "spoken_text": "Choose one new shortlist policy that works across every draw.",
+          "audio_sha256": "966a58c217bac9d18bf4d21044c070001ec45feb5c099cf0421d50fc2d8f8d11",
+          "cache_file": "audio-cache/859d31a4ebc6e35ac5a9e5c1f10b30f7c62c06d6f63daff18be5e75326f5bedd.wav",
+          "start": 704.7572916666667,
+          "end": 708.9359166666667
+        },
+        {
+          "text": "Maximize extra reference hits, subject to every baseline recipient keeping a seat on every draw.",
+          "spoken_text": "Maximize extra reference hits, subject to every baseline recipient keeping a seat on every draw.",
+          "audio_sha256": "76cac07ae9f62524e2f45740b7e5065f2a4ee483908814778f86654beb6709b5",
+          "cache_file": "audio-cache/06ad89b21982aabae21b277cb7dfa6ecbf72743b78b31868c379466b00898e44.wav",
+          "start": 709.1159166666666,
+          "end": 715.8632083333333
+        },
+        {
+          "text": "Recipients may switch schools, but cannot become unplaced.",
+          "spoken_text": "Recipients may switch schools, but cannot become unplaced.",
+          "audio_sha256": "4ea77d051ded5220527d0f1c7966ea13644793f7e7989e2f0cc2293ec32ee1aa",
+          "cache_file": "audio-cache/5c0869a5400804680d3d3e44d2c29bc1320b7d2e56dbb96d2447215cbbba9e2e.wav",
+          "start": 716.0432083333334,
+          "end": 719.7411666666667
+        },
+        {
+          "text": "In Chile, we start from rank-blind shortlists, preserve options shared with rank-informed shortlists, fill from their union, and keep each quota.",
+          "spoken_text": "In Chile, we start from rank-blind shortlists, preserve options shared with rank-informed shortlists, fill from their union, and keep each quota.",
+          "audio_sha256": "e846079bb7cbc777f8cd7d6c75e9656bfc19c6e682b8edbd016114c6cc8f9053",
+          "cache_file": "audio-cache/315c995ea2a4038d4f12c839abea9aefaa7898daa6214f699efc9bd4ca328888.wav",
+          "start": 719.9211666666666,
+          "end": 729.6137916666667
+        },
+        {
+          "text": "Our theorem says that deciding whether a target gain is achievable is NP-complete, even with unit seats and shortlists of length at most three.",
+          "spoken_text": "Our theorem says that deciding whether a target gain is achievable is N P complete, even with unit seats and shortlists of length at most three.",
+          "audio_sha256": "214fa98d980bb50927f85f7a435a46750339f2493c63bb0d25fbcd4f23ba660f",
+          "cache_file": "audio-cache/a4e0fd436820dc2a131292b3e04c31ef213f5e6670b8258a045201776c4c448e.wav",
+          "start": 729.7937916666667,
+          "end": 739.2504166666666
+        },
+        {
+          "text": "Checking a chosen policy with deferred acceptance remains polynomial.",
+          "spoken_text": "Checking a chosen policy with deferred acceptance remains polynomial.",
+          "audio_sha256": "270dcc4d07e61c639cc4622226bd8d750929733f2995ea8d7a965518f3164f44",
+          "cache_file": "audio-cache/a5735e6093134df8a9cc7a5a16568bd27b35c77361e7b492bb24ca5f09296303.wav",
+          "start": 739.4304166666667,
+          "end": 744.18375
+        },
+        {
+          "text": "The theorem uses fixed, strict priorities on an explicit panel.",
+          "spoken_text": "The theorem uses fixed, strict priorities on an explicit panel.",
+          "audio_sha256": "a01cd774f2c45a7adbb460afee32666b822da74679cab62f95ab2e3d2e33bb7d",
+          "cache_file": "audio-cache/70e567112e7929908489edcb9f7648def787ce1847e47dd2e32ec002e28aa1b5.wav",
+          "start": 744.36375,
+          "end": 748.5737083333333
+        },
+        {
+          "text": "Chile's family-linked rules are tested separately.",
+          "spoken_text": "Chile's family-linked rules are tested separately.",
+          "audio_sha256": "924d9149d9b52658fce6e2986b876c77fa257aceb1c73d32fd5ecffd04dba140",
+          "cache_file": "audio-cache/8b91e57e7c8ca9d7ea88c9cf89fba889629922d6f3bef0e954edd88baa5ecbd5.wav",
+          "start": 748.7537083333333,
+          "end": 751.8897083333334
+        },
+        {
+          "text": "The difficulty is choosing compatible edits, as the next slide illustrates.",
+          "spoken_text": "The difficulty is choosing compatible edits, as the next slide illustrates.",
+          "audio_sha256": "a98a2c048d369a639ee37ab9a9fe9088e39539105fbc490c13cbfeb9c97894ad",
+          "cache_file": "audio-cache/5cfe4960d5aaa981e628257144fc5037df37f8a790ea133829e9bf74d00c41e5.wav",
+          "start": 752.0697083333333,
+          "end": 756.9510416666667
+        }
+      ]
+    },
+    {
+      "slide": 14,
+      "title": "Why individually safe edits can conflict",
+      "start": 758.0,
+      "end": 814.0,
+      "duration": 56.0,
+      "planned_duration": 56,
+      "minimum_duration": 55.11954166666667,
+      "speech_and_inter_sentence_seconds": 54.01954166666667,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.6304583333333298,
+      "overrun_seconds": 0.0,
+      "words": 132,
+      "cues": [
+        {
+          "text": "The proof starts with a graph.",
+          "spoken_text": "The proof starts with a graph.",
+          "audio_sha256": "7ec8cef7fedc839f73dbea7b765919f093c02fa82c9fd0ed47a67b60872b844f",
+          "cache_file": "audio-cache/ca5861f684f92fc2d8d3476802a356c8866c0c14de6ca7ab9742ef0bae3efea8.wav",
+          "start": 758.35,
+          "end": 760.1279583333334
+        },
+        {
+          "text": "Each vertex represents a beneficial shortlist edit.",
+          "spoken_text": "Each vertex represents a beneficial shortlist edit.",
+          "audio_sha256": "0b4cb033bd379037874d6ac1ec27c5721a1da5a4bb3b2535ab8364e14f3ac2b8",
+          "cache_file": "audio-cache/e71142198e047bd94cebb18660866d06dd82346885b04072294e21285e788d7c.wav",
+          "start": 760.3079583333333,
+          "end": 763.8265833333334
+        },
+        {
+          "text": "Each edge creates one priority draw where the two endpoint edits can conflict.",
+          "spoken_text": "Each edge creates one priority draw where the two endpoint edits can conflict.",
+          "audio_sha256": "cac8d57f8935b20c7e801482ae28e19bbd02c5c5132daf6835100a7a6a2c27f5",
+          "cache_file": "audio-cache/f5533e3019e597afb0136644b577d18e287c78b2e3be0b2e435eb144179f92a3.wav",
+          "start": 764.0065833333333,
+          "end": 769.1665416666667
+        },
+        {
+          "text": "Look at this one draw.",
+          "spoken_text": "Look at this one draw.",
+          "audio_sha256": "00552e1cfec056dd4c6fddca70e66b9eef00fb6b4affc57bef85a59ca0679eb7",
+          "cache_file": "audio-cache/80373b392bb417f464fb679e9a514fe73df483d6c7377e342d47bd11aabf27e8.wav",
+          "start": 769.3465416666667,
+          "end": 770.8185416666666
+        },
+        {
+          "text": "Selecting edit u displaces another, already-matched pupil toward the fallback seat.",
+          "spoken_text": "Selecting edit u displaces another, already-matched pupil toward the fallback seat.",
+          "audio_sha256": "b4154bb5af8b0faab3aab57c8e0d29ca3dd4904fd104135f4e69899bf18afef6",
+          "cache_file": "audio-cache/e02eb6c34ebb0319ca65ae68d07ac87f5dda0d46666684b662f4f07b5cd4ddc7.wav",
+          "start": 770.9985416666667,
+          "end": 776.5098333333333
+        },
+        {
+          "text": "Selecting edit v displaces a different already-matched pupil toward the same seat.",
+          "spoken_text": "Selecting edit v displaces a different already-matched pupil toward the same seat.",
+          "audio_sha256": "1cb814e412cb9e869499e600fd52477719f5eb70ff95e873d6ca9d08f3965e8c",
+          "cache_file": "audio-cache/1e38b2d63064f61f99f77edbebe9d9e533c87062a550c3ee4dc811b9a3e1879b.wav",
+          "start": 776.6898333333334,
+          "end": 782.0517916666666
+        },
+        {
+          "text": "Either edit alone is safe.",
+          "spoken_text": "Either edit alone is safe.",
+          "audio_sha256": "831d2eab044b53966722727301814589064fbc1d4d33f2d5b74fef5e1b81fd7c",
+          "cache_file": "audio-cache/49f9e34ad86313face5ec3490ccd73dd8e77f4c135c045cc71ae4150875955c8.wav",
+          "start": 782.2317916666667,
+          "end": 784.0324583333334
+        },
+        {
+          "text": "Select both, and one pupil must lose a seat.",
+          "spoken_text": "Select both, and one pupil must lose a seat.",
+          "audio_sha256": "1be49d47d605e7c0e6f3414ba0629ce997d3a508c845b42db8b1f8db13c060d9",
+          "cache_file": "audio-cache/8f62fd60ba4d43edc4b6cdb5d1a8e879f8bced73c5401a068e08bd39e7f53243.wav",
+          "start": 784.2124583333333,
+          "end": 787.1564583333334
+        },
+        {
+          "text": "Other vertex edits are harmless on this draw.",
+          "spoken_text": "Other vertex edits are harmless on this draw.",
+          "audio_sha256": "58aba484c3c12f2ab7b0e606359d3f61d98b644439509021e2038a671a9d9ac7",
+          "cache_file": "audio-cache/60929641027ee04c3b9874b768d622a508de96c9999c6996c2585d0124353787.wav",
+          "start": 787.3364583333333,
+          "end": 790.2377916666667
+        },
+        {
+          "text": "We create a draw for every edge.",
+          "spoken_text": "We create a draw for every edge.",
+          "audio_sha256": "521f16a038143644e2bcd3f3dc0d0f08f5126c5ce3d83aa1925f3c40899e2472",
+          "cache_file": "audio-cache/12ed3e367e7d0008d7a3e2ffedfb9cf8bd3e0b62695ec2cd33603d6877b3cca3.wav",
+          "start": 790.4177916666666,
+          "end": 792.4330833333333
+        },
+        {
+          "text": "One fixed set of edits must work on all of them.",
+          "spoken_text": "One fixed set of edits must work on all of them.",
+          "audio_sha256": "7b4580b180f7521f51bc1caf12342b8e42901e038637f09eca5f0dfd812661bc",
+          "cache_file": "audio-cache/59df6d0e5670a8188e60343f65d00db115353d274cf68375c87e2547cde78184.wav",
+          "start": 792.6130833333333,
+          "end": 795.692375
+        },
+        {
+          "text": "So a safe set cannot contain both endpoints of any edge.",
+          "spoken_text": "So a safe set cannot contain both endpoints of any edge.",
+          "audio_sha256": "adb53e00d765b23c8571eabcdd5ad800ba0b437c2eea37a2c03fa733debb6d6a",
+          "cache_file": "audio-cache/e663a6bd1c69f7f90f2e65ef18c31142c50e598074c0b2944796617eae3574f2.wav",
+          "start": 795.872375,
+          "end": 799.4763333333333
+        },
+        {
+          "text": "That is an independent set.",
+          "spoken_text": "That is an independent set.",
+          "audio_sha256": "27dd791c348aad1ad9d83eb74178803bec30cd0389ffaa44030b11a44b4a9a75",
+          "cache_file": "audio-cache/9d7456cba0873a14fd5f89327164c39a0a95f31a59dd7f359f44e0b477f0bc22.wav",
+          "start": 799.6563333333334,
+          "end": 801.5636666666667
+        },
+        {
+          "text": "Each selected vertex adds one reference hit.",
+          "spoken_text": "Each selected vertex adds one reference hit.",
+          "audio_sha256": "a4433c28668b1306851880995988d5e727c47a92ba01259309092f50a9a41f3f",
+          "cache_file": "audio-cache/06402c9379aed726172dfbcd329a3da81c647d79b902b0da4d95583e58982ad6.wav",
+          "start": 801.7436666666666,
+          "end": 804.8142916666667
+        },
+        {
+          "text": "Maximizing safe gains therefore solves the Independent Set problem.",
+          "spoken_text": "Maximizing safe gains therefore solves the Independent Set problem.",
+          "audio_sha256": "15d059b96ed9498a0e2279da1b20d3595a0a069736a6133ba96d9e76851a70a1",
+          "cache_file": "audio-cache/7e4522698cafbc3862b2c9f1d275a3df993b58e14463c968d3f02af7a0bc78ae.wav",
+          "start": 804.9942916666666,
+          "end": 809.6095833333334
+        },
+        {
+          "text": "The appendix gives the full construction.",
+          "spoken_text": "The appendix gives the full construction.",
+          "audio_sha256": "36f72a1e6f0cf577a1e0ff2f1407f6cd749536b4b1f5c65838af4b1483418008",
+          "cache_file": "audio-cache/edfcb6764d72f1c711fb63b80db0d97f4b28d03d38e7936a3d0f9f44d7e9c449.wav",
+          "start": 809.7895833333333,
+          "end": 812.3695416666667
+        }
+      ]
+    },
+    {
+      "slide": 15,
+      "title": "Allowing school switches leaves more room",
+      "start": 814.0,
+      "end": 882.0,
+      "duration": 68.0,
+      "planned_duration": 68,
+      "minimum_duration": 67.861125,
+      "speech_and_inter_sentence_seconds": 66.761125,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.8888749999999987,
+      "overrun_seconds": 0.0,
+      "words": 136,
+      "cues": [
+        {
+          "text": "We then compare two protection requirements on the same Chilean design panels: 1,024 lotteries per cohort for 2022 through 2024.",
+          "spoken_text": "We then compare two protection requirements on the same Chilean design panels: 1,024 lotteries per cohort for 2022 through 2024.",
+          "audio_sha256": "70f4d21b7cdcfd7e895fbcb468bdc81393c5bc31fd70fceb70f7c27708fa9347",
+          "cache_file": "audio-cache/5e0b3c6e79bb1bb2bf867c22a80198101715b576b97e92beede6de39a0356418.wav",
+          "start": 814.35,
+          "end": 826.3039583333333
+        },
+        {
+          "text": "If every baseline recipient must keep the same course and seat type, the maximum additional enrollment coverage is exactly 314 hits within our allowed shortlist family.",
+          "spoken_text": "If every baseline recipient must keep the same course and seat type, the maximum additional enrollment coverage is exactly 314 hits within our allowed shortlist family.",
+          "audio_sha256": "8f2dedc92977b98da29d74b2e104152ebb45b62361d6aafa43bb02ba227db04a",
+          "cache_file": "audio-cache/6da30ee78db31cb7edc57fa07e630dca624344f04fc31d972dc3fbf8feca78ed.wav",
+          "start": 826.4839583333334,
+          "end": 839.0565833333334
+        },
+        {
+          "text": "If recipients may switch schools while keeping a seat, we construct shortlists gaining 642 hits.",
+          "spoken_text": "If recipients may switch schools while keeping a seat, we construct shortlists gaining 642 hits.",
+          "audio_sha256": "aca930d2107d0d2df6d723fd656aa574cb2ff2af94e8c401ae388b6e7aea8457",
+          "cache_file": "audio-cache/8b85206a20e2cc10725ebf35562866335445c7d66a3c512d937bbd62bc2e8488.wav",
+          "start": 839.2365833333333,
+          "end": 845.993875
+        },
+        {
+          "text": "The certified upper bound is 4,620.",
+          "spoken_text": "The certified upper bound is 4,620.",
+          "audio_sha256": "bd8b99c3b0bd325b260577ce843840ad3cea7f6b1cdbec859115f11fb640d05d",
+          "cache_file": "audio-cache/ab9f10b3fd7c5b32b04e6c9ae038f356456678778f90f39cfb41dbb86be2aeb6.wav",
+          "start": 846.173875,
+          "end": 849.979875
+        },
+        {
+          "text": "Allowing switches therefore permits more than twice the demonstrated coverage gain.",
+          "spoken_text": "Allowing switches therefore permits more than twice the demonstrated coverage gain.",
+          "audio_sha256": "333639ca6bae38800e841bbdb8a81b951035062e8ae4ea32997876aabea32d69",
+          "cache_file": "audio-cache/d09dcf323a2bad70639ee3cd2b3740b33451631b514a4af37c69c21284199aff.wav",
+          "start": 850.159875,
+          "end": 855.403875
+        },
+        {
+          "text": "But the bracket is wide.",
+          "spoken_text": "But the bracket is wide.",
+          "audio_sha256": "a6d8f87145319bbb62952a80359980ad513be27952c4ba88a881a5715e44a7d4",
+          "cache_file": "audio-cache/716ea175ab64365dcb0cb5f14161d6c45e53c4e4dfcf404a732366b8406d18c5.wav",
+          "start": 855.583875,
+          "end": 857.1725
+        },
+        {
+          "text": "We have not found the optimal retention policy.",
+          "spoken_text": "We have not found the optimal retention policy.",
+          "audio_sha256": "ee13f2a2cbae39e3332d60593c6fa6dbbbf9c6d2ac03311565e9d4f7a5ed64a1",
+          "cache_file": "audio-cache/408070b2552bfc22e62a187ef2598a1f243123f915490df126b61b6efa97fabd.wav",
+          "start": 857.3525,
+          "end": 860.2965
+        },
+        {
+          "text": "These are hindsight optimization benchmarks, using the evaluation cohorts' later enrollment labels.",
+          "spoken_text": "These are hindsight optimization benchmarks, using the evaluation cohorts' later enrollment labels.",
+          "audio_sha256": "3fb0dcd28ed2e15e4713cdd3303a2bad6f2bdcfa4dc7379579be5bb2f5dcfbce",
+          "cache_file": "audio-cache/4892ec8c4100e468ccd3f02955589779aecae46edecc6ae235898b4f483a1b48.wav",
+          "start": 860.4765,
+          "end": 867.447125
+        },
+        {
+          "text": "They do not describe a policy that could choose its shortlists before those outcomes existed.",
+          "spoken_text": "They do not describe a policy that could choose its shortlists before those outcomes existed.",
+          "audio_sha256": "be93ff80c455731e71ea02f6574b8f3accc02daa73b6e6e3c32342e400a40142",
+          "cache_file": "audio-cache/ea547f482d8e33b1a98efe4ac6cb7da5648775e3182a5f75d5e42bdcbaf57209.wav",
+          "start": 867.627125,
+          "end": 873.6604583333333
+        },
+        {
+          "text": "To make the constructive answer useful, we also need a rule based only on information available before assignment.",
+          "spoken_text": "To make the constructive answer useful, we also need a rule based only on information available before assignment.",
+          "audio_sha256": "164b69b33f6df999daed4d5e4a8c3321270733d9bd695bd86a7863f459843906",
+          "cache_file": "audio-cache/84326891fd2f028eb902931a62a40d42d570a9832436244bfabe477d84a6d0b5.wav",
+          "start": 873.8404583333333,
+          "end": 881.111125
+        }
+      ]
+    },
+    {
+      "slide": 16,
+      "title": "A test panel is weaker than a guarantee",
+      "start": 882.0,
+      "end": 933.0,
+      "duration": 51.0,
+      "planned_duration": 51,
+      "minimum_duration": 50.97575,
+      "speech_and_inter_sentence_seconds": 49.87575,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 0.7742500000000021,
+      "overrun_seconds": 0.0,
+      "words": 114,
+      "cues": [
+        {
+          "text": "We evaluate two rules frozen after applications arrive, before the ordinary assignment.",
+          "spoken_text": "We evaluate two rules frozen after applications arrive, before the ordinary assignment.",
+          "audio_sha256": "d72842b8007df265331bc07c055f7d3d0e1f99c61240db3e71640c9881e79360",
+          "cache_file": "audio-cache/fe9db52f05cbabe81bf3b37ae93637a8f677546c719e7120ae9166d22f54db29.wav",
+          "start": 882.35,
+          "end": 888.2452916666666
+        },
+        {
+          "text": "Neither uses that cohort's realized offers or later enrollment to choose shortlists.",
+          "spoken_text": "Neither uses that cohort's realized offers or later enrollment to choose shortlists.",
+          "audio_sha256": "40f5a02f7f8392ca18a82a2df0c1457da354ae97006a90cf628cd6af699b58b5",
+          "cache_file": "audio-cache/7efbcfd3ec91ba75beee432f641297157d98e408cf83921e3a69504353ac0810.wav",
+          "start": 888.4252916666667,
+          "end": 894.1059166666666
+        },
+        {
+          "text": "The structural rule protects a set of interactions around applicants without a guaranteed fallback.",
+          "spoken_text": "The structural rule protects a set of interactions around applicants without a guaranteed fallback.",
+          "audio_sha256": "9dcb6bdd889c7bfe14fea2925b4cea14d7e1c94eb7909618b72e5f20a9815f25",
+          "cache_file": "audio-cache/2dc094e5babc71140a1e9d7aa70c623e85a70436ecf3e21cbc4be0d6dd78620c.wav",
+          "start": 894.2859166666667,
+          "end": 900.4485416666666
+        },
+        {
+          "text": "Its proof covers all permitted ordinary lottery orders under the fixed inputs and reconstructed mechanism.",
+          "spoken_text": "Its proof covers all permitted ordinary lottery orders under the fixed inputs and reconstructed mechanism.",
+          "audio_sha256": "60cf2ad726e09d207d7b12324f932217b243f4fff920a6b03acae86f2f16c665",
+          "cache_file": "audio-cache/a78abf896b3e1c47b8a7414d76ef4f3036743ec47265a3c79e52bd807a6b74ec.wav",
+          "start": 900.6285416666667,
+          "end": 907.6318333333334
+        },
+        {
+          "text": "It gains 28 enrollment hits and has zero exits in the test panels.",
+          "spoken_text": "It gains 28 enrollment hits and has zero exits in the test panels.",
+          "audio_sha256": "113b4df0063ab5cce8d0bd7801df82803c1d90cf4a4424f9ff69fd3dea05a9dc",
+          "cache_file": "audio-cache/c564bec126f9ac4c567bc6d4a536947db910fa15bdb1e28e16a09688f6a68d42.wav",
+          "start": 907.8118333333333,
+          "end": 912.6078333333334
+        },
+        {
+          "text": "A learned rule passes its design-panel checks and gains 50 hits.",
+          "spoken_text": "A learned rule passes its design-panel checks and gains 50 hits.",
+          "audio_sha256": "2b541217a291e0750941c6cc4e4e55ad066718018f58437e75d7ec2061d0c1fa",
+          "cache_file": "audio-cache/9f0a120240336f3debf8ea94ab6886e0dcb756655afe6f7ebb3da998104a77a8.wav",
+          "start": 912.7878333333333,
+          "end": 917.423125
+        },
+        {
+          "text": "But it causes an exit in each of two fresh lottery generators.",
+          "spoken_text": "But it causes an exit in each of two fresh lottery generators.",
+          "audio_sha256": "24dd8bbf440c4310a58dfdd3f83839756e820030eebf49eca4156d3606293e13",
+          "cache_file": "audio-cache/78c5f3cbda5be960ef9f469e72c857e5ca55e6b618848e1aabdb5bfe1cadf9b2.wav",
+          "start": 917.603125,
+          "end": 921.7064166666667
+        },
+        {
+          "text": "The guaranteed gain is small.",
+          "spoken_text": "The guaranteed gain is small.",
+          "audio_sha256": "c206860303f637e061dafbe66f704e9339f445683e0f0ddc844fb64bdabd111b",
+          "cache_file": "audio-cache/377ef22d5dee40145ef72edc3ed74b3161923249d8b2c56409b1361690f43a61.wav",
+          "start": 921.8864166666667,
+          "end": 923.7210833333334
+        },
+        {
+          "text": "The useful distinction is between a proof covering the allowed orders and a policy that merely passed many simulated draws.",
+          "spoken_text": "The useful distinction is between a proof covering the allowed orders and a policy that merely passed many simulated draws.",
+          "audio_sha256": "dc999fd7860a4e527070cbcc38444efc9a6516a26b2ef40c8eebf305601efc2e",
+          "cache_file": "audio-cache/dd8eed44dd76af130121f12565c3c88560fdbef8ffef306269c3468c33b020fc.wav",
+          "start": 923.9010833333333,
+          "end": 932.22575
+        }
+      ]
+    },
+    {
+      "slide": 17,
+      "title": "Protecting recipients can preserve exclusion",
+      "start": 933.0,
+      "end": 996.0,
+      "duration": 63.0,
+      "planned_duration": 63,
+      "minimum_duration": 62.63625,
+      "speech_and_inter_sentence_seconds": 61.536249999999995,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.1137500000000031,
+      "overrun_seconds": 0.0,
+      "words": 134,
+      "cues": [
+        {
+          "text": "The social objective cannot stop with protecting people who already have a place.",
+          "spoken_text": "The social objective cannot stop with protecting people who already have a place.",
+          "audio_sha256": "c585a0a6706fadb76bb40f607c99d392db1766268c4ecec332f7e1e4ca3ee0b6",
+          "cache_file": "audio-cache/5ce9a236ed9f302cd3ae21ee7478e09bcc96d1503e728d1e8c07c184117aa34a.wav",
+          "start": 933.35,
+          "end": 938.582625
+        },
+        {
+          "text": "Our structural Chile rule produces no new entrants on the reported paired test lotteries.",
+          "spoken_text": "Our structural Chile rule produces no new entrants on the reported paired test lotteries.",
+          "audio_sha256": "cbadd5e05082a22f2a5e307c1e5095a0022d7bb82be73aa0dce10b125cbf186b",
+          "cache_file": "audio-cache/f23bf89ae930bc6bcc6699fae8381f86de6496037e5872da93e42eb5262ba2e9.wav",
+          "start": 938.762625,
+          "end": 944.6139166666667
+        },
+        {
+          "text": "It preserves incumbents, but does not expand access for previously unplaced pupils in those tests.",
+          "spoken_text": "It preserves incumbents, but does not expand access for previously unplaced pupils in those tests.",
+          "audio_sha256": "76ec66c6d42907e95e01724a37b8d90527623cc7466546f87866f1732cc56c6f",
+          "cache_file": "audio-cache/e736cb868518848974ba4b43c299e77d7207748b8ed062fb1f76aae0ac818f8f.wav",
+          "start": 944.7939166666666,
+          "end": 951.145875
+        },
+        {
+          "text": "That raises a substantive design choice.",
+          "spoken_text": "That raises a substantive design choice.",
+          "audio_sha256": "56f1135a476b4c0779bc884ffccf39e34368c4bf9af09ac0903471f38f2e0855",
+          "cache_file": "audio-cache/6c9dafc766aedd2607308720dbe7abbd4e13a188c3f90d99b1b485c1b56fdf78.wav",
+          "start": 951.325875,
+          "end": 953.9485
+        },
+        {
+          "text": "How should we balance protection for existing recipients against opportunities for people who start excluded?",
+          "spoken_text": "How should we balance protection for existing recipients against opportunities for people who start excluded?",
+          "audio_sha256": "ebf1776e72ffec855908bc7bb52d1f452354f389762fc79968d142c8548a7c49",
+          "cache_file": "audio-cache/a97880488fbca619b56626d0bf2157ab384813a378725ed524b545a7fbf0ce5b.wav",
+          "start": 954.1285,
+          "end": 960.8897916666667
+        },
+        {
+          "text": "Our measurements are incomplete answers.",
+          "spoken_text": "Our measurements are incomplete answers.",
+          "audio_sha256": "329134e980a6f690d7375bcdaecab159847c72ef218406c094c99e0296442ec8",
+          "cache_file": "audio-cache/963a9ab941ea7185480468a78f6aef2c3d23d88979c073bcefdb52a097bf4a37.wav",
+          "start": 961.0697916666667,
+          "end": 963.4904166666666
+        },
+        {
+          "text": "Historical enrollment reflects constraints as well as preference.",
+          "spoken_text": "Historical enrollment reflects constraints as well as preference.",
+          "audio_sha256": "bc8097363861a451d4902156876353ac9219767bce1839810e8138ff731d24ce",
+          "cache_file": "audio-cache/d9cecdc3da276c2e7eec18329af633a7f555031f94d5d215e887815b93132ef8.wav",
+          "start": 963.6704166666667,
+          "end": 967.84775
+        },
+        {
+          "text": "Receiving any seat can mean moving to a worse school, and modeled ranks are not measured household welfare.",
+          "spoken_text": "Receiving any seat can mean moving to a worse school, and modeled ranks are not measured household welfare.",
+          "audio_sha256": "197deb1cad17d6309809fa429082a92e23e31ec797b5375a19989cba47b51004",
+          "cache_file": "audio-cache/9250850835b2eba7629c9759609a02e4aa2e44ceb3f435591d5fbed12bd21316.wav",
+          "start": 968.02775,
+          "end": 974.392375
+        },
+        {
+          "text": "Before deployment, people should retain the ability to add choices, correct errors, and seek human review or appeal.",
+          "spoken_text": "Before deployment, people should retain the ability to add choices, correct errors, and seek human review or appeal.",
+          "audio_sha256": "2fb56e09b22e528dd35938015da0416ae3a977a44411ed618b8e5d92e0a7e43c",
+          "cache_file": "audio-cache/84c0548d97a794f6c481d36c5cbbd66679169852690a6d2f48859d73bfd5464b.wav",
+          "start": 974.572375,
+          "end": 982.345
+        },
+        {
+          "text": "Those are proposed safeguards, not interventions we have tested.",
+          "spoken_text": "Those are proposed safeguards, not interventions we have tested.",
+          "audio_sha256": "fe0528d6366fac47145fc99ea1140a5abb1dd9294dcbccc032ceabd3f3c12649",
+          "cache_file": "audio-cache/a7cd0cd65ab0ea14a5d44b95303c453d87e54cafdaff63508bcdae0f239c929d.wav",
+          "start": 982.525,
+          "end": 986.6083333333333
+        },
+        {
+          "text": "Recommendations redistribute existing opportunities.",
+          "spoken_text": "Recommendations redistribute existing opportunities.",
+          "audio_sha256": "a905da7a3bb7046ed3d214817bedd86a19b08ddcadd01ae12ec42a580d1906ed",
+          "cache_file": "audio-cache/99a1cfc8c44dcb1cdf8e503ed04da605eb847bc926d6c9065ff8fc71d79a8417.wav",
+          "start": 986.7883333333333,
+          "end": 990.591625
+        },
+        {
+          "text": "They cannot create affordable apartments or new school capacity.",
+          "spoken_text": "They cannot create affordable apartments or new school capacity.",
+          "audio_sha256": "7fd4aa14d590e042c80fcfbc5d711446b14a3a31a14515e27f5864c5981f2fb5",
+          "cache_file": "audio-cache/fe00fe4d2a0bbaa1f2c1f2019b48912a67e5569ae1f3744659f1d8d77697d99a.wav",
+          "start": 990.771625,
+          "end": 994.88625
+        }
+      ]
+    },
+    {
+      "slide": 18,
+      "title": "Evaluate the allocation, not just the list",
+      "start": 996.0,
+      "end": 1026.0,
+      "duration": 30.0,
+      "planned_duration": 30,
+      "minimum_duration": 29.435875,
+      "speech_and_inter_sentence_seconds": 28.335874999999998,
+      "inter_sentence_pause_seconds": [
+        0.18,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "final_hold_seconds": 1.3141250000000007,
+      "overrun_seconds": 0.0,
+      "words": 65,
+      "cues": [
+        {
+          "text": "Recommendations need a market-level evaluation.",
+          "spoken_text": "Recommendations need a market-level evaluation.",
+          "audio_sha256": "a69835a05c249c10ce2b659d55c0f4342d249e2db59b070fe892e0c67264f95b",
+          "cache_file": "audio-cache/46477d7885b9af102d4a728274e1e5263c2dc4a925d82bf669e4901e2fd8275b.wav",
+          "start": 996.35,
+          "end": 999.9312916666667
+        },
+        {
+          "text": "Coordination can improve both coverage and placement.",
+          "spoken_text": "Coordination can improve both coverage and placement.",
+          "audio_sha256": "5ae707467e46e390b7a5d1fc69e6942e2fa63a3bc65603631568c21760f8f744",
+          "cache_file": "audio-cache/f8bdd872a4a9d99623a4712137a26ae212b8f153d1198903341068c2280939ac.wav",
+          "start": 1000.1112916666667,
+          "end": 1003.776625
+        },
+        {
+          "text": "But better totals do not guarantee that each person keeps access.",
+          "spoken_text": "But better totals do not guarantee that each person keeps access.",
+          "audio_sha256": "efe3e4e2b8f74864dcab96e368ae9c5ecae7f0789f384bd4f6508a3f9dcab4f2",
+          "cache_file": "audio-cache/f8664c801ea308c9abaf33ce86534f5946396b2c3ba9c682b2910909fe63c8fa.wav",
+          "start": 1003.956625,
+          "end": 1008.2505833333333
+        },
+        {
+          "text": "We measure that distinction, formalize the retention problem, and test the gap between a finite test panel and a guarantee.",
+          "spoken_text": "We measure that distinction, formalize the retention problem, and test the gap between a finite test panel and a guarantee.",
+          "audio_sha256": "5e43fab28171ff1647f36d5857dee9c4db756223e977e3791b4db9ecdae72469",
+          "cache_file": "audio-cache/88faf3199db8da2faffc00fa95034678e376661e71f5a67bbdefc6b714b53874.wav",
+          "start": 1008.4305833333333,
+          "end": 1016.1592083333334
+        },
+        {
+          "text": "The next design problem is to improve access for people without a place while protecting those who already have one.",
+          "spoken_text": "The next design problem is to improve access for people without a place while protecting those who already have one.",
+          "audio_sha256": "ec8b4b2f40449b1418d526f04ca875a4ad7ce609a9f2009e423d9fb80633f61c",
+          "cache_file": "audio-cache/fff6b6ec15e2b68da209c010bf1934d3c148a3d4da78d9d2072b559d2fc316f4.wav",
+          "start": 1016.3392083333333,
+          "end": 1023.481875
+        },
+        {
+          "text": "Thank you.",
+          "spoken_text": "Thank you.",
+          "audio_sha256": "a6d2ca92d005f92209caa011ac228553c2241209255c68f71c8a976daf3e3cfc",
+          "cache_file": "audio-cache/24a9f13674758cd28dac21bc64bcd96435eb86a0e33195b202947f6fd49e89bf.wav",
+          "start": 1023.661875,
+          "end": 1024.685875
+        }
+      ]
+    }
+  ],
+  "video_created": true,
+  "video_sha256": "acf68da1d88189f5ddfadcba37afea4f5ff37b46bb9438b598f96ad33733720d",
+  "video_bytes": 33566824,
+  "output": "presentation-narrated.mp4",
+  "encoded_duration_seconds": 1026.0,
+  "video_validation": "complete H.264 1920x1080 and AAC streams decoded without errors; mov_text captions present; timeline within 0.25 seconds",
+  "post_render_frame_validation": {
+    "video_sha256": "acf68da1d88189f5ddfadcba37afea4f5ff37b46bb9438b598f96ad33733720d",
+    "frame_count": 54,
+    "all_18_slide_sources_match": true,
+    "checked_positions": "0.25 seconds after start, midpoint, 0.25 seconds before end",
+    "samples": [
+      {
+        "slide": 1,
+        "position": "start",
+        "time_seconds": 0.25,
+        "matched_source_slide": 1,
+        "mean_absolute_rgb_error_320x180": 1.1691377314814815
+      },
+      {
+        "slide": 1,
+        "position": "middle",
+        "time_seconds": 9.0,
+        "matched_source_slide": 1,
+        "mean_absolute_rgb_error_320x180": 1.1691145833333334
+      },
+      {
+        "slide": 1,
+        "position": "end",
+        "time_seconds": 17.75,
+        "matched_source_slide": 1,
+        "mean_absolute_rgb_error_320x180": 1.1630497685185184
+      },
+      {
+        "slide": 2,
+        "position": "start",
+        "time_seconds": 18.25,
+        "matched_source_slide": 2,
+        "mean_absolute_rgb_error_320x180": 1.4895833333333333
+      },
+      {
+        "slide": 2,
+        "position": "middle",
+        "time_seconds": 44.5,
+        "matched_source_slide": 2,
+        "mean_absolute_rgb_error_320x180": 1.4895833333333333
+      },
+      {
+        "slide": 2,
+        "position": "end",
+        "time_seconds": 70.75,
+        "matched_source_slide": 2,
+        "mean_absolute_rgb_error_320x180": 1.4893634259259259
+      },
+      {
+        "slide": 3,
+        "position": "start",
+        "time_seconds": 71.25,
+        "matched_source_slide": 3,
+        "mean_absolute_rgb_error_320x180": 2.2055150462962962
+      },
+      {
+        "slide": 3,
+        "position": "middle",
+        "time_seconds": 98.5,
+        "matched_source_slide": 3,
+        "mean_absolute_rgb_error_320x180": 2.2055150462962962
+      },
+      {
+        "slide": 3,
+        "position": "end",
+        "time_seconds": 125.75,
+        "matched_source_slide": 3,
+        "mean_absolute_rgb_error_320x180": 2.205416666666667
+      },
+      {
+        "slide": 4,
+        "position": "start",
+        "time_seconds": 126.25,
+        "matched_source_slide": 4,
+        "mean_absolute_rgb_error_320x180": 2.2000289351851854
+      },
+      {
+        "slide": 4,
+        "position": "middle",
+        "time_seconds": 151.0,
+        "matched_source_slide": 4,
+        "mean_absolute_rgb_error_320x180": 2.2000289351851854
+      },
+      {
+        "slide": 4,
+        "position": "end",
+        "time_seconds": 175.75,
+        "matched_source_slide": 4,
+        "mean_absolute_rgb_error_320x180": 2.199965277777778
+      },
+      {
+        "slide": 5,
+        "position": "start",
+        "time_seconds": 176.25,
+        "matched_source_slide": 5,
+        "mean_absolute_rgb_error_320x180": 2.215827546296296
+      },
+      {
+        "slide": 5,
+        "position": "middle",
+        "time_seconds": 211.5,
+        "matched_source_slide": 5,
+        "mean_absolute_rgb_error_320x180": 2.2158333333333333
+      },
+      {
+        "slide": 5,
+        "position": "end",
+        "time_seconds": 246.75,
+        "matched_source_slide": 5,
+        "mean_absolute_rgb_error_320x180": 2.214583333333333
+      },
+      {
+        "slide": 6,
+        "position": "start",
+        "time_seconds": 247.25,
+        "matched_source_slide": 6,
+        "mean_absolute_rgb_error_320x180": 2.277951388888889
+      },
+      {
+        "slide": 6,
+        "position": "middle",
+        "time_seconds": 282.5,
+        "matched_source_slide": 6,
+        "mean_absolute_rgb_error_320x180": 2.277951388888889
+      },
+      {
+        "slide": 6,
+        "position": "end",
+        "time_seconds": 317.75,
+        "matched_source_slide": 6,
+        "mean_absolute_rgb_error_320x180": 2.2778819444444447
+      },
+      {
+        "slide": 7,
+        "position": "start",
+        "time_seconds": 318.25,
+        "matched_source_slide": 7,
+        "mean_absolute_rgb_error_320x180": 1.1737847222222222
+      },
+      {
+        "slide": 7,
+        "position": "middle",
+        "time_seconds": 345.5,
+        "matched_source_slide": 7,
+        "mean_absolute_rgb_error_320x180": 1.1737847222222222
+      },
+      {
+        "slide": 7,
+        "position": "end",
+        "time_seconds": 372.75,
+        "matched_source_slide": 7,
+        "mean_absolute_rgb_error_320x180": 1.1738425925925926
+      },
+      {
+        "slide": 8,
+        "position": "start",
+        "time_seconds": 373.25,
+        "matched_source_slide": 8,
+        "mean_absolute_rgb_error_320x180": 1.2337847222222222
+      },
+      {
+        "slide": 8,
+        "position": "middle",
+        "time_seconds": 406.5,
+        "matched_source_slide": 8,
+        "mean_absolute_rgb_error_320x180": 1.2337847222222222
+      },
+      {
+        "slide": 8,
+        "position": "end",
+        "time_seconds": 439.75,
+        "matched_source_slide": 8,
+        "mean_absolute_rgb_error_320x180": 1.233605324074074
+      },
+      {
+        "slide": 9,
+        "position": "start",
+        "time_seconds": 440.25,
+        "matched_source_slide": 9,
+        "mean_absolute_rgb_error_320x180": 1.5178819444444445
+      },
+      {
+        "slide": 9,
+        "position": "middle",
+        "time_seconds": 467.0,
+        "matched_source_slide": 9,
+        "mean_absolute_rgb_error_320x180": 1.5178993055555556
+      },
+      {
+        "slide": 9,
+        "position": "end",
+        "time_seconds": 493.75,
+        "matched_source_slide": 9,
+        "mean_absolute_rgb_error_320x180": 1.5179803240740741
+      },
+      {
+        "slide": 10,
+        "position": "start",
+        "time_seconds": 494.25,
+        "matched_source_slide": 10,
+        "mean_absolute_rgb_error_320x180": 1.6401851851851852
+      },
+      {
+        "slide": 10,
+        "position": "middle",
+        "time_seconds": 522.0,
+        "matched_source_slide": 10,
+        "mean_absolute_rgb_error_320x180": 1.6401851851851852
+      },
+      {
+        "slide": 10,
+        "position": "end",
+        "time_seconds": 549.75,
+        "matched_source_slide": 10,
+        "mean_absolute_rgb_error_320x180": 1.639537037037037
+      },
+      {
+        "slide": 11,
+        "position": "start",
+        "time_seconds": 550.25,
+        "matched_source_slide": 11,
+        "mean_absolute_rgb_error_320x180": 1.3762789351851852
+      },
+      {
+        "slide": 11,
+        "position": "middle",
+        "time_seconds": 596.0,
+        "matched_source_slide": 11,
+        "mean_absolute_rgb_error_320x180": 1.3762789351851852
+      },
+      {
+        "slide": 11,
+        "position": "end",
+        "time_seconds": 641.75,
+        "matched_source_slide": 11,
+        "mean_absolute_rgb_error_320x180": 1.3762789351851852
+      },
+      {
+        "slide": 12,
+        "position": "start",
+        "time_seconds": 642.25,
+        "matched_source_slide": 12,
+        "mean_absolute_rgb_error_320x180": 1.6848495370370369
+      },
+      {
+        "slide": 12,
+        "position": "middle",
+        "time_seconds": 669.5,
+        "matched_source_slide": 12,
+        "mean_absolute_rgb_error_320x180": 1.6848495370370369
+      },
+      {
+        "slide": 12,
+        "position": "end",
+        "time_seconds": 696.75,
+        "matched_source_slide": 12,
+        "mean_absolute_rgb_error_320x180": 1.6846469907407406
+      },
+      {
+        "slide": 13,
+        "position": "start",
+        "time_seconds": 697.25,
+        "matched_source_slide": 13,
+        "mean_absolute_rgb_error_320x180": 2.2259085648148145
+      },
+      {
+        "slide": 13,
+        "position": "middle",
+        "time_seconds": 727.5,
+        "matched_source_slide": 13,
+        "mean_absolute_rgb_error_320x180": 2.2259085648148145
+      },
+      {
+        "slide": 13,
+        "position": "end",
+        "time_seconds": 757.75,
+        "matched_source_slide": 13,
+        "mean_absolute_rgb_error_320x180": 2.2259432870370373
+      },
+      {
+        "slide": 14,
+        "position": "start",
+        "time_seconds": 758.25,
+        "matched_source_slide": 14,
+        "mean_absolute_rgb_error_320x180": 1.6655208333333331
+      },
+      {
+        "slide": 14,
+        "position": "middle",
+        "time_seconds": 786.0,
+        "matched_source_slide": 14,
+        "mean_absolute_rgb_error_320x180": 1.6655208333333331
+      },
+      {
+        "slide": 14,
+        "position": "end",
+        "time_seconds": 813.75,
+        "matched_source_slide": 14,
+        "mean_absolute_rgb_error_320x180": 1.6654976851851853
+      },
+      {
+        "slide": 15,
+        "position": "start",
+        "time_seconds": 814.25,
+        "matched_source_slide": 15,
+        "mean_absolute_rgb_error_320x180": 1.7838252314814813
+      },
+      {
+        "slide": 15,
+        "position": "middle",
+        "time_seconds": 848.0,
+        "matched_source_slide": 15,
+        "mean_absolute_rgb_error_320x180": 1.7838252314814813
+      },
+      {
+        "slide": 15,
+        "position": "end",
+        "time_seconds": 881.75,
+        "matched_source_slide": 15,
+        "mean_absolute_rgb_error_320x180": 1.7837905092592592
+      },
+      {
+        "slide": 16,
+        "position": "start",
+        "time_seconds": 882.25,
+        "matched_source_slide": 16,
+        "mean_absolute_rgb_error_320x180": 1.6286053240740739
+      },
+      {
+        "slide": 16,
+        "position": "middle",
+        "time_seconds": 907.5,
+        "matched_source_slide": 16,
+        "mean_absolute_rgb_error_320x180": 1.6286053240740739
+      },
+      {
+        "slide": 16,
+        "position": "end",
+        "time_seconds": 932.75,
+        "matched_source_slide": 16,
+        "mean_absolute_rgb_error_320x180": 1.6278645833333334
+      },
+      {
+        "slide": 17,
+        "position": "start",
+        "time_seconds": 933.25,
+        "matched_source_slide": 17,
+        "mean_absolute_rgb_error_320x180": 2.28802662037037
+      },
+      {
+        "slide": 17,
+        "position": "middle",
+        "time_seconds": 964.5,
+        "matched_source_slide": 17,
+        "mean_absolute_rgb_error_320x180": 2.28802662037037
+      },
+      {
+        "slide": 17,
+        "position": "end",
+        "time_seconds": 995.75,
+        "matched_source_slide": 17,
+        "mean_absolute_rgb_error_320x180": 2.287962962962963
+      },
+      {
+        "slide": 18,
+        "position": "start",
+        "time_seconds": 996.25,
+        "matched_source_slide": 18,
+        "mean_absolute_rgb_error_320x180": 1.9102835648148149
+      },
+      {
+        "slide": 18,
+        "position": "middle",
+        "time_seconds": 1011.0,
+        "matched_source_slide": 18,
+        "mean_absolute_rgb_error_320x180": 1.9041493055555554
+      },
+      {
+        "slide": 18,
+        "position": "end",
+        "time_seconds": 1025.75,
+        "matched_source_slide": 18,
+        "mean_absolute_rgb_error_320x180": 1.9041493055555554
+      }
+    ],
+    "visually_reviewed_slide_numbers": [
+      1,
+      4,
+      13,
+      14,
+      18
+    ]
+  },
+  "post_render_audio_validation": {
+    "pcm_samples": 24624000,
+    "sample_rate": 24000,
+    "peak_absolute_amplitude": 0.61126708984375,
+    "rms_amplitude": 0.05825521945878061,
+    "clipping_detected": false,
+    "nonfinite_samples_detected": false
+  }
+}

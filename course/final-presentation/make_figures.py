@@ -1,4 +1,4 @@
-"""Three main presentation figures and one appendix figure from released evidence."""
+"""Generate presentation figures and tables from authenticated aggregate rows."""
 import csv
 import hashlib
 import json
@@ -60,9 +60,9 @@ def rentals():
         rf"gpt_k5:.*?\(d acc ({number}) \[({number}),({number})\], "
         rf"d placed ({number}) \[({number}),({number})\]\)"
     )
-    windows = (("stage1_pilot", "Development 2026"),
-               ("heldout_primary", "Held out 2026"),
-               ("heldout_replication", "Replication 2025"))
+    windows = (("stage1_pilot", "Jun–Aug 2026"),
+               ("heldout_primary", "Sep–Oct 2026"),
+               ("heldout_replication", "Jun–Aug 2025"))
     fig, ax = plt.subplots(figsize=(9.3, 2.8))
     for y, (window, _) in zip((2, 1, 0), windows):
         matching = [line for line in lines if line.split()[:2] == [window, "enriched"]]
@@ -248,8 +248,66 @@ def access_tables():
                 arm="balanced_gpt", comparator="anchor_gpt", metric="placed")
     assert float(one(contrasts, window="heldout_primary", variant="enriched", group="degree_1_5",
                      arm="balanced_gpt", comparator="anchor_gpt", metric="coverage_market_mean")["mean"]) == 0
-    (data / "rental-access-macros.tex").write_text(
-        r"\newcommand{\unchangedMenuGain}{" + f"{100*float(spill['mean']):.1f}" + "}\n")
+    macros = {"unchangedMenuGain": f"{100*float(spill['mean']):.1f}"}
+    for arm, name in (("anchor_gpt", "unchangedBefore"), ("balanced_gpt", "unchangedAfter")):
+        r = one(levels, window="heldout_primary", variant="enriched", group="degree_1_5",
+                arm=arm, metric="placed")
+        macros[name] = f"{100*float(r['mean']):.1f}"
+    for arm, comparator, prefix in (("anchor_gpt", "gpt", "anchor"),
+                                    ("balanced_gpt", "anchor_gpt", "balanced")):
+        for metric, suffix in (("gross_exits", "Exits"), ("gross_entrants", "Entrants")):
+            r = one(transitions, window="heldout_primary", variant="enriched", group="all",
+                    arm=arm, baseline=comparator, metric=metric)
+            macros[prefix+suffix] = str(int(float(r["numerator_total"])))
+        macros[prefix+"Net"] = str(int(macros[prefix+"Entrants"])-int(macros[prefix+"Exits"]))
+    (data / "rental-access-macros.tex").write_text("".join(
+        f"\\newcommand{{\\{k}}}{{{v}}}\n" for k, v in macros.items()))
+
+
+def policy_comparison():
+    """A four-policy comparison, without claiming a fitted frontier."""
+    table = rows("findings/rental-anchor-access/levels.csv")
+    fig, ax = plt.subplots(figsize=(9.3, 2.7))
+    for arm, label, color, dx, dy in (
+        ("random", "Random", GREY, .3, -.2),
+        ("gpt", "GPT", RUST, .28, -.2),
+        ("anchor_gpt", "One anchor + GPT", BLUE, .28, .05),
+        ("balanced_gpt", "Balanced + GPT", "#1A7D78", .3, -.2),
+    ):
+        x, y = [100*float(one(table, window="heldout_primary", variant="enriched",
+                              group="all", arm=arm, metric=m)["mean"])
+                for m in ("coverage_market_mean", "placed")]
+        ax.scatter([x], [y], color=color, s=62, zorder=3)
+        ax.text(x+dx, y+dy, label, color=color, fontsize=13, va="center")
+    ax.set_xlabel("Reference-option coverage (%)", fontsize=13)
+    ax.set_ylabel("Placed (%)", fontsize=13)
+    ax.set_xlim(14.4, 28.5)
+    ax.set_ylim(59.5, 83)
+    ax.set_xticks([16, 20, 24, 28])
+    ax.set_yticks([60, 65, 70, 75, 80])
+    ax.grid(True, color="#e9edef", lw=.8)
+    ax.text(.02, .94, "Higher and farther right = more of both", transform=ax.transAxes,
+            fontsize=11, color=GREY, va="top")
+    clean(ax)
+    save(fig, "rental-policies.pdf")
+
+
+def chile_tables():
+    data = HERE / "data"
+    total = one(rows("findings/chile/retention_bounds.csv"), year="total")
+    prospective = rows("findings/chile/prospective.csv")
+    macros = {"exactGain": total["exact_contract_gain"],
+              "retentionGain": total["attained_retention_gain"],
+              "retentionUpper": f"{int(total['retention_upper']):,}"}
+    for policy, prefix in (("structural", "structural"), ("learned", "learned")):
+        c = one(prospective, year="total", rule=policy, lottery="course")
+        f = one(prospective, year="total", rule=policy, lottery="family")
+        assert c["net_historical_hit_change"] == f["net_historical_hit_change"]
+        macros[prefix+"Gain"] = c["net_historical_hit_change"]
+        macros[prefix+"CourseExits"] = c["incumbent_exit_events"]
+        macros[prefix+"FamilyExits"] = f["incumbent_exit_events"]
+    (data / "chile-main-macros.tex").write_text("".join(
+        f"\\newcommand{{\\{k}}}{{{v}}}\n" for k,v in macros.items()))
 
 
 def main():
@@ -261,8 +319,10 @@ def main():
     incidence()
     retention()
     access_tables()
+    policy_comparison()
+    chile_tables()
     (HERE / "figure-sources.json").write_text(json.dumps(sources, indent=2, sort_keys=True)+"\n")
-    print("Built three main figures, one appendix figure and access tables from", len(sources),
+    print("Built five figures and presentation tables from", len(sources),
           "aggregate sources, with PDF and PNG versions.")
 
 
