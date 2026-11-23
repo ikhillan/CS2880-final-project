@@ -37,3 +37,72 @@ Chilean school admissions ([`publication/research/observed/school/`](../publicat
   - **Rentals:** the accuracy and capacity analyses are equally post hoc there.
 - Jobs T intervals are about ±3 pp, so small effects could be missed.
 - "Missed a better option" and "placed" can move in opposite directions, so report both.
+
+# LLM shortlists: strongest results
+
+## The headline numbers
+
+When gpt-6-luna picks the 5 options each person sees, fewer people get placed than with 5 random options. Reserving one slot per list mostly fixes it. Every number below is GPT minus random on the same markets, in percentage points, and holds in held-out months.
+
+| Result | Number | Where |
+| --- | --- | --- |
+| Fewer job seekers placed | **−15.5 / −17.5** | Jobs, frozen / replication |
+| Fewer lower-wage seekers placed | **−22.6 / −23.0** | Jobs, frozen / replication |
+| More accurate, yet fewer renters placed | **+8 accuracy, −2 to −4 placed** | Rentals, 3 windows |
+| Capacity of the shown lists cut | **−20 to −22** jobs; **−9 to −11** rentals | Both markets |
+| One reserved slot wins back | **+13 to +16** jobs; **+3.5 to +4.9** rentals | Both markets |
+| Anchored GPT vs plain random, rentals | **+1.5, +0.3, +1.6** (loss erased) | Rentals, 3 windows |
+| Gap in missed better options widens (T) | **+7 to +8** rentals; **+4** jobs (natural draws) | Both markets |
+| Rank-informed model vs rank-blind | **~520 fewer families placed a year** | Chile, observed data |
+
+The jobs loss is about five times the rental loss. The mechanism is the same: GPT piles everyone onto the same few options.
+
+## Concentration, and the one-slot fix
+
+GPT's lists pile everyone onto the same few options, so the shown lists can't hold everyone. Reserving one of the 5 slots for an option from a full-market assignment brings placement back to about random in jobs, and slightly above random in rentals.
+
+![GPT lists place fewer people; one reserved slot wins most of it back](strongest_results_placement.png)
+
+In jobs, GPT's top three postings take 37% of list slots against 27% under random lists.
+
+## Accuracy is not placement, across all three studies
+
+In each setting, the "smarter" rule places fewer people than the baseline in every year or window. Chile compares a rank-informed classifier with a rank-blind one; NYC compares GPT with random lists. Each panel has its own scale.
+
+![The smarter rule places fewer people in all three settings, with equal or better accuracy](three_way_accuracy_placement.png)
+
+Against one shared baseline, random 5-option lists, GPT is the only recommender that lands in the "more accurate, fewer placed" corner. Chile's learned classifiers are more accurate *and* place slightly more families than random lists.
+
+![More accurate is not more placed: GPT loses placements, Chile's classifiers gain](strongest_results_accuracy_vs_placement.png)
+
+Jobs GPT 5-job lists are barely more accurate than random and lose the most placements, so concentration, not accuracy, drives the loss.
+
+## Who pays: the group with more options
+
+Long lists get concentrated, so the people with the most feasible options lose the most. The rule holds in all three settings, but it lands on different groups: Chilean families with more than 5 choices, higher-income renters and lower-wage job seekers.
+
+![The placement loss lands on the group with more options](three_way_who_loses.png)
+
+Chilean families with 5 or fewer choices still lose a little, though their own lists never change: one person's list affects everyone else's chances.
+
+In jobs the pay floor binds higher-wage seekers, so lower-wage seekers have the longer lists and bear the cost.
+
+## Hidden harms: a near-zero gap can be two harms
+
+In jobs, GPT hurts both wage groups through their own lists, and the two harms cancel in the gap. Switching one group's lists at a time shows it (the group switch):
+
+![GPT's lists hurt both job groups, but help higher-income renters](strongest_results_group_switch.png)
+
+- **Jobs:** both effects are significant. In the replication the lower-group effect is +9.1 [6.6, 11.5] and the higher-group effect is −6.5 [−8.9, −4.0], yet the gap (T) is only +2.6.
+- **Rentals:** the opposite story. GPT *helps* higher-income renters (misses 86% → 80%) and does nothing for lower-income renters, so the gap widens by about 7 points.
+- **No spillover:** in both markets the movement comes from a group's own lists, not from competition with the other group.
+
+So "the gap didn't move" is not "no effect". Report each group, not just the gap.
+
+## Observed check: Chilean school admissions
+
+On real admissions data (915,638 applicant-years), adding stated rank to a classifier makes it more accurate but places about 520 fewer families a year. This is the same "more accurate, places fewer" pattern, with no simulation and no LLM.
+
+- **Rank-informed minus rank-blind:** accuracy +0.32 / +0.33, placed −0.12 / −0.11 (2020 / 2021).
+- **Spillover is real:** families whose own list never changed still lose a little placement when everyone else's list is recommended.
+- **Contrast with GPT:** simple classifiers place *more* families than random lists (+0.28 / +0.24), while GPT places fewer than random in both NYC markets.
