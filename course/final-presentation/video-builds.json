@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "logical_slides": 21,
+  "logical_slides": 19,
   "builds": [
     {
       "slide": 1,
@@ -15,7 +15,7 @@
     {
       "slide": 2,
       "page": 3,
-      "anchor": "Now change only A's recommendation."
+      "anchor": "With balanced shortlists across the market"
     },
     {
       "slide": 3,
@@ -23,14 +23,14 @@
       "anchor": null
     },
     {
-      "slide": 4,
+      "slide": 3,
       "page": 5,
-      "anchor": null
+      "anchor": "Now change only A's recommendation."
     },
     {
       "slide": 4,
       "page": 6,
-      "anchor": "With balanced shortlists across the market"
+      "anchor": null
     },
     {
       "slide": 5,
@@ -60,37 +60,37 @@
     {
       "slide": 9,
       "page": 12,
-      "anchor": "Then there are 37 exits"
-    },
-    {
-      "slide": 9,
-      "page": 13,
-      "anchor": "Subtract those losses"
+      "anchor": "Here is what we can learn even with only the published totals."
     },
     {
       "slide": 10,
+      "page": 13,
+      "anchor": null
+    },
+    {
+      "slide": 11,
       "page": 14,
       "anchor": null
     },
     {
-      "slide": 11,
-      "anchor": null,
-      "page": 15
-    },
-    {
-      "slide": 11,
-      "anchor": "Here is what we can learn even with only the published totals.",
-      "page": 16
-    },
-    {
       "slide": 12,
-      "page": 17,
+      "page": 15,
       "anchor": null
     },
     {
       "slide": 13,
-      "page": 18,
+      "page": 16,
       "anchor": null
+    },
+    {
+      "slide": 13,
+      "page": 17,
+      "anchor": "Now choose edit v as well."
+    },
+    {
+      "slide": 13,
+      "page": 18,
+      "anchor": "We repeat this construction for every edge."
     },
     {
       "slide": 14,
@@ -105,52 +105,32 @@
     {
       "slide": 15,
       "page": 21,
-      "anchor": "Now choose edit v as well."
-    },
-    {
-      "slide": 15,
-      "page": 22,
-      "anchor": "We repeat this construction for every edge."
+      "anchor": "The learned rule passes its design-panel checks"
     },
     {
       "slide": 16,
+      "page": 22,
+      "anchor": null
+    },
+    {
+      "slide": 17,
       "page": 23,
       "anchor": null
     },
     {
       "slide": 17,
       "page": 24,
-      "anchor": null
-    },
-    {
-      "slide": 17,
-      "anchor": "The learned rule passes its design-panel checks",
-      "page": 25
+      "anchor": "Now switch everyone."
     },
     {
       "slide": 18,
-      "page": 26,
+      "page": 25,
       "anchor": null
     },
     {
       "slide": 19,
-      "page": 27,
+      "page": 26,
       "anchor": null
-    },
-    {
-      "slide": 20,
-      "anchor": null,
-      "page": 28
-    },
-    {
-      "slide": 20,
-      "anchor": "Now switch everyone.",
-      "page": 29
-    },
-    {
-      "slide": 21,
-      "anchor": null,
-      "page": 30
     }
   ]
 }

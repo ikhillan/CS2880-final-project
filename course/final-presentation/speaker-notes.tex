@@ -12,13 +12,29 @@ pdfauthor={Ishan Khillan, Elaine Zhang, Todd Zhou}}
 
 {\small Harvard CS 2880 / AI for Social Impact}\par
 \section*{Slide 1: Who gets a place?}
-{\color{navy}\textbf{00:00--00:10 | 10 seconds}}\par\medskip
-Imagine you and I are both looking for an apartment. Suppose the app changes one apartment on your list. Could that cost me the apartment I would otherwise get? To see how that can happen, start with two people and two seats.
+{\color{navy}\textbf{00:00--00:14 | 14 seconds}}\par\medskip
+Imagine you and I both use an app to find an apartment. Yesterday you could get a place. Today the listings on your screen are identical, but the app has changed what it shows me. Could that cost you the apartment? That's the question we tested. Here's what happened.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 2: A better suggestion can hurt someone else}
-{\color{navy}\textbf{00:10--00:54 | 44 seconds}}\par\medskip
+\section*{Slide 2: Same apartment lists. Twice the match rate.}
+{\color{navy}\textbf{00:14--00:55 | 41 seconds}}\par\medskip
+In our New York rental simulation, some renters had one to five feasible apartments. The app showed them every one. We compared two ways of recommending apartments to the rest of the market.
+\par
+With a rule that could replace at most one suggestion per renter, 13.1 percent of this group got an apartment.
+\par
+With balanced shortlists across the market, 27.5 percent got one.
+\par
+The rate more than doubled. The same people saw the same apartments, and each still faced the same landlord priorities. Only their competition changed. Here the group consists of 2,328 renter appearances in our September and October enriched markets. These are simulated assignments.
+\par
+That sounds like a lot to attribute to somebody else's screen. A two-seat example shows how it can happen.
+\par
+\vfill{\small\textbf{Advance the live slides at these words}\par}
+{\small ``With balanced shortlists across the market''}\par
+\newpage
+{\small Harvard CS 2880 / AI for Social Impact}\par
+\section*{Slide 3: A better suggestion can hurt someone else}
+{\color{navy}\textbf{00:55--01:35 | 40 seconds}}\par\medskip
 Let's start with two applicants and two school seats. A prefers school x to school y. B accepts only x. And school x gives A priority over B.
 \par
 At first, A sees y and B sees x. Both get a seat.
@@ -27,156 +43,81 @@ Now change only A's recommendation. Show A school x instead.
 \par
 Both applicants still see just one option. But now they compete for the same seat. A gets x, B gets nothing, and y sits empty.
 \par
-From A's perspective, the recommendation got better. B's shortlist did not change at all, yet B lost a place.
-\par
-Imagine evaluating that change with two separate surveys. A could report that the app finally showed the school they wanted. B could report that the screen looked exactly the same. Both accounts would be accurate. You would still have missed the empty seat and the person who used to have one.
-\par
-That's the interaction we want to understand. We would miss it if we evaluated each person's recommendations separately.
+Imagine asking each person to review what the app showed them. A can say the suggestion improved. B can say the suggestion stayed the same. Put those answers together and you still haven't counted the lost seat. To see it, we have to run the assignment.
 \par
 \vfill{\small\textbf{Advance the live slides at these words}\par}
 {\small ``Now change only A's recommendation.''}\par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 3: Choose a shortlist, then assign the places}
-{\color{navy}\textbf{00:54--01:38 | 44 seconds}}\par\medskip
-First, a recommender chooses a short list of feasible options. Then an assignment rule decides who gets which place.
+\section*{Slide 4: How we measure a change in access}
+{\color{navy}\textbf{01:35--02:18 | 43 seconds}}\par\medskip
+This example gives us a way to evaluate a recommender. First we ask whether the shortlist includes a reference option. We call that coverage. For rentals, the reference is the apartment a renter would be assigned if everyone saw every feasible listing. We measure rental coverage among people who get an apartment in that full-list assignment. In Chile we check whether a family's list includes the school where the child later enrolled.
 \par
-We keep track of three outcomes. Placement means receiving any place. Coverage means that a particular reference choice appears on the shortlist. And an exit means someone has a place under the comparison policy but loses it under the new one.
+Then we ask who gets a place. This time we run the assignment using everyone's shortlists together. Placement counts a person who gets any seat or apartment, even if it differs from the reference.
 \par
-A coverage hit is easy to score from a person's list once the reference is known. A placement is different. You need all the submitted lists, the capacity of each option, and the rule that decides among competing applicants. That's why we rerun the allocation with everyone in the market whenever we change a policy.
-\par
-For rentals, the reference is the apartment assigned when every feasible option is available. For Chile, it's the school recorded in later enrollment.
-\par
-We want to improve recommendations while keeping every baseline recipient matched somewhere. They can switch schools. That is a weaker promise than keeping the same school, or getting a school they like more.
+Finally, we pair the two runs person by person. Someone placed under the old policy and unplaced under the new one is an exit. For someone who gets a place for the first time, we count an entry. Two policies can place the same number of people and still produce both.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 4: Their lists stayed fixed. Their match rate doubled.}
-{\color{navy}\textbf{01:38--02:18 | 40 seconds}}\par\medskip
-In our New York rental simulation, take the renters with only one to five feasible apartments. Our policies already show them every option, so their personal shortlists cannot change.
+\section*{Slide 5: Who would an audit of edited lists miss?}
+{\color{navy}\textbf{02:18--03:17 | 59 seconds}}\par\medskip
+Housing and school admissions let us ask the same question with different evidence. For rentals we have actual listings and survey-based household profiles. Preferences, landlord priorities and assignments are modeled. We reconstructed 1,280 markets. Each comparison uses the same feasible apartments, renters and priority draws under both policies.
 \par
-With the one-option anchor, their match rate is 13.1 percent.
+We use ordinary sampling and an enriched design with more affordable listings and more renters who have options. That distinction matters. Some markets could not be built under the Staten Island supply requirements. A household with no feasible apartment cannot gain access through a better ranking alone.
 \par
-With balanced shortlists across the market, it rises to 27.5 percent.
+Chile gives us families' submitted rankings and an admissions mechanism we can replay. In the 2021 entry grades, only 6,133 out of roughly two hundred thousand linked pupils received a different list under the two policies. Yet 237 of 309 net lost placements fell among pupils with unchanged lists.
 \par
-That's more than double, with exactly the same choices on their own lists. Only other renters' recommendations changed.
-\par
-Think of someone who can afford only three of the listings. They already see all three. A prediction about which of those apartments they want cannot explain a change in their match here. To find the explanation, we have to look at who else is applying.
-\par
-We held the apartments, renters and assignment rule fixed across both runs. That lets us see how much the other renters' lists can matter. The next comparison asks whether the same thing can happen in school admissions.
-\par
-\vfill{\small\textbf{Advance the live slides at these words}\par}
-{\small ``With balanced shortlists across the market''}\par
-\newpage
-{\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 5: What happens to people whose lists stay fixed?}
-{\color{navy}\textbf{02:18--03:30 | 72 seconds}}\par\medskip
-For rentals, we start with the apartment lists that GPT suggested. The listings and household profiles come from market and survey data, while preferences, landlord priorities and assignments are modeled. We reconstruct 1,280 markets. In each one, the two policies face the same renters and apartments.
-\par
-We also pair the random draws across policies. Otherwise, a lucky set of preferences could look like an algorithmic improvement. For the follow-up, we resample twenty seed blocks ten thousand times, keeping all policies together within each draw. Renters sharing a market are not independent observations.
-\par
-We analyzed these three periods before, and some of the same apartments appear again. The finding tells us how different policies behave on those markets.
-\par
-There is also a supply limit. Of the markets originally planned, 320 could not be built under the Staten Island supply requirements. We kept those failures in the accounting. The enriched sample asks what a recommender can do when there are options to allocate. A household with no feasible apartment cannot gain access through a better ranking alone.
-\par
-Chile gives us families' submitted rankings and actual admissions rules. Our reconstruction matches the released course or no-offer outcomes for about two million applicant-years.
-\par
-In a separate 2021 entry-grade replay, 237 of 309 net lost placements fall among pupils whose own shortlists stay fixed.
-\par
-That is a counterfactual comparison, not a school-advice trial. The later cohorts we'll discuss are counterfactuals too. Both settings let us ask how other people's recommendations change your access, using different kinds of evidence.
+Most pupils were in that group to begin with. The point is what an audit would miss if it followed only people whose recommendations changed. These new assignments are counterfactual. The families supplied the rankings; our comparison changed the menus.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
 \section*{Slide 6: Two ways to coordinate recommendations}
-{\color{navy}\textbf{03:30--04:43 | 73 seconds}}\par\medskip
+{\color{navy}\textbf{03:17--04:42 | 85 seconds}}\par\medskip
 The first rule coordinates one option. We call it the anchor. Find a maximum matching across all feasible pairs. When several maximum matchings exist, prefer pairs already on the shortlists. Then put each assigned option onto that person's list, replacing at most one option.
 \par
 The second rule coordinates the whole shortlist. Count how often each listing is recommended, and minimize the sum of those counts squared. Concentrating recommendations on a few listings becomes expensive. Among equally balanced solutions, favor the saved GPT ranks. We solve this using standard min-cost flow.
 \par
-There is a simple marginal cost behind that optimization. The first recommendation to a listing costs one unit. The next costs three, then five. Those are the differences between successive squares. If two feasible apartments are equally useful for our tie breaker, the algorithm has a reason to recommend the less crowded one. Nobody has reserved it. Applicants still compete according to preferences and priorities.
+The first recommendation to a listing costs one unit. The next costs three, then five. Those are the differences between successive squares. If two feasible apartments are equally useful for our tie breaker, the algorithm has a reason to recommend the less crowded one. Nobody has reserved it. Applicants still compete according to preferences and priorities.
 \par
 Neither rule sees the realized preference shocks, landlord rankings or reference assignments. They use feasibility and saved recommendations.
 \par
-There are two different matchings in this experiment. The anchor matching tells the platform which suggestions to add. It is a planning calculation. Then we run applicant-proposing deferred acceptance on the shortlists. The person a planner earmarked for an apartment can still lose it in the assignment. That gap is exactly where a retention question arises.
+There are two different matchings in this experiment. The anchor matching tells the platform which suggestions to add. It is a planning calculation. Then applicants try their favorite visible option. Each listing tentatively holds the highest-priority applicant it can accept. Anyone turned away tries the next apartment on their list. This is applicant-proposing deferred acceptance. The person the planner had in mind can still lose that apartment in the assignment. That gap is exactly where a retention question arises.
 \par
 Both keep each person's list length fixed. But balancing can replace several options, while the anchor replaces at most one. Neither rule explicitly protects existing recipients.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 7: GPT covers more targets. Fewer renters match.}
-{\color{navy}\textbf{04:43--05:30 | 47 seconds}}\par\medskip
-Before adding coordination, look at GPT against random shortlists of the same length. Blue shows the coverage difference. Orange shows the placement difference. Zero would mean no change from random.
+\section*{Slide 7: Which shortlist policy places more renters?}
+{\color{navy}\textbf{04:42--05:46 | 64 seconds}}\par\medskip
+The graph puts four policies on the same axes. Right means better coverage of the full-list reference, and up means more people getting an apartment. Each dot is a mean for the same September and October enriched markets.
 \par
-Across the three enriched calendar windows, GPT gains about eight percentage points of coverage and loses about two to four points of placement. The directions repeat, and the original market-bootstrap intervals exclude zero.
+Start at random shortlists. GPT moves right and a little down. It found more reference apartments, but fewer people were placed. Adding one coordinated option moves the GPT point upward with little change in coverage.
 \par
-Those original error bars resample markets. Our follow-up uses paired seed-block intervals, including a simultaneous ninety-five percent band across four comparisons and two outcomes. We use the largest deviation across those eight estimates to set a common margin. This addresses the extra chances to find a favorable result when looking at several comparisons together.
+Now compare balancing with anchoring. Balancing gains about thirteen points of placement and gives up about three points of reference coverage. Both differences keep the same sign across the three calendar windows under both sampling designs, even using intervals adjusted across the primary comparisons within each design and window.
 \par
-So the lists are better at including the full-list reference assignment. But that doesn't translate into more people getting apartments when the lists are used together.
+But move your finger back to the random dot and compare it with balancing. Now both outcomes improve. Whether there is a tradeoff depends on which policies you're choosing between.
 \par
-These enriched markets deliberately include affordable listings and renters with feasible options. We also report the ordinary sampling design and the uncertainty details in the appendix.
-\par
-\newpage
-{\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 8: Coordination changes the comparison}
-{\color{navy}\textbf{05:30--06:39 | 69 seconds}}\par\medskip
-Now put the four policies on the same graph. Moving right means more reference coverage. Moving up means more people placed.
-\par
-Starting from random, GPT moves right but slightly down. Adding the anchor moves GPT upward, with a small coverage change.
-\par
-Balancing moves much farther up. Compared with the anchor, it gains another 12.6 percentage points of placement and loses about three points of coverage in this panel.
-\par
-But compare balancing with random, and both outcomes improve. So this isn't an unavoidable conflict between coverage and placement. It depends on which policies we compare.
-\par
-A stronger control is random recommendations with the same anchoring rule. In this panel, anchored GPT places only seven more renter appearances, out of ten thousand two hundred forty, and the paired interval for the placement difference crosses zero. GPT improves reference coverage against that control; we cannot attribute a clear placement gain to GPT.
-\par
-The comparison between balancing and anchoring was more consistent. Across all six combinations of calendar window and sampling design, balancing raised placement and lowered reference coverage. The simultaneous intervals for those two differences excluded zero in every combination. That is a pattern across these simulations. It is still possible to improve both outcomes when the starting rule is different.
-\par
-These are means for the September and October enriched panel. A score-based control, with extra information from the simulation, improves both measures further. We haven't established GPT as the best recommender. Now, who gains or loses a match?
+We also tried giving random shortlists the same anchoring rule. Anchored GPT placed just seven more renter appearances out of 10,240. The paired placement interval includes zero. And a score-based benchmark with extra information from the simulator does better on both outcomes than balanced GPT. The comparison supports coordinating recommendations. It leaves plenty of room for a simpler way to rank them.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 9: Who gains a match and who loses one?}
-{\color{navy}\textbf{06:39--07:22 | 43 seconds}}\par\medskip
-Compare the anchor with the original GPT lists, on the same rental markets.
+\section*{Slide 8: What the doubled match rate hides}
+{\color{navy}\textbf{05:46--06:44 | 58 seconds}}\par\medskip
+Return to the renters from the opening slide. Balancing changed what other people saw, while this group kept all its feasible listings. How did its match rate more than double?
 \par
-First, 449 renter appearances gain a place.
+In the September and October enriched sample, 304 of these renter appearances started with a match under the anchor. Under balancing, 349 others gained one. But fifteen who used to have an apartment lost theirs. That leaves 638 matched under balancing. Those fifteen losses disappear if all we report is the average gain.
 \par
-Then there are 37 exits: appearances that had a place under GPT and lose it under the anchor.
+The counts pool the market appearances. The displayed rates instead average within simulation seeds. The estimated gain was about fourteen and a half percentage points, with a pointwise interval from about 13.3 to 15.5.
 \par
-Subtract those losses and the net gain is 412 placements.
-\par
-The denominator is ten thousand two hundred forty simulated renter appearances. We also check what happens beyond matched versus unmatched: two hundred seventy-five appearances receive a worse modeled rank under the anchor. These measures can overlap. Preserving a place and preserving the quality of that place are different promises.
-\par
-Reporting just 412 would leave out the people who lost access. Balancing has the same issue: it places many more people, but causes 171 exits relative to the anchor.
-\par
-Someone who appears in two simulated markets contributes two records. An exit here means a change between assignments on the same simulated market.
-\par
-\vfill{\small\textbf{Advance the live slides at these words}\par}
-{\small ``Then there are 37 exits''}\par
-{\small ``Subtract those losses''}\par
-\newpage
-{\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 10: Who got those extra matches?}
-{\color{navy}\textbf{07:22--08:14 | 52 seconds}}\par\medskip
-Now return to the group in our opening result: renters with one to five feasible apartments. They already see everything. Neither coordination rule can change their own shortlist.
-\par
-Their match rate rises from 13.1 to 27.5 percent when the rest of the market moves from anchoring to balancing. Across this subgroup, 349 appearances gain a match and 15 lose one.
-\par
-This subgroup contains two thousand three hundred twenty-eight renter appearances. In raw counts, the number matched goes from three hundred four to six hundred thirty-eight. The displayed percentages average seed-level rates, so those averages and the pooled counts use different weighting.
-\par
-The middle window's pointwise interval for the gain runs from about 13.3 to 15.5 percentage points. Across windows, some properties recur. Repeating a result with those listings is informative about the mechanism, but it would be a mistake to read the three estimates as three independent housing interventions.
-\par
-In the three enriched rental windows, the subgroup gains between 14.4 and 14.9 percentage points.
-\par
-Because their own choices stay fixed, those changes must come through competition with other renters. We can look for the same issue when people compete for jobs.
+We repeated this comparison in the other calendar windows and under ordinary sampling. Across all three enriched windows, the unchanged-list subgroup gained about fourteen to fifteen points. Under ordinary sampling, it gained about twenty-one to twenty-five points. These are six comparisons within one modeling framework. Some listings recur across windows and we had already studied those windows. They are a check on the assumptions under which the pattern appears.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 11: Does one coordinated suggestion help job seekers?}
-{\color{navy}\textbf{08:14--09:22 | 68 seconds}}\par\medskip
+\section*{Slide 9: Does one coordinated suggestion help job seekers?}
+{\color{navy}\textbf{06:44--07:59 | 75 seconds}}\par\medskip
 Consider the jobs replication. We use New York metro postings and survey-based seeker profiles. In each simulated market, people see up to five feasible jobs. The experiment pairs the same seekers and postings across policies. The outcome is the assignment in that simulation.
 \par
-With GPT shortlists, 63.5 percent get a placement. Coordinate just one option on each list, and that rises to 79.4 percent. That is 612 additional placements on net across 3,840 seeker appearances. Then apply the same anchoring rule to random shortlists. That simple control reaches 81.4 percent. Coordination explains a great deal of the recovery. This comparison gives us no placement advantage to claim for the language model.
+With GPT shortlists, 63.5 percent get a placement. Coordinate just one option on each list, and that rises to 79.4 percent. That is 612 additional placements on net across 3,840 seeker appearances. Then apply the same anchoring rule to random shortlists. That simple control reaches 81.4 percent. The improvement over plain GPT also shows up when the anchor starts with random suggestions. This comparison gives us no placement advantage to claim for the language model.
 \par
 Here is what we can learn even with only the published totals. The anchor changed 920 personal lists. Under the fixed priorities in this jobs model, changing one list can create at most one new recipient. To see why, remove that seeker, then add them back. Rejections travel down a single chain. Several people can switch jobs, but only one person at a time is looking for a vacancy.
 \par
@@ -186,26 +127,20 @@ So there can be at most 920 entrants across these edits. Entrants minus exits eq
 {\small ``Here is what we can learn even with only the published totals.''}\par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 12: Who loses access in Chile?}
-{\color{navy}\textbf{09:22--10:18 | 56 seconds}}\par\medskip
-In Chile, families tell us which schools they want and in what order. We can hold those rankings fixed as we change the shortlists and run admissions again.
+\section*{Slide 10: Who loses access in Chile?}
+{\color{navy}\textbf{07:59--08:55 | 56 seconds}}\par\medskip
+In Chile we can follow individual records. We compare two classifiers trained on an earlier cohort to predict initial offers. One uses where a family ranked each school, and the other leaves that information out. Both choose shortlists; then we rerun admissions using the same families' submitted preferences. We also score whether the school of later enrollment appears on each list.
 \par
-We compare two classifiers trained on an earlier cohort to predict initial offers. One uses submitted rank; the other doesn't. They choose shortlists for later cohorts. We then check coverage of later enrollment and rerun admissions on those shortlists.
+The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements compared with the rank-blind policy. Which families bear the loss?
 \par
-The rank-informed policy gains 4,638 enrollment hits overall, but loses 1,670 placements compared with the rank-blind policy.
+Look at pupils who had no initial offer in the historical record. They account for 7.4 percent of linked applicant-years, but 76 percent of the net placement decline. For every hundred records in the study only about seven belong to this group. Yet about three quarters of the total net loss falls there.
 \par
-The graph separates pupils by whether they historically received an initial offer. Each bar has its own group's denominator. Pupils with no initial offer are 7.4 percent of the linked sample, but account for 76 percent of the net placement loss.
-\par
-That is 1,270 net lost placements in the smaller group, a decline of 0.873 percentage points.
-\par
-Those losses come from comparing two simulated assignments for the same pupils. They fall disproportionately on families who went through the original admissions round without an offer.
-\par
-The four cohorts contribute just under two million linked applicant-years. The net loss combines 2,397 exits and 727 entries. A study observing only how many children got seats would miss those movements in opposite directions.
+In counts, that is 1,270 out of 1,670 net lost placements. We compare two simulated assignments for the same pupils. Actual school offers were never taken away. This is a retrospective audit of an especially exposed group; before assignment, the platform could not know who would go without an offer.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 13: The Chile result changes with the comparison}
-{\color{navy}\textbf{10:18--10:56 | 38 seconds}}\par\medskip
+\section*{Slide 11: The Chile result changes with the comparison}
+{\color{navy}\textbf{08:55--09:36 | 41 seconds}}\par\medskip
 Keep the rank-informed policy, but compare it with each family's first five discretionary courses.
 \par
 Now both totals improve: 9,800 more enrollment hits and 8,143 more placements. Once again, the prediction--placement conflict depends on the comparison.
@@ -214,14 +149,14 @@ Yet pupils without a historical initial offer still lose 2,860 placements agains
 \par
 A policy can look better in aggregate and still make access worse for people we especially hoped to help.
 \par
-There is a timing detail here. We identify the no-offer group using what happened historically, after fixing the policies. It helps us audit who bore a loss. It would give a new policy information from the future if we used that outcome to choose whom to protect before assignment.
+The overall improvement against first-five would look encouraging on a dashboard. It still leaves this same group worse off. That's a policy choice a district should be able to see before it adopts a recommender.
 \par
 It also reminds us that matching historical enrollment isn't the same as improving welfare. To move beyond those averages, we need a precise requirement for who should remain protected.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 14: Choosing shortlists with zero exits is hard}
-{\color{navy}\textbf{10:56--11:49 | 53 seconds}}\par\medskip
+\section*{Slide 12: Choosing shortlists with zero exits is hard}
+{\color{navy}\textbf{09:36--10:37 | 61 seconds}}\par\medskip
 We can write that requirement as a design problem.
 \par
 Fix the baseline shortlists and a supplied set of priority draws. Choose one new policy that works across every draw. We want more reference hits, with every baseline recipient still getting a seat on each draw. They may switch schools, but they cannot become unplaced.
@@ -236,8 +171,8 @@ This theorem uses fixed, strict priorities on an explicit panel. We test Chile's
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 15: Why individually safe edits can conflict}
-{\color{navy}\textbf{11:49--12:57 | 68 seconds}}\par\medskip
+\section*{Slide 13: Why individually safe edits can conflict}
+{\color{navy}\textbf{10:37--11:52 | 75 seconds}}\par\medskip
 Start with a graph. Each vertex represents an edit that adds one reference hit. For each edge, we construct a priority draw where its two endpoint edits can interfere.
 \par
 On this draw, choosing edit u displaces one already-matched pupil toward the fallback seat. That edit alone is safe.
@@ -250,7 +185,7 @@ We repeat this construction for every edge. One fixed set of edits must work on 
 \par
 Each chosen edit adds one hit. Maximizing safe gains would therefore solve Independent Set.
 \par
-The construction also includes a reference draw. Running full-list deferred acceptance there generates the historical targets themselves, so the reduction doesn't rely on arbitrary target labels. There is one conflict draw per graph edge, plus that one reference draw, so the instance grows polynomially. A safe gain of at least K exists exactly when K mutually nonadjacent vertices exist.
+The construction also includes a reference draw. Running full-list deferred acceptance there generates the reference assignments, so the reduction doesn't rely on arbitrary target labels. There is one conflict draw per graph edge, plus that one reference draw, so the instance grows polynomially. A safe gain of at least K exists exactly when K mutually nonadjacent vertices exist.
 \par
 The same construction tells us something else. Imagine a graph made of disjoint edges. Keeping everyone's exact original assignment allows zero selected edits on the reference draw. Keeping everyone seated lets us choose one endpoint from each edge. With more edges, the gap can grow as large as we like. So an exact-assignment ceiling cannot automatically be used as a ceiling for seat retention.
 \par
@@ -259,8 +194,8 @@ The same construction tells us something else. Imagine a graph made of disjoint 
 {\small ``We repeat this construction for every edge.''}\par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 16: Allowing school switches leaves more room}
-{\color{navy}\textbf{12:57--14:00 | 63 seconds}}\par\medskip
+\section*{Slide 14: Allowing school switches leaves more room}
+{\color{navy}\textbf{11:52--13:02 | 70 seconds}}\par\medskip
 Back in Chile, we compare two promises on the same design panels: 1,024 lotteries per cohort, for 2022 through 2024.
 \par
 The stricter promise keeps every baseline recipient in the same course and seat type. Within our allowed shortlist family, the maximum additional enrollment coverage is exactly 314 hits.
@@ -277,8 +212,8 @@ These are hindsight benchmarks: they use the evaluation cohorts' later enrollmen
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 17: What happens on fresh lottery draws?}
-{\color{navy}\textbf{14:00--14:50 | 50 seconds}}\par\medskip
+\section*{Slide 15: What happens on fresh lottery draws?}
+{\color{navy}\textbf{13:02--14:05 | 63 seconds}}\par\medskip
 Here are two such rules. We freeze them after applications arrive and before the ordinary assignment. Neither uses that cohort's realized offers or later enrollment to select shortlists.
 \par
 The structural rule restricts interactions around applicants without a guaranteed fallback. Its proof covers all permitted ordinary lottery orders, for the fixed inputs and reconstructed mechanism.
@@ -289,42 +224,24 @@ It gains 28 enrollment hits and has zero exits in the test panels.
 \par
 The learned rule passes its design-panel checks and gains 50 hits. But it has one exit in each of two fresh test panels.
 \par
-Twenty-eight is a small gain. What matters here is the difference between a proof covering the allowed orders and a rule that happened to pass many simulated draws. More testing alone doesn't turn the second into the first.
+The 28 are net additional historical-school hits across about one and a half million linked applicant-years. They count a school appearing on a list, not extra pupils getting seats. The practical gain is small. What matters here is the difference between a proof covering the allowed orders and a rule that happened to pass many simulated draws. More testing alone doesn't turn the second into the first.
 \par
 \vfill{\small\textbf{Advance the live slides at these words}\par}
 {\small ``The learned rule passes its design-panel checks''}\par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 18: Protecting recipients can preserve exclusion}
-{\color{navy}\textbf{14:50--15:51 | 61 seconds}}\par\medskip
-The retention guarantee still leaves a social-impact question. Protecting people who already have a place can leave everyone else out.
+\section*{Slide 16: What happened when families received school advice?}
+{\color{navy}\textbf{14:05--14:53 | 48 seconds}}\par\medskip
+Our replays held applications fixed. Another research team tested what real families did with advice. In the 2021 Chilean field experiment by Agte and colleagues, families were randomly assigned different versions of a school map. The basic version showed the schools. Another version gave counts by price and quality and highlighted inexpensive schools with medium or high official quality ratings. Families could apply anywhere.
 \par
-Our structural Chile rule has no new entrants on the reported paired test lotteries. It keeps baseline recipients placed, but doesn't expand access for those who were unplaced under the baseline.
-\par
-So the next objective must count both groups: the people we protect and the people still waiting for an opportunity.
-\par
-For a school district, that would mean reporting two columns at minimum. Of those who would have received a seat under the old policy, how many still get one? Of those who would have gone without, how many now have a seat? A rule can score perfectly in the first column while the second stays at zero.
-\par
-How people would act on our recommendations is an open question. They may ignore advice or add choices. Before deployment, they should be able to correct mistakes and seek human review or appeal. Those are proposed safeguards, not interventions we've tested.
-\par
-And keeping a seat may mean a worse school. Historical enrollment and modeled ranks aren't complete welfare measures. Recommendations can redistribute opportunities, but they cannot create affordable apartments or school capacity.
-\par
-Even the structural rule's coverage gain is a net figure. In 115 applicant records the historical school appears for the first time. In 87 it disappears. None of those losses violates seat retention. The mathematical promise protects placement status; it does not protect every useful option or every pupil's preference satisfaction.
-\par
-\newpage
-{\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 19: What happened when families received school advice?}
-{\color{navy}\textbf{15:51--16:30 | 39 seconds}}\par\medskip
-In a 2021 Chilean field experiment by Agte and colleagues, families were randomly assigned different versions of a school map. The basic version showed the schools. Another version gave counts by price and quality and highlighted inexpensive schools with medium or high official quality ratings. Families could apply anywhere.
-\par
-Compared with the basic map, the highlighted version raised application submission by three percentage points. It raised the share ranking a qualifying school second by 5.4 points. But the estimate for receiving any assignment was only 0.2 points, with an approximate interval from minus two to plus 2.4 points. That leaves both gains and losses plausible.
+Compared with the basic map, the highlighted version raised the share ranking a qualifying school second by 5.4 percentage points. But the estimate for receiving any assignment was only 0.2 points, with an approximate interval from minus two to plus 2.4 points. That leaves both gains and losses plausible.
 \par
 The outcomes use different samples. A qualifying second choice met the criteria. We don't know whether that particular school appeared on that family's map. The trial establishes that families can respond to information. It doesn't tell us what would happen if everyone received our shortlists.
 \par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 20: Can a small trial get the direction wrong?}
-{\color{navy}\textbf{16:30--17:20 | 50 seconds}}\par\medskip
+\section*{Slide 17: Can a small trial get the direction wrong?}
+{\color{navy}\textbf{14:53--15:50 | 57 seconds}}\par\medskip
 Here is a reason to care about that last distinction. Take a market with three pupils and three seats. The old rule shows the first two pupils school X, and the third pupil school Y. The new rule points everyone to Y. At Y, the second pupil has top priority, followed by the first and then the third.
 \par
 Imagine that each pupil independently has a one-in-four chance of receiving the new rule. For the first pupil, switching hurts only when the second pupil also switches. For the second pupil, switching helps when the first pupil stays with X and takes that seat. The third pupil sees Y either way. That gives individual effects of minus one quarter, plus three quarters, and zero. Their average is positive, one sixth.
@@ -337,12 +254,22 @@ A field test of the whole policy should therefore track everyone sharing those s
 {\small ``Now switch everyone.''}\par
 \newpage
 {\small Harvard CS 2880 / AI for Social Impact}\par
-\section*{Slide 21: Whose access changed?}
-{\color{navy}\textbf{17:20--17:40 | 20 seconds}}\par\medskip
-A shortlist reaches beyond the person receiving it. It changes who competes for the available places.
+\section*{Slide 18: Protecting recipients can preserve exclusion}
+{\color{navy}\textbf{15:50--16:34 | 44 seconds}}\par\medskip
+There's an ethical choice hidden in the word protect. Protect whom? Our structural rule guarantees a seat to every baseline recipient, yet across its paired test lotteries no previously unplaced pupil newly got a seat.
 \par
-Our experiments make that interaction visible. Our theory asks what it takes to improve recommendations while protecting existing recipients.
+A district could honor that guarantee and leave the same families waiting. We'd ask for two numbers before adopting it. Of the children who would previously have received a seat, how many still do? And of those who previously went without, how many now receive one? These are separate obligations.
 \par
-Coordination can improve the totals. The harder design question is how to open opportunities for people without a place while keeping those who already have one matched somewhere. Thank you.
+The school itself matters too. A child can keep a seat and end up at a school their family likes less. A historical enrollment match cannot tell us how that family values the change. Families should be able to add choices, correct a mistaken recommendation and ask for a human review. Those are safeguards we propose.
+\par
+The housing example has the same limit. Coordination changes who competes for an affordable apartment. It cannot make an unaffordable apartment feasible.
+\par
+\newpage
+{\small Harvard CS 2880 / AI for Social Impact}\par
+\section*{Slide 19: Evaluate the whole market}
+{\color{navy}\textbf{16:34--17:00 | 26 seconds}}\par\medskip
+Go back to the apartment app. Those renters already saw every apartment they could qualify for. Their simulated match rate went from 13.1 to 27.5 percent because other people received different recommendations.
+\par
+That is the evaluation we would take to a housing platform or school district. Follow everyone competing for the same places, including people whose own list stays fixed. Count who gets a place, who loses one, and who still waits. Thank you.
 \par
 \end{document}

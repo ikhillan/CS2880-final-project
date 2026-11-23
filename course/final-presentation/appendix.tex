@@ -49,6 +49,36 @@ Family's first five discretionary courses & $+9,800$ & $+8,143$\\
 \source{\texttt{findings/chile/cohort\_comparison.csv}; \texttt{group\_comparison.csv}; \texttt{all\_population\_spillovers.csv}.}
 \end{frame}
 
+\begin{frame}{Placement changes within each historical offer group}
+\small
+Rank-informed shortlists compared with rank-blind shortlists in the 2022--25 Chilean admissions replay.
+\begin{center}
+\includegraphics[width=.80\textwidth]{figures/chile-incidence.pdf}
+\end{center}
+Among 145,450 linked applicant-years without an initial offer, placements fell by 1,270 on net. Among 1,823,670 with an initial offer, they fell by 400 on net.
+\source{Bars divide each group's net change by that group's linked applicant-years. The 76\% figure in the talk instead divides 1,270 by the combined decline of 1,670. Groups refer to historical offers. Source: \texttt{findings/chile/group\_comparison.csv}.}
+\end{frame}
+
+\begingroup
+\ifdefined\submission\else\input{data/field-main-macros}\fi
+\begin{frame}{What the School Explorer trial measured}
+\small
+Agte and colleagues compared a map with counts by price and quality and visible school highlights with a basic map. Families could apply to any school.\par\medskip
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{@{}Xrrr@{}}
+\toprule
+Outcome & Change (pp) & Std. error (pp) & Sample\\\midrule
+Submitted an application & $+\submission$ & \submissionSE & \submissionN\\
+Ranked a qualifying school second & $+\secondChoice$ & \secondChoiceSE & \secondChoiceN\\
+Received any assignment & $+\anySeat$ & \anySeatSE & \anySeatN\\
+\bottomrule
+\end{tabularx}
+\par\medskip
+The approximate 95\% interval for receiving an assignment spans $-2.0$ to $+2.4$ percentage points. Each outcome uses its own sample.
+\source{Agte et al., \href{https://doi.org/10.3386/w32670}{\emph{Search and Biased Beliefs in Education Markets}}, NBER Working Paper 32670, March 2026 revision, Tables I and A.XVIII. A qualifying school met the study's fee and official quality criteria.}
+\end{frame}
+\endgroup
+
 \begin{frame}{The fixed-menu seat-retention problem}
 \small
 \setlength{\abovedisplayskip}{3pt}

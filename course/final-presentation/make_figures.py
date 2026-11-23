@@ -274,13 +274,37 @@ def access_tables():
             - subgroup_counts["subgroupExits"]
             + subgroup_counts["subgroupEntrants"]
             == subgroup_counts["subgroupAfterCount"])
-    for window, name in (("stage1_pilot", "subgroupGainDev"),
-                         ("heldout_primary", "subgroupGainPrimary"),
-                         ("heldout_replication", "subgroupGainRep")):
-        r = one(contrasts, window=window, variant="enriched", group="degree_1_5",
-                arm="balanced_gpt", comparator="anchor_gpt", metric="placed")
-        assert r["status"] == "ok"
-        macros[name] = f"{100*float(r['mean']):.1f}"
+    # Paired seed-rate contrasts for the same subgroup used in the headline.
+    # Counts are pooled appearances; the rate columns weight the 20 seeds equally.
+    subgroup_rows = []
+    for variant, design in (("primary", "Ordinary"), ("enriched", "Enriched")):
+        gains = []
+        for window, name, macro in (("stage1_pilot", "Jun--Aug 2026", "subgroupGainDev"),
+                                    ("heldout_primary", "Sep--Oct 2026", "subgroupGainPrimary"),
+                                    ("heldout_replication", "Jun--Aug 2025", "subgroupGainRep")):
+            cell = dict(window=window, variant=variant, group="degree_1_5", arm="balanced_gpt")
+            paired = one(contrasts, **cell, comparator="anchor_gpt", metric="placed")
+            assert paired["status"] == "ok" and paired["estimand"] == "mean_of_seed_rates"
+            assert paired["seeds_available"] == paired["expected_seeds"] == "20"
+            assert paired["paired_markets"] == paired["markets_expected"]
+            assert paired["unpaired_markets"] == paired["missing_markets"] == "0"
+            assert paired["valid_bootstrap_draws"] == paired["bootstrap_draws"] == "10000"
+            before = one(transitions, **cell, baseline="anchor_gpt", metric="baseline_placed")
+            after = one(transitions, **cell, baseline="anchor_gpt", metric="after_placed")
+            assert before["denominator_total"] == after["denominator_total"]
+            n = float(before["denominator_total"])
+            assert n.is_integer() and n > 0
+            gain, low, high = [100 * float(paired[k]) for k in ("mean", "lo", "hi")]
+            old, new = [100 * float(row["mean"]) for row in (before, after)]
+            assert abs(gain - (new - old)) < 1e-8
+            gains.append(gain)
+            if variant == "enriched":
+                macros[macro] = f"{gain:.1f}"
+            subgroup_rows.append(f"{design} & {name} & {int(n):,} & {old:.1f} & {new:.1f} & "
+                                 f"$+{gain:.1f}$ [{low:.1f}, {high:.1f}]" + r"\\")
+        macros[f"{design.lower()}FixedGainLow"] = f"{min(gains):.1f}"
+        macros[f"{design.lower()}FixedGainHigh"] = f"{max(gains):.1f}"
+    macros["fixedMenuPanelRows"] = "\n".join(subgroup_rows)
     for arm, comparator, prefix in (("anchor_gpt", "gpt", "anchor"),
                                     ("balanced_gpt", "anchor_gpt", "balanced")):
         for metric, suffix in (("gross_exits", "Exits"), ("gross_entrants", "Entrants")):

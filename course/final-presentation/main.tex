@@ -10,19 +10,40 @@
 
 % 1
 \begin{frame}[plain]
-\vspace{5mm}
+\vspace{3mm}
 {\fontsize{29}{33}\selectfont Who gets a place?\par}
-\vspace{5mm}
-{\large Recommendations when people compete\\for limited capacity\par}
-\vspace{9mm}
+\bigskip
+{\large If your shortlist stays the same, can someone else's recommendations change whether you get a place?\par}
+\bigskip
 Ishan Khillan, Elaine Zhang, Todd Zhou\par
 {\small Harvard COMPSCI 2880 / AI for Social Impact\par}
 \vfill
 {\small November 2026\par}
-{\fontsize{7.5}{9}\selectfont\color{muted}Video narration uses three synthetic voices.}
+{\fontsize{8}{10}\selectfont\color{muted}Video narrated with three synthetic voices.}
 \end{frame}
 
 % 2
+\begin{frame}{Same apartment lists. Twice the match rate.}
+In a NYC rental simulation, \textbf{2,328 renter appearances} had only one to five feasible apartments. Both rules showed them every one.
+\medskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.47\textwidth}
+{\fontsize{34}{38}\selectfont\unchangedBefore\%\par}
+matched when the platform could replace one suggestion per renter
+\end{column}
+\begin{column}{.47\textwidth}
+\begin{visibleenv}<2->
+{\fontsize{34}{38}\selectfont\color{blue}\unchangedAfter\%\par}
+matched when it could spread several suggestions across listings
+\end{visibleenv}
+\end{column}
+\end{columns}
+\medskip
+\uncover<2->{\textbf{Only other renters' recommendations changed.}}
+\source{September--October 2026, affordability-enriched sampling. Same renters, apartments, priorities and list lengths. Rates average across simulation seeds.}
+\end{frame}
+
+% 3
 \begin{frame}{A better suggestion can hurt someone else}
 {\small Two applicants, two seats. A prefers $x$ to $y$. School $x$ gives A priority.}
 \medskip
@@ -65,51 +86,28 @@ Ishan Khillan, Elaine Zhang, Todd Zhou\par
 \source{Illustrative example of deferred acceptance. Each applicant sees one school. Arrows show assignments.}
 \end{frame}
 
-% 3
-\begin{frame}{Choose a shortlist, then assign the places}
-A recommender selects a short list of feasible options for each person.
-An assignment rule then allocates the available places.
-
-\medskip
-\textbf{Matched}\quad Does the person receive any place?\par
-\textbf{Target coverage}\quad Is a reference choice on the shortlist?\par
-\textbf{Lost match}\quad Was the person matched before, but not after?
-
-\takeaway{Can better recommendations keep everyone who had a place matched somewhere?}
-\source{Rental reference: the apartment assigned when all feasible options are shown. Chilean reference: the school in later enrollment. A lost match compares two simulated or replayed allocations, not an observed eviction or revoked offer.}
-\end{frame}
-
 % 4
-\begin{frame}{Their lists stayed fixed. Their match rate doubled.}
-In our NYC rental simulation, these renters had only one to five feasible listings. Both policies showed them every option.
+\begin{frame}{How we measure a change in access}
+\textbf{Coverage}\quad Is the reference option on the person's list?\par
+\small For rentals, the reference is the apartment the person would get if every feasible listing were shown. In Chile, it is the school of later enrollment.\normalsize
 \medskip
-\begin{columns}[T,onlytextwidth]
-\begin{column}{.47\textwidth}
-{\fontsize{34}{38}\selectfont\unchangedBefore\%\par}
-matched with one coordinated\newline suggestion per shortlist
-\end{column}
-\begin{column}{.47\textwidth}
-\begin{visibleenv}<2->
-{\fontsize{34}{38}\selectfont\color{blue}\unchangedAfter\%\par}
-matched when the policy spread\newline recommendations across listings
-\end{visibleenv}
-\end{column}
-\end{columns}
-\bigskip
-\uncover<2->{\textbf{Only the other renters' shortlists changed.}}
-\source{September--October 2026, enriched sample. The rates average simulation seeds across 2,328 renter appearances. The policies use the same feasible listings and shortlist lengths.}
+
+\textbf{Placement}\quad Does the person get any place after everyone competes for the available slots?
+\medskip
+
+\textbf{Exit}\quad Someone gets a place under the baseline policy and goes without one under the alternative.
+\source{The same people, capacities and priority draw face both policies. In rentals, coverage is measured among full-list recipients. Placement counts everyone in the sampled market.}
 \end{frame}
 
 % 5
-\begin{frame}{What happens to people whose lists stay fixed?}
+\begin{frame}{Who would an audit of edited lists miss?}
 \textbf{NYC rentals}\par
-We can hold a renter's options fixed and change who else sees them. Preferences and assignments are modeled.
-
+We can fix the same renters, apartments and priorities and change the recommendations for the whole simulated market.
 \medskip
-\textbf{Chilean school admissions}\par
-We can trace effects on other pupils using families' submitted rankings and the actual admission rules. In a 2021 replay, pupils whose lists stayed fixed accounted for \textbf{\fieldUnchangedLoss{} of \fieldTotalLoss{} net lost placements}.
 
-\source{Chile compares rank-informed and rank-blind shortlists for 200,591 linked entry-grade pupils with fixed reports. The separate 2022--25 cohorts appear on slides 12--13. NYC uses 1,280 simulated markets across three previously analyzed calendar windows.}
+\textbf{Chilean school admissions}\par
+Only 6,133 of 200,591 linked entry-grade pupils got a different list in our 2021 replay. Pupils with unchanged lists accounted for \textbf{\fieldUnchangedLoss{} of \fieldTotalLoss{} net lost placements}.
+\source{Chilean replay of two policies with fixed submitted preferences. The unchanged-list group comprised about 97\% of these pupils. The NYC design uses market listings and survey-based renter profiles, with modeled preferences and assignments.}
 \end{frame}
 
 % 6
@@ -131,102 +129,76 @@ List lengths stay fixed. Balancing can change several options per renter.
 \end{frame}
 
 % 7
-\begin{frame}{GPT covers more targets. Fewer renters match.}
-\begin{center}
-\includegraphics[width=.94\textwidth]{figures/rentals.pdf}
-\end{center}
-\takeaway{Higher reference coverage does not imply more placements.}
-\source{Enriched markets select cheaper listings and renters with feasible options. GPT minus random, 95\% market-bootstrap intervals. Coverage conditions on a full-list match. Properties recur across windows.}
+\begin{frame}{Which shortlist policy places more renters?}
+{\centering\includegraphics[width=.87\textwidth]{figures/rental-policies.pdf}\par}
+\takeaway{Balancing improves both outcomes over random. Against the anchor it places more renters and covers fewer reference apartments.}
+\source{Sep--Oct 2026 enriched replay, seed means. A control using the simulator's utility scores improves both metrics further. All panels and paired intervals are in the appendix.}
 \end{frame}
 
 % 8
-\begin{frame}{Coordination changes the comparison}
+\begin{frame}{What the doubled match rate hides}
+{\small Back to the 2,328 renter appearances with unchanged lists. Compare balancing with the one-option anchor.}
+\bigskip
 \begin{center}
-\includegraphics[width=.92\textwidth]{figures/rental-policies.pdf}
+\setlength{\tabcolsep}{0pt}\begin{tabular*}{.98\textwidth}{@{\extracolsep{\fill}}ccccccc@{}}
+\Large\subgroupBeforeCount & \Large $+$ & \Large\subgroupEntrants & \Large $-$ & \Large\subgroupExits & \Large $=$ & \Large\subgroupAfterCount \\[3pt]
+\small matched before & & \small gained a match & & \small lost a match & & \small matched after
+\end{tabular*}
 \end{center}
-\takeaway{Balanced shortlists improve both outcomes over random shortlists.}
-\source{Sep--Oct 2026 enriched replay, point means. Placement: random 66.9\%, GPT 63.2\%, anchor 67.2\%, balanced 79.8\%. The comparison with the anchor loses 3.05 coverage points and gains 12.65 placement points. A control with simulator-utility information improves both metrics further. All panels and paired intervals are in the appendix.}
+\medskip
+The subgroup gained \textbf{\enrichedFixedGainLow--\enrichedFixedGainHigh{} percentage points} across three enriched windows and \textbf{\ordinaryFixedGainLow--\ordinaryFixedGainHigh{} points} under ordinary sampling.
+\source{Counts pool September--October 2026 enriched markets. Changes in rates average paired seed-specific rates. The three windows were previously studied and reuse some properties. All six contrasts and pointwise intervals are in the appendix.}
 \end{frame}
 
 % 9
-\begin{frame}{Who gains a match and who loses one?}
-We add one coordinated option to the original GPT shortlists.
+\begin{frame}{Does one coordinated suggestion help job seekers?}
+{\small NYC jobs replication. Simulated placement with up to five postings per seeker.}
 \bigskip
 \begin{columns}[T,onlytextwidth]
-\begin{column}{.31\textwidth}\centering
-{\fontsize{33}{37}\selectfont\color{blue}+\anchorEntrants\par}
-gain a match
+\begin{column}{.29\textwidth}
+{\LARGE\jobsBefore\%\par}
+GPT shortlists
 \end{column}
-\begin{column}{.31\textwidth}\centering
-\begin{visibleenv}<2->
-{\fontsize{33}{37}\selectfont\color{rust}$-$\anchorExits\par}
-lose their match
-\end{visibleenv}
+\begin{column}{.33\textwidth}
+{\LARGE\color{blue}\jobsAfter\%\par}
+GPT shortlists with an anchor
 \end{column}
-\begin{column}{.31\textwidth}\centering
-\begin{visibleenv}<3->
-{\fontsize{33}{37}\selectfont+\anchorNet\par}
-net placements
-\end{visibleenv}
+\begin{column}{.33\textwidth}
+{\LARGE\jobsRandomAfter\%\par}
+Random shortlists with an anchor
 \end{column}
 \end{columns}
 \bigskip
-\uncover<3->{Balancing the whole shortlist places even more people. Under that policy, \alert{\balancedExits{} prior recipients} lose their match relative to the anchor.}
-\source{Paired simulation of 10,240 renter appearances, September--October 2026 enriched sample. Each count compares the same renters in the same markets under two policies.}
+\uncover<2->{Anchoring GPT added \textbf{612 net placements}. The published totals still allow \textbf{0 to 308 prior recipients} to lose a match.}
+\source{3,840 simulated seeker appearances. The range is an outer bound on gross exits. Post-anchor coverage and individual transitions are unavailable. Anchored GPT versus anchored random compares point means.}
 \end{frame}
 
 % 10
-\begin{frame}{Who got those extra matches?}
-In the group whose feasible options all fit on the shortlist, \textbf{\subgroupEntrants{} gained a match} and \alert{\subgroupExits{} lost one} under balancing.
-\medskip
-\begin{center}
-{\large $\underbrace{\subgroupBeforeCount}_{\text{matched before}} + \subgroupEntrants - \subgroupExits = \underbrace{\subgroupAfterCount}_{\text{matched after}}$}
-\end{center}
-\medskip
-The same group's match rate rose by \textbf{\subgroupGainDev, \subgroupGainPrimary{} and \subgroupGainRep{} percentage points} across the three enriched rental windows.
-\source{Anchor versus balancing. Counts pool 2,328 appearances in the September--October 2026 window. Rate differences average paired seed-specific rates. The windows reuse some properties. The middle estimate's pointwise 95\% bootstrap interval is [13.27, 15.51] percentage points.}
+\begin{frame}{Who loses access in Chile?}
+{\small Chilean admissions replay, 2022--25. Compare shortlists chosen with and without each family's submitted ranks.}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.47\textwidth}
+{\LARGE 7.4\%\par}
+of linked applicant-years had no historical initial offer.
+\end{column}
+\begin{column}{.49\textwidth}
+{\LARGE\color{rust}76\%\par}
+of the net placement decline fell on this group.
+\end{column}
+\end{columns}
+\bigskip
+The group accounted for \textbf{1,270 of 1,670} net placements lost.
+\source{145,450 of 1,969,120 linked applicant-years had no historical initial offer. The comparison holds reported preferences fixed. Net losses compare two simulated assignments for each pupil.}
 \end{frame}
 
 % 11
-\begin{frame}{Does one coordinated suggestion help job seekers?}
-{\small NYC job-market replication. Each seeker sees up to five feasible postings.}
-\medskip
-
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\textwidth}{@{}Xr@{}}
-\toprule
-Shortlist policy & Seekers placed in the simulation\\\midrule
-GPT & \jobsBefore\%\\
-GPT with one coordinated option & \textbf{\jobsAfter\%}\\
-Random with one coordinated option & \textbf{\jobsRandomAfter\%}\\
-\bottomrule
-\end{tabularx}
-\normalsize
-
-\medskip
-\uncover<2->{The anchor adds 612 net placements across 3,840 seeker appearances. The published totals bound gross exits between 0 and 308 seeker appearances.}
-\source{Replication, primary sampling design. The range is an outer bound on gross exits. Individual transitions and post-anchor coverage are unavailable. Sources: jobs-gpt-frozen/replication/anchor.csv and jobs-anchor-access.}
-\end{frame}
-
-% 12
-\begin{frame}{Who loses access in Chile?}
-{More enrollment hits under rank-informed shortlists, fewer placements.}
-\begin{center}
-\includegraphics[width=.86\textwidth]{figures/chile-incidence.pdf}
-\end{center}
-\textbf{Pupils without an initial offer made up 7.4\% of the sample and accounted for 76\% of the net loss.}
-\source{Rank-informed versus rank-blind classifiers, trained to predict initial offers. Coverage instead targets later enrollment. 2022--25 linked applicant-years; fixed reported preferences. No-offer group loses 1,270 of 1,670 net placements. These are counterfactual losses, not revoked official offers.}
-\end{frame}
-
-% 13
 \begin{frame}{The Chile result changes with the comparison}
-Same rank-informed shortlists. Same linked Chilean cohorts.
-
+{\small Same pupils and same rank-informed policy. Change only the comparison policy.}
 \medskip
 \small
-\renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{}}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{@{}Xrr@{}}
 \toprule
 Compared with & Enrollment hits & Placements\\\midrule
 Rank-blind shortlists & $+4,638$ & $-1,670$\\
@@ -235,12 +207,11 @@ First five discretionary courses & $+9,800$ & $+8,143$\\
 \end{tabularx}
 \par\medskip
 \normalsize
-Even against first-five, pupils without a historical offer lose \alert{2,860 placements}.
-\takeaway{Better aggregate outcomes do not settle the access question.}
-\source{Counterfactual allocations with fixed reports. Historical-school coverage is not a welfare measure. Sources: findings/chile/cohort\_comparison.csv and group\_comparison.csv.}
+Against first-five, placements rose overall. Pupils without a historical initial offer still lost \alert{2,860 places on net}.
+\source{2022--25 linked applicant-years under fixed reports. An enrollment hit means the shortlist contained the pupil's later school.}
 \end{frame}
 
-% 14
+% 12
 \begin{frame}{Choosing shortlists with zero exits is hard}
 Choose one shortlist policy $D$ for a supplied set of priority draws $S$:
 \[
@@ -258,7 +229,7 @@ $\mathcal D$: keep shared options, fill from both policies' union, keep quotas.
 \source{Fixed strict responsive priorities, with one common priority order per supplied draw in the reduction. DA checks a proposed policy in polynomial time. Independent Set reduction and stable-witness formulation are in the appendix. Chile's family rules are evaluated separately.}
 \end{frame}
 
-% 15
+% 13
 \begin{frame}{Why individually safe edits can conflict}
 {\small One priority draw for edge $\{u,v\}$; $h_u,h_v$ already have seats.}
 \begin{center}
@@ -284,83 +255,58 @@ Safe gain $\ge K$ $\Longleftrightarrow$ independent set of size $\ge K$.}
 \source{Each selected edit adds one reference hit. Only the endpoints of this edge can conflict on this draw. The technical appendix constructs the full instance.}
 \end{frame}
 
-% 16
+% 14
 \begin{frame}{Allowing school switches leaves more room}
-{\small Same allowed shortlists, same 1,024 design lotteries per cohort.}
+{\small Chilean hindsight benchmark. Additional times the historical enrollment school appears on a shortlist.}
+\bigskip
+\textbf{Keep the exact course and seat type}\par
+$\exactGain$ additional hits is the maximum.\par\medskip
+\textbf{Keep a seat and allow school switches}\par
+One feasible policy gains $\retentionGain$ hits. The optimum lies between $\retentionGain$ and $\retentionUpper$.
+\takeaway{Allowing switches more than doubles the gain we can demonstrate.}
+\source{Same permitted shortlists and 1,024 design lotteries per cohort, 2022--24. Later enrollment labels are used in this optimization. The range bounds the optimum.}
+\end{frame}
+
+% 15
+\begin{frame}{What happens on fresh lottery draws?}
+{\small Shortlists chosen before the lottery. Both rules use the same submitted applications.}
 \medskip
 \small
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{}}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{4mm}}r@{\hspace{3mm}}r@{}}
 \toprule
-Protection & Achieved gain & Upper bound\\\midrule
-Same course and seat type & $\exactGain$ & $\exactGain$\\
-A seat retained, school may change & $\retentionGain$ & $\retentionUpper$\\
+Rule & Extra hits & \multicolumn{2}{c}{Exits on fresh draws}\\
+ & & Course & Family\\\midrule
+Structural (all-order proof) & $+\structuralGain$ & $\structuralCourseExits$ & $\structuralFamilyExits$\\
+\uncover<2->{Learned (design draws)} & \uncover<2->{$+\learnedGain$} & \uncover<2->{$\learnedCourseExits$} & \uncover<2->{$\learnedFamilyExits$}\\
 \bottomrule
 \end{tabularx}
-\par\medskip
-\normalsize
-Switches permit more than twice the demonstrated coverage gain.
+\par\medskip\normalsize
+\uncover<2->{The learned rule passed its design tests. A single exit on a new draw breaks the retention promise.}
+\source{Same 2022--24 cohorts under 384 fresh course-level and 96 fresh school/family cohort-draws. The proof covers permitted ordinary orders under fixed inputs and the reconstructed mechanism. Historical coverage gains count once across cohorts.}
+\end{frame}
 
-\medskip
-The exact optimum for keeping a seat lies between $\retentionGain$ and $\retentionUpper$ additional hits.
-\source{Additional enrollment hits, summed over the 2022--24 cohort problems. A hindsight optimization bracket, not a confidence interval or a deployable effect estimate. Retaining a seat does not guarantee a preferred school. Source: findings/chile/retention\_bounds.csv.}
+% 16
+\begin{frame}{What happened when families received school advice?}
+{\small Agte and colleagues' randomized School Explorer trial in Chile, 2021. A map with school counts and highlights versus a basic map.}
+\bigskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.46\textwidth}
+{\LARGE $+\secondChoice$ points\par}
+Ranked a qualifying school second.
+\end{column}
+\begin{column}{.50\textwidth}
+{\LARGE $+\anySeat$ points\par}
+Received any assignment.\\[2pt]
+{\small 95\% interval: $-2.0$ to $+2.4$ points.}
+\end{column}
+\end{columns}
+\bigskip
+Families changed their applications. The assignment estimate is consistent with a loss or a gain.
+\source{External field evidence, Agte et al., NBER WP 32670, Tables I and A.XVIII. Percentage-point changes, different outcome samples ($n=\secondChoiceN$ and $\anySeatN$). A qualifying school met the price and quality criteria. The interval is approximate.}
 \end{frame}
 
 % 17
-\begin{frame}{What happens on fresh lottery draws?}
-Choose rules before assignment, using submitted applications.
-\par\medskip
-\small
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{@{}Xr@{\hspace{5mm}}r@{\hspace{4mm}}r@{}}
-\toprule
-Rule & Extra hits & \multicolumn{2}{c}{Incumbent exits}\\
- & & Course & Family\\\midrule
-Structural rule, all-order proof & $+\structuralGain$ & $\structuralCourseExits$ & $\structuralFamilyExits$\\
-\uncover<2->{Learned rule, design-panel checks} & \uncover<2->{$+\learnedGain$} & \uncover<2->{$\learnedCourseExits$} & \uncover<2->{$\learnedFamilyExits$}\\
-\bottomrule
-\end{tabularx}
-\par\medskip
-\normalsize
-\uncover<2->{One exit on a fresh draw is enough to break the promise.}
-\source{2022--24: 384 course cohort-draws and 96 school/family cohort-draws. Gains count historical hits once, not per draw. The proof assumes fixed inputs and the reconstructed mechanism. Neither rule improves coverage for the historical no-offer group.}
-\end{frame}
-
-% 18
-\begin{frame}{Protecting recipients can preserve exclusion}
-The structural Chile rule protects incumbents, but adds \textbf{no new entrants} in the paired test lotteries.
-
-\medskip
-An access objective must also count people who start without a place.
-Historical enrollment and modeled ranks are incomplete welfare measures.
-
-\medskip
-Before deployment: preserve the ability to add choices, audit displaced people, and provide human review or appeal.
-\source{Zero entrants is a result for the reported structural-rule panels, not a general impossibility. The safeguards are proposed, not evaluated. A recommendation redistributes existing opportunities; it does not create affordable housing or school capacity.}
-\end{frame}
-
-% 19
-\begin{frame}{What happened when families received school advice?}
-{\small Chile's 2021 School Explorer trial. Families could still apply anywhere.}
-\medskip
-
-\small
-\renewcommand{\arraystretch}{1.26}
-\begin{tabularx}{\textwidth}{@{}Xrrr@{}}
-\toprule
-Highlighted map versus basic map & Change (pp) & Std. error & Sample\\\midrule
-Submitted an application & $+\submission$ & \submissionSE & \submissionN\\
-Ranked a qualifying school second & $+\secondChoice$ & \secondChoiceSE & \secondChoiceN\\
-Received any assignment & $+\anySeat$ & \anySeatSE & \anySeatN\\
-\bottomrule
-\end{tabularx}
-\normalsize\medskip
-
-Choices responded to the advice. The assignment estimate allows both a loss and a gain.
-\source{External randomized experiment, Agte et al., NBER WP 32670, March 2026 revision, Tables I and A.XVIII. A qualifying school met the price and quality criteria. The highlight arm also received nearby school counts. The approximate 95\% interval for any assignment spans $-2.0$ to $+2.4$ points.}
-\end{frame}
-
-% 20
 \begin{frame}{Can a small trial get the direction wrong?}
 {\small Three pupils, one seat per school. Old suggestions $(x,x,y)$, new suggestions $(y,y,y)$. At $x$, pupil 1 beats 2. At $y$, the order is $2,1,3$.}
 \medskip
@@ -374,16 +320,25 @@ Average effect of receiving the new suggestion on your own placement:
 \source{Constructed example with fixed priorities. In an exact enumeration of labeled three-pupil, three-school, single-option markets, \directPositive{} of \rolloutLoss{} markets with a rollout loss had a positive average direct effect at 25\% adoption. The enumeration has no population weights.}
 \end{frame}
 
-% 21
-\begin{frame}{Whose access changed?}
-An audit of recommendations has to follow everyone competing for the same places, including people whose own shortlists stay fixed.
-
-\medskip
-Count who gains a place and who loses one. A net gain can contain both.
-
-\bigskip
-{\large Can we reach people who started without a seat while keeping a place for everyone who already had one?}
-\vfill
-{\color{muted}Thank you.}
+% 18
+\begin{frame}{Protecting recipients can preserve exclusion}
+\textbf{Who kept a place?}\par
+Every baseline recipient under the structural rule.\par\medskip
+\textbf{Who gained access?}\par
+Nobody who started without a place in the paired test lotteries.\par\medskip
+A district should track both groups, let families add choices, and give them a way to correct errors and appeal.
+\source{The zero-entry result applies to the tested lotteries. Keeping a seat can still mean moving to a less preferred school. The proposed safeguards have not been field-tested.}
 \end{frame}
+
+% 19
+\begin{frame}{Evaluate the whole market}
+{\LARGE \unchangedBefore\% $\longrightarrow$ \unchangedAfter\%\par}
+\medskip
+The same renters saw the same feasible apartments. Their match rate doubled when other people got different recommendations.
+\bigskip
+
+When a platform changes its lists, follow everyone competing for the same places. \textbf{Count who gains a place and who loses one.}
+\source{NYC rental simulation, September--October 2026 enriched panel. Anchor versus balancing for renter appearances with one to five feasible apartments.}
+\end{frame}
+
 \end{document}

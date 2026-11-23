@@ -1,6 +1,6 @@
 # CS 2880 presentation and course archive
 
-**Who gets a place?** is a 21-slide, 17-minute, 40-second presentation for Harvard's AI for Social Impact course. In the NYC rental simulation, other people's recommendations changed a fixed-shortlist subgroup's placement rate from 13.1% to 27.5%. The talk examines how this can happen, tests a coordinated jobs baseline, and uses Chilean admissions to ask which recipients an algorithm can protect.
+**Who gets a place?** is a 17-minute narrated presentation with 19 slides for Harvard's AI for Social Impact course. In the NYC rental simulation, other people's recommendations changed a fixed-shortlist subgroup's placement rate from 13.1% to 27.5%. The talk examines how this can happen, tests a coordinated jobs baseline, and uses Chilean admissions to ask which recipients an algorithm can protect.
 
 - [Narrated video](final-presentation/presentation-narrated.mp4) and [short American voice preview](final-presentation/presentation-voice-preview.mp3)
 - [Main slides](final-presentation/presentation.pdf) and [technical appendix](final-presentation/technical-appendix.pdf)

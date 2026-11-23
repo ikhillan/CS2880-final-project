@@ -1,3 +1,4 @@
+\input{data/rental-access-macros}
 \begin{frame}{NYC estimates and uncertainty}
 \small
 GPT minus random, percentage points. Brackets give 95\% intervals.
@@ -115,8 +116,9 @@ Differences in percentage points; brackets are simultaneous 95\% bootstrap inter
 Exits count modeled renter appearances, not unique people.
 
 \medskip
-Placement increases in all panels, but every panel has exits.
-All six coverage intervals include zero; this is not an equivalence test.
+In the enriched September--October panel, \anchorEntrants{} gained a match and \anchorExits{} lost one,
+for \anchorNet{} extra placements across 10,240 appearances.
+All six coverage intervals include zero.
 \source{findings/rental-anchor-access/primary.csv and transitions.csv. Ordinary and enriched sampling are both reported. Coverage is the mean within-market reference coverage; placement includes everyone.}
 \end{frame}
 
@@ -129,9 +131,30 @@ All placement gains and coverage losses exclude zero in the corresponding simult
 Balancing may change multiple options per person.
 
 \medskip
-Against plain random, balanced GPT improves both outcomes in all three enriched panels.
-The tradeoff depends on which policies we compare.
+In enriched September--October markets, balancing produces \balancedEntrants{} entrants and \balancedExits{} exits relative to anchoring.
+Against plain random, balancing improves both mean outcomes in every enriched window.
 \source{findings/rental-anchor-access/primary.csv and transitions.csv. Intervals use 20 seed blocks, not independent renters. The comparison with plain random here concerns point means.}
+\end{frame}
+
+\begin{frame}{Renters whose own shortlists stay fixed}
+\small
+Both rules show every feasible apartment to each renter with one to five options.
+The same markets are replayed with the one-option anchor and with balanced shortlists.
+\medskip
+
+\centering
+\scriptsize
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Sampling & Window & Appearances & Anchor (\%) & Balanced (\%) & Gain in pp [95\% interval]\\\midrule
+\fixedMenuPanelRows
+\bottomrule
+\end{tabular}
+\par\medskip
+\raggedright\small
+Each gain averages the within-seed difference in the share of this group placed.
+The intervals resample 20 paired seed blocks within each cell.
+\source{Source: findings/rental-anchor-access/contrasts.csv (placement) and transitions.csv (counts and rates), subgroup degree 1--5. Post-hoc simulation results. Pointwise intervals use 10,000 draws per cell. Some properties recur across windows. Renters with zero feasible listings fall outside this subgroup.}
 \end{frame}
 
 \begin{frame}{All fixed controls: held-out enriched rentals}
